@@ -46,8 +46,7 @@ struct SchemaGenerator: ParsableCommand {
             for case let relativePath as String in enumerator where relativePath.hasSuffix(".json") {
                 let fileURL = methodsURL.appendingPathComponent(relativePath)
                 let data = try Data(contentsOf: fileURL)
-                let fileName = URL(fileURLWithPath: relativePath).lastPathComponent
-                try processMethod(data: data, fileName: fileName, outputBaseURL: baseOutputURL)
+                try processMethod(data: data, relativePath: relativePath, outputBaseURL: baseOutputURL)
             }
         } else {
             print("Unable to enumerate methods at \(methodsPath)")
@@ -133,7 +132,12 @@ func processSchema(data: Data, fileName: String, outputBaseURL: URL) throws {
     }
 }
 
-func processMethod(data: Data, fileName: String, outputBaseURL: URL) throws {
+func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws {
+    let fileName = URL(fileURLWithPath: relativePath).lastPathComponent
+    let groupFolder = URL(fileURLWithPath: relativePath)
+                        .deletingLastPathComponent()
+                        .lastPathComponent
+
     let json = try JSONSerialization.jsonObject(with: data, options: [])
     guard let dict = json as? [String: Any] else { return }
     let title = dict["title"] as? String ?? fileName.replacingOccurrences(of: ".json", with: "")
@@ -185,7 +189,11 @@ func processMethod(data: Data, fileName: String, outputBaseURL: URL) throws {
     """
 
     let fileManager = FileManager.default
-    let methodsDir = outputBaseURL.appendingPathComponent("Methods")
+    // Build Methods/<GroupName> (e.g. Methods/Chat)
+    var methodsDir = outputBaseURL.appendingPathComponent("Methods")
+    if !groupFolder.isEmpty {
+        methodsDir = methodsDir.appendingPathComponent(capitalizeSegments(groupFolder))
+    }
     try fileManager.createDirectory(at: methodsDir, withIntermediateDirectories: true, attributes: nil)
 
     let requestURL = methodsDir.appendingPathComponent("\(baseName)Request.swift")
