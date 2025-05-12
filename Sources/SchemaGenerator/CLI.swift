@@ -103,7 +103,7 @@ func processSchema(data: Data, fileName: String, outputBaseURL: URL) throws {
     let schemasDir = outputBaseURL.appendingPathComponent("Schemas")
     try fileManager.createDirectory(at: schemasDir, withIntermediateDirectories: true, attributes: nil)
     let fileURL = schemasDir.appendingPathComponent("\(structName).swift")
-    try structString.write(to: fileURL, atomically: true, encoding: .utf8)
+    try structString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
 
     // Generate structs for any nested definitions
     if let definitions = dict["definitions"] as? [String: Any] {
@@ -128,7 +128,7 @@ func processSchema(data: Data, fileName: String, outputBaseURL: URL) throws {
             defStructString += "}\n"
 
             let defFileURL = schemasDir.appendingPathComponent("\(defStructName).swift")
-            try defStructString.write(to: defFileURL, atomically: true, encoding: .utf8)
+            try defStructString.write(to: defFileURL, atomically: true, encoding: String.Encoding.utf8)
         }
     }
 }
@@ -136,10 +136,9 @@ func processSchema(data: Data, fileName: String, outputBaseURL: URL) throws {
 func processMethod(data: Data, fileName: String, outputBaseURL: URL) throws {
     let json = try JSONSerialization.jsonObject(with: data, options: [])
     guard let dict = json as? [String: Any] else { return }
-    // Determine method title and request schema
     let title = dict["title"] as? String ?? fileName.replacingOccurrences(of: ".json", with: "")
-    let properties = dict["properties"] as? [String: Any] ?? [:]
-    let requiredParams = dict["required"] as? [String] ?? []
+    // Use the "args" object from Slack API definitions
+    let argsDict = dict["args"] as? [String: Any] ?? [:]
 
     func swiftType(from jsonType: Any) -> String {
         if let typeStr = jsonType as? String {
@@ -164,12 +163,12 @@ func processMethod(data: Data, fileName: String, outputBaseURL: URL) throws {
     let baseName = capitalizeSegments(title)
 
     // Build the Request struct from parameter properties
-    var requestStruct = "struct \(baseName)Request: Codable {\n"
-    for (paramName, paramValue) in properties {
+    var requestStruct = "struct \(baseName)Request: Encodable {\n"
+    for (paramName, paramValue) in argsDict {
         if let paramDict = paramValue as? [String: Any],
            let type = paramDict["type"] {
             let swiftTypeName = swiftType(from: type)
-            let isRequired = requiredParams.contains(paramName)
+            let isRequired = (paramDict["required"] as? Bool) ?? false
             let optionalMark = isRequired ? "" : "?"
             requestStruct += "    let \(paramName): \(swiftTypeName)\(optionalMark)\n"
         } else {
@@ -179,7 +178,7 @@ func processMethod(data: Data, fileName: String, outputBaseURL: URL) throws {
     requestStruct += "}\n"
 
     let responseStruct = """
-    struct \(baseName)Response: Codable {
+    struct \(baseName)Response: Decodable {
         let ok: Bool
         let error: String?
     }
@@ -190,8 +189,8 @@ func processMethod(data: Data, fileName: String, outputBaseURL: URL) throws {
     try fileManager.createDirectory(at: methodsDir, withIntermediateDirectories: true, attributes: nil)
 
     let requestURL = methodsDir.appendingPathComponent("\(baseName)Request.swift")
-    try requestStruct.write(to: requestURL, atomically: true, encoding: .utf8)
+    try requestStruct.write(to: requestURL, atomically: true, encoding: String.Encoding.utf8)
 
     let responseURL = methodsDir.appendingPathComponent("\(baseName)Response.swift")
-    try responseStruct.write(to: responseURL, atomically: true, encoding: .utf8)
+    try responseStruct.write(to: responseURL, atomically: true, encoding: String.Encoding.utf8)
 }
