@@ -221,12 +221,40 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
     }
     requestStruct += "}\n"
 
+    // Build the Response struct
     let responseStruct = """
     struct \(baseName)Response: Decodable {
         let ok: Bool
-        let error: String?
+        let error: Error?
     }
     """
+
+    // Build a type-safe Error enum from the "errors" dictionary
+    let errorsDict = dict["errors"] as? [String: Any] ?? [:]
+    var errorEnum = "extension \(baseName)Response {\n"
+    errorEnum += "    enum Error: String, LocalizedError, Decodable {\n"
+    for (errKey, errVal) in errorsDict {
+        if errVal is String {
+            let caseName = camelCase(errKey)
+            errorEnum += "        case \(caseName) = \"\(errKey)\"\n"
+        }
+    }
+    errorEnum += "\n"
+    errorEnum += "        var errorDescription: String? {\n"
+    errorEnum += "            switch self {\n"
+    for (errKey, errVal) in errorsDict {
+        if let desc = errVal as? String {
+            let caseName = camelCase(errKey)
+            errorEnum += "            case .\(caseName): return \"\(desc)\"\n"
+        }
+    }
+    errorEnum += "            }\n"
+    errorEnum += "        }\n"
+    errorEnum += "    }\n"
+    errorEnum += "}\n"
+
+    // Combine import, struct, and error enum into one file
+    let fullResponseFile = "import Foundation\n\n" + responseStruct + "\n\n" + errorEnum
 
     let fileManager = FileManager.default
     // Build Methods/<GroupName> (e.g. Methods/Chat)
@@ -240,5 +268,5 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
     try requestStruct.write(to: requestURL, atomically: true, encoding: String.Encoding.utf8)
 
     let responseURL = methodsDir.appendingPathComponent("\(baseName)Response.swift")
-    try responseStruct.write(to: responseURL, atomically: true, encoding: String.Encoding.utf8)
+    try fullResponseFile.write(to: responseURL, atomically: true, encoding: String.Encoding.utf8)
 }
