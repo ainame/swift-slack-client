@@ -59,6 +59,8 @@ func processSchema(data: Data, fileName: String, outputBaseURL: URL) throws {
     let json = try JSONSerialization.jsonObject(with: data, options: [])
     guard let dict = json as? [String: Any] else { return }
     let title = dict["title"] as? String ?? fileName.replacingOccurrences(of: ".json", with: "")
+    let structDesc = dict["desc"] as? String
+    let structExample = dict["example"] as? String
     guard let properties = dict["properties"] as? [String: Any] else { return }
     let required = dict["required"] as? [String] ?? []
 
@@ -84,13 +86,26 @@ func processSchema(data: Data, fileName: String, outputBaseURL: URL) throws {
 
     let structName = capitalizeSegments(title)
 
-    var structString = "struct \(structName): Codable {\n"
+    var structString = ""
+    if let structDesc = structDesc {
+        structString += "/// \(structDesc)\n"
+    }
+    if let structExample = structExample {
+        structString += "/// Example: \(structExample)\n"
+    }
+    structString += "struct \(structName): Codable {\n"
     for (propName, propValue) in properties {
         if let propDict = propValue as? [String: Any],
            let type = propDict["type"] {
             let swiftTypeName = swiftType(from: type)
             let isRequired = required.contains(propName)
             let optionalMark = isRequired ? "" : "?"
+            if let desc = propDict["desc"] as? String {
+                structString += "    /// \(desc)\n"
+            }
+            if let example = propDict["example"] as? String {
+                structString += "    /// Example: \(example)\n"
+            }
             structString += "    let \(propName): \(swiftTypeName)\(optionalMark)\n"
         } else {
             structString += "    let \(propName): String?\n"
@@ -173,9 +188,18 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
     }
 
     let baseName = capitalizeSegments(title)
+    let methodDesc = dict["desc"] as? String
+    let methodExample = dict["example"] as? String
 
     // Build the Request struct with camelCase properties
-    var requestStruct = "struct \(baseName)Request: Encodable {\n"
+    var requestStruct = ""
+    if let methodDesc = methodDesc {
+        requestStruct += "/// \(methodDesc)\n"
+    }
+    if let methodExample = methodExample {
+        requestStruct += "/// Example: \(methodExample)\n"
+    }
+    requestStruct += "struct \(baseName)Request: Encodable {\n"
     for (paramName, paramValue) in argsDict {
         if let paramDict = paramValue as? [String: Any],
            let type = paramDict["type"] {
@@ -183,6 +207,12 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
             let isRequired = (paramDict["required"] as? Bool) ?? false
             let optionalMark = isRequired ? "" : "?"
             let propName = camelCase(paramName)
+            if let desc = paramDict["desc"] as? String {
+                requestStruct += "    /// \(desc)\n"
+            }
+            if let example = paramDict["example"] as? String {
+                requestStruct += "    /// Example: \(example)\n"
+            }
             requestStruct += "    let \(propName): \(swiftTypeName)\(optionalMark)\n"
         } else {
             let propName = camelCase(paramName)
