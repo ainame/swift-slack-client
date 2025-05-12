@@ -176,7 +176,6 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
 
     // Build the Request struct with camelCase properties
     var requestStruct = "struct \(baseName)Request: Encodable {\n"
-    var codingKeyLines: [String] = []
     for (paramName, paramValue) in argsDict {
         if let paramDict = paramValue as? [String: Any],
            let type = paramDict["type"] {
@@ -185,22 +184,11 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
             let optionalMark = isRequired ? "" : "?"
             let propName = camelCase(paramName)
             requestStruct += "    let \(propName): \(swiftTypeName)\(optionalMark)\n"
-            if propName == paramName {
-                codingKeyLines.append("        case \(propName)")
-            } else {
-                codingKeyLines.append("        case \(propName) = \"\(paramName)\"")
-            }
         } else {
             let propName = camelCase(paramName)
             requestStruct += "    let \(propName): String?\n"
-            codingKeyLines.append("        case \(propName) = \"\(paramName)\"")
         }
     }
-    requestStruct += "\n    private enum CodingKeys: String, CodingKey {\n"
-    for line in codingKeyLines {
-        requestStruct += line + "\n"
-    }
-    requestStruct += "    }\n"
     requestStruct += "}\n"
 
     let responseStruct = """
