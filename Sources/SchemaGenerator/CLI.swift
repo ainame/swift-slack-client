@@ -106,7 +106,7 @@ func processSchema(data: Data, fileName: String, outputBaseURL: URL) throws {
             if let example = propDict["example"] as? String {
                 structString += "    /// Example: \(example)\n"
             }
-            structString += "    let \(propName): \(swiftTypeName)\(optionalMark)\n"
+            structString += "    let \(propName): \(swiftTypeName)\(optionalMark)\n\n"
         } else {
             structString += "    let \(propName): String?\n"
         }
@@ -134,7 +134,7 @@ func processSchema(data: Data, fileName: String, outputBaseURL: URL) throws {
                     let swiftTypeName = swiftType(from: type)
                     let isRequired = subRequired.contains(propName)
                     let optionalMark = isRequired ? "" : "?"
-                    defStructString += "    let \(propName): \(swiftTypeName)\(optionalMark)\n"
+                    defStructString += "    let \(propName): \(swiftTypeName)\(optionalMark)\n\n"
                 } else {
                     defStructString += "    let \(propName): String?\n"
                 }
@@ -213,10 +213,10 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
             if let example = paramDict["example"] as? String {
                 requestStruct += "    /// Example: \(example)\n"
             }
-            requestStruct += "    let \(propName): \(swiftTypeName)\(optionalMark)\n"
+            requestStruct += "    let \(propName): \(swiftTypeName)\(optionalMark)\n\n"
         } else {
             let propName = camelCase(paramName)
-            requestStruct += "    let \(propName): String?\n"
+            requestStruct += "    let \(propName): String?\n\n"
         }
     }
     requestStruct += "}\n"
