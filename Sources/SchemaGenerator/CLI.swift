@@ -245,7 +245,8 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
     for (errKey, errVal) in errorsDict {
         if let desc = errVal as? String {
             let caseName = camelCase(errKey)
-            errorEnum += "            case .\(caseName): return \"\(desc)\"\n"
+            let safeDesc = desc.replacingOccurrences(of: "\"", with: "\\\"")
+            errorEnum += "            case .\(caseName): return \"\(safeDesc)\"\n"
         }
     }
     errorEnum += "            }\n"
