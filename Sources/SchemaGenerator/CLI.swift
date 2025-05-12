@@ -157,6 +157,14 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
         return "Any"
     }
 
+    // Convert snake_case to camelCase
+    func camelCase(_ snake: String) -> String {
+        let parts = snake.split(separator: "_")
+        let first = parts.first?.lowercased() ?? ""
+        let rest = parts.dropFirst().map { $0.prefix(1).uppercased() + $0.dropFirst() }.joined()
+        return first + rest
+    }
+
     func capitalizeSegments(_ name: String) -> String {
         return name.components(separatedBy: CharacterSet.alphanumerics.inverted)
             .filter { !$0.isEmpty }
@@ -166,19 +174,33 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
 
     let baseName = capitalizeSegments(title)
 
-    // Build the Request struct from parameter properties
+    // Build the Request struct with camelCase properties
     var requestStruct = "struct \(baseName)Request: Encodable {\n"
+    var codingKeyLines: [String] = []
     for (paramName, paramValue) in argsDict {
         if let paramDict = paramValue as? [String: Any],
            let type = paramDict["type"] {
             let swiftTypeName = swiftType(from: type)
             let isRequired = (paramDict["required"] as? Bool) ?? false
             let optionalMark = isRequired ? "" : "?"
-            requestStruct += "    let \(paramName): \(swiftTypeName)\(optionalMark)\n"
+            let propName = camelCase(paramName)
+            requestStruct += "    let \(propName): \(swiftTypeName)\(optionalMark)\n"
+            if propName == paramName {
+                codingKeyLines.append("        case \(propName)")
+            } else {
+                codingKeyLines.append("        case \(propName) = \"\(paramName)\"")
+            }
         } else {
-            requestStruct += "    let \(paramName): Any?\n"
+            let propName = camelCase(paramName)
+            requestStruct += "    let \(propName): Any?\n"
+            codingKeyLines.append("        case \(propName) = \"\(paramName)\"")
         }
     }
+    requestStruct += "\n    private enum CodingKeys: String, CodingKey {\n"
+    for line in codingKeyLines {
+        requestStruct += line + "\n"
+    }
+    requestStruct += "    }\n"
     requestStruct += "}\n"
 
     let responseStruct = """
