@@ -68,11 +68,11 @@ func processSchema(data: Data, fileName: String, outputBaseURL: URL) throws {
                 case "string": return "String"
                 case "integer": return "Int"
                 case "boolean": return "Bool"
-                case "array": return "[Any]"
-                default: return "Any"
+                case "array": return "[String]"
+                default: return "String"
             }
         }
-        return "Any"
+        return "String"
     }
 
     func capitalizeSegments(_ name: String) -> String {
@@ -93,7 +93,7 @@ func processSchema(data: Data, fileName: String, outputBaseURL: URL) throws {
             let optionalMark = isRequired ? "" : "?"
             structString += "    let \(propName): \(swiftTypeName)\(optionalMark)\n"
         } else {
-            structString += "    let \(propName): Any?\n"
+            structString += "    let \(propName): String?\n"
         }
     }
     structString += "}\n"
@@ -121,7 +121,7 @@ func processSchema(data: Data, fileName: String, outputBaseURL: URL) throws {
                     let optionalMark = isRequired ? "" : "?"
                     defStructString += "    let \(propName): \(swiftTypeName)\(optionalMark)\n"
                 } else {
-                    defStructString += "    let \(propName): Any?\n"
+                    defStructString += "    let \(propName): String?\n"
                 }
             }
             defStructString += "}\n"
@@ -150,11 +150,11 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
                 case "string": return "String"
                 case "integer": return "Int"
                 case "boolean": return "Bool"
-                case "array": return "[Any]"
-                default: return "Any"
+                case "array": return "[String]"
+                default: return "String"
             }
         }
-        return "Any"
+        return "String"
     }
 
     // Convert snake_case to camelCase
@@ -192,7 +192,7 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
             }
         } else {
             let propName = camelCase(paramName)
-            requestStruct += "    let \(propName): Any?\n"
+            requestStruct += "    let \(propName): String?\n"
             codingKeyLines.append("        case \(propName) = \"\(paramName)\"")
         }
     }
