@@ -221,44 +221,92 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
     }
     requestStruct += "}\n"
 
-    // Build the Response struct
-    let responseStruct = """
-    struct \(baseName)Response: Decodable {
-        let ok: Bool
-        let error: Error?
-    }
-    """
+    // Parse the response schema
+    let responseSchema = dict["response"] as? [String: Any] ?? [:]
+    let respProps = responseSchema["properties"] as? [String: Any] ?? [:]
+    let respRequired = responseSchema["required"] as? [String] ?? []
 
-    // Combine import and struct, conditionally append Error enum if errors exist
+    // Build the Response struct dynamically
+    var responseStruct = "struct \(baseName)Response: Decodable {\n"
+    for (propName, propValue) in respProps {
+        if let propDict = propValue as? [String: Any] {
+            // Determine Swift type (handling $ref and array items)
+            var swiftTypeName: String
+            if let ref = propDict["$ref"] as? String {
+                let typeName = capitalizeSegments(ref.components(separatedBy: "/").last!
+                    .replacingOccurrences(of: ".json", with: ""))
+                swiftTypeName = typeName
+            } else if let type = propDict["type"] as? String, type == "array",
+                      let items = propDict["items"] as? [String: Any],
+                      let itemRef = items["$ref"] as? String {
+                let itemType = capitalizeSegments(itemRef.components(separatedBy: "/").last!
+                    .replacingOccurrences(of: ".json", with: ""))
+                swiftTypeName = "[\(itemType)]"
+            } else if let type = propDict["type"] {
+                swiftTypeName = swiftType(from: type)
+            } else {
+                swiftTypeName = "String"
+            }
+            let optionalMark = respRequired.contains(propName) ? "" : "?"
+            let propSwift = camelCase(propName)
+            responseStruct += "    let \(propSwift): \(swiftTypeName)\(optionalMark)\n\n"
+        }
+    }
+    responseStruct += "    let error: Error?\n"
+    responseStruct += "}\n"
+
+    // Build full file with import and response struct
     var fullResponseFile = "import Foundation\n\n" + responseStruct
 
+    // Always append Error enum with known cases + unknown fallback
     let errorsDict = dict["errors"] as? [String: Any] ?? [:]
-    if !errorsDict.isEmpty {
-        // Build a type-safe Error enum
-        var errorEnum = "\n\nextension \(baseName)Response {\n"
-        errorEnum += "    enum Error: String, LocalizedError, Decodable {\n"
-        for (errKey, errVal) in errorsDict {
-            if errVal is String {
-                let caseName = camelCase(errKey)
-                errorEnum += "        case \(caseName) = \"\(errKey)\"\n"
-            }
+    var errorEnum = ""
+    errorEnum += "\n\nextension \(baseName)Response {\n"
+    errorEnum += "    enum Error: Decodable, LocalizedError {\n"
+
+    // Original error cases
+    for (errKey, errVal) in errorsDict {
+        if errVal is String {
+            let caseName = camelCase(errKey)
+            errorEnum += "        case \(caseName)\n"
         }
-        errorEnum += "\n"
-        errorEnum += "        var errorDescription: String? {\n"
-        errorEnum += "            switch self {\n"
-        for (errKey, errVal) in errorsDict {
-            if let desc = errVal as? String {
-                let caseName = camelCase(errKey)
-                let safeDesc = desc.replacingOccurrences(of: "\"", with: "\\\"")
-                errorEnum += "            case .\(caseName): return \"\(safeDesc)\"\n"
-            }
-        }
-        errorEnum += "            }\n"
-        errorEnum += "        }\n"
-        errorEnum += "    }\n"
-        errorEnum += "}\n"
-        fullResponseFile += errorEnum
     }
+    // Fallback unknown case
+    errorEnum += "        case unknown(String)\n\n"
+
+    // Decodable initializer
+    errorEnum += "        init(from decoder: Decoder) throws {\n"
+    errorEnum += "            let raw = try decoder.singleValueContainer().decode(String.self)\n"
+    errorEnum += "            switch raw {\n"
+    for (errKey, _) in errorsDict {
+        let caseName = camelCase(errKey)
+        errorEnum += "            case \"\(errKey)\":\n"
+        errorEnum += "                self = .\(caseName)\n"
+    }
+    errorEnum += "            default:\n"
+    errorEnum += "                self = .unknown(raw)\n"
+    errorEnum += "            }\n"
+    errorEnum += "        }\n\n"
+
+    // LocalizedError conformance
+    errorEnum += "        var errorDescription: String? {\n"
+    errorEnum += "            switch self {\n"
+    for (errKey, errVal) in errorsDict {
+        if let desc = errVal as? String {
+            let caseName = camelCase(errKey)
+            let safeDesc = desc.replacingOccurrences(of: "\"", with: "\\\"")
+            errorEnum += "            case .\(caseName):\n"
+            errorEnum += "                return \"\(safeDesc)\"\n"
+        }
+    }
+    errorEnum += "            case .unknown(let message):\n"
+    errorEnum += "                return message\n"
+    errorEnum += "            }\n"
+    errorEnum += "        }\n"
+    errorEnum += "    }\n"
+    errorEnum += "}\n"
+
+    fullResponseFile += errorEnum
 
     let fileManager = FileManager.default
     // Build Methods/<GroupName> (e.g. Methods/Chat)
