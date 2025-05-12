@@ -229,33 +229,36 @@ func processMethod(data: Data, relativePath: String, outputBaseURL: URL) throws 
     }
     """
 
-    // Build a type-safe Error enum from the "errors" dictionary
-    let errorsDict = dict["errors"] as? [String: Any] ?? [:]
-    var errorEnum = "extension \(baseName)Response {\n"
-    errorEnum += "    enum Error: String, LocalizedError, Decodable {\n"
-    for (errKey, errVal) in errorsDict {
-        if errVal is String {
-            let caseName = camelCase(errKey)
-            errorEnum += "        case \(caseName) = \"\(errKey)\"\n"
-        }
-    }
-    errorEnum += "\n"
-    errorEnum += "        var errorDescription: String? {\n"
-    errorEnum += "            switch self {\n"
-    for (errKey, errVal) in errorsDict {
-        if let desc = errVal as? String {
-            let caseName = camelCase(errKey)
-            let safeDesc = desc.replacingOccurrences(of: "\"", with: "\\\"")
-            errorEnum += "            case .\(caseName): return \"\(safeDesc)\"\n"
-        }
-    }
-    errorEnum += "            }\n"
-    errorEnum += "        }\n"
-    errorEnum += "    }\n"
-    errorEnum += "}\n"
+    // Combine import and struct, conditionally append Error enum if errors exist
+    var fullResponseFile = "import Foundation\n\n" + responseStruct
 
-    // Combine import, struct, and error enum into one file
-    let fullResponseFile = "import Foundation\n\n" + responseStruct + "\n\n" + errorEnum
+    let errorsDict = dict["errors"] as? [String: Any] ?? [:]
+    if !errorsDict.isEmpty {
+        // Build a type-safe Error enum
+        var errorEnum = "\n\nextension \(baseName)Response {\n"
+        errorEnum += "    enum Error: String, LocalizedError, Decodable {\n"
+        for (errKey, errVal) in errorsDict {
+            if errVal is String {
+                let caseName = camelCase(errKey)
+                errorEnum += "        case \(caseName) = \"\(errKey)\"\n"
+            }
+        }
+        errorEnum += "\n"
+        errorEnum += "        var errorDescription: String? {\n"
+        errorEnum += "            switch self {\n"
+        for (errKey, errVal) in errorsDict {
+            if let desc = errVal as? String {
+                let caseName = camelCase(errKey)
+                let safeDesc = desc.replacingOccurrences(of: "\"", with: "\\\"")
+                errorEnum += "            case .\(caseName): return \"\(safeDesc)\"\n"
+            }
+        }
+        errorEnum += "            }\n"
+        errorEnum += "        }\n"
+        errorEnum += "    }\n"
+        errorEnum += "}\n"
+        fullResponseFile += errorEnum
+    }
 
     let fileManager = FileManager.default
     // Build Methods/<GroupName> (e.g. Methods/Chat)
