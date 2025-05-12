@@ -135,12 +135,11 @@ func processSchema(data: Data, fileName: String, outputBaseURL: URL) throws {
 
 func processMethod(data: Data, fileName: String, outputBaseURL: URL) throws {
     let json = try JSONSerialization.jsonObject(with: data, options: [])
-    guard let dict = json as? [String: Any],
-          let name = dict["name"] as? String else { return }
-    // Extract request parameters from the "parameters" schema
-    let paramsDict = dict["parameters"] as? [String: Any] ?? [:]
-    let properties = paramsDict["properties"] as? [String: Any] ?? [:]
-    let requiredParams = paramsDict["required"] as? [String] ?? []
+    guard let dict = json as? [String: Any] else { return }
+    // Determine method title and request schema
+    let title = dict["title"] as? String ?? fileName.replacingOccurrences(of: ".json", with: "")
+    let properties = dict["properties"] as? [String: Any] ?? [:]
+    let requiredParams = dict["required"] as? [String] ?? []
 
     func swiftType(from jsonType: Any) -> String {
         if let typeStr = jsonType as? String {
@@ -162,7 +161,7 @@ func processMethod(data: Data, fileName: String, outputBaseURL: URL) throws {
             .joined()
     }
 
-    let baseName = capitalizeSegments(name)
+    let baseName = capitalizeSegments(title)
 
     // Build the Request struct from parameter properties
     var requestStruct = "struct \(baseName)Request: Codable {\n"
