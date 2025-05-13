@@ -17,7 +17,7 @@ def main(paths, output_dir)
     generate_schema(path, File.join(output_dir, 'schemas'))
   end
 
-  schema_paths = Dir.glob("#{output_dir}/schemas/*.json")
+  schema_paths = Dir.glob("#{output_dir}/schemas/*.json").grep(/ChatPostMessage/)
   File.write(File.join(output_dir, 'openapi.yaml'), openapi_yaml(schema_paths))
 end
 
@@ -38,8 +38,10 @@ def process_in_queue(items, &block)
 end
 
 def generate_schema(path, output_dir)
-  model_name = "#{File.basename(path, '.json').split('.').map(&:capitalize).join}Response"
+  model_name = "#{File.basename(path, '.json').split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
   output_path = File.join(output_dir, "#{model_name}.json")
+  return puts "Found #{path} exists. Skip generating schema." if File.exist?(output_path)
+
   command = "npx quicktype --lang schema #{path} --top-level #{model_name} > #{output_path}"
   puts "Generating schema: $ #{command}"
   system(command)
@@ -47,32 +49,11 @@ def generate_schema(path, output_dir)
   # fix json
   json = JSON.parse(File.read(output_path))
   visitor = CoercingEmptyItemsTypeVisitor.new
-  visitor.visit(json)
+  visitor.walk(json)
+  visitor = DereferenceVisitor.new(model_name)
+  visitor.walk(json)
   File.write(output_path, JSON.pretty_generate(json))
   output_path
-end
-
-# quicktype can't infer nested type if example is empty
-# empty array will be coerced to list of string
-class CoercingEmptyItemsTypeVisitor
-  def visit(data)
-    case data
-    when Array
-      data.each do |item|
-        visit(item)
-      end
-    when Hash
-      if data['type'] == 'array' && data['items'].empty?
-        data['items'] = { 'type' => 'string' }
-      else
-        data.each_value do |value|
-          visit(value)
-        end
-      end
-    else
-      data
-    end
-  end
 end
 
 def openapi_yaml(paths)
@@ -95,6 +76,69 @@ def openapi_yaml(paths)
 
   # JSON format in yaml is completely valid yaml format
   JSON.pretty_generate(base)
+end
+
+# quicktype can't infer nested type if example is empty
+# empty array will be coerced to list of string
+class CoercingEmptyItemsTypeVisitor
+  def walk(root)
+    visit(root)
+  end
+
+  private
+
+  def visit(data)
+    case data
+    when Array
+      data.each { visit(_1) }
+    when Hash
+      if data['type'] == 'array' && data['items'].empty?
+        data['items'] = { 'type' => 'string' }
+      else
+        data.each_value { visit(_1) }
+      end
+    else
+      data
+    end
+  end
+end
+
+# $ref isn't supported in swift-openapi-generator so this will de-reference $ref part
+class DereferenceVisitor
+  attr_accessor :root_type, :definitions
+
+  def initialize(root_type)
+    @root_type = root_type
+  end
+
+  def walk(root)
+    # keep the original definitions
+    self.definitions = root['definitions'].dup
+    # Dereference data
+    visit(root['definitions'])
+    # Clean up unwanted objects before returning
+    root['definitions'].delete_if { _1 != root_type }
+    root
+  end
+
+  private
+
+  def visit(data)
+    case data
+    when Array
+      data.each { visit(_1) }
+    when Hash
+      if data.keys == ["$ref"]
+        ref_type = data["$ref"].sub('#/definitions/', '')
+        data.merge!(definitions[ref_type])
+        data.delete('$ref')
+      else
+        data.each_value { visit(_1) }
+      end
+    else
+      data
+    end
+  end
 end
 
 main(paths, output_dir)
