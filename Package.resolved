@@ -1,13 +1,22 @@
 {
-  "originHash" : "78cba219dad1b61a042631bccfd525baf8f58aed6b83cadab1f050c97a375d8b",
+  "originHash" : "e473a263b6e3e5d1cb73c163192c83a0a3b122fce7563ee22c210e14653d2892",
   "pins" : [
     {
       "identity" : "async-http-client",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swift-server/async-http-client.git",
       "state" : {
-        "revision" : "333f51104b75d1a5b94cb3b99e4c58a3b442c9f7",
-        "version" : "1.25.2"
+        "revision" : "3b265e6a00fc5c3fdb8f91f773e506990c704337",
+        "version" : "1.26.0"
+      }
+    },
+    {
+      "identity" : "openapikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattpolzin/OpenAPIKit",
+      "state" : {
+        "revision" : "da7d3a5ddff0dd8e5e9fdb5585d186d645bcc21b",
+        "version" : "3.5.0"
       }
     },
     {
@@ -76,10 +85,10 @@
     {
       "identity" : "swift-nio",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-nio.git",
+      "location" : "https://github.com/apple/swift-nio",
       "state" : {
-        "revision" : "6e17bc946821e550b88d22fd964423f70f1ce42d",
-        "version" : "2.82.0"
+        "revision" : "34d486b01cd891297ac615e40d5999536a1e138d",
+        "version" : "2.83.0"
       }
     },
     {
@@ -105,8 +114,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio-ssl.git",
       "state" : {
-        "revision" : "6df102a39c8da5fdc2eae29a0f63546d660866fc",
-        "version" : "2.30.0"
+        "revision" : "4b38f35946d00d8f6176fe58f96d83aba64b36c7",
+        "version" : "2.31.0"
       }
     },
     {
@@ -128,12 +137,48 @@
       }
     },
     {
+      "identity" : "swift-openapi-async-http-client",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swift-server/swift-openapi-async-http-client.git",
+      "state" : {
+        "revision" : "915aeff168625b0f88a5810ee7ab8e9c00af671b",
+        "version" : "1.1.0"
+      }
+    },
+    {
+      "identity" : "swift-openapi-generator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-openapi-generator.git",
+      "state" : {
+        "revision" : "02cab48b66b4b412013827c2938adaf0eb67dc8d",
+        "version" : "1.7.2"
+      }
+    },
+    {
+      "identity" : "swift-openapi-runtime",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-openapi-runtime.git",
+      "state" : {
+        "revision" : "8f33cc5dfe81169fb167da73584b9c72c3e8bc23",
+        "version" : "1.8.2"
+      }
+    },
+    {
       "identity" : "swift-system",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-system.git",
       "state" : {
         "revision" : "a34201439c74b53f0fd71ef11741af7e7caf01e1",
         "version" : "1.4.2"
+      }
+    },
+    {
+      "identity" : "yams",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jpsim/Yams",
+      "state" : {
+        "revision" : "3d6871d5b4a5cd519adf233fbb576e0a2af71c17",
+        "version" : "5.4.0"
       }
     }
   ],

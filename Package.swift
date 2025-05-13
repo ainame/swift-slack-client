@@ -11,8 +11,10 @@ let package = Package(
         .library(name: "SlackClient", targets: ["SlackClient"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.12.0"),
         .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.2.0"),
+        .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.7.2"),
+        .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.8.2"),
+        .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
     ],
     targets: [
         .executableTarget(
@@ -24,8 +26,12 @@ let package = Package(
         .target(
             name: "SlackClient",
             dependencies: [
-                .product(name: "AsyncHTTPClient", package: "async-http-client")
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
             ],
+            plugins: [
+                .plugin(name: "OpenAPIGenerator", package: "swift-openapi-generator")
+            ]
         ),
         .testTarget(
             name: "SlackClientTests",
