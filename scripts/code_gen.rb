@@ -52,6 +52,13 @@ def generate_schema(path, output_dir)
   visitor.walk(json)
   visitor = DereferenceVisitor.new(model_name)
   visitor.walk(json)
+  visitor = NonsenseFieldRemover.new(
+    model_name, {
+      'ChatPostMessageResponse' => ['assistant_app_thread']
+    }
+  )
+  visitor.walk(json)
+
   File.write(output_path, JSON.pretty_generate(json))
   output_path
 end
@@ -135,6 +142,36 @@ class DereferenceVisitor
       else
         data.each_value { visit(_1) }
       end
+    else
+      data
+    end
+  end
+end
+
+# chat.postMessage.json contains irregular size of payload at "assistant_app_thread" key
+class NonsenseFieldRemover
+  attr_accessor :root_type, :dict
+
+  def initialize(root_type, dict)
+    self.root_type = root_type
+    self.dict = dict
+  end
+
+  def walk(root)
+    return unless dict.keys.include?(root_type)
+
+    visit(root)
+  end
+
+  private
+
+  def visit(data)
+    case data
+    when Array
+      data.each { visit(_1) }
+    when Hash
+      data.each_value { visit(_1) }
+      data.delete_if { dict[root_type].include?(_1) }
     else
       data
     end
