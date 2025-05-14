@@ -40,7 +40,7 @@ def main(api_ref_paths, sample_json_paths, output_dir)
   openapi_yaml[:paths] = paths
 
   # Output openapi_yaml
-  File.write(File.join(output_dir, 'openapi.yaml'), JSON.pretty_generate(openapi_yaml))
+  File.write(File.join(output_dir, 'openapi.json'), JSON.pretty_generate(openapi_yaml))
 end
 
 def process_in_queue(items, &block)
@@ -90,16 +90,17 @@ def generate_openapi_path(path)
   json = JSON.parse(File.read(path))
   method_name = File.basename(path, '.json')
   operation_id = method_name.gsub(/\.([a-z])/) { Regexp.last_match(1).upcase }
-  request_body_props = json['args'].map do |name, value|
-    {
-      name: name,
-      required: value['required'],
+  required = []
+  request_body_props = json['args'].each_with_object({}) do |(name, value), props|
+    props[name] = {
       schema: {
         type: value['type'],
         example: value['example']
       }
     }
+    required.append(name) if value['required']
   end
+
   response_model_name = "#{method_name.split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
 
   {
@@ -114,7 +115,8 @@ def generate_openapi_path(path)
             'application/json': {
               schema: {
                 type: 'object',
-                properties: request_body_props
+                properties: request_body_props,
+                required: required
               }
             }
           }
@@ -187,6 +189,7 @@ class OptionalityFixer
     when Hash
       if data.keys.include?('properties') && data.keys.include?('required') && data['properties'].keys.include?('ok') && !data['required'].include?('ok')
         data['required'].append('ok')
+        data['required'].uniq!
       end
       data.each_value { visit(_1) }
     else
