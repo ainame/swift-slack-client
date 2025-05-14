@@ -4,21 +4,43 @@ require 'fileutils'
 require 'json'
 require 'yaml'
 
-json_logs = '../../slackapi/java-slack-sdk/json-logs'
-api_dir = "#{json_logs}/samples/api/"
-output_dir = './Sources/SlackClient'
-
-FileUtils.mkdir_p(File.join(output_dir, 'schemas'))
-paths = Dir.glob("#{api_dir}*.json")
 CONCURRENCY = 24
 
-def main(paths, output_dir)
-  process_in_queue(paths) do |path|
-    generate_schema(path, File.join(output_dir, 'schemas'))
+api_ref_dir = '../../slack-ruby/slack-api-ref/methods/'
+api_ref_paths = Dir.glob("#{api_ref_dir}/**/*.json")
+
+json_logs = '../../slackapi/java-slack-sdk/json-logs'
+api_dir = "#{json_logs}/samples/api/"
+sample_json_paths = Dir.glob("#{api_dir}*.json")
+
+output_dir = './Sources/SlackClient'
+FileUtils.mkdir_p(File.join(output_dir, 'schemas'))
+
+def main(api_ref_paths, sample_json_paths, output_dir)
+  openapi_yaml = base_openapi_yaml
+
+  # Generate schemas by quicktype
+  process_in_queue(sample_json_paths) do |path|
+    generate_openapi_component(path, File.join(output_dir, 'schemas'))
   end
 
+  # Load generated schemas and put them in #components/schemas section
   schema_paths = Dir.glob("#{output_dir}/schemas/*.json")
-  File.write(File.join(output_dir, 'openapi.yaml'), openapi_yaml(schema_paths))
+  schema_paths.each do |path|
+    json = JSON.parse(File.read(path))
+    openapi_yaml[:components][:schemas].merge!(json['definitions'])
+  end
+
+  # Generate paths
+  paths = {}
+  api_ref_paths.each do |path|
+    result = generate_openapi_path(path)
+    paths.merge!(result)
+  end
+  openapi_yaml[:paths] = paths
+
+  # Output openapi_yaml
+  File.write(File.join(output_dir, 'openapi.yaml'), JSON.pretty_generate(openapi_yaml))
 end
 
 def process_in_queue(items, &block)
@@ -37,7 +59,7 @@ def process_in_queue(items, &block)
   threads.each(&:join)
 end
 
-def generate_schema(path, output_dir)
+def generate_openapi_component(path, output_dir)
   model_name = "#{File.basename(path, '.json').split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
   output_path = File.join(output_dir, "#{model_name}.json")
   return puts "Found #{path} exists. Skip generating schema." if File.exist?(output_path)
@@ -60,8 +82,56 @@ def generate_schema(path, output_dir)
   output_path
 end
 
-def openapi_yaml(paths)
-  base = {
+def generate_openapi_path(path)
+  json = JSON.parse(File.read(path))
+  method_name = File.basename(path, '.json')
+  operation_id = method_name.gsub(/\.([a-z])/) { Regexp.last_match(1).upcase }
+  request_body_props = json['args'].map do |name, value|
+    {
+      name: name,
+      required: value['required'],
+      schema: {
+        type: value['type'],
+        example: value['example']
+      }
+    }
+  end
+  response_model_name = "#{method_name.split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
+
+  {
+    "/#{method_name}": {
+      # Slack seems accapt POST always
+      post: {
+        operationId: operation_id,
+        summary: json['desc'],
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                properties: request_body_props
+              }
+            }
+          }
+        },
+        responses: {
+          '200': {
+            description: 'OK',
+            content: {
+              'application/json': {
+                '$ref': "#components/schema/#{response_model_name}"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+end
+
+def base_openapi_yaml
+  {
     openapi: '3.1.0',
     info: {
       title: 'Slack API Schema',
@@ -72,14 +142,6 @@ def openapi_yaml(paths)
       schemas: {}
     }
   }
-
-  paths.each do |path|
-    json = JSON.parse(File.read(path))
-    base[:components][:schemas].merge!(json['definitions'])
-  end
-
-  # JSON format in yaml is completely valid yaml format
-  JSON.pretty_generate(base)
 end
 
 # in openapi.yaml, we don't have definitions section and instead it's components
@@ -134,5 +196,4 @@ class SnakeCaseToCamelCaseConverter
   end
 end
 
-
-main(paths, output_dir)
+main(api_ref_paths, sample_json_paths, output_dir)
