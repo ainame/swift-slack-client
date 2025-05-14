@@ -6,6 +6,22 @@ require 'yaml'
 
 CONCURRENCY = 24
 
+# https://github.com/slack-edge/slack-web-api-client/blob/4d1d93df8abe423ea7ee3b18591cd83d9bcfe6e6/scripts/code_generator.rb#L91-L115
+UNSUPPORTED_METHODS = [
+  /admin\.analytics\.getFile/,
+  /api\.test/,
+  /oauth\.access/,
+  /oauth\.token/,
+  /files\.comments\./,
+  /dialog\./,
+  /calls\./,
+  /workflows\./,
+  /channels\./,
+  /groups\./,
+  /mpim\./,
+  /im\./
+]
+
 api_ref_dir = '../../slack-ruby/slack-api-ref/methods/'
 api_ref_paths = Dir.glob("#{api_ref_dir}/**/*.json")
 
@@ -34,8 +50,15 @@ def main(api_ref_paths, sample_json_paths, output_dir)
   # Generate paths
   paths = {}
   api_ref_paths.each do |path|
+    # endpoints that doesn't have sample response json isn't supported for now.
+    method_name = File.basename(path, '.json')
+    unless schema_paths.any? { File.basename(_1, '.json') == method_name }
+      puts "Skip, this method doesn't have response schema #{method_name}"
+      next
+    end
+
     result = generate_openapi_path(path)
-    paths.merge!(result)
+    paths.merge!(result) if result
   end
   openapi_yaml[:paths] = paths
 
@@ -60,8 +83,11 @@ def process_in_queue(items, &block)
 end
 
 def generate_openapi_component(path, output_dir)
-  model_name = "#{File.basename(path, '.json').split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
-  output_path = File.join(output_dir, "#{model_name}.json")
+  method_name = File.basename(path, '.json')
+  return puts "Skip, this method isn't supported #{method_name}" if UNSUPPORTED_METHODS.include?(method_name)
+
+  model_name = "#{method_name.split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
+  output_path = File.join(output_dir, "#{method_name}.json")
 
   if File.exist?(output_path)
     puts "Found #{path} exists. Skip generating schema."
@@ -87,8 +113,10 @@ def generate_openapi_component(path, output_dir)
 end
 
 def generate_openapi_path(path)
-  json = JSON.parse(File.read(path))
   method_name = File.basename(path, '.json')
+  return puts "Skip this method isn't supported #{method_name}" if UNSUPPORTED_METHODS.any? { _1.match(method_name) }
+
+  json = JSON.parse(File.read(path))
   operation_id = method_name.gsub(/\.([a-z])/) { Regexp.last_match(1).upcase }
   required = []
   request_body_props = json['args'].each_with_object({}) do |(name, value), props|
@@ -126,7 +154,9 @@ def generate_openapi_path(path)
             description: 'OK',
             content: {
               'application/json': {
-                '$ref': "#/components/schemas/#{response_model_name}"
+                schema: {
+                  '$ref': "#/components/schemas/#{response_model_name}"
+                }
               }
             }
           }
