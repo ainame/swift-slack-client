@@ -62,17 +62,21 @@ end
 def generate_openapi_component(path, output_dir)
   model_name = "#{File.basename(path, '.json').split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
   output_path = File.join(output_dir, "#{model_name}.json")
-  return puts "Found #{path} exists. Skip generating schema." if File.exist?(output_path)
 
-  command = "npx quicktype --lang schema #{path} --all-properties-optional --top-level #{model_name} > #{output_path}"
-  puts "Generating schema: $ #{command}"
-  system(command)
+  if File.exist?(output_path)
+    puts "Found #{path} exists. Skip generating schema."
+  else
+    command = "npx quicktype --lang schema #{path} --all-properties-optional --top-level #{model_name} > #{output_path}"
+    puts "Generating schema: $ #{command}"
+    system(command)
+  end
 
   # fix json
   json = JSON.parse(File.read(output_path))
   visitors = [
     ReferenceFixer.new,
-    SnakeCaseToCamelCaseConverter.new
+    SnakeCaseToCamelCaseConverter.new,
+    OptionalityFixer.new,
   ]
   visitors.each do |visitor|
     visitor.walk(json)
@@ -120,7 +124,7 @@ def generate_openapi_path(path)
             description: 'OK',
             content: {
               'application/json': {
-                '$ref': "#components/schema/#{response_model_name}"
+                '$ref': "#/components/schemas/#{response_model_name}"
               }
             }
           }
@@ -162,6 +166,29 @@ class ReferenceFixer
       else
         data.each_value { visit(_1) }
       end
+    else
+      data
+    end
+  end
+end
+
+# In common Slack response, `ok` always exists
+class OptionalityFixer
+  def walk(root)
+    visit(root)
+  end
+
+  private
+
+  def visit(data)
+    case data
+    when Array
+      data.each { visit(_1) }
+    when Hash
+      if data.keys.include?('properties') && data.keys.include?('required') && data['properties'].keys.include?('ok') && !data['required'].include?('ok')
+        data['required'].append('ok')
+      end
+      data.each_value { visit(_1) }
     else
       data
     end
