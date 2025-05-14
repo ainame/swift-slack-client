@@ -50,7 +50,8 @@ def generate_schema(path, output_dir)
   json = JSON.parse(File.read(output_path))
   visitors = [
     CoercingEmptyItemsTypeVisitor.new,
-    ReferenceFixer.new
+    ReferenceFixer.new,
+    SnakeCaseToCamelCaseConverter.new
   ]
   visitors.each do |visitor|
     visitor.walk(json)
@@ -130,5 +131,34 @@ class ReferenceFixer
     end
   end
 end
+
+# Quicktype doesn't convert key's case
+class SnakeCaseToCamelCaseConverter
+  def walk(root)
+    visit(root['definitions'])
+  end
+
+  private
+
+  def visit(data)
+    case data
+    when Array
+      data.each { visit(_1) }
+    when Hash
+      data.keys.each do |key|
+        value = data[key]
+        visit(value)
+        next unless key.match?(/_/)
+
+        camel_case_key = key.gsub(/_([a-z])/) { Regexp.last_match(1).upcase }
+        data[camel_case_key] = value
+        data.delete(key)
+      end
+    else
+      data
+    end
+  end
+end
+
 
 main(paths, output_dir)
