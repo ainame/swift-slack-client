@@ -49,7 +49,6 @@ def generate_schema(path, output_dir)
   # fix json
   json = JSON.parse(File.read(output_path))
   visitors = [
-    CoercingEmptyItemsTypeVisitor.new,
     ReferenceFixer.new,
     SnakeCaseToCamelCaseConverter.new
   ]
@@ -81,31 +80,6 @@ def openapi_yaml(paths)
 
   # JSON format in yaml is completely valid yaml format
   JSON.pretty_generate(base)
-end
-
-# quicktype can't infer nested type if example is empty
-# empty array will be coerced to list of string
-class CoercingEmptyItemsTypeVisitor
-  def walk(root)
-    visit(root)
-  end
-
-  private
-
-  def visit(data)
-    case data
-    when Array
-      data.each { visit(_1) }
-    when Hash
-      if data['type'] == 'array' && data['items'].empty?
-        data['items'] = { 'type' => 'string' }
-      else
-        data.each_value { visit(_1) }
-      end
-    else
-      data
-    end
-  end
 end
 
 # in openapi.yaml, we don't have definitions section and instead it's components
