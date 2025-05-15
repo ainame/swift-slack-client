@@ -148,7 +148,7 @@ def generate_openapi_path(path)
   return puts "Skip this method isn't supported #{method_name}" if UNSUPPORTED_METHODS.any? { _1.match(method_name) }
 
   json = JSON.parse(File.read(path))
-  operation_id = method_name.camelize
+  operation_id = method_name.camelize(separator: '\.')
   required = []
   request_body_props = json['args'].each_with_object({}) do |(name, attributes), props|
     camelized_name = name.camelize
@@ -167,7 +167,7 @@ def generate_openapi_path(path)
   content_type = request_body_props.any? { |k,v| v[:type] == 'binary' } ? 'multipart/form-data' : 'application/json'
 
   {
-    "/#{method_name}": {
+    "#{method_name}": {
       # Slack seems accapt POST always
       post: {
         operationId: operation_id,
@@ -333,8 +333,8 @@ end
 
 # extension to string
 class String
-  def camelize
-    gsub(/_([a-z])/) { Regexp.last_match(1).upcase }
+  def camelize(separator: '_')
+    gsub(/#{separator}([a-z])/) { Regexp.last_match(1).upcase }
   end
 end
 

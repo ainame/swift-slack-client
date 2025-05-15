@@ -7,7 +7,6 @@ let package = Package(
     name: "swift-slack-client",
     platforms: [ .macOS(.v14) ],
     products: [
-        .executable(name: "SchemaGenerator", targets: ["SchemaGenerator"]),
         .library(name: "SlackClient", targets: ["SlackClient"]),
     ],
     dependencies: [
@@ -17,12 +16,6 @@ let package = Package(
         .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
     ],
     targets: [
-        .executableTarget(
-            name: "SchemaGenerator",
-            dependencies: [
-                .product(name: "ArgumentParser", package: "swift-argument-parser")
-            ],
-        ),
         .target(
             name: "SlackClient",
             dependencies: [
