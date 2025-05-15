@@ -210,8 +210,17 @@ def base_openapi_yaml
     },
     paths: {},
     components: {
-      schemas: {}
-    }
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer'
+        }
+      },
+      schemas: {},
+    },
+    security: [
+      bearerAuth: []
+    ]
   }
 end
 
