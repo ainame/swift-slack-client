@@ -256,6 +256,10 @@ class OptionalityFixer
         data['required'].append('ok')
         data['required'].uniq!
       end
+
+      # Additional properties should be allowed but don't need to be decoded
+      data.delete('additionalProperties') if data.key?('additionalProperties')
+
       data.each_value { visit(_1) }
     else
       data
