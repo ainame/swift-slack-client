@@ -113,6 +113,36 @@ def generate_openapi_component(path, output_dir)
   output_path
 end
 
+# slack-api-ref misses many properties' type
+# They need to be filled in
+def normalize_type(name, attributes)
+  return 'string' if attributes['type'] == 'enum'
+  return 'string' if name == 'ts' || (attributes['type'] == 'timestamp' && attributes['example'].kind_of?(String))
+  return 'string' if name == 'image'
+
+  # apps.manifest.create requires 'manifest' property as json but the slack-api-ref describes it wrong type
+  return 'string' if attributes['format'] == 'json' || attributes['type'] == 'manifest object as string'
+  # bots.info requires `bot` property but wrong type is set
+  return 'string' if attributes['type'] == 'user'
+  # chat.delete describes 'channel' prop wrong
+  return 'string' if attributes['type'] == 'channel'
+  # files.delete ...
+  return 'string' if attributes['type'] == 'file'
+
+  if attributes['type'].nil?
+    case attributes['example']
+    when String
+      return 'string'
+    when Numeric
+      return 'number'
+    else
+      return 'string'
+    end
+  end
+
+  attributes['type']
+end
+
 def generate_openapi_path(path)
   method_name = File.basename(path, '.json')
   return puts "Skip this method isn't supported #{method_name}" if UNSUPPORTED_METHODS.any? { _1.match(method_name) }
@@ -120,18 +150,21 @@ def generate_openapi_path(path)
   json = JSON.parse(File.read(path))
   operation_id = method_name.camelize
   required = []
-  request_body_props = json['args'].each_with_object({}) do |(name, value), props|
+  request_body_props = json['args'].each_with_object({}) do |(name, attributes), props|
     camelized_name = name.camelize
+    normalized_type = normalize_type(name, attributes)
     props[camelized_name] = {
-      schema: {
-        type: value['type'],
-        example: value['example']
-      }
+      type: normalized_type,
+      example: attributes['example'],
+      description: attributes['desc'],
     }
-    required.append(camelized_name) if value['required']
+
+    props[camelized_name][:format] = 'binary' if name == 'image' && attributes['type'] == 'string'
+    required.append(camelized_name) if attributes['required']
   end
 
   response_model_name = "#{method_name.split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
+  content_type = request_body_props.any? { |k,v| v[:type] == 'binary' } ? 'multipart/form-data' : 'application/json'
 
   {
     "/#{method_name}": {
@@ -142,7 +175,7 @@ def generate_openapi_path(path)
         requestBody: {
           required: true,
           content: {
-            'application/json': {
+            "#{content_type}": {
               schema: {
                 type: 'object',
                 properties: request_body_props,
