@@ -103,6 +103,7 @@ def generate_openapi_component(path, output_dir)
     ReferenceFixer.new,
     SnakeCaseToCamelCaseConverter.new,
     OptionalityFixer.new,
+    AcronymsFixer.new('DND' => 'Dnd'),
   ]
   visitors.each do |visitor|
     visitor.walk(json)
@@ -247,6 +248,41 @@ class SnakeCaseToCamelCaseConverter
         next unless key.match?(/_/)
 
         camel_case_key = key.gsub(/_([a-z])/) { Regexp.last_match(1).upcase }
+        data[camel_case_key] = value
+        data.delete(key)
+      end
+    else
+      data
+    end
+  end
+end
+
+# Force UpperCamelCase for acronyms; ie DND -> Dnd
+# quicktype unintentionally choose capital case for acronyms
+class AcronymsFixer
+  def initialize(dictionary)
+    @dictionary = dictionary
+  end
+
+  def walk(root)
+    visit(root)
+  end
+
+  private
+
+  def visit(data)
+    case data
+    when Array
+      data.each { visit(_1) }
+    when Hash
+      data.keys.each do |key|
+        value = data[key]
+        visit(value)
+        acronyms = @dictionary.keys.find { key =~ /#{_1}/ }
+        next unless acronyms
+
+        correct_case = @dictionary[acronyms]
+        camel_case_key = key.gsub(acronyms) { correct_case }
         data[camel_case_key] = value
         data.delete(key)
       end
