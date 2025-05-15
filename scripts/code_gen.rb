@@ -118,16 +118,17 @@ def generate_openapi_path(path)
   return puts "Skip this method isn't supported #{method_name}" if UNSUPPORTED_METHODS.any? { _1.match(method_name) }
 
   json = JSON.parse(File.read(path))
-  operation_id = method_name.gsub(/\.([a-z])/) { Regexp.last_match(1).upcase }
+  operation_id = method_name.camelize
   required = []
   request_body_props = json['args'].each_with_object({}) do |(name, value), props|
-    props[name] = {
+    camelized_name = name.camelize
+    props[camelized_name] = {
       schema: {
         type: value['type'],
         example: value['example']
       }
     }
-    required.append(name) if value['required']
+    required.append(camelized_name) if value['required']
   end
 
   response_model_name = "#{method_name.split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
@@ -247,7 +248,7 @@ class SnakeCaseToCamelCaseConverter
         visit(value)
         next unless key.match?(/_/)
 
-        camel_case_key = key.gsub(/_([a-z])/) { Regexp.last_match(1).upcase }
+        camel_case_key = key.camelize
         data[camel_case_key] = value
         data.delete(key)
       end
@@ -289,6 +290,13 @@ class AcronymsFixer
     else
       data
     end
+  end
+end
+
+# extension to string
+class String
+  def camelize
+    gsub(/_([a-z])/) { Regexp.last_match(1).upcase }
   end
 end
 
