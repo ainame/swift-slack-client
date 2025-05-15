@@ -2,6 +2,9 @@
 
 set -xe
 
+mkdir -p ./tmp
+rm -rf ./tmp/*
+
 ruby scripts/generate_openapi_json.rb
 
 swift run swift-openapi-generator generate \
@@ -9,6 +12,6 @@ swift run swift-openapi-generator generate \
     --mode client \
     --access-modifier public \
     --output-directory Sources/SlackClient/Generated \
-    Sources/SlackClient/openapi.json
+    ./tmp/openapi.json
 
-rm Sources/SlackClient/openapi.json
+rm -rf ./tmp
