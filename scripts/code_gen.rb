@@ -117,7 +117,7 @@ end
 # They need to be filled in
 def normalize_type(name, attributes)
   return 'string' if attributes['type'] == 'enum'
-  return 'string' if name == 'ts' || (attributes['type'] == 'timestamp' && attributes['example'].kind_of?(String))
+  return 'string' if name == 'ts' || (attributes['type'] == 'timestamp' && attributes['example'].is_a?(String))
   return 'string' if name == 'image'
 
   # apps.manifest.create requires 'manifest' property as json but the slack-api-ref describes it wrong type
@@ -321,7 +321,12 @@ class AcronymsFixer
         data.delete(key)
       end
     else
-      data
+      if data.is_a?(String) && acronyms = @dictionary.keys.find { data =~ /#{_1}/ }
+        correct_case = @dictionary[acronyms]
+        data.gsub!(acronyms) { correct_case }
+      else
+        data
+      end
     end
   end
 end
