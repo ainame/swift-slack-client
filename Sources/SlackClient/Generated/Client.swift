@@ -41,10 +41,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.activities.list`.
     /// - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
-    public func adminAppsActivitiesList(_ input: Operations.adminAppsActivitiesList.Input) async throws -> Operations.adminAppsActivitiesList.Output {
+    public func adminAppsActivitiesList(_ input: Operations.AdminAppsActivitiesList.Input) async throws -> Operations.AdminAppsActivitiesList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAppsActivitiesList.id,
+            forOperation: Operations.AdminAppsActivitiesList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.apps.activities.list",
@@ -74,7 +74,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAppsActivitiesList.Output.Ok.Body
+                    let body: Operations.AdminAppsActivitiesList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -110,10 +110,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.approve`.
     /// - Remark: Generated from `#/paths//admin.apps.approve/post(adminAppsApprove)`.
-    public func adminAppsApprove(_ input: Operations.adminAppsApprove.Input) async throws -> Operations.adminAppsApprove.Output {
+    public func adminAppsApprove(_ input: Operations.AdminAppsApprove.Input) async throws -> Operations.AdminAppsApprove.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAppsApprove.id,
+            forOperation: Operations.AdminAppsApprove.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.apps.approve",
@@ -143,7 +143,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAppsApprove.Output.Ok.Body
+                    let body: Operations.AdminAppsApprove.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -179,10 +179,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.approved.list`.
     /// - Remark: Generated from `#/paths//admin.apps.approved.list/post(adminAppsApprovedList)`.
-    public func adminAppsApprovedList(_ input: Operations.adminAppsApprovedList.Input) async throws -> Operations.adminAppsApprovedList.Output {
+    public func adminAppsApprovedList(_ input: Operations.AdminAppsApprovedList.Input) async throws -> Operations.AdminAppsApprovedList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAppsApprovedList.id,
+            forOperation: Operations.AdminAppsApprovedList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.apps.approved.list",
@@ -212,7 +212,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAppsApprovedList.Output.Ok.Body
+                    let body: Operations.AdminAppsApprovedList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -248,10 +248,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.clearResolution`.
     /// - Remark: Generated from `#/paths//admin.apps.clearResolution/post(adminAppsClearResolution)`.
-    public func adminAppsClearResolution(_ input: Operations.adminAppsClearResolution.Input) async throws -> Operations.adminAppsClearResolution.Output {
+    public func adminAppsClearResolution(_ input: Operations.AdminAppsClearResolution.Input) async throws -> Operations.AdminAppsClearResolution.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAppsClearResolution.id,
+            forOperation: Operations.AdminAppsClearResolution.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.apps.clearResolution",
@@ -281,7 +281,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAppsClearResolution.Output.Ok.Body
+                    let body: Operations.AdminAppsClearResolution.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -317,10 +317,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.config.lookup`.
     /// - Remark: Generated from `#/paths//admin.apps.config.lookup/post(adminAppsConfigLookup)`.
-    public func adminAppsConfigLookup(_ input: Operations.adminAppsConfigLookup.Input) async throws -> Operations.adminAppsConfigLookup.Output {
+    public func adminAppsConfigLookup(_ input: Operations.AdminAppsConfigLookup.Input) async throws -> Operations.AdminAppsConfigLookup.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAppsConfigLookup.id,
+            forOperation: Operations.AdminAppsConfigLookup.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.apps.config.lookup",
@@ -350,7 +350,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAppsConfigLookup.Output.Ok.Body
+                    let body: Operations.AdminAppsConfigLookup.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -386,10 +386,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.config.set`.
     /// - Remark: Generated from `#/paths//admin.apps.config.set/post(adminAppsConfigSet)`.
-    public func adminAppsConfigSet(_ input: Operations.adminAppsConfigSet.Input) async throws -> Operations.adminAppsConfigSet.Output {
+    public func adminAppsConfigSet(_ input: Operations.AdminAppsConfigSet.Input) async throws -> Operations.AdminAppsConfigSet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAppsConfigSet.id,
+            forOperation: Operations.AdminAppsConfigSet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.apps.config.set",
@@ -419,7 +419,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAppsConfigSet.Output.Ok.Body
+                    let body: Operations.AdminAppsConfigSet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -455,10 +455,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.requests.cancel`.
     /// - Remark: Generated from `#/paths//admin.apps.requests.cancel/post(adminAppsRequestsCancel)`.
-    public func adminAppsRequestsCancel(_ input: Operations.adminAppsRequestsCancel.Input) async throws -> Operations.adminAppsRequestsCancel.Output {
+    public func adminAppsRequestsCancel(_ input: Operations.AdminAppsRequestsCancel.Input) async throws -> Operations.AdminAppsRequestsCancel.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAppsRequestsCancel.id,
+            forOperation: Operations.AdminAppsRequestsCancel.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.apps.requests.cancel",
@@ -488,7 +488,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAppsRequestsCancel.Output.Ok.Body
+                    let body: Operations.AdminAppsRequestsCancel.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -524,10 +524,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.requests.list`.
     /// - Remark: Generated from `#/paths//admin.apps.requests.list/post(adminAppsRequestsList)`.
-    public func adminAppsRequestsList(_ input: Operations.adminAppsRequestsList.Input) async throws -> Operations.adminAppsRequestsList.Output {
+    public func adminAppsRequestsList(_ input: Operations.AdminAppsRequestsList.Input) async throws -> Operations.AdminAppsRequestsList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAppsRequestsList.id,
+            forOperation: Operations.AdminAppsRequestsList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.apps.requests.list",
@@ -557,7 +557,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAppsRequestsList.Output.Ok.Body
+                    let body: Operations.AdminAppsRequestsList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -593,10 +593,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.restrict`.
     /// - Remark: Generated from `#/paths//admin.apps.restrict/post(adminAppsRestrict)`.
-    public func adminAppsRestrict(_ input: Operations.adminAppsRestrict.Input) async throws -> Operations.adminAppsRestrict.Output {
+    public func adminAppsRestrict(_ input: Operations.AdminAppsRestrict.Input) async throws -> Operations.AdminAppsRestrict.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAppsRestrict.id,
+            forOperation: Operations.AdminAppsRestrict.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.apps.restrict",
@@ -626,7 +626,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAppsRestrict.Output.Ok.Body
+                    let body: Operations.AdminAppsRestrict.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -662,10 +662,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.restricted.list`.
     /// - Remark: Generated from `#/paths//admin.apps.restricted.list/post(adminAppsRestrictedList)`.
-    public func adminAppsRestrictedList(_ input: Operations.adminAppsRestrictedList.Input) async throws -> Operations.adminAppsRestrictedList.Output {
+    public func adminAppsRestrictedList(_ input: Operations.AdminAppsRestrictedList.Input) async throws -> Operations.AdminAppsRestrictedList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAppsRestrictedList.id,
+            forOperation: Operations.AdminAppsRestrictedList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.apps.restricted.list",
@@ -695,7 +695,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAppsRestrictedList.Output.Ok.Body
+                    let body: Operations.AdminAppsRestrictedList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -731,10 +731,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.uninstall`.
     /// - Remark: Generated from `#/paths//admin.apps.uninstall/post(adminAppsUninstall)`.
-    public func adminAppsUninstall(_ input: Operations.adminAppsUninstall.Input) async throws -> Operations.adminAppsUninstall.Output {
+    public func adminAppsUninstall(_ input: Operations.AdminAppsUninstall.Input) async throws -> Operations.AdminAppsUninstall.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAppsUninstall.id,
+            forOperation: Operations.AdminAppsUninstall.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.apps.uninstall",
@@ -764,7 +764,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAppsUninstall.Output.Ok.Body
+                    let body: Operations.AdminAppsUninstall.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -800,10 +800,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.auth.policy.assignEntities`.
     /// - Remark: Generated from `#/paths//admin.auth.policy.assignEntities/post(adminAuthPolicyAssignEntities)`.
-    public func adminAuthPolicyAssignEntities(_ input: Operations.adminAuthPolicyAssignEntities.Input) async throws -> Operations.adminAuthPolicyAssignEntities.Output {
+    public func adminAuthPolicyAssignEntities(_ input: Operations.AdminAuthPolicyAssignEntities.Input) async throws -> Operations.AdminAuthPolicyAssignEntities.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAuthPolicyAssignEntities.id,
+            forOperation: Operations.AdminAuthPolicyAssignEntities.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.auth.policy.assignEntities",
@@ -833,7 +833,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAuthPolicyAssignEntities.Output.Ok.Body
+                    let body: Operations.AdminAuthPolicyAssignEntities.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -869,10 +869,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.auth.policy.getEntities`.
     /// - Remark: Generated from `#/paths//admin.auth.policy.getEntities/post(adminAuthPolicyGetEntities)`.
-    public func adminAuthPolicyGetEntities(_ input: Operations.adminAuthPolicyGetEntities.Input) async throws -> Operations.adminAuthPolicyGetEntities.Output {
+    public func adminAuthPolicyGetEntities(_ input: Operations.AdminAuthPolicyGetEntities.Input) async throws -> Operations.AdminAuthPolicyGetEntities.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAuthPolicyGetEntities.id,
+            forOperation: Operations.AdminAuthPolicyGetEntities.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.auth.policy.getEntities",
@@ -902,7 +902,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAuthPolicyGetEntities.Output.Ok.Body
+                    let body: Operations.AdminAuthPolicyGetEntities.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -938,10 +938,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.auth.policy.removeEntities`.
     /// - Remark: Generated from `#/paths//admin.auth.policy.removeEntities/post(adminAuthPolicyRemoveEntities)`.
-    public func adminAuthPolicyRemoveEntities(_ input: Operations.adminAuthPolicyRemoveEntities.Input) async throws -> Operations.adminAuthPolicyRemoveEntities.Output {
+    public func adminAuthPolicyRemoveEntities(_ input: Operations.AdminAuthPolicyRemoveEntities.Input) async throws -> Operations.AdminAuthPolicyRemoveEntities.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminAuthPolicyRemoveEntities.id,
+            forOperation: Operations.AdminAuthPolicyRemoveEntities.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.auth.policy.removeEntities",
@@ -971,7 +971,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminAuthPolicyRemoveEntities.Output.Ok.Body
+                    let body: Operations.AdminAuthPolicyRemoveEntities.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1007,10 +1007,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.barriers.create`.
     /// - Remark: Generated from `#/paths//admin.barriers.create/post(adminBarriersCreate)`.
-    public func adminBarriersCreate(_ input: Operations.adminBarriersCreate.Input) async throws -> Operations.adminBarriersCreate.Output {
+    public func adminBarriersCreate(_ input: Operations.AdminBarriersCreate.Input) async throws -> Operations.AdminBarriersCreate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminBarriersCreate.id,
+            forOperation: Operations.AdminBarriersCreate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.barriers.create",
@@ -1040,7 +1040,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminBarriersCreate.Output.Ok.Body
+                    let body: Operations.AdminBarriersCreate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1076,10 +1076,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.barriers.delete`.
     /// - Remark: Generated from `#/paths//admin.barriers.delete/post(adminBarriersDelete)`.
-    public func adminBarriersDelete(_ input: Operations.adminBarriersDelete.Input) async throws -> Operations.adminBarriersDelete.Output {
+    public func adminBarriersDelete(_ input: Operations.AdminBarriersDelete.Input) async throws -> Operations.AdminBarriersDelete.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminBarriersDelete.id,
+            forOperation: Operations.AdminBarriersDelete.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.barriers.delete",
@@ -1109,7 +1109,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminBarriersDelete.Output.Ok.Body
+                    let body: Operations.AdminBarriersDelete.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1145,10 +1145,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.barriers.list`.
     /// - Remark: Generated from `#/paths//admin.barriers.list/post(adminBarriersList)`.
-    public func adminBarriersList(_ input: Operations.adminBarriersList.Input) async throws -> Operations.adminBarriersList.Output {
+    public func adminBarriersList(_ input: Operations.AdminBarriersList.Input) async throws -> Operations.AdminBarriersList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminBarriersList.id,
+            forOperation: Operations.AdminBarriersList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.barriers.list",
@@ -1178,7 +1178,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminBarriersList.Output.Ok.Body
+                    let body: Operations.AdminBarriersList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1214,10 +1214,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.barriers.update`.
     /// - Remark: Generated from `#/paths//admin.barriers.update/post(adminBarriersUpdate)`.
-    public func adminBarriersUpdate(_ input: Operations.adminBarriersUpdate.Input) async throws -> Operations.adminBarriersUpdate.Output {
+    public func adminBarriersUpdate(_ input: Operations.AdminBarriersUpdate.Input) async throws -> Operations.AdminBarriersUpdate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminBarriersUpdate.id,
+            forOperation: Operations.AdminBarriersUpdate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.barriers.update",
@@ -1247,7 +1247,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminBarriersUpdate.Output.Ok.Body
+                    let body: Operations.AdminBarriersUpdate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1283,10 +1283,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.archive`.
     /// - Remark: Generated from `#/paths//admin.conversations.archive/post(adminConversationsArchive)`.
-    public func adminConversationsArchive(_ input: Operations.adminConversationsArchive.Input) async throws -> Operations.adminConversationsArchive.Output {
+    public func adminConversationsArchive(_ input: Operations.AdminConversationsArchive.Input) async throws -> Operations.AdminConversationsArchive.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsArchive.id,
+            forOperation: Operations.AdminConversationsArchive.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.archive",
@@ -1316,7 +1316,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsArchive.Output.Ok.Body
+                    let body: Operations.AdminConversationsArchive.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1352,10 +1352,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.bulkArchive`.
     /// - Remark: Generated from `#/paths//admin.conversations.bulkArchive/post(adminConversationsBulkArchive)`.
-    public func adminConversationsBulkArchive(_ input: Operations.adminConversationsBulkArchive.Input) async throws -> Operations.adminConversationsBulkArchive.Output {
+    public func adminConversationsBulkArchive(_ input: Operations.AdminConversationsBulkArchive.Input) async throws -> Operations.AdminConversationsBulkArchive.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsBulkArchive.id,
+            forOperation: Operations.AdminConversationsBulkArchive.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.bulkArchive",
@@ -1385,7 +1385,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsBulkArchive.Output.Ok.Body
+                    let body: Operations.AdminConversationsBulkArchive.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1421,10 +1421,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.bulkDelete`.
     /// - Remark: Generated from `#/paths//admin.conversations.bulkDelete/post(adminConversationsBulkDelete)`.
-    public func adminConversationsBulkDelete(_ input: Operations.adminConversationsBulkDelete.Input) async throws -> Operations.adminConversationsBulkDelete.Output {
+    public func adminConversationsBulkDelete(_ input: Operations.AdminConversationsBulkDelete.Input) async throws -> Operations.AdminConversationsBulkDelete.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsBulkDelete.id,
+            forOperation: Operations.AdminConversationsBulkDelete.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.bulkDelete",
@@ -1454,7 +1454,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsBulkDelete.Output.Ok.Body
+                    let body: Operations.AdminConversationsBulkDelete.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1490,10 +1490,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.bulkMove`.
     /// - Remark: Generated from `#/paths//admin.conversations.bulkMove/post(adminConversationsBulkMove)`.
-    public func adminConversationsBulkMove(_ input: Operations.adminConversationsBulkMove.Input) async throws -> Operations.adminConversationsBulkMove.Output {
+    public func adminConversationsBulkMove(_ input: Operations.AdminConversationsBulkMove.Input) async throws -> Operations.AdminConversationsBulkMove.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsBulkMove.id,
+            forOperation: Operations.AdminConversationsBulkMove.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.bulkMove",
@@ -1523,7 +1523,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsBulkMove.Output.Ok.Body
+                    let body: Operations.AdminConversationsBulkMove.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1559,10 +1559,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.convertToPrivate`.
     /// - Remark: Generated from `#/paths//admin.conversations.convertToPrivate/post(adminConversationsConvertToPrivate)`.
-    public func adminConversationsConvertToPrivate(_ input: Operations.adminConversationsConvertToPrivate.Input) async throws -> Operations.adminConversationsConvertToPrivate.Output {
+    public func adminConversationsConvertToPrivate(_ input: Operations.AdminConversationsConvertToPrivate.Input) async throws -> Operations.AdminConversationsConvertToPrivate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsConvertToPrivate.id,
+            forOperation: Operations.AdminConversationsConvertToPrivate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.convertToPrivate",
@@ -1592,7 +1592,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsConvertToPrivate.Output.Ok.Body
+                    let body: Operations.AdminConversationsConvertToPrivate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1628,10 +1628,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.convertToPublic`.
     /// - Remark: Generated from `#/paths//admin.conversations.convertToPublic/post(adminConversationsConvertToPublic)`.
-    public func adminConversationsConvertToPublic(_ input: Operations.adminConversationsConvertToPublic.Input) async throws -> Operations.adminConversationsConvertToPublic.Output {
+    public func adminConversationsConvertToPublic(_ input: Operations.AdminConversationsConvertToPublic.Input) async throws -> Operations.AdminConversationsConvertToPublic.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsConvertToPublic.id,
+            forOperation: Operations.AdminConversationsConvertToPublic.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.convertToPublic",
@@ -1661,7 +1661,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsConvertToPublic.Output.Ok.Body
+                    let body: Operations.AdminConversationsConvertToPublic.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1697,10 +1697,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.create`.
     /// - Remark: Generated from `#/paths//admin.conversations.create/post(adminConversationsCreate)`.
-    public func adminConversationsCreate(_ input: Operations.adminConversationsCreate.Input) async throws -> Operations.adminConversationsCreate.Output {
+    public func adminConversationsCreate(_ input: Operations.AdminConversationsCreate.Input) async throws -> Operations.AdminConversationsCreate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsCreate.id,
+            forOperation: Operations.AdminConversationsCreate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.create",
@@ -1730,7 +1730,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsCreate.Output.Ok.Body
+                    let body: Operations.AdminConversationsCreate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1766,10 +1766,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.delete`.
     /// - Remark: Generated from `#/paths//admin.conversations.delete/post(adminConversationsDelete)`.
-    public func adminConversationsDelete(_ input: Operations.adminConversationsDelete.Input) async throws -> Operations.adminConversationsDelete.Output {
+    public func adminConversationsDelete(_ input: Operations.AdminConversationsDelete.Input) async throws -> Operations.AdminConversationsDelete.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsDelete.id,
+            forOperation: Operations.AdminConversationsDelete.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.delete",
@@ -1799,7 +1799,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsDelete.Output.Ok.Body
+                    let body: Operations.AdminConversationsDelete.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1835,10 +1835,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.disconnectShared`.
     /// - Remark: Generated from `#/paths//admin.conversations.disconnectShared/post(adminConversationsDisconnectShared)`.
-    public func adminConversationsDisconnectShared(_ input: Operations.adminConversationsDisconnectShared.Input) async throws -> Operations.adminConversationsDisconnectShared.Output {
+    public func adminConversationsDisconnectShared(_ input: Operations.AdminConversationsDisconnectShared.Input) async throws -> Operations.AdminConversationsDisconnectShared.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsDisconnectShared.id,
+            forOperation: Operations.AdminConversationsDisconnectShared.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.disconnectShared",
@@ -1868,7 +1868,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsDisconnectShared.Output.Ok.Body
+                    let body: Operations.AdminConversationsDisconnectShared.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1904,10 +1904,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.ekm.listOriginalConnectedChannelInfo`.
     /// - Remark: Generated from `#/paths//admin.conversations.ekm.listOriginalConnectedChannelInfo/post(adminConversationsEkmListOriginalConnectedChannelInfo)`.
-    public func adminConversationsEkmListOriginalConnectedChannelInfo(_ input: Operations.adminConversationsEkmListOriginalConnectedChannelInfo.Input) async throws -> Operations.adminConversationsEkmListOriginalConnectedChannelInfo.Output {
+    public func adminConversationsEkmListOriginalConnectedChannelInfo(_ input: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input) async throws -> Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsEkmListOriginalConnectedChannelInfo.id,
+            forOperation: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.ekm.listOriginalConnectedChannelInfo",
@@ -1937,7 +1937,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsEkmListOriginalConnectedChannelInfo.Output.Ok.Body
+                    let body: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -1973,10 +1973,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.getConversationPrefs`.
     /// - Remark: Generated from `#/paths//admin.conversations.getConversationPrefs/post(adminConversationsGetConversationPrefs)`.
-    public func adminConversationsGetConversationPrefs(_ input: Operations.adminConversationsGetConversationPrefs.Input) async throws -> Operations.adminConversationsGetConversationPrefs.Output {
+    public func adminConversationsGetConversationPrefs(_ input: Operations.AdminConversationsGetConversationPrefs.Input) async throws -> Operations.AdminConversationsGetConversationPrefs.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsGetConversationPrefs.id,
+            forOperation: Operations.AdminConversationsGetConversationPrefs.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.getConversationPrefs",
@@ -2006,7 +2006,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsGetConversationPrefs.Output.Ok.Body
+                    let body: Operations.AdminConversationsGetConversationPrefs.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2042,10 +2042,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.getCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.getCustomRetention/post(adminConversationsGetCustomRetention)`.
-    public func adminConversationsGetCustomRetention(_ input: Operations.adminConversationsGetCustomRetention.Input) async throws -> Operations.adminConversationsGetCustomRetention.Output {
+    public func adminConversationsGetCustomRetention(_ input: Operations.AdminConversationsGetCustomRetention.Input) async throws -> Operations.AdminConversationsGetCustomRetention.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsGetCustomRetention.id,
+            forOperation: Operations.AdminConversationsGetCustomRetention.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.getCustomRetention",
@@ -2075,7 +2075,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsGetCustomRetention.Output.Ok.Body
+                    let body: Operations.AdminConversationsGetCustomRetention.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2111,10 +2111,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.getTeams`.
     /// - Remark: Generated from `#/paths//admin.conversations.getTeams/post(adminConversationsGetTeams)`.
-    public func adminConversationsGetTeams(_ input: Operations.adminConversationsGetTeams.Input) async throws -> Operations.adminConversationsGetTeams.Output {
+    public func adminConversationsGetTeams(_ input: Operations.AdminConversationsGetTeams.Input) async throws -> Operations.AdminConversationsGetTeams.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsGetTeams.id,
+            forOperation: Operations.AdminConversationsGetTeams.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.getTeams",
@@ -2144,7 +2144,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsGetTeams.Output.Ok.Body
+                    let body: Operations.AdminConversationsGetTeams.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2180,10 +2180,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.invite`.
     /// - Remark: Generated from `#/paths//admin.conversations.invite/post(adminConversationsInvite)`.
-    public func adminConversationsInvite(_ input: Operations.adminConversationsInvite.Input) async throws -> Operations.adminConversationsInvite.Output {
+    public func adminConversationsInvite(_ input: Operations.AdminConversationsInvite.Input) async throws -> Operations.AdminConversationsInvite.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsInvite.id,
+            forOperation: Operations.AdminConversationsInvite.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.invite",
@@ -2213,7 +2213,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsInvite.Output.Ok.Body
+                    let body: Operations.AdminConversationsInvite.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2249,10 +2249,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.lookup`.
     /// - Remark: Generated from `#/paths//admin.conversations.lookup/post(adminConversationsLookup)`.
-    public func adminConversationsLookup(_ input: Operations.adminConversationsLookup.Input) async throws -> Operations.adminConversationsLookup.Output {
+    public func adminConversationsLookup(_ input: Operations.AdminConversationsLookup.Input) async throws -> Operations.AdminConversationsLookup.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsLookup.id,
+            forOperation: Operations.AdminConversationsLookup.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.lookup",
@@ -2282,7 +2282,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsLookup.Output.Ok.Body
+                    let body: Operations.AdminConversationsLookup.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2318,10 +2318,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.removeCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.removeCustomRetention/post(adminConversationsRemoveCustomRetention)`.
-    public func adminConversationsRemoveCustomRetention(_ input: Operations.adminConversationsRemoveCustomRetention.Input) async throws -> Operations.adminConversationsRemoveCustomRetention.Output {
+    public func adminConversationsRemoveCustomRetention(_ input: Operations.AdminConversationsRemoveCustomRetention.Input) async throws -> Operations.AdminConversationsRemoveCustomRetention.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsRemoveCustomRetention.id,
+            forOperation: Operations.AdminConversationsRemoveCustomRetention.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.removeCustomRetention",
@@ -2351,7 +2351,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsRemoveCustomRetention.Output.Ok.Body
+                    let body: Operations.AdminConversationsRemoveCustomRetention.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2387,10 +2387,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.rename`.
     /// - Remark: Generated from `#/paths//admin.conversations.rename/post(adminConversationsRename)`.
-    public func adminConversationsRename(_ input: Operations.adminConversationsRename.Input) async throws -> Operations.adminConversationsRename.Output {
+    public func adminConversationsRename(_ input: Operations.AdminConversationsRename.Input) async throws -> Operations.AdminConversationsRename.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsRename.id,
+            forOperation: Operations.AdminConversationsRename.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.rename",
@@ -2420,7 +2420,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsRename.Output.Ok.Body
+                    let body: Operations.AdminConversationsRename.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2456,10 +2456,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.addGroup`.
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.addGroup/post(adminConversationsRestrictAccessAddGroup)`.
-    public func adminConversationsRestrictAccessAddGroup(_ input: Operations.adminConversationsRestrictAccessAddGroup.Input) async throws -> Operations.adminConversationsRestrictAccessAddGroup.Output {
+    public func adminConversationsRestrictAccessAddGroup(_ input: Operations.AdminConversationsRestrictAccessAddGroup.Input) async throws -> Operations.AdminConversationsRestrictAccessAddGroup.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsRestrictAccessAddGroup.id,
+            forOperation: Operations.AdminConversationsRestrictAccessAddGroup.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.restrictAccess.addGroup",
@@ -2489,7 +2489,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsRestrictAccessAddGroup.Output.Ok.Body
+                    let body: Operations.AdminConversationsRestrictAccessAddGroup.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2525,10 +2525,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.listGroups`.
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.listGroups/post(adminConversationsRestrictAccessListGroups)`.
-    public func adminConversationsRestrictAccessListGroups(_ input: Operations.adminConversationsRestrictAccessListGroups.Input) async throws -> Operations.adminConversationsRestrictAccessListGroups.Output {
+    public func adminConversationsRestrictAccessListGroups(_ input: Operations.AdminConversationsRestrictAccessListGroups.Input) async throws -> Operations.AdminConversationsRestrictAccessListGroups.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsRestrictAccessListGroups.id,
+            forOperation: Operations.AdminConversationsRestrictAccessListGroups.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.restrictAccess.listGroups",
@@ -2558,7 +2558,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsRestrictAccessListGroups.Output.Ok.Body
+                    let body: Operations.AdminConversationsRestrictAccessListGroups.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2594,10 +2594,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.removeGroup`.
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.removeGroup/post(adminConversationsRestrictAccessRemoveGroup)`.
-    public func adminConversationsRestrictAccessRemoveGroup(_ input: Operations.adminConversationsRestrictAccessRemoveGroup.Input) async throws -> Operations.adminConversationsRestrictAccessRemoveGroup.Output {
+    public func adminConversationsRestrictAccessRemoveGroup(_ input: Operations.AdminConversationsRestrictAccessRemoveGroup.Input) async throws -> Operations.AdminConversationsRestrictAccessRemoveGroup.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsRestrictAccessRemoveGroup.id,
+            forOperation: Operations.AdminConversationsRestrictAccessRemoveGroup.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.restrictAccess.removeGroup",
@@ -2627,7 +2627,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsRestrictAccessRemoveGroup.Output.Ok.Body
+                    let body: Operations.AdminConversationsRestrictAccessRemoveGroup.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2663,10 +2663,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.search`.
     /// - Remark: Generated from `#/paths//admin.conversations.search/post(adminConversationsSearch)`.
-    public func adminConversationsSearch(_ input: Operations.adminConversationsSearch.Input) async throws -> Operations.adminConversationsSearch.Output {
+    public func adminConversationsSearch(_ input: Operations.AdminConversationsSearch.Input) async throws -> Operations.AdminConversationsSearch.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsSearch.id,
+            forOperation: Operations.AdminConversationsSearch.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.search",
@@ -2696,7 +2696,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsSearch.Output.Ok.Body
+                    let body: Operations.AdminConversationsSearch.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2732,10 +2732,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.setConversationPrefs`.
     /// - Remark: Generated from `#/paths//admin.conversations.setConversationPrefs/post(adminConversationsSetConversationPrefs)`.
-    public func adminConversationsSetConversationPrefs(_ input: Operations.adminConversationsSetConversationPrefs.Input) async throws -> Operations.adminConversationsSetConversationPrefs.Output {
+    public func adminConversationsSetConversationPrefs(_ input: Operations.AdminConversationsSetConversationPrefs.Input) async throws -> Operations.AdminConversationsSetConversationPrefs.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsSetConversationPrefs.id,
+            forOperation: Operations.AdminConversationsSetConversationPrefs.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.setConversationPrefs",
@@ -2765,7 +2765,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsSetConversationPrefs.Output.Ok.Body
+                    let body: Operations.AdminConversationsSetConversationPrefs.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2801,10 +2801,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.setCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.setCustomRetention/post(adminConversationsSetCustomRetention)`.
-    public func adminConversationsSetCustomRetention(_ input: Operations.adminConversationsSetCustomRetention.Input) async throws -> Operations.adminConversationsSetCustomRetention.Output {
+    public func adminConversationsSetCustomRetention(_ input: Operations.AdminConversationsSetCustomRetention.Input) async throws -> Operations.AdminConversationsSetCustomRetention.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsSetCustomRetention.id,
+            forOperation: Operations.AdminConversationsSetCustomRetention.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.setCustomRetention",
@@ -2834,7 +2834,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsSetCustomRetention.Output.Ok.Body
+                    let body: Operations.AdminConversationsSetCustomRetention.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2870,10 +2870,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.setTeams`.
     /// - Remark: Generated from `#/paths//admin.conversations.setTeams/post(adminConversationsSetTeams)`.
-    public func adminConversationsSetTeams(_ input: Operations.adminConversationsSetTeams.Input) async throws -> Operations.adminConversationsSetTeams.Output {
+    public func adminConversationsSetTeams(_ input: Operations.AdminConversationsSetTeams.Input) async throws -> Operations.AdminConversationsSetTeams.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsSetTeams.id,
+            forOperation: Operations.AdminConversationsSetTeams.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.setTeams",
@@ -2903,7 +2903,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsSetTeams.Output.Ok.Body
+                    let body: Operations.AdminConversationsSetTeams.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -2939,10 +2939,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.unarchive`.
     /// - Remark: Generated from `#/paths//admin.conversations.unarchive/post(adminConversationsUnarchive)`.
-    public func adminConversationsUnarchive(_ input: Operations.adminConversationsUnarchive.Input) async throws -> Operations.adminConversationsUnarchive.Output {
+    public func adminConversationsUnarchive(_ input: Operations.AdminConversationsUnarchive.Input) async throws -> Operations.AdminConversationsUnarchive.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminConversationsUnarchive.id,
+            forOperation: Operations.AdminConversationsUnarchive.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.conversations.unarchive",
@@ -2972,7 +2972,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminConversationsUnarchive.Output.Ok.Body
+                    let body: Operations.AdminConversationsUnarchive.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3008,10 +3008,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.emoji.add`.
     /// - Remark: Generated from `#/paths//admin.emoji.add/post(adminEmojiAdd)`.
-    public func adminEmojiAdd(_ input: Operations.adminEmojiAdd.Input) async throws -> Operations.adminEmojiAdd.Output {
+    public func adminEmojiAdd(_ input: Operations.AdminEmojiAdd.Input) async throws -> Operations.AdminEmojiAdd.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminEmojiAdd.id,
+            forOperation: Operations.AdminEmojiAdd.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.emoji.add",
@@ -3041,7 +3041,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminEmojiAdd.Output.Ok.Body
+                    let body: Operations.AdminEmojiAdd.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3077,10 +3077,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.emoji.addAlias`.
     /// - Remark: Generated from `#/paths//admin.emoji.addAlias/post(adminEmojiAddAlias)`.
-    public func adminEmojiAddAlias(_ input: Operations.adminEmojiAddAlias.Input) async throws -> Operations.adminEmojiAddAlias.Output {
+    public func adminEmojiAddAlias(_ input: Operations.AdminEmojiAddAlias.Input) async throws -> Operations.AdminEmojiAddAlias.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminEmojiAddAlias.id,
+            forOperation: Operations.AdminEmojiAddAlias.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.emoji.addAlias",
@@ -3110,7 +3110,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminEmojiAddAlias.Output.Ok.Body
+                    let body: Operations.AdminEmojiAddAlias.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3146,10 +3146,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.emoji.list`.
     /// - Remark: Generated from `#/paths//admin.emoji.list/post(adminEmojiList)`.
-    public func adminEmojiList(_ input: Operations.adminEmojiList.Input) async throws -> Operations.adminEmojiList.Output {
+    public func adminEmojiList(_ input: Operations.AdminEmojiList.Input) async throws -> Operations.AdminEmojiList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminEmojiList.id,
+            forOperation: Operations.AdminEmojiList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.emoji.list",
@@ -3179,7 +3179,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminEmojiList.Output.Ok.Body
+                    let body: Operations.AdminEmojiList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3215,10 +3215,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.emoji.remove`.
     /// - Remark: Generated from `#/paths//admin.emoji.remove/post(adminEmojiRemove)`.
-    public func adminEmojiRemove(_ input: Operations.adminEmojiRemove.Input) async throws -> Operations.adminEmojiRemove.Output {
+    public func adminEmojiRemove(_ input: Operations.AdminEmojiRemove.Input) async throws -> Operations.AdminEmojiRemove.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminEmojiRemove.id,
+            forOperation: Operations.AdminEmojiRemove.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.emoji.remove",
@@ -3248,7 +3248,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminEmojiRemove.Output.Ok.Body
+                    let body: Operations.AdminEmojiRemove.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3284,10 +3284,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.emoji.rename`.
     /// - Remark: Generated from `#/paths//admin.emoji.rename/post(adminEmojiRename)`.
-    public func adminEmojiRename(_ input: Operations.adminEmojiRename.Input) async throws -> Operations.adminEmojiRename.Output {
+    public func adminEmojiRename(_ input: Operations.AdminEmojiRename.Input) async throws -> Operations.AdminEmojiRename.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminEmojiRename.id,
+            forOperation: Operations.AdminEmojiRename.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.emoji.rename",
@@ -3317,7 +3317,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminEmojiRename.Output.Ok.Body
+                    let body: Operations.AdminEmojiRename.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3353,10 +3353,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.functions.list`.
     /// - Remark: Generated from `#/paths//admin.functions.list/post(adminFunctionsList)`.
-    public func adminFunctionsList(_ input: Operations.adminFunctionsList.Input) async throws -> Operations.adminFunctionsList.Output {
+    public func adminFunctionsList(_ input: Operations.AdminFunctionsList.Input) async throws -> Operations.AdminFunctionsList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminFunctionsList.id,
+            forOperation: Operations.AdminFunctionsList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.functions.list",
@@ -3386,7 +3386,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminFunctionsList.Output.Ok.Body
+                    let body: Operations.AdminFunctionsList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3422,10 +3422,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.functions.permissions.lookup`.
     /// - Remark: Generated from `#/paths//admin.functions.permissions.lookup/post(adminFunctionsPermissionsLookup)`.
-    public func adminFunctionsPermissionsLookup(_ input: Operations.adminFunctionsPermissionsLookup.Input) async throws -> Operations.adminFunctionsPermissionsLookup.Output {
+    public func adminFunctionsPermissionsLookup(_ input: Operations.AdminFunctionsPermissionsLookup.Input) async throws -> Operations.AdminFunctionsPermissionsLookup.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminFunctionsPermissionsLookup.id,
+            forOperation: Operations.AdminFunctionsPermissionsLookup.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.functions.permissions.lookup",
@@ -3455,7 +3455,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminFunctionsPermissionsLookup.Output.Ok.Body
+                    let body: Operations.AdminFunctionsPermissionsLookup.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3491,10 +3491,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.functions.permissions.set`.
     /// - Remark: Generated from `#/paths//admin.functions.permissions.set/post(adminFunctionsPermissionsSet)`.
-    public func adminFunctionsPermissionsSet(_ input: Operations.adminFunctionsPermissionsSet.Input) async throws -> Operations.adminFunctionsPermissionsSet.Output {
+    public func adminFunctionsPermissionsSet(_ input: Operations.AdminFunctionsPermissionsSet.Input) async throws -> Operations.AdminFunctionsPermissionsSet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminFunctionsPermissionsSet.id,
+            forOperation: Operations.AdminFunctionsPermissionsSet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.functions.permissions.set",
@@ -3524,7 +3524,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminFunctionsPermissionsSet.Output.Ok.Body
+                    let body: Operations.AdminFunctionsPermissionsSet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3560,10 +3560,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.approve`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.approve/post(adminInviteRequestsApprove)`.
-    public func adminInviteRequestsApprove(_ input: Operations.adminInviteRequestsApprove.Input) async throws -> Operations.adminInviteRequestsApprove.Output {
+    public func adminInviteRequestsApprove(_ input: Operations.AdminInviteRequestsApprove.Input) async throws -> Operations.AdminInviteRequestsApprove.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminInviteRequestsApprove.id,
+            forOperation: Operations.AdminInviteRequestsApprove.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.inviteRequests.approve",
@@ -3593,7 +3593,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminInviteRequestsApprove.Output.Ok.Body
+                    let body: Operations.AdminInviteRequestsApprove.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3629,10 +3629,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.approved.list`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.approved.list/post(adminInviteRequestsApprovedList)`.
-    public func adminInviteRequestsApprovedList(_ input: Operations.adminInviteRequestsApprovedList.Input) async throws -> Operations.adminInviteRequestsApprovedList.Output {
+    public func adminInviteRequestsApprovedList(_ input: Operations.AdminInviteRequestsApprovedList.Input) async throws -> Operations.AdminInviteRequestsApprovedList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminInviteRequestsApprovedList.id,
+            forOperation: Operations.AdminInviteRequestsApprovedList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.inviteRequests.approved.list",
@@ -3662,7 +3662,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminInviteRequestsApprovedList.Output.Ok.Body
+                    let body: Operations.AdminInviteRequestsApprovedList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3698,10 +3698,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.denied.list`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.denied.list/post(adminInviteRequestsDeniedList)`.
-    public func adminInviteRequestsDeniedList(_ input: Operations.adminInviteRequestsDeniedList.Input) async throws -> Operations.adminInviteRequestsDeniedList.Output {
+    public func adminInviteRequestsDeniedList(_ input: Operations.AdminInviteRequestsDeniedList.Input) async throws -> Operations.AdminInviteRequestsDeniedList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminInviteRequestsDeniedList.id,
+            forOperation: Operations.AdminInviteRequestsDeniedList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.inviteRequests.denied.list",
@@ -3731,7 +3731,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminInviteRequestsDeniedList.Output.Ok.Body
+                    let body: Operations.AdminInviteRequestsDeniedList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3767,10 +3767,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.deny`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.deny/post(adminInviteRequestsDeny)`.
-    public func adminInviteRequestsDeny(_ input: Operations.adminInviteRequestsDeny.Input) async throws -> Operations.adminInviteRequestsDeny.Output {
+    public func adminInviteRequestsDeny(_ input: Operations.AdminInviteRequestsDeny.Input) async throws -> Operations.AdminInviteRequestsDeny.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminInviteRequestsDeny.id,
+            forOperation: Operations.AdminInviteRequestsDeny.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.inviteRequests.deny",
@@ -3800,7 +3800,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminInviteRequestsDeny.Output.Ok.Body
+                    let body: Operations.AdminInviteRequestsDeny.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3836,10 +3836,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.list`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.list/post(adminInviteRequestsList)`.
-    public func adminInviteRequestsList(_ input: Operations.adminInviteRequestsList.Input) async throws -> Operations.adminInviteRequestsList.Output {
+    public func adminInviteRequestsList(_ input: Operations.AdminInviteRequestsList.Input) async throws -> Operations.AdminInviteRequestsList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminInviteRequestsList.id,
+            forOperation: Operations.AdminInviteRequestsList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.inviteRequests.list",
@@ -3869,7 +3869,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminInviteRequestsList.Output.Ok.Body
+                    let body: Operations.AdminInviteRequestsList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3905,10 +3905,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.roles.addAssignments`.
     /// - Remark: Generated from `#/paths//admin.roles.addAssignments/post(adminRolesAddAssignments)`.
-    public func adminRolesAddAssignments(_ input: Operations.adminRolesAddAssignments.Input) async throws -> Operations.adminRolesAddAssignments.Output {
+    public func adminRolesAddAssignments(_ input: Operations.AdminRolesAddAssignments.Input) async throws -> Operations.AdminRolesAddAssignments.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminRolesAddAssignments.id,
+            forOperation: Operations.AdminRolesAddAssignments.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.roles.addAssignments",
@@ -3938,7 +3938,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminRolesAddAssignments.Output.Ok.Body
+                    let body: Operations.AdminRolesAddAssignments.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -3974,10 +3974,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.roles.listAssignments`.
     /// - Remark: Generated from `#/paths//admin.roles.listAssignments/post(adminRolesListAssignments)`.
-    public func adminRolesListAssignments(_ input: Operations.adminRolesListAssignments.Input) async throws -> Operations.adminRolesListAssignments.Output {
+    public func adminRolesListAssignments(_ input: Operations.AdminRolesListAssignments.Input) async throws -> Operations.AdminRolesListAssignments.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminRolesListAssignments.id,
+            forOperation: Operations.AdminRolesListAssignments.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.roles.listAssignments",
@@ -4007,7 +4007,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminRolesListAssignments.Output.Ok.Body
+                    let body: Operations.AdminRolesListAssignments.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4043,10 +4043,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.roles.removeAssignments`.
     /// - Remark: Generated from `#/paths//admin.roles.removeAssignments/post(adminRolesRemoveAssignments)`.
-    public func adminRolesRemoveAssignments(_ input: Operations.adminRolesRemoveAssignments.Input) async throws -> Operations.adminRolesRemoveAssignments.Output {
+    public func adminRolesRemoveAssignments(_ input: Operations.AdminRolesRemoveAssignments.Input) async throws -> Operations.AdminRolesRemoveAssignments.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminRolesRemoveAssignments.id,
+            forOperation: Operations.AdminRolesRemoveAssignments.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.roles.removeAssignments",
@@ -4076,7 +4076,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminRolesRemoveAssignments.Output.Ok.Body
+                    let body: Operations.AdminRolesRemoveAssignments.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4112,10 +4112,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.admins.list`.
     /// - Remark: Generated from `#/paths//admin.teams.admins.list/post(adminTeamsAdminsList)`.
-    public func adminTeamsAdminsList(_ input: Operations.adminTeamsAdminsList.Input) async throws -> Operations.adminTeamsAdminsList.Output {
+    public func adminTeamsAdminsList(_ input: Operations.AdminTeamsAdminsList.Input) async throws -> Operations.AdminTeamsAdminsList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminTeamsAdminsList.id,
+            forOperation: Operations.AdminTeamsAdminsList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.teams.admins.list",
@@ -4145,7 +4145,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminTeamsAdminsList.Output.Ok.Body
+                    let body: Operations.AdminTeamsAdminsList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4181,10 +4181,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.create`.
     /// - Remark: Generated from `#/paths//admin.teams.create/post(adminTeamsCreate)`.
-    public func adminTeamsCreate(_ input: Operations.adminTeamsCreate.Input) async throws -> Operations.adminTeamsCreate.Output {
+    public func adminTeamsCreate(_ input: Operations.AdminTeamsCreate.Input) async throws -> Operations.AdminTeamsCreate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminTeamsCreate.id,
+            forOperation: Operations.AdminTeamsCreate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.teams.create",
@@ -4214,7 +4214,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminTeamsCreate.Output.Ok.Body
+                    let body: Operations.AdminTeamsCreate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4250,10 +4250,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.list`.
     /// - Remark: Generated from `#/paths//admin.teams.list/post(adminTeamsList)`.
-    public func adminTeamsList(_ input: Operations.adminTeamsList.Input) async throws -> Operations.adminTeamsList.Output {
+    public func adminTeamsList(_ input: Operations.AdminTeamsList.Input) async throws -> Operations.AdminTeamsList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminTeamsList.id,
+            forOperation: Operations.AdminTeamsList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.teams.list",
@@ -4283,7 +4283,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminTeamsList.Output.Ok.Body
+                    let body: Operations.AdminTeamsList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4319,10 +4319,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.owners.list`.
     /// - Remark: Generated from `#/paths//admin.teams.owners.list/post(adminTeamsOwnersList)`.
-    public func adminTeamsOwnersList(_ input: Operations.adminTeamsOwnersList.Input) async throws -> Operations.adminTeamsOwnersList.Output {
+    public func adminTeamsOwnersList(_ input: Operations.AdminTeamsOwnersList.Input) async throws -> Operations.AdminTeamsOwnersList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminTeamsOwnersList.id,
+            forOperation: Operations.AdminTeamsOwnersList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.teams.owners.list",
@@ -4352,7 +4352,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminTeamsOwnersList.Output.Ok.Body
+                    let body: Operations.AdminTeamsOwnersList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4388,10 +4388,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.info`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.info/post(adminTeamsSettingsInfo)`.
-    public func adminTeamsSettingsInfo(_ input: Operations.adminTeamsSettingsInfo.Input) async throws -> Operations.adminTeamsSettingsInfo.Output {
+    public func adminTeamsSettingsInfo(_ input: Operations.AdminTeamsSettingsInfo.Input) async throws -> Operations.AdminTeamsSettingsInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminTeamsSettingsInfo.id,
+            forOperation: Operations.AdminTeamsSettingsInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.teams.settings.info",
@@ -4421,7 +4421,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminTeamsSettingsInfo.Output.Ok.Body
+                    let body: Operations.AdminTeamsSettingsInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4457,10 +4457,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setDefaultChannels`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDefaultChannels/post(adminTeamsSettingsSetDefaultChannels)`.
-    public func adminTeamsSettingsSetDefaultChannels(_ input: Operations.adminTeamsSettingsSetDefaultChannels.Input) async throws -> Operations.adminTeamsSettingsSetDefaultChannels.Output {
+    public func adminTeamsSettingsSetDefaultChannels(_ input: Operations.AdminTeamsSettingsSetDefaultChannels.Input) async throws -> Operations.AdminTeamsSettingsSetDefaultChannels.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminTeamsSettingsSetDefaultChannels.id,
+            forOperation: Operations.AdminTeamsSettingsSetDefaultChannels.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.teams.settings.setDefaultChannels",
@@ -4490,7 +4490,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminTeamsSettingsSetDefaultChannels.Output.Ok.Body
+                    let body: Operations.AdminTeamsSettingsSetDefaultChannels.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4526,10 +4526,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setDescription`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDescription/post(adminTeamsSettingsSetDescription)`.
-    public func adminTeamsSettingsSetDescription(_ input: Operations.adminTeamsSettingsSetDescription.Input) async throws -> Operations.adminTeamsSettingsSetDescription.Output {
+    public func adminTeamsSettingsSetDescription(_ input: Operations.AdminTeamsSettingsSetDescription.Input) async throws -> Operations.AdminTeamsSettingsSetDescription.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminTeamsSettingsSetDescription.id,
+            forOperation: Operations.AdminTeamsSettingsSetDescription.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.teams.settings.setDescription",
@@ -4559,7 +4559,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminTeamsSettingsSetDescription.Output.Ok.Body
+                    let body: Operations.AdminTeamsSettingsSetDescription.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4595,10 +4595,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setDiscoverability`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDiscoverability/post(adminTeamsSettingsSetDiscoverability)`.
-    public func adminTeamsSettingsSetDiscoverability(_ input: Operations.adminTeamsSettingsSetDiscoverability.Input) async throws -> Operations.adminTeamsSettingsSetDiscoverability.Output {
+    public func adminTeamsSettingsSetDiscoverability(_ input: Operations.AdminTeamsSettingsSetDiscoverability.Input) async throws -> Operations.AdminTeamsSettingsSetDiscoverability.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminTeamsSettingsSetDiscoverability.id,
+            forOperation: Operations.AdminTeamsSettingsSetDiscoverability.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.teams.settings.setDiscoverability",
@@ -4628,7 +4628,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminTeamsSettingsSetDiscoverability.Output.Ok.Body
+                    let body: Operations.AdminTeamsSettingsSetDiscoverability.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4664,10 +4664,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setIcon`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setIcon/post(adminTeamsSettingsSetIcon)`.
-    public func adminTeamsSettingsSetIcon(_ input: Operations.adminTeamsSettingsSetIcon.Input) async throws -> Operations.adminTeamsSettingsSetIcon.Output {
+    public func adminTeamsSettingsSetIcon(_ input: Operations.AdminTeamsSettingsSetIcon.Input) async throws -> Operations.AdminTeamsSettingsSetIcon.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminTeamsSettingsSetIcon.id,
+            forOperation: Operations.AdminTeamsSettingsSetIcon.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.teams.settings.setIcon",
@@ -4697,7 +4697,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminTeamsSettingsSetIcon.Output.Ok.Body
+                    let body: Operations.AdminTeamsSettingsSetIcon.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4733,10 +4733,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setName`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setName/post(adminTeamsSettingsSetName)`.
-    public func adminTeamsSettingsSetName(_ input: Operations.adminTeamsSettingsSetName.Input) async throws -> Operations.adminTeamsSettingsSetName.Output {
+    public func adminTeamsSettingsSetName(_ input: Operations.AdminTeamsSettingsSetName.Input) async throws -> Operations.AdminTeamsSettingsSetName.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminTeamsSettingsSetName.id,
+            forOperation: Operations.AdminTeamsSettingsSetName.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.teams.settings.setName",
@@ -4766,7 +4766,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminTeamsSettingsSetName.Output.Ok.Body
+                    let body: Operations.AdminTeamsSettingsSetName.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4802,10 +4802,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.assign`.
     /// - Remark: Generated from `#/paths//admin.users.assign/post(adminUsersAssign)`.
-    public func adminUsersAssign(_ input: Operations.adminUsersAssign.Input) async throws -> Operations.adminUsersAssign.Output {
+    public func adminUsersAssign(_ input: Operations.AdminUsersAssign.Input) async throws -> Operations.AdminUsersAssign.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersAssign.id,
+            forOperation: Operations.AdminUsersAssign.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.assign",
@@ -4835,7 +4835,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersAssign.Output.Ok.Body
+                    let body: Operations.AdminUsersAssign.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4871,10 +4871,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.invite`.
     /// - Remark: Generated from `#/paths//admin.users.invite/post(adminUsersInvite)`.
-    public func adminUsersInvite(_ input: Operations.adminUsersInvite.Input) async throws -> Operations.adminUsersInvite.Output {
+    public func adminUsersInvite(_ input: Operations.AdminUsersInvite.Input) async throws -> Operations.AdminUsersInvite.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersInvite.id,
+            forOperation: Operations.AdminUsersInvite.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.invite",
@@ -4904,7 +4904,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersInvite.Output.Ok.Body
+                    let body: Operations.AdminUsersInvite.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -4940,10 +4940,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.list`.
     /// - Remark: Generated from `#/paths//admin.users.list/post(adminUsersList)`.
-    public func adminUsersList(_ input: Operations.adminUsersList.Input) async throws -> Operations.adminUsersList.Output {
+    public func adminUsersList(_ input: Operations.AdminUsersList.Input) async throws -> Operations.AdminUsersList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersList.id,
+            forOperation: Operations.AdminUsersList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.list",
@@ -4973,7 +4973,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersList.Output.Ok.Body
+                    let body: Operations.AdminUsersList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5009,10 +5009,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.remove`.
     /// - Remark: Generated from `#/paths//admin.users.remove/post(adminUsersRemove)`.
-    public func adminUsersRemove(_ input: Operations.adminUsersRemove.Input) async throws -> Operations.adminUsersRemove.Output {
+    public func adminUsersRemove(_ input: Operations.AdminUsersRemove.Input) async throws -> Operations.AdminUsersRemove.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersRemove.id,
+            forOperation: Operations.AdminUsersRemove.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.remove",
@@ -5042,7 +5042,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersRemove.Output.Ok.Body
+                    let body: Operations.AdminUsersRemove.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5078,10 +5078,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.clearSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.clearSettings/post(adminUsersSessionClearSettings)`.
-    public func adminUsersSessionClearSettings(_ input: Operations.adminUsersSessionClearSettings.Input) async throws -> Operations.adminUsersSessionClearSettings.Output {
+    public func adminUsersSessionClearSettings(_ input: Operations.AdminUsersSessionClearSettings.Input) async throws -> Operations.AdminUsersSessionClearSettings.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersSessionClearSettings.id,
+            forOperation: Operations.AdminUsersSessionClearSettings.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.session.clearSettings",
@@ -5111,7 +5111,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersSessionClearSettings.Output.Ok.Body
+                    let body: Operations.AdminUsersSessionClearSettings.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5147,10 +5147,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.getSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.getSettings/post(adminUsersSessionGetSettings)`.
-    public func adminUsersSessionGetSettings(_ input: Operations.adminUsersSessionGetSettings.Input) async throws -> Operations.adminUsersSessionGetSettings.Output {
+    public func adminUsersSessionGetSettings(_ input: Operations.AdminUsersSessionGetSettings.Input) async throws -> Operations.AdminUsersSessionGetSettings.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersSessionGetSettings.id,
+            forOperation: Operations.AdminUsersSessionGetSettings.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.session.getSettings",
@@ -5180,7 +5180,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersSessionGetSettings.Output.Ok.Body
+                    let body: Operations.AdminUsersSessionGetSettings.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5216,10 +5216,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.invalidate`.
     /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)`.
-    public func adminUsersSessionInvalidate(_ input: Operations.adminUsersSessionInvalidate.Input) async throws -> Operations.adminUsersSessionInvalidate.Output {
+    public func adminUsersSessionInvalidate(_ input: Operations.AdminUsersSessionInvalidate.Input) async throws -> Operations.AdminUsersSessionInvalidate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersSessionInvalidate.id,
+            forOperation: Operations.AdminUsersSessionInvalidate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.session.invalidate",
@@ -5249,7 +5249,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersSessionInvalidate.Output.Ok.Body
+                    let body: Operations.AdminUsersSessionInvalidate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5285,10 +5285,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.list`.
     /// - Remark: Generated from `#/paths//admin.users.session.list/post(adminUsersSessionList)`.
-    public func adminUsersSessionList(_ input: Operations.adminUsersSessionList.Input) async throws -> Operations.adminUsersSessionList.Output {
+    public func adminUsersSessionList(_ input: Operations.AdminUsersSessionList.Input) async throws -> Operations.AdminUsersSessionList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersSessionList.id,
+            forOperation: Operations.AdminUsersSessionList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.session.list",
@@ -5318,7 +5318,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersSessionList.Output.Ok.Body
+                    let body: Operations.AdminUsersSessionList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5354,10 +5354,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.reset`.
     /// - Remark: Generated from `#/paths//admin.users.session.reset/post(adminUsersSessionReset)`.
-    public func adminUsersSessionReset(_ input: Operations.adminUsersSessionReset.Input) async throws -> Operations.adminUsersSessionReset.Output {
+    public func adminUsersSessionReset(_ input: Operations.AdminUsersSessionReset.Input) async throws -> Operations.AdminUsersSessionReset.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersSessionReset.id,
+            forOperation: Operations.AdminUsersSessionReset.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.session.reset",
@@ -5387,7 +5387,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersSessionReset.Output.Ok.Body
+                    let body: Operations.AdminUsersSessionReset.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5423,10 +5423,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.resetBulk`.
     /// - Remark: Generated from `#/paths//admin.users.session.resetBulk/post(adminUsersSessionResetBulk)`.
-    public func adminUsersSessionResetBulk(_ input: Operations.adminUsersSessionResetBulk.Input) async throws -> Operations.adminUsersSessionResetBulk.Output {
+    public func adminUsersSessionResetBulk(_ input: Operations.AdminUsersSessionResetBulk.Input) async throws -> Operations.AdminUsersSessionResetBulk.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersSessionResetBulk.id,
+            forOperation: Operations.AdminUsersSessionResetBulk.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.session.resetBulk",
@@ -5456,7 +5456,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersSessionResetBulk.Output.Ok.Body
+                    let body: Operations.AdminUsersSessionResetBulk.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5492,10 +5492,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.setSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.setSettings/post(adminUsersSessionSetSettings)`.
-    public func adminUsersSessionSetSettings(_ input: Operations.adminUsersSessionSetSettings.Input) async throws -> Operations.adminUsersSessionSetSettings.Output {
+    public func adminUsersSessionSetSettings(_ input: Operations.AdminUsersSessionSetSettings.Input) async throws -> Operations.AdminUsersSessionSetSettings.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersSessionSetSettings.id,
+            forOperation: Operations.AdminUsersSessionSetSettings.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.session.setSettings",
@@ -5525,7 +5525,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersSessionSetSettings.Output.Ok.Body
+                    let body: Operations.AdminUsersSessionSetSettings.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5561,10 +5561,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.setAdmin`.
     /// - Remark: Generated from `#/paths//admin.users.setAdmin/post(adminUsersSetAdmin)`.
-    public func adminUsersSetAdmin(_ input: Operations.adminUsersSetAdmin.Input) async throws -> Operations.adminUsersSetAdmin.Output {
+    public func adminUsersSetAdmin(_ input: Operations.AdminUsersSetAdmin.Input) async throws -> Operations.AdminUsersSetAdmin.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersSetAdmin.id,
+            forOperation: Operations.AdminUsersSetAdmin.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.setAdmin",
@@ -5594,7 +5594,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersSetAdmin.Output.Ok.Body
+                    let body: Operations.AdminUsersSetAdmin.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5630,10 +5630,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.setExpiration`.
     /// - Remark: Generated from `#/paths//admin.users.setExpiration/post(adminUsersSetExpiration)`.
-    public func adminUsersSetExpiration(_ input: Operations.adminUsersSetExpiration.Input) async throws -> Operations.adminUsersSetExpiration.Output {
+    public func adminUsersSetExpiration(_ input: Operations.AdminUsersSetExpiration.Input) async throws -> Operations.AdminUsersSetExpiration.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersSetExpiration.id,
+            forOperation: Operations.AdminUsersSetExpiration.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.setExpiration",
@@ -5663,7 +5663,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersSetExpiration.Output.Ok.Body
+                    let body: Operations.AdminUsersSetExpiration.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5699,10 +5699,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.setOwner`.
     /// - Remark: Generated from `#/paths//admin.users.setOwner/post(adminUsersSetOwner)`.
-    public func adminUsersSetOwner(_ input: Operations.adminUsersSetOwner.Input) async throws -> Operations.adminUsersSetOwner.Output {
+    public func adminUsersSetOwner(_ input: Operations.AdminUsersSetOwner.Input) async throws -> Operations.AdminUsersSetOwner.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersSetOwner.id,
+            forOperation: Operations.AdminUsersSetOwner.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.setOwner",
@@ -5732,7 +5732,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersSetOwner.Output.Ok.Body
+                    let body: Operations.AdminUsersSetOwner.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5768,10 +5768,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.setRegular`.
     /// - Remark: Generated from `#/paths//admin.users.setRegular/post(adminUsersSetRegular)`.
-    public func adminUsersSetRegular(_ input: Operations.adminUsersSetRegular.Input) async throws -> Operations.adminUsersSetRegular.Output {
+    public func adminUsersSetRegular(_ input: Operations.AdminUsersSetRegular.Input) async throws -> Operations.AdminUsersSetRegular.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersSetRegular.id,
+            forOperation: Operations.AdminUsersSetRegular.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.setRegular",
@@ -5801,7 +5801,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersSetRegular.Output.Ok.Body
+                    let body: Operations.AdminUsersSetRegular.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5837,10 +5837,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.unsupportedVersions.export`.
     /// - Remark: Generated from `#/paths//admin.users.unsupportedVersions.export/post(adminUsersUnsupportedVersionsExport)`.
-    public func adminUsersUnsupportedVersionsExport(_ input: Operations.adminUsersUnsupportedVersionsExport.Input) async throws -> Operations.adminUsersUnsupportedVersionsExport.Output {
+    public func adminUsersUnsupportedVersionsExport(_ input: Operations.AdminUsersUnsupportedVersionsExport.Input) async throws -> Operations.AdminUsersUnsupportedVersionsExport.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.adminUsersUnsupportedVersionsExport.id,
+            forOperation: Operations.AdminUsersUnsupportedVersionsExport.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/admin.users.unsupportedVersions.export",
@@ -5870,7 +5870,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.adminUsersUnsupportedVersionsExport.Output.Ok.Body
+                    let body: Operations.AdminUsersUnsupportedVersionsExport.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5906,10 +5906,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.connections.open`.
     /// - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
-    public func appsConnectionsOpen(_ input: Operations.appsConnectionsOpen.Input) async throws -> Operations.appsConnectionsOpen.Output {
+    public func appsConnectionsOpen(_ input: Operations.AppsConnectionsOpen.Input) async throws -> Operations.AppsConnectionsOpen.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.appsConnectionsOpen.id,
+            forOperation: Operations.AppsConnectionsOpen.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/apps.connections.open",
@@ -5939,7 +5939,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.appsConnectionsOpen.Output.Ok.Body
+                    let body: Operations.AppsConnectionsOpen.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -5975,10 +5975,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.event.authorizations.list`.
     /// - Remark: Generated from `#/paths//apps.event.authorizations.list/post(appsEventAuthorizationsList)`.
-    public func appsEventAuthorizationsList(_ input: Operations.appsEventAuthorizationsList.Input) async throws -> Operations.appsEventAuthorizationsList.Output {
+    public func appsEventAuthorizationsList(_ input: Operations.AppsEventAuthorizationsList.Input) async throws -> Operations.AppsEventAuthorizationsList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.appsEventAuthorizationsList.id,
+            forOperation: Operations.AppsEventAuthorizationsList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/apps.event.authorizations.list",
@@ -6008,7 +6008,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.appsEventAuthorizationsList.Output.Ok.Body
+                    let body: Operations.AppsEventAuthorizationsList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6044,10 +6044,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.manifest.create`.
     /// - Remark: Generated from `#/paths//apps.manifest.create/post(appsManifestCreate)`.
-    public func appsManifestCreate(_ input: Operations.appsManifestCreate.Input) async throws -> Operations.appsManifestCreate.Output {
+    public func appsManifestCreate(_ input: Operations.AppsManifestCreate.Input) async throws -> Operations.AppsManifestCreate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.appsManifestCreate.id,
+            forOperation: Operations.AppsManifestCreate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/apps.manifest.create",
@@ -6077,7 +6077,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.appsManifestCreate.Output.Ok.Body
+                    let body: Operations.AppsManifestCreate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6113,10 +6113,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.manifest.delete`.
     /// - Remark: Generated from `#/paths//apps.manifest.delete/post(appsManifestDelete)`.
-    public func appsManifestDelete(_ input: Operations.appsManifestDelete.Input) async throws -> Operations.appsManifestDelete.Output {
+    public func appsManifestDelete(_ input: Operations.AppsManifestDelete.Input) async throws -> Operations.AppsManifestDelete.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.appsManifestDelete.id,
+            forOperation: Operations.AppsManifestDelete.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/apps.manifest.delete",
@@ -6146,7 +6146,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.appsManifestDelete.Output.Ok.Body
+                    let body: Operations.AppsManifestDelete.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6182,10 +6182,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.manifest.export`.
     /// - Remark: Generated from `#/paths//apps.manifest.export/post(appsManifestExport)`.
-    public func appsManifestExport(_ input: Operations.appsManifestExport.Input) async throws -> Operations.appsManifestExport.Output {
+    public func appsManifestExport(_ input: Operations.AppsManifestExport.Input) async throws -> Operations.AppsManifestExport.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.appsManifestExport.id,
+            forOperation: Operations.AppsManifestExport.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/apps.manifest.export",
@@ -6215,7 +6215,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.appsManifestExport.Output.Ok.Body
+                    let body: Operations.AppsManifestExport.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6251,10 +6251,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.manifest.update`.
     /// - Remark: Generated from `#/paths//apps.manifest.update/post(appsManifestUpdate)`.
-    public func appsManifestUpdate(_ input: Operations.appsManifestUpdate.Input) async throws -> Operations.appsManifestUpdate.Output {
+    public func appsManifestUpdate(_ input: Operations.AppsManifestUpdate.Input) async throws -> Operations.AppsManifestUpdate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.appsManifestUpdate.id,
+            forOperation: Operations.AppsManifestUpdate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/apps.manifest.update",
@@ -6284,7 +6284,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.appsManifestUpdate.Output.Ok.Body
+                    let body: Operations.AppsManifestUpdate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6320,10 +6320,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.manifest.validate`.
     /// - Remark: Generated from `#/paths//apps.manifest.validate/post(appsManifestValidate)`.
-    public func appsManifestValidate(_ input: Operations.appsManifestValidate.Input) async throws -> Operations.appsManifestValidate.Output {
+    public func appsManifestValidate(_ input: Operations.AppsManifestValidate.Input) async throws -> Operations.AppsManifestValidate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.appsManifestValidate.id,
+            forOperation: Operations.AppsManifestValidate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/apps.manifest.validate",
@@ -6353,7 +6353,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.appsManifestValidate.Output.Ok.Body
+                    let body: Operations.AppsManifestValidate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6389,10 +6389,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.uninstall`.
     /// - Remark: Generated from `#/paths//apps.uninstall/post(appsUninstall)`.
-    public func appsUninstall(_ input: Operations.appsUninstall.Input) async throws -> Operations.appsUninstall.Output {
+    public func appsUninstall(_ input: Operations.AppsUninstall.Input) async throws -> Operations.AppsUninstall.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.appsUninstall.id,
+            forOperation: Operations.AppsUninstall.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/apps.uninstall",
@@ -6422,7 +6422,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.appsUninstall.Output.Ok.Body
+                    let body: Operations.AppsUninstall.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6458,10 +6458,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /assistant.threads.setStatus`.
     /// - Remark: Generated from `#/paths//assistant.threads.setStatus/post(assistantThreadsSetStatus)`.
-    public func assistantThreadsSetStatus(_ input: Operations.assistantThreadsSetStatus.Input) async throws -> Operations.assistantThreadsSetStatus.Output {
+    public func assistantThreadsSetStatus(_ input: Operations.AssistantThreadsSetStatus.Input) async throws -> Operations.AssistantThreadsSetStatus.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.assistantThreadsSetStatus.id,
+            forOperation: Operations.AssistantThreadsSetStatus.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/assistant.threads.setStatus",
@@ -6491,7 +6491,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.assistantThreadsSetStatus.Output.Ok.Body
+                    let body: Operations.AssistantThreadsSetStatus.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6527,10 +6527,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /assistant.threads.setSuggestedPrompts`.
     /// - Remark: Generated from `#/paths//assistant.threads.setSuggestedPrompts/post(assistantThreadsSetSuggestedPrompts)`.
-    public func assistantThreadsSetSuggestedPrompts(_ input: Operations.assistantThreadsSetSuggestedPrompts.Input) async throws -> Operations.assistantThreadsSetSuggestedPrompts.Output {
+    public func assistantThreadsSetSuggestedPrompts(_ input: Operations.AssistantThreadsSetSuggestedPrompts.Input) async throws -> Operations.AssistantThreadsSetSuggestedPrompts.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.assistantThreadsSetSuggestedPrompts.id,
+            forOperation: Operations.AssistantThreadsSetSuggestedPrompts.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/assistant.threads.setSuggestedPrompts",
@@ -6560,7 +6560,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.assistantThreadsSetSuggestedPrompts.Output.Ok.Body
+                    let body: Operations.AssistantThreadsSetSuggestedPrompts.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6596,10 +6596,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /assistant.threads.setTitle`.
     /// - Remark: Generated from `#/paths//assistant.threads.setTitle/post(assistantThreadsSetTitle)`.
-    public func assistantThreadsSetTitle(_ input: Operations.assistantThreadsSetTitle.Input) async throws -> Operations.assistantThreadsSetTitle.Output {
+    public func assistantThreadsSetTitle(_ input: Operations.AssistantThreadsSetTitle.Input) async throws -> Operations.AssistantThreadsSetTitle.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.assistantThreadsSetTitle.id,
+            forOperation: Operations.AssistantThreadsSetTitle.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/assistant.threads.setTitle",
@@ -6629,7 +6629,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.assistantThreadsSetTitle.Output.Ok.Body
+                    let body: Operations.AssistantThreadsSetTitle.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6665,10 +6665,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /auth.revoke`.
     /// - Remark: Generated from `#/paths//auth.revoke/post(authRevoke)`.
-    public func authRevoke(_ input: Operations.authRevoke.Input) async throws -> Operations.authRevoke.Output {
+    public func authRevoke(_ input: Operations.AuthRevoke.Input) async throws -> Operations.AuthRevoke.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.authRevoke.id,
+            forOperation: Operations.AuthRevoke.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/auth.revoke",
@@ -6698,7 +6698,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.authRevoke.Output.Ok.Body
+                    let body: Operations.AuthRevoke.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6734,10 +6734,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /auth.teams.list`.
     /// - Remark: Generated from `#/paths//auth.teams.list/post(authTeamsList)`.
-    public func authTeamsList(_ input: Operations.authTeamsList.Input) async throws -> Operations.authTeamsList.Output {
+    public func authTeamsList(_ input: Operations.AuthTeamsList.Input) async throws -> Operations.AuthTeamsList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.authTeamsList.id,
+            forOperation: Operations.AuthTeamsList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/auth.teams.list",
@@ -6767,7 +6767,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.authTeamsList.Output.Ok.Body
+                    let body: Operations.AuthTeamsList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6803,10 +6803,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /auth.test`.
     /// - Remark: Generated from `#/paths//auth.test/post(authTest)`.
-    public func authTest(_ input: Operations.authTest.Input) async throws -> Operations.authTest.Output {
+    public func authTest(_ input: Operations.AuthTest.Input) async throws -> Operations.AuthTest.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.authTest.id,
+            forOperation: Operations.AuthTest.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/auth.test",
@@ -6836,7 +6836,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.authTest.Output.Ok.Body
+                    let body: Operations.AuthTest.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6872,10 +6872,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /bookmarks.add`.
     /// - Remark: Generated from `#/paths//bookmarks.add/post(bookmarksAdd)`.
-    public func bookmarksAdd(_ input: Operations.bookmarksAdd.Input) async throws -> Operations.bookmarksAdd.Output {
+    public func bookmarksAdd(_ input: Operations.BookmarksAdd.Input) async throws -> Operations.BookmarksAdd.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.bookmarksAdd.id,
+            forOperation: Operations.BookmarksAdd.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/bookmarks.add",
@@ -6905,7 +6905,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.bookmarksAdd.Output.Ok.Body
+                    let body: Operations.BookmarksAdd.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -6941,10 +6941,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /bookmarks.edit`.
     /// - Remark: Generated from `#/paths//bookmarks.edit/post(bookmarksEdit)`.
-    public func bookmarksEdit(_ input: Operations.bookmarksEdit.Input) async throws -> Operations.bookmarksEdit.Output {
+    public func bookmarksEdit(_ input: Operations.BookmarksEdit.Input) async throws -> Operations.BookmarksEdit.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.bookmarksEdit.id,
+            forOperation: Operations.BookmarksEdit.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/bookmarks.edit",
@@ -6974,7 +6974,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.bookmarksEdit.Output.Ok.Body
+                    let body: Operations.BookmarksEdit.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7010,10 +7010,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /bookmarks.list`.
     /// - Remark: Generated from `#/paths//bookmarks.list/post(bookmarksList)`.
-    public func bookmarksList(_ input: Operations.bookmarksList.Input) async throws -> Operations.bookmarksList.Output {
+    public func bookmarksList(_ input: Operations.BookmarksList.Input) async throws -> Operations.BookmarksList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.bookmarksList.id,
+            forOperation: Operations.BookmarksList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/bookmarks.list",
@@ -7043,7 +7043,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.bookmarksList.Output.Ok.Body
+                    let body: Operations.BookmarksList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7079,10 +7079,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /bookmarks.remove`.
     /// - Remark: Generated from `#/paths//bookmarks.remove/post(bookmarksRemove)`.
-    public func bookmarksRemove(_ input: Operations.bookmarksRemove.Input) async throws -> Operations.bookmarksRemove.Output {
+    public func bookmarksRemove(_ input: Operations.BookmarksRemove.Input) async throws -> Operations.BookmarksRemove.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.bookmarksRemove.id,
+            forOperation: Operations.BookmarksRemove.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/bookmarks.remove",
@@ -7112,7 +7112,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.bookmarksRemove.Output.Ok.Body
+                    let body: Operations.BookmarksRemove.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7148,10 +7148,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /bots.info`.
     /// - Remark: Generated from `#/paths//bots.info/post(botsInfo)`.
-    public func botsInfo(_ input: Operations.botsInfo.Input) async throws -> Operations.botsInfo.Output {
+    public func botsInfo(_ input: Operations.BotsInfo.Input) async throws -> Operations.BotsInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.botsInfo.id,
+            forOperation: Operations.BotsInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/bots.info",
@@ -7181,7 +7181,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.botsInfo.Output.Ok.Body
+                    let body: Operations.BotsInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7217,10 +7217,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /canvases.access.delete`.
     /// - Remark: Generated from `#/paths//canvases.access.delete/post(canvasesAccessDelete)`.
-    public func canvasesAccessDelete(_ input: Operations.canvasesAccessDelete.Input) async throws -> Operations.canvasesAccessDelete.Output {
+    public func canvasesAccessDelete(_ input: Operations.CanvasesAccessDelete.Input) async throws -> Operations.CanvasesAccessDelete.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.canvasesAccessDelete.id,
+            forOperation: Operations.CanvasesAccessDelete.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/canvases.access.delete",
@@ -7250,7 +7250,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.canvasesAccessDelete.Output.Ok.Body
+                    let body: Operations.CanvasesAccessDelete.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7286,10 +7286,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /canvases.access.set`.
     /// - Remark: Generated from `#/paths//canvases.access.set/post(canvasesAccessSet)`.
-    public func canvasesAccessSet(_ input: Operations.canvasesAccessSet.Input) async throws -> Operations.canvasesAccessSet.Output {
+    public func canvasesAccessSet(_ input: Operations.CanvasesAccessSet.Input) async throws -> Operations.CanvasesAccessSet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.canvasesAccessSet.id,
+            forOperation: Operations.CanvasesAccessSet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/canvases.access.set",
@@ -7319,7 +7319,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.canvasesAccessSet.Output.Ok.Body
+                    let body: Operations.CanvasesAccessSet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7355,10 +7355,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /canvases.create`.
     /// - Remark: Generated from `#/paths//canvases.create/post(canvasesCreate)`.
-    public func canvasesCreate(_ input: Operations.canvasesCreate.Input) async throws -> Operations.canvasesCreate.Output {
+    public func canvasesCreate(_ input: Operations.CanvasesCreate.Input) async throws -> Operations.CanvasesCreate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.canvasesCreate.id,
+            forOperation: Operations.CanvasesCreate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/canvases.create",
@@ -7388,7 +7388,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.canvasesCreate.Output.Ok.Body
+                    let body: Operations.CanvasesCreate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7424,10 +7424,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /canvases.delete`.
     /// - Remark: Generated from `#/paths//canvases.delete/post(canvasesDelete)`.
-    public func canvasesDelete(_ input: Operations.canvasesDelete.Input) async throws -> Operations.canvasesDelete.Output {
+    public func canvasesDelete(_ input: Operations.CanvasesDelete.Input) async throws -> Operations.CanvasesDelete.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.canvasesDelete.id,
+            forOperation: Operations.CanvasesDelete.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/canvases.delete",
@@ -7457,7 +7457,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.canvasesDelete.Output.Ok.Body
+                    let body: Operations.CanvasesDelete.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7493,10 +7493,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /canvases.edit`.
     /// - Remark: Generated from `#/paths//canvases.edit/post(canvasesEdit)`.
-    public func canvasesEdit(_ input: Operations.canvasesEdit.Input) async throws -> Operations.canvasesEdit.Output {
+    public func canvasesEdit(_ input: Operations.CanvasesEdit.Input) async throws -> Operations.CanvasesEdit.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.canvasesEdit.id,
+            forOperation: Operations.CanvasesEdit.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/canvases.edit",
@@ -7526,7 +7526,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.canvasesEdit.Output.Ok.Body
+                    let body: Operations.CanvasesEdit.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7562,10 +7562,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /canvases.sections.lookup`.
     /// - Remark: Generated from `#/paths//canvases.sections.lookup/post(canvasesSectionsLookup)`.
-    public func canvasesSectionsLookup(_ input: Operations.canvasesSectionsLookup.Input) async throws -> Operations.canvasesSectionsLookup.Output {
+    public func canvasesSectionsLookup(_ input: Operations.CanvasesSectionsLookup.Input) async throws -> Operations.CanvasesSectionsLookup.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.canvasesSectionsLookup.id,
+            forOperation: Operations.CanvasesSectionsLookup.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/canvases.sections.lookup",
@@ -7595,7 +7595,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.canvasesSectionsLookup.Output.Ok.Body
+                    let body: Operations.CanvasesSectionsLookup.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7631,10 +7631,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.delete`.
     /// - Remark: Generated from `#/paths//chat.delete/post(chatDelete)`.
-    public func chatDelete(_ input: Operations.chatDelete.Input) async throws -> Operations.chatDelete.Output {
+    public func chatDelete(_ input: Operations.ChatDelete.Input) async throws -> Operations.ChatDelete.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.chatDelete.id,
+            forOperation: Operations.ChatDelete.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/chat.delete",
@@ -7664,7 +7664,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.chatDelete.Output.Ok.Body
+                    let body: Operations.ChatDelete.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7700,10 +7700,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.deleteScheduledMessage`.
     /// - Remark: Generated from `#/paths//chat.deleteScheduledMessage/post(chatDeleteScheduledMessage)`.
-    public func chatDeleteScheduledMessage(_ input: Operations.chatDeleteScheduledMessage.Input) async throws -> Operations.chatDeleteScheduledMessage.Output {
+    public func chatDeleteScheduledMessage(_ input: Operations.ChatDeleteScheduledMessage.Input) async throws -> Operations.ChatDeleteScheduledMessage.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.chatDeleteScheduledMessage.id,
+            forOperation: Operations.ChatDeleteScheduledMessage.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/chat.deleteScheduledMessage",
@@ -7733,7 +7733,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.chatDeleteScheduledMessage.Output.Ok.Body
+                    let body: Operations.ChatDeleteScheduledMessage.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7769,10 +7769,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.getPermalink`.
     /// - Remark: Generated from `#/paths//chat.getPermalink/post(chatGetPermalink)`.
-    public func chatGetPermalink(_ input: Operations.chatGetPermalink.Input) async throws -> Operations.chatGetPermalink.Output {
+    public func chatGetPermalink(_ input: Operations.ChatGetPermalink.Input) async throws -> Operations.ChatGetPermalink.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.chatGetPermalink.id,
+            forOperation: Operations.ChatGetPermalink.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/chat.getPermalink",
@@ -7802,7 +7802,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.chatGetPermalink.Output.Ok.Body
+                    let body: Operations.ChatGetPermalink.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7838,10 +7838,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.meMessage`.
     /// - Remark: Generated from `#/paths//chat.meMessage/post(chatMeMessage)`.
-    public func chatMeMessage(_ input: Operations.chatMeMessage.Input) async throws -> Operations.chatMeMessage.Output {
+    public func chatMeMessage(_ input: Operations.ChatMeMessage.Input) async throws -> Operations.ChatMeMessage.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.chatMeMessage.id,
+            forOperation: Operations.ChatMeMessage.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/chat.meMessage",
@@ -7871,7 +7871,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.chatMeMessage.Output.Ok.Body
+                    let body: Operations.ChatMeMessage.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7907,10 +7907,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.postEphemeral`.
     /// - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
-    public func chatPostEphemeral(_ input: Operations.chatPostEphemeral.Input) async throws -> Operations.chatPostEphemeral.Output {
+    public func chatPostEphemeral(_ input: Operations.ChatPostEphemeral.Input) async throws -> Operations.ChatPostEphemeral.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.chatPostEphemeral.id,
+            forOperation: Operations.ChatPostEphemeral.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/chat.postEphemeral",
@@ -7940,7 +7940,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.chatPostEphemeral.Output.Ok.Body
+                    let body: Operations.ChatPostEphemeral.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -7976,10 +7976,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.postMessage`.
     /// - Remark: Generated from `#/paths//chat.postMessage/post(chatPostMessage)`.
-    public func chatPostMessage(_ input: Operations.chatPostMessage.Input) async throws -> Operations.chatPostMessage.Output {
+    public func chatPostMessage(_ input: Operations.ChatPostMessage.Input) async throws -> Operations.ChatPostMessage.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.chatPostMessage.id,
+            forOperation: Operations.ChatPostMessage.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/chat.postMessage",
@@ -8009,7 +8009,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.chatPostMessage.Output.Ok.Body
+                    let body: Operations.ChatPostMessage.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8045,10 +8045,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.scheduleMessage`.
     /// - Remark: Generated from `#/paths//chat.scheduleMessage/post(chatScheduleMessage)`.
-    public func chatScheduleMessage(_ input: Operations.chatScheduleMessage.Input) async throws -> Operations.chatScheduleMessage.Output {
+    public func chatScheduleMessage(_ input: Operations.ChatScheduleMessage.Input) async throws -> Operations.ChatScheduleMessage.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.chatScheduleMessage.id,
+            forOperation: Operations.ChatScheduleMessage.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/chat.scheduleMessage",
@@ -8078,7 +8078,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.chatScheduleMessage.Output.Ok.Body
+                    let body: Operations.ChatScheduleMessage.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8114,10 +8114,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.scheduledMessages.list`.
     /// - Remark: Generated from `#/paths//chat.scheduledMessages.list/post(chatScheduledMessagesList)`.
-    public func chatScheduledMessagesList(_ input: Operations.chatScheduledMessagesList.Input) async throws -> Operations.chatScheduledMessagesList.Output {
+    public func chatScheduledMessagesList(_ input: Operations.ChatScheduledMessagesList.Input) async throws -> Operations.ChatScheduledMessagesList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.chatScheduledMessagesList.id,
+            forOperation: Operations.ChatScheduledMessagesList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/chat.scheduledMessages.list",
@@ -8147,7 +8147,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.chatScheduledMessagesList.Output.Ok.Body
+                    let body: Operations.ChatScheduledMessagesList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8183,10 +8183,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.unfurl`.
     /// - Remark: Generated from `#/paths//chat.unfurl/post(chatUnfurl)`.
-    public func chatUnfurl(_ input: Operations.chatUnfurl.Input) async throws -> Operations.chatUnfurl.Output {
+    public func chatUnfurl(_ input: Operations.ChatUnfurl.Input) async throws -> Operations.ChatUnfurl.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.chatUnfurl.id,
+            forOperation: Operations.ChatUnfurl.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/chat.unfurl",
@@ -8216,7 +8216,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.chatUnfurl.Output.Ok.Body
+                    let body: Operations.ChatUnfurl.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8252,10 +8252,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.update`.
     /// - Remark: Generated from `#/paths//chat.update/post(chatUpdate)`.
-    public func chatUpdate(_ input: Operations.chatUpdate.Input) async throws -> Operations.chatUpdate.Output {
+    public func chatUpdate(_ input: Operations.ChatUpdate.Input) async throws -> Operations.ChatUpdate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.chatUpdate.id,
+            forOperation: Operations.ChatUpdate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/chat.update",
@@ -8285,7 +8285,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.chatUpdate.Output.Ok.Body
+                    let body: Operations.ChatUpdate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8321,10 +8321,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.acceptSharedInvite`.
     /// - Remark: Generated from `#/paths//conversations.acceptSharedInvite/post(conversationsAcceptSharedInvite)`.
-    public func conversationsAcceptSharedInvite(_ input: Operations.conversationsAcceptSharedInvite.Input) async throws -> Operations.conversationsAcceptSharedInvite.Output {
+    public func conversationsAcceptSharedInvite(_ input: Operations.ConversationsAcceptSharedInvite.Input) async throws -> Operations.ConversationsAcceptSharedInvite.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsAcceptSharedInvite.id,
+            forOperation: Operations.ConversationsAcceptSharedInvite.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.acceptSharedInvite",
@@ -8354,7 +8354,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsAcceptSharedInvite.Output.Ok.Body
+                    let body: Operations.ConversationsAcceptSharedInvite.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8390,10 +8390,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.approveSharedInvite`.
     /// - Remark: Generated from `#/paths//conversations.approveSharedInvite/post(conversationsApproveSharedInvite)`.
-    public func conversationsApproveSharedInvite(_ input: Operations.conversationsApproveSharedInvite.Input) async throws -> Operations.conversationsApproveSharedInvite.Output {
+    public func conversationsApproveSharedInvite(_ input: Operations.ConversationsApproveSharedInvite.Input) async throws -> Operations.ConversationsApproveSharedInvite.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsApproveSharedInvite.id,
+            forOperation: Operations.ConversationsApproveSharedInvite.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.approveSharedInvite",
@@ -8423,7 +8423,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsApproveSharedInvite.Output.Ok.Body
+                    let body: Operations.ConversationsApproveSharedInvite.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8459,10 +8459,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.archive`.
     /// - Remark: Generated from `#/paths//conversations.archive/post(conversationsArchive)`.
-    public func conversationsArchive(_ input: Operations.conversationsArchive.Input) async throws -> Operations.conversationsArchive.Output {
+    public func conversationsArchive(_ input: Operations.ConversationsArchive.Input) async throws -> Operations.ConversationsArchive.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsArchive.id,
+            forOperation: Operations.ConversationsArchive.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.archive",
@@ -8492,7 +8492,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsArchive.Output.Ok.Body
+                    let body: Operations.ConversationsArchive.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8528,10 +8528,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.canvases.create`.
     /// - Remark: Generated from `#/paths//conversations.canvases.create/post(conversationsCanvasesCreate)`.
-    public func conversationsCanvasesCreate(_ input: Operations.conversationsCanvasesCreate.Input) async throws -> Operations.conversationsCanvasesCreate.Output {
+    public func conversationsCanvasesCreate(_ input: Operations.ConversationsCanvasesCreate.Input) async throws -> Operations.ConversationsCanvasesCreate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsCanvasesCreate.id,
+            forOperation: Operations.ConversationsCanvasesCreate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.canvases.create",
@@ -8561,7 +8561,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsCanvasesCreate.Output.Ok.Body
+                    let body: Operations.ConversationsCanvasesCreate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8597,10 +8597,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.close`.
     /// - Remark: Generated from `#/paths//conversations.close/post(conversationsClose)`.
-    public func conversationsClose(_ input: Operations.conversationsClose.Input) async throws -> Operations.conversationsClose.Output {
+    public func conversationsClose(_ input: Operations.ConversationsClose.Input) async throws -> Operations.ConversationsClose.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsClose.id,
+            forOperation: Operations.ConversationsClose.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.close",
@@ -8630,7 +8630,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsClose.Output.Ok.Body
+                    let body: Operations.ConversationsClose.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8666,10 +8666,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.create`.
     /// - Remark: Generated from `#/paths//conversations.create/post(conversationsCreate)`.
-    public func conversationsCreate(_ input: Operations.conversationsCreate.Input) async throws -> Operations.conversationsCreate.Output {
+    public func conversationsCreate(_ input: Operations.ConversationsCreate.Input) async throws -> Operations.ConversationsCreate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsCreate.id,
+            forOperation: Operations.ConversationsCreate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.create",
@@ -8699,7 +8699,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsCreate.Output.Ok.Body
+                    let body: Operations.ConversationsCreate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8735,10 +8735,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.declineSharedInvite`.
     /// - Remark: Generated from `#/paths//conversations.declineSharedInvite/post(conversationsDeclineSharedInvite)`.
-    public func conversationsDeclineSharedInvite(_ input: Operations.conversationsDeclineSharedInvite.Input) async throws -> Operations.conversationsDeclineSharedInvite.Output {
+    public func conversationsDeclineSharedInvite(_ input: Operations.ConversationsDeclineSharedInvite.Input) async throws -> Operations.ConversationsDeclineSharedInvite.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsDeclineSharedInvite.id,
+            forOperation: Operations.ConversationsDeclineSharedInvite.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.declineSharedInvite",
@@ -8768,7 +8768,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsDeclineSharedInvite.Output.Ok.Body
+                    let body: Operations.ConversationsDeclineSharedInvite.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8804,10 +8804,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.externalInvitePermissions.set`.
     /// - Remark: Generated from `#/paths//conversations.externalInvitePermissions.set/post(conversationsExternalInvitePermissionsSet)`.
-    public func conversationsExternalInvitePermissionsSet(_ input: Operations.conversationsExternalInvitePermissionsSet.Input) async throws -> Operations.conversationsExternalInvitePermissionsSet.Output {
+    public func conversationsExternalInvitePermissionsSet(_ input: Operations.ConversationsExternalInvitePermissionsSet.Input) async throws -> Operations.ConversationsExternalInvitePermissionsSet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsExternalInvitePermissionsSet.id,
+            forOperation: Operations.ConversationsExternalInvitePermissionsSet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.externalInvitePermissions.set",
@@ -8837,7 +8837,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsExternalInvitePermissionsSet.Output.Ok.Body
+                    let body: Operations.ConversationsExternalInvitePermissionsSet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8873,10 +8873,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.history`.
     /// - Remark: Generated from `#/paths//conversations.history/post(conversationsHistory)`.
-    public func conversationsHistory(_ input: Operations.conversationsHistory.Input) async throws -> Operations.conversationsHistory.Output {
+    public func conversationsHistory(_ input: Operations.ConversationsHistory.Input) async throws -> Operations.ConversationsHistory.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsHistory.id,
+            forOperation: Operations.ConversationsHistory.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.history",
@@ -8906,7 +8906,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsHistory.Output.Ok.Body
+                    let body: Operations.ConversationsHistory.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -8942,10 +8942,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.info`.
     /// - Remark: Generated from `#/paths//conversations.info/post(conversationsInfo)`.
-    public func conversationsInfo(_ input: Operations.conversationsInfo.Input) async throws -> Operations.conversationsInfo.Output {
+    public func conversationsInfo(_ input: Operations.ConversationsInfo.Input) async throws -> Operations.ConversationsInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsInfo.id,
+            forOperation: Operations.ConversationsInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.info",
@@ -8975,7 +8975,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsInfo.Output.Ok.Body
+                    let body: Operations.ConversationsInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9011,10 +9011,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.invite`.
     /// - Remark: Generated from `#/paths//conversations.invite/post(conversationsInvite)`.
-    public func conversationsInvite(_ input: Operations.conversationsInvite.Input) async throws -> Operations.conversationsInvite.Output {
+    public func conversationsInvite(_ input: Operations.ConversationsInvite.Input) async throws -> Operations.ConversationsInvite.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsInvite.id,
+            forOperation: Operations.ConversationsInvite.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.invite",
@@ -9044,7 +9044,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsInvite.Output.Ok.Body
+                    let body: Operations.ConversationsInvite.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9080,10 +9080,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.inviteShared`.
     /// - Remark: Generated from `#/paths//conversations.inviteShared/post(conversationsInviteShared)`.
-    public func conversationsInviteShared(_ input: Operations.conversationsInviteShared.Input) async throws -> Operations.conversationsInviteShared.Output {
+    public func conversationsInviteShared(_ input: Operations.ConversationsInviteShared.Input) async throws -> Operations.ConversationsInviteShared.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsInviteShared.id,
+            forOperation: Operations.ConversationsInviteShared.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.inviteShared",
@@ -9113,7 +9113,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsInviteShared.Output.Ok.Body
+                    let body: Operations.ConversationsInviteShared.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9149,10 +9149,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.join`.
     /// - Remark: Generated from `#/paths//conversations.join/post(conversationsJoin)`.
-    public func conversationsJoin(_ input: Operations.conversationsJoin.Input) async throws -> Operations.conversationsJoin.Output {
+    public func conversationsJoin(_ input: Operations.ConversationsJoin.Input) async throws -> Operations.ConversationsJoin.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsJoin.id,
+            forOperation: Operations.ConversationsJoin.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.join",
@@ -9182,7 +9182,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsJoin.Output.Ok.Body
+                    let body: Operations.ConversationsJoin.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9218,10 +9218,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.kick`.
     /// - Remark: Generated from `#/paths//conversations.kick/post(conversationsKick)`.
-    public func conversationsKick(_ input: Operations.conversationsKick.Input) async throws -> Operations.conversationsKick.Output {
+    public func conversationsKick(_ input: Operations.ConversationsKick.Input) async throws -> Operations.ConversationsKick.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsKick.id,
+            forOperation: Operations.ConversationsKick.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.kick",
@@ -9251,7 +9251,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsKick.Output.Ok.Body
+                    let body: Operations.ConversationsKick.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9287,10 +9287,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.leave`.
     /// - Remark: Generated from `#/paths//conversations.leave/post(conversationsLeave)`.
-    public func conversationsLeave(_ input: Operations.conversationsLeave.Input) async throws -> Operations.conversationsLeave.Output {
+    public func conversationsLeave(_ input: Operations.ConversationsLeave.Input) async throws -> Operations.ConversationsLeave.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsLeave.id,
+            forOperation: Operations.ConversationsLeave.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.leave",
@@ -9320,7 +9320,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsLeave.Output.Ok.Body
+                    let body: Operations.ConversationsLeave.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9356,10 +9356,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.list`.
     /// - Remark: Generated from `#/paths//conversations.list/post(conversationsList)`.
-    public func conversationsList(_ input: Operations.conversationsList.Input) async throws -> Operations.conversationsList.Output {
+    public func conversationsList(_ input: Operations.ConversationsList.Input) async throws -> Operations.ConversationsList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsList.id,
+            forOperation: Operations.ConversationsList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.list",
@@ -9389,7 +9389,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsList.Output.Ok.Body
+                    let body: Operations.ConversationsList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9425,10 +9425,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.listConnectInvites`.
     /// - Remark: Generated from `#/paths//conversations.listConnectInvites/post(conversationsListConnectInvites)`.
-    public func conversationsListConnectInvites(_ input: Operations.conversationsListConnectInvites.Input) async throws -> Operations.conversationsListConnectInvites.Output {
+    public func conversationsListConnectInvites(_ input: Operations.ConversationsListConnectInvites.Input) async throws -> Operations.ConversationsListConnectInvites.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsListConnectInvites.id,
+            forOperation: Operations.ConversationsListConnectInvites.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.listConnectInvites",
@@ -9458,7 +9458,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsListConnectInvites.Output.Ok.Body
+                    let body: Operations.ConversationsListConnectInvites.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9494,10 +9494,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.mark`.
     /// - Remark: Generated from `#/paths//conversations.mark/post(conversationsMark)`.
-    public func conversationsMark(_ input: Operations.conversationsMark.Input) async throws -> Operations.conversationsMark.Output {
+    public func conversationsMark(_ input: Operations.ConversationsMark.Input) async throws -> Operations.ConversationsMark.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsMark.id,
+            forOperation: Operations.ConversationsMark.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.mark",
@@ -9527,7 +9527,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsMark.Output.Ok.Body
+                    let body: Operations.ConversationsMark.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9563,10 +9563,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.members`.
     /// - Remark: Generated from `#/paths//conversations.members/post(conversationsMembers)`.
-    public func conversationsMembers(_ input: Operations.conversationsMembers.Input) async throws -> Operations.conversationsMembers.Output {
+    public func conversationsMembers(_ input: Operations.ConversationsMembers.Input) async throws -> Operations.ConversationsMembers.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsMembers.id,
+            forOperation: Operations.ConversationsMembers.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.members",
@@ -9596,7 +9596,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsMembers.Output.Ok.Body
+                    let body: Operations.ConversationsMembers.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9632,10 +9632,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.open`.
     /// - Remark: Generated from `#/paths//conversations.open/post(conversationsOpen)`.
-    public func conversationsOpen(_ input: Operations.conversationsOpen.Input) async throws -> Operations.conversationsOpen.Output {
+    public func conversationsOpen(_ input: Operations.ConversationsOpen.Input) async throws -> Operations.ConversationsOpen.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsOpen.id,
+            forOperation: Operations.ConversationsOpen.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.open",
@@ -9665,7 +9665,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsOpen.Output.Ok.Body
+                    let body: Operations.ConversationsOpen.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9701,10 +9701,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.rename`.
     /// - Remark: Generated from `#/paths//conversations.rename/post(conversationsRename)`.
-    public func conversationsRename(_ input: Operations.conversationsRename.Input) async throws -> Operations.conversationsRename.Output {
+    public func conversationsRename(_ input: Operations.ConversationsRename.Input) async throws -> Operations.ConversationsRename.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsRename.id,
+            forOperation: Operations.ConversationsRename.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.rename",
@@ -9734,7 +9734,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsRename.Output.Ok.Body
+                    let body: Operations.ConversationsRename.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9770,10 +9770,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.replies`.
     /// - Remark: Generated from `#/paths//conversations.replies/post(conversationsReplies)`.
-    public func conversationsReplies(_ input: Operations.conversationsReplies.Input) async throws -> Operations.conversationsReplies.Output {
+    public func conversationsReplies(_ input: Operations.ConversationsReplies.Input) async throws -> Operations.ConversationsReplies.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsReplies.id,
+            forOperation: Operations.ConversationsReplies.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.replies",
@@ -9803,7 +9803,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsReplies.Output.Ok.Body
+                    let body: Operations.ConversationsReplies.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9839,10 +9839,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.requestSharedInvite.approve`.
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.approve/post(conversationsRequestSharedInviteApprove)`.
-    public func conversationsRequestSharedInviteApprove(_ input: Operations.conversationsRequestSharedInviteApprove.Input) async throws -> Operations.conversationsRequestSharedInviteApprove.Output {
+    public func conversationsRequestSharedInviteApprove(_ input: Operations.ConversationsRequestSharedInviteApprove.Input) async throws -> Operations.ConversationsRequestSharedInviteApprove.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsRequestSharedInviteApprove.id,
+            forOperation: Operations.ConversationsRequestSharedInviteApprove.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.requestSharedInvite.approve",
@@ -9872,7 +9872,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsRequestSharedInviteApprove.Output.Ok.Body
+                    let body: Operations.ConversationsRequestSharedInviteApprove.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9908,10 +9908,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.requestSharedInvite.deny`.
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.deny/post(conversationsRequestSharedInviteDeny)`.
-    public func conversationsRequestSharedInviteDeny(_ input: Operations.conversationsRequestSharedInviteDeny.Input) async throws -> Operations.conversationsRequestSharedInviteDeny.Output {
+    public func conversationsRequestSharedInviteDeny(_ input: Operations.ConversationsRequestSharedInviteDeny.Input) async throws -> Operations.ConversationsRequestSharedInviteDeny.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsRequestSharedInviteDeny.id,
+            forOperation: Operations.ConversationsRequestSharedInviteDeny.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.requestSharedInvite.deny",
@@ -9941,7 +9941,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsRequestSharedInviteDeny.Output.Ok.Body
+                    let body: Operations.ConversationsRequestSharedInviteDeny.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -9977,10 +9977,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.requestSharedInvite.list`.
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.list/post(conversationsRequestSharedInviteList)`.
-    public func conversationsRequestSharedInviteList(_ input: Operations.conversationsRequestSharedInviteList.Input) async throws -> Operations.conversationsRequestSharedInviteList.Output {
+    public func conversationsRequestSharedInviteList(_ input: Operations.ConversationsRequestSharedInviteList.Input) async throws -> Operations.ConversationsRequestSharedInviteList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsRequestSharedInviteList.id,
+            forOperation: Operations.ConversationsRequestSharedInviteList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.requestSharedInvite.list",
@@ -10010,7 +10010,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsRequestSharedInviteList.Output.Ok.Body
+                    let body: Operations.ConversationsRequestSharedInviteList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10046,10 +10046,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.setPurpose`.
     /// - Remark: Generated from `#/paths//conversations.setPurpose/post(conversationsSetPurpose)`.
-    public func conversationsSetPurpose(_ input: Operations.conversationsSetPurpose.Input) async throws -> Operations.conversationsSetPurpose.Output {
+    public func conversationsSetPurpose(_ input: Operations.ConversationsSetPurpose.Input) async throws -> Operations.ConversationsSetPurpose.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsSetPurpose.id,
+            forOperation: Operations.ConversationsSetPurpose.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.setPurpose",
@@ -10079,7 +10079,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsSetPurpose.Output.Ok.Body
+                    let body: Operations.ConversationsSetPurpose.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10115,10 +10115,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.setTopic`.
     /// - Remark: Generated from `#/paths//conversations.setTopic/post(conversationsSetTopic)`.
-    public func conversationsSetTopic(_ input: Operations.conversationsSetTopic.Input) async throws -> Operations.conversationsSetTopic.Output {
+    public func conversationsSetTopic(_ input: Operations.ConversationsSetTopic.Input) async throws -> Operations.ConversationsSetTopic.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsSetTopic.id,
+            forOperation: Operations.ConversationsSetTopic.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.setTopic",
@@ -10148,7 +10148,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsSetTopic.Output.Ok.Body
+                    let body: Operations.ConversationsSetTopic.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10184,10 +10184,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.unarchive`.
     /// - Remark: Generated from `#/paths//conversations.unarchive/post(conversationsUnarchive)`.
-    public func conversationsUnarchive(_ input: Operations.conversationsUnarchive.Input) async throws -> Operations.conversationsUnarchive.Output {
+    public func conversationsUnarchive(_ input: Operations.ConversationsUnarchive.Input) async throws -> Operations.ConversationsUnarchive.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.conversationsUnarchive.id,
+            forOperation: Operations.ConversationsUnarchive.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/conversations.unarchive",
@@ -10217,7 +10217,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.conversationsUnarchive.Output.Ok.Body
+                    let body: Operations.ConversationsUnarchive.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10253,10 +10253,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /dnd.endDnd`.
     /// - Remark: Generated from `#/paths//dnd.endDnd/post(dndEndDnd)`.
-    public func dndEndDnd(_ input: Operations.dndEndDnd.Input) async throws -> Operations.dndEndDnd.Output {
+    public func dndEndDnd(_ input: Operations.DndEndDnd.Input) async throws -> Operations.DndEndDnd.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.dndEndDnd.id,
+            forOperation: Operations.DndEndDnd.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/dnd.endDnd",
@@ -10286,7 +10286,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.dndEndDnd.Output.Ok.Body
+                    let body: Operations.DndEndDnd.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10322,10 +10322,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /dnd.endSnooze`.
     /// - Remark: Generated from `#/paths//dnd.endSnooze/post(dndEndSnooze)`.
-    public func dndEndSnooze(_ input: Operations.dndEndSnooze.Input) async throws -> Operations.dndEndSnooze.Output {
+    public func dndEndSnooze(_ input: Operations.DndEndSnooze.Input) async throws -> Operations.DndEndSnooze.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.dndEndSnooze.id,
+            forOperation: Operations.DndEndSnooze.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/dnd.endSnooze",
@@ -10355,7 +10355,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.dndEndSnooze.Output.Ok.Body
+                    let body: Operations.DndEndSnooze.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10391,10 +10391,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /dnd.info`.
     /// - Remark: Generated from `#/paths//dnd.info/post(dndInfo)`.
-    public func dndInfo(_ input: Operations.dndInfo.Input) async throws -> Operations.dndInfo.Output {
+    public func dndInfo(_ input: Operations.DndInfo.Input) async throws -> Operations.DndInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.dndInfo.id,
+            forOperation: Operations.DndInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/dnd.info",
@@ -10424,7 +10424,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.dndInfo.Output.Ok.Body
+                    let body: Operations.DndInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10460,10 +10460,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /dnd.setSnooze`.
     /// - Remark: Generated from `#/paths//dnd.setSnooze/post(dndSetSnooze)`.
-    public func dndSetSnooze(_ input: Operations.dndSetSnooze.Input) async throws -> Operations.dndSetSnooze.Output {
+    public func dndSetSnooze(_ input: Operations.DndSetSnooze.Input) async throws -> Operations.DndSetSnooze.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.dndSetSnooze.id,
+            forOperation: Operations.DndSetSnooze.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/dnd.setSnooze",
@@ -10493,7 +10493,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.dndSetSnooze.Output.Ok.Body
+                    let body: Operations.DndSetSnooze.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10529,10 +10529,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /dnd.teamInfo`.
     /// - Remark: Generated from `#/paths//dnd.teamInfo/post(dndTeamInfo)`.
-    public func dndTeamInfo(_ input: Operations.dndTeamInfo.Input) async throws -> Operations.dndTeamInfo.Output {
+    public func dndTeamInfo(_ input: Operations.DndTeamInfo.Input) async throws -> Operations.DndTeamInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.dndTeamInfo.id,
+            forOperation: Operations.DndTeamInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/dnd.teamInfo",
@@ -10562,7 +10562,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.dndTeamInfo.Output.Ok.Body
+                    let body: Operations.DndTeamInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10598,10 +10598,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /emoji.list`.
     /// - Remark: Generated from `#/paths//emoji.list/post(emojiList)`.
-    public func emojiList(_ input: Operations.emojiList.Input) async throws -> Operations.emojiList.Output {
+    public func emojiList(_ input: Operations.EmojiList.Input) async throws -> Operations.EmojiList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.emojiList.id,
+            forOperation: Operations.EmojiList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/emoji.list",
@@ -10631,7 +10631,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.emojiList.Output.Ok.Body
+                    let body: Operations.EmojiList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10667,10 +10667,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.completeUploadExternal`.
     /// - Remark: Generated from `#/paths//files.completeUploadExternal/post(filesCompleteUploadExternal)`.
-    public func filesCompleteUploadExternal(_ input: Operations.filesCompleteUploadExternal.Input) async throws -> Operations.filesCompleteUploadExternal.Output {
+    public func filesCompleteUploadExternal(_ input: Operations.FilesCompleteUploadExternal.Input) async throws -> Operations.FilesCompleteUploadExternal.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesCompleteUploadExternal.id,
+            forOperation: Operations.FilesCompleteUploadExternal.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.completeUploadExternal",
@@ -10700,7 +10700,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesCompleteUploadExternal.Output.Ok.Body
+                    let body: Operations.FilesCompleteUploadExternal.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10736,10 +10736,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.delete`.
     /// - Remark: Generated from `#/paths//files.delete/post(filesDelete)`.
-    public func filesDelete(_ input: Operations.filesDelete.Input) async throws -> Operations.filesDelete.Output {
+    public func filesDelete(_ input: Operations.FilesDelete.Input) async throws -> Operations.FilesDelete.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesDelete.id,
+            forOperation: Operations.FilesDelete.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.delete",
@@ -10769,7 +10769,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesDelete.Output.Ok.Body
+                    let body: Operations.FilesDelete.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10805,10 +10805,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.getUploadURLExternal`.
     /// - Remark: Generated from `#/paths//files.getUploadURLExternal/post(filesGetUploadURLExternal)`.
-    public func filesGetUploadURLExternal(_ input: Operations.filesGetUploadURLExternal.Input) async throws -> Operations.filesGetUploadURLExternal.Output {
+    public func filesGetUploadURLExternal(_ input: Operations.FilesGetUploadURLExternal.Input) async throws -> Operations.FilesGetUploadURLExternal.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesGetUploadURLExternal.id,
+            forOperation: Operations.FilesGetUploadURLExternal.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.getUploadURLExternal",
@@ -10838,7 +10838,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesGetUploadURLExternal.Output.Ok.Body
+                    let body: Operations.FilesGetUploadURLExternal.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10874,10 +10874,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.info`.
     /// - Remark: Generated from `#/paths//files.info/post(filesInfo)`.
-    public func filesInfo(_ input: Operations.filesInfo.Input) async throws -> Operations.filesInfo.Output {
+    public func filesInfo(_ input: Operations.FilesInfo.Input) async throws -> Operations.FilesInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesInfo.id,
+            forOperation: Operations.FilesInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.info",
@@ -10907,7 +10907,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesInfo.Output.Ok.Body
+                    let body: Operations.FilesInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -10943,10 +10943,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.list`.
     /// - Remark: Generated from `#/paths//files.list/post(filesList)`.
-    public func filesList(_ input: Operations.filesList.Input) async throws -> Operations.filesList.Output {
+    public func filesList(_ input: Operations.FilesList.Input) async throws -> Operations.FilesList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesList.id,
+            forOperation: Operations.FilesList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.list",
@@ -10976,7 +10976,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesList.Output.Ok.Body
+                    let body: Operations.FilesList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11012,10 +11012,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.remote.add`.
     /// - Remark: Generated from `#/paths//files.remote.add/post(filesRemoteAdd)`.
-    public func filesRemoteAdd(_ input: Operations.filesRemoteAdd.Input) async throws -> Operations.filesRemoteAdd.Output {
+    public func filesRemoteAdd(_ input: Operations.FilesRemoteAdd.Input) async throws -> Operations.FilesRemoteAdd.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesRemoteAdd.id,
+            forOperation: Operations.FilesRemoteAdd.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.remote.add",
@@ -11045,7 +11045,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesRemoteAdd.Output.Ok.Body
+                    let body: Operations.FilesRemoteAdd.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11081,10 +11081,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.remote.info`.
     /// - Remark: Generated from `#/paths//files.remote.info/post(filesRemoteInfo)`.
-    public func filesRemoteInfo(_ input: Operations.filesRemoteInfo.Input) async throws -> Operations.filesRemoteInfo.Output {
+    public func filesRemoteInfo(_ input: Operations.FilesRemoteInfo.Input) async throws -> Operations.FilesRemoteInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesRemoteInfo.id,
+            forOperation: Operations.FilesRemoteInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.remote.info",
@@ -11114,7 +11114,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesRemoteInfo.Output.Ok.Body
+                    let body: Operations.FilesRemoteInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11150,10 +11150,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.remote.list`.
     /// - Remark: Generated from `#/paths//files.remote.list/post(filesRemoteList)`.
-    public func filesRemoteList(_ input: Operations.filesRemoteList.Input) async throws -> Operations.filesRemoteList.Output {
+    public func filesRemoteList(_ input: Operations.FilesRemoteList.Input) async throws -> Operations.FilesRemoteList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesRemoteList.id,
+            forOperation: Operations.FilesRemoteList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.remote.list",
@@ -11183,7 +11183,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesRemoteList.Output.Ok.Body
+                    let body: Operations.FilesRemoteList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11219,10 +11219,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.remote.remove`.
     /// - Remark: Generated from `#/paths//files.remote.remove/post(filesRemoteRemove)`.
-    public func filesRemoteRemove(_ input: Operations.filesRemoteRemove.Input) async throws -> Operations.filesRemoteRemove.Output {
+    public func filesRemoteRemove(_ input: Operations.FilesRemoteRemove.Input) async throws -> Operations.FilesRemoteRemove.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesRemoteRemove.id,
+            forOperation: Operations.FilesRemoteRemove.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.remote.remove",
@@ -11252,7 +11252,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesRemoteRemove.Output.Ok.Body
+                    let body: Operations.FilesRemoteRemove.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11288,10 +11288,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.remote.share`.
     /// - Remark: Generated from `#/paths//files.remote.share/post(filesRemoteShare)`.
-    public func filesRemoteShare(_ input: Operations.filesRemoteShare.Input) async throws -> Operations.filesRemoteShare.Output {
+    public func filesRemoteShare(_ input: Operations.FilesRemoteShare.Input) async throws -> Operations.FilesRemoteShare.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesRemoteShare.id,
+            forOperation: Operations.FilesRemoteShare.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.remote.share",
@@ -11321,7 +11321,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesRemoteShare.Output.Ok.Body
+                    let body: Operations.FilesRemoteShare.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11357,10 +11357,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.remote.update`.
     /// - Remark: Generated from `#/paths//files.remote.update/post(filesRemoteUpdate)`.
-    public func filesRemoteUpdate(_ input: Operations.filesRemoteUpdate.Input) async throws -> Operations.filesRemoteUpdate.Output {
+    public func filesRemoteUpdate(_ input: Operations.FilesRemoteUpdate.Input) async throws -> Operations.FilesRemoteUpdate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesRemoteUpdate.id,
+            forOperation: Operations.FilesRemoteUpdate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.remote.update",
@@ -11390,7 +11390,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesRemoteUpdate.Output.Ok.Body
+                    let body: Operations.FilesRemoteUpdate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11426,10 +11426,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.revokePublicURL`.
     /// - Remark: Generated from `#/paths//files.revokePublicURL/post(filesRevokePublicURL)`.
-    public func filesRevokePublicURL(_ input: Operations.filesRevokePublicURL.Input) async throws -> Operations.filesRevokePublicURL.Output {
+    public func filesRevokePublicURL(_ input: Operations.FilesRevokePublicURL.Input) async throws -> Operations.FilesRevokePublicURL.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesRevokePublicURL.id,
+            forOperation: Operations.FilesRevokePublicURL.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.revokePublicURL",
@@ -11459,7 +11459,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesRevokePublicURL.Output.Ok.Body
+                    let body: Operations.FilesRevokePublicURL.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11495,10 +11495,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.sharedPublicURL`.
     /// - Remark: Generated from `#/paths//files.sharedPublicURL/post(filesSharedPublicURL)`.
-    public func filesSharedPublicURL(_ input: Operations.filesSharedPublicURL.Input) async throws -> Operations.filesSharedPublicURL.Output {
+    public func filesSharedPublicURL(_ input: Operations.FilesSharedPublicURL.Input) async throws -> Operations.FilesSharedPublicURL.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesSharedPublicURL.id,
+            forOperation: Operations.FilesSharedPublicURL.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.sharedPublicURL",
@@ -11528,7 +11528,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesSharedPublicURL.Output.Ok.Body
+                    let body: Operations.FilesSharedPublicURL.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11564,10 +11564,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.upload`.
     /// - Remark: Generated from `#/paths//files.upload/post(filesUpload)`.
-    public func filesUpload(_ input: Operations.filesUpload.Input) async throws -> Operations.filesUpload.Output {
+    public func filesUpload(_ input: Operations.FilesUpload.Input) async throws -> Operations.FilesUpload.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.filesUpload.id,
+            forOperation: Operations.FilesUpload.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.upload",
@@ -11597,7 +11597,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.filesUpload.Output.Ok.Body
+                    let body: Operations.FilesUpload.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11633,10 +11633,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /functions.completeError`.
     /// - Remark: Generated from `#/paths//functions.completeError/post(functionsCompleteError)`.
-    public func functionsCompleteError(_ input: Operations.functionsCompleteError.Input) async throws -> Operations.functionsCompleteError.Output {
+    public func functionsCompleteError(_ input: Operations.FunctionsCompleteError.Input) async throws -> Operations.FunctionsCompleteError.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.functionsCompleteError.id,
+            forOperation: Operations.FunctionsCompleteError.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/functions.completeError",
@@ -11666,7 +11666,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.functionsCompleteError.Output.Ok.Body
+                    let body: Operations.FunctionsCompleteError.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11702,10 +11702,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /functions.completeSuccess`.
     /// - Remark: Generated from `#/paths//functions.completeSuccess/post(functionsCompleteSuccess)`.
-    public func functionsCompleteSuccess(_ input: Operations.functionsCompleteSuccess.Input) async throws -> Operations.functionsCompleteSuccess.Output {
+    public func functionsCompleteSuccess(_ input: Operations.FunctionsCompleteSuccess.Input) async throws -> Operations.FunctionsCompleteSuccess.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.functionsCompleteSuccess.id,
+            forOperation: Operations.FunctionsCompleteSuccess.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/functions.completeSuccess",
@@ -11735,7 +11735,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.functionsCompleteSuccess.Output.Ok.Body
+                    let body: Operations.FunctionsCompleteSuccess.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11771,10 +11771,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /migration.exchange`.
     /// - Remark: Generated from `#/paths//migration.exchange/post(migrationExchange)`.
-    public func migrationExchange(_ input: Operations.migrationExchange.Input) async throws -> Operations.migrationExchange.Output {
+    public func migrationExchange(_ input: Operations.MigrationExchange.Input) async throws -> Operations.MigrationExchange.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.migrationExchange.id,
+            forOperation: Operations.MigrationExchange.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/migration.exchange",
@@ -11804,7 +11804,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.migrationExchange.Output.Ok.Body
+                    let body: Operations.MigrationExchange.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11840,10 +11840,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /oauth.v2.access`.
     /// - Remark: Generated from `#/paths//oauth.v2.access/post(oauthV2Access)`.
-    public func oauthV2Access(_ input: Operations.oauthV2Access.Input) async throws -> Operations.oauthV2Access.Output {
+    public func oauthV2Access(_ input: Operations.OauthV2Access.Input) async throws -> Operations.OauthV2Access.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.oauthV2Access.id,
+            forOperation: Operations.OauthV2Access.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/oauth.v2.access",
@@ -11873,7 +11873,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.oauthV2Access.Output.Ok.Body
+                    let body: Operations.OauthV2Access.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11909,10 +11909,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /oauth.v2.exchange`.
     /// - Remark: Generated from `#/paths//oauth.v2.exchange/post(oauthV2Exchange)`.
-    public func oauthV2Exchange(_ input: Operations.oauthV2Exchange.Input) async throws -> Operations.oauthV2Exchange.Output {
+    public func oauthV2Exchange(_ input: Operations.OauthV2Exchange.Input) async throws -> Operations.OauthV2Exchange.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.oauthV2Exchange.id,
+            forOperation: Operations.OauthV2Exchange.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/oauth.v2.exchange",
@@ -11942,7 +11942,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.oauthV2Exchange.Output.Ok.Body
+                    let body: Operations.OauthV2Exchange.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -11978,10 +11978,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /openid.connect.token`.
     /// - Remark: Generated from `#/paths//openid.connect.token/post(openidConnectToken)`.
-    public func openidConnectToken(_ input: Operations.openidConnectToken.Input) async throws -> Operations.openidConnectToken.Output {
+    public func openidConnectToken(_ input: Operations.OpenidConnectToken.Input) async throws -> Operations.OpenidConnectToken.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.openidConnectToken.id,
+            forOperation: Operations.OpenidConnectToken.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/openid.connect.token",
@@ -12011,7 +12011,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.openidConnectToken.Output.Ok.Body
+                    let body: Operations.OpenidConnectToken.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12047,10 +12047,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /openid.connect.userInfo`.
     /// - Remark: Generated from `#/paths//openid.connect.userInfo/post(openidConnectUserInfo)`.
-    public func openidConnectUserInfo(_ input: Operations.openidConnectUserInfo.Input) async throws -> Operations.openidConnectUserInfo.Output {
+    public func openidConnectUserInfo(_ input: Operations.OpenidConnectUserInfo.Input) async throws -> Operations.OpenidConnectUserInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.openidConnectUserInfo.id,
+            forOperation: Operations.OpenidConnectUserInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/openid.connect.userInfo",
@@ -12080,7 +12080,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.openidConnectUserInfo.Output.Ok.Body
+                    let body: Operations.OpenidConnectUserInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12116,10 +12116,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /pins.add`.
     /// - Remark: Generated from `#/paths//pins.add/post(pinsAdd)`.
-    public func pinsAdd(_ input: Operations.pinsAdd.Input) async throws -> Operations.pinsAdd.Output {
+    public func pinsAdd(_ input: Operations.PinsAdd.Input) async throws -> Operations.PinsAdd.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.pinsAdd.id,
+            forOperation: Operations.PinsAdd.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/pins.add",
@@ -12149,7 +12149,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.pinsAdd.Output.Ok.Body
+                    let body: Operations.PinsAdd.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12185,10 +12185,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /pins.list`.
     /// - Remark: Generated from `#/paths//pins.list/post(pinsList)`.
-    public func pinsList(_ input: Operations.pinsList.Input) async throws -> Operations.pinsList.Output {
+    public func pinsList(_ input: Operations.PinsList.Input) async throws -> Operations.PinsList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.pinsList.id,
+            forOperation: Operations.PinsList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/pins.list",
@@ -12218,7 +12218,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.pinsList.Output.Ok.Body
+                    let body: Operations.PinsList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12254,10 +12254,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /pins.remove`.
     /// - Remark: Generated from `#/paths//pins.remove/post(pinsRemove)`.
-    public func pinsRemove(_ input: Operations.pinsRemove.Input) async throws -> Operations.pinsRemove.Output {
+    public func pinsRemove(_ input: Operations.PinsRemove.Input) async throws -> Operations.PinsRemove.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.pinsRemove.id,
+            forOperation: Operations.PinsRemove.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/pins.remove",
@@ -12287,7 +12287,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.pinsRemove.Output.Ok.Body
+                    let body: Operations.PinsRemove.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12323,10 +12323,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reactions.add`.
     /// - Remark: Generated from `#/paths//reactions.add/post(reactionsAdd)`.
-    public func reactionsAdd(_ input: Operations.reactionsAdd.Input) async throws -> Operations.reactionsAdd.Output {
+    public func reactionsAdd(_ input: Operations.ReactionsAdd.Input) async throws -> Operations.ReactionsAdd.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.reactionsAdd.id,
+            forOperation: Operations.ReactionsAdd.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/reactions.add",
@@ -12356,7 +12356,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.reactionsAdd.Output.Ok.Body
+                    let body: Operations.ReactionsAdd.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12392,10 +12392,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reactions.get`.
     /// - Remark: Generated from `#/paths//reactions.get/post(reactionsGet)`.
-    public func reactionsGet(_ input: Operations.reactionsGet.Input) async throws -> Operations.reactionsGet.Output {
+    public func reactionsGet(_ input: Operations.ReactionsGet.Input) async throws -> Operations.ReactionsGet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.reactionsGet.id,
+            forOperation: Operations.ReactionsGet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/reactions.get",
@@ -12425,7 +12425,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.reactionsGet.Output.Ok.Body
+                    let body: Operations.ReactionsGet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12461,10 +12461,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reactions.list`.
     /// - Remark: Generated from `#/paths//reactions.list/post(reactionsList)`.
-    public func reactionsList(_ input: Operations.reactionsList.Input) async throws -> Operations.reactionsList.Output {
+    public func reactionsList(_ input: Operations.ReactionsList.Input) async throws -> Operations.ReactionsList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.reactionsList.id,
+            forOperation: Operations.ReactionsList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/reactions.list",
@@ -12494,7 +12494,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.reactionsList.Output.Ok.Body
+                    let body: Operations.ReactionsList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12530,10 +12530,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reactions.remove`.
     /// - Remark: Generated from `#/paths//reactions.remove/post(reactionsRemove)`.
-    public func reactionsRemove(_ input: Operations.reactionsRemove.Input) async throws -> Operations.reactionsRemove.Output {
+    public func reactionsRemove(_ input: Operations.ReactionsRemove.Input) async throws -> Operations.ReactionsRemove.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.reactionsRemove.id,
+            forOperation: Operations.ReactionsRemove.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/reactions.remove",
@@ -12563,7 +12563,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.reactionsRemove.Output.Ok.Body
+                    let body: Operations.ReactionsRemove.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12599,10 +12599,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reminders.add`.
     /// - Remark: Generated from `#/paths//reminders.add/post(remindersAdd)`.
-    public func remindersAdd(_ input: Operations.remindersAdd.Input) async throws -> Operations.remindersAdd.Output {
+    public func remindersAdd(_ input: Operations.RemindersAdd.Input) async throws -> Operations.RemindersAdd.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.remindersAdd.id,
+            forOperation: Operations.RemindersAdd.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/reminders.add",
@@ -12632,7 +12632,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.remindersAdd.Output.Ok.Body
+                    let body: Operations.RemindersAdd.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12668,10 +12668,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reminders.complete`.
     /// - Remark: Generated from `#/paths//reminders.complete/post(remindersComplete)`.
-    public func remindersComplete(_ input: Operations.remindersComplete.Input) async throws -> Operations.remindersComplete.Output {
+    public func remindersComplete(_ input: Operations.RemindersComplete.Input) async throws -> Operations.RemindersComplete.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.remindersComplete.id,
+            forOperation: Operations.RemindersComplete.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/reminders.complete",
@@ -12701,7 +12701,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.remindersComplete.Output.Ok.Body
+                    let body: Operations.RemindersComplete.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12737,10 +12737,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reminders.delete`.
     /// - Remark: Generated from `#/paths//reminders.delete/post(remindersDelete)`.
-    public func remindersDelete(_ input: Operations.remindersDelete.Input) async throws -> Operations.remindersDelete.Output {
+    public func remindersDelete(_ input: Operations.RemindersDelete.Input) async throws -> Operations.RemindersDelete.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.remindersDelete.id,
+            forOperation: Operations.RemindersDelete.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/reminders.delete",
@@ -12770,7 +12770,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.remindersDelete.Output.Ok.Body
+                    let body: Operations.RemindersDelete.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12806,10 +12806,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reminders.info`.
     /// - Remark: Generated from `#/paths//reminders.info/post(remindersInfo)`.
-    public func remindersInfo(_ input: Operations.remindersInfo.Input) async throws -> Operations.remindersInfo.Output {
+    public func remindersInfo(_ input: Operations.RemindersInfo.Input) async throws -> Operations.RemindersInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.remindersInfo.id,
+            forOperation: Operations.RemindersInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/reminders.info",
@@ -12839,7 +12839,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.remindersInfo.Output.Ok.Body
+                    let body: Operations.RemindersInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12875,10 +12875,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reminders.list`.
     /// - Remark: Generated from `#/paths//reminders.list/post(remindersList)`.
-    public func remindersList(_ input: Operations.remindersList.Input) async throws -> Operations.remindersList.Output {
+    public func remindersList(_ input: Operations.RemindersList.Input) async throws -> Operations.RemindersList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.remindersList.id,
+            forOperation: Operations.RemindersList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/reminders.list",
@@ -12908,7 +12908,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.remindersList.Output.Ok.Body
+                    let body: Operations.RemindersList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -12944,10 +12944,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /rtm.connect`.
     /// - Remark: Generated from `#/paths//rtm.connect/post(rtmConnect)`.
-    public func rtmConnect(_ input: Operations.rtmConnect.Input) async throws -> Operations.rtmConnect.Output {
+    public func rtmConnect(_ input: Operations.RtmConnect.Input) async throws -> Operations.RtmConnect.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.rtmConnect.id,
+            forOperation: Operations.RtmConnect.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/rtm.connect",
@@ -12977,7 +12977,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.rtmConnect.Output.Ok.Body
+                    let body: Operations.RtmConnect.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13013,10 +13013,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /search.all`.
     /// - Remark: Generated from `#/paths//search.all/post(searchAll)`.
-    public func searchAll(_ input: Operations.searchAll.Input) async throws -> Operations.searchAll.Output {
+    public func searchAll(_ input: Operations.SearchAll.Input) async throws -> Operations.SearchAll.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.searchAll.id,
+            forOperation: Operations.SearchAll.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/search.all",
@@ -13046,7 +13046,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.searchAll.Output.Ok.Body
+                    let body: Operations.SearchAll.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13082,10 +13082,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /search.files`.
     /// - Remark: Generated from `#/paths//search.files/post(searchFiles)`.
-    public func searchFiles(_ input: Operations.searchFiles.Input) async throws -> Operations.searchFiles.Output {
+    public func searchFiles(_ input: Operations.SearchFiles.Input) async throws -> Operations.SearchFiles.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.searchFiles.id,
+            forOperation: Operations.SearchFiles.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/search.files",
@@ -13115,7 +13115,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.searchFiles.Output.Ok.Body
+                    let body: Operations.SearchFiles.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13151,10 +13151,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /search.messages`.
     /// - Remark: Generated from `#/paths//search.messages/post(searchMessages)`.
-    public func searchMessages(_ input: Operations.searchMessages.Input) async throws -> Operations.searchMessages.Output {
+    public func searchMessages(_ input: Operations.SearchMessages.Input) async throws -> Operations.SearchMessages.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.searchMessages.id,
+            forOperation: Operations.SearchMessages.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/search.messages",
@@ -13184,7 +13184,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.searchMessages.Output.Ok.Body
+                    let body: Operations.SearchMessages.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13220,10 +13220,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /stars.add`.
     /// - Remark: Generated from `#/paths//stars.add/post(starsAdd)`.
-    public func starsAdd(_ input: Operations.starsAdd.Input) async throws -> Operations.starsAdd.Output {
+    public func starsAdd(_ input: Operations.StarsAdd.Input) async throws -> Operations.StarsAdd.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.starsAdd.id,
+            forOperation: Operations.StarsAdd.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/stars.add",
@@ -13253,7 +13253,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.starsAdd.Output.Ok.Body
+                    let body: Operations.StarsAdd.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13289,10 +13289,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /stars.list`.
     /// - Remark: Generated from `#/paths//stars.list/post(starsList)`.
-    public func starsList(_ input: Operations.starsList.Input) async throws -> Operations.starsList.Output {
+    public func starsList(_ input: Operations.StarsList.Input) async throws -> Operations.StarsList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.starsList.id,
+            forOperation: Operations.StarsList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/stars.list",
@@ -13322,7 +13322,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.starsList.Output.Ok.Body
+                    let body: Operations.StarsList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13358,10 +13358,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /stars.remove`.
     /// - Remark: Generated from `#/paths//stars.remove/post(starsRemove)`.
-    public func starsRemove(_ input: Operations.starsRemove.Input) async throws -> Operations.starsRemove.Output {
+    public func starsRemove(_ input: Operations.StarsRemove.Input) async throws -> Operations.StarsRemove.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.starsRemove.id,
+            forOperation: Operations.StarsRemove.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/stars.remove",
@@ -13391,7 +13391,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.starsRemove.Output.Ok.Body
+                    let body: Operations.StarsRemove.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13427,10 +13427,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.accessLogs`.
     /// - Remark: Generated from `#/paths//team.accessLogs/post(teamAccessLogs)`.
-    public func teamAccessLogs(_ input: Operations.teamAccessLogs.Input) async throws -> Operations.teamAccessLogs.Output {
+    public func teamAccessLogs(_ input: Operations.TeamAccessLogs.Input) async throws -> Operations.TeamAccessLogs.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.teamAccessLogs.id,
+            forOperation: Operations.TeamAccessLogs.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/team.accessLogs",
@@ -13460,7 +13460,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.teamAccessLogs.Output.Ok.Body
+                    let body: Operations.TeamAccessLogs.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13496,10 +13496,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.billableInfo`.
     /// - Remark: Generated from `#/paths//team.billableInfo/post(teamBillableInfo)`.
-    public func teamBillableInfo(_ input: Operations.teamBillableInfo.Input) async throws -> Operations.teamBillableInfo.Output {
+    public func teamBillableInfo(_ input: Operations.TeamBillableInfo.Input) async throws -> Operations.TeamBillableInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.teamBillableInfo.id,
+            forOperation: Operations.TeamBillableInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/team.billableInfo",
@@ -13529,7 +13529,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.teamBillableInfo.Output.Ok.Body
+                    let body: Operations.TeamBillableInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13565,10 +13565,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.billing.info`.
     /// - Remark: Generated from `#/paths//team.billing.info/post(teamBillingInfo)`.
-    public func teamBillingInfo(_ input: Operations.teamBillingInfo.Input) async throws -> Operations.teamBillingInfo.Output {
+    public func teamBillingInfo(_ input: Operations.TeamBillingInfo.Input) async throws -> Operations.TeamBillingInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.teamBillingInfo.id,
+            forOperation: Operations.TeamBillingInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/team.billing.info",
@@ -13598,7 +13598,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.teamBillingInfo.Output.Ok.Body
+                    let body: Operations.TeamBillingInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13634,10 +13634,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.externalTeams.disconnect`.
     /// - Remark: Generated from `#/paths//team.externalTeams.disconnect/post(teamExternalTeamsDisconnect)`.
-    public func teamExternalTeamsDisconnect(_ input: Operations.teamExternalTeamsDisconnect.Input) async throws -> Operations.teamExternalTeamsDisconnect.Output {
+    public func teamExternalTeamsDisconnect(_ input: Operations.TeamExternalTeamsDisconnect.Input) async throws -> Operations.TeamExternalTeamsDisconnect.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.teamExternalTeamsDisconnect.id,
+            forOperation: Operations.TeamExternalTeamsDisconnect.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/team.externalTeams.disconnect",
@@ -13667,7 +13667,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.teamExternalTeamsDisconnect.Output.Ok.Body
+                    let body: Operations.TeamExternalTeamsDisconnect.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13703,10 +13703,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.externalTeams.list`.
     /// - Remark: Generated from `#/paths//team.externalTeams.list/post(teamExternalTeamsList)`.
-    public func teamExternalTeamsList(_ input: Operations.teamExternalTeamsList.Input) async throws -> Operations.teamExternalTeamsList.Output {
+    public func teamExternalTeamsList(_ input: Operations.TeamExternalTeamsList.Input) async throws -> Operations.TeamExternalTeamsList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.teamExternalTeamsList.id,
+            forOperation: Operations.TeamExternalTeamsList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/team.externalTeams.list",
@@ -13736,7 +13736,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.teamExternalTeamsList.Output.Ok.Body
+                    let body: Operations.TeamExternalTeamsList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13772,10 +13772,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.info`.
     /// - Remark: Generated from `#/paths//team.info/post(teamInfo)`.
-    public func teamInfo(_ input: Operations.teamInfo.Input) async throws -> Operations.teamInfo.Output {
+    public func teamInfo(_ input: Operations.TeamInfo.Input) async throws -> Operations.TeamInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.teamInfo.id,
+            forOperation: Operations.TeamInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/team.info",
@@ -13805,7 +13805,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.teamInfo.Output.Ok.Body
+                    let body: Operations.TeamInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13841,10 +13841,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.integrationLogs`.
     /// - Remark: Generated from `#/paths//team.integrationLogs/post(teamIntegrationLogs)`.
-    public func teamIntegrationLogs(_ input: Operations.teamIntegrationLogs.Input) async throws -> Operations.teamIntegrationLogs.Output {
+    public func teamIntegrationLogs(_ input: Operations.TeamIntegrationLogs.Input) async throws -> Operations.TeamIntegrationLogs.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.teamIntegrationLogs.id,
+            forOperation: Operations.TeamIntegrationLogs.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/team.integrationLogs",
@@ -13874,7 +13874,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.teamIntegrationLogs.Output.Ok.Body
+                    let body: Operations.TeamIntegrationLogs.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13910,10 +13910,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.preferences.list`.
     /// - Remark: Generated from `#/paths//team.preferences.list/post(teamPreferencesList)`.
-    public func teamPreferencesList(_ input: Operations.teamPreferencesList.Input) async throws -> Operations.teamPreferencesList.Output {
+    public func teamPreferencesList(_ input: Operations.TeamPreferencesList.Input) async throws -> Operations.TeamPreferencesList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.teamPreferencesList.id,
+            forOperation: Operations.TeamPreferencesList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/team.preferences.list",
@@ -13943,7 +13943,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.teamPreferencesList.Output.Ok.Body
+                    let body: Operations.TeamPreferencesList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -13979,10 +13979,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.profile.get`.
     /// - Remark: Generated from `#/paths//team.profile.get/post(teamProfileGet)`.
-    public func teamProfileGet(_ input: Operations.teamProfileGet.Input) async throws -> Operations.teamProfileGet.Output {
+    public func teamProfileGet(_ input: Operations.TeamProfileGet.Input) async throws -> Operations.TeamProfileGet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.teamProfileGet.id,
+            forOperation: Operations.TeamProfileGet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/team.profile.get",
@@ -14012,7 +14012,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.teamProfileGet.Output.Ok.Body
+                    let body: Operations.TeamProfileGet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14048,10 +14048,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /tooling.tokens.rotate`.
     /// - Remark: Generated from `#/paths//tooling.tokens.rotate/post(toolingTokensRotate)`.
-    public func toolingTokensRotate(_ input: Operations.toolingTokensRotate.Input) async throws -> Operations.toolingTokensRotate.Output {
+    public func toolingTokensRotate(_ input: Operations.ToolingTokensRotate.Input) async throws -> Operations.ToolingTokensRotate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.toolingTokensRotate.id,
+            forOperation: Operations.ToolingTokensRotate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/tooling.tokens.rotate",
@@ -14081,7 +14081,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.toolingTokensRotate.Output.Ok.Body
+                    let body: Operations.ToolingTokensRotate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14117,10 +14117,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.conversations`.
     /// - Remark: Generated from `#/paths//users.conversations/post(usersConversations)`.
-    public func usersConversations(_ input: Operations.usersConversations.Input) async throws -> Operations.usersConversations.Output {
+    public func usersConversations(_ input: Operations.UsersConversations.Input) async throws -> Operations.UsersConversations.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersConversations.id,
+            forOperation: Operations.UsersConversations.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.conversations",
@@ -14150,7 +14150,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersConversations.Output.Ok.Body
+                    let body: Operations.UsersConversations.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14186,10 +14186,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.deletePhoto`.
     /// - Remark: Generated from `#/paths//users.deletePhoto/post(usersDeletePhoto)`.
-    public func usersDeletePhoto(_ input: Operations.usersDeletePhoto.Input) async throws -> Operations.usersDeletePhoto.Output {
+    public func usersDeletePhoto(_ input: Operations.UsersDeletePhoto.Input) async throws -> Operations.UsersDeletePhoto.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersDeletePhoto.id,
+            forOperation: Operations.UsersDeletePhoto.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.deletePhoto",
@@ -14219,7 +14219,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersDeletePhoto.Output.Ok.Body
+                    let body: Operations.UsersDeletePhoto.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14255,10 +14255,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.discoverableContacts.lookup`.
     /// - Remark: Generated from `#/paths//users.discoverableContacts.lookup/post(usersDiscoverableContactsLookup)`.
-    public func usersDiscoverableContactsLookup(_ input: Operations.usersDiscoverableContactsLookup.Input) async throws -> Operations.usersDiscoverableContactsLookup.Output {
+    public func usersDiscoverableContactsLookup(_ input: Operations.UsersDiscoverableContactsLookup.Input) async throws -> Operations.UsersDiscoverableContactsLookup.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersDiscoverableContactsLookup.id,
+            forOperation: Operations.UsersDiscoverableContactsLookup.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.discoverableContacts.lookup",
@@ -14288,7 +14288,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersDiscoverableContactsLookup.Output.Ok.Body
+                    let body: Operations.UsersDiscoverableContactsLookup.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14324,10 +14324,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.getPresence`.
     /// - Remark: Generated from `#/paths//users.getPresence/post(usersGetPresence)`.
-    public func usersGetPresence(_ input: Operations.usersGetPresence.Input) async throws -> Operations.usersGetPresence.Output {
+    public func usersGetPresence(_ input: Operations.UsersGetPresence.Input) async throws -> Operations.UsersGetPresence.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersGetPresence.id,
+            forOperation: Operations.UsersGetPresence.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.getPresence",
@@ -14357,7 +14357,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersGetPresence.Output.Ok.Body
+                    let body: Operations.UsersGetPresence.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14393,10 +14393,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.identity`.
     /// - Remark: Generated from `#/paths//users.identity/post(usersIdentity)`.
-    public func usersIdentity(_ input: Operations.usersIdentity.Input) async throws -> Operations.usersIdentity.Output {
+    public func usersIdentity(_ input: Operations.UsersIdentity.Input) async throws -> Operations.UsersIdentity.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersIdentity.id,
+            forOperation: Operations.UsersIdentity.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.identity",
@@ -14426,7 +14426,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersIdentity.Output.Ok.Body
+                    let body: Operations.UsersIdentity.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14462,10 +14462,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.info`.
     /// - Remark: Generated from `#/paths//users.info/post(usersInfo)`.
-    public func usersInfo(_ input: Operations.usersInfo.Input) async throws -> Operations.usersInfo.Output {
+    public func usersInfo(_ input: Operations.UsersInfo.Input) async throws -> Operations.UsersInfo.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersInfo.id,
+            forOperation: Operations.UsersInfo.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.info",
@@ -14495,7 +14495,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersInfo.Output.Ok.Body
+                    let body: Operations.UsersInfo.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14531,10 +14531,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.list`.
     /// - Remark: Generated from `#/paths//users.list/post(usersList)`.
-    public func usersList(_ input: Operations.usersList.Input) async throws -> Operations.usersList.Output {
+    public func usersList(_ input: Operations.UsersList.Input) async throws -> Operations.UsersList.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersList.id,
+            forOperation: Operations.UsersList.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.list",
@@ -14564,7 +14564,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersList.Output.Ok.Body
+                    let body: Operations.UsersList.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14600,10 +14600,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.lookupByEmail`.
     /// - Remark: Generated from `#/paths//users.lookupByEmail/post(usersLookupByEmail)`.
-    public func usersLookupByEmail(_ input: Operations.usersLookupByEmail.Input) async throws -> Operations.usersLookupByEmail.Output {
+    public func usersLookupByEmail(_ input: Operations.UsersLookupByEmail.Input) async throws -> Operations.UsersLookupByEmail.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersLookupByEmail.id,
+            forOperation: Operations.UsersLookupByEmail.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.lookupByEmail",
@@ -14633,7 +14633,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersLookupByEmail.Output.Ok.Body
+                    let body: Operations.UsersLookupByEmail.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14669,10 +14669,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.profile.get`.
     /// - Remark: Generated from `#/paths//users.profile.get/post(usersProfileGet)`.
-    public func usersProfileGet(_ input: Operations.usersProfileGet.Input) async throws -> Operations.usersProfileGet.Output {
+    public func usersProfileGet(_ input: Operations.UsersProfileGet.Input) async throws -> Operations.UsersProfileGet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersProfileGet.id,
+            forOperation: Operations.UsersProfileGet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.profile.get",
@@ -14702,7 +14702,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersProfileGet.Output.Ok.Body
+                    let body: Operations.UsersProfileGet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14738,10 +14738,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.profile.set`.
     /// - Remark: Generated from `#/paths//users.profile.set/post(usersProfileSet)`.
-    public func usersProfileSet(_ input: Operations.usersProfileSet.Input) async throws -> Operations.usersProfileSet.Output {
+    public func usersProfileSet(_ input: Operations.UsersProfileSet.Input) async throws -> Operations.UsersProfileSet.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersProfileSet.id,
+            forOperation: Operations.UsersProfileSet.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.profile.set",
@@ -14771,7 +14771,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersProfileSet.Output.Ok.Body
+                    let body: Operations.UsersProfileSet.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14807,10 +14807,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.setActive`.
     /// - Remark: Generated from `#/paths//users.setActive/post(usersSetActive)`.
-    public func usersSetActive(_ input: Operations.usersSetActive.Input) async throws -> Operations.usersSetActive.Output {
+    public func usersSetActive(_ input: Operations.UsersSetActive.Input) async throws -> Operations.UsersSetActive.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersSetActive.id,
+            forOperation: Operations.UsersSetActive.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.setActive",
@@ -14840,7 +14840,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersSetActive.Output.Ok.Body
+                    let body: Operations.UsersSetActive.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14876,10 +14876,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.setPhoto`.
     /// - Remark: Generated from `#/paths//users.setPhoto/post(usersSetPhoto)`.
-    public func usersSetPhoto(_ input: Operations.usersSetPhoto.Input) async throws -> Operations.usersSetPhoto.Output {
+    public func usersSetPhoto(_ input: Operations.UsersSetPhoto.Input) async throws -> Operations.UsersSetPhoto.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersSetPhoto.id,
+            forOperation: Operations.UsersSetPhoto.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.setPhoto",
@@ -14909,7 +14909,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersSetPhoto.Output.Ok.Body
+                    let body: Operations.UsersSetPhoto.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -14945,10 +14945,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.setPresence`.
     /// - Remark: Generated from `#/paths//users.setPresence/post(usersSetPresence)`.
-    public func usersSetPresence(_ input: Operations.usersSetPresence.Input) async throws -> Operations.usersSetPresence.Output {
+    public func usersSetPresence(_ input: Operations.UsersSetPresence.Input) async throws -> Operations.UsersSetPresence.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.usersSetPresence.id,
+            forOperation: Operations.UsersSetPresence.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/users.setPresence",
@@ -14978,7 +14978,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.usersSetPresence.Output.Ok.Body
+                    let body: Operations.UsersSetPresence.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15014,10 +15014,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /views.open`.
     /// - Remark: Generated from `#/paths//views.open/post(viewsOpen)`.
-    public func viewsOpen(_ input: Operations.viewsOpen.Input) async throws -> Operations.viewsOpen.Output {
+    public func viewsOpen(_ input: Operations.ViewsOpen.Input) async throws -> Operations.ViewsOpen.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.viewsOpen.id,
+            forOperation: Operations.ViewsOpen.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/views.open",
@@ -15047,7 +15047,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.viewsOpen.Output.Ok.Body
+                    let body: Operations.ViewsOpen.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15083,10 +15083,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /views.publish`.
     /// - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
-    public func viewsPublish(_ input: Operations.viewsPublish.Input) async throws -> Operations.viewsPublish.Output {
+    public func viewsPublish(_ input: Operations.ViewsPublish.Input) async throws -> Operations.ViewsPublish.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.viewsPublish.id,
+            forOperation: Operations.ViewsPublish.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/views.publish",
@@ -15116,7 +15116,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.viewsPublish.Output.Ok.Body
+                    let body: Operations.ViewsPublish.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15152,10 +15152,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /views.push`.
     /// - Remark: Generated from `#/paths//views.push/post(viewsPush)`.
-    public func viewsPush(_ input: Operations.viewsPush.Input) async throws -> Operations.viewsPush.Output {
+    public func viewsPush(_ input: Operations.ViewsPush.Input) async throws -> Operations.ViewsPush.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.viewsPush.id,
+            forOperation: Operations.ViewsPush.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/views.push",
@@ -15185,7 +15185,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.viewsPush.Output.Ok.Body
+                    let body: Operations.ViewsPush.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
@@ -15221,10 +15221,10 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /views.update`.
     /// - Remark: Generated from `#/paths//views.update/post(viewsUpdate)`.
-    public func viewsUpdate(_ input: Operations.viewsUpdate.Input) async throws -> Operations.viewsUpdate.Output {
+    public func viewsUpdate(_ input: Operations.ViewsUpdate.Input) async throws -> Operations.ViewsUpdate.Output {
         try await client.send(
             input: input,
-            forOperation: Operations.viewsUpdate.id,
+            forOperation: Operations.ViewsUpdate.id,
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/views.update",
@@ -15254,7 +15254,7 @@ public struct Client: APIProtocol {
                 switch response.status.code {
                 case 200:
                     let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.viewsUpdate.Output.Ok.Body
+                    let body: Operations.ViewsUpdate.Output.Ok.Body
                     let chosenContentType = try converter.bestContentType(
                         received: contentType,
                         options: [
