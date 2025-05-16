@@ -4,10 +4,10 @@
 import PackageDescription
 
 let package = Package(
-    name: "postChatMessage",
+    name: "chatPostMessage",
     platforms: [.macOS(.v14)],
     products: [
-        .executable(name: "postChatMessage", targets: ["postChatMessage"])
+        .executable(name: "chatPostMessage", targets: ["chatPostMessage"])
     ],
     dependencies: [
         .package(path: "../../"),
@@ -15,7 +15,7 @@ let package = Package(
     ],
     targets: [
         .executableTarget(
-            name: "postChatMessage",
+            name: "chatPostMessage",
             dependencies: [
                 .product(name: "SlackClient", package: "swift-slack-client"),
                 .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
