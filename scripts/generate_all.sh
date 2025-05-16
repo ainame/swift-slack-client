@@ -8,9 +8,7 @@ rm -rf ./tmp/*
 ruby scripts/generate_openapi_json.rb
 
 swift run swift-openapi-generator generate \
-    --mode types \
-    --mode client \
-    --access-modifier public \
+    --config ./openapi-generator-config.yaml \
     --output-directory Sources/SlackClient/Generated \
     ./tmp/openapi.json
 
