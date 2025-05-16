@@ -3,12 +3,8 @@ import OpenAPIRuntime
 import HTTPTypes
 
 public actor Slack {
-    private let _client: Client
+    public let client: APIProtocol
     private var requestConfigurationMiddleware: RequestConfigurationMiddlware
-
-    public var client: APIProtocol {
-        _client
-    }
 
     public init(
         serverURL: URL = URL(string: "https://slack.com/api")!,
@@ -17,7 +13,7 @@ public actor Slack {
         configuration: ClientConfiguration = .init()
     ) {
         requestConfigurationMiddleware = RequestConfigurationMiddlware(configuration: configuration)
-        _client = Client(
+        self.client = Client(
             serverURL: serverURL,
             transport: transport,
             middlewares: middlewares + [requestConfigurationMiddleware]

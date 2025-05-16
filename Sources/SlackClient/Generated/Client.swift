@@ -10,7 +10,7 @@ import struct Foundation.Data
 import struct Foundation.Date
 #endif
 import HTTPTypes
-public struct Client: APIProtocol {
+internal struct Client: APIProtocol {
     /// The underlying HTTP client.
     private let client: UniversalClient
     /// Creates a new client.
@@ -21,7 +21,7 @@ public struct Client: APIProtocol {
     ///   - configuration: A set of configuration values for the client.
     ///   - transport: A transport that performs HTTP operations.
     ///   - middlewares: A list of middlewares to call before the transport.
-    public init(
+    internal init(
         serverURL: Foundation.URL,
         configuration: Configuration = .init(),
         transport: any ClientTransport,
@@ -41,7 +41,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.activities.list`.
     /// - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
-    public func adminAppsActivitiesList(_ input: Operations.AdminAppsActivitiesList.Input) async throws -> Operations.AdminAppsActivitiesList.Output {
+    internal func adminAppsActivitiesList(_ input: Operations.AdminAppsActivitiesList.Input) async throws -> Operations.AdminAppsActivitiesList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsActivitiesList.id,
@@ -110,7 +110,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.approve`.
     /// - Remark: Generated from `#/paths//admin.apps.approve/post(adminAppsApprove)`.
-    public func adminAppsApprove(_ input: Operations.AdminAppsApprove.Input) async throws -> Operations.AdminAppsApprove.Output {
+    internal func adminAppsApprove(_ input: Operations.AdminAppsApprove.Input) async throws -> Operations.AdminAppsApprove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsApprove.id,
@@ -179,7 +179,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.approved.list`.
     /// - Remark: Generated from `#/paths//admin.apps.approved.list/post(adminAppsApprovedList)`.
-    public func adminAppsApprovedList(_ input: Operations.AdminAppsApprovedList.Input) async throws -> Operations.AdminAppsApprovedList.Output {
+    internal func adminAppsApprovedList(_ input: Operations.AdminAppsApprovedList.Input) async throws -> Operations.AdminAppsApprovedList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsApprovedList.id,
@@ -248,7 +248,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.clearResolution`.
     /// - Remark: Generated from `#/paths//admin.apps.clearResolution/post(adminAppsClearResolution)`.
-    public func adminAppsClearResolution(_ input: Operations.AdminAppsClearResolution.Input) async throws -> Operations.AdminAppsClearResolution.Output {
+    internal func adminAppsClearResolution(_ input: Operations.AdminAppsClearResolution.Input) async throws -> Operations.AdminAppsClearResolution.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsClearResolution.id,
@@ -317,7 +317,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.config.lookup`.
     /// - Remark: Generated from `#/paths//admin.apps.config.lookup/post(adminAppsConfigLookup)`.
-    public func adminAppsConfigLookup(_ input: Operations.AdminAppsConfigLookup.Input) async throws -> Operations.AdminAppsConfigLookup.Output {
+    internal func adminAppsConfigLookup(_ input: Operations.AdminAppsConfigLookup.Input) async throws -> Operations.AdminAppsConfigLookup.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsConfigLookup.id,
@@ -386,7 +386,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.config.set`.
     /// - Remark: Generated from `#/paths//admin.apps.config.set/post(adminAppsConfigSet)`.
-    public func adminAppsConfigSet(_ input: Operations.AdminAppsConfigSet.Input) async throws -> Operations.AdminAppsConfigSet.Output {
+    internal func adminAppsConfigSet(_ input: Operations.AdminAppsConfigSet.Input) async throws -> Operations.AdminAppsConfigSet.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsConfigSet.id,
@@ -455,7 +455,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.requests.cancel`.
     /// - Remark: Generated from `#/paths//admin.apps.requests.cancel/post(adminAppsRequestsCancel)`.
-    public func adminAppsRequestsCancel(_ input: Operations.AdminAppsRequestsCancel.Input) async throws -> Operations.AdminAppsRequestsCancel.Output {
+    internal func adminAppsRequestsCancel(_ input: Operations.AdminAppsRequestsCancel.Input) async throws -> Operations.AdminAppsRequestsCancel.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsRequestsCancel.id,
@@ -524,7 +524,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.requests.list`.
     /// - Remark: Generated from `#/paths//admin.apps.requests.list/post(adminAppsRequestsList)`.
-    public func adminAppsRequestsList(_ input: Operations.AdminAppsRequestsList.Input) async throws -> Operations.AdminAppsRequestsList.Output {
+    internal func adminAppsRequestsList(_ input: Operations.AdminAppsRequestsList.Input) async throws -> Operations.AdminAppsRequestsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsRequestsList.id,
@@ -593,7 +593,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.restrict`.
     /// - Remark: Generated from `#/paths//admin.apps.restrict/post(adminAppsRestrict)`.
-    public func adminAppsRestrict(_ input: Operations.AdminAppsRestrict.Input) async throws -> Operations.AdminAppsRestrict.Output {
+    internal func adminAppsRestrict(_ input: Operations.AdminAppsRestrict.Input) async throws -> Operations.AdminAppsRestrict.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsRestrict.id,
@@ -662,7 +662,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.restricted.list`.
     /// - Remark: Generated from `#/paths//admin.apps.restricted.list/post(adminAppsRestrictedList)`.
-    public func adminAppsRestrictedList(_ input: Operations.AdminAppsRestrictedList.Input) async throws -> Operations.AdminAppsRestrictedList.Output {
+    internal func adminAppsRestrictedList(_ input: Operations.AdminAppsRestrictedList.Input) async throws -> Operations.AdminAppsRestrictedList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsRestrictedList.id,
@@ -731,7 +731,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.apps.uninstall`.
     /// - Remark: Generated from `#/paths//admin.apps.uninstall/post(adminAppsUninstall)`.
-    public func adminAppsUninstall(_ input: Operations.AdminAppsUninstall.Input) async throws -> Operations.AdminAppsUninstall.Output {
+    internal func adminAppsUninstall(_ input: Operations.AdminAppsUninstall.Input) async throws -> Operations.AdminAppsUninstall.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsUninstall.id,
@@ -800,7 +800,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.auth.policy.assignEntities`.
     /// - Remark: Generated from `#/paths//admin.auth.policy.assignEntities/post(adminAuthPolicyAssignEntities)`.
-    public func adminAuthPolicyAssignEntities(_ input: Operations.AdminAuthPolicyAssignEntities.Input) async throws -> Operations.AdminAuthPolicyAssignEntities.Output {
+    internal func adminAuthPolicyAssignEntities(_ input: Operations.AdminAuthPolicyAssignEntities.Input) async throws -> Operations.AdminAuthPolicyAssignEntities.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAuthPolicyAssignEntities.id,
@@ -869,7 +869,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.auth.policy.getEntities`.
     /// - Remark: Generated from `#/paths//admin.auth.policy.getEntities/post(adminAuthPolicyGetEntities)`.
-    public func adminAuthPolicyGetEntities(_ input: Operations.AdminAuthPolicyGetEntities.Input) async throws -> Operations.AdminAuthPolicyGetEntities.Output {
+    internal func adminAuthPolicyGetEntities(_ input: Operations.AdminAuthPolicyGetEntities.Input) async throws -> Operations.AdminAuthPolicyGetEntities.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAuthPolicyGetEntities.id,
@@ -938,7 +938,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.auth.policy.removeEntities`.
     /// - Remark: Generated from `#/paths//admin.auth.policy.removeEntities/post(adminAuthPolicyRemoveEntities)`.
-    public func adminAuthPolicyRemoveEntities(_ input: Operations.AdminAuthPolicyRemoveEntities.Input) async throws -> Operations.AdminAuthPolicyRemoveEntities.Output {
+    internal func adminAuthPolicyRemoveEntities(_ input: Operations.AdminAuthPolicyRemoveEntities.Input) async throws -> Operations.AdminAuthPolicyRemoveEntities.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAuthPolicyRemoveEntities.id,
@@ -1007,7 +1007,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.barriers.create`.
     /// - Remark: Generated from `#/paths//admin.barriers.create/post(adminBarriersCreate)`.
-    public func adminBarriersCreate(_ input: Operations.AdminBarriersCreate.Input) async throws -> Operations.AdminBarriersCreate.Output {
+    internal func adminBarriersCreate(_ input: Operations.AdminBarriersCreate.Input) async throws -> Operations.AdminBarriersCreate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminBarriersCreate.id,
@@ -1076,7 +1076,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.barriers.delete`.
     /// - Remark: Generated from `#/paths//admin.barriers.delete/post(adminBarriersDelete)`.
-    public func adminBarriersDelete(_ input: Operations.AdminBarriersDelete.Input) async throws -> Operations.AdminBarriersDelete.Output {
+    internal func adminBarriersDelete(_ input: Operations.AdminBarriersDelete.Input) async throws -> Operations.AdminBarriersDelete.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminBarriersDelete.id,
@@ -1145,7 +1145,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.barriers.list`.
     /// - Remark: Generated from `#/paths//admin.barriers.list/post(adminBarriersList)`.
-    public func adminBarriersList(_ input: Operations.AdminBarriersList.Input) async throws -> Operations.AdminBarriersList.Output {
+    internal func adminBarriersList(_ input: Operations.AdminBarriersList.Input) async throws -> Operations.AdminBarriersList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminBarriersList.id,
@@ -1214,7 +1214,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.barriers.update`.
     /// - Remark: Generated from `#/paths//admin.barriers.update/post(adminBarriersUpdate)`.
-    public func adminBarriersUpdate(_ input: Operations.AdminBarriersUpdate.Input) async throws -> Operations.AdminBarriersUpdate.Output {
+    internal func adminBarriersUpdate(_ input: Operations.AdminBarriersUpdate.Input) async throws -> Operations.AdminBarriersUpdate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminBarriersUpdate.id,
@@ -1283,7 +1283,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.archive`.
     /// - Remark: Generated from `#/paths//admin.conversations.archive/post(adminConversationsArchive)`.
-    public func adminConversationsArchive(_ input: Operations.AdminConversationsArchive.Input) async throws -> Operations.AdminConversationsArchive.Output {
+    internal func adminConversationsArchive(_ input: Operations.AdminConversationsArchive.Input) async throws -> Operations.AdminConversationsArchive.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsArchive.id,
@@ -1352,7 +1352,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.bulkArchive`.
     /// - Remark: Generated from `#/paths//admin.conversations.bulkArchive/post(adminConversationsBulkArchive)`.
-    public func adminConversationsBulkArchive(_ input: Operations.AdminConversationsBulkArchive.Input) async throws -> Operations.AdminConversationsBulkArchive.Output {
+    internal func adminConversationsBulkArchive(_ input: Operations.AdminConversationsBulkArchive.Input) async throws -> Operations.AdminConversationsBulkArchive.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsBulkArchive.id,
@@ -1421,7 +1421,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.bulkDelete`.
     /// - Remark: Generated from `#/paths//admin.conversations.bulkDelete/post(adminConversationsBulkDelete)`.
-    public func adminConversationsBulkDelete(_ input: Operations.AdminConversationsBulkDelete.Input) async throws -> Operations.AdminConversationsBulkDelete.Output {
+    internal func adminConversationsBulkDelete(_ input: Operations.AdminConversationsBulkDelete.Input) async throws -> Operations.AdminConversationsBulkDelete.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsBulkDelete.id,
@@ -1490,7 +1490,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.bulkMove`.
     /// - Remark: Generated from `#/paths//admin.conversations.bulkMove/post(adminConversationsBulkMove)`.
-    public func adminConversationsBulkMove(_ input: Operations.AdminConversationsBulkMove.Input) async throws -> Operations.AdminConversationsBulkMove.Output {
+    internal func adminConversationsBulkMove(_ input: Operations.AdminConversationsBulkMove.Input) async throws -> Operations.AdminConversationsBulkMove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsBulkMove.id,
@@ -1559,7 +1559,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.convertToPrivate`.
     /// - Remark: Generated from `#/paths//admin.conversations.convertToPrivate/post(adminConversationsConvertToPrivate)`.
-    public func adminConversationsConvertToPrivate(_ input: Operations.AdminConversationsConvertToPrivate.Input) async throws -> Operations.AdminConversationsConvertToPrivate.Output {
+    internal func adminConversationsConvertToPrivate(_ input: Operations.AdminConversationsConvertToPrivate.Input) async throws -> Operations.AdminConversationsConvertToPrivate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsConvertToPrivate.id,
@@ -1628,7 +1628,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.convertToPublic`.
     /// - Remark: Generated from `#/paths//admin.conversations.convertToPublic/post(adminConversationsConvertToPublic)`.
-    public func adminConversationsConvertToPublic(_ input: Operations.AdminConversationsConvertToPublic.Input) async throws -> Operations.AdminConversationsConvertToPublic.Output {
+    internal func adminConversationsConvertToPublic(_ input: Operations.AdminConversationsConvertToPublic.Input) async throws -> Operations.AdminConversationsConvertToPublic.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsConvertToPublic.id,
@@ -1697,7 +1697,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.create`.
     /// - Remark: Generated from `#/paths//admin.conversations.create/post(adminConversationsCreate)`.
-    public func adminConversationsCreate(_ input: Operations.AdminConversationsCreate.Input) async throws -> Operations.AdminConversationsCreate.Output {
+    internal func adminConversationsCreate(_ input: Operations.AdminConversationsCreate.Input) async throws -> Operations.AdminConversationsCreate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsCreate.id,
@@ -1766,7 +1766,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.delete`.
     /// - Remark: Generated from `#/paths//admin.conversations.delete/post(adminConversationsDelete)`.
-    public func adminConversationsDelete(_ input: Operations.AdminConversationsDelete.Input) async throws -> Operations.AdminConversationsDelete.Output {
+    internal func adminConversationsDelete(_ input: Operations.AdminConversationsDelete.Input) async throws -> Operations.AdminConversationsDelete.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsDelete.id,
@@ -1835,7 +1835,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.disconnectShared`.
     /// - Remark: Generated from `#/paths//admin.conversations.disconnectShared/post(adminConversationsDisconnectShared)`.
-    public func adminConversationsDisconnectShared(_ input: Operations.AdminConversationsDisconnectShared.Input) async throws -> Operations.AdminConversationsDisconnectShared.Output {
+    internal func adminConversationsDisconnectShared(_ input: Operations.AdminConversationsDisconnectShared.Input) async throws -> Operations.AdminConversationsDisconnectShared.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsDisconnectShared.id,
@@ -1904,7 +1904,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.ekm.listOriginalConnectedChannelInfo`.
     /// - Remark: Generated from `#/paths//admin.conversations.ekm.listOriginalConnectedChannelInfo/post(adminConversationsEkmListOriginalConnectedChannelInfo)`.
-    public func adminConversationsEkmListOriginalConnectedChannelInfo(_ input: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input) async throws -> Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Output {
+    internal func adminConversationsEkmListOriginalConnectedChannelInfo(_ input: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input) async throws -> Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.id,
@@ -1973,7 +1973,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.getConversationPrefs`.
     /// - Remark: Generated from `#/paths//admin.conversations.getConversationPrefs/post(adminConversationsGetConversationPrefs)`.
-    public func adminConversationsGetConversationPrefs(_ input: Operations.AdminConversationsGetConversationPrefs.Input) async throws -> Operations.AdminConversationsGetConversationPrefs.Output {
+    internal func adminConversationsGetConversationPrefs(_ input: Operations.AdminConversationsGetConversationPrefs.Input) async throws -> Operations.AdminConversationsGetConversationPrefs.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsGetConversationPrefs.id,
@@ -2042,7 +2042,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.getCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.getCustomRetention/post(adminConversationsGetCustomRetention)`.
-    public func adminConversationsGetCustomRetention(_ input: Operations.AdminConversationsGetCustomRetention.Input) async throws -> Operations.AdminConversationsGetCustomRetention.Output {
+    internal func adminConversationsGetCustomRetention(_ input: Operations.AdminConversationsGetCustomRetention.Input) async throws -> Operations.AdminConversationsGetCustomRetention.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsGetCustomRetention.id,
@@ -2111,7 +2111,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.getTeams`.
     /// - Remark: Generated from `#/paths//admin.conversations.getTeams/post(adminConversationsGetTeams)`.
-    public func adminConversationsGetTeams(_ input: Operations.AdminConversationsGetTeams.Input) async throws -> Operations.AdminConversationsGetTeams.Output {
+    internal func adminConversationsGetTeams(_ input: Operations.AdminConversationsGetTeams.Input) async throws -> Operations.AdminConversationsGetTeams.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsGetTeams.id,
@@ -2180,7 +2180,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.invite`.
     /// - Remark: Generated from `#/paths//admin.conversations.invite/post(adminConversationsInvite)`.
-    public func adminConversationsInvite(_ input: Operations.AdminConversationsInvite.Input) async throws -> Operations.AdminConversationsInvite.Output {
+    internal func adminConversationsInvite(_ input: Operations.AdminConversationsInvite.Input) async throws -> Operations.AdminConversationsInvite.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsInvite.id,
@@ -2249,7 +2249,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.lookup`.
     /// - Remark: Generated from `#/paths//admin.conversations.lookup/post(adminConversationsLookup)`.
-    public func adminConversationsLookup(_ input: Operations.AdminConversationsLookup.Input) async throws -> Operations.AdminConversationsLookup.Output {
+    internal func adminConversationsLookup(_ input: Operations.AdminConversationsLookup.Input) async throws -> Operations.AdminConversationsLookup.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsLookup.id,
@@ -2318,7 +2318,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.removeCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.removeCustomRetention/post(adminConversationsRemoveCustomRetention)`.
-    public func adminConversationsRemoveCustomRetention(_ input: Operations.AdminConversationsRemoveCustomRetention.Input) async throws -> Operations.AdminConversationsRemoveCustomRetention.Output {
+    internal func adminConversationsRemoveCustomRetention(_ input: Operations.AdminConversationsRemoveCustomRetention.Input) async throws -> Operations.AdminConversationsRemoveCustomRetention.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsRemoveCustomRetention.id,
@@ -2387,7 +2387,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.rename`.
     /// - Remark: Generated from `#/paths//admin.conversations.rename/post(adminConversationsRename)`.
-    public func adminConversationsRename(_ input: Operations.AdminConversationsRename.Input) async throws -> Operations.AdminConversationsRename.Output {
+    internal func adminConversationsRename(_ input: Operations.AdminConversationsRename.Input) async throws -> Operations.AdminConversationsRename.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsRename.id,
@@ -2456,7 +2456,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.addGroup`.
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.addGroup/post(adminConversationsRestrictAccessAddGroup)`.
-    public func adminConversationsRestrictAccessAddGroup(_ input: Operations.AdminConversationsRestrictAccessAddGroup.Input) async throws -> Operations.AdminConversationsRestrictAccessAddGroup.Output {
+    internal func adminConversationsRestrictAccessAddGroup(_ input: Operations.AdminConversationsRestrictAccessAddGroup.Input) async throws -> Operations.AdminConversationsRestrictAccessAddGroup.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsRestrictAccessAddGroup.id,
@@ -2525,7 +2525,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.listGroups`.
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.listGroups/post(adminConversationsRestrictAccessListGroups)`.
-    public func adminConversationsRestrictAccessListGroups(_ input: Operations.AdminConversationsRestrictAccessListGroups.Input) async throws -> Operations.AdminConversationsRestrictAccessListGroups.Output {
+    internal func adminConversationsRestrictAccessListGroups(_ input: Operations.AdminConversationsRestrictAccessListGroups.Input) async throws -> Operations.AdminConversationsRestrictAccessListGroups.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsRestrictAccessListGroups.id,
@@ -2594,7 +2594,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.removeGroup`.
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.removeGroup/post(adminConversationsRestrictAccessRemoveGroup)`.
-    public func adminConversationsRestrictAccessRemoveGroup(_ input: Operations.AdminConversationsRestrictAccessRemoveGroup.Input) async throws -> Operations.AdminConversationsRestrictAccessRemoveGroup.Output {
+    internal func adminConversationsRestrictAccessRemoveGroup(_ input: Operations.AdminConversationsRestrictAccessRemoveGroup.Input) async throws -> Operations.AdminConversationsRestrictAccessRemoveGroup.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsRestrictAccessRemoveGroup.id,
@@ -2663,7 +2663,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.search`.
     /// - Remark: Generated from `#/paths//admin.conversations.search/post(adminConversationsSearch)`.
-    public func adminConversationsSearch(_ input: Operations.AdminConversationsSearch.Input) async throws -> Operations.AdminConversationsSearch.Output {
+    internal func adminConversationsSearch(_ input: Operations.AdminConversationsSearch.Input) async throws -> Operations.AdminConversationsSearch.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsSearch.id,
@@ -2732,7 +2732,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.setConversationPrefs`.
     /// - Remark: Generated from `#/paths//admin.conversations.setConversationPrefs/post(adminConversationsSetConversationPrefs)`.
-    public func adminConversationsSetConversationPrefs(_ input: Operations.AdminConversationsSetConversationPrefs.Input) async throws -> Operations.AdminConversationsSetConversationPrefs.Output {
+    internal func adminConversationsSetConversationPrefs(_ input: Operations.AdminConversationsSetConversationPrefs.Input) async throws -> Operations.AdminConversationsSetConversationPrefs.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsSetConversationPrefs.id,
@@ -2801,7 +2801,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.setCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.setCustomRetention/post(adminConversationsSetCustomRetention)`.
-    public func adminConversationsSetCustomRetention(_ input: Operations.AdminConversationsSetCustomRetention.Input) async throws -> Operations.AdminConversationsSetCustomRetention.Output {
+    internal func adminConversationsSetCustomRetention(_ input: Operations.AdminConversationsSetCustomRetention.Input) async throws -> Operations.AdminConversationsSetCustomRetention.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsSetCustomRetention.id,
@@ -2870,7 +2870,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.setTeams`.
     /// - Remark: Generated from `#/paths//admin.conversations.setTeams/post(adminConversationsSetTeams)`.
-    public func adminConversationsSetTeams(_ input: Operations.AdminConversationsSetTeams.Input) async throws -> Operations.AdminConversationsSetTeams.Output {
+    internal func adminConversationsSetTeams(_ input: Operations.AdminConversationsSetTeams.Input) async throws -> Operations.AdminConversationsSetTeams.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsSetTeams.id,
@@ -2939,7 +2939,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.conversations.unarchive`.
     /// - Remark: Generated from `#/paths//admin.conversations.unarchive/post(adminConversationsUnarchive)`.
-    public func adminConversationsUnarchive(_ input: Operations.AdminConversationsUnarchive.Input) async throws -> Operations.AdminConversationsUnarchive.Output {
+    internal func adminConversationsUnarchive(_ input: Operations.AdminConversationsUnarchive.Input) async throws -> Operations.AdminConversationsUnarchive.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsUnarchive.id,
@@ -3008,7 +3008,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.emoji.add`.
     /// - Remark: Generated from `#/paths//admin.emoji.add/post(adminEmojiAdd)`.
-    public func adminEmojiAdd(_ input: Operations.AdminEmojiAdd.Input) async throws -> Operations.AdminEmojiAdd.Output {
+    internal func adminEmojiAdd(_ input: Operations.AdminEmojiAdd.Input) async throws -> Operations.AdminEmojiAdd.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminEmojiAdd.id,
@@ -3077,7 +3077,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.emoji.addAlias`.
     /// - Remark: Generated from `#/paths//admin.emoji.addAlias/post(adminEmojiAddAlias)`.
-    public func adminEmojiAddAlias(_ input: Operations.AdminEmojiAddAlias.Input) async throws -> Operations.AdminEmojiAddAlias.Output {
+    internal func adminEmojiAddAlias(_ input: Operations.AdminEmojiAddAlias.Input) async throws -> Operations.AdminEmojiAddAlias.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminEmojiAddAlias.id,
@@ -3146,7 +3146,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.emoji.list`.
     /// - Remark: Generated from `#/paths//admin.emoji.list/post(adminEmojiList)`.
-    public func adminEmojiList(_ input: Operations.AdminEmojiList.Input) async throws -> Operations.AdminEmojiList.Output {
+    internal func adminEmojiList(_ input: Operations.AdminEmojiList.Input) async throws -> Operations.AdminEmojiList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminEmojiList.id,
@@ -3215,7 +3215,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.emoji.remove`.
     /// - Remark: Generated from `#/paths//admin.emoji.remove/post(adminEmojiRemove)`.
-    public func adminEmojiRemove(_ input: Operations.AdminEmojiRemove.Input) async throws -> Operations.AdminEmojiRemove.Output {
+    internal func adminEmojiRemove(_ input: Operations.AdminEmojiRemove.Input) async throws -> Operations.AdminEmojiRemove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminEmojiRemove.id,
@@ -3284,7 +3284,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.emoji.rename`.
     /// - Remark: Generated from `#/paths//admin.emoji.rename/post(adminEmojiRename)`.
-    public func adminEmojiRename(_ input: Operations.AdminEmojiRename.Input) async throws -> Operations.AdminEmojiRename.Output {
+    internal func adminEmojiRename(_ input: Operations.AdminEmojiRename.Input) async throws -> Operations.AdminEmojiRename.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminEmojiRename.id,
@@ -3353,7 +3353,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.functions.list`.
     /// - Remark: Generated from `#/paths//admin.functions.list/post(adminFunctionsList)`.
-    public func adminFunctionsList(_ input: Operations.AdminFunctionsList.Input) async throws -> Operations.AdminFunctionsList.Output {
+    internal func adminFunctionsList(_ input: Operations.AdminFunctionsList.Input) async throws -> Operations.AdminFunctionsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminFunctionsList.id,
@@ -3422,7 +3422,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.functions.permissions.lookup`.
     /// - Remark: Generated from `#/paths//admin.functions.permissions.lookup/post(adminFunctionsPermissionsLookup)`.
-    public func adminFunctionsPermissionsLookup(_ input: Operations.AdminFunctionsPermissionsLookup.Input) async throws -> Operations.AdminFunctionsPermissionsLookup.Output {
+    internal func adminFunctionsPermissionsLookup(_ input: Operations.AdminFunctionsPermissionsLookup.Input) async throws -> Operations.AdminFunctionsPermissionsLookup.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminFunctionsPermissionsLookup.id,
@@ -3491,7 +3491,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.functions.permissions.set`.
     /// - Remark: Generated from `#/paths//admin.functions.permissions.set/post(adminFunctionsPermissionsSet)`.
-    public func adminFunctionsPermissionsSet(_ input: Operations.AdminFunctionsPermissionsSet.Input) async throws -> Operations.AdminFunctionsPermissionsSet.Output {
+    internal func adminFunctionsPermissionsSet(_ input: Operations.AdminFunctionsPermissionsSet.Input) async throws -> Operations.AdminFunctionsPermissionsSet.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminFunctionsPermissionsSet.id,
@@ -3560,7 +3560,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.approve`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.approve/post(adminInviteRequestsApprove)`.
-    public func adminInviteRequestsApprove(_ input: Operations.AdminInviteRequestsApprove.Input) async throws -> Operations.AdminInviteRequestsApprove.Output {
+    internal func adminInviteRequestsApprove(_ input: Operations.AdminInviteRequestsApprove.Input) async throws -> Operations.AdminInviteRequestsApprove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminInviteRequestsApprove.id,
@@ -3629,7 +3629,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.approved.list`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.approved.list/post(adminInviteRequestsApprovedList)`.
-    public func adminInviteRequestsApprovedList(_ input: Operations.AdminInviteRequestsApprovedList.Input) async throws -> Operations.AdminInviteRequestsApprovedList.Output {
+    internal func adminInviteRequestsApprovedList(_ input: Operations.AdminInviteRequestsApprovedList.Input) async throws -> Operations.AdminInviteRequestsApprovedList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminInviteRequestsApprovedList.id,
@@ -3698,7 +3698,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.denied.list`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.denied.list/post(adminInviteRequestsDeniedList)`.
-    public func adminInviteRequestsDeniedList(_ input: Operations.AdminInviteRequestsDeniedList.Input) async throws -> Operations.AdminInviteRequestsDeniedList.Output {
+    internal func adminInviteRequestsDeniedList(_ input: Operations.AdminInviteRequestsDeniedList.Input) async throws -> Operations.AdminInviteRequestsDeniedList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminInviteRequestsDeniedList.id,
@@ -3767,7 +3767,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.deny`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.deny/post(adminInviteRequestsDeny)`.
-    public func adminInviteRequestsDeny(_ input: Operations.AdminInviteRequestsDeny.Input) async throws -> Operations.AdminInviteRequestsDeny.Output {
+    internal func adminInviteRequestsDeny(_ input: Operations.AdminInviteRequestsDeny.Input) async throws -> Operations.AdminInviteRequestsDeny.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminInviteRequestsDeny.id,
@@ -3836,7 +3836,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.list`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.list/post(adminInviteRequestsList)`.
-    public func adminInviteRequestsList(_ input: Operations.AdminInviteRequestsList.Input) async throws -> Operations.AdminInviteRequestsList.Output {
+    internal func adminInviteRequestsList(_ input: Operations.AdminInviteRequestsList.Input) async throws -> Operations.AdminInviteRequestsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminInviteRequestsList.id,
@@ -3905,7 +3905,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.roles.addAssignments`.
     /// - Remark: Generated from `#/paths//admin.roles.addAssignments/post(adminRolesAddAssignments)`.
-    public func adminRolesAddAssignments(_ input: Operations.AdminRolesAddAssignments.Input) async throws -> Operations.AdminRolesAddAssignments.Output {
+    internal func adminRolesAddAssignments(_ input: Operations.AdminRolesAddAssignments.Input) async throws -> Operations.AdminRolesAddAssignments.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminRolesAddAssignments.id,
@@ -3974,7 +3974,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.roles.listAssignments`.
     /// - Remark: Generated from `#/paths//admin.roles.listAssignments/post(adminRolesListAssignments)`.
-    public func adminRolesListAssignments(_ input: Operations.AdminRolesListAssignments.Input) async throws -> Operations.AdminRolesListAssignments.Output {
+    internal func adminRolesListAssignments(_ input: Operations.AdminRolesListAssignments.Input) async throws -> Operations.AdminRolesListAssignments.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminRolesListAssignments.id,
@@ -4043,7 +4043,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.roles.removeAssignments`.
     /// - Remark: Generated from `#/paths//admin.roles.removeAssignments/post(adminRolesRemoveAssignments)`.
-    public func adminRolesRemoveAssignments(_ input: Operations.AdminRolesRemoveAssignments.Input) async throws -> Operations.AdminRolesRemoveAssignments.Output {
+    internal func adminRolesRemoveAssignments(_ input: Operations.AdminRolesRemoveAssignments.Input) async throws -> Operations.AdminRolesRemoveAssignments.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminRolesRemoveAssignments.id,
@@ -4112,7 +4112,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.admins.list`.
     /// - Remark: Generated from `#/paths//admin.teams.admins.list/post(adminTeamsAdminsList)`.
-    public func adminTeamsAdminsList(_ input: Operations.AdminTeamsAdminsList.Input) async throws -> Operations.AdminTeamsAdminsList.Output {
+    internal func adminTeamsAdminsList(_ input: Operations.AdminTeamsAdminsList.Input) async throws -> Operations.AdminTeamsAdminsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsAdminsList.id,
@@ -4181,7 +4181,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.create`.
     /// - Remark: Generated from `#/paths//admin.teams.create/post(adminTeamsCreate)`.
-    public func adminTeamsCreate(_ input: Operations.AdminTeamsCreate.Input) async throws -> Operations.AdminTeamsCreate.Output {
+    internal func adminTeamsCreate(_ input: Operations.AdminTeamsCreate.Input) async throws -> Operations.AdminTeamsCreate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsCreate.id,
@@ -4250,7 +4250,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.list`.
     /// - Remark: Generated from `#/paths//admin.teams.list/post(adminTeamsList)`.
-    public func adminTeamsList(_ input: Operations.AdminTeamsList.Input) async throws -> Operations.AdminTeamsList.Output {
+    internal func adminTeamsList(_ input: Operations.AdminTeamsList.Input) async throws -> Operations.AdminTeamsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsList.id,
@@ -4319,7 +4319,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.owners.list`.
     /// - Remark: Generated from `#/paths//admin.teams.owners.list/post(adminTeamsOwnersList)`.
-    public func adminTeamsOwnersList(_ input: Operations.AdminTeamsOwnersList.Input) async throws -> Operations.AdminTeamsOwnersList.Output {
+    internal func adminTeamsOwnersList(_ input: Operations.AdminTeamsOwnersList.Input) async throws -> Operations.AdminTeamsOwnersList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsOwnersList.id,
@@ -4388,7 +4388,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.info`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.info/post(adminTeamsSettingsInfo)`.
-    public func adminTeamsSettingsInfo(_ input: Operations.AdminTeamsSettingsInfo.Input) async throws -> Operations.AdminTeamsSettingsInfo.Output {
+    internal func adminTeamsSettingsInfo(_ input: Operations.AdminTeamsSettingsInfo.Input) async throws -> Operations.AdminTeamsSettingsInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsSettingsInfo.id,
@@ -4457,7 +4457,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setDefaultChannels`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDefaultChannels/post(adminTeamsSettingsSetDefaultChannels)`.
-    public func adminTeamsSettingsSetDefaultChannels(_ input: Operations.AdminTeamsSettingsSetDefaultChannels.Input) async throws -> Operations.AdminTeamsSettingsSetDefaultChannels.Output {
+    internal func adminTeamsSettingsSetDefaultChannels(_ input: Operations.AdminTeamsSettingsSetDefaultChannels.Input) async throws -> Operations.AdminTeamsSettingsSetDefaultChannels.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsSettingsSetDefaultChannels.id,
@@ -4526,7 +4526,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setDescription`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDescription/post(adminTeamsSettingsSetDescription)`.
-    public func adminTeamsSettingsSetDescription(_ input: Operations.AdminTeamsSettingsSetDescription.Input) async throws -> Operations.AdminTeamsSettingsSetDescription.Output {
+    internal func adminTeamsSettingsSetDescription(_ input: Operations.AdminTeamsSettingsSetDescription.Input) async throws -> Operations.AdminTeamsSettingsSetDescription.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsSettingsSetDescription.id,
@@ -4595,7 +4595,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setDiscoverability`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDiscoverability/post(adminTeamsSettingsSetDiscoverability)`.
-    public func adminTeamsSettingsSetDiscoverability(_ input: Operations.AdminTeamsSettingsSetDiscoverability.Input) async throws -> Operations.AdminTeamsSettingsSetDiscoverability.Output {
+    internal func adminTeamsSettingsSetDiscoverability(_ input: Operations.AdminTeamsSettingsSetDiscoverability.Input) async throws -> Operations.AdminTeamsSettingsSetDiscoverability.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsSettingsSetDiscoverability.id,
@@ -4664,7 +4664,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setIcon`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setIcon/post(adminTeamsSettingsSetIcon)`.
-    public func adminTeamsSettingsSetIcon(_ input: Operations.AdminTeamsSettingsSetIcon.Input) async throws -> Operations.AdminTeamsSettingsSetIcon.Output {
+    internal func adminTeamsSettingsSetIcon(_ input: Operations.AdminTeamsSettingsSetIcon.Input) async throws -> Operations.AdminTeamsSettingsSetIcon.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsSettingsSetIcon.id,
@@ -4733,7 +4733,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setName`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setName/post(adminTeamsSettingsSetName)`.
-    public func adminTeamsSettingsSetName(_ input: Operations.AdminTeamsSettingsSetName.Input) async throws -> Operations.AdminTeamsSettingsSetName.Output {
+    internal func adminTeamsSettingsSetName(_ input: Operations.AdminTeamsSettingsSetName.Input) async throws -> Operations.AdminTeamsSettingsSetName.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsSettingsSetName.id,
@@ -4802,7 +4802,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.assign`.
     /// - Remark: Generated from `#/paths//admin.users.assign/post(adminUsersAssign)`.
-    public func adminUsersAssign(_ input: Operations.AdminUsersAssign.Input) async throws -> Operations.AdminUsersAssign.Output {
+    internal func adminUsersAssign(_ input: Operations.AdminUsersAssign.Input) async throws -> Operations.AdminUsersAssign.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersAssign.id,
@@ -4871,7 +4871,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.invite`.
     /// - Remark: Generated from `#/paths//admin.users.invite/post(adminUsersInvite)`.
-    public func adminUsersInvite(_ input: Operations.AdminUsersInvite.Input) async throws -> Operations.AdminUsersInvite.Output {
+    internal func adminUsersInvite(_ input: Operations.AdminUsersInvite.Input) async throws -> Operations.AdminUsersInvite.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersInvite.id,
@@ -4940,7 +4940,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.list`.
     /// - Remark: Generated from `#/paths//admin.users.list/post(adminUsersList)`.
-    public func adminUsersList(_ input: Operations.AdminUsersList.Input) async throws -> Operations.AdminUsersList.Output {
+    internal func adminUsersList(_ input: Operations.AdminUsersList.Input) async throws -> Operations.AdminUsersList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersList.id,
@@ -5009,7 +5009,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.remove`.
     /// - Remark: Generated from `#/paths//admin.users.remove/post(adminUsersRemove)`.
-    public func adminUsersRemove(_ input: Operations.AdminUsersRemove.Input) async throws -> Operations.AdminUsersRemove.Output {
+    internal func adminUsersRemove(_ input: Operations.AdminUsersRemove.Input) async throws -> Operations.AdminUsersRemove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersRemove.id,
@@ -5078,7 +5078,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.clearSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.clearSettings/post(adminUsersSessionClearSettings)`.
-    public func adminUsersSessionClearSettings(_ input: Operations.AdminUsersSessionClearSettings.Input) async throws -> Operations.AdminUsersSessionClearSettings.Output {
+    internal func adminUsersSessionClearSettings(_ input: Operations.AdminUsersSessionClearSettings.Input) async throws -> Operations.AdminUsersSessionClearSettings.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSessionClearSettings.id,
@@ -5147,7 +5147,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.getSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.getSettings/post(adminUsersSessionGetSettings)`.
-    public func adminUsersSessionGetSettings(_ input: Operations.AdminUsersSessionGetSettings.Input) async throws -> Operations.AdminUsersSessionGetSettings.Output {
+    internal func adminUsersSessionGetSettings(_ input: Operations.AdminUsersSessionGetSettings.Input) async throws -> Operations.AdminUsersSessionGetSettings.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSessionGetSettings.id,
@@ -5216,7 +5216,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.invalidate`.
     /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)`.
-    public func adminUsersSessionInvalidate(_ input: Operations.AdminUsersSessionInvalidate.Input) async throws -> Operations.AdminUsersSessionInvalidate.Output {
+    internal func adminUsersSessionInvalidate(_ input: Operations.AdminUsersSessionInvalidate.Input) async throws -> Operations.AdminUsersSessionInvalidate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSessionInvalidate.id,
@@ -5285,7 +5285,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.list`.
     /// - Remark: Generated from `#/paths//admin.users.session.list/post(adminUsersSessionList)`.
-    public func adminUsersSessionList(_ input: Operations.AdminUsersSessionList.Input) async throws -> Operations.AdminUsersSessionList.Output {
+    internal func adminUsersSessionList(_ input: Operations.AdminUsersSessionList.Input) async throws -> Operations.AdminUsersSessionList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSessionList.id,
@@ -5354,7 +5354,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.reset`.
     /// - Remark: Generated from `#/paths//admin.users.session.reset/post(adminUsersSessionReset)`.
-    public func adminUsersSessionReset(_ input: Operations.AdminUsersSessionReset.Input) async throws -> Operations.AdminUsersSessionReset.Output {
+    internal func adminUsersSessionReset(_ input: Operations.AdminUsersSessionReset.Input) async throws -> Operations.AdminUsersSessionReset.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSessionReset.id,
@@ -5423,7 +5423,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.resetBulk`.
     /// - Remark: Generated from `#/paths//admin.users.session.resetBulk/post(adminUsersSessionResetBulk)`.
-    public func adminUsersSessionResetBulk(_ input: Operations.AdminUsersSessionResetBulk.Input) async throws -> Operations.AdminUsersSessionResetBulk.Output {
+    internal func adminUsersSessionResetBulk(_ input: Operations.AdminUsersSessionResetBulk.Input) async throws -> Operations.AdminUsersSessionResetBulk.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSessionResetBulk.id,
@@ -5492,7 +5492,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.session.setSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.setSettings/post(adminUsersSessionSetSettings)`.
-    public func adminUsersSessionSetSettings(_ input: Operations.AdminUsersSessionSetSettings.Input) async throws -> Operations.AdminUsersSessionSetSettings.Output {
+    internal func adminUsersSessionSetSettings(_ input: Operations.AdminUsersSessionSetSettings.Input) async throws -> Operations.AdminUsersSessionSetSettings.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSessionSetSettings.id,
@@ -5561,7 +5561,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.setAdmin`.
     /// - Remark: Generated from `#/paths//admin.users.setAdmin/post(adminUsersSetAdmin)`.
-    public func adminUsersSetAdmin(_ input: Operations.AdminUsersSetAdmin.Input) async throws -> Operations.AdminUsersSetAdmin.Output {
+    internal func adminUsersSetAdmin(_ input: Operations.AdminUsersSetAdmin.Input) async throws -> Operations.AdminUsersSetAdmin.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSetAdmin.id,
@@ -5630,7 +5630,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.setExpiration`.
     /// - Remark: Generated from `#/paths//admin.users.setExpiration/post(adminUsersSetExpiration)`.
-    public func adminUsersSetExpiration(_ input: Operations.AdminUsersSetExpiration.Input) async throws -> Operations.AdminUsersSetExpiration.Output {
+    internal func adminUsersSetExpiration(_ input: Operations.AdminUsersSetExpiration.Input) async throws -> Operations.AdminUsersSetExpiration.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSetExpiration.id,
@@ -5699,7 +5699,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.setOwner`.
     /// - Remark: Generated from `#/paths//admin.users.setOwner/post(adminUsersSetOwner)`.
-    public func adminUsersSetOwner(_ input: Operations.AdminUsersSetOwner.Input) async throws -> Operations.AdminUsersSetOwner.Output {
+    internal func adminUsersSetOwner(_ input: Operations.AdminUsersSetOwner.Input) async throws -> Operations.AdminUsersSetOwner.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSetOwner.id,
@@ -5768,7 +5768,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.setRegular`.
     /// - Remark: Generated from `#/paths//admin.users.setRegular/post(adminUsersSetRegular)`.
-    public func adminUsersSetRegular(_ input: Operations.AdminUsersSetRegular.Input) async throws -> Operations.AdminUsersSetRegular.Output {
+    internal func adminUsersSetRegular(_ input: Operations.AdminUsersSetRegular.Input) async throws -> Operations.AdminUsersSetRegular.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSetRegular.id,
@@ -5837,7 +5837,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /admin.users.unsupportedVersions.export`.
     /// - Remark: Generated from `#/paths//admin.users.unsupportedVersions.export/post(adminUsersUnsupportedVersionsExport)`.
-    public func adminUsersUnsupportedVersionsExport(_ input: Operations.AdminUsersUnsupportedVersionsExport.Input) async throws -> Operations.AdminUsersUnsupportedVersionsExport.Output {
+    internal func adminUsersUnsupportedVersionsExport(_ input: Operations.AdminUsersUnsupportedVersionsExport.Input) async throws -> Operations.AdminUsersUnsupportedVersionsExport.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersUnsupportedVersionsExport.id,
@@ -5906,7 +5906,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.connections.open`.
     /// - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
-    public func appsConnectionsOpen(_ input: Operations.AppsConnectionsOpen.Input) async throws -> Operations.AppsConnectionsOpen.Output {
+    internal func appsConnectionsOpen(_ input: Operations.AppsConnectionsOpen.Input) async throws -> Operations.AppsConnectionsOpen.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AppsConnectionsOpen.id,
@@ -5975,7 +5975,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.event.authorizations.list`.
     /// - Remark: Generated from `#/paths//apps.event.authorizations.list/post(appsEventAuthorizationsList)`.
-    public func appsEventAuthorizationsList(_ input: Operations.AppsEventAuthorizationsList.Input) async throws -> Operations.AppsEventAuthorizationsList.Output {
+    internal func appsEventAuthorizationsList(_ input: Operations.AppsEventAuthorizationsList.Input) async throws -> Operations.AppsEventAuthorizationsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AppsEventAuthorizationsList.id,
@@ -6044,7 +6044,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.manifest.create`.
     /// - Remark: Generated from `#/paths//apps.manifest.create/post(appsManifestCreate)`.
-    public func appsManifestCreate(_ input: Operations.AppsManifestCreate.Input) async throws -> Operations.AppsManifestCreate.Output {
+    internal func appsManifestCreate(_ input: Operations.AppsManifestCreate.Input) async throws -> Operations.AppsManifestCreate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AppsManifestCreate.id,
@@ -6113,7 +6113,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.manifest.delete`.
     /// - Remark: Generated from `#/paths//apps.manifest.delete/post(appsManifestDelete)`.
-    public func appsManifestDelete(_ input: Operations.AppsManifestDelete.Input) async throws -> Operations.AppsManifestDelete.Output {
+    internal func appsManifestDelete(_ input: Operations.AppsManifestDelete.Input) async throws -> Operations.AppsManifestDelete.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AppsManifestDelete.id,
@@ -6182,7 +6182,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.manifest.export`.
     /// - Remark: Generated from `#/paths//apps.manifest.export/post(appsManifestExport)`.
-    public func appsManifestExport(_ input: Operations.AppsManifestExport.Input) async throws -> Operations.AppsManifestExport.Output {
+    internal func appsManifestExport(_ input: Operations.AppsManifestExport.Input) async throws -> Operations.AppsManifestExport.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AppsManifestExport.id,
@@ -6251,7 +6251,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.manifest.update`.
     /// - Remark: Generated from `#/paths//apps.manifest.update/post(appsManifestUpdate)`.
-    public func appsManifestUpdate(_ input: Operations.AppsManifestUpdate.Input) async throws -> Operations.AppsManifestUpdate.Output {
+    internal func appsManifestUpdate(_ input: Operations.AppsManifestUpdate.Input) async throws -> Operations.AppsManifestUpdate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AppsManifestUpdate.id,
@@ -6320,7 +6320,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.manifest.validate`.
     /// - Remark: Generated from `#/paths//apps.manifest.validate/post(appsManifestValidate)`.
-    public func appsManifestValidate(_ input: Operations.AppsManifestValidate.Input) async throws -> Operations.AppsManifestValidate.Output {
+    internal func appsManifestValidate(_ input: Operations.AppsManifestValidate.Input) async throws -> Operations.AppsManifestValidate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AppsManifestValidate.id,
@@ -6389,7 +6389,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /apps.uninstall`.
     /// - Remark: Generated from `#/paths//apps.uninstall/post(appsUninstall)`.
-    public func appsUninstall(_ input: Operations.AppsUninstall.Input) async throws -> Operations.AppsUninstall.Output {
+    internal func appsUninstall(_ input: Operations.AppsUninstall.Input) async throws -> Operations.AppsUninstall.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AppsUninstall.id,
@@ -6458,7 +6458,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /assistant.threads.setStatus`.
     /// - Remark: Generated from `#/paths//assistant.threads.setStatus/post(assistantThreadsSetStatus)`.
-    public func assistantThreadsSetStatus(_ input: Operations.AssistantThreadsSetStatus.Input) async throws -> Operations.AssistantThreadsSetStatus.Output {
+    internal func assistantThreadsSetStatus(_ input: Operations.AssistantThreadsSetStatus.Input) async throws -> Operations.AssistantThreadsSetStatus.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AssistantThreadsSetStatus.id,
@@ -6527,7 +6527,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /assistant.threads.setSuggestedPrompts`.
     /// - Remark: Generated from `#/paths//assistant.threads.setSuggestedPrompts/post(assistantThreadsSetSuggestedPrompts)`.
-    public func assistantThreadsSetSuggestedPrompts(_ input: Operations.AssistantThreadsSetSuggestedPrompts.Input) async throws -> Operations.AssistantThreadsSetSuggestedPrompts.Output {
+    internal func assistantThreadsSetSuggestedPrompts(_ input: Operations.AssistantThreadsSetSuggestedPrompts.Input) async throws -> Operations.AssistantThreadsSetSuggestedPrompts.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AssistantThreadsSetSuggestedPrompts.id,
@@ -6596,7 +6596,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /assistant.threads.setTitle`.
     /// - Remark: Generated from `#/paths//assistant.threads.setTitle/post(assistantThreadsSetTitle)`.
-    public func assistantThreadsSetTitle(_ input: Operations.AssistantThreadsSetTitle.Input) async throws -> Operations.AssistantThreadsSetTitle.Output {
+    internal func assistantThreadsSetTitle(_ input: Operations.AssistantThreadsSetTitle.Input) async throws -> Operations.AssistantThreadsSetTitle.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AssistantThreadsSetTitle.id,
@@ -6665,7 +6665,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /auth.revoke`.
     /// - Remark: Generated from `#/paths//auth.revoke/post(authRevoke)`.
-    public func authRevoke(_ input: Operations.AuthRevoke.Input) async throws -> Operations.AuthRevoke.Output {
+    internal func authRevoke(_ input: Operations.AuthRevoke.Input) async throws -> Operations.AuthRevoke.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AuthRevoke.id,
@@ -6734,7 +6734,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /auth.teams.list`.
     /// - Remark: Generated from `#/paths//auth.teams.list/post(authTeamsList)`.
-    public func authTeamsList(_ input: Operations.AuthTeamsList.Input) async throws -> Operations.AuthTeamsList.Output {
+    internal func authTeamsList(_ input: Operations.AuthTeamsList.Input) async throws -> Operations.AuthTeamsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AuthTeamsList.id,
@@ -6803,7 +6803,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /auth.test`.
     /// - Remark: Generated from `#/paths//auth.test/post(authTest)`.
-    public func authTest(_ input: Operations.AuthTest.Input) async throws -> Operations.AuthTest.Output {
+    internal func authTest(_ input: Operations.AuthTest.Input) async throws -> Operations.AuthTest.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AuthTest.id,
@@ -6872,7 +6872,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /bookmarks.add`.
     /// - Remark: Generated from `#/paths//bookmarks.add/post(bookmarksAdd)`.
-    public func bookmarksAdd(_ input: Operations.BookmarksAdd.Input) async throws -> Operations.BookmarksAdd.Output {
+    internal func bookmarksAdd(_ input: Operations.BookmarksAdd.Input) async throws -> Operations.BookmarksAdd.Output {
         try await client.send(
             input: input,
             forOperation: Operations.BookmarksAdd.id,
@@ -6941,7 +6941,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /bookmarks.edit`.
     /// - Remark: Generated from `#/paths//bookmarks.edit/post(bookmarksEdit)`.
-    public func bookmarksEdit(_ input: Operations.BookmarksEdit.Input) async throws -> Operations.BookmarksEdit.Output {
+    internal func bookmarksEdit(_ input: Operations.BookmarksEdit.Input) async throws -> Operations.BookmarksEdit.Output {
         try await client.send(
             input: input,
             forOperation: Operations.BookmarksEdit.id,
@@ -7010,7 +7010,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /bookmarks.list`.
     /// - Remark: Generated from `#/paths//bookmarks.list/post(bookmarksList)`.
-    public func bookmarksList(_ input: Operations.BookmarksList.Input) async throws -> Operations.BookmarksList.Output {
+    internal func bookmarksList(_ input: Operations.BookmarksList.Input) async throws -> Operations.BookmarksList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.BookmarksList.id,
@@ -7079,7 +7079,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /bookmarks.remove`.
     /// - Remark: Generated from `#/paths//bookmarks.remove/post(bookmarksRemove)`.
-    public func bookmarksRemove(_ input: Operations.BookmarksRemove.Input) async throws -> Operations.BookmarksRemove.Output {
+    internal func bookmarksRemove(_ input: Operations.BookmarksRemove.Input) async throws -> Operations.BookmarksRemove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.BookmarksRemove.id,
@@ -7148,7 +7148,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /bots.info`.
     /// - Remark: Generated from `#/paths//bots.info/post(botsInfo)`.
-    public func botsInfo(_ input: Operations.BotsInfo.Input) async throws -> Operations.BotsInfo.Output {
+    internal func botsInfo(_ input: Operations.BotsInfo.Input) async throws -> Operations.BotsInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.BotsInfo.id,
@@ -7217,7 +7217,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /canvases.access.delete`.
     /// - Remark: Generated from `#/paths//canvases.access.delete/post(canvasesAccessDelete)`.
-    public func canvasesAccessDelete(_ input: Operations.CanvasesAccessDelete.Input) async throws -> Operations.CanvasesAccessDelete.Output {
+    internal func canvasesAccessDelete(_ input: Operations.CanvasesAccessDelete.Input) async throws -> Operations.CanvasesAccessDelete.Output {
         try await client.send(
             input: input,
             forOperation: Operations.CanvasesAccessDelete.id,
@@ -7286,7 +7286,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /canvases.access.set`.
     /// - Remark: Generated from `#/paths//canvases.access.set/post(canvasesAccessSet)`.
-    public func canvasesAccessSet(_ input: Operations.CanvasesAccessSet.Input) async throws -> Operations.CanvasesAccessSet.Output {
+    internal func canvasesAccessSet(_ input: Operations.CanvasesAccessSet.Input) async throws -> Operations.CanvasesAccessSet.Output {
         try await client.send(
             input: input,
             forOperation: Operations.CanvasesAccessSet.id,
@@ -7355,7 +7355,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /canvases.create`.
     /// - Remark: Generated from `#/paths//canvases.create/post(canvasesCreate)`.
-    public func canvasesCreate(_ input: Operations.CanvasesCreate.Input) async throws -> Operations.CanvasesCreate.Output {
+    internal func canvasesCreate(_ input: Operations.CanvasesCreate.Input) async throws -> Operations.CanvasesCreate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.CanvasesCreate.id,
@@ -7424,7 +7424,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /canvases.delete`.
     /// - Remark: Generated from `#/paths//canvases.delete/post(canvasesDelete)`.
-    public func canvasesDelete(_ input: Operations.CanvasesDelete.Input) async throws -> Operations.CanvasesDelete.Output {
+    internal func canvasesDelete(_ input: Operations.CanvasesDelete.Input) async throws -> Operations.CanvasesDelete.Output {
         try await client.send(
             input: input,
             forOperation: Operations.CanvasesDelete.id,
@@ -7493,7 +7493,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /canvases.edit`.
     /// - Remark: Generated from `#/paths//canvases.edit/post(canvasesEdit)`.
-    public func canvasesEdit(_ input: Operations.CanvasesEdit.Input) async throws -> Operations.CanvasesEdit.Output {
+    internal func canvasesEdit(_ input: Operations.CanvasesEdit.Input) async throws -> Operations.CanvasesEdit.Output {
         try await client.send(
             input: input,
             forOperation: Operations.CanvasesEdit.id,
@@ -7562,7 +7562,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /canvases.sections.lookup`.
     /// - Remark: Generated from `#/paths//canvases.sections.lookup/post(canvasesSectionsLookup)`.
-    public func canvasesSectionsLookup(_ input: Operations.CanvasesSectionsLookup.Input) async throws -> Operations.CanvasesSectionsLookup.Output {
+    internal func canvasesSectionsLookup(_ input: Operations.CanvasesSectionsLookup.Input) async throws -> Operations.CanvasesSectionsLookup.Output {
         try await client.send(
             input: input,
             forOperation: Operations.CanvasesSectionsLookup.id,
@@ -7631,7 +7631,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.delete`.
     /// - Remark: Generated from `#/paths//chat.delete/post(chatDelete)`.
-    public func chatDelete(_ input: Operations.ChatDelete.Input) async throws -> Operations.ChatDelete.Output {
+    internal func chatDelete(_ input: Operations.ChatDelete.Input) async throws -> Operations.ChatDelete.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ChatDelete.id,
@@ -7700,7 +7700,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.deleteScheduledMessage`.
     /// - Remark: Generated from `#/paths//chat.deleteScheduledMessage/post(chatDeleteScheduledMessage)`.
-    public func chatDeleteScheduledMessage(_ input: Operations.ChatDeleteScheduledMessage.Input) async throws -> Operations.ChatDeleteScheduledMessage.Output {
+    internal func chatDeleteScheduledMessage(_ input: Operations.ChatDeleteScheduledMessage.Input) async throws -> Operations.ChatDeleteScheduledMessage.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ChatDeleteScheduledMessage.id,
@@ -7769,7 +7769,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.getPermalink`.
     /// - Remark: Generated from `#/paths//chat.getPermalink/post(chatGetPermalink)`.
-    public func chatGetPermalink(_ input: Operations.ChatGetPermalink.Input) async throws -> Operations.ChatGetPermalink.Output {
+    internal func chatGetPermalink(_ input: Operations.ChatGetPermalink.Input) async throws -> Operations.ChatGetPermalink.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ChatGetPermalink.id,
@@ -7838,7 +7838,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.meMessage`.
     /// - Remark: Generated from `#/paths//chat.meMessage/post(chatMeMessage)`.
-    public func chatMeMessage(_ input: Operations.ChatMeMessage.Input) async throws -> Operations.ChatMeMessage.Output {
+    internal func chatMeMessage(_ input: Operations.ChatMeMessage.Input) async throws -> Operations.ChatMeMessage.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ChatMeMessage.id,
@@ -7907,7 +7907,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.postEphemeral`.
     /// - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
-    public func chatPostEphemeral(_ input: Operations.ChatPostEphemeral.Input) async throws -> Operations.ChatPostEphemeral.Output {
+    internal func chatPostEphemeral(_ input: Operations.ChatPostEphemeral.Input) async throws -> Operations.ChatPostEphemeral.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ChatPostEphemeral.id,
@@ -7976,7 +7976,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.postMessage`.
     /// - Remark: Generated from `#/paths//chat.postMessage/post(chatPostMessage)`.
-    public func chatPostMessage(_ input: Operations.ChatPostMessage.Input) async throws -> Operations.ChatPostMessage.Output {
+    internal func chatPostMessage(_ input: Operations.ChatPostMessage.Input) async throws -> Operations.ChatPostMessage.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ChatPostMessage.id,
@@ -8045,7 +8045,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.scheduleMessage`.
     /// - Remark: Generated from `#/paths//chat.scheduleMessage/post(chatScheduleMessage)`.
-    public func chatScheduleMessage(_ input: Operations.ChatScheduleMessage.Input) async throws -> Operations.ChatScheduleMessage.Output {
+    internal func chatScheduleMessage(_ input: Operations.ChatScheduleMessage.Input) async throws -> Operations.ChatScheduleMessage.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ChatScheduleMessage.id,
@@ -8114,7 +8114,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.scheduledMessages.list`.
     /// - Remark: Generated from `#/paths//chat.scheduledMessages.list/post(chatScheduledMessagesList)`.
-    public func chatScheduledMessagesList(_ input: Operations.ChatScheduledMessagesList.Input) async throws -> Operations.ChatScheduledMessagesList.Output {
+    internal func chatScheduledMessagesList(_ input: Operations.ChatScheduledMessagesList.Input) async throws -> Operations.ChatScheduledMessagesList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ChatScheduledMessagesList.id,
@@ -8183,7 +8183,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.unfurl`.
     /// - Remark: Generated from `#/paths//chat.unfurl/post(chatUnfurl)`.
-    public func chatUnfurl(_ input: Operations.ChatUnfurl.Input) async throws -> Operations.ChatUnfurl.Output {
+    internal func chatUnfurl(_ input: Operations.ChatUnfurl.Input) async throws -> Operations.ChatUnfurl.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ChatUnfurl.id,
@@ -8252,7 +8252,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /chat.update`.
     /// - Remark: Generated from `#/paths//chat.update/post(chatUpdate)`.
-    public func chatUpdate(_ input: Operations.ChatUpdate.Input) async throws -> Operations.ChatUpdate.Output {
+    internal func chatUpdate(_ input: Operations.ChatUpdate.Input) async throws -> Operations.ChatUpdate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ChatUpdate.id,
@@ -8321,7 +8321,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.acceptSharedInvite`.
     /// - Remark: Generated from `#/paths//conversations.acceptSharedInvite/post(conversationsAcceptSharedInvite)`.
-    public func conversationsAcceptSharedInvite(_ input: Operations.ConversationsAcceptSharedInvite.Input) async throws -> Operations.ConversationsAcceptSharedInvite.Output {
+    internal func conversationsAcceptSharedInvite(_ input: Operations.ConversationsAcceptSharedInvite.Input) async throws -> Operations.ConversationsAcceptSharedInvite.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsAcceptSharedInvite.id,
@@ -8390,7 +8390,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.approveSharedInvite`.
     /// - Remark: Generated from `#/paths//conversations.approveSharedInvite/post(conversationsApproveSharedInvite)`.
-    public func conversationsApproveSharedInvite(_ input: Operations.ConversationsApproveSharedInvite.Input) async throws -> Operations.ConversationsApproveSharedInvite.Output {
+    internal func conversationsApproveSharedInvite(_ input: Operations.ConversationsApproveSharedInvite.Input) async throws -> Operations.ConversationsApproveSharedInvite.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsApproveSharedInvite.id,
@@ -8459,7 +8459,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.archive`.
     /// - Remark: Generated from `#/paths//conversations.archive/post(conversationsArchive)`.
-    public func conversationsArchive(_ input: Operations.ConversationsArchive.Input) async throws -> Operations.ConversationsArchive.Output {
+    internal func conversationsArchive(_ input: Operations.ConversationsArchive.Input) async throws -> Operations.ConversationsArchive.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsArchive.id,
@@ -8528,7 +8528,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.canvases.create`.
     /// - Remark: Generated from `#/paths//conversations.canvases.create/post(conversationsCanvasesCreate)`.
-    public func conversationsCanvasesCreate(_ input: Operations.ConversationsCanvasesCreate.Input) async throws -> Operations.ConversationsCanvasesCreate.Output {
+    internal func conversationsCanvasesCreate(_ input: Operations.ConversationsCanvasesCreate.Input) async throws -> Operations.ConversationsCanvasesCreate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsCanvasesCreate.id,
@@ -8597,7 +8597,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.close`.
     /// - Remark: Generated from `#/paths//conversations.close/post(conversationsClose)`.
-    public func conversationsClose(_ input: Operations.ConversationsClose.Input) async throws -> Operations.ConversationsClose.Output {
+    internal func conversationsClose(_ input: Operations.ConversationsClose.Input) async throws -> Operations.ConversationsClose.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsClose.id,
@@ -8666,7 +8666,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.create`.
     /// - Remark: Generated from `#/paths//conversations.create/post(conversationsCreate)`.
-    public func conversationsCreate(_ input: Operations.ConversationsCreate.Input) async throws -> Operations.ConversationsCreate.Output {
+    internal func conversationsCreate(_ input: Operations.ConversationsCreate.Input) async throws -> Operations.ConversationsCreate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsCreate.id,
@@ -8735,7 +8735,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.declineSharedInvite`.
     /// - Remark: Generated from `#/paths//conversations.declineSharedInvite/post(conversationsDeclineSharedInvite)`.
-    public func conversationsDeclineSharedInvite(_ input: Operations.ConversationsDeclineSharedInvite.Input) async throws -> Operations.ConversationsDeclineSharedInvite.Output {
+    internal func conversationsDeclineSharedInvite(_ input: Operations.ConversationsDeclineSharedInvite.Input) async throws -> Operations.ConversationsDeclineSharedInvite.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsDeclineSharedInvite.id,
@@ -8804,7 +8804,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.externalInvitePermissions.set`.
     /// - Remark: Generated from `#/paths//conversations.externalInvitePermissions.set/post(conversationsExternalInvitePermissionsSet)`.
-    public func conversationsExternalInvitePermissionsSet(_ input: Operations.ConversationsExternalInvitePermissionsSet.Input) async throws -> Operations.ConversationsExternalInvitePermissionsSet.Output {
+    internal func conversationsExternalInvitePermissionsSet(_ input: Operations.ConversationsExternalInvitePermissionsSet.Input) async throws -> Operations.ConversationsExternalInvitePermissionsSet.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsExternalInvitePermissionsSet.id,
@@ -8873,7 +8873,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.history`.
     /// - Remark: Generated from `#/paths//conversations.history/post(conversationsHistory)`.
-    public func conversationsHistory(_ input: Operations.ConversationsHistory.Input) async throws -> Operations.ConversationsHistory.Output {
+    internal func conversationsHistory(_ input: Operations.ConversationsHistory.Input) async throws -> Operations.ConversationsHistory.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsHistory.id,
@@ -8942,7 +8942,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.info`.
     /// - Remark: Generated from `#/paths//conversations.info/post(conversationsInfo)`.
-    public func conversationsInfo(_ input: Operations.ConversationsInfo.Input) async throws -> Operations.ConversationsInfo.Output {
+    internal func conversationsInfo(_ input: Operations.ConversationsInfo.Input) async throws -> Operations.ConversationsInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsInfo.id,
@@ -9011,7 +9011,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.invite`.
     /// - Remark: Generated from `#/paths//conversations.invite/post(conversationsInvite)`.
-    public func conversationsInvite(_ input: Operations.ConversationsInvite.Input) async throws -> Operations.ConversationsInvite.Output {
+    internal func conversationsInvite(_ input: Operations.ConversationsInvite.Input) async throws -> Operations.ConversationsInvite.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsInvite.id,
@@ -9080,7 +9080,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.inviteShared`.
     /// - Remark: Generated from `#/paths//conversations.inviteShared/post(conversationsInviteShared)`.
-    public func conversationsInviteShared(_ input: Operations.ConversationsInviteShared.Input) async throws -> Operations.ConversationsInviteShared.Output {
+    internal func conversationsInviteShared(_ input: Operations.ConversationsInviteShared.Input) async throws -> Operations.ConversationsInviteShared.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsInviteShared.id,
@@ -9149,7 +9149,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.join`.
     /// - Remark: Generated from `#/paths//conversations.join/post(conversationsJoin)`.
-    public func conversationsJoin(_ input: Operations.ConversationsJoin.Input) async throws -> Operations.ConversationsJoin.Output {
+    internal func conversationsJoin(_ input: Operations.ConversationsJoin.Input) async throws -> Operations.ConversationsJoin.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsJoin.id,
@@ -9218,7 +9218,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.kick`.
     /// - Remark: Generated from `#/paths//conversations.kick/post(conversationsKick)`.
-    public func conversationsKick(_ input: Operations.ConversationsKick.Input) async throws -> Operations.ConversationsKick.Output {
+    internal func conversationsKick(_ input: Operations.ConversationsKick.Input) async throws -> Operations.ConversationsKick.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsKick.id,
@@ -9287,7 +9287,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.leave`.
     /// - Remark: Generated from `#/paths//conversations.leave/post(conversationsLeave)`.
-    public func conversationsLeave(_ input: Operations.ConversationsLeave.Input) async throws -> Operations.ConversationsLeave.Output {
+    internal func conversationsLeave(_ input: Operations.ConversationsLeave.Input) async throws -> Operations.ConversationsLeave.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsLeave.id,
@@ -9356,7 +9356,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.list`.
     /// - Remark: Generated from `#/paths//conversations.list/post(conversationsList)`.
-    public func conversationsList(_ input: Operations.ConversationsList.Input) async throws -> Operations.ConversationsList.Output {
+    internal func conversationsList(_ input: Operations.ConversationsList.Input) async throws -> Operations.ConversationsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsList.id,
@@ -9425,7 +9425,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.listConnectInvites`.
     /// - Remark: Generated from `#/paths//conversations.listConnectInvites/post(conversationsListConnectInvites)`.
-    public func conversationsListConnectInvites(_ input: Operations.ConversationsListConnectInvites.Input) async throws -> Operations.ConversationsListConnectInvites.Output {
+    internal func conversationsListConnectInvites(_ input: Operations.ConversationsListConnectInvites.Input) async throws -> Operations.ConversationsListConnectInvites.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsListConnectInvites.id,
@@ -9494,7 +9494,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.mark`.
     /// - Remark: Generated from `#/paths//conversations.mark/post(conversationsMark)`.
-    public func conversationsMark(_ input: Operations.ConversationsMark.Input) async throws -> Operations.ConversationsMark.Output {
+    internal func conversationsMark(_ input: Operations.ConversationsMark.Input) async throws -> Operations.ConversationsMark.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsMark.id,
@@ -9563,7 +9563,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.members`.
     /// - Remark: Generated from `#/paths//conversations.members/post(conversationsMembers)`.
-    public func conversationsMembers(_ input: Operations.ConversationsMembers.Input) async throws -> Operations.ConversationsMembers.Output {
+    internal func conversationsMembers(_ input: Operations.ConversationsMembers.Input) async throws -> Operations.ConversationsMembers.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsMembers.id,
@@ -9632,7 +9632,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.open`.
     /// - Remark: Generated from `#/paths//conversations.open/post(conversationsOpen)`.
-    public func conversationsOpen(_ input: Operations.ConversationsOpen.Input) async throws -> Operations.ConversationsOpen.Output {
+    internal func conversationsOpen(_ input: Operations.ConversationsOpen.Input) async throws -> Operations.ConversationsOpen.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsOpen.id,
@@ -9701,7 +9701,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.rename`.
     /// - Remark: Generated from `#/paths//conversations.rename/post(conversationsRename)`.
-    public func conversationsRename(_ input: Operations.ConversationsRename.Input) async throws -> Operations.ConversationsRename.Output {
+    internal func conversationsRename(_ input: Operations.ConversationsRename.Input) async throws -> Operations.ConversationsRename.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsRename.id,
@@ -9770,7 +9770,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.replies`.
     /// - Remark: Generated from `#/paths//conversations.replies/post(conversationsReplies)`.
-    public func conversationsReplies(_ input: Operations.ConversationsReplies.Input) async throws -> Operations.ConversationsReplies.Output {
+    internal func conversationsReplies(_ input: Operations.ConversationsReplies.Input) async throws -> Operations.ConversationsReplies.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsReplies.id,
@@ -9839,7 +9839,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.requestSharedInvite.approve`.
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.approve/post(conversationsRequestSharedInviteApprove)`.
-    public func conversationsRequestSharedInviteApprove(_ input: Operations.ConversationsRequestSharedInviteApprove.Input) async throws -> Operations.ConversationsRequestSharedInviteApprove.Output {
+    internal func conversationsRequestSharedInviteApprove(_ input: Operations.ConversationsRequestSharedInviteApprove.Input) async throws -> Operations.ConversationsRequestSharedInviteApprove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsRequestSharedInviteApprove.id,
@@ -9908,7 +9908,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.requestSharedInvite.deny`.
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.deny/post(conversationsRequestSharedInviteDeny)`.
-    public func conversationsRequestSharedInviteDeny(_ input: Operations.ConversationsRequestSharedInviteDeny.Input) async throws -> Operations.ConversationsRequestSharedInviteDeny.Output {
+    internal func conversationsRequestSharedInviteDeny(_ input: Operations.ConversationsRequestSharedInviteDeny.Input) async throws -> Operations.ConversationsRequestSharedInviteDeny.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsRequestSharedInviteDeny.id,
@@ -9977,7 +9977,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.requestSharedInvite.list`.
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.list/post(conversationsRequestSharedInviteList)`.
-    public func conversationsRequestSharedInviteList(_ input: Operations.ConversationsRequestSharedInviteList.Input) async throws -> Operations.ConversationsRequestSharedInviteList.Output {
+    internal func conversationsRequestSharedInviteList(_ input: Operations.ConversationsRequestSharedInviteList.Input) async throws -> Operations.ConversationsRequestSharedInviteList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsRequestSharedInviteList.id,
@@ -10046,7 +10046,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.setPurpose`.
     /// - Remark: Generated from `#/paths//conversations.setPurpose/post(conversationsSetPurpose)`.
-    public func conversationsSetPurpose(_ input: Operations.ConversationsSetPurpose.Input) async throws -> Operations.ConversationsSetPurpose.Output {
+    internal func conversationsSetPurpose(_ input: Operations.ConversationsSetPurpose.Input) async throws -> Operations.ConversationsSetPurpose.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsSetPurpose.id,
@@ -10115,7 +10115,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.setTopic`.
     /// - Remark: Generated from `#/paths//conversations.setTopic/post(conversationsSetTopic)`.
-    public func conversationsSetTopic(_ input: Operations.ConversationsSetTopic.Input) async throws -> Operations.ConversationsSetTopic.Output {
+    internal func conversationsSetTopic(_ input: Operations.ConversationsSetTopic.Input) async throws -> Operations.ConversationsSetTopic.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsSetTopic.id,
@@ -10184,7 +10184,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /conversations.unarchive`.
     /// - Remark: Generated from `#/paths//conversations.unarchive/post(conversationsUnarchive)`.
-    public func conversationsUnarchive(_ input: Operations.ConversationsUnarchive.Input) async throws -> Operations.ConversationsUnarchive.Output {
+    internal func conversationsUnarchive(_ input: Operations.ConversationsUnarchive.Input) async throws -> Operations.ConversationsUnarchive.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsUnarchive.id,
@@ -10253,7 +10253,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /dnd.endDnd`.
     /// - Remark: Generated from `#/paths//dnd.endDnd/post(dndEndDnd)`.
-    public func dndEndDnd(_ input: Operations.DndEndDnd.Input) async throws -> Operations.DndEndDnd.Output {
+    internal func dndEndDnd(_ input: Operations.DndEndDnd.Input) async throws -> Operations.DndEndDnd.Output {
         try await client.send(
             input: input,
             forOperation: Operations.DndEndDnd.id,
@@ -10322,7 +10322,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /dnd.endSnooze`.
     /// - Remark: Generated from `#/paths//dnd.endSnooze/post(dndEndSnooze)`.
-    public func dndEndSnooze(_ input: Operations.DndEndSnooze.Input) async throws -> Operations.DndEndSnooze.Output {
+    internal func dndEndSnooze(_ input: Operations.DndEndSnooze.Input) async throws -> Operations.DndEndSnooze.Output {
         try await client.send(
             input: input,
             forOperation: Operations.DndEndSnooze.id,
@@ -10391,7 +10391,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /dnd.info`.
     /// - Remark: Generated from `#/paths//dnd.info/post(dndInfo)`.
-    public func dndInfo(_ input: Operations.DndInfo.Input) async throws -> Operations.DndInfo.Output {
+    internal func dndInfo(_ input: Operations.DndInfo.Input) async throws -> Operations.DndInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.DndInfo.id,
@@ -10460,7 +10460,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /dnd.setSnooze`.
     /// - Remark: Generated from `#/paths//dnd.setSnooze/post(dndSetSnooze)`.
-    public func dndSetSnooze(_ input: Operations.DndSetSnooze.Input) async throws -> Operations.DndSetSnooze.Output {
+    internal func dndSetSnooze(_ input: Operations.DndSetSnooze.Input) async throws -> Operations.DndSetSnooze.Output {
         try await client.send(
             input: input,
             forOperation: Operations.DndSetSnooze.id,
@@ -10529,7 +10529,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /dnd.teamInfo`.
     /// - Remark: Generated from `#/paths//dnd.teamInfo/post(dndTeamInfo)`.
-    public func dndTeamInfo(_ input: Operations.DndTeamInfo.Input) async throws -> Operations.DndTeamInfo.Output {
+    internal func dndTeamInfo(_ input: Operations.DndTeamInfo.Input) async throws -> Operations.DndTeamInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.DndTeamInfo.id,
@@ -10598,7 +10598,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /emoji.list`.
     /// - Remark: Generated from `#/paths//emoji.list/post(emojiList)`.
-    public func emojiList(_ input: Operations.EmojiList.Input) async throws -> Operations.EmojiList.Output {
+    internal func emojiList(_ input: Operations.EmojiList.Input) async throws -> Operations.EmojiList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.EmojiList.id,
@@ -10667,7 +10667,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.completeUploadExternal`.
     /// - Remark: Generated from `#/paths//files.completeUploadExternal/post(filesCompleteUploadExternal)`.
-    public func filesCompleteUploadExternal(_ input: Operations.FilesCompleteUploadExternal.Input) async throws -> Operations.FilesCompleteUploadExternal.Output {
+    internal func filesCompleteUploadExternal(_ input: Operations.FilesCompleteUploadExternal.Input) async throws -> Operations.FilesCompleteUploadExternal.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesCompleteUploadExternal.id,
@@ -10736,7 +10736,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.delete`.
     /// - Remark: Generated from `#/paths//files.delete/post(filesDelete)`.
-    public func filesDelete(_ input: Operations.FilesDelete.Input) async throws -> Operations.FilesDelete.Output {
+    internal func filesDelete(_ input: Operations.FilesDelete.Input) async throws -> Operations.FilesDelete.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesDelete.id,
@@ -10805,7 +10805,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.getUploadURLExternal`.
     /// - Remark: Generated from `#/paths//files.getUploadURLExternal/post(filesGetUploadURLExternal)`.
-    public func filesGetUploadURLExternal(_ input: Operations.FilesGetUploadURLExternal.Input) async throws -> Operations.FilesGetUploadURLExternal.Output {
+    internal func filesGetUploadURLExternal(_ input: Operations.FilesGetUploadURLExternal.Input) async throws -> Operations.FilesGetUploadURLExternal.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesGetUploadURLExternal.id,
@@ -10874,7 +10874,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.info`.
     /// - Remark: Generated from `#/paths//files.info/post(filesInfo)`.
-    public func filesInfo(_ input: Operations.FilesInfo.Input) async throws -> Operations.FilesInfo.Output {
+    internal func filesInfo(_ input: Operations.FilesInfo.Input) async throws -> Operations.FilesInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesInfo.id,
@@ -10943,7 +10943,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.list`.
     /// - Remark: Generated from `#/paths//files.list/post(filesList)`.
-    public func filesList(_ input: Operations.FilesList.Input) async throws -> Operations.FilesList.Output {
+    internal func filesList(_ input: Operations.FilesList.Input) async throws -> Operations.FilesList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesList.id,
@@ -11012,7 +11012,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.remote.add`.
     /// - Remark: Generated from `#/paths//files.remote.add/post(filesRemoteAdd)`.
-    public func filesRemoteAdd(_ input: Operations.FilesRemoteAdd.Input) async throws -> Operations.FilesRemoteAdd.Output {
+    internal func filesRemoteAdd(_ input: Operations.FilesRemoteAdd.Input) async throws -> Operations.FilesRemoteAdd.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesRemoteAdd.id,
@@ -11081,7 +11081,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.remote.info`.
     /// - Remark: Generated from `#/paths//files.remote.info/post(filesRemoteInfo)`.
-    public func filesRemoteInfo(_ input: Operations.FilesRemoteInfo.Input) async throws -> Operations.FilesRemoteInfo.Output {
+    internal func filesRemoteInfo(_ input: Operations.FilesRemoteInfo.Input) async throws -> Operations.FilesRemoteInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesRemoteInfo.id,
@@ -11150,7 +11150,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.remote.list`.
     /// - Remark: Generated from `#/paths//files.remote.list/post(filesRemoteList)`.
-    public func filesRemoteList(_ input: Operations.FilesRemoteList.Input) async throws -> Operations.FilesRemoteList.Output {
+    internal func filesRemoteList(_ input: Operations.FilesRemoteList.Input) async throws -> Operations.FilesRemoteList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesRemoteList.id,
@@ -11219,7 +11219,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.remote.remove`.
     /// - Remark: Generated from `#/paths//files.remote.remove/post(filesRemoteRemove)`.
-    public func filesRemoteRemove(_ input: Operations.FilesRemoteRemove.Input) async throws -> Operations.FilesRemoteRemove.Output {
+    internal func filesRemoteRemove(_ input: Operations.FilesRemoteRemove.Input) async throws -> Operations.FilesRemoteRemove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesRemoteRemove.id,
@@ -11288,7 +11288,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.remote.share`.
     /// - Remark: Generated from `#/paths//files.remote.share/post(filesRemoteShare)`.
-    public func filesRemoteShare(_ input: Operations.FilesRemoteShare.Input) async throws -> Operations.FilesRemoteShare.Output {
+    internal func filesRemoteShare(_ input: Operations.FilesRemoteShare.Input) async throws -> Operations.FilesRemoteShare.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesRemoteShare.id,
@@ -11357,7 +11357,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.remote.update`.
     /// - Remark: Generated from `#/paths//files.remote.update/post(filesRemoteUpdate)`.
-    public func filesRemoteUpdate(_ input: Operations.FilesRemoteUpdate.Input) async throws -> Operations.FilesRemoteUpdate.Output {
+    internal func filesRemoteUpdate(_ input: Operations.FilesRemoteUpdate.Input) async throws -> Operations.FilesRemoteUpdate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesRemoteUpdate.id,
@@ -11426,7 +11426,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.revokePublicURL`.
     /// - Remark: Generated from `#/paths//files.revokePublicURL/post(filesRevokePublicURL)`.
-    public func filesRevokePublicURL(_ input: Operations.FilesRevokePublicURL.Input) async throws -> Operations.FilesRevokePublicURL.Output {
+    internal func filesRevokePublicURL(_ input: Operations.FilesRevokePublicURL.Input) async throws -> Operations.FilesRevokePublicURL.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesRevokePublicURL.id,
@@ -11495,7 +11495,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.sharedPublicURL`.
     /// - Remark: Generated from `#/paths//files.sharedPublicURL/post(filesSharedPublicURL)`.
-    public func filesSharedPublicURL(_ input: Operations.FilesSharedPublicURL.Input) async throws -> Operations.FilesSharedPublicURL.Output {
+    internal func filesSharedPublicURL(_ input: Operations.FilesSharedPublicURL.Input) async throws -> Operations.FilesSharedPublicURL.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesSharedPublicURL.id,
@@ -11564,7 +11564,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /files.upload`.
     /// - Remark: Generated from `#/paths//files.upload/post(filesUpload)`.
-    public func filesUpload(_ input: Operations.FilesUpload.Input) async throws -> Operations.FilesUpload.Output {
+    internal func filesUpload(_ input: Operations.FilesUpload.Input) async throws -> Operations.FilesUpload.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesUpload.id,
@@ -11633,7 +11633,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /functions.completeError`.
     /// - Remark: Generated from `#/paths//functions.completeError/post(functionsCompleteError)`.
-    public func functionsCompleteError(_ input: Operations.FunctionsCompleteError.Input) async throws -> Operations.FunctionsCompleteError.Output {
+    internal func functionsCompleteError(_ input: Operations.FunctionsCompleteError.Input) async throws -> Operations.FunctionsCompleteError.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FunctionsCompleteError.id,
@@ -11702,7 +11702,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /functions.completeSuccess`.
     /// - Remark: Generated from `#/paths//functions.completeSuccess/post(functionsCompleteSuccess)`.
-    public func functionsCompleteSuccess(_ input: Operations.FunctionsCompleteSuccess.Input) async throws -> Operations.FunctionsCompleteSuccess.Output {
+    internal func functionsCompleteSuccess(_ input: Operations.FunctionsCompleteSuccess.Input) async throws -> Operations.FunctionsCompleteSuccess.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FunctionsCompleteSuccess.id,
@@ -11771,7 +11771,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /migration.exchange`.
     /// - Remark: Generated from `#/paths//migration.exchange/post(migrationExchange)`.
-    public func migrationExchange(_ input: Operations.MigrationExchange.Input) async throws -> Operations.MigrationExchange.Output {
+    internal func migrationExchange(_ input: Operations.MigrationExchange.Input) async throws -> Operations.MigrationExchange.Output {
         try await client.send(
             input: input,
             forOperation: Operations.MigrationExchange.id,
@@ -11840,7 +11840,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /oauth.v2.access`.
     /// - Remark: Generated from `#/paths//oauth.v2.access/post(oauthV2Access)`.
-    public func oauthV2Access(_ input: Operations.OauthV2Access.Input) async throws -> Operations.OauthV2Access.Output {
+    internal func oauthV2Access(_ input: Operations.OauthV2Access.Input) async throws -> Operations.OauthV2Access.Output {
         try await client.send(
             input: input,
             forOperation: Operations.OauthV2Access.id,
@@ -11909,7 +11909,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /oauth.v2.exchange`.
     /// - Remark: Generated from `#/paths//oauth.v2.exchange/post(oauthV2Exchange)`.
-    public func oauthV2Exchange(_ input: Operations.OauthV2Exchange.Input) async throws -> Operations.OauthV2Exchange.Output {
+    internal func oauthV2Exchange(_ input: Operations.OauthV2Exchange.Input) async throws -> Operations.OauthV2Exchange.Output {
         try await client.send(
             input: input,
             forOperation: Operations.OauthV2Exchange.id,
@@ -11978,7 +11978,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /openid.connect.token`.
     /// - Remark: Generated from `#/paths//openid.connect.token/post(openidConnectToken)`.
-    public func openidConnectToken(_ input: Operations.OpenidConnectToken.Input) async throws -> Operations.OpenidConnectToken.Output {
+    internal func openidConnectToken(_ input: Operations.OpenidConnectToken.Input) async throws -> Operations.OpenidConnectToken.Output {
         try await client.send(
             input: input,
             forOperation: Operations.OpenidConnectToken.id,
@@ -12047,7 +12047,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /openid.connect.userInfo`.
     /// - Remark: Generated from `#/paths//openid.connect.userInfo/post(openidConnectUserInfo)`.
-    public func openidConnectUserInfo(_ input: Operations.OpenidConnectUserInfo.Input) async throws -> Operations.OpenidConnectUserInfo.Output {
+    internal func openidConnectUserInfo(_ input: Operations.OpenidConnectUserInfo.Input) async throws -> Operations.OpenidConnectUserInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.OpenidConnectUserInfo.id,
@@ -12116,7 +12116,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /pins.add`.
     /// - Remark: Generated from `#/paths//pins.add/post(pinsAdd)`.
-    public func pinsAdd(_ input: Operations.PinsAdd.Input) async throws -> Operations.PinsAdd.Output {
+    internal func pinsAdd(_ input: Operations.PinsAdd.Input) async throws -> Operations.PinsAdd.Output {
         try await client.send(
             input: input,
             forOperation: Operations.PinsAdd.id,
@@ -12185,7 +12185,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /pins.list`.
     /// - Remark: Generated from `#/paths//pins.list/post(pinsList)`.
-    public func pinsList(_ input: Operations.PinsList.Input) async throws -> Operations.PinsList.Output {
+    internal func pinsList(_ input: Operations.PinsList.Input) async throws -> Operations.PinsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.PinsList.id,
@@ -12254,7 +12254,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /pins.remove`.
     /// - Remark: Generated from `#/paths//pins.remove/post(pinsRemove)`.
-    public func pinsRemove(_ input: Operations.PinsRemove.Input) async throws -> Operations.PinsRemove.Output {
+    internal func pinsRemove(_ input: Operations.PinsRemove.Input) async throws -> Operations.PinsRemove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.PinsRemove.id,
@@ -12323,7 +12323,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reactions.add`.
     /// - Remark: Generated from `#/paths//reactions.add/post(reactionsAdd)`.
-    public func reactionsAdd(_ input: Operations.ReactionsAdd.Input) async throws -> Operations.ReactionsAdd.Output {
+    internal func reactionsAdd(_ input: Operations.ReactionsAdd.Input) async throws -> Operations.ReactionsAdd.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ReactionsAdd.id,
@@ -12392,7 +12392,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reactions.get`.
     /// - Remark: Generated from `#/paths//reactions.get/post(reactionsGet)`.
-    public func reactionsGet(_ input: Operations.ReactionsGet.Input) async throws -> Operations.ReactionsGet.Output {
+    internal func reactionsGet(_ input: Operations.ReactionsGet.Input) async throws -> Operations.ReactionsGet.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ReactionsGet.id,
@@ -12461,7 +12461,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reactions.list`.
     /// - Remark: Generated from `#/paths//reactions.list/post(reactionsList)`.
-    public func reactionsList(_ input: Operations.ReactionsList.Input) async throws -> Operations.ReactionsList.Output {
+    internal func reactionsList(_ input: Operations.ReactionsList.Input) async throws -> Operations.ReactionsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ReactionsList.id,
@@ -12530,7 +12530,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reactions.remove`.
     /// - Remark: Generated from `#/paths//reactions.remove/post(reactionsRemove)`.
-    public func reactionsRemove(_ input: Operations.ReactionsRemove.Input) async throws -> Operations.ReactionsRemove.Output {
+    internal func reactionsRemove(_ input: Operations.ReactionsRemove.Input) async throws -> Operations.ReactionsRemove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ReactionsRemove.id,
@@ -12599,7 +12599,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reminders.add`.
     /// - Remark: Generated from `#/paths//reminders.add/post(remindersAdd)`.
-    public func remindersAdd(_ input: Operations.RemindersAdd.Input) async throws -> Operations.RemindersAdd.Output {
+    internal func remindersAdd(_ input: Operations.RemindersAdd.Input) async throws -> Operations.RemindersAdd.Output {
         try await client.send(
             input: input,
             forOperation: Operations.RemindersAdd.id,
@@ -12668,7 +12668,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reminders.complete`.
     /// - Remark: Generated from `#/paths//reminders.complete/post(remindersComplete)`.
-    public func remindersComplete(_ input: Operations.RemindersComplete.Input) async throws -> Operations.RemindersComplete.Output {
+    internal func remindersComplete(_ input: Operations.RemindersComplete.Input) async throws -> Operations.RemindersComplete.Output {
         try await client.send(
             input: input,
             forOperation: Operations.RemindersComplete.id,
@@ -12737,7 +12737,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reminders.delete`.
     /// - Remark: Generated from `#/paths//reminders.delete/post(remindersDelete)`.
-    public func remindersDelete(_ input: Operations.RemindersDelete.Input) async throws -> Operations.RemindersDelete.Output {
+    internal func remindersDelete(_ input: Operations.RemindersDelete.Input) async throws -> Operations.RemindersDelete.Output {
         try await client.send(
             input: input,
             forOperation: Operations.RemindersDelete.id,
@@ -12806,7 +12806,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reminders.info`.
     /// - Remark: Generated from `#/paths//reminders.info/post(remindersInfo)`.
-    public func remindersInfo(_ input: Operations.RemindersInfo.Input) async throws -> Operations.RemindersInfo.Output {
+    internal func remindersInfo(_ input: Operations.RemindersInfo.Input) async throws -> Operations.RemindersInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.RemindersInfo.id,
@@ -12875,7 +12875,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /reminders.list`.
     /// - Remark: Generated from `#/paths//reminders.list/post(remindersList)`.
-    public func remindersList(_ input: Operations.RemindersList.Input) async throws -> Operations.RemindersList.Output {
+    internal func remindersList(_ input: Operations.RemindersList.Input) async throws -> Operations.RemindersList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.RemindersList.id,
@@ -12944,7 +12944,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /rtm.connect`.
     /// - Remark: Generated from `#/paths//rtm.connect/post(rtmConnect)`.
-    public func rtmConnect(_ input: Operations.RtmConnect.Input) async throws -> Operations.RtmConnect.Output {
+    internal func rtmConnect(_ input: Operations.RtmConnect.Input) async throws -> Operations.RtmConnect.Output {
         try await client.send(
             input: input,
             forOperation: Operations.RtmConnect.id,
@@ -13013,7 +13013,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /search.all`.
     /// - Remark: Generated from `#/paths//search.all/post(searchAll)`.
-    public func searchAll(_ input: Operations.SearchAll.Input) async throws -> Operations.SearchAll.Output {
+    internal func searchAll(_ input: Operations.SearchAll.Input) async throws -> Operations.SearchAll.Output {
         try await client.send(
             input: input,
             forOperation: Operations.SearchAll.id,
@@ -13082,7 +13082,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /search.files`.
     /// - Remark: Generated from `#/paths//search.files/post(searchFiles)`.
-    public func searchFiles(_ input: Operations.SearchFiles.Input) async throws -> Operations.SearchFiles.Output {
+    internal func searchFiles(_ input: Operations.SearchFiles.Input) async throws -> Operations.SearchFiles.Output {
         try await client.send(
             input: input,
             forOperation: Operations.SearchFiles.id,
@@ -13151,7 +13151,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /search.messages`.
     /// - Remark: Generated from `#/paths//search.messages/post(searchMessages)`.
-    public func searchMessages(_ input: Operations.SearchMessages.Input) async throws -> Operations.SearchMessages.Output {
+    internal func searchMessages(_ input: Operations.SearchMessages.Input) async throws -> Operations.SearchMessages.Output {
         try await client.send(
             input: input,
             forOperation: Operations.SearchMessages.id,
@@ -13220,7 +13220,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /stars.add`.
     /// - Remark: Generated from `#/paths//stars.add/post(starsAdd)`.
-    public func starsAdd(_ input: Operations.StarsAdd.Input) async throws -> Operations.StarsAdd.Output {
+    internal func starsAdd(_ input: Operations.StarsAdd.Input) async throws -> Operations.StarsAdd.Output {
         try await client.send(
             input: input,
             forOperation: Operations.StarsAdd.id,
@@ -13289,7 +13289,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /stars.list`.
     /// - Remark: Generated from `#/paths//stars.list/post(starsList)`.
-    public func starsList(_ input: Operations.StarsList.Input) async throws -> Operations.StarsList.Output {
+    internal func starsList(_ input: Operations.StarsList.Input) async throws -> Operations.StarsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.StarsList.id,
@@ -13358,7 +13358,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /stars.remove`.
     /// - Remark: Generated from `#/paths//stars.remove/post(starsRemove)`.
-    public func starsRemove(_ input: Operations.StarsRemove.Input) async throws -> Operations.StarsRemove.Output {
+    internal func starsRemove(_ input: Operations.StarsRemove.Input) async throws -> Operations.StarsRemove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.StarsRemove.id,
@@ -13427,7 +13427,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.accessLogs`.
     /// - Remark: Generated from `#/paths//team.accessLogs/post(teamAccessLogs)`.
-    public func teamAccessLogs(_ input: Operations.TeamAccessLogs.Input) async throws -> Operations.TeamAccessLogs.Output {
+    internal func teamAccessLogs(_ input: Operations.TeamAccessLogs.Input) async throws -> Operations.TeamAccessLogs.Output {
         try await client.send(
             input: input,
             forOperation: Operations.TeamAccessLogs.id,
@@ -13496,7 +13496,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.billableInfo`.
     /// - Remark: Generated from `#/paths//team.billableInfo/post(teamBillableInfo)`.
-    public func teamBillableInfo(_ input: Operations.TeamBillableInfo.Input) async throws -> Operations.TeamBillableInfo.Output {
+    internal func teamBillableInfo(_ input: Operations.TeamBillableInfo.Input) async throws -> Operations.TeamBillableInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.TeamBillableInfo.id,
@@ -13565,7 +13565,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.billing.info`.
     /// - Remark: Generated from `#/paths//team.billing.info/post(teamBillingInfo)`.
-    public func teamBillingInfo(_ input: Operations.TeamBillingInfo.Input) async throws -> Operations.TeamBillingInfo.Output {
+    internal func teamBillingInfo(_ input: Operations.TeamBillingInfo.Input) async throws -> Operations.TeamBillingInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.TeamBillingInfo.id,
@@ -13634,7 +13634,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.externalTeams.disconnect`.
     /// - Remark: Generated from `#/paths//team.externalTeams.disconnect/post(teamExternalTeamsDisconnect)`.
-    public func teamExternalTeamsDisconnect(_ input: Operations.TeamExternalTeamsDisconnect.Input) async throws -> Operations.TeamExternalTeamsDisconnect.Output {
+    internal func teamExternalTeamsDisconnect(_ input: Operations.TeamExternalTeamsDisconnect.Input) async throws -> Operations.TeamExternalTeamsDisconnect.Output {
         try await client.send(
             input: input,
             forOperation: Operations.TeamExternalTeamsDisconnect.id,
@@ -13703,7 +13703,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.externalTeams.list`.
     /// - Remark: Generated from `#/paths//team.externalTeams.list/post(teamExternalTeamsList)`.
-    public func teamExternalTeamsList(_ input: Operations.TeamExternalTeamsList.Input) async throws -> Operations.TeamExternalTeamsList.Output {
+    internal func teamExternalTeamsList(_ input: Operations.TeamExternalTeamsList.Input) async throws -> Operations.TeamExternalTeamsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.TeamExternalTeamsList.id,
@@ -13772,7 +13772,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.info`.
     /// - Remark: Generated from `#/paths//team.info/post(teamInfo)`.
-    public func teamInfo(_ input: Operations.TeamInfo.Input) async throws -> Operations.TeamInfo.Output {
+    internal func teamInfo(_ input: Operations.TeamInfo.Input) async throws -> Operations.TeamInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.TeamInfo.id,
@@ -13841,7 +13841,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.integrationLogs`.
     /// - Remark: Generated from `#/paths//team.integrationLogs/post(teamIntegrationLogs)`.
-    public func teamIntegrationLogs(_ input: Operations.TeamIntegrationLogs.Input) async throws -> Operations.TeamIntegrationLogs.Output {
+    internal func teamIntegrationLogs(_ input: Operations.TeamIntegrationLogs.Input) async throws -> Operations.TeamIntegrationLogs.Output {
         try await client.send(
             input: input,
             forOperation: Operations.TeamIntegrationLogs.id,
@@ -13910,7 +13910,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.preferences.list`.
     /// - Remark: Generated from `#/paths//team.preferences.list/post(teamPreferencesList)`.
-    public func teamPreferencesList(_ input: Operations.TeamPreferencesList.Input) async throws -> Operations.TeamPreferencesList.Output {
+    internal func teamPreferencesList(_ input: Operations.TeamPreferencesList.Input) async throws -> Operations.TeamPreferencesList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.TeamPreferencesList.id,
@@ -13979,7 +13979,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /team.profile.get`.
     /// - Remark: Generated from `#/paths//team.profile.get/post(teamProfileGet)`.
-    public func teamProfileGet(_ input: Operations.TeamProfileGet.Input) async throws -> Operations.TeamProfileGet.Output {
+    internal func teamProfileGet(_ input: Operations.TeamProfileGet.Input) async throws -> Operations.TeamProfileGet.Output {
         try await client.send(
             input: input,
             forOperation: Operations.TeamProfileGet.id,
@@ -14048,7 +14048,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /tooling.tokens.rotate`.
     /// - Remark: Generated from `#/paths//tooling.tokens.rotate/post(toolingTokensRotate)`.
-    public func toolingTokensRotate(_ input: Operations.ToolingTokensRotate.Input) async throws -> Operations.ToolingTokensRotate.Output {
+    internal func toolingTokensRotate(_ input: Operations.ToolingTokensRotate.Input) async throws -> Operations.ToolingTokensRotate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ToolingTokensRotate.id,
@@ -14117,7 +14117,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.conversations`.
     /// - Remark: Generated from `#/paths//users.conversations/post(usersConversations)`.
-    public func usersConversations(_ input: Operations.UsersConversations.Input) async throws -> Operations.UsersConversations.Output {
+    internal func usersConversations(_ input: Operations.UsersConversations.Input) async throws -> Operations.UsersConversations.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersConversations.id,
@@ -14186,7 +14186,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.deletePhoto`.
     /// - Remark: Generated from `#/paths//users.deletePhoto/post(usersDeletePhoto)`.
-    public func usersDeletePhoto(_ input: Operations.UsersDeletePhoto.Input) async throws -> Operations.UsersDeletePhoto.Output {
+    internal func usersDeletePhoto(_ input: Operations.UsersDeletePhoto.Input) async throws -> Operations.UsersDeletePhoto.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersDeletePhoto.id,
@@ -14255,7 +14255,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.discoverableContacts.lookup`.
     /// - Remark: Generated from `#/paths//users.discoverableContacts.lookup/post(usersDiscoverableContactsLookup)`.
-    public func usersDiscoverableContactsLookup(_ input: Operations.UsersDiscoverableContactsLookup.Input) async throws -> Operations.UsersDiscoverableContactsLookup.Output {
+    internal func usersDiscoverableContactsLookup(_ input: Operations.UsersDiscoverableContactsLookup.Input) async throws -> Operations.UsersDiscoverableContactsLookup.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersDiscoverableContactsLookup.id,
@@ -14324,7 +14324,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.getPresence`.
     /// - Remark: Generated from `#/paths//users.getPresence/post(usersGetPresence)`.
-    public func usersGetPresence(_ input: Operations.UsersGetPresence.Input) async throws -> Operations.UsersGetPresence.Output {
+    internal func usersGetPresence(_ input: Operations.UsersGetPresence.Input) async throws -> Operations.UsersGetPresence.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersGetPresence.id,
@@ -14393,7 +14393,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.identity`.
     /// - Remark: Generated from `#/paths//users.identity/post(usersIdentity)`.
-    public func usersIdentity(_ input: Operations.UsersIdentity.Input) async throws -> Operations.UsersIdentity.Output {
+    internal func usersIdentity(_ input: Operations.UsersIdentity.Input) async throws -> Operations.UsersIdentity.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersIdentity.id,
@@ -14462,7 +14462,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.info`.
     /// - Remark: Generated from `#/paths//users.info/post(usersInfo)`.
-    public func usersInfo(_ input: Operations.UsersInfo.Input) async throws -> Operations.UsersInfo.Output {
+    internal func usersInfo(_ input: Operations.UsersInfo.Input) async throws -> Operations.UsersInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersInfo.id,
@@ -14531,7 +14531,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.list`.
     /// - Remark: Generated from `#/paths//users.list/post(usersList)`.
-    public func usersList(_ input: Operations.UsersList.Input) async throws -> Operations.UsersList.Output {
+    internal func usersList(_ input: Operations.UsersList.Input) async throws -> Operations.UsersList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersList.id,
@@ -14600,7 +14600,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.lookupByEmail`.
     /// - Remark: Generated from `#/paths//users.lookupByEmail/post(usersLookupByEmail)`.
-    public func usersLookupByEmail(_ input: Operations.UsersLookupByEmail.Input) async throws -> Operations.UsersLookupByEmail.Output {
+    internal func usersLookupByEmail(_ input: Operations.UsersLookupByEmail.Input) async throws -> Operations.UsersLookupByEmail.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersLookupByEmail.id,
@@ -14669,7 +14669,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.profile.get`.
     /// - Remark: Generated from `#/paths//users.profile.get/post(usersProfileGet)`.
-    public func usersProfileGet(_ input: Operations.UsersProfileGet.Input) async throws -> Operations.UsersProfileGet.Output {
+    internal func usersProfileGet(_ input: Operations.UsersProfileGet.Input) async throws -> Operations.UsersProfileGet.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersProfileGet.id,
@@ -14738,7 +14738,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.profile.set`.
     /// - Remark: Generated from `#/paths//users.profile.set/post(usersProfileSet)`.
-    public func usersProfileSet(_ input: Operations.UsersProfileSet.Input) async throws -> Operations.UsersProfileSet.Output {
+    internal func usersProfileSet(_ input: Operations.UsersProfileSet.Input) async throws -> Operations.UsersProfileSet.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersProfileSet.id,
@@ -14807,7 +14807,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.setActive`.
     /// - Remark: Generated from `#/paths//users.setActive/post(usersSetActive)`.
-    public func usersSetActive(_ input: Operations.UsersSetActive.Input) async throws -> Operations.UsersSetActive.Output {
+    internal func usersSetActive(_ input: Operations.UsersSetActive.Input) async throws -> Operations.UsersSetActive.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersSetActive.id,
@@ -14876,7 +14876,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.setPhoto`.
     /// - Remark: Generated from `#/paths//users.setPhoto/post(usersSetPhoto)`.
-    public func usersSetPhoto(_ input: Operations.UsersSetPhoto.Input) async throws -> Operations.UsersSetPhoto.Output {
+    internal func usersSetPhoto(_ input: Operations.UsersSetPhoto.Input) async throws -> Operations.UsersSetPhoto.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersSetPhoto.id,
@@ -14945,7 +14945,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /users.setPresence`.
     /// - Remark: Generated from `#/paths//users.setPresence/post(usersSetPresence)`.
-    public func usersSetPresence(_ input: Operations.UsersSetPresence.Input) async throws -> Operations.UsersSetPresence.Output {
+    internal func usersSetPresence(_ input: Operations.UsersSetPresence.Input) async throws -> Operations.UsersSetPresence.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersSetPresence.id,
@@ -15014,7 +15014,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /views.open`.
     /// - Remark: Generated from `#/paths//views.open/post(viewsOpen)`.
-    public func viewsOpen(_ input: Operations.ViewsOpen.Input) async throws -> Operations.ViewsOpen.Output {
+    internal func viewsOpen(_ input: Operations.ViewsOpen.Input) async throws -> Operations.ViewsOpen.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ViewsOpen.id,
@@ -15083,7 +15083,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /views.publish`.
     /// - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
-    public func viewsPublish(_ input: Operations.ViewsPublish.Input) async throws -> Operations.ViewsPublish.Output {
+    internal func viewsPublish(_ input: Operations.ViewsPublish.Input) async throws -> Operations.ViewsPublish.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ViewsPublish.id,
@@ -15152,7 +15152,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /views.push`.
     /// - Remark: Generated from `#/paths//views.push/post(viewsPush)`.
-    public func viewsPush(_ input: Operations.ViewsPush.Input) async throws -> Operations.ViewsPush.Output {
+    internal func viewsPush(_ input: Operations.ViewsPush.Input) async throws -> Operations.ViewsPush.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ViewsPush.id,
@@ -15221,7 +15221,7 @@ public struct Client: APIProtocol {
     ///
     /// - Remark: HTTP `POST /views.update`.
     /// - Remark: Generated from `#/paths//views.update/post(viewsUpdate)`.
-    public func viewsUpdate(_ input: Operations.ViewsUpdate.Input) async throws -> Operations.ViewsUpdate.Output {
+    internal func viewsUpdate(_ input: Operations.ViewsUpdate.Input) async throws -> Operations.ViewsUpdate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ViewsUpdate.id,

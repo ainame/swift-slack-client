@@ -20,8 +20,18 @@ fi
 
 ruby scripts/generate_openapi_json.rb
 
+# Generate types with public and client with internal to avoid potential conflict other symbols named `Client`
 swift run swift-openapi-generator generate \
-    --config ./openapi-generator-config.yaml \
+    --mode types \
+    --access-modifier public \
+    --naming-strategy idiomatic \
+    --output-directory Sources/SlackClient/Generated \
+    ./tmp/openapi.json
+
+swift run swift-openapi-generator generate \
+    --mode client \
+    --access-modifier internal \
+    --naming-strategy idiomatic \
     --output-directory Sources/SlackClient/Generated \
     ./tmp/openapi.json
 
