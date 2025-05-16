@@ -77192,10 +77192,8 @@ public enum Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// A view payload. This must be a JSON-encoded string.
-                    ///
                     /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/view`.
-                    public var view: Swift.String
+                    public var view: Components.Schemas.View
                     /// Exchange a trigger to post to the user.
                     ///
                     /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/triggerId`.
@@ -77207,11 +77205,11 @@ public enum Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - view: A view payload. This must be a JSON-encoded string.
+                    ///   - view:
                     ///   - triggerId: Exchange a trigger to post to the user.
                     ///   - interactivityPointer: Exchange an interactivity pointer to post to the user.
                     public init(
-                        view: Swift.String,
+                        view: Components.Schemas.View,
                         triggerId: Swift.String? = nil,
                         interactivityPointer: Swift.String? = nil
                     ) {
@@ -77352,10 +77350,8 @@ public enum Operations {
                     ///
                     /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/userId`.
                     public var userId: Swift.String
-                    /// A view payload. This must be a JSON-encoded string.
-                    ///
                     /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/view`.
-                    public var view: Swift.String
+                    public var view: Components.Schemas.View
                     /// A string that represents view state to protect against possible race conditions.
                     ///
                     /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/hash`.
@@ -77364,11 +77360,11 @@ public enum Operations {
                     ///
                     /// - Parameters:
                     ///   - userId: id of the user you want publish a view to.
-                    ///   - view: A view payload. This must be a JSON-encoded string.
+                    ///   - view:
                     ///   - hash: A string that represents view state to protect against possible race conditions.
                     public init(
                         userId: Swift.String,
-                        view: Swift.String,
+                        view: Components.Schemas.View,
                         hash: Swift.String? = nil
                     ) {
                         self.userId = userId
@@ -77504,10 +77500,8 @@ public enum Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// A view payload. This must be a JSON-encoded string.
-                    ///
                     /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/view`.
-                    public var view: Swift.String
+                    public var view: Components.Schemas.View
                     /// Exchange a trigger to post to the user.
                     ///
                     /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/triggerId`.
@@ -77519,11 +77513,11 @@ public enum Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - view: A view payload. This must be a JSON-encoded string.
+                    ///   - view:
                     ///   - triggerId: Exchange a trigger to post to the user.
                     ///   - interactivityPointer: Exchange an interactivity pointer to post to the user.
                     public init(
-                        view: Swift.String,
+                        view: Components.Schemas.View,
                         triggerId: Swift.String? = nil,
                         interactivityPointer: Swift.String? = nil
                     ) {
@@ -77660,10 +77654,8 @@ public enum Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// A view object. This must be a JSON-encoded string.
-                    ///
                     /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/view`.
-                    public var view: Swift.String
+                    public var view: Components.Schemas.View
                     /// A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is required.
                     ///
                     /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/externalId`.
@@ -77679,12 +77671,12 @@ public enum Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - view: A view object. This must be a JSON-encoded string.
+                    ///   - view:
                     ///   - externalId: A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is required.
                     ///   - viewId: A unique identifier of the view to be updated. Either view_id or external_id is required.
                     ///   - hash: A string that represents view state to protect against possible race conditions.
                     public init(
-                        view: Swift.String,
+                        view: Components.Schemas.View,
                         externalId: Swift.String? = nil,
                         viewId: Swift.String? = nil,
                         hash: Swift.String? = nil

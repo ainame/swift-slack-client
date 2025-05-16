@@ -152,15 +152,19 @@ def generate_openapi_path(path)
   required = []
   request_body_props = json['args'].each_with_object({}) do |(name, attributes), props|
     camelized_name = name.camelize
-    normalized_type = normalize_type(name, attributes)
-    props[camelized_name] = {
-      type: normalized_type,
-      example: attributes['example'],
-      description: attributes['desc'],
-    }
-
-    props[camelized_name][:format] = 'binary' if name == 'image' && attributes['type'] == 'string'
     required.append(camelized_name) if attributes['required']
+
+    if name == 'view'
+      props['view'] = { '$ref': '#/components/schemas/View' }
+    else
+      normalized_type = normalize_type(name, attributes)
+      props[camelized_name] = {
+        type: normalized_type,
+        example: attributes['example'],
+        description: attributes['desc'],
+      }
+      props[camelized_name][:format] = 'binary' if name == 'image' && attributes['type'] == 'string'
+    end
   end
 
   response_model_name = "#{method_name.split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
