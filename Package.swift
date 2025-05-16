@@ -7,6 +7,7 @@ let package = Package(
     name: "swift-slack-client",
     platforms: [ .macOS(.v14) ],
     products: [
+        .executable(name: "postMessageTest", targets: ["postMessageTest"]),
         .library(name: "SlackClient", targets: ["SlackClient"]),
     ],
     dependencies: [
@@ -16,11 +17,17 @@ let package = Package(
         .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
     ],
     targets: [
+        .executableTarget(
+            name: "postMessageTest",
+            dependencies: [
+                "SlackClient",
+                .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
+            ]
+        ),
         .target(
             name: "SlackClient",
             dependencies: [
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
-                .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
             ]
         ),
         .testTarget(
