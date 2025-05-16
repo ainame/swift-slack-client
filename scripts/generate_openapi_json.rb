@@ -22,10 +22,10 @@ UNSUPPORTED_METHODS = [
   /im\./
 ]
 
-api_ref_dir = '../../slack-ruby/slack-api-ref/methods/'
+api_ref_dir = './tmp/slack-api-ref/methods/'
 api_ref_paths = Dir.glob("#{api_ref_dir}/**/*.json")
 
-json_logs = '../../slackapi/java-slack-sdk/json-logs'
+json_logs = './tmp/java-slack-sdk/json-logs'
 api_dir = "#{json_logs}/samples/api/"
 sample_json_paths = Dir.glob("#{api_dir}*.json")
 
