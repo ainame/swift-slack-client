@@ -1,6 +1,6 @@
 import Foundation
-import SlackClient
 import OpenAPIAsyncHTTPClient
+import SlackClient
 
 @main
 struct CLI {
@@ -18,12 +18,7 @@ struct CLI {
             )
         )
 
-        let result = try await slack.client.viewsOpen(
-            body: .json(
-                .init(view: "view", triggerId: "")
-            )
-        )
-
+        let result = try await slack.client.viewsOpen(.init(body: .json(.init(view: .init()))))
         debugPrint(try result.ok.body.json)
     }
 }
