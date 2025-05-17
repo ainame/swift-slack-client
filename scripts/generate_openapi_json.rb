@@ -173,25 +173,27 @@ def generate_openapi_path(path)
 
   response_model_name = "#{method_name.split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
   content_type = request_body_props.any? { |k,v| v[:type] == 'binary' } ? 'multipart/form-data' : 'application/json'
+  content_schema = if request_body_props.empty?
+                     { type: 'object', additionalProperties: false }
+                   else
+                     { type: 'object', properties: request_body_props, required: required }
+                   end
+  request_body = {
+    required: !request_body_props.empty?,
+    content: {
+      "#{content_type}": {
+        schema: content_schema
+      }
+    }
+  }
 
-  {
+  base = {
     "#{method_name}": {
       # Slack seems accapt POST always
       post: {
         operationId: operation_id,
         summary: json['desc'],
-        requestBody: {
-          required: true,
-          content: {
-            "#{content_type}": {
-              schema: {
-                type: 'object',
-                properties: request_body_props,
-                required: required
-              }
-            }
-          }
-        },
+        requestBody: request_body,
         responses: {
           '200': {
             description: 'OK',
@@ -207,6 +209,8 @@ def generate_openapi_path(path)
       }
     }
   }
+
+  return base
 end
 
 def base_openapi_yaml

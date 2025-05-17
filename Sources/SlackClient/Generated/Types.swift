@@ -2231,7 +2231,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
     public func appsConnectionsOpen(
         headers: Operations.AppsConnectionsOpen.Input.Headers = .init(),
-        body: Operations.AppsConnectionsOpen.Input.Body
+        body: Operations.AppsConnectionsOpen.Input.Body? = nil
     ) async throws -> Operations.AppsConnectionsOpen.Output {
         try await appsConnectionsOpen(Operations.AppsConnectionsOpen.Input(
             headers: headers,
@@ -2400,7 +2400,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//auth.test/post(authTest)`.
     public func authTest(
         headers: Operations.AuthTest.Input.Headers = .init(),
-        body: Operations.AuthTest.Input.Body
+        body: Operations.AuthTest.Input.Body? = nil
     ) async throws -> Operations.AuthTest.Output {
         try await authTest(Operations.AuthTest.Input(
             headers: headers,
@@ -3050,7 +3050,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//dnd.endDnd/post(dndEndDnd)`.
     public func dndEndDnd(
         headers: Operations.DndEndDnd.Input.Headers = .init(),
-        body: Operations.DndEndDnd.Input.Body
+        body: Operations.DndEndDnd.Input.Body? = nil
     ) async throws -> Operations.DndEndDnd.Output {
         try await dndEndDnd(Operations.DndEndDnd.Input(
             headers: headers,
@@ -3063,7 +3063,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//dnd.endSnooze/post(dndEndSnooze)`.
     public func dndEndSnooze(
         headers: Operations.DndEndSnooze.Input.Headers = .init(),
-        body: Operations.DndEndSnooze.Input.Body
+        body: Operations.DndEndSnooze.Input.Body? = nil
     ) async throws -> Operations.DndEndSnooze.Output {
         try await dndEndSnooze(Operations.DndEndSnooze.Input(
             headers: headers,
@@ -3388,7 +3388,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//openid.connect.userInfo/post(openidConnectUserInfo)`.
     public func openidConnectUserInfo(
         headers: Operations.OpenidConnectUserInfo.Input.Headers = .init(),
-        body: Operations.OpenidConnectUserInfo.Input.Body
+        body: Operations.OpenidConnectUserInfo.Input.Body? = nil
     ) async throws -> Operations.OpenidConnectUserInfo.Output {
         try await openidConnectUserInfo(Operations.OpenidConnectUserInfo.Input(
             headers: headers,
@@ -3674,7 +3674,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//team.billing.info/post(teamBillingInfo)`.
     public func teamBillingInfo(
         headers: Operations.TeamBillingInfo.Input.Headers = .init(),
-        body: Operations.TeamBillingInfo.Input.Body
+        body: Operations.TeamBillingInfo.Input.Body? = nil
     ) async throws -> Operations.TeamBillingInfo.Output {
         try await teamBillingInfo(Operations.TeamBillingInfo.Input(
             headers: headers,
@@ -3739,7 +3739,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//team.preferences.list/post(teamPreferencesList)`.
     public func teamPreferencesList(
         headers: Operations.TeamPreferencesList.Input.Headers = .init(),
-        body: Operations.TeamPreferencesList.Input.Body
+        body: Operations.TeamPreferencesList.Input.Body? = nil
     ) async throws -> Operations.TeamPreferencesList.Output {
         try await teamPreferencesList(Operations.TeamPreferencesList.Input(
             headers: headers,
@@ -3791,7 +3791,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.deletePhoto/post(usersDeletePhoto)`.
     public func usersDeletePhoto(
         headers: Operations.UsersDeletePhoto.Input.Headers = .init(),
-        body: Operations.UsersDeletePhoto.Input.Body
+        body: Operations.UsersDeletePhoto.Input.Body? = nil
     ) async throws -> Operations.UsersDeletePhoto.Output {
         try await usersDeletePhoto(Operations.UsersDeletePhoto.Input(
             headers: headers,
@@ -3830,7 +3830,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.identity/post(usersIdentity)`.
     public func usersIdentity(
         headers: Operations.UsersIdentity.Input.Headers = .init(),
-        body: Operations.UsersIdentity.Input.Body
+        body: Operations.UsersIdentity.Input.Body? = nil
     ) async throws -> Operations.UsersIdentity.Output {
         try await usersIdentity(Operations.UsersIdentity.Input(
             headers: headers,
@@ -3908,7 +3908,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.setActive/post(usersSetActive)`.
     public func usersSetActive(
         headers: Operations.UsersSetActive.Input.Headers = .init(),
-        body: Operations.UsersSetActive.Input.Body
+        body: Operations.UsersSetActive.Input.Body? = nil
     ) async throws -> Operations.UsersSetActive.Output {
         try await usersSetActive(Operations.UsersSetActive.Input(
             headers: headers,
@@ -56518,10 +56518,18 @@ public enum Operations {
             public var headers: Operations.AppsConnectionsOpen.Input.Headers
             /// - Remark: Generated from `#/paths/apps.connections.open/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/apps.connections.open/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Creates a new `JsonPayload`.
+                    public init() {}
+                    public init(from decoder: any Decoder) throws {
+                        try decoder.ensureNoAdditionalProperties(knownKeys: [])
+                    }
+                }
                 /// - Remark: Generated from `#/paths/apps.connections.open/POST/requestBody/content/application\/json`.
-                case json(OpenAPIRuntime.OpenAPIObjectContainer)
+                case json(Operations.AppsConnectionsOpen.Input.Body.JsonPayload)
             }
-            public var body: Operations.AppsConnectionsOpen.Input.Body
+            public var body: Operations.AppsConnectionsOpen.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -56529,7 +56537,7 @@ public enum Operations {
             ///   - body:
             public init(
                 headers: Operations.AppsConnectionsOpen.Input.Headers = .init(),
-                body: Operations.AppsConnectionsOpen.Input.Body
+                body: Operations.AppsConnectionsOpen.Input.Body? = nil
             ) {
                 self.headers = headers
                 self.body = body
@@ -58423,10 +58431,18 @@ public enum Operations {
             public var headers: Operations.AuthTest.Input.Headers
             /// - Remark: Generated from `#/paths/auth.test/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/auth.test/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Creates a new `JsonPayload`.
+                    public init() {}
+                    public init(from decoder: any Decoder) throws {
+                        try decoder.ensureNoAdditionalProperties(knownKeys: [])
+                    }
+                }
                 /// - Remark: Generated from `#/paths/auth.test/POST/requestBody/content/application\/json`.
-                case json(OpenAPIRuntime.OpenAPIObjectContainer)
+                case json(Operations.AuthTest.Input.Body.JsonPayload)
             }
-            public var body: Operations.AuthTest.Input.Body
+            public var body: Operations.AuthTest.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -58434,7 +58450,7 @@ public enum Operations {
             ///   - body:
             public init(
                 headers: Operations.AuthTest.Input.Headers = .init(),
-                body: Operations.AuthTest.Input.Body
+                body: Operations.AuthTest.Input.Body? = nil
             ) {
                 self.headers = headers
                 self.body = body
@@ -66614,10 +66630,18 @@ public enum Operations {
             public var headers: Operations.DndEndDnd.Input.Headers
             /// - Remark: Generated from `#/paths/dnd.endDnd/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/dnd.endDnd/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Creates a new `JsonPayload`.
+                    public init() {}
+                    public init(from decoder: any Decoder) throws {
+                        try decoder.ensureNoAdditionalProperties(knownKeys: [])
+                    }
+                }
                 /// - Remark: Generated from `#/paths/dnd.endDnd/POST/requestBody/content/application\/json`.
-                case json(OpenAPIRuntime.OpenAPIObjectContainer)
+                case json(Operations.DndEndDnd.Input.Body.JsonPayload)
             }
-            public var body: Operations.DndEndDnd.Input.Body
+            public var body: Operations.DndEndDnd.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -66625,7 +66649,7 @@ public enum Operations {
             ///   - body:
             public init(
                 headers: Operations.DndEndDnd.Input.Headers = .init(),
-                body: Operations.DndEndDnd.Input.Body
+                body: Operations.DndEndDnd.Input.Body? = nil
             ) {
                 self.headers = headers
                 self.body = body
@@ -66735,10 +66759,18 @@ public enum Operations {
             public var headers: Operations.DndEndSnooze.Input.Headers
             /// - Remark: Generated from `#/paths/dnd.endSnooze/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/dnd.endSnooze/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Creates a new `JsonPayload`.
+                    public init() {}
+                    public init(from decoder: any Decoder) throws {
+                        try decoder.ensureNoAdditionalProperties(knownKeys: [])
+                    }
+                }
                 /// - Remark: Generated from `#/paths/dnd.endSnooze/POST/requestBody/content/application\/json`.
-                case json(OpenAPIRuntime.OpenAPIObjectContainer)
+                case json(Operations.DndEndSnooze.Input.Body.JsonPayload)
             }
-            public var body: Operations.DndEndSnooze.Input.Body
+            public var body: Operations.DndEndSnooze.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -66746,7 +66778,7 @@ public enum Operations {
             ///   - body:
             public init(
                 headers: Operations.DndEndSnooze.Input.Headers = .init(),
-                body: Operations.DndEndSnooze.Input.Body
+                body: Operations.DndEndSnooze.Input.Body? = nil
             ) {
                 self.headers = headers
                 self.body = body
@@ -70678,10 +70710,18 @@ public enum Operations {
             public var headers: Operations.OpenidConnectUserInfo.Input.Headers
             /// - Remark: Generated from `#/paths/openid.connect.userInfo/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/openid.connect.userInfo/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Creates a new `JsonPayload`.
+                    public init() {}
+                    public init(from decoder: any Decoder) throws {
+                        try decoder.ensureNoAdditionalProperties(knownKeys: [])
+                    }
+                }
                 /// - Remark: Generated from `#/paths/openid.connect.userInfo/POST/requestBody/content/application\/json`.
-                case json(OpenAPIRuntime.OpenAPIObjectContainer)
+                case json(Operations.OpenidConnectUserInfo.Input.Body.JsonPayload)
             }
-            public var body: Operations.OpenidConnectUserInfo.Input.Body
+            public var body: Operations.OpenidConnectUserInfo.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -70689,7 +70729,7 @@ public enum Operations {
             ///   - body:
             public init(
                 headers: Operations.OpenidConnectUserInfo.Input.Headers = .init(),
-                body: Operations.OpenidConnectUserInfo.Input.Body
+                body: Operations.OpenidConnectUserInfo.Input.Body? = nil
             ) {
                 self.headers = headers
                 self.body = body
@@ -74143,10 +74183,18 @@ public enum Operations {
             public var headers: Operations.TeamBillingInfo.Input.Headers
             /// - Remark: Generated from `#/paths/team.billing.info/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/team.billing.info/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Creates a new `JsonPayload`.
+                    public init() {}
+                    public init(from decoder: any Decoder) throws {
+                        try decoder.ensureNoAdditionalProperties(knownKeys: [])
+                    }
+                }
                 /// - Remark: Generated from `#/paths/team.billing.info/POST/requestBody/content/application\/json`.
-                case json(OpenAPIRuntime.OpenAPIObjectContainer)
+                case json(Operations.TeamBillingInfo.Input.Body.JsonPayload)
             }
-            public var body: Operations.TeamBillingInfo.Input.Body
+            public var body: Operations.TeamBillingInfo.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -74154,7 +74202,7 @@ public enum Operations {
             ///   - body:
             public init(
                 headers: Operations.TeamBillingInfo.Input.Headers = .init(),
-                body: Operations.TeamBillingInfo.Input.Body
+                body: Operations.TeamBillingInfo.Input.Body? = nil
             ) {
                 self.headers = headers
                 self.body = body
@@ -74910,10 +74958,18 @@ public enum Operations {
             public var headers: Operations.TeamPreferencesList.Input.Headers
             /// - Remark: Generated from `#/paths/team.preferences.list/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/team.preferences.list/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Creates a new `JsonPayload`.
+                    public init() {}
+                    public init(from decoder: any Decoder) throws {
+                        try decoder.ensureNoAdditionalProperties(knownKeys: [])
+                    }
+                }
                 /// - Remark: Generated from `#/paths/team.preferences.list/POST/requestBody/content/application\/json`.
-                case json(OpenAPIRuntime.OpenAPIObjectContainer)
+                case json(Operations.TeamPreferencesList.Input.Body.JsonPayload)
             }
-            public var body: Operations.TeamPreferencesList.Input.Body
+            public var body: Operations.TeamPreferencesList.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -74921,7 +74977,7 @@ public enum Operations {
             ///   - body:
             public init(
                 headers: Operations.TeamPreferencesList.Input.Headers = .init(),
-                body: Operations.TeamPreferencesList.Input.Body
+                body: Operations.TeamPreferencesList.Input.Body? = nil
             ) {
                 self.headers = headers
                 self.body = body
@@ -75487,10 +75543,18 @@ public enum Operations {
             public var headers: Operations.UsersDeletePhoto.Input.Headers
             /// - Remark: Generated from `#/paths/users.deletePhoto/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/users.deletePhoto/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Creates a new `JsonPayload`.
+                    public init() {}
+                    public init(from decoder: any Decoder) throws {
+                        try decoder.ensureNoAdditionalProperties(knownKeys: [])
+                    }
+                }
                 /// - Remark: Generated from `#/paths/users.deletePhoto/POST/requestBody/content/application\/json`.
-                case json(OpenAPIRuntime.OpenAPIObjectContainer)
+                case json(Operations.UsersDeletePhoto.Input.Body.JsonPayload)
             }
-            public var body: Operations.UsersDeletePhoto.Input.Body
+            public var body: Operations.UsersDeletePhoto.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -75498,7 +75562,7 @@ public enum Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersDeletePhoto.Input.Headers = .init(),
-                body: Operations.UsersDeletePhoto.Input.Body
+                body: Operations.UsersDeletePhoto.Input.Body? = nil
             ) {
                 self.headers = headers
                 self.body = body
@@ -75884,10 +75948,18 @@ public enum Operations {
             public var headers: Operations.UsersIdentity.Input.Headers
             /// - Remark: Generated from `#/paths/users.identity/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/users.identity/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Creates a new `JsonPayload`.
+                    public init() {}
+                    public init(from decoder: any Decoder) throws {
+                        try decoder.ensureNoAdditionalProperties(knownKeys: [])
+                    }
+                }
                 /// - Remark: Generated from `#/paths/users.identity/POST/requestBody/content/application\/json`.
-                case json(OpenAPIRuntime.OpenAPIObjectContainer)
+                case json(Operations.UsersIdentity.Input.Body.JsonPayload)
             }
-            public var body: Operations.UsersIdentity.Input.Body
+            public var body: Operations.UsersIdentity.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -75895,7 +75967,7 @@ public enum Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersIdentity.Input.Headers = .init(),
-                body: Operations.UsersIdentity.Input.Body
+                body: Operations.UsersIdentity.Input.Body? = nil
             ) {
                 self.headers = headers
                 self.body = body
@@ -76767,10 +76839,18 @@ public enum Operations {
             public var headers: Operations.UsersSetActive.Input.Headers
             /// - Remark: Generated from `#/paths/users.setActive/POST/requestBody`.
             @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/users.setActive/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Creates a new `JsonPayload`.
+                    public init() {}
+                    public init(from decoder: any Decoder) throws {
+                        try decoder.ensureNoAdditionalProperties(knownKeys: [])
+                    }
+                }
                 /// - Remark: Generated from `#/paths/users.setActive/POST/requestBody/content/application\/json`.
-                case json(OpenAPIRuntime.OpenAPIObjectContainer)
+                case json(Operations.UsersSetActive.Input.Body.JsonPayload)
             }
-            public var body: Operations.UsersSetActive.Input.Body
+            public var body: Operations.UsersSetActive.Input.Body?
             /// Creates a new `Input`.
             ///
             /// - Parameters:
@@ -76778,7 +76858,7 @@ public enum Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersSetActive.Input.Headers = .init(),
-                body: Operations.UsersSetActive.Input.Body
+                body: Operations.UsersSetActive.Input.Body? = nil
             ) {
                 self.headers = headers
                 self.body = body

@@ -5926,8 +5926,10 @@ internal struct Client: APIProtocol {
                 )
                 let body: OpenAPIRuntime.HTTPBody?
                 switch input.body {
+                case .none:
+                    body = nil
                 case let .json(value):
-                    body = try converter.setRequiredRequestBodyAsJSON(
+                    body = try converter.setOptionalRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
                         contentType: "application/json; charset=utf-8"
@@ -6823,8 +6825,10 @@ internal struct Client: APIProtocol {
                 )
                 let body: OpenAPIRuntime.HTTPBody?
                 switch input.body {
+                case .none:
+                    body = nil
                 case let .json(value):
-                    body = try converter.setRequiredRequestBodyAsJSON(
+                    body = try converter.setOptionalRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
                         contentType: "application/json; charset=utf-8"
@@ -10273,8 +10277,10 @@ internal struct Client: APIProtocol {
                 )
                 let body: OpenAPIRuntime.HTTPBody?
                 switch input.body {
+                case .none:
+                    body = nil
                 case let .json(value):
-                    body = try converter.setRequiredRequestBodyAsJSON(
+                    body = try converter.setOptionalRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
                         contentType: "application/json; charset=utf-8"
@@ -10342,8 +10348,10 @@ internal struct Client: APIProtocol {
                 )
                 let body: OpenAPIRuntime.HTTPBody?
                 switch input.body {
+                case .none:
+                    body = nil
                 case let .json(value):
-                    body = try converter.setRequiredRequestBodyAsJSON(
+                    body = try converter.setOptionalRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
                         contentType: "application/json; charset=utf-8"
@@ -12067,8 +12075,10 @@ internal struct Client: APIProtocol {
                 )
                 let body: OpenAPIRuntime.HTTPBody?
                 switch input.body {
+                case .none:
+                    body = nil
                 case let .json(value):
-                    body = try converter.setRequiredRequestBodyAsJSON(
+                    body = try converter.setOptionalRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
                         contentType: "application/json; charset=utf-8"
@@ -13585,8 +13595,10 @@ internal struct Client: APIProtocol {
                 )
                 let body: OpenAPIRuntime.HTTPBody?
                 switch input.body {
+                case .none:
+                    body = nil
                 case let .json(value):
-                    body = try converter.setRequiredRequestBodyAsJSON(
+                    body = try converter.setOptionalRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
                         contentType: "application/json; charset=utf-8"
@@ -13930,8 +13942,10 @@ internal struct Client: APIProtocol {
                 )
                 let body: OpenAPIRuntime.HTTPBody?
                 switch input.body {
+                case .none:
+                    body = nil
                 case let .json(value):
-                    body = try converter.setRequiredRequestBodyAsJSON(
+                    body = try converter.setOptionalRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
                         contentType: "application/json; charset=utf-8"
@@ -14206,8 +14220,10 @@ internal struct Client: APIProtocol {
                 )
                 let body: OpenAPIRuntime.HTTPBody?
                 switch input.body {
+                case .none:
+                    body = nil
                 case let .json(value):
-                    body = try converter.setRequiredRequestBodyAsJSON(
+                    body = try converter.setOptionalRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
                         contentType: "application/json; charset=utf-8"
@@ -14413,8 +14429,10 @@ internal struct Client: APIProtocol {
                 )
                 let body: OpenAPIRuntime.HTTPBody?
                 switch input.body {
+                case .none:
+                    body = nil
                 case let .json(value):
-                    body = try converter.setRequiredRequestBodyAsJSON(
+                    body = try converter.setOptionalRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
                         contentType: "application/json; charset=utf-8"
@@ -14827,8 +14845,10 @@ internal struct Client: APIProtocol {
                 )
                 let body: OpenAPIRuntime.HTTPBody?
                 switch input.body {
+                case .none:
+                    body = nil
                 case let .json(value):
-                    body = try converter.setRequiredRequestBodyAsJSON(
+                    body = try converter.setOptionalRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
                         contentType: "application/json; charset=utf-8"
