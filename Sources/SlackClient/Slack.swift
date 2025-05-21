@@ -1,10 +1,29 @@
 import Foundation
-import OpenAPIRuntime
 import HTTPTypes
+import OpenAPIRuntime
+
+#if SocketMode
+import NIOCore
+import WSClient
+#endif
 
 public actor Slack {
     public let client: APIProtocol
     private var requestConfigurationMiddleware: RequestConfigurationMiddlware
+
+    #if SocketMode
+    private var socketMode: SocketMode = .notReady
+    private let jsonEncoder: JSONEncoder = {
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        return encoder
+    }()
+    let jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
+    }()
+    #endif
 
     public init(
         serverURL: URL = URL(string: "https://slack.com/api")!,
@@ -39,7 +58,6 @@ extension Slack {
         }
     }
 }
-
 
 extension Slack {
     private actor RequestConfigurationMiddlware: ClientMiddleware {
@@ -85,3 +103,41 @@ extension Slack {
         }
     }
 }
+
+#if SocketMode
+extension Slack {
+    private enum SocketMode {
+        case notReady
+        case ready(WebSocketOutboundWriter)
+
+        var writer: WebSocketOutboundWriter? {
+            switch self {
+            case .ready(let writer):
+                return writer
+            case .notReady:
+                return nil
+            }
+        }
+    }
+
+    public func setWebSocketOutboundWrite(_ writer: WebSocketOutboundWriter) {
+        socketMode = .ready(writer)
+    }
+
+    private func send(_ payload: Encodable) async throws {
+        let data = try jsonEncoder.encode(payload)
+        try await socketMode.writer?.write(.text(String(decoding: data, as: UTF8.self)))
+    }
+
+    public func onMessageRecieved(_ buffer: ByteBuffer) async throws -> SlackMessageWrapper {
+        let payloadWrapper = try jsonDecoder.decode(SlackMessageWrapper.self, from: buffer)
+        switch payloadWrapper.body {
+        case .message(let payload):
+            try await ack(payload)
+        default:
+            break
+        }
+        return payloadWrapper
+    }
+}
+#endif
