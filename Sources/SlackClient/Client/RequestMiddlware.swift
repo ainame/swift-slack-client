@@ -2,21 +2,25 @@ import Foundation
 import HTTPTypes
 import OpenAPIRuntime
 
-actor RequestConfigurationMiddlware: ClientMiddleware {
-    private var additionalHeaderFields: HTTPFields = .init()
+actor RequestMiddlware: ClientMiddleware {
+    struct RequestConfiguration: Equatable {
+        var accessToken: String?
+        var userAgent: String?
+    }
 
-    private var configuration: ClientConfiguration {
+    private var additionalHeaderFields: HTTPFields = .init()
+    private var configuration: RequestConfiguration {
         didSet {
             self.additionalHeaderFields = Self.updateAdditionalHeaders(configuration)
         }
     }
 
-    init(configuration: ClientConfiguration) {
+    init(configuration: RequestConfiguration) {
         self.configuration = configuration
         self.additionalHeaderFields = Self.updateAdditionalHeaders(configuration)
     }
 
-    static func updateAdditionalHeaders(_ configuration: ClientConfiguration) -> HTTPFields {
+    static func updateAdditionalHeaders(_ configuration: RequestConfiguration) -> HTTPFields {
         var additionalHeaderFields = HTTPFields()
         additionalHeaderFields[.userAgent] = configuration.userAgent
         if let accessToken = configuration.accessToken {

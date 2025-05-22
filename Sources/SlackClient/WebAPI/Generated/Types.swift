@@ -56520,10 +56520,19 @@ public enum Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/apps.connections.open/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// App level token
+                    ///
+                    /// - Remark: Generated from `#/paths/apps.connections.open/POST/requestBody/json/token`.
+                    public var token: Swift.String?
                     /// Creates a new `JsonPayload`.
-                    public init() {}
-                    public init(from decoder: any Decoder) throws {
-                        try decoder.ensureNoAdditionalProperties(knownKeys: [])
+                    ///
+                    /// - Parameters:
+                    ///   - token: App level token
+                    public init(token: Swift.String? = nil) {
+                        self.token = token
+                    }
+                    public enum CodingKeys: String, CodingKey {
+                        case token
                     }
                 }
                 /// - Remark: Generated from `#/paths/apps.connections.open/POST/requestBody/content/application\/json`.

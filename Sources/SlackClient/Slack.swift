@@ -5,7 +5,8 @@ import Logging
 
 public actor Slack {
     public let client: APIProtocol
-    private var requestConfigurationMiddleware: RequestConfigurationMiddlware
+    let clientConfiguration: ClientConfiguration
+    var requestMiddleware: RequestMiddlware
     let logger: Logger
 
     #if SocketMode
@@ -29,16 +30,20 @@ public actor Slack {
         logger: Logger? = nil,
         configuration: ClientConfiguration = .init()
     ) {
-        requestConfigurationMiddleware = RequestConfigurationMiddlware(configuration: configuration)
+        clientConfiguration = configuration
+        requestMiddleware = RequestMiddlware(configuration: .init(
+            accessToken: configuration.accessToken,
+            userAgent: configuration.userAgent
+        ))
         self.client = Client(
             serverURL: serverURL,
             transport: transport,
-            middlewares: middlewares + [requestConfigurationMiddleware]
+            middlewares: middlewares + [requestMiddleware]
         )
         self.logger = logger ?? Logger(label: "Slack")
     }
 
     public func setAccessToken(_ value: String) async {
-        await requestConfigurationMiddleware.setAccessToken(value)
+        await requestMiddleware.setAccessToken(value)
     }
 }

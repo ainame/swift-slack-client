@@ -178,6 +178,21 @@ def generate_openapi_path(path)
                    else
                      { type: 'object', properties: request_body_props, required: required }
                    end
+
+  # Only 'apps.connections.open' wants to use token param in request body
+  # to avoid normal OAuth token on Authorization header.
+  if method_name == 'apps.connections.open'
+    content_schema = {
+        type: 'object',
+        properties: {
+          token: {
+            type: 'string',
+            description: 'App level token'
+          }
+        }
+      }
+  end
+
   request_body = {
     required: !request_body_props.empty?,
     content: {
