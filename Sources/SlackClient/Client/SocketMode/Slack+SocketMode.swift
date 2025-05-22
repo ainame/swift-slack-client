@@ -65,8 +65,8 @@ extension Slack {
     }
 
     @discardableResult
-    private func onMessageRecieved(_ buffer: ByteBuffer) async throws -> MessageWrapper {
-        let messageWrapper = try jsonDecoder.decode(MessageWrapper.self, from: buffer)
+    private func onMessageRecieved(_ buffer: ByteBuffer) async throws -> SocketModeMessageWrapper {
+        let messageWrapper = try jsonDecoder.decode(SocketModeMessageWrapper.self, from: buffer)
         switch messageWrapper.body {
         case .message(let message):
             try await ack(message)
@@ -78,8 +78,8 @@ extension Slack {
         return messageWrapper
     }
 
-    private func ack(_ messageEnvelope: MessageEnvelope) async throws {
-        try await send(AcknowledgementMessage(envelopeId: messageEnvelope.envelopeId))
+    private func ack(_ messageEnvelope: SocketModeMessageEnvelope) async throws {
+        try await send(SocketModeAcknowledgementlMessage(envelopeId: messageEnvelope.envelopeId))
     }
 
     private func send(_ payload: Encodable) async throws {
