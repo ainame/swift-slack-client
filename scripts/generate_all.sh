@@ -2,6 +2,8 @@
 
 set -xe
 
+OUTPUT_DIR="Sources/SlackClient/WebAPI/Generated"
+
 mkdir -p ./tmp
 rm -rf ./tmp/*
 
@@ -25,14 +27,14 @@ swift run swift-openapi-generator generate \
     --mode types \
     --access-modifier public \
     --naming-strategy idiomatic \
-    --output-directory Sources/SlackClient/Generated \
+    --output-directory "${OUTPUT_DIR}" \
     ./tmp/openapi.json
 
 swift run swift-openapi-generator generate \
     --mode client \
     --access-modifier internal \
     --naming-strategy idiomatic \
-    --output-directory Sources/SlackClient/Generated \
+    --output-directory "${OUTPUT_DIR}" \
     ./tmp/openapi.json
 
 rm -rf ./tmp
