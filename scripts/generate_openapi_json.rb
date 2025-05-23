@@ -3,8 +3,8 @@
 require 'fileutils'
 require 'json'
 require 'yaml'
-
-CONCURRENCY = 24
+require_relative './lib/visitors'
+require_relative './lib/helpers'
 
 # https://github.com/slack-edge/slack-web-api-client/blob/4d1d93df8abe423ea7ee3b18591cd83d9bcfe6e6/scripts/code_generator.rb#L91-L115
 UNSUPPORTED_METHODS = [
@@ -33,7 +33,7 @@ output_dir = './tmp'
 FileUtils.mkdir_p(File.join(output_dir, 'schemas'))
 
 def main(api_ref_paths, sample_json_paths, output_dir)
-  openapi_yaml = base_openapi_yaml
+  openapi = JSON.parse(File.read(File.join(__dir__, 'lib/base_openapi.json')))
 
   # Generate schemas by quicktype
   process_in_queue(sample_json_paths) do |path|
@@ -44,7 +44,7 @@ def main(api_ref_paths, sample_json_paths, output_dir)
   schema_paths = Dir.glob("#{output_dir}/schemas/*.json")
   schema_paths.each do |path|
     json = JSON.parse(File.read(path))
-    openapi_yaml[:components][:schemas].merge!(json['definitions'])
+    openapi['components']['schemas'].merge!(json['definitions'])
   end
 
   # Generate paths
@@ -60,26 +60,10 @@ def main(api_ref_paths, sample_json_paths, output_dir)
     result = generate_openapi_path(path)
     paths.merge!(result) if result
   end
-  openapi_yaml[:paths] = paths
+  openapi['paths'] = paths
 
   # Output openapi_yaml
-  File.write(File.join(output_dir, 'openapi.json'), JSON.pretty_generate(openapi_yaml))
-end
-
-def process_in_queue(items, &block)
-  queue = Queue.new
-  items.each { queue.push(_1) }
-  queue.close
-
-  threads = CONCURRENCY.times.map do
-    Thread.new do
-      while item = queue.pop
-        block.call(item)
-      end
-    end
-  end
-
-  threads.each(&:join)
+  File.write(File.join(output_dir, 'openapi.json'), JSON.pretty_generate(openapi))
 end
 
 def generate_openapi_component(path, output_dir)
@@ -225,157 +209,7 @@ def generate_openapi_path(path)
     }
   }
 
-  return base
-end
-
-def base_openapi_yaml
-  {
-    openapi: '3.1.0',
-    info: {
-      title: 'Slack API Schema',
-      version: '1.0.0'
-    },
-    paths: {},
-    components: {
-      securitySchemes: {
-        bearerAuth: {
-          type: 'http',
-          scheme: 'bearer'
-        }
-      },
-      schemas: {},
-    },
-    security: [
-      bearerAuth: []
-    ]
-  }
-end
-
-# in openapi.yaml, we don't have definitions section and instead it's components
-class ReferenceFixer
-  def walk(root)
-    visit(root)
-  end
-
-  private
-
-  def visit(data)
-    case data
-    when Array
-      data.each { visit(_1) }
-    when Hash
-      if data.keys == ['$ref']
-        data['$ref'].sub!('#/definitions/', '#/components/schemas/')
-      else
-        data.each_value { visit(_1) }
-      end
-    else
-      data
-    end
-  end
-end
-
-# In common Slack response, `ok` always exists
-class OptionalityFixer
-  def walk(root)
-    visit(root)
-  end
-
-  private
-
-  def visit(data)
-    case data
-    when Array
-      data.each { visit(_1) }
-    when Hash
-      if data.keys.include?('properties') && data.keys.include?('required') && data['properties'].keys.include?('ok') && !data['required'].include?('ok')
-        data['required'].append('ok')
-        data['required'].uniq!
-      end
-
-      # Additional properties should be allowed but don't need to be decoded
-      data.delete('additionalProperties') if data.key?('additionalProperties')
-
-      data.each_value { visit(_1) }
-    else
-      data
-    end
-  end
-end
-
-# Quicktype doesn't convert key's case
-class SnakeCaseToCamelCaseConverter
-  def walk(root)
-    visit(root['definitions'])
-  end
-
-  private
-
-  def visit(data)
-    case data
-    when Array
-      data.each { visit(_1) }
-    when Hash
-      data.keys.each do |key|
-        value = data[key]
-        visit(value)
-        next unless key.match?(/_/)
-
-        camel_case_key = key.camelize
-        data[camel_case_key] = value
-        data.delete(key)
-      end
-    else
-      data
-    end
-  end
-end
-
-# Force UpperCamelCase for acronyms; ie DND -> Dnd
-# quicktype unintentionally choose capital case for acronyms
-class AcronymsFixer
-  def initialize(dictionary)
-    @dictionary = dictionary
-  end
-
-  def walk(root)
-    visit(root)
-  end
-
-  private
-
-  def visit(data)
-    case data
-    when Array
-      data.each { visit(_1) }
-    when Hash
-      data.keys.each do |key|
-        value = data[key]
-        visit(value)
-        acronyms = @dictionary.keys.find { key =~ /#{_1}/ }
-        next unless acronyms
-
-        correct_case = @dictionary[acronyms]
-        camel_case_key = key.gsub(acronyms) { correct_case }
-        data[camel_case_key] = value
-        data.delete(key)
-      end
-    else
-      if data.is_a?(String) && acronyms = @dictionary.keys.find { data =~ /#{_1}/ }
-        correct_case = @dictionary[acronyms]
-        data.gsub!(acronyms) { correct_case }
-      else
-        data
-      end
-    end
-  end
-end
-
-# extension to string
-class String
-  def camelize(separator: '_')
-    gsub(/#{separator}([a-z0-9])/) { Regexp.last_match(1).upcase }
-  end
+  base
 end
 
 main(api_ref_paths, sample_json_paths, output_dir)

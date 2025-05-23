@@ -1,0 +1,20 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Slack API Schema",
+        "version": "1.0.0"
+    },
+    "paths": {},
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        },
+        "schemas": {}
+    },
+    "security": [
+        { "bearerAuth": [] }
+    ]
+}
