@@ -8,22 +8,6 @@ import OpenAPIRuntime
 import WSClient
 
 extension Slack {
-    enum SocketMode {
-        case notReady
-        case ready(WebSocketOutboundWriter)
-
-        var writer: WebSocketOutboundWriter? {
-            switch self {
-            case .ready(let writer):
-                return writer
-            case .notReady:
-                return nil
-            }
-        }
-    }
-}
-
-extension Slack {
     public func runInSocketMode() async throws {
         let url = try await openConnection()
         try await doStartSocketMode(with: url)
@@ -82,11 +66,11 @@ extension Slack {
 
     private func send(_ payload: Encodable) async throws {
         let data = try jsonEncoder.encode(payload)
-        try await socketMode.writer?.write(.text(String(decoding: data, as: UTF8.self)))
+        try await socketModeState.writer?.write(.text(String(decoding: data, as: UTF8.self)))
     }
 
     private func setWebSocketOutboundWriter(_ webSocketOutboundWriter: WebSocketOutboundWriter) {
-        socketMode = .ready(webSocketOutboundWriter)
+        socketModeState = .ready(webSocketOutboundWriter)
     }
 }
 

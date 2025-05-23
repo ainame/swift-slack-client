@@ -10,7 +10,7 @@ public actor Slack {
     let logger: Logger
 
     #if SocketMode
-    var socketMode: SocketMode = .notReady
+    var socketModeState: SocketModeState = .notReady
     let jsonEncoder: JSONEncoder = {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
