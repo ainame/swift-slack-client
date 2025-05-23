@@ -5,8 +5,6 @@ set -xe
 OUTPUT_DIR="Sources/SlackClient/WebAPI/Generated"
 
 mkdir -p ./tmp
-rm -rf ./tmp/*
-
 
 if [ ! -d "./tmp/java-slack-sdk/.git" ]; then
     git clone --depth 1 https://github.com/slackapi/java-slack-sdk.git tmp/java-slack-sdk
@@ -36,5 +34,3 @@ swift run swift-openapi-generator generate \
     --naming-strategy idiomatic \
     --output-directory "${OUTPUT_DIR}" \
     ./tmp/openapi.json
-
-rm -rf ./tmp
