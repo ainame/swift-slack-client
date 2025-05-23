@@ -56,15 +56,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case logins
-            case paging
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse`.
     public struct TeamBillableInfoResponse: Codable, Hashable, Sendable {
@@ -104,14 +95,6 @@ extension Components.Schemas {
             self.billableInfo = billableInfo
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case billableInfo
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/TeamBillingInfoResponse`.
     public struct TeamBillingInfoResponse: Codable, Hashable, Sendable {
@@ -146,13 +129,6 @@ extension Components.Schemas {
             self.provided = provided
             self.plan = plan
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case plan
-        }
     }
     /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsDisconnectResponse`.
     public struct TeamExternalTeamsDisconnectResponse: Codable, Hashable, Sendable {
@@ -186,13 +162,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse`.
@@ -238,15 +207,6 @@ extension Components.Schemas {
             self.totalCount = totalCount
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case organizations
-            case error
-            case needed
-            case provided
-            case totalCount
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/TeamInfoResponse`.
     public struct TeamInfoResponse: Codable, Hashable, Sendable {
@@ -280,13 +240,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case team
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse`.
@@ -326,14 +279,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case logs
-            case paging
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse`.
@@ -389,17 +334,6 @@ extension Components.Schemas {
             self.disableFileUploads = disableFileUploads
             self.whoCanPostGeneral = whoCanPostGeneral
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case msgEditWindowMins
-            case allowMessageDeletion
-            case displayRealNames
-            case disableFileUploads
-            case whoCanPostGeneral
-        }
     }
     /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse`.
     public struct TeamProfileGetResponse: Codable, Hashable, Sendable {
@@ -433,13 +367,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case profile
-            case error
-            case needed
-            case provided
         }
     }
 }

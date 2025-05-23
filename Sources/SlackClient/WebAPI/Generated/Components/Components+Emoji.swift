@@ -61,16 +61,6 @@ extension Components.Schemas {
             self.cacheTs = cacheTs
             self.categoriesVersion = categoriesVersion
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case emoji
-            case error
-            case needed
-            case provided
-            case categories
-            case cacheTs
-            case categoriesVersion
-        }
     }
 }
 #endif

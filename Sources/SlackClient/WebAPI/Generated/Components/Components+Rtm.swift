@@ -56,15 +56,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case url
-            case team
-            case _self = "self"
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/RtmStartResponse`.
     public struct RtmStartResponse: Codable, Hashable, Sendable {
@@ -208,35 +199,6 @@ extension Components.Schemas {
             self.cacheTsVersion = cacheTsVersion
             self.isEurope = isEurope
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case _self = "self"
-            case team
-            case channels
-            case groups
-            case ims
-            case subteams
-            case dnd
-            case users
-            case bots
-            case url
-            case links
-            case error
-            case needed
-            case provided
-            case acceptTosUrl
-            case latestEventTs
-            case cacheTs
-            case mobileAppRequiresUpgrade
-            case readOnlyChannels
-            case nonThreadableChannels
-            case threadOnlyChannels
-            case canManageSharedChannels
-            case cacheVersion
-            case cacheTsVersion
-            case isEurope
-            case responseMetadata
         }
     }
 }

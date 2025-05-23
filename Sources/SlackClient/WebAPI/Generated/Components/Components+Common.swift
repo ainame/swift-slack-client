@@ -23,9 +23,6 @@ extension Components.Schemas {
         public init(messages: [Swift.String]? = nil) {
             self.messages = messages
         }
-        public enum CodingKeys: String, CodingKey {
-            case messages
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Activity`.
     public struct Activity: Codable, Hashable, Sendable {
@@ -95,20 +92,6 @@ extension Components.Schemas {
             self.traceId = traceId
             self.parentExecutionId = parentExecutionId
         }
-        public enum CodingKeys: String, CodingKey {
-            case level
-            case source
-            case payload
-            case created
-            case appId
-            case eventType
-            case componentType
-            case componentId
-            case teamId
-            case enterpriseId
-            case traceId
-            case parentExecutionId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Payload`.
     public struct Payload: Codable, Hashable, Sendable {
@@ -119,7 +102,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/Payload/log`.
         public var log: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Payload/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Payload/trigger`.
         public var trigger: Components.Schemas.Trigger?
         /// - Remark: Generated from `#/components/schemas/Payload/inputs`.
@@ -168,7 +151,7 @@ extension Components.Schemas {
         ///   - actor:
         ///   - error:
         ///   - log:
-        ///   - _type:
+        ///   - type:
         ///   - trigger:
         ///   - inputs:
         ///   - details:
@@ -194,7 +177,7 @@ extension Components.Schemas {
             actor: Swift.String? = nil,
             error: Swift.String? = nil,
             log: Swift.String? = nil,
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             trigger: Components.Schemas.Trigger? = nil,
             inputs: Components.Schemas.Inputs? = nil,
             details: Swift.String? = nil,
@@ -220,7 +203,7 @@ extension Components.Schemas {
             self.actor = actor
             self.error = error
             self.log = log
-            self._type = _type
+            self.type = type
             self.trigger = trigger
             self.inputs = inputs
             self.details = details
@@ -243,33 +226,6 @@ extension Components.Schemas {
             self.userId = userId
             self.bundleSizeKb = bundleSizeKb
         }
-        public enum CodingKeys: String, CodingKey {
-            case actor
-            case error
-            case log
-            case _type = "type"
-            case trigger
-            case inputs
-            case details
-            case action
-            case execOutcome
-            case workflowName
-            case functionName
-            case functionType
-            case functionId
-            case functionExecutionId
-            case totalSteps
-            case currentStep
-            case billingReason
-            case isBillingExcluded
-            case channelId
-            case botUserId
-            case requestType
-            case datastoreName
-            case teamId
-            case userId
-            case bundleSizeKb
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Inputs`.
     public typealias Inputs = OpenAPIRuntime.OpenAPIObjectContainer
@@ -290,10 +246,6 @@ extension Components.Schemas {
         ) {
             self.url = url
             self.customizableInputParameters = customizableInputParameters
-        }
-        public enum CodingKeys: String, CodingKey {
-            case url
-            case customizableInputParameters
         }
     }
     /// - Remark: Generated from `#/components/schemas/Config`.
@@ -318,11 +270,6 @@ extension Components.Schemas {
             self.appId = appId
             self.workflowAuthStrategy = workflowAuthStrategy
             self.domainRestrictions = domainRestrictions
-        }
-        public enum CodingKeys: String, CodingKey {
-            case appId
-            case workflowAuthStrategy
-            case domainRestrictions
         }
     }
     /// - Remark: Generated from `#/components/schemas/TripInformation`.
@@ -358,13 +305,6 @@ extension Components.Schemas {
             self.messageTs = messageTs
             self.listId = listId
         }
-        public enum CodingKeys: String, CodingKey {
-            case reaction
-            case userId
-            case channelId
-            case messageTs
-            case listId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ApprovedApp`.
     public struct ApprovedApp: Codable, Hashable, Sendable {
@@ -393,12 +333,6 @@ extension Components.Schemas {
             self.scopes = scopes
             self.dateUpdated = dateUpdated
             self.lastResolvedBy = lastResolvedBy
-        }
-        public enum CodingKeys: String, CodingKey {
-            case app
-            case scopes
-            case dateUpdated
-            case lastResolvedBy
         }
     }
     /// - Remark: Generated from `#/components/schemas/App`.
@@ -469,20 +403,6 @@ extension Components.Schemas {
             self.isGranularBotApp = isGranularBotApp
             self.additionalInfo = additionalInfo
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case description
-            case icons
-            case helpUrl
-            case privacyPolicyUrl
-            case appHomepageUrl
-            case appDirectoryUrl
-            case isAppDirectoryApproved
-            case isInternal
-            case isGranularBotApp
-            case additionalInfo
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Icons`.
     public struct Icons: Codable, Hashable, Sendable {
@@ -507,11 +427,6 @@ extension Components.Schemas {
             self.image48 = image48
             self.image72 = image72
         }
-        public enum CodingKeys: String, CodingKey {
-            case image36
-            case image48
-            case image72
-        }
     }
     /// - Remark: Generated from `#/components/schemas/LastResolvedBy`.
     public struct LastResolvedBy: Codable, Hashable, Sendable {
@@ -530,10 +445,6 @@ extension Components.Schemas {
         ) {
             self.actorId = actorId
             self.actorType = actorType
-        }
-        public enum CodingKeys: String, CodingKey {
-            case actorId
-            case actorType
         }
     }
     /// - Remark: Generated from `#/components/schemas/Scope`.
@@ -564,12 +475,6 @@ extension Components.Schemas {
             self.isSensitive = isSensitive
             self.tokenType = tokenType
         }
-        public enum CodingKeys: String, CodingKey {
-            case name
-            case description
-            case isSensitive
-            case tokenType
-        }
     }
     /// - Remark: Generated from `#/components/schemas/DomainRestrictions`.
     public struct DomainRestrictions: Codable, Hashable, Sendable {
@@ -588,10 +493,6 @@ extension Components.Schemas {
         ) {
             self.emails = emails
             self.urls = urls
-        }
-        public enum CodingKeys: String, CodingKey {
-            case emails
-            case urls
         }
     }
     /// - Remark: Generated from `#/components/schemas/AppRequest`.
@@ -647,17 +548,6 @@ extension Components.Schemas {
             self.isUserAppCollaborator = isUserAppCollaborator
             self.dateCreated = dateCreated
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case app
-            case user
-            case team
-            case scopes
-            case message
-            case previousResolution
-            case isUserAppCollaborator
-            case dateCreated
-        }
     }
     /// - Remark: Generated from `#/components/schemas/PreviousResolution`.
     public struct PreviousResolution: Codable, Hashable, Sendable {
@@ -677,10 +567,6 @@ extension Components.Schemas {
             self.status = status
             self.scopes = scopes
         }
-        public enum CodingKeys: String, CodingKey {
-            case status
-            case scopes
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Team`.
     public struct Team: Codable, Hashable, Sendable {
@@ -699,10 +585,6 @@ extension Components.Schemas {
         ) {
             self.name = name
             self.id = id
-        }
-        public enum CodingKeys: String, CodingKey {
-            case name
-            case id
         }
     }
     /// - Remark: Generated from `#/components/schemas/User`.
@@ -823,30 +705,6 @@ extension Components.Schemas {
             self.whoCanShareContactCard = whoCanShareContactCard
             self.isInvitedUser = isInvitedUser
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case deleted
-            case color
-            case tz
-            case profile
-            case updated
-            case teamId
-            case realName
-            case tzLabel
-            case tzOffset
-            case isAdmin
-            case isOwner
-            case isPrimaryOwner
-            case isRestricted
-            case isUltraRestricted
-            case isBot
-            case isAppUser
-            case has2fa
-            case isEmailConfirmed
-            case whoCanShareContactCard
-            case isInvitedUser
-        }
     }
     /// - Remark: Generated from `#/components/schemas/RestrictedApp`.
     public struct RestrictedApp: Codable, Hashable, Sendable {
@@ -876,12 +734,6 @@ extension Components.Schemas {
             self.dateUpdated = dateUpdated
             self.lastResolvedBy = lastResolvedBy
         }
-        public enum CodingKeys: String, CodingKey {
-            case app
-            case scopes
-            case dateUpdated
-            case lastResolvedBy
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Entity`.
     public struct Entity: Codable, Hashable, Sendable {
@@ -905,11 +757,6 @@ extension Components.Schemas {
             self.entityId = entityId
             self.entityType = entityType
             self.dateAdded = dateAdded
-        }
-        public enum CodingKeys: String, CodingKey {
-            case entityId
-            case entityType
-            case dateAdded
         }
     }
     /// - Remark: Generated from `#/components/schemas/Barrier`.
@@ -949,14 +796,6 @@ extension Components.Schemas {
             self.barrieredFromUsergroups = barrieredFromUsergroups
             self.restrictedSubjects = restrictedSubjects
             self.dateUpdate = dateUpdate
-        }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case enterpriseId
-            case primaryUsergroup
-            case barrieredFromUsergroups
-            case restrictedSubjects
-            case dateUpdate
         }
     }
     /// - Remark: Generated from `#/components/schemas/Usergroup`.
@@ -1062,27 +901,6 @@ extension Components.Schemas {
             self.channelCount = channelCount
             self.isSection = isSection
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case description
-            case handle
-            case prefs
-            case users
-            case teamId
-            case isUsergroup
-            case isSubteam
-            case isExternal
-            case dateCreate
-            case dateUpdate
-            case dateDelete
-            case autoProvision
-            case enterpriseSubteamId
-            case createdBy
-            case updatedBy
-            case channelCount
-            case isSection
-        }
     }
     /// - Remark: Generated from `#/components/schemas/NotAdded`.
     public struct NotAdded: Codable, Hashable, Sendable {
@@ -1101,10 +919,6 @@ extension Components.Schemas {
         ) {
             self.errors = errors
             self.channelId = channelId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case errors
-            case channelId
         }
     }
     /// - Remark: Generated from `#/components/schemas/Prefs`.
@@ -1125,10 +939,6 @@ extension Components.Schemas {
             self.channels = channels
             self.groups = groups
         }
-        public enum CodingKeys: String, CodingKey {
-            case channels
-            case groups
-        }
     }
     /// - Remark: Generated from `#/components/schemas/CanHuddle`.
     public struct CanHuddle: Codable, Hashable, Sendable {
@@ -1141,31 +951,24 @@ extension Components.Schemas {
         public init(enabled: Swift.Bool? = nil) {
             self.enabled = enabled
         }
-        public enum CodingKeys: String, CodingKey {
-            case enabled
-        }
     }
     /// - Remark: Generated from `#/components/schemas/CanThread`.
     public struct CanThread: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/CanThread/type`.
-        public var _type: [Swift.String]?
+        public var type: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/CanThread/user`.
         public var user: [Swift.String]?
         /// Creates a new `CanThread`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - user:
         public init(
-            _type: [Swift.String]? = nil,
+            type: [Swift.String]? = nil,
             user: [Swift.String]? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.user = user
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case user
         }
     }
     /// - Remark: Generated from `#/components/schemas/MembershipLimit`.
@@ -1178,9 +981,6 @@ extension Components.Schemas {
         ///   - value:
         public init(value: Swift.Int? = nil) {
             self.value = value
-        }
-        public enum CodingKeys: String, CodingKey {
-            case value
         }
     }
     /// - Remark: Generated from `#/components/schemas/FailedUserIDS`.
@@ -1200,10 +1000,6 @@ extension Components.Schemas {
         ) {
             self.u00000000 = u00000000
             self.u00000001 = u00000001
-        }
-        public enum CodingKeys: String, CodingKey {
-            case u00000000 = "U00000000"
-            case u00000001 = "U00000001"
         }
     }
     /// - Remark: Generated from `#/components/schemas/Conversation`.
@@ -1374,40 +1170,6 @@ extension Components.Schemas {
             self.isDisconnectInProgress = isDisconnectInProgress
             self.contextTeamId = contextTeamId
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case purpose
-            case created
-            case canvas
-            case lists
-            case properties
-            case memberCount
-            case creatorId
-            case isPrivate
-            case isArchived
-            case isGeneral
-            case lastActivityTs
-            case isExtShared
-            case isGlobalShared
-            case isOrgDefault
-            case isOrgMandatory
-            case isOrgShared
-            case isFrozen
-            case internalTeamIdsCount
-            case internalTeamIdsSampleTeam
-            case pendingConnectedTeamIds
-            case isPendingExtShared
-            case connectedTeamIds
-            case conversationHostId
-            case channelEmailAddresses
-            case connectedLimitedTeamIds
-            case externalUserCount
-            case internalTeamIds
-            case channelManagerCount
-            case isDisconnectInProgress
-            case contextTeamId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ListsClass`.
     public struct ListsClass: Codable, Hashable, Sendable {
@@ -1427,10 +1189,6 @@ extension Components.Schemas {
             self.totalCount = totalCount
             self.ownershipDetails = ownershipDetails
         }
-        public enum CodingKeys: String, CodingKey {
-            case totalCount
-            case ownershipDetails
-        }
     }
     /// - Remark: Generated from `#/components/schemas/OwnershipDetail`.
     public struct OwnershipDetail: Codable, Hashable, Sendable {
@@ -1449,10 +1207,6 @@ extension Components.Schemas {
         ) {
             self.count = count
             self.teamId = teamId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case count
-            case teamId
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelEmailAddress`.
@@ -1498,15 +1252,6 @@ extension Components.Schemas {
             self.conversationId = conversationId
             self.dateCreated = dateCreated
         }
-        public enum CodingKeys: String, CodingKey {
-            case address
-            case name
-            case icons
-            case teamId
-            case userId
-            case conversationId
-            case dateCreated
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Properties`.
     public struct Properties: Codable, Hashable, Sendable {
@@ -1546,14 +1291,6 @@ extension Components.Schemas {
             self.huddlesRestricted = huddlesRestricted
             self.threadsRestrictedTo = threadsRestrictedTo
         }
-        public enum CodingKeys: String, CodingKey {
-            case canvas
-            case tabs
-            case tabz
-            case postingRestrictedTo
-            case huddlesRestricted
-            case threadsRestrictedTo
-        }
     }
     /// - Remark: Generated from `#/components/schemas/PropertiesCanvas`.
     public struct PropertiesCanvas: Codable, Hashable, Sendable {
@@ -1578,33 +1315,24 @@ extension Components.Schemas {
             self.isEmpty = isEmpty
             self.quipThreadId = quipThreadId
         }
-        public enum CodingKeys: String, CodingKey {
-            case fileId
-            case isEmpty
-            case quipThreadId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/PostingRestrictedTo`.
     public struct PostingRestrictedTo: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/PostingRestrictedTo/type`.
-        public var _type: [Swift.String]?
+        public var type: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/PostingRestrictedTo/user`.
         public var user: [Swift.String]?
         /// Creates a new `PostingRestrictedTo`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - user:
         public init(
-            _type: [Swift.String]? = nil,
+            type: [Swift.String]? = nil,
             user: [Swift.String]? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.user = user
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case user
         }
     }
     /// - Remark: Generated from `#/components/schemas/Tab`.
@@ -1614,41 +1342,33 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/Tab/label`.
         public var label: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Tab/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// Creates a new `Tab`.
         ///
         /// - Parameters:
         ///   - id:
         ///   - label:
-        ///   - _type:
+        ///   - type:
         public init(
             id: Swift.String? = nil,
             label: Swift.String? = nil,
-            _type: Swift.String? = nil
+            type: Swift.String? = nil
         ) {
             self.id = id
             self.label = label
-            self._type = _type
-        }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case label
-            case _type = "type"
+            self.type = type
         }
     }
     /// - Remark: Generated from `#/components/schemas/ThreadsRestrictedTo`.
     public struct ThreadsRestrictedTo: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/ThreadsRestrictedTo/type`.
-        public var _type: [Swift.String]?
+        public var type: [Swift.String]?
         /// Creates a new `ThreadsRestrictedTo`.
         ///
         /// - Parameters:
-        ///   - _type:
-        public init(_type: [Swift.String]? = nil) {
-            self._type = _type
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
+        ///   - type:
+        public init(type: [Swift.String]? = nil) {
+            self.type = type
         }
     }
     /// - Remark: Generated from `#/components/schemas/Emoji`.
@@ -1673,11 +1393,6 @@ extension Components.Schemas {
             self.url = url
             self.dateCreated = dateCreated
             self.uploadedBy = uploadedBy
-        }
-        public enum CodingKeys: String, CodingKey {
-            case url
-            case dateCreated
-            case uploadedBy
         }
     }
     /// - Remark: Generated from `#/components/schemas/Function`.
@@ -1708,17 +1423,11 @@ extension Components.Schemas {
             self.inputParameters = inputParameters
             self.outputParameters = outputParameters
         }
-        public enum CodingKeys: String, CodingKey {
-            case title
-            case description
-            case inputParameters
-            case outputParameters
-        }
     }
     /// - Remark: Generated from `#/components/schemas/PutParameter`.
     public struct PutParameter: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/PutParameter/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/PutParameter/name`.
         public var name: Swift.String?
         /// - Remark: Generated from `#/components/schemas/PutParameter/description`.
@@ -1740,7 +1449,7 @@ extension Components.Schemas {
         /// Creates a new `PutParameter`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - name:
         ///   - description:
         ///   - title:
@@ -1751,7 +1460,7 @@ extension Components.Schemas {
         ///   - maximum:
         ///   - isRequired:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             name: Swift.String? = nil,
             description: Swift.String? = nil,
             title: Swift.String? = nil,
@@ -1762,7 +1471,7 @@ extension Components.Schemas {
             maximum: Swift.Int? = nil,
             isRequired: Swift.Bool? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.name = name
             self.description = description
             self.title = title
@@ -1772,18 +1481,6 @@ extension Components.Schemas {
             self.minimum = minimum
             self.maximum = maximum
             self.isRequired = isRequired
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case name
-            case description
-            case title
-            case hint
-            case minLength
-            case maxLength
-            case minimum
-            case maximum
-            case isRequired
         }
     }
     /// - Remark: Generated from `#/components/schemas/Errors`.
@@ -1806,38 +1503,30 @@ extension Components.Schemas {
             self.complete = complete
             self.whoCanRun = whoCanRun
         }
-        public enum CodingKeys: String, CodingKey {
-            case complete
-            case whoCanRun
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AllowedByAdmin`.
     public struct AllowedByAdmin: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/AllowedByAdmin/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AllowedByAdmin/userIds`.
         public var userIds: [Swift.String]?
         /// Creates a new `AllowedByAdmin`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - userIds:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             userIds: [Swift.String]? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.userIds = userIds
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case userIds
         }
     }
     /// - Remark: Generated from `#/components/schemas/AllowedEntities`.
     public struct AllowedEntities: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/AllowedEntities/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AllowedEntities/userIds`.
         public var userIds: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/AllowedEntities/teamIds`.
@@ -1849,30 +1538,23 @@ extension Components.Schemas {
         /// Creates a new `AllowedEntities`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - userIds:
         ///   - teamIds:
         ///   - orgIds:
         ///   - channelIds:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             userIds: [Swift.String]? = nil,
             teamIds: [Swift.String]? = nil,
             orgIds: [Swift.String]? = nil,
             channelIds: [Swift.String]? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.userIds = userIds
             self.teamIds = teamIds
             self.orgIds = orgIds
             self.channelIds = channelIds
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case userIds
-            case teamIds
-            case orgIds
-            case channelIds
         }
     }
     /// - Remark: Generated from `#/components/schemas/ApprovedRequest`.
@@ -1898,11 +1580,6 @@ extension Components.Schemas {
             self.inviteRequest = inviteRequest
             self.approvedBy = approvedBy
         }
-        public enum CodingKeys: String, CodingKey {
-            case invite
-            case inviteRequest
-            case approvedBy
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ApprovedBy`.
     public struct ApprovedBy: Codable, Hashable, Sendable {
@@ -1921,10 +1598,6 @@ extension Components.Schemas {
         ) {
             self.actorType = actorType
             self.actorId = actorId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case actorType
-            case actorId
         }
     }
     /// - Remark: Generated from `#/components/schemas/Invite`.
@@ -1965,14 +1638,6 @@ extension Components.Schemas {
             self.isBouncing = isBouncing
             self.invitePreferences = invitePreferences
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case email
-            case inviterId
-            case dateCreated
-            case isBouncing
-            case invitePreferences
-        }
     }
     /// - Remark: Generated from `#/components/schemas/InvitePreferences`.
     public struct InvitePreferences: Codable, Hashable, Sendable {
@@ -2001,12 +1666,6 @@ extension Components.Schemas {
             self.isUltraRestricted = isUltraRestricted
             self.channelIds = channelIds
             self.isDomainMatched = isDomainMatched
-        }
-        public enum CodingKeys: String, CodingKey {
-            case isRestricted
-            case isUltraRestricted
-            case channelIds
-            case isDomainMatched
         }
     }
     /// - Remark: Generated from `#/components/schemas/InviteRequest`.
@@ -2062,17 +1721,6 @@ extension Components.Schemas {
             self.dateLastUpdated = dateLastUpdated
             self.targetUser = targetUser
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case channel
-            case dateCreated
-            case expiresAt
-            case invitingTeam
-            case invitingUser
-            case isExternalLimited
-            case dateLastUpdated
-            case targetUser
-        }
     }
     /// - Remark: Generated from `#/components/schemas/DeniedRequest`.
     public struct DeniedRequest: Codable, Hashable, Sendable {
@@ -2091,10 +1739,6 @@ extension Components.Schemas {
         ) {
             self.inviteRequest = inviteRequest
             self.deniedBy = deniedBy
-        }
-        public enum CodingKeys: String, CodingKey {
-            case inviteRequest
-            case deniedBy
         }
     }
     /// - Remark: Generated from `#/components/schemas/DeniedBy`.
@@ -2115,10 +1759,6 @@ extension Components.Schemas {
             self.actorType = actorType
             self.actorId = actorId
         }
-        public enum CodingKeys: String, CodingKey {
-            case actorType
-            case actorId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/RejectedUser`.
     public struct RejectedUser: Codable, Hashable, Sendable {
@@ -2137,10 +1777,6 @@ extension Components.Schemas {
         ) {
             self.id = id
             self.error = error
-        }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case error
         }
     }
     /// - Remark: Generated from `#/components/schemas/RoleAssignment`.
@@ -2171,12 +1807,6 @@ extension Components.Schemas {
             self.userId = userId
             self.dateCreate = dateCreate
         }
-        public enum CodingKeys: String, CodingKey {
-            case roleId
-            case entityId
-            case userId
-            case dateCreate
-        }
     }
     /// - Remark: Generated from `#/components/schemas/PrimaryOwner`.
     public struct PrimaryOwner: Codable, Hashable, Sendable {
@@ -2195,10 +1825,6 @@ extension Components.Schemas {
         ) {
             self.email = email
             self.userId = userId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case email
-            case userId
         }
     }
     /// - Remark: Generated from `#/components/schemas/Icon`.
@@ -2253,17 +1879,6 @@ extension Components.Schemas {
             self.image230 = image230
             self.imageOriginal = imageOriginal
             self.imageDefault = imageDefault
-        }
-        public enum CodingKeys: String, CodingKey {
-            case image34
-            case image44
-            case image68
-            case image88
-            case image102
-            case image132
-            case image230
-            case imageOriginal
-            case imageDefault
         }
     }
     /// - Remark: Generated from `#/components/schemas/Channel`.
@@ -2469,69 +2084,24 @@ extension Components.Schemas {
             self.parentConversation = parentConversation
             self.contextTeamId = contextTeamId
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case created
-            case unlinked
-            case creator
-            case topic
-            case purpose
-            case priority
-            case user
-            case updated
-            case properties
-            case isChannel
-            case isGroup
-            case isIm
-            case isArchived
-            case isGeneral
-            case nameNormalized
-            case isShared
-            case isExtShared
-            case isOrgShared
-            case sharedTeamIds
-            case pendingShared
-            case pendingConnectedTeamIds
-            case isPendingExtShared
-            case isPrivate
-            case isMpim
-            case previousNames
-            case conversationHostId
-            case isMoved
-            case internalTeamIds
-            case isGlobalShared
-            case isOrgDefault
-            case isOrgMandatory
-            case enterpriseId
-            case lastRead
-            case isOpen
-            case isUserDeleted
-            case parentConversation
-            case contextTeamId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/RestrictedTo`.
     public struct RestrictedTo: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/RestrictedTo/type`.
-        public var _type: [Swift.String]?
+        public var type: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/RestrictedTo/user`.
         public var user: [Swift.String]?
         /// Creates a new `RestrictedTo`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - user:
         public init(
-            _type: [Swift.String]? = nil,
+            type: [Swift.String]? = nil,
             user: [Swift.String]? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.user = user
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case user
         }
     }
     /// - Remark: Generated from `#/components/schemas/Purpose`.
@@ -2557,11 +2127,6 @@ extension Components.Schemas {
             self.creator = creator
             self.lastSet = lastSet
         }
-        public enum CodingKeys: String, CodingKey {
-            case value
-            case creator
-            case lastSet
-        }
     }
     /// - Remark: Generated from `#/components/schemas/SessionSetting`.
     public struct SessionSetting: Codable, Hashable, Sendable {
@@ -2585,11 +2150,6 @@ extension Components.Schemas {
             self.duration = duration
             self.userId = userId
             self.desktopAppBrowserQuit = desktopAppBrowserQuit
-        }
-        public enum CodingKeys: String, CodingKey {
-            case duration
-            case userId
-            case desktopAppBrowserQuit
         }
     }
     /// - Remark: Generated from `#/components/schemas/ActiveSession`.
@@ -2625,13 +2185,6 @@ extension Components.Schemas {
             self.sessionId = sessionId
             self.teamId = teamId
         }
-        public enum CodingKeys: String, CodingKey {
-            case created
-            case recent
-            case userId
-            case sessionId
-            case teamId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Created`.
     public struct Created: Codable, Hashable, Sendable {
@@ -2666,13 +2219,6 @@ extension Components.Schemas {
             self.osVersion = osVersion
             self.slackClientVersion = slackClientVersion
         }
-        public enum CodingKeys: String, CodingKey {
-            case os
-            case ip
-            case deviceHardware
-            case osVersion
-            case slackClientVersion
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Error`.
     public struct _Error: Codable, Hashable, Sendable {
@@ -2696,11 +2242,6 @@ extension Components.Schemas {
             self.ok = ok
             self.error = error
             self.user = user
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case user
         }
     }
     /// - Remark: Generated from `#/components/schemas/WhoCanRun`.
@@ -2736,13 +2277,6 @@ extension Components.Schemas {
             self.teamIds = teamIds
             self.orgIds = orgIds
         }
-        public enum CodingKeys: String, CodingKey {
-            case permissionType
-            case userIds
-            case channelIds
-            case teamIds
-            case orgIds
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Workflow`.
     public struct Workflow: Codable, Hashable, Sendable {
@@ -2755,14 +2289,11 @@ extension Components.Schemas {
         public init(trigger: Components.Schemas.Trigger? = nil) {
             self.trigger = trigger
         }
-        public enum CodingKeys: String, CodingKey {
-            case trigger
-        }
     }
     /// - Remark: Generated from `#/components/schemas/InputParameter`.
     public struct InputParameter: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/InputParameter/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/InputParameter/name`.
         public var name: Swift.String?
         /// - Remark: Generated from `#/components/schemas/InputParameter/title`.
@@ -2776,34 +2307,26 @@ extension Components.Schemas {
         /// Creates a new `InputParameter`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - name:
         ///   - title:
         ///   - description:
         ///   - isRequired:
         ///   - isHidden:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             name: Swift.String? = nil,
             title: Swift.String? = nil,
             description: Swift.String? = nil,
             isRequired: Swift.Bool? = nil,
             isHidden: Swift.Bool? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.name = name
             self.title = title
             self.description = description
             self.isRequired = isRequired
             self.isHidden = isHidden
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case name
-            case title
-            case description
-            case isRequired
-            case isHidden
         }
     }
     /// - Remark: Generated from `#/components/schemas/Step`.
@@ -2834,12 +2357,6 @@ extension Components.Schemas {
             self.functionId = functionId
             self.isPristine = isPristine
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case inputs
-            case functionId
-            case isPristine
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Input`.
     public struct Input: Codable, Hashable, Sendable {
@@ -2858,10 +2375,6 @@ extension Components.Schemas {
         ) {
             self.hidden = hidden
             self.locked = locked
-        }
-        public enum CodingKeys: String, CodingKey {
-            case hidden
-            case locked
         }
     }
     /// - Remark: Generated from `#/components/schemas/APITestResponse`.
@@ -2897,13 +2410,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case args
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Args`.
     public struct Args: Codable, Hashable, Sendable {
@@ -2922,10 +2428,6 @@ extension Components.Schemas {
         ) {
             self.error = error
             self.foo = foo
-        }
-        public enum CodingKeys: String, CodingKey {
-            case error
-            case foo
         }
     }
     /// - Remark: Generated from `#/components/schemas/Authorization`.
@@ -2961,13 +2463,6 @@ extension Components.Schemas {
             self.isBot = isBot
             self.isEnterpriseInstall = isEnterpriseInstall
         }
-        public enum CodingKeys: String, CodingKey {
-            case enterpriseId
-            case teamId
-            case userId
-            case isBot
-            case isEnterpriseInstall
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Credentials`.
     public struct Credentials: Codable, Hashable, Sendable {
@@ -2996,12 +2491,6 @@ extension Components.Schemas {
             self.clientSecret = clientSecret
             self.verificationToken = verificationToken
             self.signingSecret = signingSecret
-        }
-        public enum CodingKeys: String, CodingKey {
-            case clientId
-            case clientSecret
-            case verificationToken
-            case signingSecret
         }
     }
     /// - Remark: Generated from `#/components/schemas/Manifest`.
@@ -3041,14 +2530,6 @@ extension Components.Schemas {
             self.metadata = metadata
             self.displayInformation = displayInformation
             self.oauthConfig = oauthConfig
-        }
-        public enum CodingKeys: String, CodingKey {
-            case settings
-            case features
-            case functions
-            case metadata = "Metadata"
-            case displayInformation
-            case oauthConfig
         }
     }
     /// - Remark: Generated from `#/components/schemas/Metadata`.
@@ -3114,19 +2595,6 @@ extension Components.Schemas {
             self.thumb360H = thumb360H
             self.thumbTiny = thumbTiny
         }
-        public enum CodingKeys: String, CodingKey {
-            case format
-            case _extension = "extension"
-            case rotation
-            case thumb64
-            case thumb80
-            case thumb160
-            case originalW
-            case originalH
-            case thumb360W
-            case thumb360H
-            case thumbTiny
-        }
     }
     /// - Remark: Generated from `#/components/schemas/DisplayInformation`.
     public struct DisplayInformation: Codable, Hashable, Sendable {
@@ -3155,12 +2623,6 @@ extension Components.Schemas {
             self.description = description
             self.longDescription = longDescription
             self.backgroundColor = backgroundColor
-        }
-        public enum CodingKeys: String, CodingKey {
-            case name
-            case description
-            case longDescription
-            case backgroundColor
         }
     }
     /// - Remark: Generated from `#/components/schemas/Features`.
@@ -3196,13 +2658,6 @@ extension Components.Schemas {
             self.slashCommands = slashCommands
             self.unfurlDomains = unfurlDomains
         }
-        public enum CodingKeys: String, CodingKey {
-            case shortcuts
-            case appHome
-            case botUser
-            case slashCommands
-            case unfurlDomains
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AppHome`.
     public struct AppHome: Codable, Hashable, Sendable {
@@ -3227,11 +2682,6 @@ extension Components.Schemas {
             self.messagesTabEnabled = messagesTabEnabled
             self.messagesTabReadOnlyEnabled = messagesTabReadOnlyEnabled
         }
-        public enum CodingKeys: String, CodingKey {
-            case homeTabEnabled
-            case messagesTabEnabled
-            case messagesTabReadOnlyEnabled
-        }
     }
     /// - Remark: Generated from `#/components/schemas/BotUser`.
     public struct BotUser: Codable, Hashable, Sendable {
@@ -3251,15 +2701,11 @@ extension Components.Schemas {
             self.displayName = displayName
             self.alwaysOnline = alwaysOnline
         }
-        public enum CodingKeys: String, CodingKey {
-            case displayName
-            case alwaysOnline
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Shortcut`.
     public struct Shortcut: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Shortcut/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Shortcut/name`.
         public var name: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Shortcut/description`.
@@ -3269,26 +2715,20 @@ extension Components.Schemas {
         /// Creates a new `Shortcut`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - name:
         ///   - description:
         ///   - callbackId:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             name: Swift.String? = nil,
             description: Swift.String? = nil,
             callbackId: Swift.String? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.name = name
             self.description = description
             self.callbackId = callbackId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case name
-            case description
-            case callbackId
         }
     }
     /// - Remark: Generated from `#/components/schemas/SlashCommand`.
@@ -3324,13 +2764,6 @@ extension Components.Schemas {
             self.usageHint = usageHint
             self.shouldEscape = shouldEscape
         }
-        public enum CodingKeys: String, CodingKey {
-            case command
-            case description
-            case url
-            case usageHint
-            case shouldEscape
-        }
     }
     /// - Remark: Generated from `#/components/schemas/OauthConfig`.
     public struct OauthConfig: Codable, Hashable, Sendable {
@@ -3354,11 +2787,6 @@ extension Components.Schemas {
             self.scopes = scopes
             self.redirectUrls = redirectUrls
             self.tokenManagementEnabled = tokenManagementEnabled
-        }
-        public enum CodingKeys: String, CodingKey {
-            case scopes
-            case redirectUrls
-            case tokenManagementEnabled
         }
     }
     /// - Remark: Generated from `#/components/schemas/Scopes`.
@@ -3403,15 +2831,6 @@ extension Components.Schemas {
             self.im = im
             self.user = user
             self.appHome = appHome
-        }
-        public enum CodingKeys: String, CodingKey {
-            case team
-            case channel
-            case group
-            case mpim
-            case im
-            case user
-            case appHome
         }
     }
     /// - Remark: Generated from `#/components/schemas/Settings`.
@@ -3477,19 +2896,6 @@ extension Components.Schemas {
             self.hermesAppType = hermesAppType
             self.functionRuntime = functionRuntime
         }
-        public enum CodingKeys: String, CodingKey {
-            case description
-            case interactivity
-            case longDescription
-            case backgroundColor
-            case eventSubscriptions
-            case allowedIpAddressRanges
-            case orgDeployEnabled
-            case socketModeEnabled
-            case tokenRotationEnabled
-            case hermesAppType
-            case functionRuntime
-        }
     }
     /// - Remark: Generated from `#/components/schemas/EventSubscriptions`.
     public struct EventSubscriptions: Codable, Hashable, Sendable {
@@ -3513,11 +2919,6 @@ extension Components.Schemas {
             self.botEvents = botEvents
             self.userEvents = userEvents
             self.requestUrl = requestUrl
-        }
-        public enum CodingKeys: String, CodingKey {
-            case botEvents
-            case userEvents
-            case requestUrl
         }
     }
     /// - Remark: Generated from `#/components/schemas/Interactivity`.
@@ -3543,11 +2944,6 @@ extension Components.Schemas {
             self.requestUrl = requestUrl
             self.messageMenuOptionsUrl = messageMenuOptionsUrl
         }
-        public enum CodingKeys: String, CodingKey {
-            case isEnabled
-            case requestUrl
-            case messageMenuOptionsUrl
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Bookmark`.
     public struct Bookmark: Codable, Hashable, Sendable {
@@ -3560,7 +2956,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/Bookmark/emoji`.
         public var emoji: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Bookmark/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Bookmark/rank`.
         public var rank: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Bookmark/channelId`.
@@ -3590,7 +2986,7 @@ extension Components.Schemas {
         ///   - title:
         ///   - link:
         ///   - emoji:
-        ///   - _type:
+        ///   - type:
         ///   - rank:
         ///   - channelId:
         ///   - iconUrl:
@@ -3607,7 +3003,7 @@ extension Components.Schemas {
             title: Swift.String? = nil,
             link: Swift.String? = nil,
             emoji: Swift.String? = nil,
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             rank: Swift.String? = nil,
             channelId: Swift.String? = nil,
             iconUrl: Swift.String? = nil,
@@ -3624,7 +3020,7 @@ extension Components.Schemas {
             self.title = title
             self.link = link
             self.emoji = emoji
-            self._type = _type
+            self.type = type
             self.rank = rank
             self.channelId = channelId
             self.iconUrl = iconUrl
@@ -3636,24 +3032,6 @@ extension Components.Schemas {
             self.shortcutId = shortcutId
             self.appId = appId
             self.appActionId = appActionId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case title
-            case link
-            case emoji
-            case _type = "type"
-            case rank
-            case channelId
-            case iconUrl
-            case entityId
-            case dateCreated
-            case dateUpdated
-            case lastUpdatedByUserId
-            case lastUpdatedByTeamId
-            case shortcutId
-            case appId
-            case appActionId
         }
     }
     /// - Remark: Generated from `#/components/schemas/Bot`.
@@ -3704,16 +3082,6 @@ extension Components.Schemas {
             self.isWorkflowBot = isWorkflowBot
             self.teamId = teamId
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case deleted
-            case name
-            case updated
-            case icons
-            case appId
-            case isWorkflowBot
-            case teamId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/CallsAddResponse`.
     public struct CallsAddResponse: Codable, Hashable, Sendable {
@@ -3753,14 +3121,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case call
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Call`.
     public struct Call: Codable, Hashable, Sendable {
@@ -3779,10 +3139,6 @@ extension Components.Schemas {
         ) {
             self.v1 = v1
             self.mediaBackendType = mediaBackendType
-        }
-        public enum CodingKeys: String, CodingKey {
-            case v1
-            case mediaBackendType
         }
     }
     /// - Remark: Generated from `#/components/schemas/CallsEndResponse`.
@@ -3818,13 +3174,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case call
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/CallsInfoResponse`.
     public struct CallsInfoResponse: Codable, Hashable, Sendable {
@@ -3858,13 +3207,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case call
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/CallsParticipantsAddResponse`.
@@ -3900,13 +3242,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case call
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/CallsParticipantsRemoveResponse`.
     public struct CallsParticipantsRemoveResponse: Codable, Hashable, Sendable {
@@ -3941,13 +3276,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case call
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/CallsUpdateResponse`.
     public struct CallsUpdateResponse: Codable, Hashable, Sendable {
@@ -3981,13 +3309,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case call
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/Section`.
@@ -4028,14 +3349,6 @@ extension Components.Schemas {
             self.sectionType = sectionType
             self.isHidden = isHidden
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case label
-            case order
-            case teamId
-            case sectionType
-            case isHidden
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsArchiveResponse`.
     public struct ChannelsArchiveResponse: Codable, Hashable, Sendable {
@@ -4064,12 +3377,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsCreateResponse`.
@@ -4104,13 +3411,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channel
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsHistoryResponse`.
@@ -4176,24 +3476,11 @@ extension Components.Schemas {
             self.channelActionsCount = channelActionsCount
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case messages
-            case warning
-            case latest
-            case error
-            case needed
-            case provided
-            case hasMore
-            case channelActionsTs
-            case channelActionsCount
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Message`.
     public struct Message: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Message/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Message/text`.
         public var text: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Message/user`.
@@ -4251,7 +3538,7 @@ extension Components.Schemas {
         /// Creates a new `Message`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - text:
         ///   - user:
         ///   - ts:
@@ -4280,7 +3567,7 @@ extension Components.Schemas {
         ///   - displayAsBot:
         ///   - isLocked:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             text: Swift.String? = nil,
             user: Swift.String? = nil,
             ts: Swift.String? = nil,
@@ -4309,7 +3596,7 @@ extension Components.Schemas {
             displayAsBot: Swift.Bool? = nil,
             isLocked: Swift.Bool? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.text = text
             self.user = user
             self.ts = ts
@@ -4337,36 +3624,6 @@ extension Components.Schemas {
             self.botProfile = botProfile
             self.displayAsBot = displayAsBot
             self.isLocked = isLocked
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case text
-            case user
-            case ts
-            case team
-            case attachments
-            case permalink
-            case subtype
-            case username
-            case blocks
-            case subscribed
-            case reactions
-            case edited
-            case files
-            case upload
-            case inviter
-            case botId
-            case isStarred
-            case clientMsgId
-            case threadTs
-            case replyCount
-            case replyUsersCount
-            case latestReply
-            case replyUsers
-            case lastRead
-            case botProfile
-            case displayAsBot
-            case isLocked
         }
     }
     /// - Remark: Generated from `#/components/schemas/Attachment`.
@@ -4652,63 +3909,6 @@ extension Components.Schemas {
             self.footerIcon = footerIcon
             self.mrkdwnIn = mrkdwnIn
         }
-        public enum CodingKeys: String, CodingKey {
-            case fallback
-            case color
-            case pretext
-            case id
-            case indent
-            case title
-            case text
-            case fields
-            case footer
-            case ts
-            case actions
-            case blocks
-            case preview
-            case files
-            case filename
-            case size
-            case mimetype
-            case url
-            case metadata
-            case msgSubtype
-            case callbackId
-            case serviceUrl
-            case serviceName
-            case serviceIcon
-            case authorId
-            case authorName
-            case authorLink
-            case authorIcon
-            case fromUrl
-            case originalUrl
-            case authorSubname
-            case channelId
-            case channelName
-            case channelTeam
-            case appId
-            case botId
-            case isMsgUnfurl
-            case isReplyUnfurl
-            case isThreadRootUnfurl
-            case isAppUnfurl
-            case appUnfurlUrl
-            case titleLink
-            case imageUrl
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case thumbUrl
-            case thumbWidth
-            case thumbHeight
-            case videoUrl
-            case videoHtml
-            case videoHtmlWidth
-            case videoHtmlHeight
-            case footerIcon
-            case mrkdwnIn
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Action`.
     public struct Action: Codable, Hashable, Sendable {
@@ -4721,7 +3921,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/Action/style`.
         public var style: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Action/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Action/value`.
         public var value: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Action/confirm`.
@@ -4745,7 +3945,7 @@ extension Components.Schemas {
         ///   - name:
         ///   - text:
         ///   - style:
-        ///   - _type:
+        ///   - type:
         ///   - value:
         ///   - confirm:
         ///   - options:
@@ -4759,7 +3959,7 @@ extension Components.Schemas {
             name: Swift.String? = nil,
             text: Swift.String? = nil,
             style: Swift.String? = nil,
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             value: Swift.String? = nil,
             confirm: Components.Schemas.ActionConfirm? = nil,
             options: [Components.Schemas.SelectedOptionElement]? = nil,
@@ -4773,7 +3973,7 @@ extension Components.Schemas {
             self.name = name
             self.text = text
             self.style = style
-            self._type = _type
+            self.type = type
             self.value = value
             self.confirm = confirm
             self.options = options
@@ -4782,21 +3982,6 @@ extension Components.Schemas {
             self.dataSource = dataSource
             self.minQueryLength = minQueryLength
             self.optionGroups = optionGroups
-        }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case text
-            case style
-            case _type = "type"
-            case value
-            case confirm
-            case options
-            case url
-            case selectedOptions
-            case dataSource
-            case minQueryLength
-            case optionGroups
         }
     }
     /// - Remark: Generated from `#/components/schemas/ActionConfirm`.
@@ -4827,12 +4012,6 @@ extension Components.Schemas {
             self.okText = okText
             self.dismissText = dismissText
         }
-        public enum CodingKeys: String, CodingKey {
-            case title
-            case text
-            case okText
-            case dismissText
-        }
     }
     /// - Remark: Generated from `#/components/schemas/OptionGroup`.
     public struct OptionGroup: Codable, Hashable, Sendable {
@@ -4851,10 +4030,6 @@ extension Components.Schemas {
         ) {
             self.label = label
             self.options = options
-        }
-        public enum CodingKeys: String, CodingKey {
-            case label
-            case options
         }
     }
     /// - Remark: Generated from `#/components/schemas/Option`.
@@ -4885,12 +4060,6 @@ extension Components.Schemas {
             self.description = description
             self.url = url
         }
-        public enum CodingKeys: String, CodingKey {
-            case text
-            case value
-            case description
-            case url
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Field`.
     public struct Field: Codable, Hashable, Sendable {
@@ -4910,15 +4079,11 @@ extension Components.Schemas {
             self.value = value
             self.alt = alt
         }
-        public enum CodingKeys: String, CodingKey {
-            case value
-            case alt
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Block`.
     public struct Block: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Block/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Block/label`.
         public var label: Components.Schemas.Close?
         /// - Remark: Generated from `#/components/schemas/Block/element`.
@@ -4976,7 +4141,7 @@ extension Components.Schemas {
         /// Creates a new `Block`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - label:
         ///   - element:
         ///   - hint:
@@ -5005,7 +4170,7 @@ extension Components.Schemas {
         ///   - providerName:
         ///   - providerIconUrl:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             label: Components.Schemas.Close? = nil,
             element: Components.Schemas.PurpleElement? = nil,
             hint: Components.Schemas.Close? = nil,
@@ -5034,7 +4199,7 @@ extension Components.Schemas {
             providerName: Swift.String? = nil,
             providerIconUrl: Swift.String? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.label = label
             self.element = element
             self.hint = hint
@@ -5063,41 +4228,11 @@ extension Components.Schemas {
             self.providerName = providerName
             self.providerIconUrl = providerIconUrl
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case label
-            case element
-            case hint
-            case optional
-            case elements
-            case fallback
-            case title
-            case description
-            case text
-            case fields
-            case accessory
-            case expand
-            case blockId
-            case dispatchAction
-            case imageUrl
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case isAnimated
-            case slackFile
-            case altText
-            case titleUrl
-            case videoUrl
-            case thumbnailUrl
-            case authorName
-            case providerName
-            case providerIconUrl
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Accessory`.
     public struct Accessory: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Accessory/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Accessory/fallback`.
         public var fallback: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Accessory/imageUrl`.
@@ -5115,7 +4250,7 @@ extension Components.Schemas {
         /// Creates a new `Accessory`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - fallback:
         ///   - imageUrl:
         ///   - altText:
@@ -5124,7 +4259,7 @@ extension Components.Schemas {
         ///   - imageBytes:
         ///   - slackFile:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             fallback: Swift.String? = nil,
             imageUrl: Swift.String? = nil,
             altText: Swift.String? = nil,
@@ -5133,7 +4268,7 @@ extension Components.Schemas {
             imageBytes: Swift.Int? = nil,
             slackFile: Components.Schemas.SlackFile? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.fallback = fallback
             self.imageUrl = imageUrl
             self.altText = altText
@@ -5142,21 +4277,11 @@ extension Components.Schemas {
             self.imageBytes = imageBytes
             self.slackFile = slackFile
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case fallback
-            case imageUrl
-            case altText
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case slackFile
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Element`.
     public struct Element: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Element/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Element/text`.
         public var text: Components.Schemas.Text?
         /// - Remark: Generated from `#/components/schemas/Element/url`.
@@ -5204,7 +4329,7 @@ extension Components.Schemas {
         /// Creates a new `Element`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - text:
         ///   - url:
         ///   - value:
@@ -5228,7 +4353,7 @@ extension Components.Schemas {
         ///   - imageBytes:
         ///   - initialUser:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             text: Components.Schemas.Text? = nil,
             url: Swift.String? = nil,
             value: Swift.String? = nil,
@@ -5252,7 +4377,7 @@ extension Components.Schemas {
             imageBytes: Swift.Int? = nil,
             initialUser: Swift.String? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.text = text
             self.url = url
             self.value = value
@@ -5275,31 +4400,6 @@ extension Components.Schemas {
             self.imageHeight = imageHeight
             self.imageBytes = imageBytes
             self.initialUser = initialUser
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case text
-            case url
-            case value
-            case style
-            case confirm
-            case placeholder
-            case filter
-            case fallback
-            case actionId
-            case initialChannel
-            case responseUrlEnabled
-            case initialConversation
-            case defaultToCurrentConversation
-            case initialDate
-            case initialOption
-            case minQueryLength
-            case imageUrl
-            case altText
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case initialUser
         }
     }
     /// - Remark: Generated from `#/components/schemas/ElementConfirm`.
@@ -5330,12 +4430,6 @@ extension Components.Schemas {
             self.confirm = confirm
             self.deny = deny
         }
-        public enum CodingKeys: String, CodingKey {
-            case title
-            case text
-            case confirm
-            case deny
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Filter`.
     public struct Filter: Codable, Hashable, Sendable {
@@ -5359,11 +4453,6 @@ extension Components.Schemas {
             self.include = include
             self.excludeExternalSharedChannels = excludeExternalSharedChannels
             self.excludeBotUsers = excludeBotUsers
-        }
-        public enum CodingKeys: String, CodingKey {
-            case include
-            case excludeExternalSharedChannels
-            case excludeBotUsers
         }
     }
     /// - Remark: Generated from `#/components/schemas/InitialOption`.
@@ -5394,17 +4483,11 @@ extension Components.Schemas {
             self.description = description
             self.url = url
         }
-        public enum CodingKeys: String, CodingKey {
-            case text
-            case value
-            case description
-            case url
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Text`.
     public struct Text: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Text/type`.
-        public var _type: Components.Schemas.TextType?
+        public var type: Components.Schemas.TextType?
         /// - Remark: Generated from `#/components/schemas/Text/text`.
         public var text: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Text/emoji`.
@@ -5414,26 +4497,20 @@ extension Components.Schemas {
         /// Creates a new `Text`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - text:
         ///   - emoji:
         ///   - verbatim:
         public init(
-            _type: Components.Schemas.TextType? = nil,
+            type: Components.Schemas.TextType? = nil,
             text: Swift.String? = nil,
             emoji: Swift.Bool? = nil,
             verbatim: Swift.Bool? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.text = text
             self.emoji = emoji
             self.verbatim = verbatim
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case text
-            case emoji
-            case verbatim
         }
     }
     /// - Remark: Generated from `#/components/schemas/BotProfile`.
@@ -5479,15 +4556,6 @@ extension Components.Schemas {
             self.appId = appId
             self.teamId = teamId
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case deleted
-            case name
-            case updated
-            case icons
-            case appId
-            case teamId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/BotProfileIcons`.
     public struct BotProfileIcons: Codable, Hashable, Sendable {
@@ -5512,11 +4580,6 @@ extension Components.Schemas {
             self.image48 = image48
             self.image72 = image72
         }
-        public enum CodingKeys: String, CodingKey {
-            case image36
-            case image48
-            case image72
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Edited`.
     public struct Edited: Codable, Hashable, Sendable {
@@ -5535,10 +4598,6 @@ extension Components.Schemas {
         ) {
             self.user = user
             self.ts = ts
-        }
-        public enum CodingKeys: String, CodingKey {
-            case user
-            case ts
         }
     }
     /// - Remark: Generated from `#/components/schemas/File`.
@@ -6349,168 +5408,6 @@ extension Components.Schemas {
             self.pinnedTo = pinnedTo
             self.commentsCount = commentsCount
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case created
-            case timestamp
-            case name
-            case title
-            case subject
-            case mimetype
-            case filetype
-            case user
-            case mode
-            case editable
-            case editor
-            case updated
-            case editors
-            case subtype
-            case transcription
-            case mp4
-            case vtt
-            case hls
-            case username
-            case size
-            case deanimate
-            case pjpeg
-            case permalink
-            case preview
-            case lines
-            case channels
-            case groups
-            case ims
-            case shares
-            case to
-            case from
-            case cc
-            case headers
-            case saved
-            case access
-            case favorites
-            case reactions
-            case attachments
-            case blocks
-            case prettyType
-            case userTeam
-            case sourceTeam
-            case nonOwnerEditable
-            case lastEditor
-            case fileAccess
-            case editTimestamp
-            case altTxt
-            case mp4Low
-            case hlsEmbed
-            case durationMs
-            case thumbVideoW
-            case thumbVideoH
-            case originalAttachmentCount
-            case isExternal
-            case externalType
-            case externalId
-            case externalUrl
-            case urlPrivate
-            case urlPrivateDownload
-            case urlStaticPreview
-            case appId
-            case appName
-            case thumb64
-            case thumb64Gif
-            case thumb64W
-            case thumb64H
-            case thumb80
-            case thumb80Gif
-            case thumb80W
-            case thumb80H
-            case thumb160
-            case thumb160Gif
-            case thumb160W
-            case thumb160H
-            case thumb360
-            case thumb360Gif
-            case thumb360W
-            case thumb360H
-            case thumb480
-            case thumb480Gif
-            case thumb480W
-            case thumb480H
-            case thumb720
-            case thumb720Gif
-            case thumb720W
-            case thumb720H
-            case thumb800
-            case thumb800Gif
-            case thumb800W
-            case thumb800H
-            case thumb960
-            case thumb960Gif
-            case thumb960W
-            case thumb960H
-            case thumb1024
-            case thumb1024Gif
-            case thumb1024W
-            case thumb1024H
-            case thumbVideo
-            case thumbGif
-            case thumbPdf
-            case thumbPdfW
-            case thumbPdfH
-            case thumbTiny
-            case convertedPdf
-            case imageExifRotation
-            case originalW
-            case originalH
-            case deanimateGif
-            case permalinkPublic
-            case editLink
-            case hasRichPreview
-            case mediaDisplayType
-            case previewIsTruncated
-            case previewHighlight
-            case plainText
-            case previewPlainText
-            case hasMore
-            case sentToSelf
-            case linesMore
-            case isPublic
-            case publicUrlShared
-            case displayAsBot
-            case hasMoreShares
-            case channelActionsTs
-            case channelActionsCount
-            case simplifiedHtml
-            case mediaProgress
-            case quipThreadId
-            case isChannelSpace
-            case linkedChannelId
-            case teamsSharedWith
-            case lastRead
-            case titleBlocks
-            case privateChannelsWithFileAccessCount
-            case privateFileWithAccessCount
-            case dmMpdmUsersWithFileAccess
-            case orgOrWorkspaceAccess
-            case updateNotification
-            case canvasTemplateMode
-            case templateConversionTs
-            case templateName
-            case templateTitle
-            case templateDescription
-            case templateIcon
-            case teamPrefVersionHistoryEnabled
-            case showBadge
-            case listMetadata
-            case listLimits
-            case listCsvDownloadUrl
-            case canToggleCanvasLock
-            case isRestrictedSharingEnabled
-            case canvasPrintingEnabled
-            case botId
-            case initialComment
-            case numStars
-            case isStarred
-            case pinnedTo
-            case commentsCount
-        }
     }
     /// - Remark: Generated from `#/components/schemas/MessageIcons`.
     public struct MessageIcons: Codable, Hashable, Sendable {
@@ -6545,13 +5442,6 @@ extension Components.Schemas {
             self.image64 = image64
             self.image72 = image72
         }
-        public enum CodingKeys: String, CodingKey {
-            case emoji
-            case image36
-            case image48
-            case image64
-            case image72
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Reaction`.
     public struct Reaction: Codable, Hashable, Sendable {
@@ -6581,12 +5471,6 @@ extension Components.Schemas {
             self.users = users
             self.url = url
         }
-        public enum CodingKeys: String, CodingKey {
-            case name
-            case count
-            case users
-            case url
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Root`.
     public struct Root: Codable, Hashable, Sendable {
@@ -6601,7 +5485,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/Root/mrkdwn`.
         public var mrkdwn: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/Root/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Root/subtype`.
         public var subtype: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Root/icons`.
@@ -6646,7 +5530,7 @@ extension Components.Schemas {
         ///   - username:
         ///   - team:
         ///   - mrkdwn:
-        ///   - _type:
+        ///   - type:
         ///   - subtype:
         ///   - icons:
         ///   - edited:
@@ -6671,7 +5555,7 @@ extension Components.Schemas {
             username: Swift.String? = nil,
             team: Swift.String? = nil,
             mrkdwn: Swift.Bool? = nil,
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             subtype: Swift.String? = nil,
             icons: Components.Schemas.MessageIcons? = nil,
             edited: Components.Schemas.Edited? = nil,
@@ -6696,7 +5580,7 @@ extension Components.Schemas {
             self.username = username
             self.team = team
             self.mrkdwn = mrkdwn
-            self._type = _type
+            self.type = type
             self.subtype = subtype
             self.icons = icons
             self.edited = edited
@@ -6715,32 +5599,6 @@ extension Components.Schemas {
             self.lastRead = lastRead
             self.unreadCount = unreadCount
             self.noNotifications = noNotifications
-        }
-        public enum CodingKeys: String, CodingKey {
-            case text
-            case user
-            case username
-            case team
-            case mrkdwn
-            case _type = "type"
-            case subtype
-            case icons
-            case edited
-            case replies
-            case subscribed
-            case ts
-            case room
-            case parentUserId
-            case botId
-            case threadTs
-            case botProfile
-            case replyCount
-            case replyUsers
-            case replyUsersCount
-            case latestReply
-            case lastRead
-            case unreadCount
-            case noNotifications
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsInfoResponse`.
@@ -6776,18 +5634,11 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channel
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Latest`.
     public struct Latest: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Latest/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Latest/subtype`.
         public var subtype: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Latest/team`.
@@ -6837,7 +5688,7 @@ extension Components.Schemas {
         /// Creates a new `Latest`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - subtype:
         ///   - team:
         ///   - user:
@@ -6862,7 +5713,7 @@ extension Components.Schemas {
         ///   - threadTs:
         ///   - xFiles:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             subtype: Swift.String? = nil,
             team: Swift.String? = nil,
             user: Swift.String? = nil,
@@ -6887,7 +5738,7 @@ extension Components.Schemas {
             threadTs: Swift.String? = nil,
             xFiles: [Swift.String]? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.subtype = subtype
             self.team = team
             self.user = user
@@ -6911,32 +5762,6 @@ extension Components.Schemas {
             self.botProfile = botProfile
             self.threadTs = threadTs
             self.xFiles = xFiles
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case subtype
-            case team
-            case user
-            case username
-            case text
-            case topic
-            case reactions
-            case root
-            case upload
-            case ts
-            case icons
-            case edited
-            case attachments
-            case blocks
-            case files
-            case clientMsgId
-            case parentUserId
-            case displayAsBot
-            case botId
-            case botLink
-            case botProfile
-            case threadTs
-            case xFiles
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsInviteResponse`.
@@ -6972,13 +5797,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case channel
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsJoinResponse`.
     public struct ChannelsJoinResponse: Codable, Hashable, Sendable {
@@ -7013,13 +5831,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channel
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsKickResponse`.
     public struct ChannelsKickResponse: Codable, Hashable, Sendable {
@@ -7049,12 +5860,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsLeaveResponse`.
     public struct ChannelsLeaveResponse: Codable, Hashable, Sendable {
@@ -7083,12 +5888,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsListResponse`.
@@ -7134,15 +5933,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channels
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsMarkResponse`.
     public struct ChannelsMarkResponse: Codable, Hashable, Sendable {
@@ -7171,12 +5961,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsRenameResponse`.
@@ -7211,13 +5995,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case channel
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsRepliesResponse`.
@@ -7268,16 +6045,6 @@ extension Components.Schemas {
             self.hasMore = hasMore
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case messages
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case hasMore
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsSetPurposeResponse`.
     public struct ChannelsSetPurposeResponse: Codable, Hashable, Sendable {
@@ -7311,13 +6078,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case purpose
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsSetTopicResponse`.
@@ -7353,13 +6113,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case topic
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ChannelsUnarchiveResponse`.
     public struct ChannelsUnarchiveResponse: Codable, Hashable, Sendable {
@@ -7389,17 +6142,11 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponseMessage`.
     public struct ChatPostMessageResponseMessage: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponseMessage/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponseMessage/text`.
         public var text: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponseMessage/user`.
@@ -7439,7 +6186,7 @@ extension Components.Schemas {
         /// Creates a new `ChatPostMessageResponseMessage`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - text:
         ///   - user:
         ///   - ts:
@@ -7459,7 +6206,7 @@ extension Components.Schemas {
         ///   - appId:
         ///   - assistantAppThread:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             text: Swift.String? = nil,
             user: Swift.String? = nil,
             ts: Swift.String? = nil,
@@ -7479,7 +6226,7 @@ extension Components.Schemas {
             appId: Swift.String? = nil,
             assistantAppThread: Components.Schemas.AssistantAppThread? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.text = text
             self.user = user
             self.ts = ts
@@ -7498,27 +6245,6 @@ extension Components.Schemas {
             self.parentUserId = parentUserId
             self.appId = appId
             self.assistantAppThread = assistantAppThread
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case text
-            case user
-            case ts
-            case team
-            case subtype
-            case username
-            case icons
-            case root
-            case metadata
-            case room
-            case attachments
-            case blocks
-            case botId
-            case botProfile
-            case threadTs
-            case parentUserId
-            case appId
-            case assistantAppThread
         }
     }
     /// - Remark: Generated from `#/components/schemas/AssistantAppThread`.
@@ -7544,16 +6270,11 @@ extension Components.Schemas {
             self.titleBlocks = titleBlocks
             self.firstUserThreadReply = firstUserThreadReply
         }
-        public enum CodingKeys: String, CodingKey {
-            case title
-            case titleBlocks
-            case firstUserThreadReply
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AssistantAppThreadBlock`.
     public struct AssistantAppThreadBlock: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/AssistantAppThreadBlock/type`.
-        public var _type: Components.Schemas.BlockType?
+        public var type: Components.Schemas.BlockType?
         /// - Remark: Generated from `#/components/schemas/AssistantAppThreadBlock/elements`.
         public var elements: [Components.Schemas.Accessory]?
         /// - Remark: Generated from `#/components/schemas/AssistantAppThreadBlock/call`.
@@ -7653,7 +6374,7 @@ extension Components.Schemas {
         /// Creates a new `AssistantAppThreadBlock`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - elements:
         ///   - call:
         ///   - source:
@@ -7703,7 +6424,7 @@ extension Components.Schemas {
         ///   - shareUrl:
         ///   - dispatchAction:
         public init(
-            _type: Components.Schemas.BlockType? = nil,
+            type: Components.Schemas.BlockType? = nil,
             elements: [Components.Schemas.Accessory]? = nil,
             call: Components.Schemas.Call? = nil,
             source: Swift.String? = nil,
@@ -7753,7 +6474,7 @@ extension Components.Schemas {
             shareUrl: Swift.String? = nil,
             dispatchAction: Swift.Bool? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.elements = elements
             self.call = call
             self.source = source
@@ -7803,57 +6524,6 @@ extension Components.Schemas {
             self.shareUrl = shareUrl
             self.dispatchAction = dispatchAction
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case elements
-            case call
-            case source
-            case file
-            case text
-            case fallback
-            case title
-            case description
-            case url
-            case fields
-            case accessory
-            case expand
-            case label
-            case element
-            case hint
-            case optional
-            case blockId
-            case callId
-            case apiDecorationAvailable
-            case externalId
-            case fileId
-            case imageUrl
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case isAnimated
-            case slackFile
-            case altText
-            case titleUrl
-            case videoUrl
-            case thumbnailUrl
-            case authorName
-            case providerName
-            case providerIconUrl
-            case functionTriggerId
-            case appId
-            case isWorkflowApp
-            case salesHomeWorkflowAppType
-            case appCollaborators
-            case buttonLabel
-            case botUserId
-            case owningTeamId
-            case workflowId
-            case developerTraceId
-            case triggerType
-            case triggerSubtype
-            case shareUrl
-            case dispatchAction
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AccessoryConfirm`.
     public struct AccessoryConfirm: Codable, Hashable, Sendable {
@@ -7888,18 +6558,11 @@ extension Components.Schemas {
             self.deny = deny
             self.style = style
         }
-        public enum CodingKeys: String, CodingKey {
-            case title
-            case text
-            case confirm
-            case deny
-            case style
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AccessoryElement`.
     public struct AccessoryElement: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/AccessoryElement/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AccessoryElement/elements`.
         public var elements: [Components.Schemas.PurpleElement]?
         /// - Remark: Generated from `#/components/schemas/AccessoryElement/style`.
@@ -7913,40 +6576,32 @@ extension Components.Schemas {
         /// Creates a new `AccessoryElement`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - elements:
         ///   - style:
         ///   - indent:
         ///   - offset:
         ///   - border:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             elements: [Components.Schemas.PurpleElement]? = nil,
             style: Swift.String? = nil,
             indent: Swift.Int? = nil,
             offset: Swift.Int? = nil,
             border: Swift.Int? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.elements = elements
             self.style = style
             self.indent = indent
             self.offset = offset
             self.border = border
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case elements
-            case style
-            case indent
-            case offset
-            case border
-        }
     }
     /// - Remark: Generated from `#/components/schemas/PurpleElement`.
     public struct PurpleElement: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/PurpleElement/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/PurpleElement/placeholder`.
         public var placeholder: Components.Schemas.Close?
         /// - Remark: Generated from `#/components/schemas/PurpleElement/multiline`.
@@ -8020,7 +6675,7 @@ extension Components.Schemas {
         /// Creates a new `PurpleElement`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - placeholder:
         ///   - multiline:
         ///   - options:
@@ -8057,7 +6712,7 @@ extension Components.Schemas {
         ///   - optionGroups:
         ///   - initialUser:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             placeholder: Components.Schemas.Close? = nil,
             multiline: Swift.Bool? = nil,
             options: [Components.Schemas.Option]? = nil,
@@ -8094,7 +6749,7 @@ extension Components.Schemas {
             optionGroups: [Components.Schemas.OptionGroup]? = nil,
             initialUser: Swift.String? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.placeholder = placeholder
             self.multiline = multiline
             self.options = options
@@ -8130,44 +6785,6 @@ extension Components.Schemas {
             self.slackFile = slackFile
             self.optionGroups = optionGroups
             self.initialUser = initialUser
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case placeholder
-            case multiline
-            case options
-            case confirm
-            case text
-            case url
-            case value
-            case style
-            case filter
-            case timezone
-            case fallback
-            case actionId
-            case initialValue
-            case dispatchActionConfig
-            case focusOnLoad
-            case minLength
-            case maxLength
-            case initialOption
-            case accessibilityLabel
-            case initialChannel
-            case responseUrlEnabled
-            case initialConversation
-            case defaultToCurrentConversation
-            case initialDate
-            case initialTime
-            case initialDateTime
-            case minQueryLength
-            case imageUrl
-            case altText
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case slackFile
-            case optionGroups
-            case initialUser
         }
     }
     /// - Remark: Generated from `#/components/schemas/Style`.
@@ -8213,15 +6830,6 @@ extension Components.Schemas {
             self.code = code
             self.clientHighlight = clientHighlight
         }
-        public enum CodingKeys: String, CodingKey {
-            case bold
-            case italic
-            case strike
-            case highlight
-            case unlink
-            case code
-            case clientHighlight
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AccessoryFilter`.
     public struct AccessoryFilter: Codable, Hashable, Sendable {
@@ -8245,11 +6853,6 @@ extension Components.Schemas {
             self.include = include
             self.excludeExternalSharedChannels = excludeExternalSharedChannels
             self.excludeBotUsers = excludeBotUsers
-        }
-        public enum CodingKeys: String, CodingKey {
-            case include
-            case excludeExternalSharedChannels
-            case excludeBotUsers
         }
     }
     /// - Remark: Generated from `#/components/schemas/InitialOptionElement`.
@@ -8280,12 +6883,6 @@ extension Components.Schemas {
             self.description = description
             self.url = url
         }
-        public enum CodingKeys: String, CodingKey {
-            case text
-            case value
-            case description
-            case url
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AccessoryOptionGroup`.
     public struct AccessoryOptionGroup: Codable, Hashable, Sendable {
@@ -8304,10 +6901,6 @@ extension Components.Schemas {
         ) {
             self.label = label
             self.options = options
-        }
-        public enum CodingKeys: String, CodingKey {
-            case label
-            case options
         }
     }
     /// - Remark: Generated from `#/components/schemas/SlackFile`.
@@ -8328,10 +6921,6 @@ extension Components.Schemas {
             self.id = id
             self.url = url
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case url
-        }
     }
     /// - Remark: Generated from `#/components/schemas/CustomizableInputParameter`.
     public struct CustomizableInputParameter: Codable, Hashable, Sendable {
@@ -8350,10 +6939,6 @@ extension Components.Schemas {
         ) {
             self.name = name
             self.value = value
-        }
-        public enum CodingKeys: String, CodingKey {
-            case name
-            case value
         }
     }
     /// - Remark: Generated from `#/components/schemas/V1`.
@@ -8454,26 +7039,6 @@ extension Components.Schemas {
             self.wasAccepted = wasAccepted
             self.hasEnded = hasEnded
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case channels
-            case appId
-            case appIconUrls
-            case dateStart
-            case activeParticipants
-            case allParticipants
-            case displayId
-            case joinUrl
-            case desktopAppJoinUrl
-            case createdBy
-            case dateEnd
-            case isDmCall
-            case wasRejected
-            case wasMissed
-            case wasAccepted
-            case hasEnded
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Participant`.
     public struct Participant: Codable, Hashable, Sendable {
@@ -8502,12 +7067,6 @@ extension Components.Schemas {
             self.externalId = externalId
             self.displayName = displayName
             self.avatarUrl = avatarUrl
-        }
-        public enum CodingKeys: String, CodingKey {
-            case slackId
-            case externalId
-            case displayName
-            case avatarUrl
         }
     }
     /// - Remark: Generated from `#/components/schemas/AppIconUrls`.
@@ -8573,24 +7132,11 @@ extension Components.Schemas {
             self.image1024 = image1024
             self.imageOriginal = imageOriginal
         }
-        public enum CodingKeys: String, CodingKey {
-            case image32
-            case image36
-            case image48
-            case image64
-            case image72
-            case image96
-            case image128
-            case image192
-            case image512
-            case image1024
-            case imageOriginal
-        }
     }
     /// - Remark: Generated from `#/components/schemas/DescriptionElement`.
     public struct DescriptionElement: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/DescriptionElement/type`.
-        public var _type: Components.Schemas.DescriptionType?
+        public var type: Components.Schemas.DescriptionType?
         /// - Remark: Generated from `#/components/schemas/DescriptionElement/text`.
         public var text: Swift.String?
         /// - Remark: Generated from `#/components/schemas/DescriptionElement/emoji`.
@@ -8600,32 +7146,26 @@ extension Components.Schemas {
         /// Creates a new `DescriptionElement`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - text:
         ///   - emoji:
         ///   - verbatim:
         public init(
-            _type: Components.Schemas.DescriptionType? = nil,
+            type: Components.Schemas.DescriptionType? = nil,
             text: Swift.String? = nil,
             emoji: Swift.Bool? = nil,
             verbatim: Swift.Bool? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.text = text
             self.emoji = emoji
             self.verbatim = verbatim
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case text
-            case emoji
-            case verbatim
         }
     }
     /// - Remark: Generated from `#/components/schemas/DescriptionBlockElement`.
     public struct DescriptionBlockElement: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/DescriptionBlockElement/type`.
-        public var _type: Components.Schemas.BlockType?
+        public var type: Components.Schemas.BlockType?
         /// - Remark: Generated from `#/components/schemas/DescriptionBlockElement/elements`.
         public var elements: [Components.Schemas.Accessory]?
         /// - Remark: Generated from `#/components/schemas/DescriptionBlockElement/fallback`.
@@ -8701,7 +7241,7 @@ extension Components.Schemas {
         /// Creates a new `DescriptionBlockElement`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - elements:
         ///   - fallback:
         ///   - title:
@@ -8739,7 +7279,7 @@ extension Components.Schemas {
         ///   - triggerSubtype:
         ///   - shareUrl:
         public init(
-            _type: Components.Schemas.BlockType? = nil,
+            type: Components.Schemas.BlockType? = nil,
             elements: [Components.Schemas.Accessory]? = nil,
             fallback: Swift.String? = nil,
             title: Components.Schemas.DescriptionUnion? = nil,
@@ -8777,7 +7317,7 @@ extension Components.Schemas {
             triggerSubtype: Swift.String? = nil,
             shareUrl: Swift.String? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.elements = elements
             self.fallback = fallback
             self.title = title
@@ -8815,45 +7355,6 @@ extension Components.Schemas {
             self.triggerSubtype = triggerSubtype
             self.shareUrl = shareUrl
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case elements
-            case fallback
-            case title
-            case text
-            case fields
-            case accessory
-            case expand
-            case description
-            case url
-            case blockId
-            case imageUrl
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case isAnimated
-            case slackFile
-            case altText
-            case titleUrl
-            case videoUrl
-            case thumbnailUrl
-            case authorName
-            case providerName
-            case providerIconUrl
-            case functionTriggerId
-            case appId
-            case isWorkflowApp
-            case salesHomeWorkflowAppType
-            case appCollaborators
-            case buttonLabel
-            case botUserId
-            case owningTeamId
-            case workflowId
-            case developerTraceId
-            case triggerType
-            case triggerSubtype
-            case shareUrl
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Cc`.
     public struct Cc: Codable, Hashable, Sendable {
@@ -8878,11 +7379,6 @@ extension Components.Schemas {
             self.name = name
             self.original = original
         }
-        public enum CodingKeys: String, CodingKey {
-            case address
-            case name
-            case original
-        }
     }
     /// - Remark: Generated from `#/components/schemas/DmMpdmUsersWithFileAccess`.
     public struct DmMpdmUsersWithFileAccess: Codable, Hashable, Sendable {
@@ -8901,10 +7397,6 @@ extension Components.Schemas {
         ) {
             self.access = access
             self.userId = userId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case access
-            case userId
         }
     }
     /// - Remark: Generated from `#/components/schemas/Favorite`.
@@ -8929,11 +7421,6 @@ extension Components.Schemas {
             self.position = position
             self.collectionId = collectionId
             self.collectionName = collectionName
-        }
-        public enum CodingKeys: String, CodingKey {
-            case position
-            case collectionId
-            case collectionName
         }
     }
     /// - Remark: Generated from `#/components/schemas/Headers`.
@@ -8963,12 +7450,6 @@ extension Components.Schemas {
             self.inReplyTo = inReplyTo
             self.replyTo = replyTo
             self.messageId = messageId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case date
-            case inReplyTo
-            case replyTo
-            case messageId
         }
     }
     /// - Remark: Generated from `#/components/schemas/InitialComment`.
@@ -9013,15 +7494,6 @@ extension Components.Schemas {
             self.comment = comment
             self.channel = channel
             self.isIntro = isIntro
-        }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case created
-            case timestamp
-            case user
-            case comment
-            case channel
-            case isIntro
         }
     }
     /// - Remark: Generated from `#/components/schemas/ListLimits`.
@@ -9082,18 +7554,6 @@ extension Components.Schemas {
             self.viewCountLimit = viewCountLimit
             self.maxAttachmentsPerCell = maxAttachmentsPerCell
         }
-        public enum CodingKeys: String, CodingKey {
-            case overRowMaximum
-            case rowCountLimit
-            case rowCount
-            case overColumnMaximum
-            case columnCount
-            case columnCountLimit
-            case overViewMaximum
-            case viewCount
-            case viewCountLimit
-            case maxAttachmentsPerCell
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ListMetadata`.
     public struct ListMetadata: Codable, Hashable, Sendable {
@@ -9153,23 +7613,11 @@ extension Components.Schemas {
             self.creationSource = creationSource
             self.descriptionBlocks = descriptionBlocks
         }
-        public enum CodingKeys: String, CodingKey {
-            case icon
-            case description
-            case schema
-            case views
-            case integrations
-            case iconUrl
-            case iconTeamId
-            case isTrial
-            case creationSource
-            case descriptionBlocks
-        }
     }
     /// - Remark: Generated from `#/components/schemas/CreationSource`.
     public struct CreationSource: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/CreationSource/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CreationSource/referenceId`.
         public var referenceId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CreationSource/workflowFunctionId`.
@@ -9177,22 +7625,17 @@ extension Components.Schemas {
         /// Creates a new `CreationSource`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - referenceId:
         ///   - workflowFunctionId:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             referenceId: Swift.String? = nil,
             workflowFunctionId: Swift.String? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.referenceId = referenceId
             self.workflowFunctionId = workflowFunctionId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case referenceId
-            case workflowFunctionId
         }
     }
     /// - Remark: Generated from `#/components/schemas/Schema`.
@@ -9204,7 +7647,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/Schema/key`.
         public var key: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Schema/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Schema/options`.
         public var options: Components.Schemas.Options?
         /// - Remark: Generated from `#/components/schemas/Schema/isPrimaryColumn`.
@@ -9215,31 +7658,23 @@ extension Components.Schemas {
         ///   - id:
         ///   - name:
         ///   - key:
-        ///   - _type:
+        ///   - type:
         ///   - options:
         ///   - isPrimaryColumn:
         public init(
             id: Swift.String? = nil,
             name: Swift.String? = nil,
             key: Swift.String? = nil,
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             options: Components.Schemas.Options? = nil,
             isPrimaryColumn: Swift.Bool? = nil
         ) {
             self.id = id
             self.name = name
             self.key = key
-            self._type = _type
+            self.type = type
             self.options = options
             self.isPrimaryColumn = isPrimaryColumn
-        }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case key
-            case _type = "type"
-            case options
-            case isPrimaryColumn
         }
     }
     /// - Remark: Generated from `#/components/schemas/Options`.
@@ -9260,10 +7695,6 @@ extension Components.Schemas {
             self.isScim = isScim
             self.isProtected = isProtected
         }
-        public enum CodingKeys: String, CodingKey {
-            case isScim
-            case isProtected
-        }
     }
     /// - Remark: Generated from `#/components/schemas/CanvasPlaceholderMapping`.
     public struct CanvasPlaceholderMapping: Codable, Hashable, Sendable {
@@ -9282,10 +7713,6 @@ extension Components.Schemas {
         ) {
             self.variable = variable
             self.column = column
-        }
-        public enum CodingKeys: String, CodingKey {
-            case variable
-            case column
         }
     }
     /// - Remark: Generated from `#/components/schemas/Choice`.
@@ -9311,11 +7738,6 @@ extension Components.Schemas {
             self.label = label
             self.color = color
         }
-        public enum CodingKeys: String, CodingKey {
-            case value
-            case label
-            case color
-        }
     }
     /// - Remark: Generated from `#/components/schemas/DefaultValueTyped`.
     public struct DefaultValueTyped: Codable, Hashable, Sendable {
@@ -9328,16 +7750,13 @@ extension Components.Schemas {
         public init(select: [Swift.String]? = nil) {
             self.select = select
         }
-        public enum CodingKeys: String, CodingKey {
-            case select
-        }
     }
     /// - Remark: Generated from `#/components/schemas/View`.
     public struct View: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/View/id`.
         public var id: Swift.String?
         /// - Remark: Generated from `#/components/schemas/View/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/View/title`.
         public var title: Components.Schemas.Close?
         /// - Remark: Generated from `#/components/schemas/View/submit`.
@@ -9378,7 +7797,7 @@ extension Components.Schemas {
         ///
         /// - Parameters:
         ///   - id:
-        ///   - _type:
+        ///   - type:
         ///   - title:
         ///   - submit:
         ///   - close:
@@ -9399,7 +7818,7 @@ extension Components.Schemas {
         ///   - botId:
         public init(
             id: Swift.String? = nil,
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             title: Components.Schemas.Close? = nil,
             submit: Components.Schemas.Close? = nil,
             close: Components.Schemas.Close? = nil,
@@ -9420,7 +7839,7 @@ extension Components.Schemas {
             botId: Swift.String? = nil
         ) {
             self.id = id
-            self._type = _type
+            self.type = type
             self.title = title
             self.submit = submit
             self.close = close
@@ -9439,28 +7858,6 @@ extension Components.Schemas {
             self.appId = appId
             self.appInstalledTeamId = appInstalledTeamId
             self.botId = botId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case _type = "type"
-            case title
-            case submit
-            case close
-            case blocks
-            case state
-            case hash
-            case teamId
-            case privateMetadata
-            case callbackId
-            case externalId
-            case clearOnClose
-            case notifyOnClose
-            case submitDisabled
-            case rootViewId
-            case previousViewId
-            case appId
-            case appInstalledTeamId
-            case botId
         }
     }
     /// - Remark: Generated from `#/components/schemas/Column`.
@@ -9496,13 +7893,6 @@ extension Components.Schemas {
             self.position = position
             self.width = width
         }
-        public enum CodingKeys: String, CodingKey {
-            case visible
-            case key
-            case id
-            case position
-            case width
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FilterElement`.
     public struct FilterElement: Codable, Hashable, Sendable {
@@ -9537,13 +7927,6 @@ extension Components.Schemas {
             self.typedValues = typedValues
             self.columnId = columnId
         }
-        public enum CodingKeys: String, CodingKey {
-            case key
-            case _operator = "operator"
-            case values
-            case typedValues
-            case columnId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Grouping`.
     public struct Grouping: Codable, Hashable, Sendable {
@@ -9562,10 +7945,6 @@ extension Components.Schemas {
         ) {
             self.groupBy = groupBy
             self.groupByColumnId = groupByColumnId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case groupBy
-            case groupByColumnId
         }
     }
     /// - Remark: Generated from `#/components/schemas/MediaProgress`.
@@ -9590,11 +7969,6 @@ extension Components.Schemas {
             self.offsetMs = offsetMs
             self.maxOffsetMs = maxOffsetMs
             self.durationMs = durationMs
-        }
-        public enum CodingKeys: String, CodingKey {
-            case offsetMs
-            case maxOffsetMs
-            case durationMs
         }
     }
     /// - Remark: Generated from `#/components/schemas/Saved`.
@@ -9625,12 +7999,6 @@ extension Components.Schemas {
             self.dateCompleted = dateCompleted
             self.dateDue = dateDue
         }
-        public enum CodingKeys: String, CodingKey {
-            case state
-            case isArchived
-            case dateCompleted
-            case dateDue
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Shares`.
     public struct Shares: Codable, Hashable, Sendable {
@@ -9649,10 +8017,6 @@ extension Components.Schemas {
         ) {
             self._public = _public
             self._private = _private
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _public = "public"
-            case _private = "private"
         }
     }
     /// - Remark: Generated from `#/components/schemas/Private`.
@@ -9708,17 +8072,6 @@ extension Components.Schemas {
             self.channelName = channelName
             self.teamId = teamId
         }
-        public enum CodingKeys: String, CodingKey {
-            case ts
-            case shareUserId
-            case replyUsers
-            case replyUsersCount
-            case replyCount
-            case threadTs
-            case latestReply
-            case channelName
-            case teamId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Transcription`.
     public struct Transcription: Codable, Hashable, Sendable {
@@ -9737,10 +8090,6 @@ extension Components.Schemas {
         ) {
             self.status = status
             self.locale = locale
-        }
-        public enum CodingKeys: String, CodingKey {
-            case status
-            case locale
         }
     }
     /// - Remark: Generated from `#/components/schemas/TranscriptionPreview`.
@@ -9761,10 +8110,6 @@ extension Components.Schemas {
             self.content = content
             self.hasMore = hasMore
         }
-        public enum CodingKeys: String, CodingKey {
-            case content
-            case hasMore
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ActionOptionGroup`.
     public struct ActionOptionGroup: Codable, Hashable, Sendable {
@@ -9784,10 +8129,6 @@ extension Components.Schemas {
             self.text = text
             self.options = options
         }
-        public enum CodingKeys: String, CodingKey {
-            case text
-            case options
-        }
     }
     /// - Remark: Generated from `#/components/schemas/SelectedOptionElement`.
     public struct SelectedOptionElement: Codable, Hashable, Sendable {
@@ -9806,10 +8147,6 @@ extension Components.Schemas {
         ) {
             self.text = text
             self.value = value
-        }
-        public enum CodingKeys: String, CodingKey {
-            case text
-            case value
         }
     }
     /// - Remark: Generated from `#/components/schemas/AttachmentField`.
@@ -9834,11 +8171,6 @@ extension Components.Schemas {
             self.title = title
             self.value = value
             self.short = short
-        }
-        public enum CodingKeys: String, CodingKey {
-            case title
-            case value
-            case short
         }
     }
     /// - Remark: Generated from `#/components/schemas/FileElement`.
@@ -10489,136 +8821,6 @@ extension Components.Schemas {
             self.pinnedTo = pinnedTo
             self.commentsCount = commentsCount
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case created
-            case timestamp
-            case name
-            case title
-            case subject
-            case mimetype
-            case filetype
-            case user
-            case mode
-            case editable
-            case editor
-            case updated
-            case subtype
-            case transcription
-            case mp4
-            case vtt
-            case hls
-            case username
-            case size
-            case deanimate
-            case pjpeg
-            case permalink
-            case preview
-            case lines
-            case channels
-            case groups
-            case ims
-            case shares
-            case to
-            case from
-            case cc
-            case headers
-            case saved
-            case reactions
-            case prettyType
-            case userTeam
-            case sourceTeam
-            case nonOwnerEditable
-            case lastEditor
-            case fileAccess
-            case altTxt
-            case mp4Low
-            case hlsEmbed
-            case durationMs
-            case thumbVideoW
-            case thumbVideoH
-            case originalAttachmentCount
-            case isExternal
-            case externalType
-            case externalId
-            case externalUrl
-            case urlPrivate
-            case urlPrivateDownload
-            case appId
-            case appName
-            case thumb64
-            case thumb64Gif
-            case thumb64W
-            case thumb64H
-            case thumb80
-            case thumb80Gif
-            case thumb80W
-            case thumb80H
-            case thumb160
-            case thumb160Gif
-            case thumb160W
-            case thumb160H
-            case thumb360
-            case thumb360Gif
-            case thumb360W
-            case thumb360H
-            case thumb480
-            case thumb480Gif
-            case thumb480W
-            case thumb480H
-            case thumb720
-            case thumb720Gif
-            case thumb720W
-            case thumb720H
-            case thumb800
-            case thumb800Gif
-            case thumb800W
-            case thumb800H
-            case thumb960
-            case thumb960Gif
-            case thumb960W
-            case thumb960H
-            case thumb1024
-            case thumb1024Gif
-            case thumb1024W
-            case thumb1024H
-            case thumbVideo
-            case thumbGif
-            case thumbPdf
-            case thumbPdfW
-            case thumbPdfH
-            case thumbTiny
-            case convertedPdf
-            case imageExifRotation
-            case originalW
-            case originalH
-            case deanimateGif
-            case permalinkPublic
-            case editLink
-            case hasRichPreview
-            case mediaDisplayType
-            case previewIsTruncated
-            case previewHighlight
-            case plainText
-            case previewPlainText
-            case hasMore
-            case sentToSelf
-            case linesMore
-            case isPublic
-            case publicUrlShared
-            case displayAsBot
-            case hasMoreShares
-            case channelActionsTs
-            case channelActionsCount
-            case simplifiedHtml
-            case mediaProgress
-            case botId
-            case initialComment
-            case numStars
-            case isStarred
-            case pinnedTo
-            case commentsCount
-        }
     }
     /// - Remark: Generated from `#/components/schemas/List`.
     public struct List: Codable, Hashable, Sendable {
@@ -10818,46 +9020,6 @@ extension Components.Schemas {
             self.hasRichPreview = hasRichPreview
             self.fileAccess = fileAccess
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case created
-            case timestamp
-            case name
-            case title
-            case mimetype
-            case filetype
-            case user
-            case editable
-            case size
-            case mode
-            case username
-            case permalink
-            case updated
-            case shares
-            case channels
-            case groups
-            case ims
-            case externalType
-            case prettyType
-            case userTeam
-            case isExternal
-            case isPublic
-            case publicUrlShared
-            case displayAsBot
-            case listMetadata
-            case listLimits
-            case urlPrivate
-            case urlPrivateDownload
-            case permalinkPublic
-            case lastEditor
-            case commentsCount
-            case hasMoreShares
-            case privateChannelsWithFileAccessCount
-            case privateFileWithAccessCount
-            case dmMpdmUsersWithFileAccess
-            case hasRichPreview
-            case fileAccess
-        }
     }
     /// - Remark: Generated from `#/components/schemas/EventPayload`.
     public typealias EventPayload = OpenAPIRuntime.OpenAPIObjectContainer
@@ -10879,10 +9041,6 @@ extension Components.Schemas {
             self.record = record
             self.schema = schema
         }
-        public enum CodingKeys: String, CodingKey {
-            case record
-            case schema
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Record`.
     public struct Record: Codable, Hashable, Sendable {
@@ -10901,10 +9059,6 @@ extension Components.Schemas {
         ) {
             self.fields = fields
             self.recordId = recordId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case fields
-            case recordId
         }
     }
     /// - Remark: Generated from `#/components/schemas/RecordField`.
@@ -11000,30 +9154,11 @@ extension Components.Schemas {
             self.columnId = columnId
             self.richText = richText
         }
-        public enum CodingKeys: String, CodingKey {
-            case key
-            case value
-            case text
-            case message
-            case number
-            case select
-            case date
-            case user
-            case attachment
-            case checkbox
-            case email
-            case phone
-            case channel
-            case rating
-            case timestamp
-            case columnId
-            case richText
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FieldMessage`.
     public struct FieldMessage: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/FieldMessage/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FieldMessage/subtype`.
         public var subtype: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FieldMessage/team`.
@@ -11129,7 +9264,7 @@ extension Components.Schemas {
         /// Creates a new `FieldMessage`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - subtype:
         ///   - team:
         ///   - channel:
@@ -11182,7 +9317,7 @@ extension Components.Schemas {
         ///   - noNotifications:
         ///   - assistantAppThread:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             subtype: Swift.String? = nil,
             team: Swift.String? = nil,
             channel: Swift.String? = nil,
@@ -11235,7 +9370,7 @@ extension Components.Schemas {
             noNotifications: Swift.Bool? = nil,
             assistantAppThread: Components.Schemas.AssistantAppThread? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.subtype = subtype
             self.team = team
             self.channel = channel
@@ -11287,60 +9422,6 @@ extension Components.Schemas {
             self.itemType = itemType
             self.noNotifications = noNotifications
             self.assistantAppThread = assistantAppThread
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case subtype
-            case team
-            case channel
-            case user
-            case username
-            case text
-            case blocks
-            case attachments
-            case ts
-            case wibblr
-            case reactions
-            case icons
-            case file
-            case files
-            case upload
-            case inviter
-            case comment
-            case topic
-            case purpose
-            case edited
-            case replies
-            case subscribed
-            case hidden
-            case root
-            case item
-            case metadata
-            case room
-            case threadTs
-            case isIntro
-            case isStarred
-            case pinnedTo
-            case appId
-            case botId
-            case botLink
-            case displayAsBot
-            case botProfile
-            case parentUserId
-            case clientMsgId
-            case unfurlLinks
-            case unfurlMedia
-            case isThreadBroadcast
-            case isLocked
-            case replyCount
-            case replyUsers
-            case replyUsersCount
-            case latestReply
-            case xFiles
-            case lastRead
-            case itemType
-            case noNotifications
-            case assistantAppThread
         }
     }
     /// - Remark: Generated from `#/components/schemas/Comment`.
@@ -11395,17 +9476,6 @@ extension Components.Schemas {
             self.isIntro = isIntro
             self.numStars = numStars
             self.isStarred = isStarred
-        }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case created
-            case timestamp
-            case user
-            case comment
-            case channel
-            case isIntro
-            case numStars
-            case isStarred
         }
     }
     /// - Remark: Generated from `#/components/schemas/MessageFile`.
@@ -12216,168 +10286,6 @@ extension Components.Schemas {
             self.pinnedTo = pinnedTo
             self.commentsCount = commentsCount
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case created
-            case timestamp
-            case name
-            case title
-            case subject
-            case mimetype
-            case filetype
-            case user
-            case mode
-            case editable
-            case editor
-            case updated
-            case editors
-            case subtype
-            case transcription
-            case mp4
-            case vtt
-            case hls
-            case username
-            case size
-            case deanimate
-            case pjpeg
-            case permalink
-            case preview
-            case lines
-            case channels
-            case groups
-            case ims
-            case shares
-            case to
-            case from
-            case cc
-            case headers
-            case saved
-            case access
-            case favorites
-            case reactions
-            case attachments
-            case blocks
-            case prettyType
-            case userTeam
-            case sourceTeam
-            case nonOwnerEditable
-            case lastEditor
-            case fileAccess
-            case editTimestamp
-            case altTxt
-            case mp4Low
-            case hlsEmbed
-            case durationMs
-            case thumbVideoW
-            case thumbVideoH
-            case originalAttachmentCount
-            case isExternal
-            case externalType
-            case externalId
-            case externalUrl
-            case urlPrivate
-            case urlPrivateDownload
-            case urlStaticPreview
-            case appId
-            case appName
-            case thumb64
-            case thumb64Gif
-            case thumb64W
-            case thumb64H
-            case thumb80
-            case thumb80Gif
-            case thumb80W
-            case thumb80H
-            case thumb160
-            case thumb160Gif
-            case thumb160W
-            case thumb160H
-            case thumb360
-            case thumb360Gif
-            case thumb360W
-            case thumb360H
-            case thumb480
-            case thumb480Gif
-            case thumb480W
-            case thumb480H
-            case thumb720
-            case thumb720Gif
-            case thumb720W
-            case thumb720H
-            case thumb800
-            case thumb800Gif
-            case thumb800W
-            case thumb800H
-            case thumb960
-            case thumb960Gif
-            case thumb960W
-            case thumb960H
-            case thumb1024
-            case thumb1024Gif
-            case thumb1024W
-            case thumb1024H
-            case thumbVideo
-            case thumbGif
-            case thumbPdf
-            case thumbPdfW
-            case thumbPdfH
-            case thumbTiny
-            case convertedPdf
-            case imageExifRotation
-            case originalW
-            case originalH
-            case deanimateGif
-            case permalinkPublic
-            case editLink
-            case hasRichPreview
-            case mediaDisplayType
-            case previewIsTruncated
-            case previewHighlight
-            case plainText
-            case previewPlainText
-            case hasMore
-            case sentToSelf
-            case linesMore
-            case isPublic
-            case publicUrlShared
-            case displayAsBot
-            case hasMoreShares
-            case channelActionsTs
-            case channelActionsCount
-            case simplifiedHtml
-            case mediaProgress
-            case quipThreadId
-            case isChannelSpace
-            case linkedChannelId
-            case teamsSharedWith
-            case lastRead
-            case titleBlocks
-            case privateChannelsWithFileAccessCount
-            case privateFileWithAccessCount
-            case dmMpdmUsersWithFileAccess
-            case orgOrWorkspaceAccess
-            case updateNotification
-            case canvasTemplateMode
-            case templateConversionTs
-            case templateName
-            case templateTitle
-            case templateDescription
-            case templateIcon
-            case teamPrefVersionHistoryEnabled
-            case showBadge
-            case listMetadata
-            case listLimits
-            case listCsvDownloadUrl
-            case canToggleCanvasLock
-            case isRestrictedSharingEnabled
-            case canvasPrintingEnabled
-            case botId
-            case initialComment
-            case numStars
-            case isStarred
-            case pinnedTo
-            case commentsCount
-        }
     }
     /// - Remark: Generated from `#/components/schemas/PurpleIcons`.
     public struct PurpleIcons: Codable, Hashable, Sendable {
@@ -12397,10 +10305,6 @@ extension Components.Schemas {
             self.emoji = emoji
             self.image64 = image64
         }
-        public enum CodingKeys: String, CodingKey {
-            case emoji
-            case image64
-        }
     }
     /// - Remark: Generated from `#/components/schemas/PurpleMetadata`.
     public struct PurpleMetadata: Codable, Hashable, Sendable {
@@ -12412,9 +10316,6 @@ extension Components.Schemas {
         ///   - eventType:
         public init(eventType: Swift.String? = nil) {
             self.eventType = eventType
-        }
-        public enum CodingKeys: String, CodingKey {
-            case eventType
         }
     }
     /// - Remark: Generated from `#/components/schemas/Room`.
@@ -12585,40 +10486,6 @@ extension Components.Schemas {
             self.callFamily = callFamily
             self.huddleLink = huddleLink
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case participants
-            case channels
-            case recording
-            case mediaServer
-            case createdBy
-            case dateStart
-            case dateEnd
-            case participantHistory
-            case participantsCameraOn
-            case participantsCameraOff
-            case participantsScreenshareOn
-            case participantsScreenshareOff
-            case canvasThreadTs
-            case threadRootTs
-            case isDmCall
-            case wasRejected
-            case wasMissed
-            case wasAccepted
-            case hasEnded
-            case backgroundId
-            case canvasBackground
-            case isPrewarmed
-            case isScheduled
-            case attachedFileIds
-            case mediaBackendType
-            case displayId
-            case externalUniqueId
-            case appId
-            case callFamily
-            case huddleLink
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Recording`.
     public struct Recording: Codable, Hashable, Sendable {
@@ -12653,13 +10520,6 @@ extension Components.Schemas {
             self.summaryStatus = summaryStatus
             self.canRecordSummary = canRecordSummary
         }
-        public enum CodingKeys: String, CodingKey {
-            case transcript
-            case summary
-            case notetaking
-            case summaryStatus
-            case canRecordSummary
-        }
     }
     /// - Remark: Generated from `#/components/schemas/PurpleRoot`.
     public struct PurpleRoot: Codable, Hashable, Sendable {
@@ -12674,7 +10534,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/PurpleRoot/mrkdwn`.
         public var mrkdwn: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/PurpleRoot/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/PurpleRoot/subtype`.
         public var subtype: Swift.String?
         /// - Remark: Generated from `#/components/schemas/PurpleRoot/icons`.
@@ -12719,7 +10579,7 @@ extension Components.Schemas {
         ///   - username:
         ///   - team:
         ///   - mrkdwn:
-        ///   - _type:
+        ///   - type:
         ///   - subtype:
         ///   - icons:
         ///   - edited:
@@ -12744,7 +10604,7 @@ extension Components.Schemas {
             username: Swift.String? = nil,
             team: Swift.String? = nil,
             mrkdwn: Swift.Bool? = nil,
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             subtype: Swift.String? = nil,
             icons: Components.Schemas.MessageIcons? = nil,
             edited: Components.Schemas.Edited? = nil,
@@ -12769,7 +10629,7 @@ extension Components.Schemas {
             self.username = username
             self.team = team
             self.mrkdwn = mrkdwn
-            self._type = _type
+            self.type = type
             self.subtype = subtype
             self.icons = icons
             self.edited = edited
@@ -12788,32 +10648,6 @@ extension Components.Schemas {
             self.lastRead = lastRead
             self.unreadCount = unreadCount
             self.noNotifications = noNotifications
-        }
-        public enum CodingKeys: String, CodingKey {
-            case text
-            case user
-            case username
-            case team
-            case mrkdwn
-            case _type = "type"
-            case subtype
-            case icons
-            case edited
-            case replies
-            case subscribed
-            case ts
-            case room
-            case parentUserId
-            case botId
-            case threadTs
-            case botProfile
-            case replyCount
-            case replyUsers
-            case replyUsersCount
-            case latestReply
-            case lastRead
-            case unreadCount
-            case noNotifications
         }
     }
     /// - Remark: Generated from `#/components/schemas/ListRecordElement`.
@@ -12884,20 +10718,6 @@ extension Components.Schemas {
             self.platformRefs = platformRefs
             self.isSubscribed = isSubscribed
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case fields
-            case position
-            case saved
-            case listId
-            case dateCreated
-            case createdBy
-            case threadTs
-            case updatedTimestamp
-            case updatedBy
-            case platformRefs
-            case isSubscribed
-        }
     }
     /// - Remark: Generated from `#/components/schemas/PlatformRefs`.
     public struct PlatformRefs: Codable, Hashable, Sendable {
@@ -12921,11 +10741,6 @@ extension Components.Schemas {
             self.botCreatedBy = botCreatedBy
             self.botUpdatedBy = botUpdatedBy
             self.botDeletedBy = botDeletedBy
-        }
-        public enum CodingKeys: String, CodingKey {
-            case botCreatedBy
-            case botUpdatedBy
-            case botDeletedBy
         }
     }
     /// - Remark: Generated from `#/components/schemas/MessageBlock`.
@@ -12955,12 +10770,6 @@ extension Components.Schemas {
             self.channel = channel
             self.ts = ts
             self.message = message
-        }
-        public enum CodingKeys: String, CodingKey {
-            case team
-            case channel
-            case ts
-            case message
         }
     }
     /// - Remark: Generated from `#/components/schemas/AttachmentMetadata`.
@@ -13026,24 +10835,11 @@ extension Components.Schemas {
             self.thumb360H = thumb360H
             self.thumbTiny = thumbTiny
         }
-        public enum CodingKeys: String, CodingKey {
-            case format
-            case _extension = "extension"
-            case rotation
-            case thumb64
-            case thumb80
-            case thumb160
-            case originalW
-            case originalH
-            case thumb360W
-            case thumb360H
-            case thumbTiny
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AttachmentPreview`.
     public struct AttachmentPreview: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/AttachmentPreview/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AttachmentPreview/title`.
         public var title: Components.Schemas.DescriptionElement?
         /// - Remark: Generated from `#/components/schemas/AttachmentPreview/subtitle`.
@@ -13055,30 +10851,23 @@ extension Components.Schemas {
         /// Creates a new `AttachmentPreview`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - title:
         ///   - subtitle:
         ///   - canRemove:
         ///   - iconUrl:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             title: Components.Schemas.DescriptionElement? = nil,
             subtitle: Components.Schemas.DescriptionElement? = nil,
             canRemove: Swift.Bool? = nil,
             iconUrl: Swift.String? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.title = title
             self.subtitle = subtitle
             self.canRemove = canRemove
             self.iconUrl = iconUrl
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case title
-            case subtitle
-            case canRemove
-            case iconUrl
         }
     }
     /// - Remark: Generated from `#/components/schemas/FluffyIcons`.
@@ -13099,10 +10888,6 @@ extension Components.Schemas {
             self.emoji = emoji
             self.image64 = image64
         }
-        public enum CodingKeys: String, CodingKey {
-            case emoji
-            case image64
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FluffyMetadata`.
     public struct FluffyMetadata: Codable, Hashable, Sendable {
@@ -13122,15 +10907,11 @@ extension Components.Schemas {
             self.eventPayload = eventPayload
             self.eventType = eventType
         }
-        public enum CodingKeys: String, CodingKey {
-            case eventPayload
-            case eventType
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FluffyRoot`.
     public struct FluffyRoot: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/FluffyRoot/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FluffyRoot/subtype`.
         public var subtype: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FluffyRoot/text`.
@@ -13160,7 +10941,7 @@ extension Components.Schemas {
         /// Creates a new `FluffyRoot`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - subtype:
         ///   - text:
         ///   - ts:
@@ -13175,7 +10956,7 @@ extension Components.Schemas {
         ///   - latestReply:
         ///   - replyUsers:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             subtype: Swift.String? = nil,
             text: Swift.String? = nil,
             ts: Swift.String? = nil,
@@ -13190,7 +10971,7 @@ extension Components.Schemas {
             latestReply: Swift.String? = nil,
             replyUsers: [Swift.String]? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.subtype = subtype
             self.text = text
             self.ts = ts
@@ -13204,22 +10985,6 @@ extension Components.Schemas {
             self.replyUsersCount = replyUsersCount
             self.latestReply = latestReply
             self.replyUsers = replyUsers
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case subtype
-            case text
-            case ts
-            case username
-            case icons
-            case subscribed
-            case botId
-            case threadTs
-            case parentUserId
-            case replyCount
-            case replyUsersCount
-            case latestReply
-            case replyUsers
         }
     }
     /// - Remark: Generated from `#/components/schemas/DescriptionUnion`.
@@ -13357,18 +11122,11 @@ extension Components.Schemas {
             self.deny = deny
             self.style = style
         }
-        public enum CodingKeys: String, CodingKey {
-            case title
-            case text
-            case confirm
-            case deny
-            case style
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Preview`.
     public struct Preview: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Preview/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Preview/title`.
         public var title: Components.Schemas.Description?
         /// - Remark: Generated from `#/components/schemas/Preview/subtitle`.
@@ -13380,30 +11138,23 @@ extension Components.Schemas {
         /// Creates a new `Preview`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - title:
         ///   - subtitle:
         ///   - canRemove:
         ///   - iconUrl:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             title: Components.Schemas.Description? = nil,
             subtitle: Components.Schemas.Description? = nil,
             canRemove: Swift.Bool? = nil,
             iconUrl: Swift.String? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.title = title
             self.subtitle = subtitle
             self.canRemove = canRemove
             self.iconUrl = iconUrl
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case title
-            case subtitle
-            case canRemove
-            case iconUrl
         }
     }
     /// - Remark: Generated from `#/components/schemas/FluffyType`.
@@ -13446,18 +11197,11 @@ extension Components.Schemas {
             self.postAt = postAt
             self.dateCreated = dateCreated
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case text
-            case channelId
-            case postAt
-            case dateCreated
-        }
     }
     /// - Remark: Generated from `#/components/schemas/MessageElement`.
     public struct MessageElement: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/MessageElement/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/MessageElement/text`.
         public var text: Swift.String?
         /// - Remark: Generated from `#/components/schemas/MessageElement/user`.
@@ -13513,7 +11257,7 @@ extension Components.Schemas {
         /// Creates a new `MessageElement`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - text:
         ///   - user:
         ///   - ts:
@@ -13541,7 +11285,7 @@ extension Components.Schemas {
         ///   - xFiles:
         ///   - assistantAppThread:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             text: Swift.String? = nil,
             user: Swift.String? = nil,
             ts: Swift.String? = nil,
@@ -13569,7 +11313,7 @@ extension Components.Schemas {
             xFiles: [Swift.String]? = nil,
             assistantAppThread: Components.Schemas.AssistantAppThread? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.text = text
             self.user = user
             self.ts = ts
@@ -13596,35 +11340,6 @@ extension Components.Schemas {
             self.appId = appId
             self.xFiles = xFiles
             self.assistantAppThread = assistantAppThread
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case text
-            case user
-            case ts
-            case team
-            case subscribed
-            case upload
-            case edited
-            case reactions
-            case metadata
-            case blocks
-            case attachments
-            case files
-            case botId
-            case botProfile
-            case threadTs
-            case replyCount
-            case replyUsersCount
-            case latestReply
-            case replyUsers
-            case parentUserId
-            case isLocked
-            case lastRead
-            case displayAsBot
-            case appId
-            case xFiles
-            case assistantAppThread
         }
     }
     /// - Remark: Generated from `#/components/schemas/PurpleFile`.
@@ -14435,168 +12150,6 @@ extension Components.Schemas {
             self.pinnedTo = pinnedTo
             self.commentsCount = commentsCount
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case created
-            case timestamp
-            case name
-            case title
-            case subject
-            case mimetype
-            case filetype
-            case user
-            case mode
-            case editable
-            case editor
-            case updated
-            case editors
-            case subtype
-            case transcription
-            case mp4
-            case vtt
-            case hls
-            case username
-            case size
-            case deanimate
-            case pjpeg
-            case permalink
-            case preview
-            case lines
-            case channels
-            case groups
-            case ims
-            case shares
-            case to
-            case from
-            case cc
-            case headers
-            case saved
-            case access
-            case favorites
-            case reactions
-            case attachments
-            case blocks
-            case prettyType
-            case userTeam
-            case sourceTeam
-            case nonOwnerEditable
-            case lastEditor
-            case fileAccess
-            case editTimestamp
-            case altTxt
-            case mp4Low
-            case hlsEmbed
-            case durationMs
-            case thumbVideoW
-            case thumbVideoH
-            case originalAttachmentCount
-            case isExternal
-            case externalType
-            case externalId
-            case externalUrl
-            case urlPrivate
-            case urlPrivateDownload
-            case urlStaticPreview
-            case appId
-            case appName
-            case thumb64
-            case thumb64Gif
-            case thumb64W
-            case thumb64H
-            case thumb80
-            case thumb80Gif
-            case thumb80W
-            case thumb80H
-            case thumb160
-            case thumb160Gif
-            case thumb160W
-            case thumb160H
-            case thumb360
-            case thumb360Gif
-            case thumb360W
-            case thumb360H
-            case thumb480
-            case thumb480Gif
-            case thumb480W
-            case thumb480H
-            case thumb720
-            case thumb720Gif
-            case thumb720W
-            case thumb720H
-            case thumb800
-            case thumb800Gif
-            case thumb800W
-            case thumb800H
-            case thumb960
-            case thumb960Gif
-            case thumb960W
-            case thumb960H
-            case thumb1024
-            case thumb1024Gif
-            case thumb1024W
-            case thumb1024H
-            case thumbVideo
-            case thumbGif
-            case thumbPdf
-            case thumbPdfW
-            case thumbPdfH
-            case thumbTiny
-            case convertedPdf
-            case imageExifRotation
-            case originalW
-            case originalH
-            case deanimateGif
-            case permalinkPublic
-            case editLink
-            case hasRichPreview
-            case mediaDisplayType
-            case previewIsTruncated
-            case previewHighlight
-            case plainText
-            case previewPlainText
-            case hasMore
-            case sentToSelf
-            case linesMore
-            case isPublic
-            case publicUrlShared
-            case displayAsBot
-            case hasMoreShares
-            case channelActionsTs
-            case channelActionsCount
-            case simplifiedHtml
-            case mediaProgress
-            case quipThreadId
-            case isChannelSpace
-            case linkedChannelId
-            case teamsSharedWith
-            case lastRead
-            case titleBlocks
-            case privateChannelsWithFileAccessCount
-            case privateFileWithAccessCount
-            case dmMpdmUsersWithFileAccess
-            case orgOrWorkspaceAccess
-            case updateNotification
-            case canvasTemplateMode
-            case templateConversionTs
-            case templateName
-            case templateTitle
-            case templateDescription
-            case templateIcon
-            case teamPrefVersionHistoryEnabled
-            case showBadge
-            case listMetadata
-            case listLimits
-            case listCsvDownloadUrl
-            case canToggleCanvasLock
-            case isRestrictedSharingEnabled
-            case canvasPrintingEnabled
-            case botId
-            case initialComment
-            case numStars
-            case isStarred
-            case pinnedTo
-            case commentsCount
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Canvas`.
     public struct Canvas: Codable, Hashable, Sendable {
@@ -14620,11 +12173,6 @@ extension Components.Schemas {
             self.fileId = fileId
             self.isEmpty = isEmpty
             self.quipThreadId = quipThreadId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case fileId
-            case isEmpty
-            case quipThreadId
         }
     }
     /// - Remark: Generated from `#/components/schemas/InviteElement`.
@@ -14715,24 +12263,6 @@ extension Components.Schemas {
             self.invitePayload = invitePayload
             self.recipientUserId = recipientUserId
         }
-        public enum CodingKeys: String, CodingKey {
-            case direction
-            case status
-            case invite
-            case channel
-            case acceptances
-            case id
-            case sig
-            case link
-            case dateLastUpdated
-            case inviteType
-            case dateCreated
-            case dateInvalid
-            case invitingTeam
-            case invitingUser
-            case invitePayload
-            case recipientUserId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Acceptance`.
     public struct Acceptance: Codable, Hashable, Sendable {
@@ -14776,15 +12306,6 @@ extension Components.Schemas {
             self.dateLastUpdated = dateLastUpdated
             self.acceptingTeam = acceptingTeam
             self.acceptingUser = acceptingUser
-        }
-        public enum CodingKeys: String, CodingKey {
-            case reviews
-            case approvalStatus
-            case dateAccepted
-            case dateInvalid
-            case dateLastUpdated
-            case acceptingTeam
-            case acceptingUser
         }
     }
     /// - Remark: Generated from `#/components/schemas/IngTeam`.
@@ -14835,16 +12356,6 @@ extension Components.Schemas {
             self.avatarBaseUrl = avatarBaseUrl
             self.requiresSponsorship = requiresSponsorship
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case icon
-            case domain
-            case isVerified
-            case dateCreated
-            case avatarBaseUrl
-            case requiresSponsorship
-        }
     }
     /// - Remark: Generated from `#/components/schemas/TingUser`.
     public struct TingUser: Codable, Hashable, Sendable {
@@ -14883,14 +12394,6 @@ extension Components.Schemas {
             self.profile = profile
             self.teamId = teamId
             self.whoCanShareContactCard = whoCanShareContactCard
-        }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case updated
-            case profile
-            case teamId
-            case whoCanShareContactCard
         }
     }
     /// - Remark: Generated from `#/components/schemas/Profile`.
@@ -14946,22 +12449,11 @@ extension Components.Schemas {
             self.imageOriginal = imageOriginal
             self.avatarHash = avatarHash
         }
-        public enum CodingKeys: String, CodingKey {
-            case image24
-            case image32
-            case image48
-            case image72
-            case image192
-            case image512
-            case image1024
-            case imageOriginal
-            case avatarHash
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Review`.
     public struct Review: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Review/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Review/dateReview`.
         public var dateReview: Swift.Int?
         /// - Remark: Generated from `#/components/schemas/Review/reviewingTeam`.
@@ -14969,22 +12461,17 @@ extension Components.Schemas {
         /// Creates a new `Review`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - dateReview:
         ///   - reviewingTeam:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             dateReview: Swift.Int? = nil,
             reviewingTeam: Components.Schemas.IngTeam? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.dateReview = dateReview
             self.reviewingTeam = reviewingTeam
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case dateReview
-            case reviewingTeam
         }
     }
     /// - Remark: Generated from `#/components/schemas/InviteInvite`.
@@ -15040,17 +12527,6 @@ extension Components.Schemas {
             self.recipientUserId = recipientUserId
             self.recipientEmail = recipientEmail
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case link
-            case sig
-            case dateCreated
-            case dateInvalid
-            case invitingTeam
-            case invitingUser
-            case recipientUserId
-            case recipientEmail
-        }
     }
     /// - Remark: Generated from `#/components/schemas/InvitePayload`.
     public struct InvitePayload: Codable, Hashable, Sendable {
@@ -15080,12 +12556,6 @@ extension Components.Schemas {
             self.isSponsored = isSponsored
             self.isExternalLimited = isExternalLimited
         }
-        public enum CodingKeys: String, CodingKey {
-            case channel
-            case inviteType
-            case isSponsored
-            case isExternalLimited
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Connection`.
     public struct Connection: Codable, Hashable, Sendable {
@@ -15104,10 +12574,6 @@ extension Components.Schemas {
         ) {
             self.team = team
             self.isPrivate = isPrivate
-        }
-        public enum CodingKeys: String, CodingKey {
-            case team
-            case isPrivate
         }
     }
     /// - Remark: Generated from `#/components/schemas/InvitingUser`.
@@ -15148,14 +12614,6 @@ extension Components.Schemas {
             self.teamId = teamId
             self.whoCanShareContactCard = whoCanShareContactCard
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case updated
-            case profile
-            case teamId
-            case whoCanShareContactCard
-        }
     }
     /// - Remark: Generated from `#/components/schemas/TargetUser`.
     public struct TargetUser: Codable, Hashable, Sendable {
@@ -15167,9 +12625,6 @@ extension Components.Schemas {
         ///   - recipientEmail:
         public init(recipientEmail: Swift.String? = nil) {
             self.recipientEmail = recipientEmail
-        }
-        public enum CodingKeys: String, CodingKey {
-            case recipientEmail
         }
     }
     /// - Remark: Generated from `#/components/schemas/DialogOpenResponse`.
@@ -15210,14 +12665,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Category`.
     public struct Category: Codable, Hashable, Sendable {
@@ -15236,10 +12683,6 @@ extension Components.Schemas {
         ) {
             self.name = name
             self.emojiNames = emojiNames
-        }
-        public enum CodingKeys: String, CodingKey {
-            case name
-            case emojiNames
         }
     }
     /// - Remark: Generated from `#/components/schemas/Public`.
@@ -15310,20 +12753,6 @@ extension Components.Schemas {
             self.teamId = teamId
             self.dateLastShared = dateLastShared
         }
-        public enum CodingKeys: String, CodingKey {
-            case ts
-            case access
-            case source
-            case shareUserId
-            case replyUsers
-            case replyUsersCount
-            case replyCount
-            case threadTs
-            case latestReply
-            case channelName
-            case teamId
-            case dateLastShared
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Paging`.
     public struct Paging: Codable, Hashable, Sendable {
@@ -15353,17 +12782,11 @@ extension Components.Schemas {
             self.page = page
             self.pages = pages
         }
-        public enum CodingKeys: String, CodingKey {
-            case count
-            case total
-            case page
-            case pages
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Description`.
     public struct Description: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Description/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Description/text`.
         public var text: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Description/emoji`.
@@ -15373,26 +12796,20 @@ extension Components.Schemas {
         /// Creates a new `Description`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - text:
         ///   - emoji:
         ///   - verbatim:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             text: Swift.String? = nil,
             emoji: Swift.Bool? = nil,
             verbatim: Swift.Bool? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.text = text
             self.emoji = emoji
             self.verbatim = verbatim
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case text
-            case emoji
-            case verbatim
         }
     }
     /// - Remark: Generated from `#/components/schemas/TextType`.
@@ -15438,14 +12855,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsCloseResponse`.
     public struct GroupsCloseResponse: Codable, Hashable, Sendable {
@@ -15474,12 +12883,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsCreateResponse`.
@@ -15524,15 +12927,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case group
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/Group`.
@@ -15643,28 +13037,6 @@ extension Components.Schemas {
             self.unreadCount = unreadCount
             self.unreadCountDisplay = unreadCountDisplay
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case created
-            case creator
-            case members
-            case topic
-            case purpose
-            case latest
-            case priority
-            case nameNormalized
-            case isGroup
-            case isArchived
-            case isMpim
-            case isOpen
-            case isReadOnly
-            case isThreadOnly
-            case parentGroup
-            case lastRead
-            case unreadCount
-            case unreadCountDisplay
-        }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsCreateChildResponse`.
     public struct GroupsCreateChildResponse: Codable, Hashable, Sendable {
@@ -15708,15 +13080,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case group
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsHistoryResponse`.
@@ -15772,17 +13135,6 @@ extension Components.Schemas {
             self.channelActionsCount = channelActionsCount
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case messages
-            case warning
-            case error
-            case needed
-            case provided
-            case hasMore
-            case channelActionsCount
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsInfoResponse`.
     public struct GroupsInfoResponse: Codable, Hashable, Sendable {
@@ -15826,15 +13178,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case group
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsInviteResponse`.
@@ -15880,15 +13223,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case group
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsKickResponse`.
     public struct GroupsKickResponse: Codable, Hashable, Sendable {
@@ -15928,14 +13262,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsLeaveResponse`.
     public struct GroupsLeaveResponse: Codable, Hashable, Sendable {
@@ -15974,14 +13300,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case warning
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsListResponse`.
@@ -16027,15 +13345,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case groups
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsMarkResponse`.
     public struct GroupsMarkResponse: Codable, Hashable, Sendable {
@@ -16074,14 +13383,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsOpenResponse`.
@@ -16132,16 +13433,6 @@ extension Components.Schemas {
             self.alreadyOpen = alreadyOpen
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case noOp
-            case alreadyOpen
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsRenameResponse`.
     public struct GroupsRenameResponse: Codable, Hashable, Sendable {
@@ -16185,15 +13476,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case channel
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsRepliesResponse`.
@@ -16244,16 +13526,6 @@ extension Components.Schemas {
             self.hasMore = hasMore
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case messages
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case hasMore
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsSetPurposeResponse`.
     public struct GroupsSetPurposeResponse: Codable, Hashable, Sendable {
@@ -16297,15 +13569,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case purpose
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsSetTopicResponse`.
@@ -16351,15 +13614,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case topic
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/GroupsUnarchiveResponse`.
     public struct GroupsUnarchiveResponse: Codable, Hashable, Sendable {
@@ -16399,14 +13653,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/IMCloseResponse`.
     public struct IMCloseResponse: Codable, Hashable, Sendable {
@@ -16445,14 +13691,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/IMHistoryResponse`.
@@ -16508,17 +13746,6 @@ extension Components.Schemas {
             self.channelActionsCount = channelActionsCount
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case messages
-            case warning
-            case error
-            case needed
-            case provided
-            case hasMore
-            case channelActionsCount
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/IMListResponse`.
     public struct IMListResponse: Codable, Hashable, Sendable {
@@ -16562,15 +13789,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case ims
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/IM`.
@@ -16636,19 +13854,6 @@ extension Components.Schemas {
             self.hasPins = hasPins
             self.contextTeamId = contextTeamId
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case created
-            case user
-            case priority
-            case isArchived
-            case isIm
-            case isOrgShared
-            case lastRead
-            case isOpen
-            case hasPins
-            case contextTeamId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/IMMarkResponse`.
     public struct IMMarkResponse: Codable, Hashable, Sendable {
@@ -16687,14 +13892,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/IMOpenResponse`.
@@ -16750,17 +13947,6 @@ extension Components.Schemas {
             self.noOp = noOp
             self.alreadyOpen = alreadyOpen
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channel
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
-            case noOp
-            case alreadyOpen
-        }
     }
     /// - Remark: Generated from `#/components/schemas/IMRepliesResponse`.
     public struct IMRepliesResponse: Codable, Hashable, Sendable {
@@ -16810,16 +13996,6 @@ extension Components.Schemas {
             self.hasMore = hasMore
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case messages
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case hasMore
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/MpimCloseResponse`.
     public struct MpimCloseResponse: Codable, Hashable, Sendable {
@@ -16858,14 +14034,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/MpimHistoryResponse`.
@@ -16921,17 +14089,6 @@ extension Components.Schemas {
             self.channelActionsCount = channelActionsCount
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case messages
-            case warning
-            case error
-            case needed
-            case provided
-            case hasMore
-            case channelActionsCount
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/MpimListResponse`.
     public struct MpimListResponse: Codable, Hashable, Sendable {
@@ -16976,15 +14133,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case groups
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/MpimMarkResponse`.
     public struct MpimMarkResponse: Codable, Hashable, Sendable {
@@ -17023,14 +14171,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case warning
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/MpimOpenResponse`.
@@ -17075,15 +14215,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case group
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/MpimRepliesResponse`.
@@ -17134,16 +14265,6 @@ extension Components.Schemas {
             self.hasMore = hasMore
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case messages
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case hasMore
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/IncomingWebhook`.
     public struct IncomingWebhook: Codable, Hashable, Sendable {
@@ -17172,12 +14293,6 @@ extension Components.Schemas {
             self.channel = channel
             self.channelId = channelId
             self.configurationUrl = configurationUrl
-        }
-        public enum CodingKeys: String, CodingKey {
-            case url
-            case channel
-            case channelId
-            case configurationUrl
         }
     }
     /// - Remark: Generated from `#/components/schemas/AuthedUser`.
@@ -17218,14 +14333,6 @@ extension Components.Schemas {
             self.refreshToken = refreshToken
             self.expiresIn = expiresIn
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case scope
-            case tokenType
-            case accessToken
-            case refreshToken
-            case expiresIn
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Enterprise`.
     public struct Enterprise: Codable, Hashable, Sendable {
@@ -17245,15 +14352,11 @@ extension Components.Schemas {
             self.id = id
             self.name = name
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Item`.
     public struct Item: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Item/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Item/channel`.
         public var channel: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Item/message`.
@@ -17267,34 +14370,26 @@ extension Components.Schemas {
         /// Creates a new `Item`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - channel:
         ///   - message:
         ///   - file:
         ///   - comment:
         ///   - dateCreate:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             channel: Swift.String? = nil,
             message: Components.Schemas.Message? = nil,
             file: Components.Schemas.ItemFile? = nil,
             comment: Components.Schemas.Comment? = nil,
             dateCreate: Swift.Int? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.channel = channel
             self.message = message
             self.file = file
             self.comment = comment
             self.dateCreate = dateCreate
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case channel
-            case message
-            case file
-            case comment
-            case dateCreate
         }
     }
     /// - Remark: Generated from `#/components/schemas/Knocks`.
@@ -17302,7 +14397,7 @@ extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/ItemMessage`.
     public struct ItemMessage: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/ItemMessage/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ItemMessage/text`.
         public var text: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ItemMessage/upload`.
@@ -17370,7 +14465,7 @@ extension Components.Schemas {
         /// Creates a new `ItemMessage`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - text:
         ///   - upload:
         ///   - user:
@@ -17404,7 +14499,7 @@ extension Components.Schemas {
         ///   - noNotifications:
         ///   - assistantAppThread:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             text: Swift.String? = nil,
             upload: Swift.Bool? = nil,
             user: Swift.String? = nil,
@@ -17438,7 +14533,7 @@ extension Components.Schemas {
             noNotifications: Swift.Bool? = nil,
             assistantAppThread: Components.Schemas.AssistantAppThread? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.text = text
             self.upload = upload
             self.user = user
@@ -17471,41 +14566,6 @@ extension Components.Schemas {
             self.appId = appId
             self.noNotifications = noNotifications
             self.assistantAppThread = assistantAppThread
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case text
-            case upload
-            case user
-            case ts
-            case reactions
-            case permalink
-            case team
-            case subscribed
-            case subtype
-            case username
-            case inviter
-            case icons
-            case channel
-            case room
-            case edited
-            case files
-            case blocks
-            case attachments
-            case displayAsBot
-            case clientMsgId
-            case botId
-            case botProfile
-            case threadTs
-            case replyCount
-            case replyUsersCount
-            case latestReply
-            case replyUsers
-            case parentUserId
-            case isLocked
-            case appId
-            case noNotifications
-            case assistantAppThread
         }
     }
     /// - Remark: Generated from `#/components/schemas/RootIcons`.
@@ -17541,13 +14601,6 @@ extension Components.Schemas {
             self.image64 = image64
             self.image72 = image72
         }
-        public enum CodingKeys: String, CodingKey {
-            case emoji
-            case image36
-            case image48
-            case image64
-            case image72
-        }
     }
     /// - Remark: Generated from `#/components/schemas/MessageMetadata`.
     public struct MessageMetadata: Codable, Hashable, Sendable {
@@ -17559,9 +14612,6 @@ extension Components.Schemas {
         ///   - eventType:
         public init(eventType: Swift.String? = nil) {
             self.eventType = eventType
-        }
-        public enum CodingKeys: String, CodingKey {
-            case eventType
         }
     }
     /// - Remark: Generated from `#/components/schemas/Reminder`.
@@ -17617,17 +14667,6 @@ extension Components.Schemas {
             self.recurrence = recurrence
             self.completeTs = completeTs
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case creator
-            case text
-            case user
-            case recurring
-            case time
-            case channel
-            case recurrence
-            case completeTs
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Recurrence`.
     public struct Recurrence: Codable, Hashable, Sendable {
@@ -17646,10 +14685,6 @@ extension Components.Schemas {
         ) {
             self.frequency = frequency
             self.weekdays = weekdays
-        }
-        public enum CodingKeys: String, CodingKey {
-            case frequency
-            case weekdays
         }
     }
     /// - Remark: Generated from `#/components/schemas/Self`.
@@ -17690,14 +14725,6 @@ extension Components.Schemas {
             self.firstLogin = firstLogin
             self.manualPresence = manualPresence
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case prefs
-            case created
-            case firstLogin
-            case manualPresence
-        }
     }
     /// - Remark: Generated from `#/components/schemas/BotIcons`.
     public struct BotIcons: Codable, Hashable, Sendable {
@@ -17722,16 +14749,11 @@ extension Components.Schemas {
             self.image48 = image48
             self.image72 = image72
         }
-        public enum CodingKeys: String, CodingKey {
-            case image36
-            case image48
-            case image72
-        }
     }
     /// - Remark: Generated from `#/components/schemas/TitleBlockElement`.
     public struct TitleBlockElement: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/TitleBlockElement/type`.
-        public var _type: Components.Schemas.BlockType?
+        public var type: Components.Schemas.BlockType?
         /// - Remark: Generated from `#/components/schemas/TitleBlockElement/elements`.
         public var elements: [Components.Schemas.Accessory]?
         /// - Remark: Generated from `#/components/schemas/TitleBlockElement/fallback`.
@@ -17807,7 +14829,7 @@ extension Components.Schemas {
         /// Creates a new `TitleBlockElement`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - elements:
         ///   - fallback:
         ///   - title:
@@ -17845,7 +14867,7 @@ extension Components.Schemas {
         ///   - triggerSubtype:
         ///   - shareUrl:
         public init(
-            _type: Components.Schemas.BlockType? = nil,
+            type: Components.Schemas.BlockType? = nil,
             elements: [Components.Schemas.Accessory]? = nil,
             fallback: Swift.String? = nil,
             title: Components.Schemas.DescriptionUnion? = nil,
@@ -17883,7 +14905,7 @@ extension Components.Schemas {
             triggerSubtype: Swift.String? = nil,
             shareUrl: Swift.String? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.elements = elements
             self.fallback = fallback
             self.title = title
@@ -17921,45 +14943,6 @@ extension Components.Schemas {
             self.triggerSubtype = triggerSubtype
             self.shareUrl = shareUrl
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case elements
-            case fallback
-            case title
-            case text
-            case fields
-            case accessory
-            case expand
-            case description
-            case url
-            case blockId
-            case imageUrl
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case isAnimated
-            case slackFile
-            case altText
-            case titleUrl
-            case videoUrl
-            case thumbnailUrl
-            case authorName
-            case providerName
-            case providerIconUrl
-            case functionTriggerId
-            case appId
-            case isWorkflowApp
-            case salesHomeWorkflowAppType
-            case appCollaborators
-            case buttonLabel
-            case botUserId
-            case owningTeamId
-            case workflowId
-            case developerTraceId
-            case triggerType
-            case triggerSubtype
-            case shareUrl
-        }
     }
     /// - Remark: Generated from `#/components/schemas/PurpleShares`.
     public struct PurpleShares: Codable, Hashable, Sendable {
@@ -17979,17 +14962,13 @@ extension Components.Schemas {
             self._public = _public
             self._private = _private
         }
-        public enum CodingKeys: String, CodingKey {
-            case _public = "public"
-            case _private = "private"
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ListShares`.
     public typealias ListShares = OpenAPIRuntime.OpenAPIObjectContainer
     /// - Remark: Generated from `#/components/schemas/LatestBlock`.
     public struct LatestBlock: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/LatestBlock/type`.
-        public var _type: Components.Schemas.BlockType?
+        public var type: Components.Schemas.BlockType?
         /// - Remark: Generated from `#/components/schemas/LatestBlock/elements`.
         public var elements: [Components.Schemas.Accessory]?
         /// - Remark: Generated from `#/components/schemas/LatestBlock/call`.
@@ -18089,7 +15068,7 @@ extension Components.Schemas {
         /// Creates a new `LatestBlock`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - elements:
         ///   - call:
         ///   - source:
@@ -18139,7 +15118,7 @@ extension Components.Schemas {
         ///   - shareUrl:
         ///   - dispatchAction:
         public init(
-            _type: Components.Schemas.BlockType? = nil,
+            type: Components.Schemas.BlockType? = nil,
             elements: [Components.Schemas.Accessory]? = nil,
             call: Components.Schemas.Call? = nil,
             source: Swift.String? = nil,
@@ -18189,7 +15168,7 @@ extension Components.Schemas {
             shareUrl: Swift.String? = nil,
             dispatchAction: Swift.Bool? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.elements = elements
             self.call = call
             self.source = source
@@ -18239,57 +15218,6 @@ extension Components.Schemas {
             self.shareUrl = shareUrl
             self.dispatchAction = dispatchAction
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case elements
-            case call
-            case source
-            case file
-            case text
-            case fallback
-            case title
-            case description
-            case url
-            case fields
-            case accessory
-            case expand
-            case label
-            case element
-            case hint
-            case optional
-            case blockId
-            case callId
-            case apiDecorationAvailable
-            case externalId
-            case fileId
-            case imageUrl
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case isAnimated
-            case slackFile
-            case altText
-            case titleUrl
-            case videoUrl
-            case thumbnailUrl
-            case authorName
-            case providerName
-            case providerIconUrl
-            case functionTriggerId
-            case appId
-            case isWorkflowApp
-            case salesHomeWorkflowAppType
-            case appCollaborators
-            case buttonLabel
-            case botUserId
-            case owningTeamId
-            case workflowId
-            case developerTraceId
-            case triggerType
-            case triggerSubtype
-            case shareUrl
-            case dispatchAction
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Links`.
     public struct Links: Codable, Hashable, Sendable {
@@ -18301,9 +15229,6 @@ extension Components.Schemas {
         ///   - domainsTs:
         public init(domainsTs: Swift.Int? = nil) {
             self.domainsTs = domainsTs
-        }
-        public enum CodingKeys: String, CodingKey {
-            case domainsTs
         }
     }
     /// - Remark: Generated from `#/components/schemas/SelfPrefs`.
@@ -20704,486 +17629,6 @@ extension Components.Schemas {
             self.appManifestSchemaFormat = appManifestSchemaFormat
             self.channelCanvasVariant = channelCanvasVariant
         }
-        public enum CodingKeys: String, CodingKey {
-            case time24
-            case jumbomoji
-            case locale
-            case purchaser
-            case tz
-            case frecency
-            case underlineLinks
-            case userColors
-            case colorNamesInList
-            case emailAlerts
-            case emailAlertsSleepUntil
-            case emailTips
-            case emailWeekly
-            case emailOffers
-            case emailResearch
-            case emailDeveloper
-            case welcomeMessageHidden
-            case searchSort
-            case searchFileSort
-            case searchChannelSort
-            case searchPeopleSort
-            case expandInlineImgs
-            case expandInternalInlineImgs
-            case expandSnippets
-            case postsFormattingGuide
-            case seenWelcome2
-            case seenSsbPrompt
-            case spacesNewXpBannerDismissed
-            case searchOnlyMyChannels
-            case searchOnlyCurrentTeam
-            case searchHideMyChannels
-            case searchOnlyShowOnline
-            case searchHideDeactivatedUsers
-            case emojiMode
-            case emojiUse
-            case emojiUseOrg
-            case hasInvited
-            case hasUploaded
-            case hasCreatedChannel
-            case hasCreatedChannelSection
-            case hasSearched
-            case searchExcludeChannels
-            case messagesTheme
-            case webappSpellcheck
-            case noJoinedOverlays
-            case noCreatedOverlays
-            case dropboxEnabled
-            case seenDomainInviteReminder
-            case seenMemberInviteReminder
-            case muteSounds
-            case arrowHistory
-            case tabUiReturnSelects
-            case obeyInlineImgLimit
-            case requireAt
-            case ssbSpaceWindow
-            case macSsbBounce
-            case macSsbBullet
-            case expandNonMediaAttachments
-            case showTyping
-            case pagekeysHandled
-            case lastSnippetType
-            case displayRealNamesOverride
-            case displayDisplayNames
-            case enterIsSpecialInTbt
-            case msgInputSendBtn
-            case msgInputSendBtnAutoSet
-            case msgInputStickyComposer
-            case composerNux
-            case graphicEmoticons
-            case convertEmoticons
-            case ssEmojis
-            case seenOnboardingStart
-            case onboardingCancelled
-            case seenOnboardingSlackbotConversation
-            case seenOnboardingChannels
-            case seenOnboardingDirectMessages
-            case seenOnboardingInvites
-            case seenOnboardingSearch
-            case seenOnboardingRecentMentions
-            case seenOnboardingStarredItems
-            case seenOnboardingPrivateGroups
-            case seenOnboardingBanner
-            case onboardingSlackbotConversationStep
-            case setTzAutomatically
-            case suppressLinkWarning
-            case suppressExternalInvitesFromComposeWarning
-            case seenEmojiPackCta
-            case seenEmojiPackDialog
-            case seenScheduleSendCoachmark
-            case emojiPacksMostRecentAvailableTime
-            case emojiPacksClickedPickerCta
-            case emojiPacksClickedPickerPostInstallCta
-            case emojiPacksClickedCollectionCta
-            case dndEnabled
-            case dndStartHour
-            case dndEndHour
-            case dndBeforeMonday
-            case dndAfterMonday
-            case dndEnabledMonday
-            case dndBeforeTuesday
-            case dndAfterTuesday
-            case dndEnabledTuesday
-            case dndBeforeWednesday
-            case dndAfterWednesday
-            case dndEnabledWednesday
-            case dndBeforeThursday
-            case dndAfterThursday
-            case dndEnabledThursday
-            case dndBeforeFriday
-            case dndAfterFriday
-            case dndEnabledFriday
-            case dndBeforeSaturday
-            case dndAfterSaturday
-            case dndEnabledSaturday
-            case dndBeforeSunday
-            case dndAfterSunday
-            case dndEnabledSunday
-            case dndDays
-            case dndWeekdaysOffAllday
-            case reminderNotificationTime
-            case dndCustomNewBadgeSeen
-            case dndNotificationScheduleNewBadgeSeen
-            case notificationCenterFilters
-            case callsSurveyLastSeen
-            case huddleSurveyLastSeen
-            case sidebarBehavior
-            case channelSort
-            case separatePrivateChannels
-            case separateSharedChannels
-            case sidebarTheme
-            case sidebarThemeCustomValues
-            case noInvitesWidgetInSidebar
-            case noOmniboxInChannels
-            case kKeyOmniboxAutoHideCount
-            case showSidebarQuickswitcherButton
-            case entOrgWideChannelsSidebar
-            case markMsgsReadImmediately
-            case startScrollAtOldest
-            case snippetEditorWrapLongLines
-            case lsDisabled
-            case fKeySearch
-            case kKeyOmnibox
-            case promptedForEmailDisabling
-            case noMacelectronBanner
-            case noMacssb1Banner
-            case noMacssb2Banner
-            case noWinssb1Banner
-            case hideUserGroupInfoPane
-            case mentionsExcludeAtUserGroups
-            case mentionsExcludeReactions
-            case privacyPolicySeen
-            case enterpriseMigrationSeen
-            case searchExcludeBots
-            case loadLato2
-            case fullerTimestamps
-            case lastSeenAtChannelWarning
-            case emojiAutocompleteBig
-            case twoFactorAuthEnabled
-            case hideHexSwatch
-            case showJumperScores
-            case enterpriseMdmCustomMsg
-            case clientLogsPri
-            case flannelServerPool
-            case mentionsExcludeAtChannels
-            case confirmClearAllUnreads
-            case confirmUserMarkedAway
-            case boxEnabled
-            case seenSingleEmojiMsg
-            case confirmShCallStart
-            case preferredSkinTone
-            case showAllSkinTones
-            case whatsNewRead
-            case helpModalOpenTimestamp
-            case helpModalConsultBannerDismissed
-            case helpFlexpaneSlackConnectCardSeen
-            case helpFlexpaneClipsCardSeen
-            case helpMenuOpenTimestamp
-            case frecencyJumper
-            case frecencyEntJumper
-            case newxpSeenLastMessage
-            case showMemoryInstrument
-            case enableUnreadView
-            case seenUnreadViewCoachmark
-            case seenConnectDmCoachmark
-            case seenConnectSectionCoachmark
-            case shouldShowConnectSection
-            case enableReactEmojiPicker
-            case seenCustomStatusBadge
-            case seenCustomStatusCallout
-            case seenCustomStatusExpirationBadge
-            case usedCustomStatusKbShortcut
-            case seenGuestAdminSlackbotAnnouncement
-            case seenThreadsNotificationBanner
-            case seenNameTaggingCoachmark
-            case allUnreadsSortOrder
-            case allUnreadsSectionFilter
-            case seenIntlChannelNamesCoachmark
-            case seenP3LocaleChangeMessageKoKr
-            case seenToastNewLocaleLaunch
-            case seenToastNewLocaleLaunchTs
-            case seenLocaleChangeMessage
-            case seenJapaneseLocaleChangeMessage
-            case seenSharedChannelsCoachmark
-            case seenSharedChannelsOptInChangeMessage
-            case hasRecentlySharedAChannel
-            case seenChannelBrowserAdminCoachmark
-            case seenAdministrationMenu
-            case seenDraftsSectionCoachmark
-            case seenEmojiUpdateOverlayCoachmark
-            case seenSonicDeluxeToast
-            case seenWysiwygDeluxeToast
-            case seenMarkdownPasteToast
-            case seenMarkdownPasteShortcut
-            case seenIaEducation
-            case showIaTourRelaunch
-            case plainTextMode
-            case showSharedChannelsEducationBanner
-            case iaSlackbotSurveyTimestamp48h
-            case iaSlackbotSurveyTimestamp7d
-            case enableStreamlineView
-            case enableSentView
-            case allowCallsToSetCurrentStatus
-            case inInteractiveMasMigrationFlow
-            case sunsetInteractiveMessageViews
-            case shdepPromoCodeSubmitted
-            case seenShdepSlackbotMessage
-            case seenCallsInteractiveCoachmark
-            case allowCmdTabIss
-            case joinCallsDeviceSettings
-            case callsDisconnectOnLock
-            case seenWorkflowBuilderDeluxeToast
-            case workflowBuilderIntroModalClickedThrough
-            case workflowBuilderCoachmarks
-            case seenGdriveCoachmark
-            case seenFirstInstallCoachmark
-            case seenExistingInstallCoachmark
-            case seenLinkUnfurlCoachmark
-            case filePickerVariant
-            case openQuipDocInFlexpane
-            case savedSearches
-            case huddlesVariant
-            case huddlesCcByDefault
-            case huddlesMuteByDefault
-            case huddlesGlobalMute
-            case huddlesMiniPanel
-            case huddlesSetStatus
-            case huddlesShowShoutyRooster
-            case huddlesDisconnectOnLock
-            case huddlesPlayMusicWhenLast
-            case huddlesAllowSmartNotif
-            case huddlesReactionsPlaySound
-            case huddlesReactionsReadOutLoud
-            case huddlesChimeNewEndpointsCheckCompleted
-            case xwsSidebarVariant
-            case inboxViewsWorkspaceFilter
-            case overloadedMessageEnabled
-            case seenHighlightsCoachmark
-            case seenHighlightsArrowsCoachmark
-            case seenHighlightsWarmWelcome
-            case seenNewSearchUi
-            case seenChannelSearch
-            case seenPeopleSearch
-            case seenPeopleSearchCount
-            case dismissedScrollSearchTooltipCount
-            case lastDismissedScrollSearchTooltipTimestamp
-            case hasUsedQuickswitcherShortcut
-            case seenQuickswitcherShortcutTipCount
-            case browsersDismissedChannelsLowResultsEducation
-            case browsersSeenInitialChannelsEducation
-            case browsersDismissedPeopleLowResultsEducation
-            case browsersSeenInitialPeopleEducation
-            case browsersDismissedUserGroupsLowResultsEducation
-            case browsersSeenInitialUserGroupsEducation
-            case browsersDismissedFilesLowResultsEducation
-            case browsersSeenInitialFilesEducation
-            case browsersDismissedInitialDraftsEducation
-            case browsersSeenInitialDraftsEducation
-            case browsersDismissedInitialActivityEducation
-            case browsersSeenInitialActivityEducation
-            case browsersDismissedInitialSavedEducation
-            case browsersSeenInitialSavedEducation
-            case seenEditMode
-            case seenEditModeEdu
-            case xwsDismissedEducation
-            case xwsSeenEducation
-            case sidebarPrefDismissedTip
-            case a11yDyslexic
-            case a11yAnimations
-            case seenKeyboardShortcutsCoachmark
-            case needsInitialPasswordSet
-            case lessonsEnabled
-            case tractorEnabled
-            case tractorExperimentGroup
-            case openedSlackbotDm
-            case newxpSeenHelpMessage
-            case newxpSuggestedChannels
-            case onboardingComplete
-            case welcomePlaceState
-            case hasReceivedThreadedMessage
-            case joinerNotificationsMuted
-            case inviteAcceptedNotificationsMuted
-            case joinerMessageSuggestionDismissed
-            case dismissedFullscreenDownloadSsbPrompt
-            case dismissedBannerDownloadSsbPrompt
-            case onboardingState
-            case whocanseethisDmMpdmBadge
-            case highlightWords
-            case threadsEverything
-            case noTextInNotifications
-            case pushShowPreview
-            case growlsEnabled
-            case allChannelsLoud
-            case pushDmAlert
-            case pushMentionAlert
-            case pushEverything
-            case pushIdleWait
-            case pushSound
-            case newMsgSnd
-            case huddleInviteSound
-            case pushLoudChannels
-            case pushMentionChannels
-            case pushLoudChannelsSet
-            case loudChannels
-            case neverChannels
-            case loudChannelsSet
-            case atChannelSuppressedChannels
-            case pushAtChannelSuppressedChannels
-            case mutedChannels
-            case allNotificationsPrefs
-            case growthMsgLimitApproachingCtaCount
-            case growthMsgLimitApproachingCtaTs
-            case growthMsgLimitReachedCtaCount
-            case growthMsgLimitReachedCtaLastTs
-            case growthMsgLimitLongReachedCtaCount
-            case growthMsgLimitLongReachedCtaLastTs
-            case growthMsgLimitSixtyDayBannerCtaCount
-            case growthMsgLimitSixtyDayBannerCtaLastTs
-            case growthAllBannersPrefs
-            case analyticsUpsellCoachmarkSeen
-            case seenAppSpaceCoachmark
-            case seenAppSpaceTutorial
-            case dismissedAppLauncherWelcome
-            case dismissedAppLauncherLimit
-            case dismissedAppLauncherAtlassianPromo
-            case enableAppConfigRedesign
-            case dismissedAppConfigRedesignCoachmark
-            case dismissedAppManifestDescription
-            case dismissedAppManifestCoachmark
-            case seenChannelEmailTooltip
-            case showEntOnboarding
-            case foldersEnabled
-            case folderData
-            case seenCorporateExportAlert
-            case showAutocompleteHelp
-            case deprecationToastLastSeen
-            case deprecationModalLastSeen
-            case deprecationBannerLastSeen
-            case iap1Lab
-            case iaTopNavTheme
-            case iaPlatformActionsLab
-            case activityView
-            case savedView
-            case seenFloatingSidebarCoachmark
-            case desktopClientIds
-            case failoverProxyCheckCompleted
-            case chimeAccessCheckCompleted
-            case mxCalendarType
-            case edgeUploadProxyCheckCompleted
-            case appSubdomainCheckCompleted
-            case addPromptInteracted
-            case addAppsPromptDismissed
-            case addChannelPromptDismissed
-            case channelSidebarHideInvite
-            case channelSidebarHideBrowseDmsLink
-            case inProdSurveysEnabled
-            case connectDmEarlyAccess
-            case dismissedInstalledAppDmSuggestions
-            case seenContextualMessageShortcutsModal
-            case seenMessageNavigationEducationalToast
-            case contextualMessageShortcutsModalWasSeen
-            case messageNavigationToastWasSeen
-            case upToBrowseKbShortcut
-            case setA11yPrefsNewUser
-            case a11yPlaySoundForIncomingDm
-            case a11yPlaySoundForSentDm
-            case a11yReadOutIncomingDm
-            case a11yScreenReaderMessageLabelDateTimeFirst
-            case shouldShowContextualHelpForConversationNavigation
-            case shouldShowContextualHelpForJumpToConversation
-            case shouldShowContextualHelpForSectionNavigation
-            case shouldShowContextualHelpForThreadNavigation
-            case shouldShowUnsendMessageConfirmation
-            case channelSections
-            case showQuickReactions
-            case userCustomizedQuickReactionsDisplayFeature
-            case userCustomizedQuickReactionsHasCustomized
-            case userCustomizedQuickReactionsUseFrequentlyUsedEmoji
-            case reactionNotifications
-            case hasReceivedMentionOrReaction
-            case hasStarredItem
-            case hasDraftedMessage
-            case enableMentionsAndReactionsView
-            case enableRemindersView
-            case enableSavedItemsView
-            case enableHqView
-            case enableAllDmsView
-            case enableChannelBrowserView
-            case enableFileBrowserView
-            case enablePeopleBrowserView
-            case enableAppBrowserView
-            case reachedAllDmsDisclosure
-            case enableSlackConnectView
-            case enableSlackConnectView2
-            case hasAcknowledgedShortcutSpeedbump
-            case enableMediaCaptions
-            case mediaPlaybackSpeed
-            case mediaMuted
-            case mediaVolume
-            case dismissedConnectAutoApprovalModal
-            case tasksView
-            case showSidebarAvatars
-            case hasDismissedGoogleDirectoryCoachmark
-            case seenScPageBanner
-            case seenScMenuCoachmark
-            case seenScPage
-            case dismissedScdmEducation
-            case seenBookmarksIntro
-            case scdmTrialOfferBanner
-            case identityLinksPrefs
-            case identityLinksGlobalPrefs
-            case seenSectionsUnreadsOnlyPromptCount
-            case lastSeenSectionsUnreadsOnlyPromptTimestamp
-            case notificationsView
-            case progressiveDisclosureState
-            case suggestionsRequestId
-            case allowedUnfurlSenders
-            case iaDetailsCoachmarkSeen
-            case hideExternalMembersSharingSpeedBump
-            case whoCanShareContactCard
-            case slackConnectInviteShouldBadgeSidebar
-            case phcDismissed
-            case dismissedGovSlackFirstTimePopup
-            case mobileChannelListSort
-            case userExpectationsSurveyLastTriggerAttempt
-            case localesEnabled
-            case phcViewed
-            case seenA11yPrefSetupCoachmark
-            case enableFileBrowserViewForDocs
-            case enableShortcutsView
-            case showGovSlackContextBarBanner
-            case whoCanSeeAccountBySearchingEmail
-            case contextualHelpResetCount
-            case mobileChannelListShowAllDms
-            case enableQuipFileBrowserView
-            case a11yPlaySoundForIncomingDmChoice
-            case a11yPlaySoundForSentDmChoice
-            case onboardingTipOptOut
-            case seenOnboardingSynthView
-            case enableDraftsView
-            case enableScheduledView
-            case seenSentPageInSidebar
-            case firstSeenSentPageInSidebar
-            case seenNewBadgeInMoreMenuSidebar
-            case firstSeenNewBadgeInMoreMenuSidebar
-            case seenOnboardingSynthViewCount
-            case synthViewPrefs
-            case clipsFeedbackSurveyLastTriggerAttempt
-            case enableLaterView
-            case hasJoinedHuddle
-            case hasSentTenMessages
-            case suppressThreadMentionWarning
-            case hiddenUsers
-            case dismissedSentPageEducation
-            case seenOnboardingSynthViewV2
-            case clickedCloseOnboardingSynthViewBanner
-            case seenOnboardingSynthViewCountV2
-            case appManifestSchemaFormat
-            case channelCanvasVariant
-        }
     }
     /// - Remark: Generated from `#/components/schemas/LocalesEnabled`.
     public struct LocalesEnabled: Codable, Hashable, Sendable {
@@ -21258,21 +17703,6 @@ extension Components.Schemas {
             self.zhTW = zhTW
             self.koKR = koKR
         }
-        public enum CodingKeys: String, CodingKey {
-            case deDE = "de-DE"
-            case enGB = "en-GB"
-            case enUS = "en-US"
-            case esES = "es-ES"
-            case esLA = "es-LA"
-            case frFR = "fr-FR"
-            case itIT = "it-IT"
-            case ptBR = "pt-BR"
-            case ruRU = "ru-RU"
-            case jaJP = "ja-JP"
-            case zhCN = "zh-CN"
-            case zhTW = "zh-TW"
-            case koKR = "ko-KR"
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Subteams`.
     public struct Subteams: Codable, Hashable, Sendable {
@@ -21291,10 +17721,6 @@ extension Components.Schemas {
         ) {
             self._self = _self
             self.all = all
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _self = "self"
-            case all
         }
     }
     /// - Remark: Generated from `#/components/schemas/All`.
@@ -21395,26 +17821,6 @@ extension Components.Schemas {
             self.userCount = userCount
             self.channelCount = channelCount
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case description
-            case handle
-            case prefs
-            case teamId
-            case isUsergroup
-            case isSubteam
-            case isExternal
-            case dateCreate
-            case dateUpdate
-            case dateDelete
-            case autoProvision
-            case enterpriseSubteamId
-            case createdBy
-            case updatedBy
-            case userCount
-            case channelCount
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AllPrefs`.
     public struct AllPrefs: Codable, Hashable, Sendable {
@@ -21433,10 +17839,6 @@ extension Components.Schemas {
         ) {
             self.channels = channels
             self.groups = groups
-        }
-        public enum CodingKeys: String, CodingKey {
-            case channels
-            case groups
         }
     }
     /// - Remark: Generated from `#/components/schemas/TeamPrefs`.
@@ -22552,229 +18954,6 @@ extension Components.Schemas {
             self.twoFactorAuthRequired = twoFactorAuthRequired
             self.slackbotResponsesOnlyAdmins = slackbotResponsesOnlyAdmins
         }
-        public enum CodingKeys: String, CodingKey {
-            case locale
-            case discoverable
-            case defaultChannels
-            case allowCalls
-            case displayEmailAddresses
-            case gdriveEnabledTeam
-            case allUsersCanPurchase
-            case enableSharedChannels
-            case canReceiveSharedChannelsInvites
-            case invitedUserPreset
-            case dropboxLegacyPicker
-            case appWhitelistEnabled
-            case whoCanManageIntegrations
-            case welcomePlaceEnabled
-            case msgEditWindowMins
-            case allowMessageDeletion
-            case displayExternalEmailAddresses
-            case joinerNotificationsEnabled
-            case receivedEscRouteToChannelAwarenessMessage
-            case whoCanCreateChannels
-            case whoCanArchiveChannels
-            case whoCanCreateGroups
-            case whoCanManageChannelPostingPrefs
-            case whoCanKickChannels
-            case whoCanKickGroups
-            case displayPronouns
-            case adminCustomizedQuickReactions
-            case allowAdminRetentionOverride
-            case allowAudioClipSharingSlackConnect
-            case allowAudioClips
-            case allowBoxCfs
-            case allowCallsInteractiveScreenSharing
-            case allowClipDownloads
-            case allowHuddles
-            case allowHuddlesTranscriptions
-            case allowMediaTranscriptions
-            case allowRetentionOverride
-            case allowSponsoredSlackConnections
-            case allowVideoClipSharingSlackConnect
-            case allowVideoClips
-            case appDirOnly
-            case appManagementApps
-            case blockFileDownload
-            case boxAppInstalled
-            case callsApps
-            case callsLocations
-            case canAcceptSlackConnectChannelInvites
-            case canCreateExternalLimitedInvite
-            case canCreateSlackConnectChannelInvite
-            case channelEmailAddressesEnabled
-            case complianceExportStart
-            case contentReviewEnabled
-            case createdWithGoogle
-            case customStatusDefaultEmoji
-            case customStatusPresets
-            case defaultChannelCreationEnabled
-            case defaultRxns
-            case disableEmailIngestion
-            case disableFileDeleting
-            case disableFileEditing
-            case disableFileUploads
-            case disableSidebarConnectPrompts
-            case disableSidebarInstallPrompts
-            case disallowPublicFileUrls
-            case displayDefaultPhone
-            case displayNamePronunciation
-            case displayRealNames
-            case dmRetentionDuration
-            case dmRetentionType
-            case dndDays
-            case enableConnectDmEarlyAccess
-            case enableDomainAllowlistForCea
-            case enableInfoBarriers
-            case enableMpdmToPrivateChannelConversion
-            case enterpriseDefaultChannels
-            case enterpriseHasCorporateExports
-            case enterpriseIntuneEnabled
-            case enterpriseMandatoryChannels
-            case enterpriseMdmDateEnabled
-            case enterpriseMdmDisableFileDownload
-            case enterpriseMdmLevel
-            case enterpriseMobileDeviceCheck
-            case enterpriseTeamCreationRequest
-            case fileLimitWhitelisted
-            case fileRetentionDuration
-            case fileRetentionType
-            case filepickerAppFirstInstall
-            case ggEnabled
-            case groupRetentionDuration
-            case groupRetentionType
-            case hasComplianceExport
-            case hasHipaaCompliance
-            case hasSeenPartnerPromo
-            case hermesHasAcceptedTos
-            case hermesTriggersTrippableBySlackConnectedTeams
-            case hideGsuiteInviteOption
-            case hideReferers
-            case inviteRequestsEnabled
-            case invitesOnlyAdmins
-            case loudChannelMentionsLimit
-            case memberAnalyticsDisabled
-            case mlOptOut
-            case mobilePasscodeTimeoutInSeconds
-            case notificationRedactionType
-            case notifyPendingEnabled
-            case ntlmCredentialDomains
-            case onedriveAppInstalled
-            case onedriveEnabledTeam
-            case privateChannelMembershipLimit
-            case retentionDuration
-            case retentionType
-            case searchFeedbackOptOut
-            case selfServeSelect
-            case sessionDuration
-            case sessionDurationType
-            case showJoinLeave
-            case showLegacyPaidBenefitsPage
-            case signInWithSlackDisabled
-            case singleUserExports
-            case slackConnectAllowedWorkspaces
-            case slackConnectApprovalType
-            case slackConnectDmOnlyVerifiedOrgs
-            case slackConnectFileUploadSharingEnabled
-            case slackbotResponsesDisabled
-            case ssoDisableEmails
-            case ssoOptional
-            case ssoSignupRestrictions
-            case ssoSyncWithProvider
-            case subteamsAutoCreateAdmin
-            case subteamsAutoCreateOwner
-            case useBrowserPicker
-            case usesCustomizedCustomStatusPresets
-            case warnBeforeAtChannel
-            case whoCanAcceptSlackConnectChannelInvites
-            case whoCanAtChannel
-            case whoCanAtEveryone
-            case whoCanChangeTeamProfile
-            case whoCanCreateDeleteUserGroups
-            case whoCanCreateExternalLimitedInvite
-            case whoCanCreateSharedChannels
-            case whoCanCreateSlackConnectChannelInvite
-            case whoCanDmAnyone
-            case whoCanEditUserGroups
-            case whoCanManageExtSharedChannels
-            case whoCanManageGuests
-            case whoCanManagePrivateChannels
-            case whoCanManagePrivateChannelsAtWorkspaceLevel
-            case whoCanManagePublicChannels
-            case whoCanManageSharedChannels
-            case whoCanPostGeneral
-            case whoCanPostInSharedChannels
-            case whoCanRequestExtSharedChannels
-            case whoCanReviewFlaggedContent
-            case whoCanViewMessageActivity
-            case workflowBuilderEnabled
-            case workflowExtensionStepsBetaOptIn
-            case dndEnabled
-            case dndStartHour
-            case dndEndHour
-            case dndBeforeMonday
-            case dndAfterMonday
-            case dndBeforeTuesday
-            case dndAfterTuesday
-            case dndBeforeWednesday
-            case dndAfterWednesday
-            case dndBeforeThursday
-            case dndAfterThursday
-            case dndBeforeFriday
-            case dndAfterFriday
-            case dndBeforeSaturday
-            case dndAfterSaturday
-            case dndBeforeSunday
-            case dndAfterSunday
-            case dndEnabledMonday
-            case dndEnabledTuesday
-            case dndEnabledWednesday
-            case dndEnabledThursday
-            case dndEnabledFriday
-            case dndEnabledSaturday
-            case dndEnabledSunday
-            case dndWeekdaysOffAllday
-            case authMode
-            case whoCanCreateWorkflows
-            case workflowsWebhookTriggerEnabled
-            case workflowExtensionStepsEnabled
-            case workflowsExportCsvEnabled
-            case whoCanUseHermes
-            case whoCanCreateChannelEmailAddresses
-            case identityLinksPrefs
-            case magicUnfurlsEnabled
-            case invitesLimit
-            case showMobilePromos
-            case dmRetentionRedactionDuration
-            case privateRetentionRedactionDuration
-            case publicRetentionRedactionDuration
-            case slackConnectAccountVisibility
-            case richPreviewsDefault
-            case signInWithSlackDefault
-            case mobileSessionDuration
-            case uneditableUserProfileFields
-            case thornSaferScan
-            case allowFreeAutomatedTrials
-            case warnUserBeforeLogout
-            case extAuditLogRetentionType
-            case extAuditLogRetentionDuration
-            case warnUserBeforeLogoutDesktop
-            case warnUserBeforeLogoutMobile
-            case allowHuddlesVideo
-            case displayAnniversaryCelebration
-            case displayNewHireCelebration
-            case allowSpaceship
-            case spaceshipWorkspaceSettingVisible
-            case dailyPromptsEnabled
-            case emojiOnlyAdmins
-            case loadingOnlyAdmins
-            case defaultCreatePrivateChannel
-            case enterpriseMdmToken
-            case samlEnable
-            case statsOnlyAdmins
-            case twoFactorAuthRequired
-            case slackbotResponsesOnlyAdmins
-        }
     }
     /// - Remark: Generated from `#/components/schemas/CallsApps`.
     public struct CallsApps: Codable, Hashable, Sendable {
@@ -22793,10 +18972,6 @@ extension Components.Schemas {
         ) {
             self.video = video
             self.audio = audio
-        }
-        public enum CodingKeys: String, CodingKey {
-            case video
-            case audio
         }
     }
     /// - Remark: Generated from `#/components/schemas/Video`.
@@ -22822,11 +18997,6 @@ extension Components.Schemas {
             self.name = name
             self.image = image
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case image
-        }
     }
     /// - Remark: Generated from `#/components/schemas/EnterpriseTeamCreationRequest`.
     public struct EnterpriseTeamCreationRequest: Codable, Hashable, Sendable {
@@ -22838,9 +19008,6 @@ extension Components.Schemas {
         ///   - isEnabled:
         public init(isEnabled: Swift.Bool? = nil) {
             self.isEnabled = isEnabled
-        }
-        public enum CodingKeys: String, CodingKey {
-            case isEnabled
         }
     }
     /// - Remark: Generated from `#/components/schemas/InvitedUserPreset`.
@@ -22854,23 +19021,17 @@ extension Components.Schemas {
         public init(enableInvitedUser: Swift.Bool? = nil) {
             self.enableInvitedUser = enableInvitedUser
         }
-        public enum CodingKeys: String, CodingKey {
-            case enableInvitedUser
-        }
     }
     /// - Remark: Generated from `#/components/schemas/SlackConnectAllowedWorkspaces`.
     public struct SlackConnectAllowedWorkspaces: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/SlackConnectAllowedWorkspaces/type`.
-        public var _type: [Swift.String]?
+        public var type: [Swift.String]?
         /// Creates a new `SlackConnectAllowedWorkspaces`.
         ///
         /// - Parameters:
-        ///   - _type:
-        public init(_type: [Swift.String]? = nil) {
-            self._type = _type
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
+        ///   - type:
+        public init(type: [Swift.String]? = nil) {
+            self.type = type
         }
     }
     /// - Remark: Generated from `#/components/schemas/WhoCanManageP`.
@@ -22878,28 +19039,24 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/WhoCanManageP/user`.
         public var user: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/WhoCanManageP/type`.
-        public var _type: [Swift.String]?
+        public var type: [Swift.String]?
         /// Creates a new `WhoCanManageP`.
         ///
         /// - Parameters:
         ///   - user:
-        ///   - _type:
+        ///   - type:
         public init(
             user: [Swift.String]? = nil,
-            _type: [Swift.String]? = nil
+            type: [Swift.String]? = nil
         ) {
             self.user = user
-            self._type = _type
-        }
-        public enum CodingKeys: String, CodingKey {
-            case user
-            case _type = "type"
+            self.type = type
         }
     }
     /// - Remark: Generated from `#/components/schemas/WhoCanUseHermes`.
     public struct WhoCanUseHermes: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/WhoCanUseHermes/type`.
-        public var _type: [Swift.String]?
+        public var type: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/WhoCanUseHermes/user`.
         public var user: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/WhoCanUseHermes/subteam`.
@@ -22907,22 +19064,17 @@ extension Components.Schemas {
         /// Creates a new `WhoCanUseHermes`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - user:
         ///   - subteam:
         public init(
-            _type: [Swift.String]? = nil,
+            type: [Swift.String]? = nil,
             user: [Swift.String]? = nil,
             subteam: [Swift.String]? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.user = user
             self.subteam = subteam
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case user
-            case subteam
         }
     }
     /// - Remark: Generated from `#/components/schemas/Fields`.
@@ -22944,10 +19096,6 @@ extension Components.Schemas {
         ) {
             self.value = value
             self.alt = alt
-        }
-        public enum CodingKeys: String, CodingKey {
-            case value
-            case alt
         }
     }
     /// - Remark: Generated from `#/components/schemas/StatusEmojiDisplayInfo`.
@@ -22977,12 +19125,6 @@ extension Components.Schemas {
             self.emojiName = emojiName
             self.displayAlias = displayAlias
             self.displayUrl = displayUrl
-        }
-        public enum CodingKeys: String, CodingKey {
-            case unicode
-            case emojiName
-            case displayAlias
-            case displayUrl
         }
     }
     /// - Remark: Generated from `#/components/schemas/AppID`.
@@ -23049,12 +19191,6 @@ extension Components.Schemas {
             self.nextDndEndTs = nextDndEndTs
             self.snoozeEnabled = snoozeEnabled
         }
-        public enum CodingKeys: String, CodingKey {
-            case dndEnabled
-            case nextDndStartTs
-            case nextDndEndTs
-            case snoozeEnabled
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Files`.
     public struct Files: Codable, Hashable, Sendable {
@@ -23083,12 +19219,6 @@ extension Components.Schemas {
             self.pagination = pagination
             self.paging = paging
             self.matches = matches
-        }
-        public enum CodingKeys: String, CodingKey {
-            case total
-            case pagination
-            case paging
-            case matches
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesMatch`.
@@ -23634,115 +19764,6 @@ extension Components.Schemas {
             self.isRestrictedSharingEnabled = isRestrictedSharingEnabled
             self.canvasPrintingEnabled = canvasPrintingEnabled
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case created
-            case timestamp
-            case name
-            case title
-            case mimetype
-            case filetype
-            case user
-            case editable
-            case size
-            case mode
-            case username
-            case permalink
-            case shares
-            case channels
-            case groups
-            case ims
-            case preview
-            case lines
-            case updated
-            case subject
-            case to
-            case from
-            case cc
-            case headers
-            case editors
-            case access
-            case deanimate
-            case attachments
-            case prettyType
-            case isExternal
-            case externalType
-            case isPublic
-            case publicUrlShared
-            case displayAsBot
-            case urlPrivate
-            case thumb64
-            case thumb80
-            case thumb360
-            case thumb360W
-            case thumb360H
-            case thumb480
-            case thumb480W
-            case thumb480H
-            case thumb160
-            case thumb720
-            case thumb720W
-            case thumb720H
-            case thumb800
-            case thumb800W
-            case thumb800H
-            case thumb960
-            case thumb960W
-            case thumb960H
-            case thumb1024
-            case thumb1024W
-            case thumb1024H
-            case originalW
-            case originalH
-            case thumbTiny
-            case isStarred
-            case externalId
-            case externalUrl
-            case hasRichPreview
-            case urlPrivateDownload
-            case permalinkPublic
-            case editLink
-            case previewHighlight
-            case linesMore
-            case previewIsTruncated
-            case imageExifRotation
-            case lastEditor
-            case nonOwnerEditable
-            case thumbVideo
-            case commentsCount
-            case mediaDisplayType
-            case convertedPdf
-            case thumbPdf
-            case thumbPdfW
-            case thumbPdfH
-            case fileAccess
-            case userTeam
-            case hasMoreShares
-            case originalAttachmentCount
-            case plainText
-            case previewPlainText
-            case hasMore
-            case sentToSelf
-            case botId
-            case urlStaticPreview
-            case quipThreadId
-            case updateNotification
-            case privateChannelsWithFileAccessCount
-            case dmMpdmUsersWithFileAccess
-            case teamsSharedWith
-            case orgOrWorkspaceAccess
-            case teamPrefVersionHistoryEnabled
-            case editorsCount
-            case isChannelSpace
-            case linkedChannelId
-            case thumb360Gif
-            case thumb480Gif
-            case deanimateGif
-            case privateFileWithAccessCount
-            case titleBlocks
-            case isRestrictedSharingEnabled
-            case canvasPrintingEnabled
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FileHeaders`.
     public struct FileHeaders: Codable, Hashable, Sendable {
@@ -23772,12 +19793,6 @@ extension Components.Schemas {
             self.replyTo = replyTo
             self.messageId = messageId
         }
-        public enum CodingKeys: String, CodingKey {
-            case date
-            case inReplyTo
-            case replyTo
-            case messageId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/MatchHeaders`.
     public struct MatchHeaders: Codable, Hashable, Sendable {
@@ -23789,9 +19804,6 @@ extension Components.Schemas {
         ///   - date:
         public init(date: Swift.String? = nil) {
             self.date = date
-        }
-        public enum CodingKeys: String, CodingKey {
-            case date
         }
     }
     /// - Remark: Generated from `#/components/schemas/MatchShares`.
@@ -23805,14 +19817,11 @@ extension Components.Schemas {
         public init(_public: OpenAPIRuntime.OpenAPIObjectContainer? = nil) {
             self._public = _public
         }
-        public enum CodingKeys: String, CodingKey {
-            case _public = "public"
-        }
     }
     /// - Remark: Generated from `#/components/schemas/MatchTitleBlock`.
     public struct MatchTitleBlock: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/MatchTitleBlock/type`.
-        public var _type: Components.Schemas.BlockType?
+        public var type: Components.Schemas.BlockType?
         /// - Remark: Generated from `#/components/schemas/MatchTitleBlock/elements`.
         public var elements: [Components.Schemas.Accessory]?
         /// - Remark: Generated from `#/components/schemas/MatchTitleBlock/call`.
@@ -23912,7 +19921,7 @@ extension Components.Schemas {
         /// Creates a new `MatchTitleBlock`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - elements:
         ///   - call:
         ///   - source:
@@ -23962,7 +19971,7 @@ extension Components.Schemas {
         ///   - shareUrl:
         ///   - dispatchAction:
         public init(
-            _type: Components.Schemas.BlockType? = nil,
+            type: Components.Schemas.BlockType? = nil,
             elements: [Components.Schemas.Accessory]? = nil,
             call: Components.Schemas.Call? = nil,
             source: Swift.String? = nil,
@@ -24012,7 +20021,7 @@ extension Components.Schemas {
             shareUrl: Swift.String? = nil,
             dispatchAction: Swift.Bool? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.elements = elements
             self.call = call
             self.source = source
@@ -24062,57 +20071,6 @@ extension Components.Schemas {
             self.shareUrl = shareUrl
             self.dispatchAction = dispatchAction
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case elements
-            case call
-            case source
-            case file
-            case text
-            case fallback
-            case title
-            case description
-            case url
-            case fields
-            case accessory
-            case expand
-            case label
-            case element
-            case hint
-            case optional
-            case blockId
-            case callId
-            case apiDecorationAvailable
-            case externalId
-            case fileId
-            case imageUrl
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case isAnimated
-            case slackFile
-            case altText
-            case titleUrl
-            case videoUrl
-            case thumbnailUrl
-            case authorName
-            case providerName
-            case providerIconUrl
-            case functionTriggerId
-            case appId
-            case isWorkflowApp
-            case salesHomeWorkflowAppType
-            case appCollaborators
-            case buttonLabel
-            case botUserId
-            case owningTeamId
-            case workflowId
-            case developerTraceId
-            case triggerType
-            case triggerSubtype
-            case shareUrl
-            case dispatchAction
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Pagination`.
     public struct Pagination: Codable, Hashable, Sendable {
@@ -24152,14 +20110,6 @@ extension Components.Schemas {
             self.perPage = perPage
             self.pageCount = pageCount
         }
-        public enum CodingKeys: String, CodingKey {
-            case page
-            case first
-            case last
-            case totalCount
-            case perPage
-            case pageCount
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Messages`.
     public struct Messages: Codable, Hashable, Sendable {
@@ -24189,12 +20139,6 @@ extension Components.Schemas {
             self.paging = paging
             self.matches = matches
         }
-        public enum CodingKeys: String, CodingKey {
-            case total
-            case pagination
-            case paging
-            case matches
-        }
     }
     /// - Remark: Generated from `#/components/schemas/MessagesMatch`.
     public struct MessagesMatch: Codable, Hashable, Sendable {
@@ -24205,7 +20149,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/MessagesMatch/channel`.
         public var channel: Components.Schemas.Channel?
         /// - Remark: Generated from `#/components/schemas/MessagesMatch/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/MessagesMatch/user`.
         public var user: Components.Schemas.LastEditor?
         /// - Remark: Generated from `#/components/schemas/MessagesMatch/username`.
@@ -24238,7 +20182,7 @@ extension Components.Schemas {
         ///   - iid:
         ///   - team:
         ///   - channel:
-        ///   - _type:
+        ///   - type:
         ///   - user:
         ///   - username:
         ///   - ts:
@@ -24256,7 +20200,7 @@ extension Components.Schemas {
             iid: Swift.String? = nil,
             team: Components.Schemas.UserTeam? = nil,
             channel: Components.Schemas.Channel? = nil,
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             user: Components.Schemas.LastEditor? = nil,
             username: Swift.String? = nil,
             ts: Components.Schemas.Ts? = nil,
@@ -24274,7 +20218,7 @@ extension Components.Schemas {
             self.iid = iid
             self.team = team
             self.channel = channel
-            self._type = _type
+            self.type = type
             self.user = user
             self.username = username
             self.ts = ts
@@ -24289,30 +20233,11 @@ extension Components.Schemas {
             self.previous2 = previous2
             self.isMpim = isMpim
         }
-        public enum CodingKeys: String, CodingKey {
-            case iid
-            case team
-            case channel
-            case _type = "type"
-            case user
-            case username
-            case ts
-            case text
-            case permalink
-            case previous
-            case score
-            case blocks
-            case attachments
-            case files
-            case noReactions
-            case previous2
-            case isMpim
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Previous`.
     public struct Previous: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Previous/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Previous/user`.
         public var user: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Previous/username`.
@@ -24332,7 +20257,7 @@ extension Components.Schemas {
         /// Creates a new `Previous`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - user:
         ///   - username:
         ///   - ts:
@@ -24342,7 +20267,7 @@ extension Components.Schemas {
         ///   - attachments:
         ///   - blocks:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             user: Swift.String? = nil,
             username: Swift.String? = nil,
             ts: Swift.String? = nil,
@@ -24352,7 +20277,7 @@ extension Components.Schemas {
             attachments: [Components.Schemas.Attachment]? = nil,
             blocks: [Components.Schemas.MatchBlock]? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.user = user
             self.username = username
             self.ts = ts
@@ -24361,17 +20286,6 @@ extension Components.Schemas {
             self.permalink = permalink
             self.attachments = attachments
             self.blocks = blocks
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case user
-            case username
-            case ts
-            case text
-            case iid
-            case permalink
-            case attachments
-            case blocks
         }
     }
     /// - Remark: Generated from `#/components/schemas/Posts`.
@@ -24391,10 +20305,6 @@ extension Components.Schemas {
         ) {
             self.total = total
             self.matches = matches
-        }
-        public enum CodingKeys: String, CodingKey {
-            case total
-            case matches
         }
     }
     /// - Remark: Generated from `#/components/schemas/LastEditor`.
@@ -24421,7 +20331,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/Match/channel`.
         public var channel: Components.Schemas.Channel?
         /// - Remark: Generated from `#/components/schemas/Match/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Match/user`.
         public var user: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Match/username`.
@@ -24454,7 +20364,7 @@ extension Components.Schemas {
         ///   - iid:
         ///   - team:
         ///   - channel:
-        ///   - _type:
+        ///   - type:
         ///   - user:
         ///   - username:
         ///   - ts:
@@ -24472,7 +20382,7 @@ extension Components.Schemas {
             iid: Swift.String? = nil,
             team: Swift.String? = nil,
             channel: Components.Schemas.Channel? = nil,
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             user: Swift.String? = nil,
             username: Swift.String? = nil,
             ts: Swift.String? = nil,
@@ -24490,7 +20400,7 @@ extension Components.Schemas {
             self.iid = iid
             self.team = team
             self.channel = channel
-            self._type = _type
+            self.type = type
             self.user = user
             self.username = username
             self.ts = ts
@@ -24505,30 +20415,11 @@ extension Components.Schemas {
             self.previous2 = previous2
             self.isMpim = isMpim
         }
-        public enum CodingKeys: String, CodingKey {
-            case iid
-            case team
-            case channel
-            case _type = "type"
-            case user
-            case username
-            case ts
-            case text
-            case permalink
-            case previous
-            case score
-            case blocks
-            case attachments
-            case files
-            case noReactions
-            case previous2
-            case isMpim
-        }
     }
     /// - Remark: Generated from `#/components/schemas/TitleBlock`.
     public struct TitleBlock: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/TitleBlock/type`.
-        public var _type: Components.Schemas.BlockType?
+        public var type: Components.Schemas.BlockType?
         /// - Remark: Generated from `#/components/schemas/TitleBlock/elements`.
         public var elements: [Components.Schemas.Accessory]?
         /// - Remark: Generated from `#/components/schemas/TitleBlock/call`.
@@ -24628,7 +20519,7 @@ extension Components.Schemas {
         /// Creates a new `TitleBlock`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - elements:
         ///   - call:
         ///   - source:
@@ -24678,7 +20569,7 @@ extension Components.Schemas {
         ///   - shareUrl:
         ///   - dispatchAction:
         public init(
-            _type: Components.Schemas.BlockType? = nil,
+            type: Components.Schemas.BlockType? = nil,
             elements: [Components.Schemas.Accessory]? = nil,
             call: Components.Schemas.Call? = nil,
             source: Swift.String? = nil,
@@ -24728,7 +20619,7 @@ extension Components.Schemas {
             shareUrl: Swift.String? = nil,
             dispatchAction: Swift.Bool? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.elements = elements
             self.call = call
             self.source = source
@@ -24778,62 +20669,11 @@ extension Components.Schemas {
             self.shareUrl = shareUrl
             self.dispatchAction = dispatchAction
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case elements
-            case call
-            case source
-            case file
-            case text
-            case fallback
-            case title
-            case description
-            case url
-            case fields
-            case accessory
-            case expand
-            case label
-            case element
-            case hint
-            case optional
-            case blockId
-            case callId
-            case apiDecorationAvailable
-            case externalId
-            case fileId
-            case imageUrl
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case isAnimated
-            case slackFile
-            case altText
-            case titleUrl
-            case videoUrl
-            case thumbnailUrl
-            case authorName
-            case providerName
-            case providerIconUrl
-            case functionTriggerId
-            case appId
-            case isWorkflowApp
-            case salesHomeWorkflowAppType
-            case appCollaborators
-            case buttonLabel
-            case botUserId
-            case owningTeamId
-            case workflowId
-            case developerTraceId
-            case triggerType
-            case triggerSubtype
-            case shareUrl
-            case dispatchAction
-        }
     }
     /// - Remark: Generated from `#/components/schemas/MatchBlock`.
     public struct MatchBlock: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/MatchBlock/type`.
-        public var _type: Components.Schemas.BlockType?
+        public var type: Components.Schemas.BlockType?
         /// - Remark: Generated from `#/components/schemas/MatchBlock/elements`.
         public var elements: [Components.Schemas.Accessory]?
         /// - Remark: Generated from `#/components/schemas/MatchBlock/call`.
@@ -24933,7 +20773,7 @@ extension Components.Schemas {
         /// Creates a new `MatchBlock`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - elements:
         ///   - call:
         ///   - source:
@@ -24983,7 +20823,7 @@ extension Components.Schemas {
         ///   - shareUrl:
         ///   - dispatchAction:
         public init(
-            _type: Components.Schemas.BlockType? = nil,
+            type: Components.Schemas.BlockType? = nil,
             elements: [Components.Schemas.Accessory]? = nil,
             call: Components.Schemas.Call? = nil,
             source: Swift.String? = nil,
@@ -25033,7 +20873,7 @@ extension Components.Schemas {
             shareUrl: Swift.String? = nil,
             dispatchAction: Swift.Bool? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.elements = elements
             self.call = call
             self.source = source
@@ -25082,57 +20922,6 @@ extension Components.Schemas {
             self.triggerSubtype = triggerSubtype
             self.shareUrl = shareUrl
             self.dispatchAction = dispatchAction
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case elements
-            case call
-            case source
-            case file
-            case text
-            case fallback
-            case title
-            case description
-            case url
-            case fields
-            case accessory
-            case expand
-            case label
-            case element
-            case hint
-            case optional
-            case blockId
-            case callId
-            case apiDecorationAvailable
-            case externalId
-            case fileId
-            case imageUrl
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case isAnimated
-            case slackFile
-            case altText
-            case titleUrl
-            case videoUrl
-            case thumbnailUrl
-            case authorName
-            case providerName
-            case providerIconUrl
-            case functionTriggerId
-            case appId
-            case isWorkflowApp
-            case salesHomeWorkflowAppType
-            case appCollaborators
-            case buttonLabel
-            case botUserId
-            case owningTeamId
-            case workflowId
-            case developerTraceId
-            case triggerType
-            case triggerSubtype
-            case shareUrl
-            case dispatchAction
         }
     }
     /// - Remark: Generated from `#/components/schemas/ItemFile`.
@@ -25783,136 +21572,6 @@ extension Components.Schemas {
             self.pinnedTo = pinnedTo
             self.commentsCount = commentsCount
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case created
-            case timestamp
-            case name
-            case title
-            case subject
-            case mimetype
-            case filetype
-            case user
-            case mode
-            case editable
-            case editor
-            case updated
-            case subtype
-            case transcription
-            case mp4
-            case vtt
-            case hls
-            case username
-            case size
-            case deanimate
-            case pjpeg
-            case permalink
-            case preview
-            case lines
-            case channels
-            case groups
-            case ims
-            case shares
-            case to
-            case from
-            case cc
-            case headers
-            case saved
-            case reactions
-            case prettyType
-            case userTeam
-            case sourceTeam
-            case nonOwnerEditable
-            case lastEditor
-            case fileAccess
-            case altTxt
-            case mp4Low
-            case hlsEmbed
-            case durationMs
-            case thumbVideoW
-            case thumbVideoH
-            case originalAttachmentCount
-            case isExternal
-            case externalType
-            case externalId
-            case externalUrl
-            case urlPrivate
-            case urlPrivateDownload
-            case appId
-            case appName
-            case thumb64
-            case thumb64Gif
-            case thumb64W
-            case thumb64H
-            case thumb80
-            case thumb80Gif
-            case thumb80W
-            case thumb80H
-            case thumb160
-            case thumb160Gif
-            case thumb160W
-            case thumb160H
-            case thumb360
-            case thumb360Gif
-            case thumb360W
-            case thumb360H
-            case thumb480
-            case thumb480Gif
-            case thumb480W
-            case thumb480H
-            case thumb720
-            case thumb720Gif
-            case thumb720W
-            case thumb720H
-            case thumb800
-            case thumb800Gif
-            case thumb800W
-            case thumb800H
-            case thumb960
-            case thumb960Gif
-            case thumb960W
-            case thumb960H
-            case thumb1024
-            case thumb1024Gif
-            case thumb1024W
-            case thumb1024H
-            case thumbVideo
-            case thumbGif
-            case thumbPdf
-            case thumbPdfW
-            case thumbPdfH
-            case thumbTiny
-            case convertedPdf
-            case imageExifRotation
-            case originalW
-            case originalH
-            case deanimateGif
-            case permalinkPublic
-            case editLink
-            case hasRichPreview
-            case mediaDisplayType
-            case previewIsTruncated
-            case previewHighlight
-            case plainText
-            case previewPlainText
-            case hasMore
-            case sentToSelf
-            case linesMore
-            case isPublic
-            case publicUrlShared
-            case displayAsBot
-            case hasMoreShares
-            case channelActionsTs
-            case channelActionsCount
-            case simplifiedHtml
-            case mediaProgress
-            case botId
-            case initialComment
-            case numStars
-            case isStarred
-            case pinnedTo
-            case commentsCount
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Login`.
     public struct Login: Codable, Hashable, Sendable {
@@ -25972,18 +21631,6 @@ extension Components.Schemas {
             self.dateLast = dateLast
             self.userAgent = userAgent
         }
-        public enum CodingKeys: String, CodingKey {
-            case username
-            case count
-            case ip
-            case isp
-            case country
-            case region
-            case userId
-            case dateFirst
-            case dateLast
-            case userAgent
-        }
     }
     /// - Remark: Generated from `#/components/schemas/BillableInfo`.
     public struct BillableInfo: Codable, Hashable, Sendable {
@@ -25995,9 +21642,6 @@ extension Components.Schemas {
         ///   - billingActive:
         public init(billingActive: Swift.Bool? = nil) {
             self.billingActive = billingActive
-        }
-        public enum CodingKeys: String, CodingKey {
-            case billingActive
         }
     }
     /// - Remark: Generated from `#/components/schemas/Organization`.
@@ -26078,22 +21722,6 @@ extension Components.Schemas {
             self.lastActiveTimestamp = lastActiveTimestamp
             self.isSponsored = isSponsored
         }
-        public enum CodingKeys: String, CodingKey {
-            case canvas
-            case lists
-            case teamId
-            case teamName
-            case teamDomain
-            case publicChannelCount
-            case privateChannelCount
-            case imChannelCount
-            case mpimChannelCount
-            case connectedWorkspaces
-            case slackConnectPrefs
-            case connectionStatus
-            case lastActiveTimestamp
-            case isSponsored
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConnectedWorkspace`.
     public struct ConnectedWorkspace: Codable, Hashable, Sendable {
@@ -26112,10 +21740,6 @@ extension Components.Schemas {
         ) {
             self.workspaceId = workspaceId
             self.workspaceName = workspaceName
-        }
-        public enum CodingKeys: String, CodingKey {
-            case workspaceId
-            case workspaceName
         }
     }
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs`.
@@ -26196,27 +21820,11 @@ extension Components.Schemas {
             self.requireScChannelForScDm = requireScChannelForScDm
             self.sharedChannelInviteRequested = sharedChannelInviteRequested
         }
-        public enum CodingKeys: String, CodingKey {
-            case allowScFileUploads
-            case approvedOrgInfo
-            case profileVisibility
-            case allowedWorkspaces
-            case allowedCanvasSharing
-            case allowedListSharing
-            case awayTeamScInvitePermissions
-            case awayTeamScInviteRequire2fa
-            case acceptScInvites
-            case scChannelLimitedAccess
-            case scMpdmToPrivate
-            case externalAwarenessContextBar
-            case requireScChannelForScDm
-            case sharedChannelInviteRequested
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AcceptScInvites`.
     public struct AcceptScInvites: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/AcceptScInvites/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AcceptScInvites/actor`.
         public var actor: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AcceptScInvites/source`.
@@ -26234,7 +21842,7 @@ extension Components.Schemas {
         /// Creates a new `AcceptScInvites`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - actor:
         ///   - source:
         ///   - acceptInWorkspaceIds:
@@ -26243,7 +21851,7 @@ extension Components.Schemas {
         ///   - acceptPrivate:
         ///   - dateUpdate:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             actor: Swift.String? = nil,
             source: Swift.String? = nil,
             acceptInWorkspaceIds: [Swift.String]? = nil,
@@ -26252,7 +21860,7 @@ extension Components.Schemas {
             acceptPrivate: Swift.Bool? = nil,
             dateUpdate: Swift.Int? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.actor = actor
             self.source = source
             self.acceptInWorkspaceIds = acceptInWorkspaceIds
@@ -26260,16 +21868,6 @@ extension Components.Schemas {
             self.useAllowedWorkspaces = useAllowedWorkspaces
             self.acceptPrivate = acceptPrivate
             self.dateUpdate = dateUpdate
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case actor
-            case source
-            case acceptInWorkspaceIds
-            case invalidWorkspaceIds
-            case useAllowedWorkspaces
-            case acceptPrivate
-            case dateUpdate
         }
     }
     /// - Remark: Generated from `#/components/schemas/AllowScFileUploads`.
@@ -26281,7 +21879,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AllowScFileUploads/source`.
         public var source: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AllowScFileUploads/type`.
-        public var _type: Components.Schemas._Type?
+        public var type: Components.Schemas._Type?
         /// - Remark: Generated from `#/components/schemas/AllowScFileUploads/dateUpdate`.
         public var dateUpdate: Swift.Int?
         /// - Remark: Generated from `#/components/schemas/AllowScFileUploads/approvalType`.
@@ -26292,37 +21890,29 @@ extension Components.Schemas {
         ///   - value:
         ///   - actor:
         ///   - source:
-        ///   - _type:
+        ///   - type:
         ///   - dateUpdate:
         ///   - approvalType:
         public init(
             value: Swift.Bool? = nil,
             actor: Swift.String? = nil,
             source: Swift.String? = nil,
-            _type: Components.Schemas._Type? = nil,
+            type: Components.Schemas._Type? = nil,
             dateUpdate: Swift.Int? = nil,
             approvalType: Swift.String? = nil
         ) {
             self.value = value
             self.actor = actor
             self.source = source
-            self._type = _type
+            self.type = type
             self.dateUpdate = dateUpdate
             self.approvalType = approvalType
-        }
-        public enum CodingKeys: String, CodingKey {
-            case value
-            case actor
-            case source
-            case _type = "type"
-            case dateUpdate
-            case approvalType
         }
     }
     /// - Remark: Generated from `#/components/schemas/AllowedWorkspaces`.
     public struct AllowedWorkspaces: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/AllowedWorkspaces/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AllowedWorkspaces/actor`.
         public var actor: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AllowedWorkspaces/source`.
@@ -26334,36 +21924,29 @@ extension Components.Schemas {
         /// Creates a new `AllowedWorkspaces`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - actor:
         ///   - source:
         ///   - teamIds:
         ///   - dateUpdate:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             actor: Swift.String? = nil,
             source: Swift.String? = nil,
             teamIds: [Swift.String]? = nil,
             dateUpdate: Swift.Int? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.actor = actor
             self.source = source
             self.teamIds = teamIds
             self.dateUpdate = dateUpdate
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case actor
-            case source
-            case teamIds
-            case dateUpdate
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate`.
     public struct ScMpdmToPrivate: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/actor`.
         public var actor: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/source`.
@@ -26377,34 +21960,26 @@ extension Components.Schemas {
         /// Creates a new `ScMpdmToPrivate`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - actor:
         ///   - source:
         ///   - acceptInWorkspaceId:
         ///   - invalidWorkspaceIds:
         ///   - dateUpdate:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             actor: Swift.String? = nil,
             source: Swift.String? = nil,
             acceptInWorkspaceId: Swift.String? = nil,
             invalidWorkspaceIds: [Swift.String]? = nil,
             dateUpdate: Swift.Int? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.actor = actor
             self.source = source
             self.acceptInWorkspaceId = acceptInWorkspaceId
             self.invalidWorkspaceIds = invalidWorkspaceIds
             self.dateUpdate = dateUpdate
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case actor
-            case source
-            case acceptInWorkspaceId
-            case invalidWorkspaceIds
-            case dateUpdate
         }
     }
     /// - Remark: Generated from `#/components/schemas/SharedChannelInviteRequested`.
@@ -26450,15 +22025,6 @@ extension Components.Schemas {
             self.approvalDestination = approvalDestination
             self.dateUpdate = dateUpdate
         }
-        public enum CodingKeys: String, CodingKey {
-            case enabled
-            case actor
-            case source
-            case usergroupInclude
-            case usergroupExclude
-            case approvalDestination
-            case dateUpdate
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ApprovalDestination`.
     public struct ApprovalDestination: Codable, Hashable, Sendable {
@@ -26478,10 +22044,6 @@ extension Components.Schemas {
             self.allWhoCanManageSharedChannels = allWhoCanManageSharedChannels
             self.channelId = channelId
         }
-        public enum CodingKeys: String, CodingKey {
-            case allWhoCanManageSharedChannels
-            case channelId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/UsergroupClude`.
     public struct UsergroupClude: Codable, Hashable, Sendable {
@@ -26500,10 +22062,6 @@ extension Components.Schemas {
         ) {
             self.id = id
             self.teamId = teamId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case teamId
         }
     }
     /// - Remark: Generated from `#/components/schemas/Type`.
@@ -26641,24 +22199,6 @@ extension Components.Schemas {
             self.serviceId = serviceId
             self.serviceType = serviceType
         }
-        public enum CodingKeys: String, CodingKey {
-            case date
-            case scope
-            case channel
-            case reason
-            case resolution
-            case userId
-            case userName
-            case changeType
-            case appType
-            case appId
-            case rssFeed
-            case rssFeedChangeType
-            case rssFeedTitle
-            case rssFeedUrl
-            case serviceId
-            case serviceType
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Permissions`.
     public struct Permissions: Codable, Hashable, Sendable {
@@ -26682,11 +22222,6 @@ extension Components.Schemas {
             self.api = api
             self.ui = ui
             self.scim = scim
-        }
-        public enum CodingKeys: String, CodingKey {
-            case api
-            case ui
-            case scim
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsergroupsCreateResponse`.
@@ -26722,13 +22257,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case usergroup
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/UsergroupsDisableResponse`.
     public struct UsergroupsDisableResponse: Codable, Hashable, Sendable {
@@ -26762,13 +22290,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case usergroup
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsergroupsEnableResponse`.
@@ -26804,13 +22325,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case usergroup
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/UsergroupsListResponse`.
     public struct UsergroupsListResponse: Codable, Hashable, Sendable {
@@ -26844,13 +22358,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case usergroups
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsergroupsUpdateResponse`.
@@ -26886,13 +22393,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case usergroup
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/UsergroupsUsersListResponse`.
     public struct UsergroupsUsersListResponse: Codable, Hashable, Sendable {
@@ -26927,13 +22427,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case users
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/UsergroupsUsersUpdateResponse`.
     public struct UsergroupsUsersUpdateResponse: Codable, Hashable, Sendable {
@@ -26967,13 +22460,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case usergroup
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/EnterpriseUser`.
@@ -27018,15 +22504,6 @@ extension Components.Schemas {
             self.isAdmin = isAdmin
             self.isOwner = isOwner
             self.isPrimaryOwner = isPrimaryOwner
-        }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case teams
-            case enterpriseId
-            case enterpriseName
-            case isAdmin
-            case isOwner
-            case isPrimaryOwner
         }
     }
     /// - Remark: Generated from `#/components/schemas/Member`.
@@ -27172,35 +22649,6 @@ extension Components.Schemas {
             self.isConnectorBot = isConnectorBot
             self.twoFactorType = twoFactorType
         }
-        public enum CodingKeys: String, CodingKey {
-            case id
-            case name
-            case deleted
-            case color
-            case tz
-            case profile
-            case updated
-            case locale
-            case teamId
-            case realName
-            case tzLabel
-            case tzOffset
-            case isAdmin
-            case isOwner
-            case isPrimaryOwner
-            case isRestricted
-            case isUltraRestricted
-            case isBot
-            case isAppUser
-            case isEmailConfirmed
-            case whoCanShareContactCard
-            case isWorkflowBot
-            case has2fa
-            case enterpriseUser
-            case isInvitedUser
-            case isConnectorBot
-            case twoFactorType
-        }
     }
     /// - Remark: Generated from `#/components/schemas/DispatchActionConfig`.
     public struct DispatchActionConfig: Codable, Hashable, Sendable {
@@ -27213,14 +22661,11 @@ extension Components.Schemas {
         public init(triggerActionsOn: [Swift.String]? = nil) {
             self.triggerActionsOn = triggerActionsOn
         }
-        public enum CodingKeys: String, CodingKey {
-            case triggerActionsOn
-        }
     }
     /// - Remark: Generated from `#/components/schemas/InitialValueClass`.
     public struct InitialValueClass: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/InitialValueClass/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/InitialValueClass/elements`.
         public var elements: [Components.Schemas.InitialValueElement]?
         /// - Remark: Generated from `#/components/schemas/InitialValueClass/blockId`.
@@ -27228,28 +22673,23 @@ extension Components.Schemas {
         /// Creates a new `InitialValueClass`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - elements:
         ///   - blockId:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             elements: [Components.Schemas.InitialValueElement]? = nil,
             blockId: Swift.String? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.elements = elements
             self.blockId = blockId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case elements
-            case blockId
         }
     }
     /// - Remark: Generated from `#/components/schemas/InitialValueElement`.
     public struct InitialValueElement: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/InitialValueElement/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/InitialValueElement/elements`.
         public var elements: [Components.Schemas.FluffyElement]?
         /// - Remark: Generated from `#/components/schemas/InitialValueElement/style`.
@@ -27263,40 +22703,32 @@ extension Components.Schemas {
         /// Creates a new `InitialValueElement`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - elements:
         ///   - style:
         ///   - indent:
         ///   - offset:
         ///   - border:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             elements: [Components.Schemas.FluffyElement]? = nil,
             style: Swift.String? = nil,
             indent: Swift.Int? = nil,
             offset: Swift.Int? = nil,
             border: Swift.Int? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.elements = elements
             self.style = style
             self.indent = indent
             self.offset = offset
             self.border = border
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case elements
-            case style
-            case indent
-            case offset
-            case border
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FluffyElement`.
     public struct FluffyElement: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/FluffyElement/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FluffyElement/elements`.
         public var elements: [Components.Schemas.TentacledElement]?
         /// - Remark: Generated from `#/components/schemas/FluffyElement/style`.
@@ -27310,40 +22742,32 @@ extension Components.Schemas {
         /// Creates a new `FluffyElement`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - elements:
         ///   - style:
         ///   - indent:
         ///   - offset:
         ///   - border:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             elements: [Components.Schemas.TentacledElement]? = nil,
             style: Swift.String? = nil,
             indent: Swift.Int? = nil,
             offset: Swift.Int? = nil,
             border: Swift.Int? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.elements = elements
             self.style = style
             self.indent = indent
             self.offset = offset
             self.border = border
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case elements
-            case style
-            case indent
-            case offset
-            case border
-        }
     }
     /// - Remark: Generated from `#/components/schemas/TentacledElement`.
     public struct TentacledElement: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/TentacledElement/type`.
-        public var _type: Components.Schemas.ElementType?
+        public var type: Components.Schemas.ElementType?
         /// - Remark: Generated from `#/components/schemas/TentacledElement/range`.
         public var range: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TentacledElement/style`.
@@ -27379,7 +22803,7 @@ extension Components.Schemas {
         /// Creates a new `TentacledElement`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - range:
         ///   - style:
         ///   - text:
@@ -27397,7 +22821,7 @@ extension Components.Schemas {
         ///   - usergroupId:
         ///   - skinTone:
         public init(
-            _type: Components.Schemas.ElementType? = nil,
+            type: Components.Schemas.ElementType? = nil,
             range: Swift.String? = nil,
             style: Components.Schemas.Style? = nil,
             text: Swift.String? = nil,
@@ -27415,7 +22839,7 @@ extension Components.Schemas {
             usergroupId: Swift.String? = nil,
             skinTone: Swift.Int? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.range = range
             self.style = style
             self.text = text
@@ -27433,30 +22857,11 @@ extension Components.Schemas {
             self.usergroupId = usergroupId
             self.skinTone = skinTone
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case range
-            case style
-            case text
-            case value
-            case timestamp
-            case format
-            case url
-            case fallback
-            case unsafe
-            case name
-            case unicode
-            case channelId
-            case teamId
-            case userId
-            case usergroupId
-            case skinTone
-        }
     }
     /// - Remark: Generated from `#/components/schemas/StickyElement`.
     public struct StickyElement: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/StickyElement/type`.
-        public var _type: Swift.String?
+        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/StickyElement/text`.
         public var text: Components.Schemas.Close?
         /// - Remark: Generated from `#/components/schemas/StickyElement/url`.
@@ -27532,7 +22937,7 @@ extension Components.Schemas {
         /// Creates a new `StickyElement`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - text:
         ///   - url:
         ///   - value:
@@ -27570,7 +22975,7 @@ extension Components.Schemas {
         ///   - initialUser:
         ///   - initialUsers:
         public init(
-            _type: Swift.String? = nil,
+            type: Swift.String? = nil,
             text: Components.Schemas.Close? = nil,
             url: Swift.String? = nil,
             value: Swift.String? = nil,
@@ -27608,7 +23013,7 @@ extension Components.Schemas {
             initialUser: Swift.String? = nil,
             initialUsers: [Swift.String]? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.text = text
             self.url = url
             self.value = value
@@ -27646,50 +23051,11 @@ extension Components.Schemas {
             self.initialUser = initialUser
             self.initialUsers = initialUsers
         }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case text
-            case url
-            case value
-            case style
-            case confirm
-            case workflow
-            case options
-            case placeholder
-            case filter
-            case timezone
-            case fallback
-            case actionId
-            case accessibilityLabel
-            case initialOptions
-            case focusOnLoad
-            case initialOption
-            case initialChannel
-            case responseUrlEnabled
-            case initialChannels
-            case maxSelectedItems
-            case initialConversation
-            case defaultToCurrentConversation
-            case initialConversations
-            case initialDate
-            case initialTime
-            case initialDateTime
-            case minQueryLength
-            case imageUrl
-            case altText
-            case imageWidth
-            case imageHeight
-            case imageBytes
-            case slackFile
-            case optionGroups
-            case initialUser
-            case initialUsers
-        }
     }
     /// - Remark: Generated from `#/components/schemas/Close`.
     public struct Close: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/Close/type`.
-        public var _type: Components.Schemas.CloseType?
+        public var type: Components.Schemas.CloseType?
         /// - Remark: Generated from `#/components/schemas/Close/text`.
         public var text: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Close/emoji`.
@@ -27699,26 +23065,20 @@ extension Components.Schemas {
         /// Creates a new `Close`.
         ///
         /// - Parameters:
-        ///   - _type:
+        ///   - type:
         ///   - text:
         ///   - emoji:
         ///   - verbatim:
         public init(
-            _type: Components.Schemas.CloseType? = nil,
+            type: Components.Schemas.CloseType? = nil,
             text: Swift.String? = nil,
             emoji: Swift.Bool? = nil,
             verbatim: Swift.Bool? = nil
         ) {
-            self._type = _type
+            self.type = type
             self.text = text
             self.emoji = emoji
             self.verbatim = verbatim
-        }
-        public enum CodingKeys: String, CodingKey {
-            case _type = "type"
-            case text
-            case emoji
-            case verbatim
         }
     }
     /// - Remark: Generated from `#/components/schemas/State`.
@@ -27817,12 +23177,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/WorkflowsStepFailedResponse`.
     public struct WorkflowsStepFailedResponse: Codable, Hashable, Sendable {
@@ -27852,12 +23206,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/WorkflowsUpdateStepResponse`.
     public struct WorkflowsUpdateStepResponse: Codable, Hashable, Sendable {
@@ -27886,12 +23234,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
 }

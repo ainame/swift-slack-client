@@ -46,13 +46,6 @@ extension Components.Schemas {
             self.provided = provided
             self.url = url
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case url
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AppsEventAuthorizationsListResponse`.
     public struct AppsEventAuthorizationsListResponse: Codable, Hashable, Sendable {
@@ -86,13 +79,6 @@ extension Components.Schemas {
             self.authorizations = authorizations
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case authorizations
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AppsManifestCreateResponse`.
@@ -158,19 +144,6 @@ extension Components.Schemas {
             self.teamId = teamId
             self.teamDomain = teamDomain
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case errors
-            case credentials
-            case responseMetadata
-            case appId
-            case oauthAuthorizeUrl
-            case teamId
-            case teamDomain
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AppsManifestDeleteResponse`.
     public struct AppsManifestDeleteResponse: Codable, Hashable, Sendable {
@@ -199,12 +172,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AppsManifestExportResponse`.
@@ -239,13 +206,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case manifest
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AppsManifestUpdateResponse`.
@@ -286,14 +246,6 @@ extension Components.Schemas {
             self.appId = appId
             self.permissionsUpdated = permissionsUpdated
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case appId
-            case permissionsUpdated
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AppsManifestValidateResponse`.
     public struct AppsManifestValidateResponse: Codable, Hashable, Sendable {
@@ -333,14 +285,6 @@ extension Components.Schemas {
             self.errors = errors
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case errors
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AppsPermissionsInfoResponse`.
     public struct AppsPermissionsInfoResponse: Codable, Hashable, Sendable {
@@ -369,12 +313,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AppsPermissionsRequestResponse`.
@@ -405,12 +343,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AppsPermissionsResourcesListResponse`.
     public struct AppsPermissionsResourcesListResponse: Codable, Hashable, Sendable {
@@ -439,12 +371,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AppsPermissionsScopesListResponse`.
@@ -475,12 +401,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AppsPermissionsUsersListResponse`.
     public struct AppsPermissionsUsersListResponse: Codable, Hashable, Sendable {
@@ -510,12 +430,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AppsPermissionsUsersRequestResponse`.
     public struct AppsPermissionsUsersRequestResponse: Codable, Hashable, Sendable {
@@ -544,12 +458,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AppsUninstallResponse`.
@@ -584,13 +492,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
 }

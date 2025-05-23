@@ -106,25 +106,6 @@ extension Components.Schemas {
             self.authorizingUser = authorizingUser
             self.installerUser = installerUser
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case scope
-            case bot
-            case scopes
-            case tokenType
-            case accessToken
-            case enterpriseId
-            case teamName
-            case teamId
-            case userId
-            case incomingWebhook
-            case authorizingUser
-            case installerUser
-        }
     }
     /// - Remark: Generated from `#/components/schemas/OauthTokenResponse`.
     public struct OauthTokenResponse: Codable, Hashable, Sendable {
@@ -158,13 +139,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.reqMethod = reqMethod
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case reqMethod
         }
     }
     /// - Remark: Generated from `#/components/schemas/OauthV2AccessResponse`.
@@ -259,25 +233,6 @@ extension Components.Schemas {
             self.botUserId = botUserId
             self.isEnterpriseInstall = isEnterpriseInstall
             self.incomingWebhook = incomingWebhook
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case scope
-            case team
-            case enterprise
-            case appId
-            case authedUser
-            case tokenType
-            case accessToken
-            case refreshToken
-            case expiresIn
-            case botUserId
-            case isEnterpriseInstall
-            case incomingWebhook
         }
     }
     /// - Remark: Generated from `#/components/schemas/OauthV2ExchangeResponse`.
@@ -377,26 +332,6 @@ extension Components.Schemas {
             self.isEnterpriseInstall = isEnterpriseInstall
             self.incomingWebhook = incomingWebhook
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case scope
-            case team
-            case enterprise
-            case appId
-            case authedUser
-            case tokenType
-            case accessToken
-            case refreshToken
-            case expiresIn
-            case botUserId
-            case isEnterpriseInstall
-            case incomingWebhook
-            case responseMetadata
         }
     }
 }

@@ -41,12 +41,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse`.
     public struct AuthTeamsListResponse: Codable, Hashable, Sendable {
@@ -85,14 +79,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case teams
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AuthTestResponse`.
@@ -177,23 +163,6 @@ extension Components.Schemas {
             self.appId = appId
             self.enterpriseId = enterpriseId
             self.expiresIn = expiresIn
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case url
-            case team
-            case user
-            case error
-            case needed
-            case provided
-            case teamId
-            case userId
-            case botId
-            case isEnterpriseInstall
-            case appName
-            case appId
-            case enterpriseId
-            case expiresIn
         }
     }
 }

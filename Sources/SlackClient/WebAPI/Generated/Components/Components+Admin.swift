@@ -46,13 +46,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAppsActivitiesListResponse`.
     public struct AdminAppsActivitiesListResponse: Codable, Hashable, Sendable {
@@ -92,14 +85,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case activities
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAppsApproveResponse`.
     public struct AdminAppsApproveResponse: Codable, Hashable, Sendable {
@@ -133,13 +118,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAppsApprovedListResponse`.
@@ -185,15 +163,6 @@ extension Components.Schemas {
             self.approvedApps = approvedApps
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case approvedApps
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAppsClearResolutionResponse`.
     public struct AdminAppsClearResolutionResponse: Codable, Hashable, Sendable {
@@ -227,13 +196,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAppsConfigLookupResponse`.
@@ -274,14 +236,6 @@ extension Components.Schemas {
             self.configs = configs
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case configs
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAppsConfigSetResponse`.
     public struct AdminAppsConfigSetResponse: Codable, Hashable, Sendable {
@@ -310,12 +264,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAppsRequestsCancelResponse`.
@@ -350,13 +298,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAppsRequestsListResponse`.
@@ -402,15 +343,6 @@ extension Components.Schemas {
             self.appRequests = appRequests
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case appRequests
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAppsRestrictResponse`.
     public struct AdminAppsRestrictResponse: Codable, Hashable, Sendable {
@@ -444,13 +376,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAppsRestrictedListResponse`.
@@ -496,15 +421,6 @@ extension Components.Schemas {
             self.restrictedApps = restrictedApps
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case restrictedApps
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAppsUninstallResponse`.
     public struct AdminAppsUninstallResponse: Codable, Hashable, Sendable {
@@ -539,13 +455,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAuthPolicyAssignEntitiesResponse`.
     public struct AdminAuthPolicyAssignEntitiesResponse: Codable, Hashable, Sendable {
@@ -579,13 +488,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.entityTotalCount = entityTotalCount
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case entityTotalCount
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAuthPolicyGetEntitiesResponse`.
@@ -626,14 +528,6 @@ extension Components.Schemas {
             self.provided = provided
             self.entityTotalCount = entityTotalCount
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case entities
-            case needed
-            case provided
-            case entityTotalCount
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminAuthPolicyRemoveEntitiesResponse`.
     public struct AdminAuthPolicyRemoveEntitiesResponse: Codable, Hashable, Sendable {
@@ -667,13 +561,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.entityTotalCount = entityTotalCount
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case entityTotalCount
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminBarriersCreateResponse`.
@@ -714,14 +601,6 @@ extension Components.Schemas {
             self.barrier = barrier
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case barrier
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminBarriersDeleteResponse`.
     public struct AdminBarriersDeleteResponse: Codable, Hashable, Sendable {
@@ -750,12 +629,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminBarriersListResponse`.
@@ -791,13 +664,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case barriers
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminBarriersUpdateResponse`.
     public struct AdminBarriersUpdateResponse: Codable, Hashable, Sendable {
@@ -832,13 +698,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case barrier
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsArchiveResponse`.
     public struct AdminConversationsArchiveResponse: Codable, Hashable, Sendable {
@@ -867,12 +726,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsBulkArchiveResponse`.
@@ -918,15 +771,6 @@ extension Components.Schemas {
             self.notAdded = notAdded
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case bulkActionId
-            case notAdded
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsBulkDeleteResponse`.
     public struct AdminConversationsBulkDeleteResponse: Codable, Hashable, Sendable {
@@ -970,15 +814,6 @@ extension Components.Schemas {
             self.bulkActionId = bulkActionId
             self.notAdded = notAdded
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case bulkActionId
-            case notAdded
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsBulkMoveResponse`.
@@ -1024,15 +859,6 @@ extension Components.Schemas {
             self.notAdded = notAdded
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case bulkActionId
-            case notAdded
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsConvertToPrivateResponse`.
     public struct AdminConversationsConvertToPrivateResponse: Codable, Hashable, Sendable {
@@ -1061,12 +887,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsConvertToPublicResponse`.
@@ -1101,13 +921,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsCreateResponse`.
@@ -1148,14 +961,6 @@ extension Components.Schemas {
             self.channelId = channelId
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case channelId
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsDeleteResponse`.
     public struct AdminConversationsDeleteResponse: Codable, Hashable, Sendable {
@@ -1184,12 +989,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsDisconnectSharedResponse`.
@@ -1220,12 +1019,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsEkmListOriginalConnectedChannelInfoResponse`.
     public struct AdminConversationsEkmListOriginalConnectedChannelInfoResponse: Codable, Hashable, Sendable {
@@ -1254,12 +1047,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsGetConversationPrefsResponse`.
@@ -1294,13 +1081,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case prefs
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsGetCustomRetentionResponse`.
@@ -1341,14 +1121,6 @@ extension Components.Schemas {
             self.isPolicyEnabled = isPolicyEnabled
             self.durationDays = durationDays
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case isPolicyEnabled
-            case durationDays
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsGetTeamsResponse`.
     public struct AdminConversationsGetTeamsResponse: Codable, Hashable, Sendable {
@@ -1383,13 +1155,6 @@ extension Components.Schemas {
             self.provided = provided
             self.teamIds = teamIds
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case teamIds
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsInviteResponse`.
     public struct AdminConversationsInviteResponse: Codable, Hashable, Sendable {
@@ -1423,13 +1188,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.failedUserIds = failedUserIds
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case failedUserIds
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsLookupResponse`.
@@ -1470,14 +1228,6 @@ extension Components.Schemas {
             self.channelIds = channelIds
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case channelIds
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsRemoveCustomRetentionResponse`.
     public struct AdminConversationsRemoveCustomRetentionResponse: Codable, Hashable, Sendable {
@@ -1507,12 +1257,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsRenameResponse`.
     public struct AdminConversationsRenameResponse: Codable, Hashable, Sendable {
@@ -1541,12 +1285,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsRestrictAccessAddGroupResponse`.
@@ -1581,13 +1319,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsRestrictAccessListGroupsResponse`.
@@ -1628,14 +1359,6 @@ extension Components.Schemas {
             self.groupIds = groupIds
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case groupIds
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsRestrictAccessRemoveGroupResponse`.
     public struct AdminConversationsRestrictAccessRemoveGroupResponse: Codable, Hashable, Sendable {
@@ -1669,13 +1392,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsSearchResponse`.
@@ -1726,16 +1442,6 @@ extension Components.Schemas {
             self.totalCount = totalCount
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case conversations
-            case error
-            case needed
-            case provided
-            case nextCursor
-            case totalCount
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsSetConversationPrefsResponse`.
     public struct AdminConversationsSetConversationPrefsResponse: Codable, Hashable, Sendable {
@@ -1765,12 +1471,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsSetCustomRetentionResponse`.
     public struct AdminConversationsSetCustomRetentionResponse: Codable, Hashable, Sendable {
@@ -1799,12 +1499,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsSetTeamsResponse`.
@@ -1840,13 +1534,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channel
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsUnarchiveResponse`.
     public struct AdminConversationsUnarchiveResponse: Codable, Hashable, Sendable {
@@ -1875,12 +1562,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsWhitelistAddResponse`.
@@ -1920,14 +1601,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case warning
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsWhitelistListGroupsLinkedToChannelResponse`.
@@ -1973,15 +1646,6 @@ extension Components.Schemas {
             self.groupIds = groupIds
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case warning
-            case needed
-            case provided
-            case groupIds
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminConversationsWhitelistRemoveResponse`.
     public struct AdminConversationsWhitelistRemoveResponse: Codable, Hashable, Sendable {
@@ -2021,14 +1685,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case warning
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminEmojiAddResponse`.
     public struct AdminEmojiAddResponse: Codable, Hashable, Sendable {
@@ -2063,13 +1719,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminEmojiAddAliasResponse`.
     public struct AdminEmojiAddAliasResponse: Codable, Hashable, Sendable {
@@ -2103,13 +1752,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminEmojiListResponse`.
@@ -2150,14 +1792,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case emoji
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminEmojiRemoveResponse`.
     public struct AdminEmojiRemoveResponse: Codable, Hashable, Sendable {
@@ -2192,13 +1826,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminEmojiRenameResponse`.
     public struct AdminEmojiRenameResponse: Codable, Hashable, Sendable {
@@ -2232,13 +1859,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminFunctionsListResponse`.
@@ -2278,14 +1898,6 @@ extension Components.Schemas {
             self.provided = provided
             self.functions = functions
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case functions
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminFunctionsPermissionsLookupResponse`.
@@ -2336,16 +1948,6 @@ extension Components.Schemas {
             self.metadata = metadata
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case permissions
-            case errors
-            case error
-            case needed
-            case provided
-            case metadata
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminFunctionsPermissionsSetResponse`.
     public struct AdminFunctionsPermissionsSetResponse: Codable, Hashable, Sendable {
@@ -2380,13 +1982,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsApproveResponse`.
     public struct AdminInviteRequestsApproveResponse: Codable, Hashable, Sendable {
@@ -2415,12 +2010,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsApprovedListResponse`.
@@ -2461,14 +2050,6 @@ extension Components.Schemas {
             self.approvedRequests = approvedRequests
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case approvedRequests
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsDeniedListResponse`.
     public struct AdminInviteRequestsDeniedListResponse: Codable, Hashable, Sendable {
@@ -2508,14 +2089,6 @@ extension Components.Schemas {
             self.deniedRequests = deniedRequests
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case deniedRequests
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsDenyResponse`.
     public struct AdminInviteRequestsDenyResponse: Codable, Hashable, Sendable {
@@ -2544,12 +2117,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsListResponse`.
@@ -2590,14 +2157,6 @@ extension Components.Schemas {
             self.inviteRequests = inviteRequests
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case inviteRequests
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminRolesAddAssignmentsResponse`.
     public struct AdminRolesAddAssignmentsResponse: Codable, Hashable, Sendable {
@@ -2631,13 +2190,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.rejectedUsers = rejectedUsers
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case rejectedUsers
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminRolesListAssignmentsResponse`.
@@ -2678,14 +2230,6 @@ extension Components.Schemas {
             self.roleAssignments = roleAssignments
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case roleAssignments
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminRolesRemoveAssignmentsResponse`.
     public struct AdminRolesRemoveAssignmentsResponse: Codable, Hashable, Sendable {
@@ -2714,12 +2258,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminTeamsAdminsListResponse`.
@@ -2760,14 +2298,6 @@ extension Components.Schemas {
             self.adminIds = adminIds
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case adminIds
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminTeamsCreateResponse`.
     public struct AdminTeamsCreateResponse: Codable, Hashable, Sendable {
@@ -2806,14 +2336,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case team
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminTeamsListResponse`.
@@ -2854,14 +2376,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case teams
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminTeamsOwnersListResponse`.
     public struct AdminTeamsOwnersListResponse: Codable, Hashable, Sendable {
@@ -2901,14 +2415,6 @@ extension Components.Schemas {
             self.ownerIds = ownerIds
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case ownerIds
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsInfoResponse`.
     public struct AdminTeamsSettingsInfoResponse: Codable, Hashable, Sendable {
@@ -2942,13 +2448,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case team
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsSetDefaultChannelsResponse`.
@@ -2984,13 +2483,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsSetDescriptionResponse`.
     public struct AdminTeamsSettingsSetDescriptionResponse: Codable, Hashable, Sendable {
@@ -3020,12 +2512,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsSetDiscoverabilityResponse`.
     public struct AdminTeamsSettingsSetDiscoverabilityResponse: Codable, Hashable, Sendable {
@@ -3054,12 +2540,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsSetIconResponse`.
@@ -3095,13 +2575,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsSetNameResponse`.
     public struct AdminTeamsSettingsSetNameResponse: Codable, Hashable, Sendable {
@@ -3130,12 +2603,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsergroupsAddChannelsResponse`.
@@ -3166,12 +2633,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsergroupsAddTeamsResponse`.
     public struct AdminUsergroupsAddTeamsResponse: Codable, Hashable, Sendable {
@@ -3200,12 +2661,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsergroupsListChannelsResponse`.
@@ -3241,13 +2696,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channels
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsergroupsRemoveChannelsResponse`.
     public struct AdminUsergroupsRemoveChannelsResponse: Codable, Hashable, Sendable {
@@ -3277,12 +2725,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersAssignResponse`.
     public struct AdminUsersAssignResponse: Codable, Hashable, Sendable {
@@ -3311,12 +2753,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersInviteResponse`.
@@ -3351,13 +2787,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersListResponse`.
@@ -3398,14 +2827,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case users
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersRemoveResponse`.
     public struct AdminUsersRemoveResponse: Codable, Hashable, Sendable {
@@ -3435,12 +2856,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersSessionClearSettingsResponse`.
     public struct AdminUsersSessionClearSettingsResponse: Codable, Hashable, Sendable {
@@ -3469,12 +2884,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersSessionGetSettingsResponse`.
@@ -3515,14 +2924,6 @@ extension Components.Schemas {
             self.sessionSettings = sessionSettings
             self.noSettingsApplied = noSettingsApplied
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case sessionSettings
-            case noSettingsApplied
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersSessionInvalidateResponse`.
     public struct AdminUsersSessionInvalidateResponse: Codable, Hashable, Sendable {
@@ -3556,13 +2957,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersSessionListResponse`.
@@ -3603,14 +2997,6 @@ extension Components.Schemas {
             self.activeSessions = activeSessions
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case activeSessions
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersSessionResetResponse`.
     public struct AdminUsersSessionResetResponse: Codable, Hashable, Sendable {
@@ -3639,12 +3025,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersSessionResetBulkResponse`.
@@ -3675,12 +3055,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersSessionSetSettingsResponse`.
     public struct AdminUsersSessionSetSettingsResponse: Codable, Hashable, Sendable {
@@ -3709,12 +3083,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersSetAdminResponse`.
@@ -3745,12 +3113,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersSetExpirationResponse`.
     public struct AdminUsersSetExpirationResponse: Codable, Hashable, Sendable {
@@ -3779,12 +3141,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersSetOwnerResponse`.
@@ -3815,12 +3171,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersSetRegularResponse`.
     public struct AdminUsersSetRegularResponse: Codable, Hashable, Sendable {
@@ -3850,12 +3200,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminUsersUnsupportedVersionsExportResponse`.
     public struct AdminUsersUnsupportedVersionsExportResponse: Codable, Hashable, Sendable {
@@ -3884,12 +3228,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminWorkflowsCollaboratorsAddResponse`.
@@ -3930,14 +3268,6 @@ extension Components.Schemas {
             self.errors = errors
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case errors
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminWorkflowsCollaboratorsRemoveResponse`.
     public struct AdminWorkflowsCollaboratorsRemoveResponse: Codable, Hashable, Sendable {
@@ -3972,13 +3302,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case errors
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminWorkflowsPermissionsLookupResponse`.
     public struct AdminWorkflowsPermissionsLookupResponse: Codable, Hashable, Sendable {
@@ -4012,13 +3335,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case permissions
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AdminWorkflowsSearchResponse`.
@@ -4064,15 +3380,6 @@ extension Components.Schemas {
             self.totalFound = totalFound
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case workflows
-            case error
-            case needed
-            case provided
-            case totalFound
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/AdminWorkflowsUnpublishResponse`.
     public struct AdminWorkflowsUnpublishResponse: Codable, Hashable, Sendable {
@@ -4106,13 +3413,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
 }

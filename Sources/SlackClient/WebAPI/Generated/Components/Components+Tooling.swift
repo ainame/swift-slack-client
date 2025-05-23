@@ -76,19 +76,6 @@ extension Components.Schemas {
             self.teamId = teamId
             self.userId = userId
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case token
-            case iat
-            case exp
-            case responseMetadata
-            case refreshToken
-            case teamId
-            case userId
-        }
     }
 }
 #endif

@@ -46,13 +46,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case bot
-            case error
-            case needed
-            case provided
-        }
     }
 }
 #endif

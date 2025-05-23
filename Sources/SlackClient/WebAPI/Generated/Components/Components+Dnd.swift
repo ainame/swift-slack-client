@@ -41,12 +41,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse`.
     public struct DndEndSnoozeResponse: Codable, Hashable, Sendable {
@@ -96,16 +90,6 @@ extension Components.Schemas {
             self.nextDndEndTs = nextDndEndTs
             self.snoozeEnabled = snoozeEnabled
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case dndEnabled
-            case nextDndStartTs
-            case nextDndEndTs
-            case snoozeEnabled
-        }
     }
     /// - Remark: Generated from `#/components/schemas/DndInfoResponse`.
     public struct DndInfoResponse: Codable, Hashable, Sendable {
@@ -149,15 +133,6 @@ extension Components.Schemas {
             self.dndEnabled = dndEnabled
             self.nextDndStartTs = nextDndStartTs
             self.nextDndEndTs = nextDndEndTs
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case dndEnabled
-            case nextDndStartTs
-            case nextDndEndTs
         }
     }
     /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse`.
@@ -208,16 +183,6 @@ extension Components.Schemas {
             self.snoozeRemaining = snoozeRemaining
             self.snoozeIsIndefinite = snoozeIsIndefinite
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case snoozeEnabled
-            case snoozeEndtime
-            case snoozeRemaining
-            case snoozeIsIndefinite
-        }
     }
     /// - Remark: Generated from `#/components/schemas/DndTeamInfoResponse`.
     public struct DndTeamInfoResponse: Codable, Hashable, Sendable {
@@ -251,13 +216,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case users
-            case error
-            case needed
-            case provided
         }
     }
 }

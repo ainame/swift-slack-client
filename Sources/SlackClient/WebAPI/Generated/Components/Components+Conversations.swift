@@ -61,16 +61,6 @@ extension Components.Schemas {
             self.inviteId = inviteId
             self.canOpenScdm = canOpenScdm
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case implicitApproval
-            case channelId
-            case inviteId
-            case canOpenScdm
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsApproveSharedInviteResponse`.
     public struct ConversationsApproveSharedInviteResponse: Codable, Hashable, Sendable {
@@ -100,12 +90,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsArchiveResponse`.
     public struct ConversationsArchiveResponse: Codable, Hashable, Sendable {
@@ -134,12 +118,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsCanvasesCreateResponse`.
@@ -185,15 +163,6 @@ extension Components.Schemas {
             self.canvasId = canvasId
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case detail
-            case error
-            case needed
-            case provided
-            case canvasId
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsCloseResponse`.
     public struct ConversationsCloseResponse: Codable, Hashable, Sendable {
@@ -232,14 +201,6 @@ extension Components.Schemas {
             self.provided = provided
             self.alreadyClosed = alreadyClosed
             self.noOp = noOp
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case alreadyClosed
-            case noOp
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsCreateResponse`.
@@ -280,14 +241,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channel
-            case error
-            case detail
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsDeclineSharedInviteResponse`.
     public struct ConversationsDeclineSharedInviteResponse: Codable, Hashable, Sendable {
@@ -317,12 +270,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsExternalInvitePermissionsSetResponse`.
     public struct ConversationsExternalInvitePermissionsSetResponse: Codable, Hashable, Sendable {
@@ -351,12 +298,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse`.
@@ -427,20 +368,6 @@ extension Components.Schemas {
             self.channelActionsCount = channelActionsCount
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case messages
-            case error
-            case needed
-            case provided
-            case oldest
-            case latest
-            case hasMore
-            case pinCount
-            case channelActionsTs
-            case channelActionsCount
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsInfoResponse`.
     public struct ConversationsInfoResponse: Codable, Hashable, Sendable {
@@ -474,13 +401,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channel
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse`.
@@ -520,14 +440,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.errors = errors
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channel
-            case error
-            case needed
-            case provided
-            case errors
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse`.
@@ -578,16 +490,6 @@ extension Components.Schemas {
             self.confCode = confCode
             self.isLegacySharedChannel = isLegacySharedChannel
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case url
-            case needed
-            case provided
-            case inviteId
-            case confCode
-            case isLegacySharedChannel
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsJoinResponse`.
     public struct ConversationsJoinResponse: Codable, Hashable, Sendable {
@@ -632,15 +534,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channel
-            case warning
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsKickResponse`.
     public struct ConversationsKickResponse: Codable, Hashable, Sendable {
@@ -675,13 +568,6 @@ extension Components.Schemas {
             self.provided = provided
             self.errors = errors
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case errors
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsLeaveResponse`.
     public struct ConversationsLeaveResponse: Codable, Hashable, Sendable {
@@ -710,12 +596,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsListResponse`.
@@ -755,14 +635,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channels
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsListConnectInvitesResponse`.
@@ -808,15 +680,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case arg
-            case invites
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsMarkResponse`.
     public struct ConversationsMarkResponse: Codable, Hashable, Sendable {
@@ -845,12 +708,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsMembersResponse`.
@@ -890,14 +747,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case members
-            case error
-            case needed
-            case provided
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsOpenResponse`.
@@ -943,15 +792,6 @@ extension Components.Schemas {
             self.noOp = noOp
             self.alreadyOpen = alreadyOpen
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channel
-            case error
-            case needed
-            case provided
-            case noOp
-            case alreadyOpen
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsRenameResponse`.
     public struct ConversationsRenameResponse: Codable, Hashable, Sendable {
@@ -985,13 +825,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case channel
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse`.
@@ -1037,15 +870,6 @@ extension Components.Schemas {
             self.hasMore = hasMore
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case messages
-            case ok
-            case error
-            case needed
-            case provided
-            case hasMore
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteApproveResponse`.
     public struct ConversationsRequestSharedInviteApproveResponse: Codable, Hashable, Sendable {
@@ -1079,13 +903,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.inviteId = inviteId
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case inviteId
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteDenyResponse`.
@@ -1121,13 +938,6 @@ extension Components.Schemas {
             self.provided = provided
             self.inviteId = inviteId
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case inviteId
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteListResponse`.
     public struct ConversationsRequestSharedInviteListResponse: Codable, Hashable, Sendable {
@@ -1161,13 +971,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
             self.inviteRequests = inviteRequests
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case inviteRequests
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsSetPurposeResponse`.
@@ -1203,13 +1006,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channel
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsSetTopicResponse`.
     public struct ConversationsSetTopicResponse: Codable, Hashable, Sendable {
@@ -1244,13 +1040,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case channel
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsUnarchiveResponse`.
     public struct ConversationsUnarchiveResponse: Codable, Hashable, Sendable {
@@ -1279,12 +1068,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
 }

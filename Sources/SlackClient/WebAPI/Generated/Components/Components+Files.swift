@@ -46,13 +46,6 @@ extension Components.Schemas {
             self.provided = provided
             self.reqMethod = reqMethod
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case reqMethod
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesCommentsDeleteResponse`.
     public struct FilesCommentsDeleteResponse: Codable, Hashable, Sendable {
@@ -81,12 +74,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesCommentsEditResponse`.
@@ -121,13 +108,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case comment
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesCompleteUploadExternalResponse`.
@@ -168,14 +148,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case files
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesDeleteResponse`.
     public struct FilesDeleteResponse: Codable, Hashable, Sendable {
@@ -204,12 +176,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesGetUploadURLExternalResponse`.
@@ -254,15 +220,6 @@ extension Components.Schemas {
             self.uploadUrl = uploadUrl
             self.fileId = fileId
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
-            case uploadUrl
-            case fileId
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesInfoResponse`.
@@ -333,20 +290,6 @@ extension Components.Schemas {
             self.contentHighlightCss = contentHighlightCss
             self.contentHighlightHtmlTruncated = contentHighlightHtmlTruncated
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case file
-            case content
-            case comments
-            case paging
-            case error
-            case needed
-            case provided
-            case isTruncated
-            case contentHighlightHtml
-            case contentHighlightCss
-            case contentHighlightHtmlTruncated
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesListResponse`.
     public struct FilesListResponse: Codable, Hashable, Sendable {
@@ -386,14 +329,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case files
-            case paging
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRemoteAddResponse`.
     public struct FilesRemoteAddResponse: Codable, Hashable, Sendable {
@@ -428,13 +363,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case file
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRemoteInfoResponse`.
     public struct FilesRemoteInfoResponse: Codable, Hashable, Sendable {
@@ -468,13 +396,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case file
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRemoteListResponse`.
@@ -515,14 +436,6 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case files
-            case error
-            case needed
-            case provided
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRemoteRemoveResponse`.
     public struct FilesRemoteRemoveResponse: Codable, Hashable, Sendable {
@@ -551,12 +464,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRemoteShareResponse`.
@@ -592,13 +499,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case file
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRemoteUpdateResponse`.
     public struct FilesRemoteUpdateResponse: Codable, Hashable, Sendable {
@@ -632,13 +532,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case file
-            case error
-            case needed
-            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRevokePublicURLResponse`.
@@ -674,13 +567,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case file
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesSharedPublicURLResponse`.
     public struct FilesSharedPublicURLResponse: Codable, Hashable, Sendable {
@@ -715,13 +601,6 @@ extension Components.Schemas {
             self.needed = needed
             self.provided = provided
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case file
-            case error
-            case needed
-            case provided
-        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesUploadResponse`.
     public struct FilesUploadResponse: Codable, Hashable, Sendable {
@@ -755,13 +634,6 @@ extension Components.Schemas {
             self.error = error
             self.needed = needed
             self.provided = provided
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case file
-            case error
-            case needed
-            case provided
         }
     }
 }

@@ -66,17 +66,6 @@ extension Components.Schemas {
             self.invalidUserIds = invalidUserIds
             self.userIdMap = userIdMap
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case teamId
-            case enterpriseId
-            case invalidUserIds
-            case userIdMap
-        }
     }
 }
 #endif

@@ -56,15 +56,6 @@ extension Components.Schemas {
             self.view = view
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case view
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ViewsPublishResponse`.
     public struct ViewsPublishResponse: Codable, Hashable, Sendable {
@@ -108,15 +99,6 @@ extension Components.Schemas {
             self.provided = provided
             self.view = view
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case view
-            case responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/ViewsPushResponse`.
@@ -162,15 +144,6 @@ extension Components.Schemas {
             self.view = view
             self.responseMetadata = responseMetadata
         }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case view
-            case responseMetadata
-        }
     }
     /// - Remark: Generated from `#/components/schemas/ViewsUpdateResponse`.
     public struct ViewsUpdateResponse: Codable, Hashable, Sendable {
@@ -214,15 +187,6 @@ extension Components.Schemas {
             self.provided = provided
             self.view = view
             self.responseMetadata = responseMetadata
-        }
-        public enum CodingKeys: String, CodingKey {
-            case ok
-            case warning
-            case error
-            case needed
-            case provided
-            case view
-            case responseMetadata
         }
     }
 }

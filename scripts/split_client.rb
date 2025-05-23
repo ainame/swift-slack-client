@@ -621,6 +621,10 @@ class ClientSplitter
         content = header + "\n#if WebAPI_#{group}\nextension Components.Schemas {\n" +
                  adjusted_schemas.join + "}\n#endif\n"
       end
+      
+      # Apply transformations to remove CodingKeys and fix _type -> type
+      content = transform_components_content(content)
+      
       result[group] = content
     end
 
@@ -984,6 +988,41 @@ class ClientSplitter
     
     File.write(File.join(operations_dir, 'Operations+Base.swift'), base_content)
     puts "Created Operations/Operations+Base.swift"
+  end
+
+  def transform_components_content(content)
+    lines = content.lines
+    transformed_lines = []
+    skip_until_end = false
+    brace_depth = 0
+    
+    lines.each do |line|
+      stripped = line.strip
+      
+      # Skip CodingKeys enum completely
+      if stripped.match(/^public enum CodingKeys:/)
+        skip_until_end = true
+        brace_depth = 0
+        next
+      end
+      
+      if skip_until_end
+        brace_depth += line.count('{') - line.count('}')
+        if brace_depth < 0 && stripped == '}'
+          skip_until_end = false
+        end
+        next
+      end
+      
+      # Transform _type property to type
+      if line.include?('_type')
+        line = line.gsub(/\b_type\b/, 'type')
+      end
+      
+      transformed_lines << line
+    end
+    
+    transformed_lines.join
   end
 end
 
