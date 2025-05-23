@@ -3,6 +3,7 @@
 set -xe
 
 OUTPUT_DIR="Sources/SlackClient/WebAPI/Generated"
+TMP_DIR="./tmp"
 
 mkdir -p ./tmp
 
@@ -25,16 +26,14 @@ swift run swift-openapi-generator generate \
     --mode types \
     --access-modifier public \
     --naming-strategy idiomatic \
-    --output-directory "${OUTPUT_DIR}" \
+    --output-directory "${TMP_DIR}" \
     ./tmp/openapi.json
 
 swift run swift-openapi-generator generate \
     --mode client \
     --access-modifier internal \
     --naming-strategy idiomatic \
-    --output-directory "${OUTPUT_DIR}" \
+    --output-directory "${TMP_DIR}" \
     ./tmp/openapi.json
 
-ruby scripts/split_client.rb "${OUTPUT_PATH}"
-
-rm "${OUTPUT_PATH}/Client.swift"
+ruby scripts/split_client.rb "${TMP_DIR}" "${OUTPUT_DIR}"
