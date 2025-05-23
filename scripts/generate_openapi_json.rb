@@ -190,6 +190,7 @@ def generate_openapi_path(path)
     "#{method_name}": {
       # Slack seems accapt POST always
       post: {
+        tags: [method_name.split('.').first.capitalize],
         operationId: operation_id,
         summary: json['desc'],
         requestBody: request_body,
