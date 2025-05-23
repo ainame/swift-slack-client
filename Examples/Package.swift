@@ -12,7 +12,14 @@ let package = Package(
     platforms: [.macOS(.v14)],
     products: products(from: targets),
     dependencies: [
-        .package(path: "../", traits: ["SocketMode"]),
+        .package(
+            path: "../",
+            traits: [
+                "SocketMode",
+                "WebAPI_Apps",
+                "WebAPI_Chat",
+            ]
+        ),
         .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
     ],
     targets: [

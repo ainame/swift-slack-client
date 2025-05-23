@@ -18,7 +18,7 @@ struct CLI {
             )
         )
 
-        let result = try await slack.client.viewsOpen(.init(body: .json(.init(view: .init()))))
-        debugPrint(try result.ok.body.json)
+//        let result = try await slack.client.viewsOpen(.init(body: .json(.init(view: .init()))))
+//        debugPrint(try result.ok.body.json)
     }
 }
