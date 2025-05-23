@@ -1,14 +1,12 @@
+#if SocketMode
+
 import Foundation
 import HTTPTypes
-import OpenAPIRuntime
 import Logging
-
-#if SocketMode
 import NIOCore
+import OpenAPIRuntime
 import WSClient
-#endif
 
-#if SocketMode
 extension Slack {
     enum SocketMode {
         case notReady
@@ -26,7 +24,7 @@ extension Slack {
 }
 
 extension Slack {
-    public func startSocketMode() async throws {
+    public func runInSocketMode() async throws {
         let url = try await openConnection()
         try await doStartSocketMode(with: url)
     }
@@ -91,4 +89,5 @@ extension Slack {
         socketMode = .ready(webSocketOutboundWriter)
     }
 }
+
 #endif

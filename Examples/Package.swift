@@ -7,13 +7,12 @@ var targets: [Target] = []
 targets.append(executable("chatPostMessage"))
 targets.append(executable("views"))
 
-
 let package = Package(
     name: "Examples",
     platforms: [.macOS(.v14)],
     products: products(from: targets),
     dependencies: [
-        .package(path: "../"),
+        .package(path: "../", traits: ["SocketMode"]),
         .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
     ],
     targets: [

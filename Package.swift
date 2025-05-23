@@ -10,7 +10,8 @@ let package = Package(
         .library(name: "SlackClient", targets: ["SlackClient"])
     ],
     traits: [
-        .trait(name: "SocketMode")
+        .trait(name: "SocketMode"),
+        .default(enabledTraits: ["SocketMode"]),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.7.2"),
