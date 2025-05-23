@@ -3,16 +3,49 @@
 
 import PackageDescription
 
+// BEGIN: Generated WebAPI traits - Do not edit manually
+let webAPITraits: [String] = [
+    "WebAPI_Admin",
+    "WebAPI_Apps",
+    "WebAPI_Assistant",
+    "WebAPI_Auth",
+    "WebAPI_Bookmarks",
+    "WebAPI_Bots",
+    "WebAPI_Canvases",
+    "WebAPI_Chat",
+    "WebAPI_Conversations",
+    "WebAPI_DND",
+    "WebAPI_Emoji",
+    "WebAPI_Files",
+    "WebAPI_Functions",
+    "WebAPI_Migration",
+    "WebAPI_OAuth",
+    "WebAPI_OpenID",
+    "WebAPI_Pins",
+    "WebAPI_Reactions",
+    "WebAPI_Reminders",
+    "WebAPI_RTM",
+    "WebAPI_Search",
+    "WebAPI_Stars",
+    "WebAPI_Team",
+    "WebAPI_Tooling",
+    "WebAPI_Users",
+    "WebAPI_Views"
+]
+
+var traits: [Trait] = webAPITraits.map { .trait(name: $0) }
+// END: Generated WebAPI traits
+
+traits.append(.trait(name: "SocketMode"))
+traits.append(.default(enabledTraits: Set(webAPITraits).union(["SocketMode"])))
+
 let package = Package(
     name: "swift-slack-client",
     platforms: [.macOS(.v14)],
     products: [
         .library(name: "SlackClient", targets: ["SlackClient"])
     ],
-    traits: [
-        .trait(name: "SocketMode"),
-        .default(enabledTraits: ["SocketMode"]),
-    ],
+    traits: Set(traits),
     dependencies: [
         .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.7.2"),
         .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.8.2"),

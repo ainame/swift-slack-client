@@ -34,3 +34,7 @@ swift run swift-openapi-generator generate \
     --naming-strategy idiomatic \
     --output-directory "${OUTPUT_DIR}" \
     ./tmp/openapi.json
+
+ruby scripts/split_client.rb "${OUTPUT_PATH}"
+
+rm "${OUTPUT_PATH}/Client.swift"
