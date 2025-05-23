@@ -12,7 +12,7 @@ import struct Foundation.Date
 import HTTPTypes
 internal struct Client: APIProtocol {
     /// The underlying HTTP client.
-    private let client: UniversalClient
+    internal let client: UniversalClient
     /// Creates a new client.
     /// - Parameters:
     ///   - serverURL: The server URL that the client connects to. Any server
@@ -34,7 +34,7 @@ internal struct Client: APIProtocol {
             middlewares: middlewares
         )
     }
-    private var converter: Converter {
+    internal var converter: Converter {
         client.converter
     }
 }

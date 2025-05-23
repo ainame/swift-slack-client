@@ -40,7 +40,7 @@ class ClientSplitter
 
     puts "\nSplit complete!"
     puts "Generated files:"
-    puts "  - Base.swift (#{base_content.size} lines)"
+    puts "  - Client+Base.swift (#{base_content.size} lines)"
     functions.each { |group, content| puts "  - Client+#{capitalize_group_name(group)}.swift (#{content.size} lines)" }
   end
 
@@ -131,8 +131,12 @@ class ClientSplitter
   end
 
   def write_base_file(content)
-    File.write(File.join(@directory, 'Base.swift'), [*content, "}\n"].join)
-    puts "Created Base.swift"
+    # Change private access to internal for extension compatibility
+    updated_content = content.map do |line|
+      line.gsub(/^\s*private (let|var)\s/, '    internal \1 ')
+    end
+    File.write(File.join(@directory, 'Client+Base.swift'), [*updated_content, "}\n"].join)
+    puts "Created Client+Base.swift"
   end
 
   def write_group_files(functions, header_lines)
