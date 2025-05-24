@@ -16,8 +16,10 @@ let package = Package(
             path: "../",
             traits: [
                 "SocketMode",
+                "BlockKit",
                 "WebAPI_Apps",
                 "WebAPI_Chat",
+                "WebAPI_Views",
             ]
         ),
         .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
