@@ -1,4 +1,5 @@
 import Foundation
+import OpenAPIRuntime
 
 // https://docs.slack.dev/reference/interaction-payloads/block_actions-payload#fields
 public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendable {
@@ -6,8 +7,7 @@ public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendab
     public let triggerId: String?
     public let user: Components.Schemas.User
     public let team: Components.Schemas.Team
-    // TODO: implement Container
-    // public let container: Components.Schemas.Container
+    public let container: OpenAPIObjectContainer
     public let apiAppId: String?
     public let actions: [Components.Schemas.Block]?
     public let channel: Components.Schemas.Channel?
