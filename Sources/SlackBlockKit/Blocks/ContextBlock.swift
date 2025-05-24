@@ -47,11 +47,3 @@ public enum ContextElementType: Codable {
     }
 }
 
-// Protocol for elements that can be used in Context block
-public protocol ContextElement: Codable {
-    var type: String { get }
-}
-
-// Extend applicable elements to conform to ContextElement
-extension TextObject: ContextElement {}
-extension ImageElement: ContextElement {}

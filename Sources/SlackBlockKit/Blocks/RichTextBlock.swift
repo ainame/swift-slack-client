@@ -57,13 +57,9 @@ public enum RichTextElementType: Codable {
     }
 }
 
-// Protocol for rich text elements
-public protocol RichTextElement: Codable {
-    var type: String { get }
-}
 
 // Rich text element implementations based on Slack API specifications
-public struct RichTextSection: RichTextElement {
+public struct RichTextSection: Codable {
     public let type: String // "rich_text_section"
     public let elements: [RichTextContentElement]
     
@@ -73,7 +69,7 @@ public struct RichTextSection: RichTextElement {
     }
 }
 
-public struct RichTextList: RichTextElement {
+public struct RichTextList: Codable {
     public let type: String // "rich_text_list"
     public let style: RichTextListStyle
     public let elements: [RichTextSection]
@@ -97,7 +93,7 @@ public struct RichTextList: RichTextElement {
     }
 }
 
-public struct RichTextPreformatted: RichTextElement {
+public struct RichTextPreformatted: Codable {
     public let type: String // "rich_text_preformatted"
     public let elements: [RichTextContentElement]
     public let border: Int?
@@ -109,7 +105,7 @@ public struct RichTextPreformatted: RichTextElement {
     }
 }
 
-public struct RichTextQuote: RichTextElement {
+public struct RichTextQuote: Codable {
     public let type: String // "rich_text_quote"
     public let elements: [RichTextContentElement]
     public let border: Int?

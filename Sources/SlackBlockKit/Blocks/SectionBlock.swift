@@ -134,26 +134,3 @@ public enum SectionAccessory: Codable {
     }
 }
 
-// Protocol for elements that can be used as Section block accessories
-public protocol SectionAccessoryElement: Codable {
-    var type: String { get }
-}
-
-// Extend applicable elements to conform to SectionAccessoryElement
-extension ButtonElement: SectionAccessoryElement {}
-extension CheckboxesElement: SectionAccessoryElement {}
-extension DatePickerElement: SectionAccessoryElement {}
-extension ImageElement: SectionAccessoryElement {}
-extension MultiStaticSelectElement: SectionAccessoryElement {}
-extension MultiExternalSelectElement: SectionAccessoryElement {}
-extension MultiUsersSelectElement: SectionAccessoryElement {}
-extension MultiConversationsSelectElement: SectionAccessoryElement {}
-extension MultiChannelsSelectElement: SectionAccessoryElement {}
-extension OverflowMenuElement: SectionAccessoryElement {}
-extension RadioButtonsElement: SectionAccessoryElement {}
-extension StaticSelectElement: SectionAccessoryElement {}
-extension ExternalSelectElement: SectionAccessoryElement {}
-extension UsersSelectElement: SectionAccessoryElement {}
-extension ConversationsSelectElement: SectionAccessoryElement {}
-extension ChannelsSelectElement: SectionAccessoryElement {}
-extension TimePickerElement: SectionAccessoryElement {}

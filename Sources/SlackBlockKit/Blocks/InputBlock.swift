@@ -152,29 +152,3 @@ public enum InputElementType: Codable {
     }
 }
 
-// Protocol for elements that can be used in Input block
-public protocol InputElement: Codable {
-    var type: String { get }
-}
-
-// Extend applicable elements to conform to InputElement
-extension CheckboxesElement: InputElement {}
-extension DatePickerElement: InputElement {}
-extension DatetimePickerElement: InputElement {}
-extension EmailInputElement: InputElement {}
-extension FileInputElement: InputElement {}
-extension MultiStaticSelectElement: InputElement {}
-extension MultiExternalSelectElement: InputElement {}
-extension MultiUsersSelectElement: InputElement {}
-extension MultiConversationsSelectElement: InputElement {}
-extension MultiChannelsSelectElement: InputElement {}
-extension NumberInputElement: InputElement {}
-extension PlainTextInputElement: InputElement {}
-extension RadioButtonsElement: InputElement {}
-extension RichTextInputElement: InputElement {}
-extension StaticSelectElement: InputElement {}
-extension ExternalSelectElement: InputElement {}
-extension UsersSelectElement: InputElement {}
-extension ConversationsSelectElement: InputElement {}
-extension ChannelsSelectElement: InputElement {}
-extension TimePickerElement: InputElement {}
