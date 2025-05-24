@@ -62,6 +62,8 @@ def main(api_ref_paths, sample_json_paths, output_dir)
   end
   openapi['paths'] = paths
 
+  remove_orphan_schemas(openapi)
+
   # Output openapi_yaml
   File.write(File.join(output_dir, 'openapi.json'), JSON.pretty_generate(openapi))
 end
@@ -211,6 +213,19 @@ def generate_openapi_path(path)
   }
 
   base
+end
+
+def remove_orphan_schemas(openapi)
+  loop do
+    defined = openapi['components']['schemas'].keys
+    referenced = openapi.to_json.scan(%r{"#/components/schemas/([^"]+)"}).flatten.uniq
+    orphans = defined - referenced
+    break if orphans.empty?
+
+    orphans.each do |orphan|
+      openapi['components']['schemas'].delete(orphan)
+    end
+  end
 end
 
 main(api_ref_paths, sample_json_paths, output_dir)
