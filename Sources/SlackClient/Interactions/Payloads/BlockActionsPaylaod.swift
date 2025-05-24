@@ -1,5 +1,6 @@
 import Foundation
 import OpenAPIRuntime
+import SlackBlockKit
 
 // https://docs.slack.dev/reference/interaction-payloads/block_actions-payload#fields
 public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendable {
@@ -11,9 +12,9 @@ public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendab
     public let apiAppId: String?
     public let actions: [Components.Schemas.Block]?
     public let channel: Components.Schemas.Channel?
-    public let view: Components.Schemas.View
+    public let view: ViewType
 }
 
 extension BlockActionsPaylaod {
-    public var callbackId: String { view.callbackId! }
+    public var callbackId: String? { view.callbackId }
 }

@@ -1,4 +1,4 @@
-public enum ViewType: Codable, Hashable {
+public enum ViewType: Codable, Hashable, Sendable {
     case modal(ModalView)
     case homeTab(HomeTabView)
 
@@ -30,5 +30,14 @@ public enum ViewType: Codable, Hashable {
 
     private enum CodingKeys: String, CodingKey {
         case type
+    }
+
+    public var callbackId: String? {
+        switch self {
+        case .modal(let view):
+            view.callbackId
+        case .homeTab(let view):
+            view.callbackId
+        }
     }
 }

@@ -2,7 +2,7 @@ import Foundation
 
 public protocol InteractivePayloadProtocol: Sendable {
     var user: Components.Schemas.User { get }
-    var callbackId: String { get }
+    var callbackId: String? { get }
 }
 
 public enum InteractivePayload: Decodable, Sendable {
