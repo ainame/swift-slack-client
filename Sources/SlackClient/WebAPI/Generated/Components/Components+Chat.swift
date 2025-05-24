@@ -202,7 +202,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/ts`.
         public var ts: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/message`.
-        public var message: Components.Schemas.ChatPostMessageResponseMessage?
+        public var message: Components.Schemas.Message?
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/needed`.
@@ -232,7 +232,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             channel: Swift.String? = nil,
             ts: Swift.String? = nil,
-            message: Components.Schemas.ChatPostMessageResponseMessage? = nil,
+            message: Components.Schemas.Message? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,

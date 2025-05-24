@@ -305,7 +305,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/messages`.
-        public var messages: [Components.Schemas.MessageElement]?
+        public var messages: [Components.Schemas.Message]?
         /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/needed`.
@@ -343,7 +343,7 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            messages: [Components.Schemas.MessageElement]? = nil,
+            messages: [Components.Schemas.Message]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
@@ -830,7 +830,7 @@ extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse`.
     public struct ConversationsRepliesResponse: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/messages`.
-        public var messages: [Components.Schemas.MessageElement]?
+        public var messages: [Components.Schemas.Message]?
         /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/error`.
@@ -854,7 +854,7 @@ extension Components.Schemas {
         ///   - hasMore:
         ///   - responseMetadata:
         public init(
-            messages: [Components.Schemas.MessageElement]? = nil,
+            messages: [Components.Schemas.Message]? = nil,
             ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,

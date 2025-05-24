@@ -62,32 +62,7 @@ def main(api_ref_paths, sample_json_paths, output_dir)
   end
   openapi['paths'] = paths
 
-  # View and Block should be implemented by SlackBlockKit.
-  # To remove relevant schemas used within View and Block but proceed with swift-openapi-generator,
-  # empty View and Block and eventually remove generated code in different script.
-  empty_object = {
-    type: 'object',
-    properties: {},
-    additionalProperties: true
-  }
-  openapi['components']['schemas'].each do |key, value|
-    case key
-    when 'View', 'Block'
-      # View and Block should be empty
-      openapi['components']['schemas'][key] = empty_object
-    else
-      # Others referencing Block-ish should point Block
-      value['properties']&.each_key do |prop_name|
-        case prop_name
-        when /.*blocks$/i
-          openapi['components']['schemas'][key]['properties'][prop_name]['items']['$ref'] = '#/components/schemas/Block'
-        when /.*block$/i
-          openapi['components']['schemas'][key]['properties'][prop_name]['$ref'] = '#/components/schemas/Block'
-        end
-      end
-    end
-  end
-
+  adjust_schemas(openapi)
   remove_orphan_schemas(openapi)
 
   # Output openapi_yaml
@@ -239,6 +214,40 @@ def generate_openapi_path(path)
   }
 
   base
+end
+
+def adjust_schemas(openapi)
+  openapi['components']['schemas'].each do |key, value|
+    case key
+    when 'View', 'Block'
+      # View and Block should be implemented by SlackBlockKit.
+      # To remove relevant schemas used within View and Block but proceed with swift-openapi-generator,
+      # empty View and Block and eventually remove generated code in different script.
+      openapi['components']['schemas'][key] = {
+        type: 'object',
+        properties: {},
+        additionalProperties: true
+      }
+    else
+      value['properties']&.each_key do |prop_name|
+        # Match property name and corresponding type.
+        # quicktype produces wrong types due to inconsistency in sample json in java-slack-sdk.
+        case prop_name
+        when /.*block$/i
+          openapi['components']['schemas'][key]['properties'][prop_name]['$ref'] = '#/components/schemas/Block'
+        when /.*blocks$/i
+          openapi['components']['schemas'][key]['properties'][prop_name]['items']['$ref'] = '#/components/schemas/Block'
+        when /^message$/
+          openapi['components']['schemas'][key]['properties'][prop_name]['$ref'] = '#/components/schemas/Message'
+        when /^messages$/
+          # when messages array's element is object and not string type
+          if openapi['components']['schemas'][key]['properties'][prop_name].dig('items', '$ref')
+            openapi['components']['schemas'][key]['properties'][prop_name]['items']['$ref'] = '#/components/schemas/Message'
+          end
+        end
+      end
+    end
+  end
 end
 
 def remove_orphan_schemas(openapi)
