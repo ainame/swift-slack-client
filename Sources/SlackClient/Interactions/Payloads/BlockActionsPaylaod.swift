@@ -1,7 +1,7 @@
 import Foundation
 
 // https://docs.slack.dev/reference/interaction-payloads/block_actions-payload#fields
-public struct BlockActionsPaylaod: InteractionPayload, Decodable, Sendable {
+public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendable {
     public let type: String // "block_actions"
     public let triggerId: String?
     public let user: Components.Schemas.User

@@ -1,9 +1,9 @@
 import Foundation
 
 // https://docs.slack.dev/reference/interaction-payloads
-public struct InteractionPayloadWrapper: Decodable, Sendable {
+public struct InteractiveEnvelope: Decodable, Sendable {
     public let type: String
-    public let body: InteractionPayloadType
+    public let body: InteractivePayload
 
     enum CodingKeys: CodingKey {
         case type

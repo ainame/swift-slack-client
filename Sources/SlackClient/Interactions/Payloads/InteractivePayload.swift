@@ -1,11 +1,11 @@
 import Foundation
 
-public protocol InteractionPayload: Sendable {
+public protocol InteractivePayloadProtocol: Sendable {
     var user: Components.Schemas.User { get }
     var callbackId: String { get }
 }
 
-public enum InteractionPayloadType: Decodable, Sendable {
+public enum InteractivePayload: Decodable, Sendable {
     case blockActions(BlockActionsPaylaod)
     case shortcut(GlobalShortcutPayload)
     case viewSubmission(ViewSubmissionPayload)
@@ -13,7 +13,7 @@ public enum InteractionPayloadType: Decodable, Sendable {
     case unsupported(String)
 }
 
-extension InteractionPayloadType {
+extension InteractivePayload {
     public var type: String {
         switch self {
         case let .blockActions(payload): payload.type

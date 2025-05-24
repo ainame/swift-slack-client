@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ViewSubmissionPayload: InteractionPayload, Decodable, Sendable {
+public struct ViewSubmissionPayload: InteractivePayloadProtocol, Decodable, Sendable {
     public let type: String // view_submission
     public let team: Components.Schemas.Team
     public let user: Components.Schemas.User

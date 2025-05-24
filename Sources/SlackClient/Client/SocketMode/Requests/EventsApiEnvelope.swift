@@ -2,7 +2,7 @@ import Foundation
 
 // Outer structure is a common wrapper to accomodate specific event's inner event payload on `event` field
 // https://api.slack.com/types/event
-public struct EventPayload: Decodable, Sendable {
+public struct EventsApiEnvelope: Decodable, Sendable {
     public let teamId: String
     public let apiAppId: String
     public let event: Event
@@ -11,14 +11,14 @@ public struct EventPayload: Decodable, Sendable {
     public let eventTime: Int
 }
 
-extension EventPayload {
+extension EventsApiEnvelope {
     // Inner event structure varies depending on what API you use
     public enum Event: Decodable, Sendable {
         case appMentionEvent(AppMentionEvent)
     }
 }
 
-extension EventPayload.Event {
+extension EventsApiEnvelope.Event {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let type = try container.decode(String.self, forKey: .type)
