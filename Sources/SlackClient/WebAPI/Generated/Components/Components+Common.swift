@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackBlockKit)
+import SlackBlockKit
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 extension Components.Schemas {
@@ -2694,7 +2698,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/Message/username`.
         public var username: Swift.String?
         /// - Remark: Generated from `#/components/schemas/Message/blocks`.
-        public var blocks: [Components.Schemas.Block]?
+        public var blocks: [SlackBlockKit.BlockType]?
         /// - Remark: Generated from `#/components/schemas/Message/subscribed`.
         public var subscribed: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/Message/reactions`.
@@ -2772,7 +2776,7 @@ extension Components.Schemas {
             permalink: Swift.String? = nil,
             subtype: Swift.String? = nil,
             username: Swift.String? = nil,
-            blocks: [Components.Schemas.Block]? = nil,
+            blocks: [SlackBlockKit.BlockType]? = nil,
             subscribed: Swift.Bool? = nil,
             reactions: [Components.Schemas.Reaction]? = nil,
             edited: Components.Schemas.Edited? = nil,
@@ -2847,7 +2851,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/Attachment/actions`.
         public var actions: [Components.Schemas.Action]?
         /// - Remark: Generated from `#/components/schemas/Attachment/blocks`.
-        public var blocks: [Components.Schemas.Block]?
+        public var blocks: [SlackBlockKit.BlockType]?
         /// - Remark: Generated from `#/components/schemas/Attachment/preview`.
         public var preview: Components.Schemas.Preview?
         /// - Remark: Generated from `#/components/schemas/Attachment/files`.
@@ -3004,7 +3008,7 @@ extension Components.Schemas {
             footer: Swift.String? = nil,
             ts: Swift.String? = nil,
             actions: [Components.Schemas.Action]? = nil,
-            blocks: [Components.Schemas.Block]? = nil,
+            blocks: [SlackBlockKit.BlockType]? = nil,
             preview: Components.Schemas.Preview? = nil,
             files: [Components.Schemas.FileElement]? = nil,
             filename: Swift.String? = nil,
@@ -5675,7 +5679,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ListMetadata/schema`.
         public var schema: [Components.Schemas.Schema]?
         /// - Remark: Generated from `#/components/schemas/ListMetadata/views`.
-        public var views: [Components.Schemas.View]?
+        public var views: [SlackBlockKit.ViewType]?
         /// - Remark: Generated from `#/components/schemas/ListMetadata/integrations`.
         public var integrations: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/ListMetadata/iconUrl`.
@@ -5705,7 +5709,7 @@ extension Components.Schemas {
             icon: Swift.String? = nil,
             description: Swift.String? = nil,
             schema: [Components.Schemas.Schema]? = nil,
-            views: [Components.Schemas.View]? = nil,
+            views: [SlackBlockKit.ViewType]? = nil,
             integrations: [Swift.String]? = nil,
             iconUrl: Swift.String? = nil,
             iconTeamId: Swift.String? = nil,
@@ -5820,7 +5824,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/View/close`.
         public var close: Components.Schemas.Close?
         /// - Remark: Generated from `#/components/schemas/View/blocks`.
-        public var blocks: [Components.Schemas.Block]?
+        public var blocks: [SlackBlockKit.BlockType]?
         /// - Remark: Generated from `#/components/schemas/View/state`.
         public var state: Components.Schemas.State?
         /// - Remark: Generated from `#/components/schemas/View/hash`.
@@ -5878,7 +5882,7 @@ extension Components.Schemas {
             title: Components.Schemas.Close? = nil,
             submit: Components.Schemas.Close? = nil,
             close: Components.Schemas.Close? = nil,
-            blocks: [Components.Schemas.Block]? = nil,
+            blocks: [SlackBlockKit.BlockType]? = nil,
             state: Components.Schemas.State? = nil,
             hash: Swift.String? = nil,
             teamId: Swift.String? = nil,

@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackBlockKit)
+import SlackBlockKit
+#endif
 /// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_Views
@@ -33,7 +37,7 @@ public enum ViewsOpen {
             /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json`.
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/view`.
-                public var view: Components.Schemas.View
+                public var view: SlackBlockKit.ViewType
                 /// Exchange a trigger to post to the user.
                 ///
                 /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/triggerId`.
@@ -49,7 +53,7 @@ public enum ViewsOpen {
                 ///   - triggerId: Exchange a trigger to post to the user.
                 ///   - interactivityPointer: Exchange an interactivity pointer to post to the user.
                 public init(
-                    view: Components.Schemas.View,
+                    view: SlackBlockKit.ViewType,
                     triggerId: Swift.String? = nil,
                     interactivityPointer: Swift.String? = nil
                 ) {
@@ -187,7 +191,7 @@ public enum ViewsPublish {
                 /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/userId`.
                 public var userId: Swift.String
                 /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/view`.
-                public var view: Components.Schemas.View
+                public var view: SlackBlockKit.ViewType
                 /// A string that represents view state to protect against possible race conditions.
                 ///
                 /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/hash`.
@@ -200,7 +204,7 @@ public enum ViewsPublish {
                 ///   - hash: A string that represents view state to protect against possible race conditions.
                 public init(
                     userId: Swift.String,
-                    view: Components.Schemas.View,
+                    view: SlackBlockKit.ViewType,
                     hash: Swift.String? = nil
                 ) {
                     self.userId = userId
@@ -333,7 +337,7 @@ public enum ViewsPush {
             /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json`.
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/view`.
-                public var view: Components.Schemas.View
+                public var view: SlackBlockKit.ViewType
                 /// Exchange a trigger to post to the user.
                 ///
                 /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/triggerId`.
@@ -349,7 +353,7 @@ public enum ViewsPush {
                 ///   - triggerId: Exchange a trigger to post to the user.
                 ///   - interactivityPointer: Exchange an interactivity pointer to post to the user.
                 public init(
-                    view: Components.Schemas.View,
+                    view: SlackBlockKit.ViewType,
                     triggerId: Swift.String? = nil,
                     interactivityPointer: Swift.String? = nil
                 ) {
@@ -483,7 +487,7 @@ public enum ViewsUpdate {
             /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json`.
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/view`.
-                public var view: Components.Schemas.View
+                public var view: SlackBlockKit.ViewType
                 /// A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is required.
                 ///
                 /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/externalId`.
@@ -504,7 +508,7 @@ public enum ViewsUpdate {
                 ///   - viewId: A unique identifier of the view to be updated. Either view_id or external_id is required.
                 ///   - hash: A string that represents view state to protect against possible race conditions.
                 public init(
-                    view: Components.Schemas.View,
+                    view: SlackBlockKit.ViewType,
                     externalId: Swift.String? = nil,
                     viewId: Swift.String? = nil,
                     hash: Swift.String? = nil

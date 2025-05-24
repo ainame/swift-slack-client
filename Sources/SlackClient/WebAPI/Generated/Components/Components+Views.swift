@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackBlockKit)
+import SlackBlockKit
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Views
@@ -26,7 +30,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ViewsOpenResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ViewsOpenResponse/view`.
-        public var view: Components.Schemas.View?
+        public var view: SlackBlockKit.ViewType?
         /// - Remark: Generated from `#/components/schemas/ViewsOpenResponse/responseMetadata`.
         public var responseMetadata: Components.Schemas.ResponseMetadata?
         /// Creates a new `ViewsOpenResponse`.
@@ -45,7 +49,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            view: Components.Schemas.View? = nil,
+            view: SlackBlockKit.ViewType? = nil,
             responseMetadata: Components.Schemas.ResponseMetadata? = nil
         ) {
             self.ok = ok
@@ -70,7 +74,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ViewsPublishResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ViewsPublishResponse/view`.
-        public var view: Components.Schemas.View?
+        public var view: SlackBlockKit.ViewType?
         /// - Remark: Generated from `#/components/schemas/ViewsPublishResponse/responseMetadata`.
         public var responseMetadata: Components.Schemas.ResponseMetadata?
         /// Creates a new `ViewsPublishResponse`.
@@ -89,7 +93,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            view: Components.Schemas.View? = nil,
+            view: SlackBlockKit.ViewType? = nil,
             responseMetadata: Components.Schemas.ResponseMetadata? = nil
         ) {
             self.ok = ok
@@ -114,7 +118,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ViewsPushResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ViewsPushResponse/view`.
-        public var view: Components.Schemas.View?
+        public var view: SlackBlockKit.ViewType?
         /// - Remark: Generated from `#/components/schemas/ViewsPushResponse/responseMetadata`.
         public var responseMetadata: Components.Schemas.ResponseMetadata?
         /// Creates a new `ViewsPushResponse`.
@@ -133,7 +137,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            view: Components.Schemas.View? = nil,
+            view: SlackBlockKit.ViewType? = nil,
             responseMetadata: Components.Schemas.ResponseMetadata? = nil
         ) {
             self.ok = ok
@@ -158,7 +162,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ViewsUpdateResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ViewsUpdateResponse/view`.
-        public var view: Components.Schemas.View?
+        public var view: SlackBlockKit.ViewType?
         /// - Remark: Generated from `#/components/schemas/ViewsUpdateResponse/responseMetadata`.
         public var responseMetadata: Components.Schemas.ResponseMetadata?
         /// Creates a new `ViewsUpdateResponse`.
@@ -177,7 +181,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            view: Components.Schemas.View? = nil,
+            view: SlackBlockKit.ViewType? = nil,
             responseMetadata: Components.Schemas.ResponseMetadata? = nil
         ) {
             self.ok = ok

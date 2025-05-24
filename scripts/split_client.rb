@@ -144,12 +144,39 @@ class ClientSplitter
     updated_content = content.map do |line|
       line.gsub(/^\s*private (let|var)\s/, '    internal \1 ')
     end
+    
+    # Transform schema references
+    final_content = updated_content.map do |line|
+      transform_client_functions(line)
+    end
+    
+    # Check if we need SlackBlockKit import
+    content_string = final_content.join
+    needs_slackblockkit_import = content_string.include?('SlackBlockKit.ViewType') || 
+                                content_string.include?('SlackBlockKit.BlockType')
+    
+    if needs_slackblockkit_import
+      # Find the end of the conditional import block (#endif)
+      endif_index = final_content.find_index { |line| line.strip == '#endif' }
+      if endif_index
+        # Insert after #endif
+        final_content.insert(endif_index + 1, "\n#if canImport(SlackBlockKit)\nimport SlackBlockKit\n#endif\n")
+      else
+        # No conditional block found, add at the end of imports
+        last_import_index = final_content.rindex { |line| line.strip.start_with?('import ') }
+        if last_import_index
+          final_content.insert(last_import_index + 1, "\n#if canImport(SlackBlockKit)\nimport SlackBlockKit\n#endif\n")
+        else
+          final_content.unshift("#if canImport(SlackBlockKit)\nimport SlackBlockKit\n#endif\n")
+        end
+      end
+    end
 
     # Create Client subdirectory
     client_dir = File.join(@output_directory, 'Client')
     FileUtils.mkdir_p(client_dir)
 
-    File.write(File.join(client_dir, 'Client+Base.swift'), [*updated_content, "}\n"].join)
+    File.write(File.join(client_dir, 'Client+Base.swift'), [*final_content, "}\n"].join)
     puts "Created Client/Client+Base.swift"
   end
 
@@ -168,15 +195,82 @@ class ClientSplitter
   def generate_extension_content(group, functions, header_lines)
     trait = "WebAPI_#{capitalize_group_name(group)}"
     header = header_lines.join
+    functions_content = functions.join
+    
+    # Check if we need SlackBlockKit import
+    needs_slackblockkit_import = functions_content.match(/\bComponents\.Schemas\.View\b/) || 
+                                functions_content.match(/\bComponents\.Schemas\.Block\b/)
+    
+    # Transform the functions content
+    transformed_functions = transform_client_functions(functions_content)
+    
+    # Add SlackBlockKit import to header if needed
+    final_header = if needs_slackblockkit_import
+      header_lines_array = header_lines.dup
+      # Find the end of the conditional import block (#endif)
+      endif_index = header_lines_array.find_index { |line| line.strip == '#endif' }
+      if endif_index
+        # Insert after #endif
+        header_lines_array.insert(endif_index + 1, "\n#if canImport(SlackBlockKit)\nimport SlackBlockKit\n#endif\n")
+      else
+        # No conditional block found, add at the end of imports
+        last_import_index = header_lines_array.rindex { |line| line.strip.start_with?('import ') }
+        if last_import_index
+          header_lines_array.insert(last_import_index + 1, "\n#if canImport(SlackBlockKit)\nimport SlackBlockKit\n#endif\n")
+        else
+          header_lines_array.unshift("#if canImport(SlackBlockKit)\nimport SlackBlockKit\n#endif\n")
+        end
+      end
+      header_lines_array.join
+    else
+      header
+    end
 
     <<~SWIFT
       #if #{trait}
-      #{header}
+      #{final_header}
       extension Client {
-      #{functions.join}
+      #{transformed_functions}
       }
       #endif
     SWIFT
+  end
+  
+  def transform_client_functions(content)
+    content.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.ViewType')
+           .gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.BlockType')
+  end
+  
+  def transform_operations_content(content)
+    # Check if we need SlackBlockKit import
+    needs_slackblockkit_import = content.match(/\bComponents\.Schemas\.View\b/) || 
+                                content.match(/\bComponents\.Schemas\.Block\b/)
+    
+    # Apply transformations
+    transformed_content = content.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.ViewType')
+                                .gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.BlockType')
+    
+    # Add SlackBlockKit import if needed
+    if needs_slackblockkit_import
+      lines = transformed_content.lines
+      # Find the end of the conditional import block (#endif)
+      endif_index = lines.find_index { |line| line.strip == '#endif' }
+      if endif_index
+        # Insert after #endif
+        lines.insert(endif_index + 1, "\n#if canImport(SlackBlockKit)\nimport SlackBlockKit\n#endif\n")
+      else
+        # No conditional block found, add at the end of imports
+        last_import_index = lines.rindex { |line| line.strip.start_with?('import ') }
+        if last_import_index
+          lines.insert(last_import_index + 1, "\n#if canImport(SlackBlockKit)\nimport SlackBlockKit\n#endif\n")
+        else
+          lines.unshift("#if canImport(SlackBlockKit)\nimport SlackBlockKit\n#endif\n")
+        end
+      end
+      transformed_content = lines.join
+    end
+    
+    transformed_content
   end
 
   def update_package_swift(groups)
@@ -743,6 +837,10 @@ class ClientSplitter
       
       content = header + "\n#if #{trait}\nextension Operations {\n" +
                adjusted_operations.join + "}\n#endif\n"
+      
+      # Apply transformations to operations content
+      content = transform_operations_content(content)
+      
       result[group] = content
     end
 
@@ -995,6 +1093,7 @@ class ClientSplitter
     transformed_lines = []
     skip_until_end = false
     brace_depth = 0
+    needs_slackblockkit_import = false
     
     lines.each do |line|
       stripped = line.strip
@@ -1019,7 +1118,37 @@ class ClientSplitter
         line = line.gsub(/\b_type\b/, 'type')
       end
       
+      # Replace Components.Schemas.View with SlackBlockKit.ViewType (exact match only)
+      if line.match(/\bComponents\.Schemas\.View\b/)
+        line = line.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.ViewType')
+        needs_slackblockkit_import = true
+      end
+      
+      # Replace Components.Schemas.Block with SlackBlockKit.BlockType (exact match only)
+      if line.match(/\bComponents\.Schemas\.Block\b/)
+        line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.BlockType')
+        needs_slackblockkit_import = true
+      end
+      
       transformed_lines << line
+    end
+    
+    # Add SlackBlockKit import if needed
+    if needs_slackblockkit_import
+      # Find the end of the conditional import block (#endif)
+      endif_index = transformed_lines.find_index { |line| line.strip == '#endif' }
+      if endif_index
+        # Insert after #endif
+        transformed_lines.insert(endif_index + 1, "\n#if canImport(SlackBlockKit)\nimport SlackBlockKit\n#endif\n")
+      else
+        # No conditional block found, add at the end of imports
+        last_import_index = transformed_lines.rindex { |line| line.strip.start_with?('import ') }
+        if last_import_index
+          transformed_lines.insert(last_import_index + 1, "\n#if canImport(SlackBlockKit)\nimport SlackBlockKit\n#endif\n")
+        else
+          transformed_lines.unshift("#if canImport(SlackBlockKit)\nimport SlackBlockKit\n#endif\n")
+        end
+      end
     end
     
     transformed_lines.join
