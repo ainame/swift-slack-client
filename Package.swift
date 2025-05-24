@@ -43,7 +43,8 @@ let package = Package(
     name: "swift-slack-client",
     platforms: [.macOS(.v14)],
     products: [
-        .library(name: "SlackClient", targets: ["SlackClient"])
+        .library(name: "SlackClient", targets: ["SlackClient"]),
+        .library(name: "SlackBlockKit", targets: ["SlackBlockKit"]),
     ],
     traits: Set(traits),
     dependencies: [
@@ -62,6 +63,7 @@ let package = Package(
                 ),
             ]
         ),
+        .target(name: "SlackBlockKit"),
         .testTarget(
             name: "SlackClientTests",
             dependencies: ["SlackClient"],
