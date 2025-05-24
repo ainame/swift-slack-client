@@ -1,6 +1,6 @@
 import Foundation
 
-public struct HeaderBlock: Codable {
+public struct HeaderBlock: Codable, Hashable, Sendable {
     public let type: String // "header"
     public let text: TextObject
     public let blockId: String?

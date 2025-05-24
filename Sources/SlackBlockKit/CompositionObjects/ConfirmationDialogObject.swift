@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ConfirmationDialogObject: Codable {
+public struct ConfirmationDialogObject: Codable, Hashable, Sendable {
     public let title: TextObject
     public let text: TextObject
     public let confirm: TextObject
@@ -16,7 +16,7 @@ public struct ConfirmationDialogObject: Codable {
     }
 }
 
-public enum ConfirmationStyle: String, Codable {
+public enum ConfirmationStyle: String, Codable, Hashable, Sendable {
     case danger = "danger"
     case primary = "primary"
 }

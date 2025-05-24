@@ -1,6 +1,6 @@
 import Foundation
 
-public struct RadioButtonsElement: Codable {
+public struct RadioButtonsElement: Codable, Hashable, Sendable {
     public let type: String // "radio_buttons"
     public let options: [OptionObject]
     public let actionId: String?

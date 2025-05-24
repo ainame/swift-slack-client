@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ActionsBlock: Codable {
+public struct ActionsBlock: Codable, Hashable, Sendable {
     public let type: String // "actions"
     public let elements: [ActionElementType]
     public let blockId: String?
@@ -12,7 +12,7 @@ public struct ActionsBlock: Codable {
     }
 }
 
-public enum ActionElementType: Codable {
+public enum ActionElementType: Codable, Hashable, Sendable {
     case button(ButtonElement)
     case checkboxes(CheckboxesElement)
     case datePicker(DatePickerElement)

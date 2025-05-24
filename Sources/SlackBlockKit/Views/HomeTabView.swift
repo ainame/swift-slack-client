@@ -1,6 +1,6 @@
 import Foundation
 
-public struct HomeTabView: Codable {
+public struct HomeTabView: Codable, Hashable, Sendable {
     public let type: String // "home"
     public let blocks: [BlockType]
     public let privateMetadata: String?

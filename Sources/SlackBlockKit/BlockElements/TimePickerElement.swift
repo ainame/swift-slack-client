@@ -1,6 +1,6 @@
 import Foundation
 
-public struct TimePickerElement: Codable {
+public struct TimePickerElement: Codable, Hashable, Sendable {
     public let type: String // "timepicker"
     public let actionId: String?
     public let initialTime: String?

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct EmailInputElement: Codable {
+public struct EmailInputElement: Codable, Hashable, Sendable {
     public let type: String // "email_text_input"
     public let actionId: String?
     public let initialValue: String?

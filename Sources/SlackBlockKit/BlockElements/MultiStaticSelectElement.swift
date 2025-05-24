@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MultiStaticSelectElement: Codable {
+public struct MultiStaticSelectElement: Codable, Hashable, Sendable {
     public let type: String // "multi_static_select"
     public let actionId: String?
     public let options: [OptionObject]

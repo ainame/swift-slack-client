@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ConversationsSelectElement: Codable {
+public struct ConversationsSelectElement: Codable, Hashable, Sendable {
     public let type: String // "conversations_select"
     public let actionId: String?
     public let initialConversation: String?

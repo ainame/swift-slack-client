@@ -1,6 +1,6 @@
 import Foundation
 
-public struct OptionObject: Codable {
+public struct OptionObject: Codable, Hashable, Sendable {
     public let text: TextObject
     public let value: String
     public let description: TextObject?

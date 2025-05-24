@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MultiChannelsSelectElement: Codable {
+public struct MultiChannelsSelectElement: Codable, Hashable, Sendable {
     public let type: String // "multi_channels_select"
     public let actionId: String?
     public let initialChannels: [String]?

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct RichTextBlock: Codable {
+public struct RichTextBlock: Codable, Hashable, Sendable {
     public let type: String // "rich_text"
     public let elements: [RichTextElementType]
     public let blockId: String?
@@ -12,7 +12,7 @@ public struct RichTextBlock: Codable {
     }
 }
 
-public enum RichTextElementType: Codable {
+public enum RichTextElementType: Codable, Hashable, Sendable {
     case section(RichTextSection)
     case list(RichTextList)
     case preformatted(RichTextPreformatted)
@@ -59,7 +59,7 @@ public enum RichTextElementType: Codable {
 
 
 // Rich text element implementations based on Slack API specifications
-public struct RichTextSection: Codable {
+public struct RichTextSection: Codable, Hashable, Sendable {
     public let type: String // "rich_text_section"
     public let elements: [RichTextContentElement]
     
@@ -69,7 +69,7 @@ public struct RichTextSection: Codable {
     }
 }
 
-public struct RichTextList: Codable {
+public struct RichTextList: Codable, Hashable, Sendable {
     public let type: String // "rich_text_list"
     public let style: RichTextListStyle
     public let elements: [RichTextSection]
@@ -93,7 +93,7 @@ public struct RichTextList: Codable {
     }
 }
 
-public struct RichTextPreformatted: Codable {
+public struct RichTextPreformatted: Codable, Hashable, Sendable {
     public let type: String // "rich_text_preformatted"
     public let elements: [RichTextContentElement]
     public let border: Int?
@@ -105,7 +105,7 @@ public struct RichTextPreformatted: Codable {
     }
 }
 
-public struct RichTextQuote: Codable {
+public struct RichTextQuote: Codable, Hashable, Sendable {
     public let type: String // "rich_text_quote"
     public let elements: [RichTextContentElement]
     public let border: Int?
@@ -117,12 +117,12 @@ public struct RichTextQuote: Codable {
     }
 }
 
-public enum RichTextListStyle: String, Codable {
+public enum RichTextListStyle: String, Codable, Hashable, Sendable {
     case bullet = "bullet"
     case ordered = "ordered"
 }
 
-public enum RichTextContentElement: Codable {
+public enum RichTextContentElement: Codable, Hashable, Sendable {
     case text(RichTextTextElement)
     case link(RichTextLinkElement)
     case emoji(RichTextEmojiElement)
@@ -183,7 +183,7 @@ public enum RichTextContentElement: Codable {
 }
 
 // Rich text content elements
-public struct RichTextTextElement: Codable {
+public struct RichTextTextElement: Codable, Hashable, Sendable {
     public let type: String // "text"
     public let text: String
     public let style: RichTextTextStyle?
@@ -195,7 +195,7 @@ public struct RichTextTextElement: Codable {
     }
 }
 
-public struct RichTextTextStyle: Codable {
+public struct RichTextTextStyle: Codable, Hashable, Sendable {
     public let bold: Bool?
     public let italic: Bool?
     public let strike: Bool?
@@ -209,7 +209,7 @@ public struct RichTextTextStyle: Codable {
     }
 }
 
-public struct RichTextLinkElement: Codable {
+public struct RichTextLinkElement: Codable, Hashable, Sendable {
     public let type: String // "link"
     public let url: String
     public let text: String?
@@ -225,7 +225,7 @@ public struct RichTextLinkElement: Codable {
     }
 }
 
-public struct RichTextEmojiElement: Codable {
+public struct RichTextEmojiElement: Codable, Hashable, Sendable {
     public let type: String // "emoji"
     public let name: String
     public let unicode: String?
@@ -237,7 +237,7 @@ public struct RichTextEmojiElement: Codable {
     }
 }
 
-public struct RichTextUserElement: Codable {
+public struct RichTextUserElement: Codable, Hashable, Sendable {
     public let type: String // "user"
     public let userId: String
     public let style: RichTextUserStyle?
@@ -249,7 +249,7 @@ public struct RichTextUserElement: Codable {
     }
 }
 
-public struct RichTextUserStyle: Codable {
+public struct RichTextUserStyle: Codable, Hashable, Sendable {
     public let bold: Bool?
     public let italic: Bool?
     public let strike: Bool?
@@ -274,7 +274,7 @@ public struct RichTextUserStyle: Codable {
     }
 }
 
-public struct RichTextChannelElement: Codable {
+public struct RichTextChannelElement: Codable, Hashable, Sendable {
     public let type: String // "channel"
     public let channelId: String
     public let style: RichTextUserStyle?
@@ -286,7 +286,7 @@ public struct RichTextChannelElement: Codable {
     }
 }
 
-public struct RichTextDateElement: Codable {
+public struct RichTextDateElement: Codable, Hashable, Sendable {
     public let type: String // "date"
     public let timestamp: Int
     public let format: String
@@ -302,7 +302,7 @@ public struct RichTextDateElement: Codable {
     }
 }
 
-public struct RichTextBroadcastElement: Codable {
+public struct RichTextBroadcastElement: Codable, Hashable, Sendable {
     public let type: String // "broadcast"
     public let range: String
     

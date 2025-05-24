@@ -1,6 +1,6 @@
 import Foundation
 
-public struct OverflowMenuElement: Codable {
+public struct OverflowMenuElement: Codable, Hashable, Sendable {
     public let type: String // "overflow"
     public let actionId: String?
     public let options: [OptionObject]

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ImageElement: Codable {
+public struct ImageElement: Codable, Hashable, Sendable {
     public let type: String // "image"
     public let altText: String
     public let imageUrl: URL?

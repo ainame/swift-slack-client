@@ -1,6 +1,6 @@
 import Foundation
 
-public struct RichTextInputElement: Codable {
+public struct RichTextInputElement: Codable, Hashable, Sendable {
     public let type: String // "rich_text_input"
     public let actionId: String
     public let initialValue: RichTextObject?
@@ -25,7 +25,7 @@ public struct RichTextInputElement: Codable {
 }
 
 // Rich Text Object for input elements - based on rich text specifications
-public struct RichTextObject: Codable {
+public struct RichTextObject: Codable, Hashable, Sendable {
     public let type: String // "rich_text"
     public let elements: [RichTextElementType]
     

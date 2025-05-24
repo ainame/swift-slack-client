@@ -1,6 +1,6 @@
 import Foundation
 
-public struct VideoBlock: Codable {
+public struct VideoBlock: Codable, Hashable, Sendable {
     public let type: String // "video"
     public let altText: String
     public let videoUrl: URL

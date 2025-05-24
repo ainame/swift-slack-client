@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MultiUsersSelectElement: Codable {
+public struct MultiUsersSelectElement: Codable, Hashable, Sendable {
     public let type: String // "multi_users_select"
     public let actionId: String?
     public let initialUsers: [String]?

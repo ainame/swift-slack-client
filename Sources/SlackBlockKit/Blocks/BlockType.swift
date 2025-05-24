@@ -1,7 +1,7 @@
 import Foundation
 
 // Enum for all possible block types that can be used in views
-public enum BlockType: Codable {
+public enum BlockType: Codable, Hashable, Sendable {
     case actions(ActionsBlock)
     case context(ContextBlock)
     case divider(DividerBlock)

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct OptionGroupObject: Codable {
+public struct OptionGroupObject: Codable, Hashable, Sendable {
     public let label: TextObject
     public let options: [OptionObject]
     

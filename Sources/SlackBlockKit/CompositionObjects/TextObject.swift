@@ -1,6 +1,6 @@
 import Foundation
 
-public struct TextObject: Codable {
+public struct TextObject: Codable, Hashable, Sendable {
     public let type: TextType
     public let text: String
     public let emoji: Bool?
@@ -14,7 +14,7 @@ public struct TextObject: Codable {
     }
 }
 
-public enum TextType: String, Codable {
+public enum TextType: String, Codable, Hashable, Sendable {
     case plainText = "plain_text"
     case mrkdwn = "mrkdwn"
 }

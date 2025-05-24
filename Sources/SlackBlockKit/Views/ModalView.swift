@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ModalView: Codable {
+public struct ModalView: Codable, Hashable, Sendable {
     public let type: String // "modal"
     public let title: TextObject
     public let blocks: [BlockType]

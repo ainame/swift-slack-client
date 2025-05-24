@@ -1,6 +1,6 @@
 import Foundation
 
-public struct PlainTextInputElement: Codable {
+public struct PlainTextInputElement: Codable, Hashable, Sendable {
     public let type: String // "plain_text_input"
     public let actionId: String?
     public let initialValue: String?

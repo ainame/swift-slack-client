@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MultiExternalSelectElement: Codable {
+public struct MultiExternalSelectElement: Codable, Hashable, Sendable {
     public let type: String // "multi_external_select"
     public let actionId: String?
     public let minQueryLength: Int?

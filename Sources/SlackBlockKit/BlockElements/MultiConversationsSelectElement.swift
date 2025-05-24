@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MultiConversationsSelectElement: Codable {
+public struct MultiConversationsSelectElement: Codable, Hashable, Sendable {
     public let type: String // "multi_conversations_select"
     public let actionId: String?
     public let initialConversations: [String]?

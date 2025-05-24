@@ -1,6 +1,6 @@
 import Foundation
 
-public struct CheckboxesElement: Codable {
+public struct CheckboxesElement: Codable, Hashable, Sendable {
     public let type: String // "checkboxes"
     public let actionId: String?
     public let options: [OptionObject]

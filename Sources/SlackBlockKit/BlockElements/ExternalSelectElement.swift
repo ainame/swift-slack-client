@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ExternalSelectElement: Codable {
+public struct ExternalSelectElement: Codable, Hashable, Sendable {
     public let type: String // "external_select"
     public let actionId: String?
     public let initialOption: OptionObject?

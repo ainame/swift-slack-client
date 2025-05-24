@@ -1,6 +1,6 @@
 import Foundation
 
-public struct DatetimePickerElement: Codable {
+public struct DatetimePickerElement: Codable, Hashable, Sendable {
     public let type: String // "datetimepicker"
     public let actionId: String?
     public let initialDateTime: Int?

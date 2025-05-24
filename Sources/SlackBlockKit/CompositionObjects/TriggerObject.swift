@@ -1,6 +1,6 @@
 import Foundation
 
-public struct TriggerObject: Codable {
+public struct TriggerObject: Codable, Hashable, Sendable {
     public let url: URL
     public let customizableInputParameters: [InputParameter]?
     
@@ -10,7 +10,7 @@ public struct TriggerObject: Codable {
     }
 }
 
-public struct InputParameter: Codable {
+public struct InputParameter: Codable, Hashable, Sendable {
     public let name: String
     public let value: String
     

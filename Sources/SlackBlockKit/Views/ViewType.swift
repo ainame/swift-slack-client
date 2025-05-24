@@ -1,4 +1,4 @@
-public enum ViewType: Codable {
+public enum ViewType: Codable, Hashable {
     case modal(ModalView)
     case homeTab(HomeTabView)
 

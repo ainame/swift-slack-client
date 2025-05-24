@@ -1,6 +1,6 @@
 import Foundation
 
-public struct NumberInputElement: Codable {
+public struct NumberInputElement: Codable, Hashable, Sendable {
     public let type: String // "number_input"
     public let isDecimalAllowed: Bool
     public let actionId: String?

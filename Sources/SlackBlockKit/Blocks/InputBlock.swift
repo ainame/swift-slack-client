@@ -1,6 +1,6 @@
 import Foundation
 
-public struct InputBlock: Codable {
+public struct InputBlock: Codable, Hashable, Sendable {
     public let type: String // "input"
     public let label: TextObject
     public let element: InputElementType
@@ -27,7 +27,7 @@ public struct InputBlock: Codable {
     }
 }
 
-public enum InputElementType: Codable {
+public enum InputElementType: Codable, Hashable, Sendable {
     case checkboxes(CheckboxesElement)
     case datePicker(DatePickerElement)
     case datetimePicker(DatetimePickerElement)

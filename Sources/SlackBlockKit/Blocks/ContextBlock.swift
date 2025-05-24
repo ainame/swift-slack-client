@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ContextBlock: Codable {
+public struct ContextBlock: Codable, Hashable, Sendable {
     public let type: String // "context"
     public let elements: [ContextElementType]
     public let blockId: String?
@@ -12,7 +12,7 @@ public struct ContextBlock: Codable {
     }
 }
 
-public enum ContextElementType: Codable {
+public enum ContextElementType: Codable, Hashable, Sendable {
     case text(TextObject)
     case image(ImageElement)
     

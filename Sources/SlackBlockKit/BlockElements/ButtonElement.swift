@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ButtonElement: Codable {
+public struct ButtonElement: Codable, Hashable, Sendable {
     public let type: String // "button"
     public let text: TextObject
     public let actionId: String?
@@ -30,7 +30,7 @@ public struct ButtonElement: Codable {
     }
 }
 
-public enum ButtonStyle: String, Codable {
+public enum ButtonStyle: String, Codable, Hashable, Sendable {
     case primary = "primary"
     case danger = "danger"
 }

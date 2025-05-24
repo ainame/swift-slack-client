@@ -1,6 +1,6 @@
 import Foundation
 
-public struct StaticSelectElement: Codable {
+public struct StaticSelectElement: Codable, Hashable, Sendable {
     public let type: String // "static_select"
     public let options: [OptionObject]?
     public let optionGroups: [OptionGroupObject]?

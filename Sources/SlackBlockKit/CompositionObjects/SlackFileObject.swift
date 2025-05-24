@@ -1,6 +1,6 @@
 import Foundation
 
-public struct SlackFileObject: Codable {
+public struct SlackFileObject: Codable, Hashable, Sendable {
     public let url: URL?
     public let id: String?
     

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct FileBlock: Codable {
+public struct FileBlock: Codable, Hashable, Sendable {
     public let type: String // "file"
     public let externalId: String
     public let source: String // "remote"

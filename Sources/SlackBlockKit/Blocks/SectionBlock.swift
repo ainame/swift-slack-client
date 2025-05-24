@@ -1,6 +1,6 @@
 import Foundation
 
-public struct SectionBlock: Codable {
+public struct SectionBlock: Codable, Hashable, Sendable {
     public let type: String // "section"
     public let text: TextObject?
     public let fields: [TextObject]?
@@ -24,7 +24,7 @@ public struct SectionBlock: Codable {
     }
 }
 
-public enum SectionAccessory: Codable {
+public enum SectionAccessory: Codable, Hashable, Sendable {
     case button(ButtonElement)
     case checkboxes(CheckboxesElement)
     case datePicker(DatePickerElement)

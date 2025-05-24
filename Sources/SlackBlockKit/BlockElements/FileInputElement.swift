@@ -1,6 +1,6 @@
 import Foundation
 
-public struct FileInputElement: Codable {
+public struct FileInputElement: Codable, Hashable, Sendable {
     public let type: String // "file_input"
     public let actionId: String
     public let filetypes: [String]?

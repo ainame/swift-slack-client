@@ -1,6 +1,6 @@
 import Foundation
 
-public struct DividerBlock: Codable {
+public struct DividerBlock: Codable, Hashable, Sendable {
     public let type: String // "divider"
     public let blockId: String?
     
