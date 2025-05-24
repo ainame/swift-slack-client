@@ -36,7 +36,7 @@ let webAPITraits: [String] = [
 var traits: [Trait] = webAPITraits.map { .trait(name: $0) }
 // END: Generated WebAPI traits
 
-traits.append(.trait(name: "SocketMode"))
+traits.append(.trait(name: "SocketMode", enabledTraits: ["WebAPI_Apps"]))
 traits.append(.trait(name: "BlockKit"))
 
 // By default, all the traits is enabled for development.
