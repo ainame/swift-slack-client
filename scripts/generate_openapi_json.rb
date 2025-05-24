@@ -62,6 +62,32 @@ def main(api_ref_paths, sample_json_paths, output_dir)
   end
   openapi['paths'] = paths
 
+  # View and Block should be implemented by SlackBlockKit.
+  # To remove relevant schemas used within View and Block but proceed with swift-openapi-generator,
+  # empty View and Block and eventually remove generated code in different script.
+  empty_object = {
+    type: 'object',
+    properties: {},
+    additionalProperties: true
+  }
+  openapi['components']['schemas'].each do |key, value|
+    case key
+    when 'View', 'Block'
+      # View and Block should be empty
+      openapi['components']['schemas'][key] = empty_object
+    else
+      # Others referencing Block-ish should point Block
+      value['properties']&.each_key do |prop_name|
+        case prop_name
+        when /.*blocks$/i
+          openapi['components']['schemas'][key]['properties'][prop_name]['items']['$ref'] = '#/components/schemas/Block'
+        when /.*block$/i
+          openapi['components']['schemas'][key]['properties'][prop_name]['$ref'] = '#/components/schemas/Block'
+        end
+      end
+    end
+  end
+
   remove_orphan_schemas(openapi)
 
   # Output openapi_yaml
