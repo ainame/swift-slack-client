@@ -1,7 +1,7 @@
 import Foundation
 
 public struct EmailInputElement: Codable {
-    public let type: String = "email_text_input"
+    public let type: String // "email_text_input"
     public let actionId: String?
     public let initialValue: String?
     public let dispatchActionConfig: DispatchActionConfigurationObject?
@@ -15,6 +15,7 @@ public struct EmailInputElement: Codable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
+        self.type = "email_text_input"
         self.actionId = actionId
         self.initialValue = initialValue
         self.dispatchActionConfig = dispatchActionConfig

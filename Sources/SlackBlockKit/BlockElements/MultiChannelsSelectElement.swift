@@ -1,7 +1,7 @@
 import Foundation
 
 public struct MultiChannelsSelectElement: Codable {
-    public let type: String = "multi_channels_select"
+    public let type: String // "multi_channels_select"
     public let actionId: String?
     public let initialChannels: [String]?
     public let maxSelectedItems: Int?
@@ -17,6 +17,7 @@ public struct MultiChannelsSelectElement: Codable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
+        self.type = "multi_channels_select"
         self.actionId = actionId
         self.initialChannels = initialChannels
         self.maxSelectedItems = maxSelectedItems

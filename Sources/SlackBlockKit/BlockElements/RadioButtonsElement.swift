@@ -1,7 +1,7 @@
 import Foundation
 
 public struct RadioButtonsElement: Codable {
-    public let type: String = "radio_buttons"
+    public let type: String // "radio_buttons"
     public let options: [OptionObject]
     public let actionId: String?
     public let initialOption: OptionObject?
@@ -15,6 +15,7 @@ public struct RadioButtonsElement: Codable {
         confirm: ConfirmationDialogObject? = nil,
         focusOnLoad: Bool? = nil
     ) {
+        self.type = "radio_buttons"
         self.options = options
         self.actionId = actionId
         self.initialOption = initialOption

@@ -1,7 +1,7 @@
 import Foundation
 
 public struct MultiConversationsSelectElement: Codable {
-    public let type: String = "multi_conversations_select"
+    public let type: String // "multi_conversations_select"
     public let actionId: String?
     public let initialConversations: [String]?
     public let defaultToCurrentConversation: Bool?
@@ -21,6 +21,7 @@ public struct MultiConversationsSelectElement: Codable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
+        self.type = "multi_conversations_select"
         self.actionId = actionId
         self.initialConversations = initialConversations
         self.defaultToCurrentConversation = defaultToCurrentConversation

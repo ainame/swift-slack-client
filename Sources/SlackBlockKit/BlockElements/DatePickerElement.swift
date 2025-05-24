@@ -1,7 +1,7 @@
 import Foundation
 
 public struct DatePickerElement: Codable {
-    public let type: String = "datepicker"
+    public let type: String // "datepicker"
     public let actionId: String?
     public let initialDate: String?
     public let confirm: ConfirmationDialogObject?
@@ -15,6 +15,7 @@ public struct DatePickerElement: Codable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
+        self.type = "datepicker"
         self.actionId = actionId
         self.initialDate = initialDate
         self.confirm = confirm

@@ -1,7 +1,7 @@
 import Foundation
 
 public struct RichTextInputElement: Codable {
-    public let type: String = "rich_text_input"
+    public let type: String // "rich_text_input"
     public let actionId: String
     public let initialValue: RichTextObject?
     public let dispatchActionConfig: DispatchActionConfigurationObject?
@@ -15,6 +15,7 @@ public struct RichTextInputElement: Codable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
+        self.type = "rich_text_input"
         self.actionId = actionId
         self.initialValue = initialValue
         self.dispatchActionConfig = dispatchActionConfig

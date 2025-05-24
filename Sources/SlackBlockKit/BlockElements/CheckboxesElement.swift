@@ -1,7 +1,7 @@
 import Foundation
 
 public struct CheckboxesElement: Codable {
-    public let type: String = "checkboxes"
+    public let type: String // "checkboxes"
     public let actionId: String?
     public let options: [OptionObject]
     public let initialOptions: [OptionObject]?
@@ -15,6 +15,7 @@ public struct CheckboxesElement: Codable {
         confirm: ConfirmationDialogObject? = nil,
         focusOnLoad: Bool? = nil
     ) {
+        self.type = "checkboxes"
         self.options = options
         self.actionId = actionId
         self.initialOptions = initialOptions

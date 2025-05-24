@@ -1,7 +1,7 @@
 import Foundation
 
 public struct ButtonElement: Codable {
-    public let type: String = "button"
+    public let type: String // "button"
     public let text: TextObject
     public let actionId: String?
     public let url: URL?
@@ -19,6 +19,7 @@ public struct ButtonElement: Codable {
         confirm: ConfirmationDialogObject? = nil,
         accessibilityLabel: String? = nil
     ) {
+        self.type = "button"
         self.text = text
         self.actionId = actionId
         self.url = url

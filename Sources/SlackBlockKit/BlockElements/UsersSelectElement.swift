@@ -1,7 +1,7 @@
 import Foundation
 
 public struct UsersSelectElement: Codable {
-    public let type: String = "users_select"
+    public let type: String // "users_select"
     public let actionId: String?
     public let initialUser: String?
     public let confirm: ConfirmationDialogObject?
@@ -15,6 +15,7 @@ public struct UsersSelectElement: Codable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
+        self.type = "users_select"
         self.actionId = actionId
         self.initialUser = initialUser
         self.confirm = confirm

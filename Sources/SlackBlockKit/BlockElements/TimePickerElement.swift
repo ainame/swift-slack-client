@@ -1,7 +1,7 @@
 import Foundation
 
 public struct TimePickerElement: Codable {
-    public let type: String = "timepicker"
+    public let type: String // "timepicker"
     public let actionId: String?
     public let initialTime: String?
     public let confirm: ConfirmationDialogObject?
@@ -15,6 +15,7 @@ public struct TimePickerElement: Codable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
+        self.type = "timepicker"
         self.actionId = actionId
         self.initialTime = initialTime
         self.confirm = confirm
