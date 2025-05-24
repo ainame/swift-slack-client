@@ -24,7 +24,13 @@ public struct RichTextInputElement: Codable {
     }
 }
 
-// Placeholder for Rich Text Object - to be implemented when we get to rich text specs
+// Rich Text Object for input elements - based on rich text specifications
 public struct RichTextObject: Codable {
-    // This will be implemented based on rich text specifications
+    public let type: String // "rich_text"
+    public let elements: [RichTextElementType]
+    
+    public init(elements: [RichTextElementType]) {
+        self.type = "rich_text"
+        self.elements = elements
+    }
 }
