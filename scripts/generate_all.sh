@@ -36,4 +36,4 @@ swift run swift-openapi-generator generate \
     --output-directory "${TMP_DIR}" \
     ./tmp/openapi.json
 
-ruby scripts/split_client.rb "${TMP_DIR}" "${OUTPUT_DIR}"
+ruby scripts/process_generated_code.rb "${TMP_DIR}" "${OUTPUT_DIR}"
