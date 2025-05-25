@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Emoji
@@ -26,7 +30,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/EmojiListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/EmojiListResponse/categories`.
-        public var categories: [Components.Schemas.Category]?
+        public var categories: [SlackModels.Category]?
         /// - Remark: Generated from `#/components/schemas/EmojiListResponse/cacheTs`.
         public var cacheTs: Swift.String?
         /// - Remark: Generated from `#/components/schemas/EmojiListResponse/categoriesVersion`.
@@ -48,7 +52,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            categories: [Components.Schemas.Category]? = nil,
+            categories: [SlackModels.Category]? = nil,
             cacheTs: Swift.String? = nil,
             categoriesVersion: Swift.String? = nil
         ) {

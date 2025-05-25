@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_OAuth
@@ -28,13 +32,13 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/OauthV2AccessResponse/scope`.
         public var scope: Swift.String?
         /// - Remark: Generated from `#/components/schemas/OauthV2AccessResponse/team`.
-        public var team: Components.Schemas.Enterprise?
+        public var team: SlackModels.Enterprise?
         /// - Remark: Generated from `#/components/schemas/OauthV2AccessResponse/enterprise`.
-        public var enterprise: Components.Schemas.Enterprise?
+        public var enterprise: SlackModels.Enterprise?
         /// - Remark: Generated from `#/components/schemas/OauthV2AccessResponse/appId`.
         public var appId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/OauthV2AccessResponse/authedUser`.
-        public var authedUser: Components.Schemas.AuthedUser?
+        public var authedUser: SlackModels.AuthedUser?
         /// - Remark: Generated from `#/components/schemas/OauthV2AccessResponse/tokenType`.
         public var tokenType: Swift.String?
         /// - Remark: Generated from `#/components/schemas/OauthV2AccessResponse/accessToken`.
@@ -48,7 +52,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/OauthV2AccessResponse/isEnterpriseInstall`.
         public var isEnterpriseInstall: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/OauthV2AccessResponse/incomingWebhook`.
-        public var incomingWebhook: Components.Schemas.IncomingWebhook?
+        public var incomingWebhook: SlackModels.IncomingWebhook?
         /// Creates a new `OauthV2AccessResponse`.
         ///
         /// - Parameters:
@@ -76,17 +80,17 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             scope: Swift.String? = nil,
-            team: Components.Schemas.Enterprise? = nil,
-            enterprise: Components.Schemas.Enterprise? = nil,
+            team: SlackModels.Enterprise? = nil,
+            enterprise: SlackModels.Enterprise? = nil,
             appId: Swift.String? = nil,
-            authedUser: Components.Schemas.AuthedUser? = nil,
+            authedUser: SlackModels.AuthedUser? = nil,
             tokenType: Swift.String? = nil,
             accessToken: Swift.String? = nil,
             refreshToken: Swift.String? = nil,
             expiresIn: Swift.Int? = nil,
             botUserId: Swift.String? = nil,
             isEnterpriseInstall: Swift.Bool? = nil,
-            incomingWebhook: Components.Schemas.IncomingWebhook? = nil
+            incomingWebhook: SlackModels.IncomingWebhook? = nil
         ) {
             self.ok = ok
             self.warning = warning
@@ -122,13 +126,13 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/OauthV2ExchangeResponse/scope`.
         public var scope: Swift.String?
         /// - Remark: Generated from `#/components/schemas/OauthV2ExchangeResponse/team`.
-        public var team: Components.Schemas.Enterprise?
+        public var team: SlackModels.Enterprise?
         /// - Remark: Generated from `#/components/schemas/OauthV2ExchangeResponse/enterprise`.
-        public var enterprise: Components.Schemas.Enterprise?
+        public var enterprise: SlackModels.Enterprise?
         /// - Remark: Generated from `#/components/schemas/OauthV2ExchangeResponse/appId`.
         public var appId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/OauthV2ExchangeResponse/authedUser`.
-        public var authedUser: Components.Schemas.AuthedUser?
+        public var authedUser: SlackModels.AuthedUser?
         /// - Remark: Generated from `#/components/schemas/OauthV2ExchangeResponse/tokenType`.
         public var tokenType: Swift.String?
         /// - Remark: Generated from `#/components/schemas/OauthV2ExchangeResponse/accessToken`.
@@ -142,9 +146,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/OauthV2ExchangeResponse/isEnterpriseInstall`.
         public var isEnterpriseInstall: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/OauthV2ExchangeResponse/incomingWebhook`.
-        public var incomingWebhook: Components.Schemas.IncomingWebhook?
+        public var incomingWebhook: SlackModels.IncomingWebhook?
         /// - Remark: Generated from `#/components/schemas/OauthV2ExchangeResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `OauthV2ExchangeResponse`.
         ///
         /// - Parameters:
@@ -173,18 +177,18 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             scope: Swift.String? = nil,
-            team: Components.Schemas.Enterprise? = nil,
-            enterprise: Components.Schemas.Enterprise? = nil,
+            team: SlackModels.Enterprise? = nil,
+            enterprise: SlackModels.Enterprise? = nil,
             appId: Swift.String? = nil,
-            authedUser: Components.Schemas.AuthedUser? = nil,
+            authedUser: SlackModels.AuthedUser? = nil,
             tokenType: Swift.String? = nil,
             accessToken: Swift.String? = nil,
             refreshToken: Swift.String? = nil,
             expiresIn: Swift.Int? = nil,
             botUserId: Swift.String? = nil,
             isEnterpriseInstall: Swift.Bool? = nil,
-            incomingWebhook: Components.Schemas.IncomingWebhook? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            incomingWebhook: SlackModels.IncomingWebhook? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.warning = warning

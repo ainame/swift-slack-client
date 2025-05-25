@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Reminders
@@ -18,7 +22,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/reminder`.
-        public var reminder: Components.Schemas.Reminder?
+        public var reminder: SlackModels.Reminder?
         /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/needed`.
@@ -26,7 +30,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `RemindersAddResponse`.
         ///
         /// - Parameters:
@@ -38,11 +42,11 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            reminder: Components.Schemas.Reminder? = nil,
+            reminder: SlackModels.Reminder? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.reminder = reminder
@@ -115,7 +119,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse/reminder`.
-        public var reminder: Components.Schemas.Reminder?
+        public var reminder: SlackModels.Reminder?
         /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse/needed`.
@@ -132,7 +136,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            reminder: Components.Schemas.Reminder? = nil,
+            reminder: SlackModels.Reminder? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -149,7 +153,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/RemindersListResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/RemindersListResponse/reminders`.
-        public var reminders: [Components.Schemas.Reminder]?
+        public var reminders: [SlackModels.Reminder]?
         /// - Remark: Generated from `#/components/schemas/RemindersListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/RemindersListResponse/needed`.
@@ -166,7 +170,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            reminders: [Components.Schemas.Reminder]? = nil,
+            reminders: [SlackModels.Reminder]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil

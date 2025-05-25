@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Files
@@ -18,7 +22,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesCompleteUploadExternalResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FilesCompleteUploadExternalResponse/files`.
-        public var files: [Components.Schemas.File]?
+        public var files: [SlackModels.File]?
         /// - Remark: Generated from `#/components/schemas/FilesCompleteUploadExternalResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesCompleteUploadExternalResponse/needed`.
@@ -26,7 +30,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesCompleteUploadExternalResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesCompleteUploadExternalResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `FilesCompleteUploadExternalResponse`.
         ///
         /// - Parameters:
@@ -38,11 +42,11 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            files: [Components.Schemas.File]? = nil,
+            files: [SlackModels.File]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.files = files
@@ -96,7 +100,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesGetUploadURLExternalResponse/fileId`.
         public var fileId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesGetUploadURLExternalResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `FilesGetUploadURLExternalResponse`.
         ///
         /// - Parameters:
@@ -114,7 +118,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             uploadUrl: Swift.String? = nil,
             fileId: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -130,13 +134,13 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesInfoResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FilesInfoResponse/file`.
-        public var file: Components.Schemas.File?
+        public var file: SlackModels.File?
         /// - Remark: Generated from `#/components/schemas/FilesInfoResponse/content`.
         public var content: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesInfoResponse/comments`.
-        public var comments: [Components.Schemas.Comment]?
+        public var comments: [SlackModels.Comment]?
         /// - Remark: Generated from `#/components/schemas/FilesInfoResponse/paging`.
-        public var paging: Components.Schemas.Paging?
+        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/FilesInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesInfoResponse/needed`.
@@ -168,10 +172,10 @@ extension Components.Schemas {
         ///   - contentHighlightHtmlTruncated:
         public init(
             ok: Swift.Bool,
-            file: Components.Schemas.File? = nil,
+            file: SlackModels.File? = nil,
             content: Swift.String? = nil,
-            comments: [Components.Schemas.Comment]? = nil,
-            paging: Components.Schemas.Paging? = nil,
+            comments: [SlackModels.Comment]? = nil,
+            paging: SlackModels.Paging? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
@@ -199,9 +203,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesListResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FilesListResponse/files`.
-        public var files: [Components.Schemas.File]?
+        public var files: [SlackModels.File]?
         /// - Remark: Generated from `#/components/schemas/FilesListResponse/paging`.
-        public var paging: Components.Schemas.Paging?
+        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/FilesListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesListResponse/needed`.
@@ -219,8 +223,8 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            files: [Components.Schemas.File]? = nil,
-            paging: Components.Schemas.Paging? = nil,
+            files: [SlackModels.File]? = nil,
+            paging: SlackModels.Paging? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -238,7 +242,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesRemoteAddResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FilesRemoteAddResponse/file`.
-        public var file: Components.Schemas.File?
+        public var file: SlackModels.File?
         /// - Remark: Generated from `#/components/schemas/FilesRemoteAddResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesRemoteAddResponse/needed`.
@@ -255,7 +259,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            file: Components.Schemas.File? = nil,
+            file: SlackModels.File? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -272,7 +276,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesRemoteInfoResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FilesRemoteInfoResponse/file`.
-        public var file: Components.Schemas.File?
+        public var file: SlackModels.File?
         /// - Remark: Generated from `#/components/schemas/FilesRemoteInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesRemoteInfoResponse/needed`.
@@ -289,7 +293,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            file: Components.Schemas.File? = nil,
+            file: SlackModels.File? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -306,7 +310,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesRemoteListResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FilesRemoteListResponse/files`.
-        public var files: [Components.Schemas.File]?
+        public var files: [SlackModels.File]?
         /// - Remark: Generated from `#/components/schemas/FilesRemoteListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesRemoteListResponse/needed`.
@@ -314,7 +318,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesRemoteListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesRemoteListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `FilesRemoteListResponse`.
         ///
         /// - Parameters:
@@ -326,11 +330,11 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            files: [Components.Schemas.File]? = nil,
+            files: [SlackModels.File]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.files = files
@@ -374,7 +378,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesRemoteShareResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FilesRemoteShareResponse/file`.
-        public var file: Components.Schemas.File?
+        public var file: SlackModels.File?
         /// - Remark: Generated from `#/components/schemas/FilesRemoteShareResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesRemoteShareResponse/needed`.
@@ -391,7 +395,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            file: Components.Schemas.File? = nil,
+            file: SlackModels.File? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -408,7 +412,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesRemoteUpdateResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FilesRemoteUpdateResponse/file`.
-        public var file: Components.Schemas.File?
+        public var file: SlackModels.File?
         /// - Remark: Generated from `#/components/schemas/FilesRemoteUpdateResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesRemoteUpdateResponse/needed`.
@@ -425,7 +429,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            file: Components.Schemas.File? = nil,
+            file: SlackModels.File? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -442,7 +446,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesRevokePublicURLResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FilesRevokePublicURLResponse/file`.
-        public var file: Components.Schemas.File?
+        public var file: SlackModels.File?
         /// - Remark: Generated from `#/components/schemas/FilesRevokePublicURLResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesRevokePublicURLResponse/needed`.
@@ -459,7 +463,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            file: Components.Schemas.File? = nil,
+            file: SlackModels.File? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -476,7 +480,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesSharedPublicURLResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FilesSharedPublicURLResponse/file`.
-        public var file: Components.Schemas.File?
+        public var file: SlackModels.File?
         /// - Remark: Generated from `#/components/schemas/FilesSharedPublicURLResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesSharedPublicURLResponse/needed`.
@@ -493,7 +497,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            file: Components.Schemas.File? = nil,
+            file: SlackModels.File? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -510,7 +514,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/FilesUploadResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FilesUploadResponse/file`.
-        public var file: Components.Schemas.File?
+        public var file: SlackModels.File?
         /// - Remark: Generated from `#/components/schemas/FilesUploadResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesUploadResponse/needed`.
@@ -527,7 +531,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            file: Components.Schemas.File? = nil,
+            file: SlackModels.File? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil

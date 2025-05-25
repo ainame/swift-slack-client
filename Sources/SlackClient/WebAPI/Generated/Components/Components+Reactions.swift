@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Reactions
@@ -51,7 +55,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/channel`.
         public var channel: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/message`.
-        public var message: Components.Schemas.Message?
+        public var message: SlackModels.Message?
         /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/needed`.
@@ -72,7 +76,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             type: Swift.String? = nil,
             channel: Swift.String? = nil,
-            message: Components.Schemas.Message? = nil,
+            message: SlackModels.Message? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -91,9 +95,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/items`.
-        public var items: [Components.Schemas.Item]?
+        public var items: [SlackModels.Item]?
         /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/paging`.
-        public var paging: Components.Schemas.Paging?
+        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/needed`.
@@ -101,7 +105,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ReactionsListResponse`.
         ///
         /// - Parameters:
@@ -114,12 +118,12 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            items: [Components.Schemas.Item]? = nil,
-            paging: Components.Schemas.Paging? = nil,
+            items: [SlackModels.Item]? = nil,
+            paging: SlackModels.Paging? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.items = items

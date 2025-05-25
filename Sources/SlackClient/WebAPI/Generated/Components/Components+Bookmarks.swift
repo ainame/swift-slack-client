@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Bookmarks
@@ -24,9 +28,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/bookmark`.
-        public var bookmark: Components.Schemas.Bookmark?
+        public var bookmark: SlackModels.Bookmark?
         /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `BookmarksAddResponse`.
         ///
         /// - Parameters:
@@ -41,8 +45,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            bookmark: Components.Schemas.Bookmark? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            bookmark: SlackModels.Bookmark? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -63,9 +67,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/bookmark`.
-        public var bookmark: Components.Schemas.Bookmark?
+        public var bookmark: SlackModels.Bookmark?
         /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `BookmarksEditResponse`.
         ///
         /// - Parameters:
@@ -80,8 +84,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            bookmark: Components.Schemas.Bookmark? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            bookmark: SlackModels.Bookmark? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -102,9 +106,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/bookmarks`.
-        public var bookmarks: [Components.Schemas.Bookmark]?
+        public var bookmarks: [SlackModels.Bookmark]?
         /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `BookmarksListResponse`.
         ///
         /// - Parameters:
@@ -119,8 +123,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            bookmarks: [Components.Schemas.Bookmark]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            bookmarks: [SlackModels.Bookmark]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -141,7 +145,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `BookmarksRemoveResponse`.
         ///
         /// - Parameters:
@@ -155,7 +159,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error

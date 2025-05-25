@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Stars
@@ -47,9 +51,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/StarsListResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/StarsListResponse/items`.
-        public var items: [Components.Schemas.Item]?
+        public var items: [SlackModels.Item]?
         /// - Remark: Generated from `#/components/schemas/StarsListResponse/paging`.
-        public var paging: Components.Schemas.Paging?
+        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/StarsListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/StarsListResponse/needed`.
@@ -67,8 +71,8 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            items: [Components.Schemas.Item]? = nil,
-            paging: Components.Schemas.Paging? = nil,
+            items: [SlackModels.Item]? = nil,
+            paging: SlackModels.Paging? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil

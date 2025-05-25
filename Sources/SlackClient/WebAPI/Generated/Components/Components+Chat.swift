@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Chat
@@ -202,7 +206,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/ts`.
         public var ts: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/message`.
-        public var message: Components.Schemas.Message?
+        public var message: SlackModels.Message?
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/needed`.
@@ -214,7 +218,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/deprecatedArgument`.
         public var deprecatedArgument: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ChatPostMessageResponse`.
         ///
         /// - Parameters:
@@ -232,13 +236,13 @@ extension Components.Schemas {
             ok: Swift.Bool,
             channel: Swift.String? = nil,
             ts: Swift.String? = nil,
-            message: Components.Schemas.Message? = nil,
+            message: SlackModels.Message? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             errors: [Swift.String]? = nil,
             deprecatedArgument: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.channel = channel
@@ -259,7 +263,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/channel`.
         public var channel: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/message`.
-        public var message: Components.Schemas.Message?
+        public var message: SlackModels.Message?
         /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/needed`.
@@ -271,7 +275,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/postAt`.
         public var postAt: Swift.Int?
         /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ChatScheduleMessageResponse`.
         ///
         /// - Parameters:
@@ -287,13 +291,13 @@ extension Components.Schemas {
         public init(
             ok: Swift.Bool,
             channel: Swift.String? = nil,
-            message: Components.Schemas.Message? = nil,
+            message: SlackModels.Message? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             scheduledMessageId: Swift.String? = nil,
             postAt: Swift.Int? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.channel = channel
@@ -317,9 +321,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse/scheduledMessages`.
-        public var scheduledMessages: [Components.Schemas.ScheduledMessage]?
+        public var scheduledMessages: [SlackModels.ScheduledMessage]?
         /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ChatScheduledMessagesListResponse`.
         ///
         /// - Parameters:
@@ -334,8 +338,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            scheduledMessages: [Components.Schemas.ScheduledMessage]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            scheduledMessages: [SlackModels.ScheduledMessage]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -385,7 +389,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/text`.
         public var text: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/message`.
-        public var message: Components.Schemas.Message?
+        public var message: SlackModels.Message?
         /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/needed`.
@@ -393,7 +397,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ChatUpdateResponse`.
         ///
         /// - Parameters:
@@ -411,11 +415,11 @@ extension Components.Schemas {
             channel: Swift.String? = nil,
             ts: Swift.String? = nil,
             text: Swift.String? = nil,
-            message: Components.Schemas.Message? = nil,
+            message: SlackModels.Message? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.channel = channel

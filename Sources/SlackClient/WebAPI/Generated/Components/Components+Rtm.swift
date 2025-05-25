@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_RTM
@@ -20,7 +24,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/RtmConnectResponse/url`.
         public var url: Swift.String?
         /// - Remark: Generated from `#/components/schemas/RtmConnectResponse/team`.
-        public var team: Components.Schemas.Team?
+        public var team: SlackModels.Team?
         /// - Remark: Generated from `#/components/schemas/RtmConnectResponse/self`.
         public var _self: Components.Schemas._Self?
         /// - Remark: Generated from `#/components/schemas/RtmConnectResponse/error`.
@@ -42,7 +46,7 @@ extension Components.Schemas {
         public init(
             ok: Swift.Bool,
             url: Swift.String? = nil,
-            team: Components.Schemas.Team? = nil,
+            team: SlackModels.Team? = nil,
             _self: Components.Schemas._Self? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,

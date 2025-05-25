@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Auth
@@ -47,7 +51,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/teams`.
-        public var teams: [Components.Schemas.Team]?
+        public var teams: [SlackModels.Team]?
         /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/needed`.
@@ -55,7 +59,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AuthTeamsListResponse`.
         ///
         /// - Parameters:
@@ -67,11 +71,11 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            teams: [Components.Schemas.Team]? = nil,
+            teams: [SlackModels.Team]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.teams = teams

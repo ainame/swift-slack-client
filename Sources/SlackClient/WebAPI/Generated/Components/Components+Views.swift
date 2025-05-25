@@ -13,6 +13,10 @@ import struct Foundation.Date
 #if canImport(SlackBlockKit)
 import SlackBlockKit
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Views
@@ -32,7 +36,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ViewsOpenResponse/view`.
         public var view: SlackBlockKit.ViewType?
         /// - Remark: Generated from `#/components/schemas/ViewsOpenResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ViewsOpenResponse`.
         ///
         /// - Parameters:
@@ -50,7 +54,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             view: SlackBlockKit.ViewType? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.warning = warning
@@ -76,7 +80,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ViewsPublishResponse/view`.
         public var view: SlackBlockKit.ViewType?
         /// - Remark: Generated from `#/components/schemas/ViewsPublishResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ViewsPublishResponse`.
         ///
         /// - Parameters:
@@ -94,7 +98,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             view: SlackBlockKit.ViewType? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.warning = warning
@@ -120,7 +124,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ViewsPushResponse/view`.
         public var view: SlackBlockKit.ViewType?
         /// - Remark: Generated from `#/components/schemas/ViewsPushResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ViewsPushResponse`.
         ///
         /// - Parameters:
@@ -138,7 +142,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             view: SlackBlockKit.ViewType? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.warning = warning
@@ -164,7 +168,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ViewsUpdateResponse/view`.
         public var view: SlackBlockKit.ViewType?
         /// - Remark: Generated from `#/components/schemas/ViewsUpdateResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ViewsUpdateResponse`.
         ///
         /// - Parameters:
@@ -182,7 +186,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             view: SlackBlockKit.ViewType? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.warning = warning

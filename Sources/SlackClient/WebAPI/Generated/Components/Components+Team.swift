@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Team
@@ -18,9 +22,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/logins`.
-        public var logins: [Components.Schemas.Login]?
+        public var logins: [SlackModels.Login]?
         /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/paging`.
-        public var paging: Components.Schemas.Paging?
+        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/needed`.
@@ -28,7 +32,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `TeamAccessLogsResponse`.
         ///
         /// - Parameters:
@@ -41,12 +45,12 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            logins: [Components.Schemas.Login]? = nil,
-            paging: Components.Schemas.Paging? = nil,
+            logins: [SlackModels.Login]? = nil,
+            paging: SlackModels.Paging? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.logins = logins
@@ -70,7 +74,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse/billableInfo`.
         public var billableInfo: OpenAPIRuntime.OpenAPIObjectContainer?
         /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `TeamBillableInfoResponse`.
         ///
         /// - Parameters:
@@ -86,7 +90,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             billableInfo: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -141,7 +145,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsDisconnectResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsDisconnectResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `TeamExternalTeamsDisconnectResponse`.
         ///
         /// - Parameters:
@@ -155,7 +159,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -169,7 +173,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/organizations`.
-        public var organizations: [Components.Schemas.Organization]?
+        public var organizations: [SlackModels.Organization]?
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/needed`.
@@ -179,7 +183,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/totalCount`.
         public var totalCount: Swift.Int?
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `TeamExternalTeamsListResponse`.
         ///
         /// - Parameters:
@@ -192,12 +196,12 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            organizations: [Components.Schemas.Organization]? = nil,
+            organizations: [SlackModels.Organization]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             totalCount: Swift.Int? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.organizations = organizations
@@ -213,7 +217,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/TeamInfoResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamInfoResponse/team`.
-        public var team: Components.Schemas.Team?
+        public var team: SlackModels.Team?
         /// - Remark: Generated from `#/components/schemas/TeamInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamInfoResponse/needed`.
@@ -230,7 +234,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            team: Components.Schemas.Team? = nil,
+            team: SlackModels.Team? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -247,9 +251,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/logs`.
-        public var logs: [Components.Schemas.Log]?
+        public var logs: [SlackModels.Log]?
         /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/paging`.
-        public var paging: Components.Schemas.Paging?
+        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/needed`.
@@ -267,8 +271,8 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            logs: [Components.Schemas.Log]? = nil,
-            paging: Components.Schemas.Paging? = nil,
+            logs: [SlackModels.Log]? = nil,
+            paging: SlackModels.Paging? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -340,7 +344,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/profile`.
-        public var profile: Components.Schemas.Profile?
+        public var profile: SlackModels.Profile?
         /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/needed`.
@@ -357,7 +361,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            profile: Components.Schemas.Profile? = nil,
+            profile: SlackModels.Profile? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil

@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Apps
@@ -54,7 +58,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AppsEventAuthorizationsListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AppsEventAuthorizationsListResponse/authorizations`.
-        public var authorizations: [Components.Schemas.Authorization]?
+        public var authorizations: [SlackModels.Authorization]?
         /// - Remark: Generated from `#/components/schemas/AppsEventAuthorizationsListResponse/needed`.
         public var needed: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AppsEventAuthorizationsListResponse/provided`.
@@ -70,7 +74,7 @@ extension Components.Schemas {
         public init(
             ok: Swift.Bool,
             error: Swift.String? = nil,
-            authorizations: [Components.Schemas.Authorization]? = nil,
+            authorizations: [SlackModels.Authorization]? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
         ) {
@@ -94,9 +98,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AppsManifestCreateResponse/errors`.
         public var errors: [Components.Schemas._Error]?
         /// - Remark: Generated from `#/components/schemas/AppsManifestCreateResponse/credentials`.
-        public var credentials: Components.Schemas.Credentials?
+        public var credentials: SlackModels.Credentials?
         /// - Remark: Generated from `#/components/schemas/AppsManifestCreateResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// - Remark: Generated from `#/components/schemas/AppsManifestCreateResponse/appId`.
         public var appId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AppsManifestCreateResponse/oauthAuthorizeUrl`.
@@ -125,8 +129,8 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             errors: [Components.Schemas._Error]? = nil,
-            credentials: Components.Schemas.Credentials? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil,
+            credentials: SlackModels.Credentials? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
             appId: Swift.String? = nil,
             oauthAuthorizeUrl: Swift.String? = nil,
             teamId: Swift.String? = nil,
@@ -179,7 +183,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AppsManifestExportResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AppsManifestExportResponse/manifest`.
-        public var manifest: Components.Schemas.Manifest?
+        public var manifest: SlackModels.Manifest?
         /// - Remark: Generated from `#/components/schemas/AppsManifestExportResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AppsManifestExportResponse/needed`.
@@ -196,7 +200,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            manifest: Components.Schemas.Manifest? = nil,
+            manifest: SlackModels.Manifest? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -260,7 +264,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AppsManifestValidateResponse/errors`.
         public var errors: [Components.Schemas._Error]?
         /// - Remark: Generated from `#/components/schemas/AppsManifestValidateResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AppsManifestValidateResponse`.
         ///
         /// - Parameters:
@@ -276,7 +280,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             errors: [Components.Schemas._Error]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -297,7 +301,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AppsUninstallResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AppsUninstallResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AppsUninstallResponse`.
         ///
         /// - Parameters:
@@ -311,7 +315,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error

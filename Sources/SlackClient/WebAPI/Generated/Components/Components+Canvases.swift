@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Canvases
@@ -28,7 +32,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/failedToUpdateUserIds`.
         public var failedToUpdateUserIds: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `CanvasesAccessDeleteResponse`.
         ///
         /// - Parameters:
@@ -46,7 +50,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             failedToUpdateChannelIds: [Swift.String]? = nil,
             failedToUpdateUserIds: [Swift.String]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -72,7 +76,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/failedToUpdateUserIds`.
         public var failedToUpdateUserIds: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `CanvasesAccessSetResponse`.
         ///
         /// - Parameters:
@@ -90,7 +94,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             failedToUpdateChannelIds: [Swift.String]? = nil,
             failedToUpdateUserIds: [Swift.String]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -116,7 +120,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/canvasId`.
         public var canvasId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `CanvasesCreateResponse`.
         ///
         /// - Parameters:
@@ -134,7 +138,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             canvasId: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.detail = detail
@@ -156,7 +160,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `CanvasesDeleteResponse`.
         ///
         /// - Parameters:
@@ -170,7 +174,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -192,7 +196,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `CanvasesEditResponse`.
         ///
         /// - Parameters:
@@ -208,7 +212,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.detail = detail
@@ -225,13 +229,13 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/sections`.
-        public var sections: [Components.Schemas.Section]?
+        public var sections: [SlackModels.Section]?
         /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/needed`.
         public var needed: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `CanvasesSectionsLookupResponse`.
         ///
         /// - Parameters:
@@ -244,10 +248,10 @@ extension Components.Schemas {
         public init(
             ok: Swift.Bool,
             error: Swift.String? = nil,
-            sections: [Components.Schemas.Section]? = nil,
+            sections: [SlackModels.Section]? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error

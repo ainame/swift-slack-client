@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Search
@@ -22,11 +26,11 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/SearchAllResponse/query`.
         public var query: Swift.String?
         /// - Remark: Generated from `#/components/schemas/SearchAllResponse/messages`.
-        public var messages: Components.Schemas.Messages?
+        public var messages: SlackModels.Messages?
         /// - Remark: Generated from `#/components/schemas/SearchAllResponse/files`.
-        public var files: Components.Schemas.Files?
+        public var files: SlackModels.Files?
         /// - Remark: Generated from `#/components/schemas/SearchAllResponse/posts`.
-        public var posts: Components.Schemas.Posts?
+        public var posts: SlackModels.Posts?
         /// - Remark: Generated from `#/components/schemas/SearchAllResponse/needed`.
         public var needed: Swift.String?
         /// - Remark: Generated from `#/components/schemas/SearchAllResponse/provided`.
@@ -46,9 +50,9 @@ extension Components.Schemas {
             ok: Swift.Bool,
             error: Swift.String? = nil,
             query: Swift.String? = nil,
-            messages: Components.Schemas.Messages? = nil,
-            files: Components.Schemas.Files? = nil,
-            posts: Components.Schemas.Posts? = nil,
+            messages: SlackModels.Messages? = nil,
+            files: SlackModels.Files? = nil,
+            posts: SlackModels.Posts? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
         ) {
@@ -69,7 +73,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/query`.
         public var query: Swift.String?
         /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/files`.
-        public var files: Components.Schemas.Files?
+        public var files: SlackModels.Files?
         /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/needed`.
@@ -88,7 +92,7 @@ extension Components.Schemas {
         public init(
             ok: Swift.Bool,
             query: Swift.String? = nil,
-            files: Components.Schemas.Files? = nil,
+            files: SlackModels.Files? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -108,7 +112,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/query`.
         public var query: Swift.String?
         /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/messages`.
-        public var messages: Components.Schemas.Messages?
+        public var messages: SlackModels.Messages?
         /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/needed`.
@@ -127,7 +131,7 @@ extension Components.Schemas {
         public init(
             ok: Swift.Bool,
             query: Swift.String? = nil,
-            messages: Components.Schemas.Messages? = nil,
+            messages: SlackModels.Messages? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil

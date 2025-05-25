@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Tooling
@@ -30,7 +34,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ToolingTokensRotateResponse/exp`.
         public var exp: Swift.Int?
         /// - Remark: Generated from `#/components/schemas/ToolingTokensRotateResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// - Remark: Generated from `#/components/schemas/ToolingTokensRotateResponse/refreshToken`.
         public var refreshToken: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ToolingTokensRotateResponse/teamId`.
@@ -59,7 +63,7 @@ extension Components.Schemas {
             token: Swift.String? = nil,
             iat: Swift.Int? = nil,
             exp: Swift.Int? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
             refreshToken: Swift.String? = nil,
             teamId: Swift.String? = nil,
             userId: Swift.String? = nil

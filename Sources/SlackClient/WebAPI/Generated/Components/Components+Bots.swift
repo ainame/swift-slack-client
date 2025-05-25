@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Bots
@@ -18,7 +22,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/BotsInfoResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/BotsInfoResponse/bot`.
-        public var bot: Components.Schemas.Bot?
+        public var bot: SlackModels.Bot?
         /// - Remark: Generated from `#/components/schemas/BotsInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BotsInfoResponse/needed`.
@@ -35,7 +39,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            bot: Components.Schemas.Bot? = nil,
+            bot: SlackModels.Bot? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil

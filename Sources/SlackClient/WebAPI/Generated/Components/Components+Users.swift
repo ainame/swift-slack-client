@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Users
@@ -18,7 +22,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/channels`.
-        public var channels: [Components.Schemas.Channel]?
+        public var channels: [SlackModels.Channel]?
         /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/needed`.
@@ -26,7 +30,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `UsersConversationsResponse`.
         ///
         /// - Parameters:
@@ -38,11 +42,11 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            channels: [Components.Schemas.Channel]? = nil,
+            channels: [SlackModels.Channel]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.channels = channels
@@ -92,7 +96,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse/isDiscoverable`.
         public var isDiscoverable: Swift.Bool?
         /// Creates a new `UsersDiscoverableContactsLookupResponse`.
@@ -109,7 +113,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
             isDiscoverable: Swift.Bool? = nil
         ) {
             self.ok = ok
@@ -197,9 +201,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/user`.
-        public var user: Components.Schemas.User?
+        public var user: SlackModels.User?
         /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/team`.
-        public var team: Components.Schemas.Team?
+        public var team: SlackModels.Team?
         /// Creates a new `UsersIdentityResponse`.
         ///
         /// - Parameters:
@@ -216,8 +220,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            user: Components.Schemas.User? = nil,
-            team: Components.Schemas.Team? = nil
+            user: SlackModels.User? = nil,
+            team: SlackModels.Team? = nil
         ) {
             self.ok = ok
             self.warning = warning
@@ -233,7 +237,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/user`.
-        public var user: Components.Schemas.User?
+        public var user: SlackModels.User?
         /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/needed`.
@@ -250,7 +254,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            user: Components.Schemas.User? = nil,
+            user: SlackModels.User? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -267,7 +271,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/UsersListResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersListResponse/members`.
-        public var members: [Components.Schemas.Member]?
+        public var members: [SlackModels.Member]?
         /// - Remark: Generated from `#/components/schemas/UsersListResponse/offset`.
         public var offset: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersListResponse/error`.
@@ -281,7 +285,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/UsersListResponse/cacheTs`.
         public var cacheTs: Swift.Int?
         /// - Remark: Generated from `#/components/schemas/UsersListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `UsersListResponse`.
         ///
         /// - Parameters:
@@ -296,14 +300,14 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            members: [Components.Schemas.Member]? = nil,
+            members: [SlackModels.Member]? = nil,
             offset: Swift.String? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             arg: Swift.String? = nil,
             cacheTs: Swift.Int? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.members = members
@@ -321,7 +325,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/user`.
-        public var user: Components.Schemas.User?
+        public var user: SlackModels.User?
         /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/needed`.
@@ -329,7 +333,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `UsersLookupByEmailResponse`.
         ///
         /// - Parameters:
@@ -341,11 +345,11 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            user: Components.Schemas.User? = nil,
+            user: SlackModels.User? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.user = user
@@ -360,7 +364,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse/profile`.
-        public var profile: Components.Schemas.Profile?
+        public var profile: SlackModels.Profile?
         /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse/needed`.
@@ -377,7 +381,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            profile: Components.Schemas.Profile? = nil,
+            profile: SlackModels.Profile? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -392,7 +396,7 @@ extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse`.
     public struct UsersProfileSetResponse: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse/profile`.
-        public var profile: Components.Schemas.Profile?
+        public var profile: SlackModels.Profile?
         /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse/username`.
@@ -413,7 +417,7 @@ extension Components.Schemas {
         ///   - needed:
         ///   - provided:
         public init(
-            profile: Components.Schemas.Profile? = nil,
+            profile: SlackModels.Profile? = nil,
             ok: Swift.Bool,
             username: Swift.String? = nil,
             error: Swift.String? = nil,
@@ -462,7 +466,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse/profile`.
-        public var profile: Components.Schemas.Profile?
+        public var profile: SlackModels.Profile?
         /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse/needed`.
@@ -479,7 +483,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            profile: Components.Schemas.Profile? = nil,
+            profile: SlackModels.Profile? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil

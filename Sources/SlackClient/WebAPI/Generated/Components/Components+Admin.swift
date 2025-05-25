@@ -9,6 +9,10 @@ import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Admin
@@ -18,7 +22,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminAppsActivitiesListResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AdminAppsActivitiesListResponse/activities`.
-        public var activities: [Components.Schemas.Activity]?
+        public var activities: [SlackModels.Activity]?
         /// - Remark: Generated from `#/components/schemas/AdminAppsActivitiesListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminAppsActivitiesListResponse/needed`.
@@ -26,7 +30,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminAppsActivitiesListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminAppsActivitiesListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminAppsActivitiesListResponse`.
         ///
         /// - Parameters:
@@ -38,11 +42,11 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            activities: [Components.Schemas.Activity]? = nil,
+            activities: [SlackModels.Activity]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.activities = activities
@@ -99,9 +103,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminAppsApprovedListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminAppsApprovedListResponse/approvedApps`.
-        public var approvedApps: [Components.Schemas.ApprovedApp]?
+        public var approvedApps: [SlackModels.ApprovedApp]?
         /// - Remark: Generated from `#/components/schemas/AdminAppsApprovedListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminAppsApprovedListResponse`.
         ///
         /// - Parameters:
@@ -118,8 +122,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            approvedApps: [Components.Schemas.ApprovedApp]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            approvedApps: [SlackModels.ApprovedApp]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.warning = warning
@@ -175,9 +179,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminAppsConfigLookupResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminAppsConfigLookupResponse/configs`.
-        public var configs: [Components.Schemas.Config]?
+        public var configs: [SlackModels.Config]?
         /// - Remark: Generated from `#/components/schemas/AdminAppsConfigLookupResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminAppsConfigLookupResponse`.
         ///
         /// - Parameters:
@@ -192,8 +196,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            configs: [Components.Schemas.Config]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            configs: [SlackModels.Config]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -243,7 +247,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminAppsRequestsCancelResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminAppsRequestsCancelResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminAppsRequestsCancelResponse`.
         ///
         /// - Parameters:
@@ -257,7 +261,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -279,9 +283,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminAppsRequestsListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminAppsRequestsListResponse/appRequests`.
-        public var appRequests: [Components.Schemas.AppRequest]?
+        public var appRequests: [SlackModels.AppRequest]?
         /// - Remark: Generated from `#/components/schemas/AdminAppsRequestsListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminAppsRequestsListResponse`.
         ///
         /// - Parameters:
@@ -298,8 +302,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            appRequests: [Components.Schemas.AppRequest]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            appRequests: [SlackModels.AppRequest]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.warning = warning
@@ -357,9 +361,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminAppsRestrictedListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminAppsRestrictedListResponse/restrictedApps`.
-        public var restrictedApps: [Components.Schemas.RestrictedApp]?
+        public var restrictedApps: [SlackModels.RestrictedApp]?
         /// - Remark: Generated from `#/components/schemas/AdminAppsRestrictedListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminAppsRestrictedListResponse`.
         ///
         /// - Parameters:
@@ -376,8 +380,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            restrictedApps: [Components.Schemas.RestrictedApp]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            restrictedApps: [SlackModels.RestrictedApp]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.warning = warning
@@ -463,7 +467,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminAuthPolicyGetEntitiesResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminAuthPolicyGetEntitiesResponse/entities`.
-        public var entities: [Components.Schemas.Entity]?
+        public var entities: [SlackModels.Entity]?
         /// - Remark: Generated from `#/components/schemas/AdminAuthPolicyGetEntitiesResponse/needed`.
         public var needed: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminAuthPolicyGetEntitiesResponse/provided`.
@@ -482,7 +486,7 @@ extension Components.Schemas {
         public init(
             ok: Swift.Bool,
             error: Swift.String? = nil,
-            entities: [Components.Schemas.Entity]? = nil,
+            entities: [SlackModels.Entity]? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             entityTotalCount: Swift.Int? = nil
@@ -540,9 +544,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminBarriersCreateResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminBarriersCreateResponse/barrier`.
-        public var barrier: Components.Schemas.Barrier?
+        public var barrier: SlackModels.Barrier?
         /// - Remark: Generated from `#/components/schemas/AdminBarriersCreateResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminBarriersCreateResponse`.
         ///
         /// - Parameters:
@@ -557,8 +561,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            barrier: Components.Schemas.Barrier? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            barrier: SlackModels.Barrier? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -602,7 +606,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminBarriersListResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AdminBarriersListResponse/barriers`.
-        public var barriers: [Components.Schemas.Barrier]?
+        public var barriers: [SlackModels.Barrier]?
         /// - Remark: Generated from `#/components/schemas/AdminBarriersListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminBarriersListResponse/needed`.
@@ -619,7 +623,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            barriers: [Components.Schemas.Barrier]? = nil,
+            barriers: [SlackModels.Barrier]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -638,7 +642,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminBarriersUpdateResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminBarriersUpdateResponse/barrier`.
-        public var barrier: Components.Schemas.Barrier?
+        public var barrier: SlackModels.Barrier?
         /// - Remark: Generated from `#/components/schemas/AdminBarriersUpdateResponse/needed`.
         public var needed: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminBarriersUpdateResponse/provided`.
@@ -654,7 +658,7 @@ extension Components.Schemas {
         public init(
             ok: Swift.Bool,
             error: Swift.String? = nil,
-            barrier: Components.Schemas.Barrier? = nil,
+            barrier: SlackModels.Barrier? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
         ) {
@@ -707,9 +711,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsBulkArchiveResponse/bulkActionId`.
         public var bulkActionId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsBulkArchiveResponse/notAdded`.
-        public var notAdded: [Components.Schemas.NotAdded]?
+        public var notAdded: [SlackModels.NotAdded]?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsBulkArchiveResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminConversationsBulkArchiveResponse`.
         ///
         /// - Parameters:
@@ -726,8 +730,8 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             bulkActionId: Swift.String? = nil,
-            notAdded: [Components.Schemas.NotAdded]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            notAdded: [SlackModels.NotAdded]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -751,9 +755,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsBulkDeleteResponse/bulkActionId`.
         public var bulkActionId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsBulkDeleteResponse/notAdded`.
-        public var notAdded: [Components.Schemas.NotAdded]?
+        public var notAdded: [SlackModels.NotAdded]?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsBulkDeleteResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminConversationsBulkDeleteResponse`.
         ///
         /// - Parameters:
@@ -770,8 +774,8 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             bulkActionId: Swift.String? = nil,
-            notAdded: [Components.Schemas.NotAdded]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            notAdded: [SlackModels.NotAdded]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -795,9 +799,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsBulkMoveResponse/bulkActionId`.
         public var bulkActionId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsBulkMoveResponse/notAdded`.
-        public var notAdded: [Components.Schemas.NotAdded]?
+        public var notAdded: [SlackModels.NotAdded]?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsBulkMoveResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminConversationsBulkMoveResponse`.
         ///
         /// - Parameters:
@@ -814,8 +818,8 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             bulkActionId: Swift.String? = nil,
-            notAdded: [Components.Schemas.NotAdded]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            notAdded: [SlackModels.NotAdded]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -866,7 +870,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsConvertToPublicResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsConvertToPublicResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminConversationsConvertToPublicResponse`.
         ///
         /// - Parameters:
@@ -880,7 +884,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -902,7 +906,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsCreateResponse/channelId`.
         public var channelId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsCreateResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminConversationsCreateResponse`.
         ///
         /// - Parameters:
@@ -918,7 +922,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             channelId: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1020,7 +1024,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsGetConversationPrefsResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AdminConversationsGetConversationPrefsResponse/prefs`.
-        public var prefs: Components.Schemas.Prefs?
+        public var prefs: SlackModels.Prefs?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsGetConversationPrefsResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsGetConversationPrefsResponse/needed`.
@@ -1037,7 +1041,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            prefs: Components.Schemas.Prefs? = nil,
+            prefs: SlackModels.Prefs? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -1133,7 +1137,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsInviteResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsInviteResponse/failedUserIds`.
-        public var failedUserIds: Components.Schemas.FailedUserIDS?
+        public var failedUserIds: SlackModels.FailedUserIDS?
         /// Creates a new `AdminConversationsInviteResponse`.
         ///
         /// - Parameters:
@@ -1147,7 +1151,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            failedUserIds: Components.Schemas.FailedUserIDS? = nil
+            failedUserIds: SlackModels.FailedUserIDS? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1169,7 +1173,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsLookupResponse/channelIds`.
         public var channelIds: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsLookupResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminConversationsLookupResponse`.
         ///
         /// - Parameters:
@@ -1185,7 +1189,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             channelIds: [Swift.String]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1264,7 +1268,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsRestrictAccessAddGroupResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsRestrictAccessAddGroupResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminConversationsRestrictAccessAddGroupResponse`.
         ///
         /// - Parameters:
@@ -1278,7 +1282,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1300,7 +1304,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsRestrictAccessListGroupsResponse/groupIds`.
         public var groupIds: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsRestrictAccessListGroupsResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminConversationsRestrictAccessListGroupsResponse`.
         ///
         /// - Parameters:
@@ -1316,7 +1320,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             groupIds: [Swift.String]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1337,7 +1341,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsRestrictAccessRemoveGroupResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsRestrictAccessRemoveGroupResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminConversationsRestrictAccessRemoveGroupResponse`.
         ///
         /// - Parameters:
@@ -1351,7 +1355,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1365,7 +1369,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsSearchResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AdminConversationsSearchResponse/conversations`.
-        public var conversations: [Components.Schemas.Conversation]?
+        public var conversations: [SlackModels.Conversation]?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsSearchResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsSearchResponse/needed`.
@@ -1377,7 +1381,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminConversationsSearchResponse/totalCount`.
         public var totalCount: Swift.Int?
         /// - Remark: Generated from `#/components/schemas/AdminConversationsSearchResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminConversationsSearchResponse`.
         ///
         /// - Parameters:
@@ -1391,13 +1395,13 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            conversations: [Components.Schemas.Conversation]? = nil,
+            conversations: [SlackModels.Conversation]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             nextCursor: Swift.String? = nil,
             totalCount: Swift.Int? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.conversations = conversations
@@ -1541,7 +1545,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminEmojiAddResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminEmojiAddResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminEmojiAddResponse`.
         ///
         /// - Parameters:
@@ -1555,7 +1559,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1575,7 +1579,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminEmojiAddAliasResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminEmojiAddAliasResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminEmojiAddAliasResponse`.
         ///
         /// - Parameters:
@@ -1589,7 +1593,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1611,7 +1615,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminEmojiListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminEmojiListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminEmojiListResponse`.
         ///
         /// - Parameters:
@@ -1627,7 +1631,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.emoji = emoji
@@ -1648,7 +1652,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminEmojiRemoveResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminEmojiRemoveResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminEmojiRemoveResponse`.
         ///
         /// - Parameters:
@@ -1662,7 +1666,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1682,7 +1686,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminEmojiRenameResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminEmojiRenameResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminEmojiRenameResponse`.
         ///
         /// - Parameters:
@@ -1696,7 +1700,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1716,9 +1720,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminFunctionsListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminFunctionsListResponse/functions`.
-        public var functions: [Components.Schemas.Function]?
+        public var functions: [SlackModels.Function]?
         /// - Remark: Generated from `#/components/schemas/AdminFunctionsListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminFunctionsListResponse`.
         ///
         /// - Parameters:
@@ -1733,8 +1737,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            functions: [Components.Schemas.Function]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            functions: [SlackModels.Function]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1751,7 +1755,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminFunctionsPermissionsLookupResponse/permissions`.
         public var permissions: OpenAPIRuntime.OpenAPIObjectContainer?
         /// - Remark: Generated from `#/components/schemas/AdminFunctionsPermissionsLookupResponse/errors`.
-        public var errors: Components.Schemas.Errors?
+        public var errors: SlackModels.Errors?
         /// - Remark: Generated from `#/components/schemas/AdminFunctionsPermissionsLookupResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminFunctionsPermissionsLookupResponse/needed`.
@@ -1761,7 +1765,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminFunctionsPermissionsLookupResponse/metadata`.
         public var metadata: OpenAPIRuntime.OpenAPIObjectContainer?
         /// - Remark: Generated from `#/components/schemas/AdminFunctionsPermissionsLookupResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminFunctionsPermissionsLookupResponse`.
         ///
         /// - Parameters:
@@ -1776,12 +1780,12 @@ extension Components.Schemas {
         public init(
             ok: Swift.Bool,
             permissions: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-            errors: Components.Schemas.Errors? = nil,
+            errors: SlackModels.Errors? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             metadata: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.permissions = permissions
@@ -1804,7 +1808,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminFunctionsPermissionsSetResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminFunctionsPermissionsSetResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminFunctionsPermissionsSetResponse`.
         ///
         /// - Parameters:
@@ -1818,7 +1822,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1867,9 +1871,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsApprovedListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsApprovedListResponse/approvedRequests`.
-        public var approvedRequests: [Components.Schemas.ApprovedRequest]?
+        public var approvedRequests: [SlackModels.ApprovedRequest]?
         /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsApprovedListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminInviteRequestsApprovedListResponse`.
         ///
         /// - Parameters:
@@ -1884,8 +1888,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            approvedRequests: [Components.Schemas.ApprovedRequest]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            approvedRequests: [SlackModels.ApprovedRequest]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1906,9 +1910,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsDeniedListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsDeniedListResponse/deniedRequests`.
-        public var deniedRequests: [Components.Schemas.DeniedRequest]?
+        public var deniedRequests: [SlackModels.DeniedRequest]?
         /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsDeniedListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminInviteRequestsDeniedListResponse`.
         ///
         /// - Parameters:
@@ -1923,8 +1927,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            deniedRequests: [Components.Schemas.DeniedRequest]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            deniedRequests: [SlackModels.DeniedRequest]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -1974,9 +1978,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsListResponse/inviteRequests`.
-        public var inviteRequests: [Components.Schemas.InviteRequest]?
+        public var inviteRequests: [SlackModels.InviteRequest]?
         /// - Remark: Generated from `#/components/schemas/AdminInviteRequestsListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminInviteRequestsListResponse`.
         ///
         /// - Parameters:
@@ -1991,8 +1995,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            inviteRequests: [Components.Schemas.InviteRequest]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            inviteRequests: [SlackModels.InviteRequest]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -2013,7 +2017,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminRolesAddAssignmentsResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminRolesAddAssignmentsResponse/rejectedUsers`.
-        public var rejectedUsers: [Components.Schemas.RejectedUser]?
+        public var rejectedUsers: [SlackModels.RejectedUser]?
         /// Creates a new `AdminRolesAddAssignmentsResponse`.
         ///
         /// - Parameters:
@@ -2027,7 +2031,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            rejectedUsers: [Components.Schemas.RejectedUser]? = nil
+            rejectedUsers: [SlackModels.RejectedUser]? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -2047,9 +2051,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminRolesListAssignmentsResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminRolesListAssignmentsResponse/roleAssignments`.
-        public var roleAssignments: [Components.Schemas.RoleAssignment]?
+        public var roleAssignments: [SlackModels.RoleAssignment]?
         /// - Remark: Generated from `#/components/schemas/AdminRolesListAssignmentsResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminRolesListAssignmentsResponse`.
         ///
         /// - Parameters:
@@ -2064,8 +2068,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            roleAssignments: [Components.Schemas.RoleAssignment]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            roleAssignments: [SlackModels.RoleAssignment]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -2117,7 +2121,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminTeamsAdminsListResponse/adminIds`.
         public var adminIds: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/AdminTeamsAdminsListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminTeamsAdminsListResponse`.
         ///
         /// - Parameters:
@@ -2133,7 +2137,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             adminIds: [Swift.String]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -2156,7 +2160,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminTeamsCreateResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminTeamsCreateResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminTeamsCreateResponse`.
         ///
         /// - Parameters:
@@ -2172,7 +2176,7 @@ extension Components.Schemas {
             team: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -2187,7 +2191,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminTeamsListResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AdminTeamsListResponse/teams`.
-        public var teams: [Components.Schemas.Team]?
+        public var teams: [SlackModels.Team]?
         /// - Remark: Generated from `#/components/schemas/AdminTeamsListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminTeamsListResponse/needed`.
@@ -2195,7 +2199,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminTeamsListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminTeamsListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminTeamsListResponse`.
         ///
         /// - Parameters:
@@ -2207,11 +2211,11 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            teams: [Components.Schemas.Team]? = nil,
+            teams: [SlackModels.Team]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.teams = teams
@@ -2234,7 +2238,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminTeamsOwnersListResponse/ownerIds`.
         public var ownerIds: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/AdminTeamsOwnersListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminTeamsOwnersListResponse`.
         ///
         /// - Parameters:
@@ -2250,7 +2254,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
             ownerIds: [Swift.String]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -2265,7 +2269,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsInfoResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsInfoResponse/team`.
-        public var team: Components.Schemas.Team?
+        public var team: SlackModels.Team?
         /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsInfoResponse/needed`.
@@ -2282,7 +2286,7 @@ extension Components.Schemas {
         ///   - provided:
         public init(
             ok: Swift.Bool,
-            team: Components.Schemas.Team? = nil,
+            team: SlackModels.Team? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil
@@ -2305,7 +2309,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsSetDefaultChannelsResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsSetDefaultChannelsResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminTeamsSettingsSetDefaultChannelsResponse`.
         ///
         /// - Parameters:
@@ -2319,7 +2323,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -2397,7 +2401,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsSetIconResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminTeamsSettingsSetIconResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminTeamsSettingsSetIconResponse`.
         ///
         /// - Parameters:
@@ -2411,7 +2415,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -2489,7 +2493,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminUsersInviteResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminUsersInviteResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminUsersInviteResponse`.
         ///
         /// - Parameters:
@@ -2503,7 +2507,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -2517,7 +2521,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminUsersListResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AdminUsersListResponse/users`.
-        public var users: [Components.Schemas.User]?
+        public var users: [SlackModels.User]?
         /// - Remark: Generated from `#/components/schemas/AdminUsersListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminUsersListResponse/needed`.
@@ -2525,7 +2529,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminUsersListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminUsersListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminUsersListResponse`.
         ///
         /// - Parameters:
@@ -2537,11 +2541,11 @@ extension Components.Schemas {
         ///   - responseMetadata:
         public init(
             ok: Swift.Bool,
-            users: [Components.Schemas.User]? = nil,
+            users: [SlackModels.User]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.users = users
@@ -2620,7 +2624,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminUsersSessionGetSettingsResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminUsersSessionGetSettingsResponse/sessionSettings`.
-        public var sessionSettings: [Components.Schemas.SessionSetting]?
+        public var sessionSettings: [SlackModels.SessionSetting]?
         /// - Remark: Generated from `#/components/schemas/AdminUsersSessionGetSettingsResponse/noSettingsApplied`.
         public var noSettingsApplied: [Swift.String]?
         /// Creates a new `AdminUsersSessionGetSettingsResponse`.
@@ -2637,7 +2641,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            sessionSettings: [Components.Schemas.SessionSetting]? = nil,
+            sessionSettings: [SlackModels.SessionSetting]? = nil,
             noSettingsApplied: [Swift.String]? = nil
         ) {
             self.ok = ok
@@ -2659,7 +2663,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminUsersSessionInvalidateResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminUsersSessionInvalidateResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminUsersSessionInvalidateResponse`.
         ///
         /// - Parameters:
@@ -2673,7 +2677,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
@@ -2693,9 +2697,9 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AdminUsersSessionListResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AdminUsersSessionListResponse/activeSessions`.
-        public var activeSessions: [Components.Schemas.ActiveSession]?
+        public var activeSessions: [SlackModels.ActiveSession]?
         /// - Remark: Generated from `#/components/schemas/AdminUsersSessionListResponse/responseMetadata`.
-        public var responseMetadata: Components.Schemas.ResponseMetadata?
+        public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AdminUsersSessionListResponse`.
         ///
         /// - Parameters:
@@ -2710,8 +2714,8 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            activeSessions: [Components.Schemas.ActiveSession]? = nil,
-            responseMetadata: Components.Schemas.ResponseMetadata? = nil
+            activeSessions: [SlackModels.ActiveSession]? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok
             self.error = error
