@@ -40,8 +40,11 @@ class EventsProcessor
       generate_event_file(event_name, event_content)
     end
 
-    Output.summary "Processing complete! Generated #{event_structs.size} event files:",
-                   event_structs.keys.map { |name| "#{name}.swift" }
+    # Generate polymorphic EventType enum
+    generate_event_type_enum(event_structs.keys)
+
+    Output.summary "Processing complete! Generated #{event_structs.size} event files + EventType.swift:",
+                   event_structs.keys.map { |name| "#{name}.swift" } + ["EventType.swift"]
   end
 
   private
@@ -140,6 +143,83 @@ class EventsProcessor
     filepath = File.join(@output_directory, filename)
     File.write(filepath, file_content)
     Output.created filename
+  end
+
+  # Generates the polymorphic EventType enum for handling all event types
+  def generate_event_type_enum(event_names)
+    # Sort event names for consistent output
+    sorted_events = event_names.sort
+
+    # Generate enum cases
+    enum_cases = sorted_events.map do |event_name|
+      case_name = camel_case_to_lower_camel_case(event_name.gsub(/Event$/, ''))
+      "    case #{case_name}(#{event_name})"
+    end
+
+    # Generate switch cases for decoding
+    switch_cases = sorted_events.map do |event_name|
+      case_name = camel_case_to_lower_camel_case(event_name.gsub(/Event$/, ''))
+      type_value = generate_slack_event_type(event_name)
+      "        case \"#{type_value}\":\n            self = .#{case_name}(try #{event_name}(from: decoder))"
+    end
+
+    file_content = <<~SWIFT
+import Foundation
+
+/// Polymorphic event type that can decode any Slack event based on the type field
+public enum EventType: Decodable, Hashable, Sendable {
+#{enum_cases.join("\n")}
+    case unsupported(String)
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let type = try container.decode(String.self, forKey: .type)
+
+        switch type {
+#{switch_cases.join("\n")}
+        default:
+            self = .unsupported(type)
+        }
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+    }
+}
+    SWIFT
+
+    # Write the EventType.swift file
+    filename = "EventType.swift"
+    filepath = File.join(@output_directory, filename)
+    File.write(filepath, file_content)
+    Output.created filename
+  end
+
+  # Converts CamelCase to lowerCamelCase for enum case names
+  def camel_case_to_lower_camel_case(str)
+    # Handle special cases
+    str = str.gsub(/ID/, 'Id')  # ChannelIDChanged -> ChannelIdChanged
+    str = str.gsub(/IM/, 'Im')  # IMClose -> ImClose
+    
+    # Convert to snake_case first
+    snake_case = str.gsub(/([A-Z])/) { "_#{$1.downcase}" }.sub(/^_/, '').downcase
+    
+    # Convert snake_case to lowerCamelCase
+    parts = snake_case.split('_')
+    parts.first + parts[1..-1].map(&:capitalize).join
+  end
+
+  # Generates the Slack event type string from the event class name
+  def generate_slack_event_type(event_name)
+    # Remove 'Event' suffix and convert to snake_case
+    base_name = event_name.gsub(/Event$/, '')
+    
+    # Handle special cases for Slack's naming conventions
+    base_name = base_name.gsub(/ID/, 'Id')  # ChannelIDChanged -> ChannelIdChanged
+    base_name = base_name.gsub(/IM/, 'Im')  # IMClose -> ImClose
+    
+    # Convert to snake_case for Slack event type format
+    base_name.gsub(/([A-Z])/) { "_#{$1.downcase}" }.sub(/^_/, '').downcase
   end
 
   # Transforms event struct content according to requirements
