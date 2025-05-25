@@ -1,10 +1,11 @@
 import Foundation
 import SlackBlockKit
+import SlackModels
 
 public struct ViewClosedPayload: InteractivePayloadProtocol, Decodable, Sendable {
     public let type: String // view_closed
-    public let team: Components.Schemas.Team
-    public let user: Components.Schemas.User
+    public let team: Team
+    public let user: User
     public let view: ViewType
     public let isCleared: Bool
 }

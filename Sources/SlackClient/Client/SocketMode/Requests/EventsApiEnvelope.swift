@@ -14,7 +14,7 @@ public struct EventsApiEnvelope: Decodable, Sendable {
 extension EventsApiEnvelope {
     // Inner event structure varies depending on what API you use
     public enum Event: Decodable, Sendable {
-        case appMentionEvent(AppMentionEvent)
+        //case appMentionEvent(AppMentionEvent)
     }
 }
 
@@ -24,8 +24,8 @@ extension EventsApiEnvelope.Event {
         let type = try container.decode(String.self, forKey: .type)
 
         switch type {
-        case "app_mention":
-            self = .appMentionEvent(try AppMentionEvent(from: decoder))
+//        case "app_mention":
+//            self = .appMentionEvent(try AppMentionEvent(from: decoder))
         default:
             throw DecodingError.dataCorruptedError(
                 forKey: .type,
