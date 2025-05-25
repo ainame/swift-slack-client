@@ -38,6 +38,7 @@ var traits: [Trait] = webAPITraits.map { .trait(name: $0) }
 
 traits.append(.trait(name: "SocketMode", enabledTraits: ["WebAPI_Apps"]))
 traits.append(.trait(name: "BlockKit"))
+traits.append(.trait(name: "Events"))
 
 // By default, all the traits is enabled for development.
 traits.append(.default(enabledTraits: Set(traits.map(\.name))))
