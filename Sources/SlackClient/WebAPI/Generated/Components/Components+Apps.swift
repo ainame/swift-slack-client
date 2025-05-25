@@ -96,7 +96,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AppsManifestCreateResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AppsManifestCreateResponse/errors`.
-        public var errors: [Components.Schemas._Error]?
+        public var errors: [SlackModels._Error]?
         /// - Remark: Generated from `#/components/schemas/AppsManifestCreateResponse/credentials`.
         public var credentials: SlackModels.Credentials?
         /// - Remark: Generated from `#/components/schemas/AppsManifestCreateResponse/responseMetadata`.
@@ -128,7 +128,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            errors: [Components.Schemas._Error]? = nil,
+            errors: [SlackModels._Error]? = nil,
             credentials: SlackModels.Credentials? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
             appId: Swift.String? = nil,
@@ -262,7 +262,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/AppsManifestValidateResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AppsManifestValidateResponse/errors`.
-        public var errors: [Components.Schemas._Error]?
+        public var errors: [SlackModels._Error]?
         /// - Remark: Generated from `#/components/schemas/AppsManifestValidateResponse/responseMetadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `AppsManifestValidateResponse`.
@@ -279,7 +279,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            errors: [Components.Schemas._Error]? = nil,
+            errors: [SlackModels._Error]? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
             self.ok = ok

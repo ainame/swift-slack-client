@@ -420,7 +420,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse/errors`.
-        public var errors: [Components.Schemas._Error]?
+        public var errors: [SlackModels._Error]?
         /// Creates a new `ConversationsInviteResponse`.
         ///
         /// - Parameters:
@@ -436,7 +436,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             provided: Swift.String? = nil,
-            errors: [Components.Schemas._Error]? = nil
+            errors: [SlackModels._Error]? = nil
         ) {
             self.ok = ok
             self.channel = channel
