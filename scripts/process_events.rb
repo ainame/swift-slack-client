@@ -2,6 +2,8 @@
 # frozen_string_literal: true
 
 require 'fileutils'
+require_relative 'lib/content_transformer'
+require_relative 'lib/output'
 
 # Handles transformation of generated Events code to extract Event structs
 # and transform them into individual SlackEvent conforming types
@@ -18,13 +20,13 @@ class EventsProcessor
   # Main processing method that extracts and transforms Event structs
   def run
     unless File.exist?(@input_file)
-      puts "Error: Events Types.swift not found at #{@input_file}"
+      Output.info "Error: Events Types.swift not found at #{@input_file}"
       exit 1
     end
 
-    puts "Processing Events Types.swift..."
-    puts "Input file: #{@input_file}"
-    puts "Output directory: #{@output_directory}"
+    Output.step "Processing Events Types.swift"
+    Output.info "Input file: #{@input_file}"
+    Output.info "Output directory: #{@output_directory}"
 
     # Create output directory
     FileUtils.mkdir_p(@output_directory)
@@ -38,9 +40,8 @@ class EventsProcessor
       generate_event_file(event_name, event_content)
     end
 
-    puts "\nProcessing complete!"
-    puts "Generated #{event_structs.size} event files:"
-    event_structs.keys.each { |name| puts "  - #{name}.swift" }
+    Output.summary "Processing complete! Generated #{event_structs.size} event files:",
+                   event_structs.keys.map { |name| "#{name}.swift" }
   end
 
   private
@@ -138,7 +139,7 @@ class EventsProcessor
     filename = "#{event_name}.swift"
     filepath = File.join(@output_directory, filename)
     File.write(filepath, file_content)
-    puts "Created #{filename}"
+    Output.created filename
   end
 
   # Transforms event struct content according to requirements
@@ -193,20 +194,9 @@ class EventsProcessor
       next if stripped.match(/^\/\/\/ - Parameters:/) ||
               stripped.match(/^\/\/\/ +- \w+:/)
 
-      # Transform _type property to type
-      if line.include?('_type')
-        line = line.gsub(/\b_type\b/, 'type')
-      end
-
-      # Replace Components.Schemas.View with ViewType from SlackBlockKit
-      if line.match(/\bComponents\.Schemas\.View\b/)
-        line = line.gsub(/\bComponents\.Schemas\.View\b/, 'ViewType')
-      end
-
-      # Replace Components.Schemas.Block with BlockType from SlackBlockKit
-      if line.match(/\bComponents\.Schemas\.Block\b/)
-        line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'BlockType')
-      end
+      # Apply content transformations
+      line = ContentTransformer.transform_type_properties(line)
+      line = ContentTransformer.transform_blockkit_references(line)
 
       # Replace Components.Schemas.XXX with SlackModels.XXX only for types moved to SlackModels
       if line.match(/\bComponents\.Schemas\.(?!View\b|Block\b)\w+\b/)
