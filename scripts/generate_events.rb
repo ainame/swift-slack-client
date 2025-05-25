@@ -13,7 +13,7 @@ UNSUPPORTED_EVENTS = [
   /^FileCommentEdited$/,
 ].freeze
 
-tmp_dir = './tmp'
+tmp_dir = '.tmp'
 source_dir = "#{tmp_dir}/java-slack-sdk/json-logs/samples/events"
 events_dir = "#{tmp_dir}/Events/intermediates"
 event_schemas_dir = "#{tmp_dir}/Events/schemas"

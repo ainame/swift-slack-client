@@ -571,7 +571,7 @@ class CodeGenerationProcessor
   end
 
   def initialize(input_directory = nil, output_directory = nil)
-    @input_directory = input_directory || File.join(__dir__, '..', 'tmp')
+    @input_directory = input_directory || File.join(__dir__, '..', '.tmp')
     @output_directory = output_directory || File.join(__dir__, '..', 'Sources', 'SlackClient', 'WebAPI', 'Generated')
     @client_file = File.join(@input_directory, 'Client.swift')
     @types_file = File.join(@input_directory, 'Types.swift')

@@ -2,19 +2,19 @@
 
 set -xe
 
-TMP_DIR="./tmp"
+TMP_DIR="./.tmp"
 
-mkdir -p ./tmp/WebAPI
-mkdir -p ./tmp/Events
+mkdir -p "${TMP_DIR}/WebAPI"
+mkdir -p "${TMP_DIR}/Events"
 
-if [ ! -d "./tmp/java-slack-sdk/.git" ]; then
-    git clone --depth 1 https://github.com/slackapi/java-slack-sdk.git tmp/java-slack-sdk
+if [ ! -d "${TMP_DIR}/java-slack-sdk/.git" ]; then
+    git clone --depth 1 https://github.com/slackapi/java-slack-sdk.git "${TMP_DIR}/java-slack-sdk"
 else
     echo "java-slack-sdk repository already exists at ./tmp/java-slack-sdk. Skipping clone."
 fi
 
-if [ ! -d "./tmp/slack-api-ref/.git" ]; then
-    git clone --depth 1 https://github.com/slack-ruby/slack-api-ref.git tmp/slack-api-ref
+if [ ! -d "${TMP_DIR}/slack-api-ref/.git" ]; then
+    git clone --depth 1 https://github.com/slack-ruby/slack-api-ref.git "${TMP_DIR}/slack-api-ref"
 else
     echo "slack-api-ref repository already exists at ./tmp/slack-api-ref. Skipping clone."
 fi

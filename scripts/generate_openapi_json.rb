@@ -24,14 +24,14 @@ UNSUPPORTED_METHODS = [
   /rtm\./
 ]
 
-api_ref_dir = './tmp/slack-api-ref/methods/'
+api_ref_dir = './.tmp/slack-api-ref/methods/'
 api_ref_paths = Dir.glob("#{api_ref_dir}/**/*.json")
 
-json_logs = './tmp/java-slack-sdk/json-logs'
+json_logs = './.tmp/java-slack-sdk/json-logs'
 api_dir = "#{json_logs}/samples/api/"
 sample_json_paths = Dir.glob("#{api_dir}*.json")
 
-output_dir = './tmp/WebAPI'
+output_dir = './.tmp/WebAPI'
 FileUtils.mkdir_p(File.join(output_dir, 'schemas'))
 
 def main(api_ref_paths, sample_json_paths, output_dir)

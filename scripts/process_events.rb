@@ -11,7 +11,7 @@ class EventsProcessor
   end
 
   def initialize(input_file = nil, output_directory = nil)
-    @input_file = input_file || File.join(__dir__, '..', 'tmp', 'Events', 'Types.swift')
+    @input_file = input_file || File.join(__dir__, '..', '.tmp', 'Events', 'Types.swift')
     @output_directory = output_directory || File.join(__dir__, '..', 'Sources', 'SlackClient', 'Events', 'Generated')
   end
 
@@ -44,30 +44,30 @@ class EventsProcessor
   end
 
   private
-  
+
   # Dynamically determines which types have been moved to SlackModels
   def get_slackmodels_types
     @slackmodels_types ||= begin
       types = []
-      
+
       # Check both SlackModels root directory and Generated subdirectory
       slackmodels_root = File.join(__dir__, '..', 'Sources', 'SlackModels')
       slackmodels_generated = File.join(slackmodels_root, 'Generated')
-      
+
       # Get manually created models from SlackModels root
       if Dir.exist?(slackmodels_root)
         Dir.glob(File.join(slackmodels_root, '*.swift')).each do |file|
           types << File.basename(file, '.swift')
         end
       end
-      
+
       # Get generated models from SlackModels/Generated
       if Dir.exist?(slackmodels_generated)
         Dir.glob(File.join(slackmodels_generated, '*.swift')).each do |file|
           types << File.basename(file, '.swift')
         end
       end
-      
+
       types.sort.uniq
     end
   end
@@ -90,27 +90,27 @@ class EventsProcessor
       if match = stripped.match(/\/\/\/ - Remark: Generated from `#\/components\/schemas\/(\w+Event)`\.$/)
         event_name = $1
         event_lines = []
-        
+
         # Collect all lines until we hit the next struct or enum
         j = i
         while j < lines.length
           current_line = lines[j]
           current_stripped = current_line.strip
-          
+
           # Stop if we hit another struct/enum declaration (not property comments)
           if j > i && current_stripped.match(/^\/\/\/ - Remark: Generated from `#\/components\/schemas\/(\w+)`\.$/)
             break
           end
-          
+
           event_lines << current_line
           j += 1
         end
-        
-        
+
+
         if !event_lines.empty?
           event_structs[event_name] = event_lines.join
         end
-        
+
         i = j  # Continue from where we left off
       else
         i += 1
@@ -124,10 +124,10 @@ class EventsProcessor
   def generate_event_file(event_name, event_content)
     # Transform the event content
     transformed_content = transform_event_content(event_content, event_name)
-    
-    
+
+
     # Check if we need imports
-    needs_slackblockkit_import = transformed_content.include?('BlockType') || 
+    needs_slackblockkit_import = transformed_content.include?('BlockType') ||
                                 transformed_content.include?('ViewType')
     needs_slackmodels_import = transformed_content.include?('SlackModels.')
 
@@ -172,7 +172,7 @@ class EventsProcessor
       end
 
       # Skip custom init and decode methods
-      if stripped.start_with?('public init(') || 
+      if stripped.start_with?('public init(') ||
          stripped.start_with?('/// Creates a new') ||
          stripped.start_with?('public init(from decoder:') ||
          stripped.start_with?('public func encode(')
@@ -190,7 +190,7 @@ class EventsProcessor
       end
 
       # Skip parameter documentation comments for init
-      next if stripped.match(/^\/\/\/ - Parameters:/) || 
+      next if stripped.match(/^\/\/\/ - Parameters:/) ||
               stripped.match(/^\/\/\/ +- \w+:/)
 
       # Transform _type property to type
@@ -203,7 +203,7 @@ class EventsProcessor
         line = line.gsub(/\bComponents\.Schemas\.View\b/, 'ViewType')
       end
 
-      # Replace Components.Schemas.Block with BlockType from SlackBlockKit  
+      # Replace Components.Schemas.Block with BlockType from SlackBlockKit
       if line.match(/\bComponents\.Schemas\.Block\b/)
         line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'BlockType')
       end
@@ -214,7 +214,7 @@ class EventsProcessor
           type_name = $1
           # Dynamically determine which types are in SlackModels
           slackmodels_types = get_slackmodels_types
-          
+
           if slackmodels_types.include?(type_name)
             "SlackModels.#{type_name}"
           else
@@ -245,14 +245,14 @@ class EventsProcessor
   # Generates the complete file content with proper imports and compilation directives
   def generate_file_content(event_name, transformed_content, needs_slackblockkit_import, needs_slackmodels_import)
     imports = ["import Foundation"]
-    
+
     if needs_slackmodels_import
       imports << "import SlackModels"
     end
-    
+
     if needs_slackblockkit_import
       imports << "#if canImport(SlackBlockKit)"
-      imports << "import SlackBlockKit"  
+      imports << "import SlackBlockKit"
       imports << "#endif"
     end
 
@@ -284,15 +284,15 @@ if __FILE__ == $0
     # Two arguments: input file and output directory
     input_file = ARGV[0]
     output_directory = ARGV[1]
-    
+
     unless File.exist?(input_file)
       puts "Error: Input file '#{input_file}' does not exist"
       exit 1
     end
-    
+
     # Create output directory if it doesn't exist
     FileUtils.mkdir_p(output_directory)
-    
+
     EventsProcessor.run(input_file, output_directory)
   end
 end
