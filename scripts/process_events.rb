@@ -164,6 +164,7 @@ class EventsProcessor
     end
 
     file_content = <<~SWIFT
+#if Events
 import Foundation
 
 /// Polymorphic event type that can decode any Slack event based on the type field
@@ -186,6 +187,7 @@ public enum EventType: Decodable, Hashable, Sendable {
         case type
     }
 }
+#endif
     SWIFT
 
     # Write the EventType.swift file
