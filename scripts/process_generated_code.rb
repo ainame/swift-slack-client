@@ -10,25 +10,25 @@ class CodeTransformer
   def self.slackmodels_types
     @slackmodels_types ||= begin
       types = []
-      
+
       # Check both SlackModels root directory and Generated subdirectory
       slackmodels_root = File.join(__dir__, '..', 'Sources', 'SlackModels')
       slackmodels_generated = File.join(slackmodels_root, 'Generated')
-      
+
       # Get manually created models from SlackModels root
       if Dir.exist?(slackmodels_root)
         Dir.glob(File.join(slackmodels_root, '*.swift')).each do |file|
           types << File.basename(file, '.swift')
         end
       end
-      
+
       # Get generated models from SlackModels/Generated
       if Dir.exist?(slackmodels_generated)
         Dir.glob(File.join(slackmodels_generated, '*.swift')).each do |file|
           types << File.basename(file, '.swift')
         end
       end
-      
+
       types.sort.uniq
     end
   end
@@ -46,13 +46,13 @@ class CodeTransformer
              end
            end
   end
-  
+
   # Transforms operations content and adds conditional imports if needed
   def self.transform_operations_content(content)
     # Check if we need SlackBlockKit import
-    needs_slackblockkit_import = content.match(/\bComponents\.Schemas\.View\b/) || 
+    needs_slackblockkit_import = content.match(/\bComponents\.Schemas\.View\b/) ||
                                 content.match(/\bComponents\.Schemas\.Block\b/)
-    
+
     # Check if we need SlackModels import (only for types moved to SlackModels)
     needs_slackmodels_import = false
     content.scan(/\bComponents\.Schemas\.(\w+)\b/) do |match|
@@ -62,7 +62,7 @@ class CodeTransformer
         break
       end
     end
-    
+
     # Apply transformations
     transformed_content = content.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.ViewType')
                                 .gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.BlockType')
@@ -74,19 +74,19 @@ class CodeTransformer
                                     match  # Keep original if not moved to SlackModels
                                   end
                                 end
-    
+
     # Add imports if needed
     if needs_slackmodels_import
       transformed_content = add_conditional_import(transformed_content, 'SlackModels')
     end
-    
+
     if needs_slackblockkit_import
       transformed_content = add_conditional_import(transformed_content, 'SlackBlockKit')
     end
-    
+
     transformed_content
   end
-  
+
   # Transforms components content by removing CodingKeys and fixing property names
   def self.transform_components_content(content)
     lines = content.lines
@@ -95,17 +95,17 @@ class CodeTransformer
     brace_depth = 0
     needs_slackblockkit_import = false
     needs_slackmodels_import = false
-    
+
     lines.each do |line|
       stripped = line.strip
-      
+
       # Skip CodingKeys enum completely
       if stripped.match(/^public enum CodingKeys:/)
         skip_until_end = true
         brace_depth = 0
         next
       end
-      
+
       if skip_until_end
         brace_depth += line.count('{') - line.count('}')
         if brace_depth < 0 && stripped == '}'
@@ -113,24 +113,24 @@ class CodeTransformer
         end
         next
       end
-      
+
       # Transform _type property to type
       if line.include?('_type')
         line = line.gsub(/\b_type\b/, 'type')
       end
-      
+
       # Replace Components.Schemas.View with SlackBlockKit.ViewType (exact match only)
       if line.match(/\bComponents\.Schemas\.View\b/)
         line = line.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.ViewType')
         needs_slackblockkit_import = true
       end
-      
+
       # Replace Components.Schemas.Block with SlackBlockKit.BlockType (exact match only)
       if line.match(/\bComponents\.Schemas\.Block\b/)
         line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.BlockType')
         needs_slackblockkit_import = true
       end
-      
+
       # Replace Components.Schemas.XXX with SlackModels.XXX only for types moved to SlackModels
       if line.match(/\bComponents\.Schemas\.(?!View\b|Block\b)\w+\b/)
         line = line.gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
@@ -143,30 +143,30 @@ class CodeTransformer
           end
         end
       end
-      
+
       transformed_lines << line
     end
-    
+
     # Add imports if needed
     if needs_slackmodels_import
       transformed_lines = add_conditional_import_to_lines(transformed_lines, 'SlackModels')
     end
-    
+
     if needs_slackblockkit_import
       transformed_lines = add_conditional_import_to_lines(transformed_lines, 'SlackBlockKit')
     end
-    
+
     transformed_lines.join
   end
-  
+
   private
-  
+
   # Adds conditional import to content string
   def self.add_conditional_import(content, module_name)
     lines = content.lines
     add_conditional_import_to_lines(lines, module_name).join
   end
-  
+
   # Adds conditional import to array of lines
   def self.add_conditional_import_to_lines(lines, module_name)
     # Find the end of the conditional import block (#endif)
@@ -194,14 +194,14 @@ class ClientFunctionParser
     dnd emoji files functions migration oauth openid pins reactions
     reminders rtm search stars team tooling users views
   ].freeze
-  
+
   # Extracts header lines from client file (everything before struct declaration)
   def self.extract_header(lines)
     header_end = lines.find_index { |line| line.strip.start_with?('internal struct Client') }
     return [] unless header_end
     lines[0...header_end]
   end
-  
+
   # Splits client content into base content and grouped functions
   def self.split_content(lines)
     first_function_idx = lines.find_index { |line| function_line?(line) }
@@ -223,7 +223,7 @@ class ClientFunctionParser
 
     [base_content, parse_functions(function_lines)]
   end
-  
+
   # Parses function lines and groups them by API group
   def self.parse_functions(lines)
     functions = Hash.new { |h, k| h[k] = [] }
@@ -261,14 +261,14 @@ class ClientFunctionParser
 
     functions
   end
-  
+
   # Extracts API group name from function name
   def self.extract_group_name(function_name)
     API_GROUPS.find { |group| function_name&.start_with?(group) } || 'unknown'
   end
-  
+
   private
-  
+
   # Checks if a line contains a function declaration
   def self.function_line?(line)
     line.strip.match(/^internal func (\w+)/)
@@ -335,6 +335,228 @@ class PackageConfigurationManager
   end
 end
 
+# Simple class to extract individual model types from Types.swift and create SlackModels
+class SlackModelsExtractor
+  def initialize(types_file, output_dir)
+    @types_file = types_file
+    @output_dir = output_dir
+    @manually_handled_types = %w[View Block]  # These are handled by SlackBlockKit
+  end
+
+  def extract
+    content = File.read(@types_file)
+    lines = content.lines
+
+    # Find Components.Schemas enum
+    components_start = lines.find_index { |line| line.strip.start_with?('public enum Components') }
+    schemas_start = lines.find_index { |line| line.strip.start_with?('public enum Schemas') }
+
+    unless components_start && schemas_start
+      puts "Could not find Components.Schemas enum in Types.swift"
+      return
+    end
+
+    header = lines[0...components_start].join
+
+    # Create output directory
+    FileUtils.mkdir_p(@output_dir)
+
+    # Parse schemas
+    schemas = parse_schemas(lines, schemas_start)
+
+    puts "Found #{schemas.size} schemas to extract"
+
+    # Filter for non-response types that should go to SlackModels
+    model_schemas = schemas.select do |name, _|
+      should_extract_to_slackmodels?(name)
+    end
+
+    puts "Extracting #{model_schemas.size} schemas to SlackModels"
+
+    # Write each schema to its own file
+    model_schemas.each do |name, content|
+      write_model_file(name, content, header)
+    end
+
+    puts "Created #{model_schemas.size} model files"
+  end
+
+  private
+
+  def parse_schemas(lines, schemas_start)
+    schemas = {}
+    current_schema = nil
+    schema_lines = []
+    brace_depth = 0
+    in_schema = false
+
+    lines[(schemas_start + 1)..-1].each do |line|
+      stripped = line.strip
+
+      # Look for schema struct declarations
+      if match = stripped.match(/\/\/\/ - Remark: Generated from `#\/components\/schemas\/(\w+)`\.$/)
+        # Save previous schema
+        if current_schema && !schema_lines.empty?
+          schemas[current_schema] = schema_lines.join
+        end
+
+        # Start new schema
+        current_schema = $1
+        schema_lines = [line]
+        in_schema = false  # Wait for struct declaration
+        next
+      elsif stripped.match(/^public struct (\w+):/) && current_schema
+        schema_lines << line
+        brace_depth = 1  # Start counting from opening brace
+        in_schema = true
+        next
+      end
+
+      if in_schema && current_schema
+        schema_lines << line
+        brace_depth += line.count('{') - line.count('}')
+
+        # End of schema
+        if brace_depth == 0
+          schemas[current_schema] = schema_lines.join
+          current_schema = nil
+          schema_lines = []
+          in_schema = false
+        end
+      elsif current_schema
+        # We're collecting lines for a schema but haven't hit the struct yet
+        schema_lines << line
+      end
+    end
+
+    # Handle final schema
+    if current_schema && !schema_lines.empty?
+      schemas[current_schema] = schema_lines.join
+    end
+
+    schemas
+  end
+
+  def should_extract_to_slackmodels?(schema_name)
+    # Don't extract Response types - they stay in WebAPI
+    return false if schema_name.end_with?('Response')
+
+    # Don't extract manually handled types
+    return false if @manually_handled_types.include?(schema_name)
+
+    # Extract everything else
+    true
+  end
+
+  def write_model_file(schema_name, content, header)
+    # Transform the content
+    transformed_content = transform_content(content, schema_name)
+
+    # Check if we need SlackBlockKit import
+    needs_slackblockkit_import = transformed_content.include?('ViewType') ||
+                                transformed_content.include?('BlockType')
+
+    # Generate file content
+    file_content = generate_file_content(transformed_content, needs_slackblockkit_import)
+
+    # Write file
+    filename = "#{schema_name}.swift"
+    filepath = File.join(@output_dir, filename)
+    File.write(filepath, file_content)
+    puts "Created #{filename}"
+  end
+
+  def transform_content(content, schema_name)
+    lines = content.lines
+    transformed_lines = []
+    skip_until_end = false
+    brace_depth = 0
+
+    lines.each do |line|
+      stripped = line.strip
+
+      # Skip CodingKeys enum
+      if stripped.match(/^public enum CodingKeys:/)
+        skip_until_end = true
+        brace_depth = 1
+        next
+      end
+
+      if skip_until_end
+        brace_depth += line.count('{') - line.count('}')
+        if brace_depth <= 0
+          skip_until_end = false
+        end
+        next
+      end
+
+      # Transform struct declaration
+      if line.match(/^(\s*)public struct #{Regexp.escape(schema_name)}:/)
+        line = line.gsub(/:\s*.*$/, ': Codable, Hashable, Sendable {')
+      end
+
+      # Transform _type property to type
+      if line.include?('_type')
+        line = line.gsub(/\b_type\b/, 'type')
+      end
+
+      # Replace Components.Schemas.View with ViewType
+      if line.match(/\bComponents\.Schemas\.View\b/)
+        line = line.gsub(/\bComponents\.Schemas\.View\b/, 'ViewType')
+      end
+
+      # Replace Components.Schemas.Block with BlockType
+      if line.match(/\bComponents\.Schemas\.Block\b/)
+        line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'BlockType')
+      end
+
+      # Replace other Components.Schemas.XXX with just XXX
+      if line.match(/\bComponents\.Schemas\.(?!View\b|Block\b)\w+\b/)
+        line = line.gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
+          type_name = $1
+          # Handle special case where _Type was renamed to Type
+          if type_name == '_Type'
+            'Type'
+          else
+            type_name
+          end
+        end
+      end
+
+      # Fix indentation: convert from enum nesting to top-level
+      if line.start_with?('        ')  # 8 spaces from nested enum
+        line = line[8..-1]
+      elsif line.start_with?('    ')   # 4 spaces
+        line = line[4..-1]
+      end
+
+      transformed_lines << line
+    end
+
+    transformed_lines.join
+  end
+
+  def generate_file_content(transformed_content, needs_slackblockkit_import)
+    imports = [
+      "@_spi(Generated) import OpenAPIRuntime",
+      "#if os(Linux)",
+      "#else",
+      "import struct Foundation.URL",
+      "import struct Foundation.Data",
+      "import struct Foundation.Date",
+      "#endif"
+    ]
+
+    if needs_slackblockkit_import
+      imports << "#if canImport(SlackBlockKit)"
+      imports << "import SlackBlockKit"
+      imports << "#endif"
+    end
+
+    [imports.join("\n"), "", transformed_content.strip].join("\n") + "\n"
+  end
+end
+
 # Main orchestrator class that coordinates the code generation process
 class CodeGenerationProcessor
   def self.run(input_directory = nil, output_directory = nil)
@@ -347,6 +569,7 @@ class CodeGenerationProcessor
     @client_file = File.join(@input_directory, 'Client.swift')
     @types_file = File.join(@input_directory, 'Types.swift')
     @package_file = File.join(File.dirname(@output_directory), '..', '..', '..', 'Package.swift')
+    @slackmodels_dir = File.join(File.dirname(@output_directory), '..', '..', 'SlackModels', 'Generated')
   end
 
   # Main processing method that orchestrates the entire code generation pipeline
@@ -360,7 +583,20 @@ class CodeGenerationProcessor
     puts "Input directory: #{@input_directory}"
     puts "Output directory: #{@output_directory}"
 
-    # Parse and split client functions
+    # STEP 1: Extract SlackModels FIRST (before processing WebAPI files)
+    puts "\nStep 1: Extracting SlackModels from Types.swift..."
+    SlackModelsExtractor.new(@types_file, @slackmodels_dir).extract
+
+    # Add typealias for _Type -> Type
+    type_file = File.join(@slackmodels_dir, 'Type.swift')
+    if File.exist?(type_file)
+      content = File.read(type_file)
+      unless content.include?('public typealias Type = _Type')
+        File.write(type_file, content.chomp + "\n\n/// Typealias for `_Type` to make it accessible as `Type`.\npublic typealias Type = _Type\n")
+      end
+    end
+
+    # STEP 2: Parse and split client functions
     lines = File.readlines(@client_file)
     header_lines = ClientFunctionParser.extract_header(lines)
     base_content, functions = ClientFunctionParser.split_content(lines)
@@ -369,7 +605,7 @@ class CodeGenerationProcessor
     write_base_file(base_content, header_lines)
     write_group_files(functions, header_lines)
     PackageConfigurationManager.update_package_swift(@package_file, functions.keys)
-    
+
     # Process additional files
     TypesSplitter.new(@types_file, @output_directory).split_types_file
     BaseFileCreator.new(@input_directory, @output_directory).create_base_files
@@ -386,29 +622,29 @@ class CodeGenerationProcessor
   end
 
   private
-  
+
   # Writes the base client file with transformed content and conditional imports
   def write_base_file(content, header_lines)
     # Change private access to internal for extension compatibility
     updated_content = content.map do |line|
       line.gsub(/^\s*private (let|var)\s/, '    internal \1 ')
     end
-    
+
     # Transform schema references
     final_content = updated_content.map do |line|
       CodeTransformer.transform_client_functions(line)
     end
-    
+
     # Check if we need imports
     content_string = final_content.join
-    needs_slackblockkit_import = content_string.include?('SlackBlockKit.ViewType') || 
+    needs_slackblockkit_import = content_string.include?('SlackBlockKit.ViewType') ||
                                 content_string.include?('SlackBlockKit.BlockType')
     needs_slackmodels_import = content_string.include?('SlackModels.')
-    
+
     if needs_slackmodels_import
       final_content = add_conditional_import_to_content(final_content, 'SlackModels')
     end
-    
+
     if needs_slackblockkit_import
       final_content = add_conditional_import_to_content(final_content, 'SlackBlockKit')
     end
@@ -419,7 +655,7 @@ class CodeGenerationProcessor
     File.write(File.join(client_dir, 'Client+Base.swift'), [*final_content, "}\n"].join)
     puts "Created Client/Client+Base.swift"
   end
-  
+
   # Writes group-specific client extension files with trait-based conditional compilation
   def write_group_files(functions, header_lines)
     client_dir = File.join(@output_directory, 'Client')
@@ -431,15 +667,15 @@ class CodeGenerationProcessor
       puts "Created Client/#{filename}"
     end
   end
-  
+
   # Generates Swift extension content for a specific API group
   def generate_extension_content(group, functions, header_lines)
     trait = "WebAPI_#{GroupNameFormatter.capitalize_group_name(group)}"
     header = header_lines.join
     functions_content = functions.join
-    
+
     # Check if we need imports
-    needs_slackblockkit_import = functions_content.match(/\bComponents\.Schemas\.View\b/) || 
+    needs_slackblockkit_import = functions_content.match(/\bComponents\.Schemas\.View\b/) ||
                                 functions_content.match(/\bComponents\.Schemas\.Block\b/)
     needs_slackmodels_import = false
     functions_content.scan(/\bComponents\.Schemas\.(\w+)\b/) do |match|
@@ -449,10 +685,10 @@ class CodeGenerationProcessor
         break
       end
     end
-    
+
     # Transform the functions content
     transformed_functions = CodeTransformer.transform_client_functions(functions_content)
-    
+
     # Add imports to header if needed
     final_header = header_lines.dup
     if needs_slackmodels_import
@@ -472,7 +708,7 @@ class CodeGenerationProcessor
       #endif
     SWIFT
   end
-  
+
   # Adds conditional import to content, handling different import block scenarios
   def add_conditional_import_to_content(content_lines, module_name)
     # Find the end of the conditional import block (#endif)
@@ -499,7 +735,7 @@ class TypesSplitter
     @types_file = types_file
     @output_directory = output_directory
   end
-  
+
   # Splits Types.swift by top-level declarations with conditional compilation
   def split_types_file
     return unless File.exist?(@types_file)
@@ -527,9 +763,9 @@ class TypesSplitter
       puts "Created #{filename} (#{block_lines.size} lines)"
     end
   end
-  
+
   private
-  
+
   # Parses Types.swift into separate top-level blocks
   def parse_types_blocks(lines)
     blocks = {}
@@ -580,7 +816,7 @@ class TypesSplitter
 
     blocks
   end
-  
+
   # Finds the start of documentation for a declaration by looking backwards
   def find_documentation_start(lines, decl_index)
     doc_start = decl_index
@@ -606,13 +842,13 @@ class ProtocolConditionalCompiler
   def self.apply_conditional_compilation_to_protocol(content)
     lines = content.lines
     updated_lines = []
-    
+
     # Split content into protocol and extension parts
     protocol_start = lines.find_index { |line| line.strip.start_with?('public protocol APIProtocol') }
     extension_start = lines.find_index { |line| line.strip.start_with?('extension APIProtocol') }
-    
+
     return content unless protocol_start
-    
+
     if extension_start
       # Handle protocol part
       protocol_end = extension_start - 1
@@ -620,45 +856,45 @@ class ProtocolConditionalCompiler
       while protocol_end > protocol_start && (lines[protocol_end].strip.empty? || lines[protocol_end].strip.start_with?('///'))
         protocol_end -= 1
       end
-      
+
       protocol_lines = lines[0..protocol_end]
       extension_comment_and_after = lines[(protocol_end + 1)..-1]
-      
+
       # Apply conditional compilation to protocol part
       updated_lines.concat(apply_conditional_compilation_to_protocol_declaration(protocol_lines))
-      
+
       # Apply conditional compilation to extension part
       updated_lines.concat(apply_conditional_compilation_to_protocol_extension(extension_comment_and_after))
     else
       # Only protocol, no extension
       updated_lines.concat(apply_conditional_compilation_to_protocol_declaration(lines))
     end
-    
+
     updated_lines.join
   end
-  
+
   private
-  
+
   # Applies conditional compilation to the protocol declaration
   def self.apply_conditional_compilation_to_protocol_declaration(lines)
     updated_lines = []
     current_group = nil
     pending_lines = []
     in_protocol = false
-    
+
     lines.each do |line|
       stripped = line.strip
-      
+
       if stripped.start_with?('public protocol APIProtocol')
         in_protocol = true
         updated_lines << line
         next
       end
-      
+
       if in_protocol && (match = stripped.match(/^func (\w+)/))
         func_name = $1
         new_group = ClientFunctionParser.extract_group_name(func_name)
-        
+
         if current_group != new_group
           # Close previous group
           if current_group
@@ -666,7 +902,7 @@ class ProtocolConditionalCompiler
             updated_lines << "    #endif\n"
             pending_lines.clear
           end
-          
+
           # Start new group
           if new_group != 'unknown'
             current_group = new_group
@@ -685,21 +921,21 @@ class ProtocolConditionalCompiler
           updated_lines.concat(pending_lines)
           pending_lines.clear
         end
-        
+
         updated_lines << line
         break
       end
-      
+
       if in_protocol
         pending_lines << line
       else
         updated_lines << line
       end
     end
-    
+
     updated_lines
   end
-  
+
   # Applies conditional compilation to the protocol extension
   def self.apply_conditional_compilation_to_protocol_extension(lines)
     updated_lines = []
@@ -707,23 +943,23 @@ class ProtocolConditionalCompiler
     pending_lines = []
     in_extension = false
     brace_depth = 0
-    
+
     lines.each_with_index do |line, index|
       stripped = line.strip
-      
+
       if stripped.start_with?('extension APIProtocol')
         in_extension = true
         brace_depth = 0
         updated_lines << line
         next
       end
-      
-      if in_extension 
+
+      if in_extension
         # Look for function declarations BEFORE updating brace depth
         if (match = stripped.match(/^public func (\w+)/))
           func_name = $1
           new_group = ClientFunctionParser.extract_group_name(func_name)
-          
+
           if current_group != new_group
             # Close previous group
             if current_group
@@ -731,7 +967,7 @@ class ProtocolConditionalCompiler
               updated_lines << "    #endif\n"
               pending_lines.clear
             end
-            
+
             # Start new group
             if new_group != 'unknown'
               current_group = new_group
@@ -741,10 +977,10 @@ class ProtocolConditionalCompiler
             end
           end
         end
-        
+
         # Track brace depth AFTER checking for functions
         brace_depth += line.count('{') - line.count('}')
-        
+
         # Check if this is the extension closing brace
         if stripped == '}' && brace_depth == -1
           # End of extension - this is the closing brace of the extension itself
@@ -757,17 +993,17 @@ class ProtocolConditionalCompiler
             updated_lines.concat(pending_lines)
             pending_lines.clear
           end
-          
+
           updated_lines << line
           break
         end
-        
+
         pending_lines << line
       else
         updated_lines << line
       end
     end
-    
+
     # Add any remaining lines if we didn't hit the closing brace
     if in_extension && !pending_lines.empty?
       if current_group
@@ -777,7 +1013,7 @@ class ProtocolConditionalCompiler
         updated_lines.concat(pending_lines)
       end
     end
-    
+
     updated_lines
   end
 end
@@ -788,74 +1024,74 @@ class BaseFileCreator
     @input_directory = input_directory
     @output_directory = output_directory
   end
-  
+
   # Creates base declaration files for Components and Operations
   def create_base_files
     puts "Creating base files for Components and Operations..."
-    
+
     # Read existing files to extract the declarations
     components_file = File.join(@input_directory, 'Components.swift')
     operations_file = File.join(@input_directory, 'Operations.swift')
-    
+
     if File.exist?(components_file)
       create_components_base_file(components_file)
     end
-    
+
     if File.exist?(operations_file)
       create_operations_base_file(operations_file)
     end
   end
-  
+
   private
-  
+
   # Creates the base Components file with enum declarations only
   def create_components_base_file(components_file)
     content = File.read(components_file)
     lines = content.lines
-    
+
     # Find the header and enum declarations
     components_start = lines.find_index { |line| line.strip.match(/^public enum Components/) }
     schemas_start = lines.find_index { |line| line.strip.match(/^public enum Schemas/) }
-    
+
     return unless components_start && schemas_start
-    
+
     # Extract header and enum declarations
     header = lines[0...components_start].join
     components_decl = lines[components_start]
     schemas_decl = lines[schemas_start]
-    
+
     # Create base file content
     base_content = header + components_decl + schemas_decl + "    }\n}\n"
-    
+
     # Create Components subdirectory and write base file
     components_dir = File.join(@output_directory, 'Components')
     FileUtils.mkdir_p(components_dir)
-    
+
     File.write(File.join(components_dir, 'Components+Base.swift'), base_content)
     puts "Created Components/Components+Base.swift"
   end
-  
+
   # Creates the base Operations file with enum declaration only
   def create_operations_base_file(operations_file)
     content = File.read(operations_file)
     lines = content.lines
-    
+
     # Find the header and enum declaration
     operations_start = lines.find_index { |line| line.strip.match(/^public enum Operations/) }
-    
+
     return unless operations_start
-    
+
     # Extract header and enum declaration
     header = lines[0...operations_start].join
     operations_decl = lines[operations_start]
-    
+
     # Create base file content
     base_content = header + operations_decl + "}\n"
-    
+
     # Create Operations subdirectory and write base file
     operations_dir = File.join(@output_directory, 'Operations')
     FileUtils.mkdir_p(operations_dir)
-    
+
     File.write(File.join(operations_dir, 'Operations+Base.swift'), base_content)
     puts "Created Operations/Operations+Base.swift"
   end
@@ -866,7 +1102,7 @@ class ComponentsSplitter
   def initialize(output_directory)
     @output_directory = output_directory
   end
-  
+
   # Splits Components.swift into group-specific files with conditional compilation
   def split_components_file
     components_file = File.join(@output_directory, 'Components.swift')
@@ -890,7 +1126,7 @@ class ComponentsSplitter
         # Split Common schemas into individual model files
         models_dir = File.join(File.dirname(@output_directory), '..', '..', 'SlackModels', 'Generated')
         CommonModelsSplitter.new(models_dir).split_common_schemas(content_lines)
-        
+
         # Create empty Components+Base.swift with just the basic structure
         base_content = generate_base_components_content(header)
         base_filename = "Components+Base.swift"
@@ -909,9 +1145,9 @@ class ComponentsSplitter
     File.delete(components_file)
     puts "Removed original Components.swift"
   end
-  
+
   private
-  
+
   # Generates the base Components structure
   def generate_base_components_content(header)
     <<~SWIFT
@@ -922,7 +1158,7 @@ public enum Components {
 }
     SWIFT
   end
-  
+
   # Parses Components.swift content and groups schemas by API groups
   def parse_components_by_schemas(content)
     lines = content.lines
@@ -988,8 +1224,8 @@ public enum Components {
     result = {}
     groups.each do |group, schemas|
       # Adjust indentation - remove 4 spaces from each line since we're moving from nested to extension
-      adjusted_schemas = schemas.map { |schema| 
-        schema.lines.map { |line| 
+      adjusted_schemas = schemas.map { |schema|
+        schema.lines.map { |line|
           # Remove 4 spaces of indentation if the line has enough leading spaces
           if line.start_with?('        ')  # 8 spaces originally
             '    ' + line[8..-1]  # Keep 4 spaces
@@ -998,17 +1234,17 @@ public enum Components {
           end
         }.join
       }
-      
+
       if group == 'Common'
         content = header + "\nextension Components.Schemas {\n" + adjusted_schemas.join + "}\n"
       else
         content = header + "\n#if WebAPI_#{group}\nextension Components.Schemas {\n" +
                  adjusted_schemas.join + "}\n#endif\n"
       end
-      
+
       # Apply transformations to remove CodingKeys and fix _type -> type
       content = CodeTransformer.transform_components_content(content)
-      
+
       result[group] = content
     end
 
@@ -1021,7 +1257,7 @@ class OperationsSplitter
   def initialize(output_directory)
     @output_directory = output_directory
   end
-  
+
   # Splits Operations.swift into group-specific files with conditional compilation
   def split_operations_file
     operations_file = File.join(@output_directory, 'Operations.swift')
@@ -1050,9 +1286,9 @@ class OperationsSplitter
     File.delete(operations_file)
     puts "Removed original Operations.swift"
   end
-  
+
   private
-  
+
   # Parses Operations.swift content and groups operations by API groups
   def parse_operations_by_groups(content)
     lines = content.lines
@@ -1151,10 +1387,10 @@ class OperationsSplitter
     result = {}
     groups.each do |group, operations|
       trait = "WebAPI_#{GroupNameFormatter.capitalize_group_name(group)}"
-      
+
       # Adjust indentation - remove 4 spaces from each line since we're moving from nested to extension
-      adjusted_operations = operations.map { |operation| 
-        operation.lines.map { |line| 
+      adjusted_operations = operations.map { |operation|
+        operation.lines.map { |line|
           # Remove 4 spaces of indentation if the line has enough leading spaces
           if line.start_with?('    ')  # 4 spaces originally
             line[4..-1]  # Remove 4 spaces completely for top-level in extension
@@ -1163,13 +1399,13 @@ class OperationsSplitter
           end
         }.join
       }
-      
+
       content = header + "\n#if #{trait}\nextension Operations {\n" +
                adjusted_operations.join + "}\n#endif\n"
-      
+
       # Apply transformations to operations content
       content = CodeTransformer.transform_operations_content(content)
-      
+
       result[group] = content
     end
 
@@ -1182,59 +1418,59 @@ class CommonModelsSplitter
   def initialize(models_directory)
     @models_directory = models_directory
   end
-  
+
   # Splits Common schemas content into individual model files in Models/Generated
   def split_common_schemas(content)
     # Create Models/Generated directory
     FileUtils.mkdir_p(@models_directory)
-    
+
     # Parse individual schemas from the content
     individual_schemas = parse_individual_schemas(content)
-    
+
     # Write each schema to its own file
     individual_schemas.each do |schema_name, schema_content|
       write_model_file(schema_name, schema_content)
     end
-    
+
     puts "Created #{individual_schemas.size} model files in Models/Generated/"
   end
-  
+
   private
-  
+
   # Parses individual schema structs from the enum content
   def parse_individual_schemas(content)
     lines = content.lines
     schemas = {}
-    
+
     # Find the header (everything up to the Components.Schemas enum)
     components_start = lines.find_index { |line| line.strip.start_with?('public enum Components') }
     return {} unless components_start
-    
+
     schemas_start = lines.find_index { |line| line.strip.start_with?('public enum Schemas') }
     return {} unless schemas_start
-    
+
     header = lines[0...components_start].join
-    
+
     current_schema = nil
     schema_lines = []
     brace_depth = 0
     in_schema = false
     found_struct_declaration = false
-    
+
     lines[(schemas_start + 1)..-1].each_with_index do |line, index|
       stripped = line.strip
-      
+
       # Look for schema struct declarations (only top-level schemas, not properties)
       if match = stripped.match(/\/\/\/ - Remark: Generated from `#\/components\/schemas\/(\w+)`\.$/)
         schema_name = $1
-        
+
         # Look ahead to see if next line (after possible empty lines) is the struct declaration
         next_line_index = index + 1
         struct_found = false
         while next_line_index < lines[(schemas_start + 1)..-1].length
           next_line = lines[(schemas_start + 1)..-1][next_line_index]
           next_stripped = next_line.strip
-          
+
           if next_stripped.match(/^public struct #{Regexp.escape(schema_name)}:/)
             struct_found = true
             break
@@ -1246,14 +1482,14 @@ class CommonModelsSplitter
             break
           end
         end
-        
+
         # Only process if we found the matching struct declaration
         if struct_found
           # Save previous schema
           if current_schema && !schema_lines.empty?
             schemas[current_schema] = { header: header, content: schema_lines.join }
           end
-          
+
           # Start new schema
           current_schema = schema_name
           schema_lines = [line]
@@ -1267,11 +1503,11 @@ class CommonModelsSplitter
         brace_depth = line.count('{')  # Count opening braces
         next
       end
-      
+
       if in_schema && current_schema
         schema_lines << line
         brace_depth += line.count('{') - line.count('}')
-        
+
         # End of schema structure
         if found_struct_declaration && brace_depth == 0
           schemas[current_schema] = { header: header, content: schema_lines.join }
@@ -1282,54 +1518,54 @@ class CommonModelsSplitter
         end
       end
     end
-    
+
     # Handle final schema
     if current_schema && !schema_lines.empty?
       schemas[current_schema] = { header: header, content: schema_lines.join }
     end
-    
+
     schemas
   end
-  
+
   # Writes a model file with proper transformations
   def write_model_file(schema_name, schema_data)
     header = schema_data[:header]
     content = schema_data[:content]
-    
+
     # Transform the content
     transformed_content = transform_model_content(content, schema_name)
-    
+
     # Check if we need SlackBlockKit import (don't need SlackModels import since we're within SlackModels)
-    needs_slackblockkit_import = transformed_content.include?('ViewType') || 
+    needs_slackblockkit_import = transformed_content.include?('ViewType') ||
                                 transformed_content.include?('BlockType')
-    
+
     # Generate file content
     file_content = generate_model_file_content(header, transformed_content, needs_slackblockkit_import)
-    
+
     # Write file
     filename = "#{schema_name}.swift"
     filepath = File.join(@models_directory, filename)
     File.write(filepath, file_content)
     puts "Created Models/Generated/#{filename}"
   end
-  
+
   # Transforms model content by un-nesting and applying transformations
   def transform_model_content(content, schema_name)
     lines = content.lines
     transformed_lines = []
     skip_until_end = false
     brace_depth = 0
-    
+
     lines.each do |line|
       stripped = line.strip
-      
+
       # Skip CodingKeys enum completely
       if stripped.match(/^public enum CodingKeys:/)
         skip_until_end = true
         brace_depth = 1
         next
       end
-      
+
       if skip_until_end
         brace_depth += line.count('{') - line.count('}')
         if brace_depth <= 0
@@ -1337,27 +1573,27 @@ class CommonModelsSplitter
         end
         next
       end
-      
+
       # Transform struct declaration to remove Components.Schemas nesting
       if line.match(/^(\s*)public struct #{Regexp.escape(schema_name)}:/)
         line = line.gsub(/:\s*.*$/, ': Codable, Hashable, Sendable {')
       end
-      
+
       # Transform _type property to type
       if line.include?('_type')
         line = line.gsub(/\b_type\b/, 'type')
       end
-      
+
       # Replace Components.Schemas.View with ViewType from SlackBlockKit
       if line.match(/\bComponents\.Schemas\.View\b/)
         line = line.gsub(/\bComponents\.Schemas\.View\b/, 'ViewType')
       end
-      
-      # Replace Components.Schemas.Block with BlockType from SlackBlockKit  
+
+      # Replace Components.Schemas.Block with BlockType from SlackBlockKit
       if line.match(/\bComponents\.Schemas\.Block\b/)
         line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'BlockType')
       end
-      
+
       # Replace other Components.Schemas.XXX with just XXX (since we're inside SlackModels module)
       if line.match(/\bComponents\.Schemas\.(?!View\b|Block\b)\w+\b/)
         line = line.gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
@@ -1370,20 +1606,20 @@ class CommonModelsSplitter
           end
         end
       end
-      
-      # Fix indentation: convert from enum nesting (8 spaces) to top-level (no extra indentation)  
+
+      # Fix indentation: convert from enum nesting (8 spaces) to top-level (no extra indentation)
       if line.start_with?('        ')  # 8 spaces from nested enum
         line = line[8..-1]  # Remove 8 spaces for top-level
       elsif line.start_with?('    ')  # 4 spaces for some content
         line = line[4..-1]  # Remove 4 spaces for top-level
       end
-      
+
       transformed_lines << line
     end
-    
+
     transformed_lines.join
   end
-  
+
   # Generates the complete model file content
   def generate_model_file_content(header, transformed_content, needs_slackblockkit_import)
     # Start with the standard platform-specific imports
@@ -1391,18 +1627,18 @@ class CommonModelsSplitter
       "#if os(Linux)",
       "#else",
       "import struct Foundation.URL",
-      "import struct Foundation.Data", 
+      "import struct Foundation.Data",
       "import struct Foundation.Date",
       "#endif"
     ]
-    
+
     # Add SlackBlockKit import if needed
     if needs_slackblockkit_import
       imports << "#if canImport(SlackBlockKit)"
       imports << "import SlackBlockKit"
       imports << "#endif"
     end
-    
+
     # Generate final content
     [imports.join("\n"), "", transformed_content.strip].join("\n") + "\n"
   end
@@ -1451,15 +1687,15 @@ if __FILE__ == $0
     # Two arguments: input and output directories
     input_directory = ARGV[0]
     output_directory = ARGV[1]
-    
+
     unless Dir.exist?(input_directory)
       puts "Error: Input directory '#{input_directory}' does not exist"
       exit 1
     end
-    
+
     # Create output directory if it doesn't exist
     FileUtils.mkdir_p(output_directory)
-    
+
     CodeGenerationProcessor.run(input_directory, output_directory)
   end
 end
