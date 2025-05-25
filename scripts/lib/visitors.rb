@@ -131,7 +131,7 @@ class TypeFixer
     when Array
       data.each { visit(_1) }
     when Hash
-      data.each_key do |key|
+      data.keys.each do |key|
         case key
         when 'View', 'Block'
           # View and Block should be implemented by SlackBlockKit.
@@ -144,6 +144,9 @@ class TypeFixer
           }
         when 'AllowScFileUploads'
           data[key]['properties']['type'] = { type: 'string' }
+        when 'Subteam'
+          # Subteam is Usergroup
+          data['Usergroup'] = data['Subteam']
         when 'properties'
           data[key]&.each_key do |prop_name|
             # Match property name and corresponding type.
@@ -159,6 +162,12 @@ class TypeFixer
               # when messages array's element is object and not string type
               if data[key][prop_name].dig('items', '$ref')
                 data[key][prop_name]['items']['$ref'] = '#/components/schemas/Message'
+              end
+            when /^subteam$/
+              # Subteam is actually Usergroup
+              # https://docs.slack.dev/reference/events/subteam_updated
+              if data[key][prop_name].key?('$ref')
+                data[key][prop_name]['$ref'] = '#/components/schemas/Usergroup'
               end
             end
           end
