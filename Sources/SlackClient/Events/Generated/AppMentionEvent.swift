@@ -1,5 +1,6 @@
 #if Events
 import Foundation
+import SlackModels
 #if canImport(SlackBlockKit)
 import SlackBlockKit
 #endif
@@ -15,11 +16,11 @@ public struct AppMentionEvent: SlackEvent {
     public var ts: Swift.String?
     public var team: Swift.String?
     public var channel: Swift.String?
-    public var edited: Components.Schemas.Edited?
+    public var edited: SlackModels.Edited?
     public var clientMsgId: Swift.String?
     public var appId: Swift.String?
     public var botId: Swift.String?
-    public var botProfile: Components.Schemas.BotProfile?
+    public var botProfile: SlackModels.BotProfile?
     public var displayAsBot: Swift.Bool?
     public var userTeam: Swift.String?
     public var sourceTeam: Swift.String?

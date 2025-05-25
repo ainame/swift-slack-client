@@ -1,8 +1,9 @@
 #if Events
 import Foundation
+import SlackModels
 
 public struct FilePublicEvent: SlackEvent {
-    public var file: Components.Schemas.File?
+    public var file: SlackModels.File?
     public var type: Swift.String?
     public var fileId: Swift.String?
     public var userId: Swift.String?

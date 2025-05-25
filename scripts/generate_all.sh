@@ -2,7 +2,6 @@
 
 set -xe
 
-OUTPUT_DIR="Sources/SlackClient/WebAPI/Generated"
 TMP_DIR="./tmp"
 
 mkdir -p ./tmp/WebAPI
@@ -37,7 +36,7 @@ swift run swift-openapi-generator generate \
     --output-directory "${TMP_DIR}/WebAPI" \
     "${TMP_DIR}/WebAPI/openapi.json"
 
-ruby scripts/process_generated_code.rb "${TMP_DIR}/WebAPI" "${OUTPUT_DIR}"
+ruby scripts/process_generated_code.rb "${TMP_DIR}/WebAPI" "Sources/SlackClient/WebAPI/Generated"
 
 # Generate events
 ruby scripts/generate_events.rb
@@ -48,3 +47,5 @@ swift run swift-openapi-generator generate \
     --naming-strategy idiomatic \
     --output-directory "${TMP_DIR}/Events" \
     "${TMP_DIR}/Events/openapi.json"
+
+ruby scripts/process_events.rb "${TMP_DIR}/Events/Types.swift" "Sources/SlackClient/Events/Generated"

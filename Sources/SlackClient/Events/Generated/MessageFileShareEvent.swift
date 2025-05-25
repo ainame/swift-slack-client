@@ -1,5 +1,6 @@
 #if Events
 import Foundation
+import SlackModels
 #if canImport(SlackBlockKit)
 import SlackBlockKit
 #endif
@@ -9,8 +10,8 @@ public struct MessageFileShareEvent: SlackEvent {
     public var subtype: Swift.String?
     public var text: Swift.String?
     public var blocks: [BlockType]?
-    public var attachments: [Components.Schemas.Attachment]?
-    public var files: [Components.Schemas.File]?
+    public var attachments: [SlackModels.Attachment]?
+    public var files: [SlackModels.File]?
     public var upload: Swift.Bool?
     public var user: Swift.String?
     public var ts: Swift.String?

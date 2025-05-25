@@ -1,5 +1,6 @@
 #if Events
 import Foundation
+import SlackModels
 #if canImport(SlackBlockKit)
 import SlackBlockKit
 #endif
@@ -12,7 +13,7 @@ public struct MessageEkmAccessDeniedEvent: SlackEvent {
     public var user: Swift.String?
     public var text: Swift.String?
     public var blocks: [BlockType]?
-    public var attachments: [Components.Schemas.Attachment]?
+    public var attachments: [SlackModels.Attachment]?
     public var ts: Swift.String?
     public var eventTs: Swift.String?
     public var channelType: Swift.String?

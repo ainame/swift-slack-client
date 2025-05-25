@@ -1,10 +1,11 @@
 #if Events
 import Foundation
+import SlackModels
 
 public struct PinRemovedEvent: SlackEvent {
     public var type: Swift.String?
     public var user: Swift.String?
-    public var item: Components.Schemas.Item?
+    public var item: SlackModels.Item?
     public var channelId: Swift.String?
     public var itemUser: Swift.String?
     public var pinCount: Swift.Int?
