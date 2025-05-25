@@ -17,19 +17,24 @@ public struct Canvas: Codable, Hashable, Sendable {
     public var isEmpty: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Canvas/quipThreadId`.
     public var quipThreadId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Canvas/isMigrated`.
+    public var isMigrated: Swift.Bool?
     /// Creates a new `Canvas`.
     ///
     /// - Parameters:
     ///   - fileId:
     ///   - isEmpty:
     ///   - quipThreadId:
+    ///   - isMigrated:
     public init(
         fileId: Swift.String? = nil,
         isEmpty: Swift.Bool? = nil,
-        quipThreadId: Swift.String? = nil
+        quipThreadId: Swift.String? = nil,
+        isMigrated: Swift.Bool? = nil
     ) {
         self.fileId = fileId
         self.isEmpty = isEmpty
         self.quipThreadId = quipThreadId
+        self.isMigrated = isMigrated
     }
 }

@@ -23,6 +23,8 @@ public struct Properties: Codable, Hashable, Sendable {
     public var huddlesRestricted: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Properties/threadsRestrictedTo`.
     public var threadsRestrictedTo: ThreadsRestrictedTo?
+    /// - Remark: Generated from `#/components/schemas/Properties/meetingNotes`.
+    public var meetingNotes: MeetingNotes?
     /// Creates a new `Properties`.
     ///
     /// - Parameters:
@@ -32,13 +34,15 @@ public struct Properties: Codable, Hashable, Sendable {
     ///   - postingRestrictedTo:
     ///   - huddlesRestricted:
     ///   - threadsRestrictedTo:
+    ///   - meetingNotes:
     public init(
         canvas: Canvas? = nil,
         tabs: [Tab]? = nil,
         tabz: [Tab]? = nil,
         postingRestrictedTo: PostingRestrictedTo? = nil,
         huddlesRestricted: Swift.Bool? = nil,
-        threadsRestrictedTo: ThreadsRestrictedTo? = nil
+        threadsRestrictedTo: ThreadsRestrictedTo? = nil,
+        meetingNotes: MeetingNotes? = nil
     ) {
         self.canvas = canvas
         self.tabs = tabs
@@ -46,5 +50,6 @@ public struct Properties: Codable, Hashable, Sendable {
         self.postingRestrictedTo = postingRestrictedTo
         self.huddlesRestricted = huddlesRestricted
         self.threadsRestrictedTo = threadsRestrictedTo
+        self.meetingNotes = meetingNotes
     }
 }
