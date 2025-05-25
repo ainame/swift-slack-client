@@ -512,15 +512,7 @@ class SlackModelsExtractor
 
       # Replace other Components.Schemas.XXX with just XXX
       if line.match(/\bComponents\.Schemas\.(?!View\b|Block\b)\w+\b/)
-        line = line.gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
-          type_name = $1
-          # Handle special case where _Type was renamed to Type
-          if type_name == '_Type'
-            'Type'
-          else
-            type_name
-          end
-        end
+        line = line.gsub(/\bComponents\.Schemas\.(\w+)\b/, '\1')
       end
 
       # Fix indentation: convert from enum nesting to top-level
@@ -586,15 +578,6 @@ class CodeGenerationProcessor
     # STEP 1: Extract SlackModels FIRST (before processing WebAPI files)
     puts "\nStep 1: Extracting SlackModels from Types.swift..."
     SlackModelsExtractor.new(@types_file, @slackmodels_dir).extract
-
-    # Add typealias for _Type -> Type
-    type_file = File.join(@slackmodels_dir, 'Type.swift')
-    if File.exist?(type_file)
-      content = File.read(type_file)
-      unless content.include?('public typealias Type = _Type')
-        File.write(type_file, content.chomp + "\n\n/// Typealias for `_Type` to make it accessible as `Type`.\npublic typealias Type = _Type\n")
-      end
-    end
 
     # STEP 2: Parse and split client functions
     lines = File.readlines(@client_file)
@@ -1596,15 +1579,7 @@ class CommonModelsSplitter
 
       # Replace other Components.Schemas.XXX with just XXX (since we're inside SlackModels module)
       if line.match(/\bComponents\.Schemas\.(?!View\b|Block\b)\w+\b/)
-        line = line.gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
-          type_name = $1
-          # Handle the special case where _Type was renamed to Type
-          if type_name == '_Type'
-            'Type'
-          else
-            type_name
-          end
-        end
+        line = line.gsub(/\bComponents\.Schemas\.(\w+)\b/, '\1')
       end
 
       # Fix indentation: convert from enum nesting (8 spaces) to top-level (no extra indentation)

@@ -217,9 +217,6 @@ class EventsProcessor
           
           if slackmodels_types.include?(type_name)
             "SlackModels.#{type_name}"
-          elsif type_name == '_Type' && slackmodels_types.include?('Type')
-            # Handle the special case where _Type was renamed to Type in SlackModels
-            "SlackModels.Type"
           else
             match  # Keep original if not moved to SlackModels
           end

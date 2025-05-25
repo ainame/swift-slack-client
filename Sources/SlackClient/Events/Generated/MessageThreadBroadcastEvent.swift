@@ -10,7 +10,7 @@ public struct MessageThreadBroadcastEvent: SlackEvent {
     public var subtype: Swift.String?
     public var channel: Swift.String?
     public var user: Swift.String?
-    public var root: Components.Schemas.Root?
+    public var root: SlackModels.MessageRoot?
     public var text: Swift.String?
     public var blocks: [BlockType]?
     public var attachments: [SlackModels.Attachment]?

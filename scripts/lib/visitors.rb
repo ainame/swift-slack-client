@@ -147,6 +147,9 @@ class TypeFixer
         when 'Subteam'
           # Subteam is Usergroup
           data['Usergroup'] = data['Subteam']
+        when 'Root'
+          # Root should be called MessageRoot (for threads)
+          data['MessageRoot'] = data['Root']
         when 'properties'
           data[key]&.each_key do |prop_name|
             # Match property name and corresponding type.
@@ -158,6 +161,8 @@ class TypeFixer
               data[key][prop_name]['items']['$ref'] = '#/components/schemas/Block'
             when /^message$/
               data[key][prop_name]['$ref'] = '#/components/schemas/Message'
+            when /.*Message$/
+              data[key][prop_name]['$ref'] = '#/components/schemas/Message'
             when /^messages$/
               # when messages array's element is object and not string type
               if data[key][prop_name].dig('items', '$ref')
@@ -168,6 +173,17 @@ class TypeFixer
               # https://docs.slack.dev/reference/events/subteam_updated
               if data[key][prop_name].key?('$ref')
                 data[key][prop_name]['$ref'] = '#/components/schemas/Usergroup'
+              end
+            when /^root$/
+              # Subteam is actually Usergroup
+              # https://docs.slack.dev/reference/events/subteam_updated
+              if data[key][prop_name]['$ref'] == '#/components/schemas/Root'
+                data[key][prop_name]['$ref'] = '#/components/schemas/MessageRoot'
+              end
+            when /^workflowDraftConfiguration$/, /^workflowPublishedConfiguration$/
+              # Workflow(Publish)Configuration and WorkflowDraftConfiguration is same
+              if data[key][prop_name].key?('$ref')
+                data[key][prop_name]['$ref'] = '#/components/schemas/WorkflowConfiguration'
               end
             end
           end

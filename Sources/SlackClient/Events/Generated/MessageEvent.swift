@@ -13,7 +13,7 @@ public struct MessageEvent: SlackEvent {
     public var text: Swift.String?
     public var blocks: [BlockType]?
     public var attachments: [SlackModels.Attachment]?
-    public var metadata: Components.Schemas.MessageEventMetadata?
+    public var metadata: SlackModels.MessageEventMetadata?
     public var ts: Swift.String?
     public var edited: SlackModels.Edited?
     public var clientMsgId: Swift.String?
