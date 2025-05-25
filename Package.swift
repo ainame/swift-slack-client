@@ -36,7 +36,6 @@ var traits: [Trait] = webAPITraits.map { .trait(name: $0) }
 // END: Generated WebAPI traits
 
 traits.append(.trait(name: "SocketMode", enabledTraits: ["WebAPI_Apps"]))
-traits.append(.trait(name: "BlockKit"))
 traits.append(.trait(name: "Events"))
 
 // By default, all the traits is enabled for development.
@@ -65,7 +64,7 @@ let package = Package(
                     name: "WSClient", package: "swift-websocket",
                     condition: .when(traits: ["SocketMode"])
                 ),
-                .target(name: "SlackBlockKit", condition: .when(traits: ["BlockKit"])),
+                .target(name: "SlackBlockKit"),
                 .target(name: "SlackModels"),
             ]
         ),
@@ -73,7 +72,7 @@ let package = Package(
             name: "SlackModels",
             dependencies: [
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
-                .target(name: "SlackBlockKit", condition: .when(traits: ["BlockKit"])),
+                .target(name: "SlackBlockKit"),
             ]
         ),
         .target(name: "SlackBlockKit"),
