@@ -4,7 +4,9 @@ import Foundation
 struct SocketModeMessageEnvelope: Decodable {
     enum Payload: Decodable {
         case interactive(InteractiveEnvelope)
-        case eventsApi(EventsApiEnvelope)
+#if Events
+        case eventsApi(EventsApiEnvelope<EventType>)
+#endif
         case unsupported(String)
     }
 
@@ -30,9 +32,11 @@ struct SocketModeMessageEnvelope: Decodable {
         case "interactive":
             let interaction = try container.decode(InteractiveEnvelope.self, forKey: CodingKeys.payload)
             self.payload = .interactive(interaction)
+#if Events
         case "events_api":
-            let event = try container.decode(EventsApiEnvelope.self, forKey: CodingKeys.payload)
+            let event = try container.decode(EventsApiEnvelope<EventType>.self, forKey: CodingKeys.payload)
             self.payload = .eventsApi(event)
+#endif
         default:
             self.payload = .unsupported(type)
         }
