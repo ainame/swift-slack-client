@@ -6,10 +6,32 @@ require 'fileutils'
 # Handles transformation of generated Swift code to replace specific schema types
 # with custom SlackBlockKit types and add conditional imports
 class CodeTransformer
+  # Dynamically determines which types have been moved to SlackModels
+  def self.slackmodels_types
+    @slackmodels_types ||= begin
+      models_dir = File.join(__dir__, '..', 'Sources', 'SlackModels', 'Generated')
+      if Dir.exist?(models_dir)
+        Dir.glob(File.join(models_dir, '*.swift')).map do |file|
+          File.basename(file, '.swift')
+        end.sort
+      else
+        []
+      end
+    end
+  end
+
   # Transforms client function content by replacing schema references
   def self.transform_client_functions(content)
     content.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.ViewType')
            .gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.BlockType')
+           .gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
+             type_name = $1
+             if slackmodels_types.include?(type_name)
+               "SlackModels.#{type_name}"
+             else
+               match  # Keep original if not moved to SlackModels
+             end
+           end
   end
   
   # Transforms operations content and adds conditional imports if needed
@@ -18,11 +40,33 @@ class CodeTransformer
     needs_slackblockkit_import = content.match(/\bComponents\.Schemas\.View\b/) || 
                                 content.match(/\bComponents\.Schemas\.Block\b/)
     
+    # Check if we need SlackModels import (only for types moved to SlackModels)
+    needs_slackmodels_import = false
+    content.scan(/\bComponents\.Schemas\.(\w+)\b/) do |match|
+      type_name = match[0]
+      if CodeTransformer.slackmodels_types.include?(type_name) && type_name != 'View' && type_name != 'Block'
+        needs_slackmodels_import = true
+        break
+      end
+    end
+    
     # Apply transformations
     transformed_content = content.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.ViewType')
                                 .gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.BlockType')
+                                .gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
+                                  type_name = $1
+                                  if CodeTransformer.slackmodels_types.include?(type_name)
+                                    "SlackModels.#{type_name}"
+                                  else
+                                    match  # Keep original if not moved to SlackModels
+                                  end
+                                end
     
-    # Add SlackBlockKit import if needed
+    # Add imports if needed
+    if needs_slackmodels_import
+      transformed_content = add_conditional_import(transformed_content, 'SlackModels')
+    end
+    
     if needs_slackblockkit_import
       transformed_content = add_conditional_import(transformed_content, 'SlackBlockKit')
     end
@@ -37,6 +81,7 @@ class CodeTransformer
     skip_until_end = false
     brace_depth = 0
     needs_slackblockkit_import = false
+    needs_slackmodels_import = false
     
     lines.each do |line|
       stripped = line.strip
@@ -73,10 +118,27 @@ class CodeTransformer
         needs_slackblockkit_import = true
       end
       
+      # Replace Components.Schemas.XXX with SlackModels.XXX only for types moved to SlackModels
+      if line.match(/\bComponents\.Schemas\.(?!View\b|Block\b)\w+\b/)
+        line = line.gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
+          type_name = $1
+          if CodeTransformer.slackmodels_types.include?(type_name)
+            needs_slackmodels_import = true
+            "SlackModels.#{type_name}"
+          else
+            match  # Keep original if not moved to SlackModels
+          end
+        end
+      end
+      
       transformed_lines << line
     end
     
-    # Add SlackBlockKit import if needed
+    # Add imports if needed
+    if needs_slackmodels_import
+      transformed_lines = add_conditional_import_to_lines(transformed_lines, 'SlackModels')
+    end
+    
     if needs_slackblockkit_import
       transformed_lines = add_conditional_import_to_lines(transformed_lines, 'SlackBlockKit')
     end
@@ -324,10 +386,15 @@ class CodeGenerationProcessor
       CodeTransformer.transform_client_functions(line)
     end
     
-    # Check if we need SlackBlockKit import
+    # Check if we need imports
     content_string = final_content.join
     needs_slackblockkit_import = content_string.include?('SlackBlockKit.ViewType') || 
                                 content_string.include?('SlackBlockKit.BlockType')
+    needs_slackmodels_import = content_string.include?('SlackModels.')
+    
+    if needs_slackmodels_import
+      final_content = add_conditional_import_to_content(final_content, 'SlackModels')
+    end
     
     if needs_slackblockkit_import
       final_content = add_conditional_import_to_content(final_content, 'SlackBlockKit')
@@ -358,21 +425,30 @@ class CodeGenerationProcessor
     header = header_lines.join
     functions_content = functions.join
     
-    # Check if we need SlackBlockKit import
+    # Check if we need imports
     needs_slackblockkit_import = functions_content.match(/\bComponents\.Schemas\.View\b/) || 
                                 functions_content.match(/\bComponents\.Schemas\.Block\b/)
+    needs_slackmodels_import = false
+    functions_content.scan(/\bComponents\.Schemas\.(\w+)\b/) do |match|
+      type_name = match[0]
+      if CodeTransformer.slackmodels_types.include?(type_name) && type_name != 'View' && type_name != 'Block'
+        needs_slackmodels_import = true
+        break
+      end
+    end
     
     # Transform the functions content
     transformed_functions = CodeTransformer.transform_client_functions(functions_content)
     
-    # Add SlackBlockKit import to header if needed
-    final_header = if needs_slackblockkit_import
-      header_lines_array = header_lines.dup
-      final_header_lines = add_conditional_import_to_content(header_lines_array, 'SlackBlockKit')
-      final_header_lines.join
-    else
-      header
+    # Add imports to header if needed
+    final_header = header_lines.dup
+    if needs_slackmodels_import
+      final_header = add_conditional_import_to_content(final_header, 'SlackModels')
     end
+    if needs_slackblockkit_import
+      final_header = add_conditional_import_to_content(final_header, 'SlackBlockKit')
+    end
+    final_header = final_header.join
 
     <<~SWIFT
       #if #{trait}
@@ -795,15 +871,16 @@ class ComponentsSplitter
 
     # Write group files
     schema_groups.each do |group, content_lines|
-      filename = if group == 'Common'
-        'Components+Common.swift'
+      if group == 'Common'
+        # Split Common schemas into individual model files
+        models_dir = File.join(File.dirname(@output_directory), '..', '..', 'SlackModels', 'Generated')
+        CommonModelsSplitter.new(models_dir).split_common_schemas(content_lines)
       else
-        "Components+#{GroupNameFormatter.capitalize_group_name(group)}.swift"
+        filename = "Components+#{GroupNameFormatter.capitalize_group_name(group)}.swift"
+        filepath = File.join(components_dir, filename)
+        File.write(filepath, content_lines)
+        puts "Created Components/#{filename} (#{content_lines.lines.size} lines)"
       end
-      filepath = File.join(components_dir, filename)
-
-      File.write(filepath, content_lines)
-      puts "Created Components/#{filename} (#{content_lines.lines.size} lines)"
     end
 
     # Remove original Components.swift
@@ -1064,6 +1141,233 @@ class OperationsSplitter
     end
 
     result
+  end
+end
+
+# Handles splitting of Common schemas into individual model files
+class CommonModelsSplitter
+  def initialize(models_directory)
+    @models_directory = models_directory
+  end
+  
+  # Splits Common schemas content into individual model files in Models/Generated
+  def split_common_schemas(content)
+    # Create Models/Generated directory
+    FileUtils.mkdir_p(@models_directory)
+    
+    # Parse individual schemas from the content
+    individual_schemas = parse_individual_schemas(content)
+    
+    # Write each schema to its own file
+    individual_schemas.each do |schema_name, schema_content|
+      write_model_file(schema_name, schema_content)
+    end
+    
+    puts "Created #{individual_schemas.size} model files in Models/Generated/"
+  end
+  
+  private
+  
+  # Parses individual schema structs from the extension content
+  def parse_individual_schemas(content)
+    lines = content.lines
+    schemas = {}
+    
+    # Find the header (everything up to the extension content)
+    extension_start = lines.find_index { |line| line.strip.start_with?('extension Components.Schemas') }
+    return {} unless extension_start
+    
+    header = lines[0...extension_start].join
+    
+    current_schema = nil
+    schema_lines = []
+    brace_depth = 0
+    in_schema = false
+    found_struct_declaration = false
+    
+    lines[(extension_start + 1)..-1].each_with_index do |line, index|
+      stripped = line.strip
+      
+      # Look for schema struct declarations (only top-level schemas, not properties)
+      if match = stripped.match(/\/\/\/ - Remark: Generated from `#\/components\/schemas\/(\w+)`\.$/)
+        schema_name = $1
+        
+        # Look ahead to see if next line (after possible empty lines) is the struct declaration
+        next_line_index = index + 1
+        struct_found = false
+        while next_line_index < lines[(extension_start + 1)..-1].length
+          next_line = lines[(extension_start + 1)..-1][next_line_index]
+          next_stripped = next_line.strip
+          
+          if next_stripped.match(/^public struct #{Regexp.escape(schema_name)}:/)
+            struct_found = true
+            break
+          elsif next_stripped.empty?
+            # Skip empty lines
+            next_line_index += 1
+          else
+            # Found non-matching content, this is not a top-level schema
+            break
+          end
+        end
+        
+        # Only process if we found the matching struct declaration
+        if struct_found
+          # Save previous schema
+          if current_schema && !schema_lines.empty?
+            schemas[current_schema] = { header: header, content: schema_lines.join }
+          end
+          
+          # Start new schema
+          current_schema = schema_name
+          schema_lines = [line]
+          in_schema = true
+          found_struct_declaration = false
+        end
+        next
+      elsif stripped.match(/^public struct (\w+):/) && in_schema && !found_struct_declaration
+        schema_lines << line
+        found_struct_declaration = true
+        brace_depth = line.count('{')  # Count opening braces
+        next
+      end
+      
+      if in_schema && current_schema
+        schema_lines << line
+        brace_depth += line.count('{') - line.count('}')
+        
+        # End of schema structure
+        if found_struct_declaration && brace_depth == 0
+          schemas[current_schema] = { header: header, content: schema_lines.join }
+          current_schema = nil
+          schema_lines = []
+          in_schema = false
+          found_struct_declaration = false
+        end
+      end
+    end
+    
+    # Handle final schema
+    if current_schema && !schema_lines.empty?
+      schemas[current_schema] = { header: header, content: schema_lines.join }
+    end
+    
+    schemas
+  end
+  
+  # Writes a model file with proper transformations
+  def write_model_file(schema_name, schema_data)
+    header = schema_data[:header]
+    content = schema_data[:content]
+    
+    # Transform the content
+    transformed_content = transform_model_content(content, schema_name)
+    
+    # Check if we need SlackBlockKit import (don't need SlackModels import since we're within SlackModels)
+    needs_slackblockkit_import = transformed_content.include?('ViewType') || 
+                                transformed_content.include?('BlockType')
+    
+    # Generate file content
+    file_content = generate_model_file_content(header, transformed_content, needs_slackblockkit_import)
+    
+    # Write file
+    filename = "#{schema_name}.swift"
+    filepath = File.join(@models_directory, filename)
+    File.write(filepath, file_content)
+    puts "Created Models/Generated/#{filename}"
+  end
+  
+  # Transforms model content by un-nesting and applying transformations
+  def transform_model_content(content, schema_name)
+    lines = content.lines
+    transformed_lines = []
+    skip_until_end = false
+    brace_depth = 0
+    
+    lines.each do |line|
+      stripped = line.strip
+      
+      # Skip CodingKeys enum completely
+      if stripped.match(/^public enum CodingKeys:/)
+        skip_until_end = true
+        brace_depth = 1
+        next
+      end
+      
+      if skip_until_end
+        brace_depth += line.count('{') - line.count('}')
+        if brace_depth <= 0
+          skip_until_end = false
+        end
+        next
+      end
+      
+      # Transform struct declaration to remove Components.Schemas nesting
+      if line.match(/^(\s*)public struct #{Regexp.escape(schema_name)}:/)
+        line = line.gsub(/:\s*.*$/, ': Codable, Hashable, Sendable {')
+      end
+      
+      # Transform _type property to type
+      if line.include?('_type')
+        line = line.gsub(/\b_type\b/, 'type')
+      end
+      
+      # Replace Components.Schemas.View with ViewType from SlackBlockKit
+      if line.match(/\bComponents\.Schemas\.View\b/)
+        line = line.gsub(/\bComponents\.Schemas\.View\b/, 'ViewType')
+      end
+      
+      # Replace Components.Schemas.Block with BlockType from SlackBlockKit  
+      if line.match(/\bComponents\.Schemas\.Block\b/)
+        line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'BlockType')
+      end
+      
+      # Replace other Components.Schemas.XXX with just XXX (since they're in the same module)
+      if line.match(/\bComponents\.Schemas\.(?!View\b|Block\b)\w+\b/)
+        line = line.gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
+          type_name = $1
+          # Handle the special case where _Type was renamed to Type
+          if type_name == '_Type'
+            'Type'
+          else
+            type_name
+          end
+        end
+      end
+      
+      # Fix indentation: convert from extension (4 spaces) to top-level (no extra indentation)
+      if line.start_with?('    ')  # 4 spaces from extension
+        line = line[4..-1]  # Remove 4 spaces for top-level
+      end
+      
+      transformed_lines << line
+    end
+    
+    transformed_lines.join
+  end
+  
+  # Generates the complete model file content
+  def generate_model_file_content(header, transformed_content, needs_slackblockkit_import)
+    imports = []
+    
+    # Extract imports from header (excluding SlackModels imports since we're within SlackModels)
+    header.lines.each do |line|
+      stripped = line.strip
+      next if stripped.include?('import SlackModels') || stripped == '#if canImport(SlackModels)'
+      
+      if stripped.start_with?('import ') || stripped.start_with?('#if ') || stripped.start_with?('#else') || stripped.start_with?('#endif')
+        imports << line.chomp
+      end
+    end
+    
+    if needs_slackblockkit_import
+      imports << "#if canImport(SlackBlockKit)"
+      imports << "import SlackBlockKit"  
+      imports << "#endif"
+    end
+    
+    # Generate final content
+    [imports.join("\n"), "", transformed_content.strip].join("\n") + "\n"
   end
 end
 

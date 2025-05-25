@@ -49,6 +49,7 @@ let package = Package(
     products: [
         .library(name: "SlackClient", targets: ["SlackClient"]),
         .library(name: "SlackBlockKit", targets: ["SlackBlockKit"]),
+        .library(name: "SlackModels", targets: ["SlackModels"]),
     ],
     traits: Set(traits),
     dependencies: [
@@ -65,6 +66,14 @@ let package = Package(
                     name: "WSClient", package: "swift-websocket",
                     condition: .when(traits: ["SocketMode"])
                 ),
+                .target(name: "SlackBlockKit", condition: .when(traits: ["BlockKit"])),
+                .target(name: "SlackModels"),
+            ]
+        ),
+        .target(
+            name: "SlackModels",
+            dependencies: [
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
                 .target(name: "SlackBlockKit", condition: .when(traits: ["BlockKit"])),
             ]
         ),

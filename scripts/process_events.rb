@@ -44,6 +44,20 @@ class EventsProcessor
   end
 
   private
+  
+  # Dynamically determines which types have been moved to SlackModels
+  def get_slackmodels_types
+    @slackmodels_types ||= begin
+      models_dir = File.join(__dir__, '..', 'Sources', 'SlackModels', 'Generated')
+      if Dir.exist?(models_dir)
+        Dir.glob(File.join(models_dir, '*.swift')).map do |file|
+          File.basename(file, '.swift')
+        end.sort
+      else
+        []
+      end
+    end
+  end
 
   # Extracts all Event structs from the Components.Schemas enum
   def extract_event_structs(content)
@@ -99,12 +113,13 @@ class EventsProcessor
     transformed_content = transform_event_content(event_content, event_name)
     
     
-    # Check if we need SlackBlockKit import
+    # Check if we need imports
     needs_slackblockkit_import = transformed_content.include?('BlockType') || 
                                 transformed_content.include?('ViewType')
+    needs_slackmodels_import = transformed_content.include?('SlackModels.')
 
     # Generate the complete file content
-    file_content = generate_file_content(event_name, transformed_content, needs_slackblockkit_import)
+    file_content = generate_file_content(event_name, transformed_content, needs_slackblockkit_import, needs_slackmodels_import)
 
     # Write the file
     filename = "#{event_name}.swift"
@@ -180,6 +195,21 @@ class EventsProcessor
         line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'BlockType')
       end
 
+      # Replace Components.Schemas.XXX with SlackModels.XXX only for types moved to SlackModels
+      if line.match(/\bComponents\.Schemas\.(?!View\b|Block\b)\w+\b/)
+        line = line.gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
+          type_name = $1
+          # Dynamically determine which types are in SlackModels
+          slackmodels_types = get_slackmodels_types
+          
+          if slackmodels_types.include?(type_name)
+            "SlackModels.#{type_name}"
+          else
+            match  # Keep original if not moved to SlackModels
+          end
+        end
+      end
+
       # Handle closing brace
       if stripped == '}' && !skip_until_end
         transformed_lines << "}\n"
@@ -200,8 +230,12 @@ class EventsProcessor
   end
 
   # Generates the complete file content with proper imports and compilation directives
-  def generate_file_content(event_name, transformed_content, needs_slackblockkit_import)
+  def generate_file_content(event_name, transformed_content, needs_slackblockkit_import, needs_slackmodels_import)
     imports = ["import Foundation"]
+    
+    if needs_slackmodels_import
+      imports << "import SlackModels"
+    end
     
     if needs_slackblockkit_import
       imports << "#if canImport(SlackBlockKit)"
