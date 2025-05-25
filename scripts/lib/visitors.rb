@@ -143,7 +143,7 @@ class TypeFixer
             additionalProperties: true
           }
         when 'AllowScFileUploads'
-          data[key]['properties']['type'] == { type: 'string' }
+          data[key]['properties']['type'] = { type: 'string' }
         when 'properties'
           data[key]&.each_key do |prop_name|
             # Match property name and corresponding type.
