@@ -876,7 +876,9 @@ class ComponentsSplitter
     content = File.read(components_file)
 
     # Parse component schemas using more sophisticated approach
-    schema_groups = parse_components_by_schemas(content)
+    result = parse_components_by_schemas(content)
+    schema_groups = result[:groups]
+    header = result[:header]
 
     # Create Components subdirectory
     components_dir = File.join(@output_directory, 'Components')
@@ -888,6 +890,13 @@ class ComponentsSplitter
         # Split Common schemas into individual model files
         models_dir = File.join(File.dirname(@output_directory), '..', '..', 'SlackModels', 'Generated')
         CommonModelsSplitter.new(models_dir).split_common_schemas(content_lines)
+        
+        # Create empty Components+Base.swift with just the basic structure
+        base_content = generate_base_components_content(header)
+        base_filename = "Components+Base.swift"
+        base_filepath = File.join(components_dir, base_filename)
+        File.write(base_filepath, base_content)
+        puts "Created Components/#{base_filename} (basic structure)"
       else
         filename = "Components+#{GroupNameFormatter.capitalize_group_name(group)}.swift"
         filepath = File.join(components_dir, filename)
@@ -903,6 +912,17 @@ class ComponentsSplitter
   
   private
   
+  # Generates the base Components structure
+  def generate_base_components_content(header)
+    <<~SWIFT
+#{header}/// Types generated from the components section of the OpenAPI document.
+public enum Components {
+    public enum Schemas {
+    }
+}
+    SWIFT
+  end
+  
   # Parses Components.swift content and groups schemas by API groups
   def parse_components_by_schemas(content)
     lines = content.lines
@@ -911,7 +931,7 @@ class ComponentsSplitter
     # Find the header (everything up to Components enum)
     components_start = lines.find_index { |line| line.strip.match(/^public enum Components/) }
     schemas_start = lines.find_index { |line| line.strip.match(/^public enum Schemas/) }
-    return {} unless components_start && schemas_start
+    return { groups: {}, header: '' } unless components_start && schemas_start
 
     header = lines[0...components_start].join
 
@@ -992,7 +1012,7 @@ class ComponentsSplitter
       result[group] = content
     end
 
-    result
+    { groups: result, header: header }
   end
 end
 
