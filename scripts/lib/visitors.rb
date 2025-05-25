@@ -133,8 +133,35 @@ class TypeFixer
     when Hash
       data.each_key do |key|
         case key
+        when 'View', 'Block'
+          # View and Block should be implemented by SlackBlockKit.
+          # To remove relevant schemas used within View and Block but proceed with swift-openapi-generator,
+          # empty View and Block and eventually remove generated code in different script.
+          data[key] = {
+            type: 'object',
+            properties: {},
+            additionalProperties: true
+          }
         when 'AllowScFileUploads'
           data[key]['properties']['type'] == { type: 'string' }
+        when 'properties'
+          data[key]&.each_key do |prop_name|
+            # Match property name and corresponding type.
+            # quicktype produces wrong types due to inconsistency in sample json in java-slack-sdk.
+            case prop_name
+            when /.*block$/i
+              data[key][prop_name]['$ref'] = '#/components/schemas/Block'
+            when /.*blocks$/i
+              data[key][prop_name]['items']['$ref'] = '#/components/schemas/Block'
+            when /^message$/
+              data[key][prop_name]['$ref'] = '#/components/schemas/Message'
+            when /^messages$/
+              # when messages array's element is object and not string type
+              if data[key][prop_name].dig('items', '$ref')
+                data[key][prop_name]['items']['$ref'] = '#/components/schemas/Message'
+              end
+            end
+          end
         end
       end
       data.each_value { visit(_1) }
