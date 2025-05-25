@@ -5,6 +5,14 @@ require 'json'
 require_relative './lib/helpers'
 require_relative './lib/visitors'
 
+# Deprecated events are skipped
+UNSUPPORTED_EVENTS = [
+  /^Resources/,
+  /^UserResource/,
+  /^FileCommentAdded$/,
+  /^FileCommentEdited$/,
+].freeze
+
 tmp_dir = './tmp'
 source_dir = "#{tmp_dir}/java-slack-sdk/json-logs/samples/events"
 events_dir = "#{tmp_dir}/Events/intermediates"
@@ -19,6 +27,11 @@ FileUtils.mkdir_p(event_schemas_dir)
 events = Dir.glob("#{source_dir}/*.json")
 events.each do |path|
   model_name = File.basename(path, '.json').sub('Payload', 'Event')
+  if UNSUPPORTED_EVENTS.any? { _1 =~ model_name }
+    "Skip #{model_name} unsupported"
+    next
+  end
+
   output_path = File.join(events_dir, "#{model_name}.json")
   json = JSON.parse(File.read(path))
   normalized_json = if json.key?('token') && json.key?('event')
