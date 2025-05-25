@@ -408,7 +408,7 @@ class SlackModelsExtractor
       elsif stripped.match(/^public struct ([_\w]+):/) && current_schema
         # Get the actual struct name from the declaration and use that as the key
         actual_struct_name = $1
-        
+
         # If the actual struct name is different from comment name (like _Error vs Error), use actual name
         if actual_struct_name != current_schema
           # Save with actual struct name instead
@@ -417,7 +417,7 @@ class SlackModelsExtractor
           end
           current_schema = actual_struct_name
         end
-        
+
         schema_lines << line
         brace_depth = 1  # Start counting from opening brace
         in_schema = true
@@ -544,6 +544,9 @@ class SlackModelsExtractor
     imports = [
       "@_spi(Generated) import OpenAPIRuntime",
       "#if os(Linux)",
+      "@preconcurrency import struct Foundation.URL",
+      "@preconcurrency import struct Foundation.Data",
+      "@preconcurrency import struct Foundation.Date",
       "#else",
       "import struct Foundation.URL",
       "import struct Foundation.Data",
