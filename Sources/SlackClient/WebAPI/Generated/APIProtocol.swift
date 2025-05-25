@@ -983,13 +983,6 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /reminders.list`.
     /// - Remark: Generated from `#/paths//reminders.list/post(remindersList)`.
     func remindersList(_ input: Operations.RemindersList.Input) async throws -> Operations.RemindersList.Output
-    /// Starts a Real Time Messaging session.
-    ///
-    /// - Remark: HTTP `POST /rtm.connect`.
-    /// - Remark: Generated from `#/paths//rtm.connect/post(rtmConnect)`.
-    #endif
-    #if WebAPI_RTM
-    func rtmConnect(_ input: Operations.RtmConnect.Input) async throws -> Operations.RtmConnect.Output
     /// Searches for messages and files matching a query.
     ///
     /// - Remark: HTTP `POST /search.all`.
@@ -3636,21 +3629,6 @@ extension APIProtocol {
         body: Operations.RemindersList.Input.Body
     ) async throws -> Operations.RemindersList.Output {
         try await remindersList(Operations.RemindersList.Input(
-            headers: headers,
-            body: body
-        ))
-    }
-    /// Starts a Real Time Messaging session.
-    ///
-    /// - Remark: HTTP `POST /rtm.connect`.
-    /// - Remark: Generated from `#/paths//rtm.connect/post(rtmConnect)`.
-    #endif
-    #if WebAPI_RTM
-    public func rtmConnect(
-        headers: Operations.RtmConnect.Input.Headers = .init(),
-        body: Operations.RtmConnect.Input.Body
-    ) async throws -> Operations.RtmConnect.Output {
-        try await rtmConnect(Operations.RtmConnect.Input(
             headers: headers,
             body: body
         ))

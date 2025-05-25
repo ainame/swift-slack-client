@@ -24,7 +24,6 @@ let webAPITraits: [String] = [
     "WebAPI_Pins",
     "WebAPI_Reactions",
     "WebAPI_Reminders",
-    "WebAPI_RTM",
     "WebAPI_Search",
     "WebAPI_Stars",
     "WebAPI_Team",
