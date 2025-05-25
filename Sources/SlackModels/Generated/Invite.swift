@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Invite`.
 public struct Invite: Codable, Hashable, Sendable {
@@ -22,7 +19,7 @@ public struct Invite: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Invite/isBouncing`.
     public var isBouncing: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Invite/invitePreferences`.
-    public var invitePreferences: SlackModels.InvitePreferences?
+    public var invitePreferences: InvitePreferences?
     /// Creates a new `Invite`.
     ///
     /// - Parameters:
@@ -38,7 +35,7 @@ public struct Invite: Codable, Hashable, Sendable {
         inviterId: Swift.String? = nil,
         dateCreated: Swift.Int? = nil,
         isBouncing: Swift.Bool? = nil,
-        invitePreferences: SlackModels.InvitePreferences? = nil
+        invitePreferences: InvitePreferences? = nil
     ) {
         self.id = id
         self.email = email

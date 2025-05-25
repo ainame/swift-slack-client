@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/InviteInvite`.
 public struct InviteInvite: Codable, Hashable, Sendable {
@@ -22,9 +19,9 @@ public struct InviteInvite: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/InviteInvite/dateInvalid`.
     public var dateInvalid: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/InviteInvite/invitingTeam`.
-    public var invitingTeam: SlackModels.IngTeam?
+    public var invitingTeam: IngTeam?
     /// - Remark: Generated from `#/components/schemas/InviteInvite/invitingUser`.
-    public var invitingUser: SlackModels.TingUser?
+    public var invitingUser: TingUser?
     /// - Remark: Generated from `#/components/schemas/InviteInvite/recipientUserId`.
     public var recipientUserId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/InviteInvite/recipientEmail`.
@@ -47,8 +44,8 @@ public struct InviteInvite: Codable, Hashable, Sendable {
         sig: Swift.String? = nil,
         dateCreated: Swift.Int? = nil,
         dateInvalid: Swift.Int? = nil,
-        invitingTeam: SlackModels.IngTeam? = nil,
-        invitingUser: SlackModels.TingUser? = nil,
+        invitingTeam: IngTeam? = nil,
+        invitingUser: TingUser? = nil,
         recipientUserId: Swift.String? = nil,
         recipientEmail: Swift.String? = nil
     ) {

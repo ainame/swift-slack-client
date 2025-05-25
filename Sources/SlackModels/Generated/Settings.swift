@@ -1,26 +1,23 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Settings`.
 public struct Settings: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Settings/description`.
     public var description: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Settings/interactivity`.
-    public var interactivity: SlackModels.Interactivity?
+    public var interactivity: Interactivity?
     /// - Remark: Generated from `#/components/schemas/Settings/longDescription`.
     public var longDescription: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Settings/backgroundColor`.
     public var backgroundColor: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Settings/eventSubscriptions`.
-    public var eventSubscriptions: SlackModels.EventSubscriptions?
+    public var eventSubscriptions: EventSubscriptions?
     /// - Remark: Generated from `#/components/schemas/Settings/allowedIpAddressRanges`.
     public var allowedIpAddressRanges: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/Settings/orgDeployEnabled`.
@@ -49,10 +46,10 @@ public struct Settings: Codable, Hashable, Sendable {
     ///   - functionRuntime:
     public init(
         description: Swift.String? = nil,
-        interactivity: SlackModels.Interactivity? = nil,
+        interactivity: Interactivity? = nil,
         longDescription: Swift.String? = nil,
         backgroundColor: Swift.String? = nil,
-        eventSubscriptions: SlackModels.EventSubscriptions? = nil,
+        eventSubscriptions: EventSubscriptions? = nil,
         allowedIpAddressRanges: [Swift.String]? = nil,
         orgDeployEnabled: Swift.Bool? = nil,
         socketModeEnabled: Swift.Bool? = nil,

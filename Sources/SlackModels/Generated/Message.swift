@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 #if canImport(SlackBlockKit)
 import SlackBlockKit
 #endif
@@ -25,7 +22,7 @@ public struct Message: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Message/team`.
     public var team: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Message/attachments`.
-    public var attachments: [SlackModels.Attachment]?
+    public var attachments: [Attachment]?
     /// - Remark: Generated from `#/components/schemas/Message/permalink`.
     public var permalink: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Message/subtype`.
@@ -33,15 +30,15 @@ public struct Message: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Message/username`.
     public var username: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Message/blocks`.
-    public var blocks: [SlackBlockKit.BlockType]?
+    public var blocks: [BlockType]?
     /// - Remark: Generated from `#/components/schemas/Message/subscribed`.
     public var subscribed: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Message/reactions`.
-    public var reactions: [SlackModels.Reaction]?
+    public var reactions: [Reaction]?
     /// - Remark: Generated from `#/components/schemas/Message/edited`.
-    public var edited: SlackModels.Edited?
+    public var edited: Edited?
     /// - Remark: Generated from `#/components/schemas/Message/files`.
-    public var files: [SlackModels.FileElement]?
+    public var files: [FileElement]?
     /// - Remark: Generated from `#/components/schemas/Message/upload`.
     public var upload: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Message/inviter`.
@@ -65,7 +62,7 @@ public struct Message: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Message/lastRead`.
     public var lastRead: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Message/botProfile`.
-    public var botProfile: SlackModels.BotProfile?
+    public var botProfile: BotProfile?
     /// - Remark: Generated from `#/components/schemas/Message/displayAsBot`.
     public var displayAsBot: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Message/isLocked`.
@@ -107,15 +104,15 @@ public struct Message: Codable, Hashable, Sendable {
         user: Swift.String? = nil,
         ts: Swift.String? = nil,
         team: Swift.String? = nil,
-        attachments: [SlackModels.Attachment]? = nil,
+        attachments: [Attachment]? = nil,
         permalink: Swift.String? = nil,
         subtype: Swift.String? = nil,
         username: Swift.String? = nil,
-        blocks: [SlackBlockKit.BlockType]? = nil,
+        blocks: [BlockType]? = nil,
         subscribed: Swift.Bool? = nil,
-        reactions: [SlackModels.Reaction]? = nil,
-        edited: SlackModels.Edited? = nil,
-        files: [SlackModels.FileElement]? = nil,
+        reactions: [Reaction]? = nil,
+        edited: Edited? = nil,
+        files: [FileElement]? = nil,
         upload: Swift.Bool? = nil,
         inviter: Swift.String? = nil,
         botId: Swift.String? = nil,
@@ -127,7 +124,7 @@ public struct Message: Codable, Hashable, Sendable {
         latestReply: Swift.String? = nil,
         replyUsers: [Swift.String]? = nil,
         lastRead: Swift.String? = nil,
-        botProfile: SlackModels.BotProfile? = nil,
+        botProfile: BotProfile? = nil,
         displayAsBot: Swift.Bool? = nil,
         isLocked: Swift.Bool? = nil
     ) {

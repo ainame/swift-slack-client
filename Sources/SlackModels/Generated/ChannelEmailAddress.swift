@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/ChannelEmailAddress`.
 public struct ChannelEmailAddress: Codable, Hashable, Sendable {
@@ -16,7 +13,7 @@ public struct ChannelEmailAddress: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ChannelEmailAddress/name`.
     public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ChannelEmailAddress/icons`.
-    public var icons: SlackModels.Icons?
+    public var icons: Icons?
     /// - Remark: Generated from `#/components/schemas/ChannelEmailAddress/teamId`.
     public var teamId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ChannelEmailAddress/userId`.
@@ -38,7 +35,7 @@ public struct ChannelEmailAddress: Codable, Hashable, Sendable {
     public init(
         address: Swift.String? = nil,
         name: Swift.String? = nil,
-        icons: SlackModels.Icons? = nil,
+        icons: Icons? = nil,
         teamId: Swift.String? = nil,
         userId: Swift.String? = nil,
         conversationId: Swift.String? = nil,

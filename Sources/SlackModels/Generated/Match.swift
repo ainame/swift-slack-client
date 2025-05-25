@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 #if canImport(SlackBlockKit)
 import SlackBlockKit
 #endif
@@ -19,7 +16,7 @@ public struct Match: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Match/team`.
     public var team: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Match/channel`.
-    public var channel: SlackModels.Channel?
+    public var channel: Channel?
     /// - Remark: Generated from `#/components/schemas/Match/type`.
     public var type: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Match/user`.
@@ -33,19 +30,19 @@ public struct Match: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Match/permalink`.
     public var permalink: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Match/previous`.
-    public var previous: SlackModels.Previous?
+    public var previous: Previous?
     /// - Remark: Generated from `#/components/schemas/Match/score`.
     public var score: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Match/blocks`.
-    public var blocks: [SlackBlockKit.BlockType]?
+    public var blocks: [BlockType]?
     /// - Remark: Generated from `#/components/schemas/Match/attachments`.
-    public var attachments: [SlackModels.Attachment]?
+    public var attachments: [Attachment]?
     /// - Remark: Generated from `#/components/schemas/Match/files`.
-    public var files: [SlackModels.FileElement]?
+    public var files: [FileElement]?
     /// - Remark: Generated from `#/components/schemas/Match/noReactions`.
     public var noReactions: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Match/previous2`.
-    public var previous2: SlackModels.Previous?
+    public var previous2: Previous?
     /// - Remark: Generated from `#/components/schemas/Match/isMpim`.
     public var isMpim: Swift.Bool?
     /// Creates a new `Match`.
@@ -71,20 +68,20 @@ public struct Match: Codable, Hashable, Sendable {
     public init(
         iid: Swift.String? = nil,
         team: Swift.String? = nil,
-        channel: SlackModels.Channel? = nil,
+        channel: Channel? = nil,
         type: Swift.String? = nil,
         user: Swift.String? = nil,
         username: Swift.String? = nil,
         ts: Swift.String? = nil,
         text: Swift.String? = nil,
         permalink: Swift.String? = nil,
-        previous: SlackModels.Previous? = nil,
+        previous: Previous? = nil,
         score: Swift.Int? = nil,
-        blocks: [SlackBlockKit.BlockType]? = nil,
-        attachments: [SlackModels.Attachment]? = nil,
-        files: [SlackModels.FileElement]? = nil,
+        blocks: [BlockType]? = nil,
+        attachments: [Attachment]? = nil,
+        files: [FileElement]? = nil,
         noReactions: Swift.Bool? = nil,
-        previous2: SlackModels.Previous? = nil,
+        previous2: Previous? = nil,
         isMpim: Swift.Bool? = nil
     ) {
         self.iid = iid

@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 #if canImport(SlackBlockKit)
 import SlackBlockKit
 #endif
@@ -29,19 +26,19 @@ public struct Attachment: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Attachment/text`.
     public var text: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Attachment/fields`.
-    public var fields: [SlackModels.Field]?
+    public var fields: [Field]?
     /// - Remark: Generated from `#/components/schemas/Attachment/footer`.
     public var footer: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Attachment/ts`.
     public var ts: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Attachment/actions`.
-    public var actions: [SlackModels.Action]?
+    public var actions: [Action]?
     /// - Remark: Generated from `#/components/schemas/Attachment/blocks`.
-    public var blocks: [SlackBlockKit.BlockType]?
+    public var blocks: [BlockType]?
     /// - Remark: Generated from `#/components/schemas/Attachment/preview`.
-    public var preview: SlackModels.Preview?
+    public var preview: Preview?
     /// - Remark: Generated from `#/components/schemas/Attachment/files`.
-    public var files: [SlackModels.FileElement]?
+    public var files: [FileElement]?
     /// - Remark: Generated from `#/components/schemas/Attachment/filename`.
     public var filename: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Attachment/size`.
@@ -51,7 +48,7 @@ public struct Attachment: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Attachment/url`.
     public var url: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Attachment/metadata`.
-    public var metadata: SlackModels.Metadata?
+    public var metadata: Metadata?
     /// - Remark: Generated from `#/components/schemas/Attachment/msgSubtype`.
     public var msgSubtype: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Attachment/callbackId`.
@@ -190,18 +187,18 @@ public struct Attachment: Codable, Hashable, Sendable {
         indent: Swift.Bool? = nil,
         title: Swift.String? = nil,
         text: Swift.String? = nil,
-        fields: [SlackModels.Field]? = nil,
+        fields: [Field]? = nil,
         footer: Swift.String? = nil,
         ts: Swift.String? = nil,
-        actions: [SlackModels.Action]? = nil,
-        blocks: [SlackBlockKit.BlockType]? = nil,
-        preview: SlackModels.Preview? = nil,
-        files: [SlackModels.FileElement]? = nil,
+        actions: [Action]? = nil,
+        blocks: [BlockType]? = nil,
+        preview: Preview? = nil,
+        files: [FileElement]? = nil,
         filename: Swift.String? = nil,
         size: Swift.Int? = nil,
         mimetype: Swift.String? = nil,
         url: Swift.String? = nil,
-        metadata: SlackModels.Metadata? = nil,
+        metadata: Metadata? = nil,
         msgSubtype: Swift.String? = nil,
         callbackId: Swift.String? = nil,
         serviceUrl: Swift.String? = nil,

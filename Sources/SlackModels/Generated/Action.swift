@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Action`.
 public struct Action: Codable, Hashable, Sendable {
@@ -24,19 +21,19 @@ public struct Action: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Action/value`.
     public var value: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Action/confirm`.
-    public var confirm: SlackModels.ActionConfirm?
+    public var confirm: ActionConfirm?
     /// - Remark: Generated from `#/components/schemas/Action/options`.
-    public var options: [SlackModels.SelectedOptionElement]?
+    public var options: [SelectedOptionElement]?
     /// - Remark: Generated from `#/components/schemas/Action/url`.
     public var url: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Action/selectedOptions`.
-    public var selectedOptions: [SlackModels.SelectedOptionElement]?
+    public var selectedOptions: [SelectedOptionElement]?
     /// - Remark: Generated from `#/components/schemas/Action/dataSource`.
     public var dataSource: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Action/minQueryLength`.
     public var minQueryLength: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Action/optionGroups`.
-    public var optionGroups: [SlackModels.ActionOptionGroup]?
+    public var optionGroups: [ActionOptionGroup]?
     /// Creates a new `Action`.
     ///
     /// - Parameters:
@@ -60,13 +57,13 @@ public struct Action: Codable, Hashable, Sendable {
         style: Swift.String? = nil,
         type: Swift.String? = nil,
         value: Swift.String? = nil,
-        confirm: SlackModels.ActionConfirm? = nil,
-        options: [SlackModels.SelectedOptionElement]? = nil,
+        confirm: ActionConfirm? = nil,
+        options: [SelectedOptionElement]? = nil,
         url: Swift.String? = nil,
-        selectedOptions: [SlackModels.SelectedOptionElement]? = nil,
+        selectedOptions: [SelectedOptionElement]? = nil,
         dataSource: Swift.String? = nil,
         minQueryLength: Swift.Int? = nil,
-        optionGroups: [SlackModels.ActionOptionGroup]? = nil
+        optionGroups: [ActionOptionGroup]? = nil
     ) {
         self.id = id
         self.name = name

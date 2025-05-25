@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 #if canImport(SlackBlockKit)
 import SlackBlockKit
 #endif
@@ -19,9 +16,9 @@ public struct ListMetadata: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ListMetadata/description`.
     public var description: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/schema`.
-    public var schema: [SlackModels.Schema]?
+    public var schema: [Schema]?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/views`.
-    public var views: [SlackBlockKit.ViewType]?
+    public var views: [ViewType]?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/integrations`.
     public var integrations: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/iconUrl`.
@@ -31,9 +28,9 @@ public struct ListMetadata: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ListMetadata/isTrial`.
     public var isTrial: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/creationSource`.
-    public var creationSource: SlackModels.CreationSource?
+    public var creationSource: CreationSource?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/descriptionBlocks`.
-    public var descriptionBlocks: [SlackBlockKit.BlockType]?
+    public var descriptionBlocks: [BlockType]?
     /// Creates a new `ListMetadata`.
     ///
     /// - Parameters:
@@ -50,14 +47,14 @@ public struct ListMetadata: Codable, Hashable, Sendable {
     public init(
         icon: Swift.String? = nil,
         description: Swift.String? = nil,
-        schema: [SlackModels.Schema]? = nil,
-        views: [SlackBlockKit.ViewType]? = nil,
+        schema: [Schema]? = nil,
+        views: [ViewType]? = nil,
         integrations: [Swift.String]? = nil,
         iconUrl: Swift.String? = nil,
         iconTeamId: Swift.String? = nil,
         isTrial: Swift.Bool? = nil,
-        creationSource: SlackModels.CreationSource? = nil,
-        descriptionBlocks: [SlackBlockKit.BlockType]? = nil
+        creationSource: CreationSource? = nil,
+        descriptionBlocks: [BlockType]? = nil
     ) {
         self.icon = icon
         self.description = description

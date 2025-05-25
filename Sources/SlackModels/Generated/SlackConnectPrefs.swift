@@ -1,44 +1,41 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs`.
 public struct SlackConnectPrefs: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/allowScFileUploads`.
-    public var allowScFileUploads: SlackModels.AllowScFileUploads?
+    public var allowScFileUploads: AllowScFileUploads?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/approvedOrgInfo`.
-    public var approvedOrgInfo: SlackModels.AllowScFileUploads?
+    public var approvedOrgInfo: AllowScFileUploads?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/profileVisibility`.
-    public var profileVisibility: SlackModels.AllowScFileUploads?
+    public var profileVisibility: AllowScFileUploads?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/allowedWorkspaces`.
-    public var allowedWorkspaces: SlackModels.AllowedWorkspaces?
+    public var allowedWorkspaces: AllowedWorkspaces?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/allowedCanvasSharing`.
-    public var allowedCanvasSharing: SlackModels.AllowScFileUploads?
+    public var allowedCanvasSharing: AllowScFileUploads?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/allowedListSharing`.
-    public var allowedListSharing: SlackModels.AllowScFileUploads?
+    public var allowedListSharing: AllowScFileUploads?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/awayTeamScInvitePermissions`.
-    public var awayTeamScInvitePermissions: SlackModels.AllowedWorkspaces?
+    public var awayTeamScInvitePermissions: AllowedWorkspaces?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/awayTeamScInviteRequire2fa`.
-    public var awayTeamScInviteRequire2fa: SlackModels.AllowScFileUploads?
+    public var awayTeamScInviteRequire2fa: AllowScFileUploads?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/acceptScInvites`.
-    public var acceptScInvites: SlackModels.AcceptScInvites?
+    public var acceptScInvites: AcceptScInvites?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/scChannelLimitedAccess`.
-    public var scChannelLimitedAccess: SlackModels.AllowScFileUploads?
+    public var scChannelLimitedAccess: AllowScFileUploads?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/scMpdmToPrivate`.
-    public var scMpdmToPrivate: SlackModels.ScMpdmToPrivate?
+    public var scMpdmToPrivate: ScMpdmToPrivate?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/externalAwarenessContextBar`.
-    public var externalAwarenessContextBar: SlackModels.AllowScFileUploads?
+    public var externalAwarenessContextBar: AllowScFileUploads?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/requireScChannelForScDm`.
-    public var requireScChannelForScDm: SlackModels.AllowScFileUploads?
+    public var requireScChannelForScDm: AllowScFileUploads?
     /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs/sharedChannelInviteRequested`.
-    public var sharedChannelInviteRequested: SlackModels.SharedChannelInviteRequested?
+    public var sharedChannelInviteRequested: SharedChannelInviteRequested?
     /// Creates a new `SlackConnectPrefs`.
     ///
     /// - Parameters:
@@ -57,20 +54,20 @@ public struct SlackConnectPrefs: Codable, Hashable, Sendable {
     ///   - requireScChannelForScDm:
     ///   - sharedChannelInviteRequested:
     public init(
-        allowScFileUploads: SlackModels.AllowScFileUploads? = nil,
-        approvedOrgInfo: SlackModels.AllowScFileUploads? = nil,
-        profileVisibility: SlackModels.AllowScFileUploads? = nil,
-        allowedWorkspaces: SlackModels.AllowedWorkspaces? = nil,
-        allowedCanvasSharing: SlackModels.AllowScFileUploads? = nil,
-        allowedListSharing: SlackModels.AllowScFileUploads? = nil,
-        awayTeamScInvitePermissions: SlackModels.AllowedWorkspaces? = nil,
-        awayTeamScInviteRequire2fa: SlackModels.AllowScFileUploads? = nil,
-        acceptScInvites: SlackModels.AcceptScInvites? = nil,
-        scChannelLimitedAccess: SlackModels.AllowScFileUploads? = nil,
-        scMpdmToPrivate: SlackModels.ScMpdmToPrivate? = nil,
-        externalAwarenessContextBar: SlackModels.AllowScFileUploads? = nil,
-        requireScChannelForScDm: SlackModels.AllowScFileUploads? = nil,
-        sharedChannelInviteRequested: SlackModels.SharedChannelInviteRequested? = nil
+        allowScFileUploads: AllowScFileUploads? = nil,
+        approvedOrgInfo: AllowScFileUploads? = nil,
+        profileVisibility: AllowScFileUploads? = nil,
+        allowedWorkspaces: AllowedWorkspaces? = nil,
+        allowedCanvasSharing: AllowScFileUploads? = nil,
+        allowedListSharing: AllowScFileUploads? = nil,
+        awayTeamScInvitePermissions: AllowedWorkspaces? = nil,
+        awayTeamScInviteRequire2fa: AllowScFileUploads? = nil,
+        acceptScInvites: AcceptScInvites? = nil,
+        scChannelLimitedAccess: AllowScFileUploads? = nil,
+        scMpdmToPrivate: ScMpdmToPrivate? = nil,
+        externalAwarenessContextBar: AllowScFileUploads? = nil,
+        requireScChannelForScDm: AllowScFileUploads? = nil,
+        sharedChannelInviteRequested: SharedChannelInviteRequested? = nil
     ) {
         self.allowScFileUploads = allowScFileUploads
         self.approvedOrgInfo = approvedOrgInfo

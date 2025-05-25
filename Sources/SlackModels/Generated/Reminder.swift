@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Reminder`.
 public struct Reminder: Codable, Hashable, Sendable {
@@ -26,7 +23,7 @@ public struct Reminder: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Reminder/channel`.
     public var channel: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Reminder/recurrence`.
-    public var recurrence: SlackModels.Recurrence?
+    public var recurrence: Recurrence?
     /// - Remark: Generated from `#/components/schemas/Reminder/completeTs`.
     public var completeTs: Swift.Int?
     /// Creates a new `Reminder`.
@@ -49,7 +46,7 @@ public struct Reminder: Codable, Hashable, Sendable {
         recurring: Swift.Bool? = nil,
         time: Swift.Int? = nil,
         channel: Swift.String? = nil,
-        recurrence: SlackModels.Recurrence? = nil,
+        recurrence: Recurrence? = nil,
         completeTs: Swift.Int? = nil
     ) {
         self.id = id

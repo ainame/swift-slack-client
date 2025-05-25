@@ -1,18 +1,15 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/OauthConfig`.
 public struct OauthConfig: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/OauthConfig/scopes`.
-    public var scopes: SlackModels.Scopes?
+    public var scopes: Scopes?
     /// - Remark: Generated from `#/components/schemas/OauthConfig/redirectUrls`.
     public var redirectUrls: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/OauthConfig/tokenManagementEnabled`.
@@ -24,7 +21,7 @@ public struct OauthConfig: Codable, Hashable, Sendable {
     ///   - redirectUrls:
     ///   - tokenManagementEnabled:
     public init(
-        scopes: SlackModels.Scopes? = nil,
+        scopes: Scopes? = nil,
         redirectUrls: [Swift.String]? = nil,
         tokenManagementEnabled: Swift.Bool? = nil
     ) {

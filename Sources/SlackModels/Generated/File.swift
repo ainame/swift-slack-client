@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 #if canImport(SlackBlockKit)
 import SlackBlockKit
 #endif
@@ -45,7 +42,7 @@ public struct File: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/File/subtype`.
     public var subtype: Swift.String?
     /// - Remark: Generated from `#/components/schemas/File/transcription`.
-    public var transcription: SlackModels.Transcription?
+    public var transcription: Transcription?
     /// - Remark: Generated from `#/components/schemas/File/mp4`.
     public var mp4: Swift.String?
     /// - Remark: Generated from `#/components/schemas/File/vtt`.
@@ -73,27 +70,27 @@ public struct File: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/File/ims`.
     public var ims: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/File/shares`.
-    public var shares: SlackModels.Shares?
+    public var shares: Shares?
     /// - Remark: Generated from `#/components/schemas/File/to`.
-    public var to: [SlackModels.Cc]?
+    public var to: [Cc]?
     /// - Remark: Generated from `#/components/schemas/File/from`.
-    public var from: [SlackModels.Cc]?
+    public var from: [Cc]?
     /// - Remark: Generated from `#/components/schemas/File/cc`.
-    public var cc: [SlackModels.Cc]?
+    public var cc: [Cc]?
     /// - Remark: Generated from `#/components/schemas/File/headers`.
-    public var headers: SlackModels.Headers?
+    public var headers: Headers?
     /// - Remark: Generated from `#/components/schemas/File/saved`.
-    public var saved: SlackModels.Saved?
+    public var saved: Saved?
     /// - Remark: Generated from `#/components/schemas/File/access`.
     public var access: Swift.String?
     /// - Remark: Generated from `#/components/schemas/File/favorites`.
-    public var favorites: [SlackModels.Favorite]?
+    public var favorites: [Favorite]?
     /// - Remark: Generated from `#/components/schemas/File/reactions`.
-    public var reactions: [SlackModels.Reaction]?
+    public var reactions: [Reaction]?
     /// - Remark: Generated from `#/components/schemas/File/attachments`.
     public var attachments: [OpenAPIRuntime.OpenAPIValueContainer]?
     /// - Remark: Generated from `#/components/schemas/File/blocks`.
-    public var blocks: [SlackBlockKit.BlockType]?
+    public var blocks: [BlockType]?
     /// - Remark: Generated from `#/components/schemas/File/prettyType`.
     public var prettyType: Swift.String?
     /// - Remark: Generated from `#/components/schemas/File/userTeam`.
@@ -271,7 +268,7 @@ public struct File: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/File/simplifiedHtml`.
     public var simplifiedHtml: Swift.String?
     /// - Remark: Generated from `#/components/schemas/File/mediaProgress`.
-    public var mediaProgress: SlackModels.MediaProgress?
+    public var mediaProgress: MediaProgress?
     /// - Remark: Generated from `#/components/schemas/File/quipThreadId`.
     public var quipThreadId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/File/isChannelSpace`.
@@ -283,13 +280,13 @@ public struct File: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/File/lastRead`.
     public var lastRead: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/File/titleBlocks`.
-    public var titleBlocks: [SlackBlockKit.BlockType]?
+    public var titleBlocks: [BlockType]?
     /// - Remark: Generated from `#/components/schemas/File/privateChannelsWithFileAccessCount`.
     public var privateChannelsWithFileAccessCount: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/File/privateFileWithAccessCount`.
     public var privateFileWithAccessCount: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/File/dmMpdmUsersWithFileAccess`.
-    public var dmMpdmUsersWithFileAccess: [SlackModels.DmMpdmUsersWithFileAccess]?
+    public var dmMpdmUsersWithFileAccess: [DmMpdmUsersWithFileAccess]?
     /// - Remark: Generated from `#/components/schemas/File/orgOrWorkspaceAccess`.
     public var orgOrWorkspaceAccess: Swift.String?
     /// - Remark: Generated from `#/components/schemas/File/updateNotification`.
@@ -311,9 +308,9 @@ public struct File: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/File/showBadge`.
     public var showBadge: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/File/listMetadata`.
-    public var listMetadata: SlackModels.ListMetadata?
+    public var listMetadata: ListMetadata?
     /// - Remark: Generated from `#/components/schemas/File/listLimits`.
-    public var listLimits: SlackModels.ListLimits?
+    public var listLimits: ListLimits?
     /// - Remark: Generated from `#/components/schemas/File/listCsvDownloadUrl`.
     public var listCsvDownloadUrl: Swift.String?
     /// - Remark: Generated from `#/components/schemas/File/canToggleCanvasLock`.
@@ -325,7 +322,7 @@ public struct File: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/File/botId`.
     public var botId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/File/initialComment`.
-    public var initialComment: SlackModels.InitialComment?
+    public var initialComment: InitialComment?
     /// - Remark: Generated from `#/components/schemas/File/numStars`.
     public var numStars: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/File/isStarred`.
@@ -513,7 +510,7 @@ public struct File: Codable, Hashable, Sendable {
         updated: Swift.Int? = nil,
         editors: [Swift.String]? = nil,
         subtype: Swift.String? = nil,
-        transcription: SlackModels.Transcription? = nil,
+        transcription: Transcription? = nil,
         mp4: Swift.String? = nil,
         vtt: Swift.String? = nil,
         hls: Swift.String? = nil,
@@ -527,17 +524,17 @@ public struct File: Codable, Hashable, Sendable {
         channels: [Swift.String]? = nil,
         groups: [Swift.String]? = nil,
         ims: [Swift.String]? = nil,
-        shares: SlackModels.Shares? = nil,
-        to: [SlackModels.Cc]? = nil,
-        from: [SlackModels.Cc]? = nil,
-        cc: [SlackModels.Cc]? = nil,
-        headers: SlackModels.Headers? = nil,
-        saved: SlackModels.Saved? = nil,
+        shares: Shares? = nil,
+        to: [Cc]? = nil,
+        from: [Cc]? = nil,
+        cc: [Cc]? = nil,
+        headers: Headers? = nil,
+        saved: Saved? = nil,
         access: Swift.String? = nil,
-        favorites: [SlackModels.Favorite]? = nil,
-        reactions: [SlackModels.Reaction]? = nil,
+        favorites: [Favorite]? = nil,
+        reactions: [Reaction]? = nil,
         attachments: [OpenAPIRuntime.OpenAPIValueContainer]? = nil,
-        blocks: [SlackBlockKit.BlockType]? = nil,
+        blocks: [BlockType]? = nil,
         prettyType: Swift.String? = nil,
         userTeam: Swift.String? = nil,
         sourceTeam: Swift.String? = nil,
@@ -626,16 +623,16 @@ public struct File: Codable, Hashable, Sendable {
         channelActionsTs: Swift.String? = nil,
         channelActionsCount: Swift.Int? = nil,
         simplifiedHtml: Swift.String? = nil,
-        mediaProgress: SlackModels.MediaProgress? = nil,
+        mediaProgress: MediaProgress? = nil,
         quipThreadId: Swift.String? = nil,
         isChannelSpace: Swift.Bool? = nil,
         linkedChannelId: Swift.String? = nil,
         teamsSharedWith: [OpenAPIRuntime.OpenAPIValueContainer]? = nil,
         lastRead: Swift.Int? = nil,
-        titleBlocks: [SlackBlockKit.BlockType]? = nil,
+        titleBlocks: [BlockType]? = nil,
         privateChannelsWithFileAccessCount: Swift.Int? = nil,
         privateFileWithAccessCount: Swift.Int? = nil,
-        dmMpdmUsersWithFileAccess: [SlackModels.DmMpdmUsersWithFileAccess]? = nil,
+        dmMpdmUsersWithFileAccess: [DmMpdmUsersWithFileAccess]? = nil,
         orgOrWorkspaceAccess: Swift.String? = nil,
         updateNotification: Swift.Int? = nil,
         canvasTemplateMode: Swift.String? = nil,
@@ -646,14 +643,14 @@ public struct File: Codable, Hashable, Sendable {
         templateIcon: Swift.String? = nil,
         teamPrefVersionHistoryEnabled: Swift.Bool? = nil,
         showBadge: Swift.Bool? = nil,
-        listMetadata: SlackModels.ListMetadata? = nil,
-        listLimits: SlackModels.ListLimits? = nil,
+        listMetadata: ListMetadata? = nil,
+        listLimits: ListLimits? = nil,
         listCsvDownloadUrl: Swift.String? = nil,
         canToggleCanvasLock: Swift.Bool? = nil,
         isRestrictedSharingEnabled: Swift.Bool? = nil,
         canvasPrintingEnabled: Swift.Bool? = nil,
         botId: Swift.String? = nil,
-        initialComment: SlackModels.InitialComment? = nil,
+        initialComment: InitialComment? = nil,
         numStars: Swift.Int? = nil,
         isStarred: Swift.Bool? = nil,
         pinnedTo: [Swift.String]? = nil,

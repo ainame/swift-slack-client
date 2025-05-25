@@ -1,18 +1,15 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/InvitePayload`.
 public struct InvitePayload: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/InvitePayload/channel`.
-    public var channel: SlackModels.Channel?
+    public var channel: Channel?
     /// - Remark: Generated from `#/components/schemas/InvitePayload/inviteType`.
     public var inviteType: Swift.String?
     /// - Remark: Generated from `#/components/schemas/InvitePayload/isSponsored`.
@@ -27,7 +24,7 @@ public struct InvitePayload: Codable, Hashable, Sendable {
     ///   - isSponsored:
     ///   - isExternalLimited:
     public init(
-        channel: SlackModels.Channel? = nil,
+        channel: Channel? = nil,
         inviteType: Swift.String? = nil,
         isSponsored: Swift.Bool? = nil,
         isExternalLimited: Swift.Bool? = nil

@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Usergroup`.
 public struct Usergroup: Codable, Hashable, Sendable {
@@ -20,7 +17,7 @@ public struct Usergroup: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Usergroup/handle`.
     public var handle: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Usergroup/prefs`.
-    public var prefs: SlackModels.Prefs?
+    public var prefs: Prefs?
     /// - Remark: Generated from `#/components/schemas/Usergroup/users`.
     public var users: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/Usergroup/teamId`.
@@ -76,7 +73,7 @@ public struct Usergroup: Codable, Hashable, Sendable {
         name: Swift.String? = nil,
         description: Swift.String? = nil,
         handle: Swift.String? = nil,
-        prefs: SlackModels.Prefs? = nil,
+        prefs: Prefs? = nil,
         users: [Swift.String]? = nil,
         teamId: Swift.String? = nil,
         isUsergroup: Swift.Bool? = nil,

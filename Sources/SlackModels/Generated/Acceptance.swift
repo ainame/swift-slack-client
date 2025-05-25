@@ -1,18 +1,15 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Acceptance`.
 public struct Acceptance: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Acceptance/reviews`.
-    public var reviews: [SlackModels.Review]?
+    public var reviews: [Review]?
     /// - Remark: Generated from `#/components/schemas/Acceptance/approvalStatus`.
     public var approvalStatus: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Acceptance/dateAccepted`.
@@ -22,9 +19,9 @@ public struct Acceptance: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Acceptance/dateLastUpdated`.
     public var dateLastUpdated: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Acceptance/acceptingTeam`.
-    public var acceptingTeam: SlackModels.IngTeam?
+    public var acceptingTeam: IngTeam?
     /// - Remark: Generated from `#/components/schemas/Acceptance/acceptingUser`.
-    public var acceptingUser: SlackModels.TingUser?
+    public var acceptingUser: TingUser?
     /// Creates a new `Acceptance`.
     ///
     /// - Parameters:
@@ -36,13 +33,13 @@ public struct Acceptance: Codable, Hashable, Sendable {
     ///   - acceptingTeam:
     ///   - acceptingUser:
     public init(
-        reviews: [SlackModels.Review]? = nil,
+        reviews: [Review]? = nil,
         approvalStatus: Swift.String? = nil,
         dateAccepted: Swift.Int? = nil,
         dateInvalid: Swift.Int? = nil,
         dateLastUpdated: Swift.Int? = nil,
-        acceptingTeam: SlackModels.IngTeam? = nil,
-        acceptingUser: SlackModels.TingUser? = nil
+        acceptingTeam: IngTeam? = nil,
+        acceptingUser: TingUser? = nil
     ) {
         self.reviews = reviews
         self.approvalStatus = approvalStatus

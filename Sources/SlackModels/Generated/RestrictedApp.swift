@@ -1,24 +1,21 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/RestrictedApp`.
 public struct RestrictedApp: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/RestrictedApp/app`.
-    public var app: SlackModels.App?
+    public var app: App?
     /// - Remark: Generated from `#/components/schemas/RestrictedApp/scopes`.
-    public var scopes: [SlackModels.Scope]?
+    public var scopes: [Scope]?
     /// - Remark: Generated from `#/components/schemas/RestrictedApp/dateUpdated`.
     public var dateUpdated: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/RestrictedApp/lastResolvedBy`.
-    public var lastResolvedBy: SlackModels.LastResolvedBy?
+    public var lastResolvedBy: LastResolvedBy?
     /// Creates a new `RestrictedApp`.
     ///
     /// - Parameters:
@@ -27,10 +24,10 @@ public struct RestrictedApp: Codable, Hashable, Sendable {
     ///   - dateUpdated:
     ///   - lastResolvedBy:
     public init(
-        app: SlackModels.App? = nil,
-        scopes: [SlackModels.Scope]? = nil,
+        app: App? = nil,
+        scopes: [Scope]? = nil,
         dateUpdated: Swift.Int? = nil,
-        lastResolvedBy: SlackModels.LastResolvedBy? = nil
+        lastResolvedBy: LastResolvedBy? = nil
     ) {
         self.app = app
         self.scopes = scopes

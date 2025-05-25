@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/SharedChannelInviteRequested`.
 public struct SharedChannelInviteRequested: Codable, Hashable, Sendable {
@@ -18,11 +15,11 @@ public struct SharedChannelInviteRequested: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/SharedChannelInviteRequested/source`.
     public var source: Swift.String?
     /// - Remark: Generated from `#/components/schemas/SharedChannelInviteRequested/usergroupInclude`.
-    public var usergroupInclude: SlackModels.UsergroupClude?
+    public var usergroupInclude: UsergroupClude?
     /// - Remark: Generated from `#/components/schemas/SharedChannelInviteRequested/usergroupExclude`.
-    public var usergroupExclude: SlackModels.UsergroupClude?
+    public var usergroupExclude: UsergroupClude?
     /// - Remark: Generated from `#/components/schemas/SharedChannelInviteRequested/approvalDestination`.
-    public var approvalDestination: SlackModels.ApprovalDestination?
+    public var approvalDestination: ApprovalDestination?
     /// - Remark: Generated from `#/components/schemas/SharedChannelInviteRequested/dateUpdate`.
     public var dateUpdate: Swift.Int?
     /// Creates a new `SharedChannelInviteRequested`.
@@ -39,9 +36,9 @@ public struct SharedChannelInviteRequested: Codable, Hashable, Sendable {
         enabled: Swift.Bool? = nil,
         actor: Swift.String? = nil,
         source: Swift.String? = nil,
-        usergroupInclude: SlackModels.UsergroupClude? = nil,
-        usergroupExclude: SlackModels.UsergroupClude? = nil,
-        approvalDestination: SlackModels.ApprovalDestination? = nil,
+        usergroupInclude: UsergroupClude? = nil,
+        usergroupExclude: UsergroupClude? = nil,
+        approvalDestination: ApprovalDestination? = nil,
         dateUpdate: Swift.Int? = nil
     ) {
         self.enabled = enabled

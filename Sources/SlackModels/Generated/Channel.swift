@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Channel`.
 public struct Channel: Codable, Hashable, Sendable {
@@ -22,9 +19,9 @@ public struct Channel: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Channel/creator`.
     public var creator: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Channel/topic`.
-    public var topic: SlackModels.Purpose?
+    public var topic: Purpose?
     /// - Remark: Generated from `#/components/schemas/Channel/purpose`.
-    public var purpose: SlackModels.Purpose?
+    public var purpose: Purpose?
     /// - Remark: Generated from `#/components/schemas/Channel/priority`.
     public var priority: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Channel/user`.
@@ -32,7 +29,7 @@ public struct Channel: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Channel/updated`.
     public var updated: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Channel/properties`.
-    public var properties: SlackModels.Properties?
+    public var properties: Properties?
     /// - Remark: Generated from `#/components/schemas/Channel/isChannel`.
     public var isChannel: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Channel/isGroup`.
@@ -137,12 +134,12 @@ public struct Channel: Codable, Hashable, Sendable {
         created: Swift.Int? = nil,
         unlinked: Swift.Int? = nil,
         creator: Swift.String? = nil,
-        topic: SlackModels.Purpose? = nil,
-        purpose: SlackModels.Purpose? = nil,
+        topic: Purpose? = nil,
+        purpose: Purpose? = nil,
         priority: Swift.Int? = nil,
         user: Swift.String? = nil,
         updated: Swift.Int? = nil,
-        properties: SlackModels.Properties? = nil,
+        properties: Properties? = nil,
         isChannel: Swift.Bool? = nil,
         isGroup: Swift.Bool? = nil,
         isIm: Swift.Bool? = nil,

@@ -1,14 +1,16 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
-#endif
 
-/// - Remark: Generated from `#/components/schemas/Type/value2`.
+/// - Remark: Generated from `#/components/schemas/Type`.
+public struct _Type: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/Type/value1`.
+    public var value1: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Type/value2`.
     public var value2: Swift.String?
     /// Creates a new `_Type`.
     ///

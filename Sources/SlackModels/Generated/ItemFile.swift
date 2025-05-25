@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/ItemFile`.
 public struct ItemFile: Codable, Hashable, Sendable {
@@ -40,7 +37,7 @@ public struct ItemFile: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ItemFile/subtype`.
     public var subtype: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ItemFile/transcription`.
-    public var transcription: SlackModels.Transcription?
+    public var transcription: Transcription?
     /// - Remark: Generated from `#/components/schemas/ItemFile/mp4`.
     public var mp4: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ItemFile/vtt`.
@@ -68,19 +65,19 @@ public struct ItemFile: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ItemFile/ims`.
     public var ims: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/ItemFile/shares`.
-    public var shares: SlackModels.Shares?
+    public var shares: Shares?
     /// - Remark: Generated from `#/components/schemas/ItemFile/to`.
-    public var to: [SlackModels.Cc]?
+    public var to: [Cc]?
     /// - Remark: Generated from `#/components/schemas/ItemFile/from`.
-    public var from: [SlackModels.Cc]?
+    public var from: [Cc]?
     /// - Remark: Generated from `#/components/schemas/ItemFile/cc`.
-    public var cc: [SlackModels.Cc]?
+    public var cc: [Cc]?
     /// - Remark: Generated from `#/components/schemas/ItemFile/headers`.
-    public var headers: SlackModels.Headers?
+    public var headers: Headers?
     /// - Remark: Generated from `#/components/schemas/ItemFile/saved`.
-    public var saved: SlackModels.Saved?
+    public var saved: Saved?
     /// - Remark: Generated from `#/components/schemas/ItemFile/reactions`.
-    public var reactions: [SlackModels.Reaction]?
+    public var reactions: [Reaction]?
     /// - Remark: Generated from `#/components/schemas/ItemFile/prettyType`.
     public var prettyType: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ItemFile/userTeam`.
@@ -254,11 +251,11 @@ public struct ItemFile: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ItemFile/simplifiedHtml`.
     public var simplifiedHtml: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ItemFile/mediaProgress`.
-    public var mediaProgress: SlackModels.MediaProgress?
+    public var mediaProgress: MediaProgress?
     /// - Remark: Generated from `#/components/schemas/ItemFile/botId`.
     public var botId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ItemFile/initialComment`.
-    public var initialComment: SlackModels.Comment?
+    public var initialComment: Comment?
     /// - Remark: Generated from `#/components/schemas/ItemFile/numStars`.
     public var numStars: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/ItemFile/isStarred`.
@@ -413,7 +410,7 @@ public struct ItemFile: Codable, Hashable, Sendable {
         editor: Swift.String? = nil,
         updated: Swift.Int? = nil,
         subtype: Swift.String? = nil,
-        transcription: SlackModels.Transcription? = nil,
+        transcription: Transcription? = nil,
         mp4: Swift.String? = nil,
         vtt: Swift.String? = nil,
         hls: Swift.String? = nil,
@@ -427,13 +424,13 @@ public struct ItemFile: Codable, Hashable, Sendable {
         channels: [Swift.String]? = nil,
         groups: [Swift.String]? = nil,
         ims: [Swift.String]? = nil,
-        shares: SlackModels.Shares? = nil,
-        to: [SlackModels.Cc]? = nil,
-        from: [SlackModels.Cc]? = nil,
-        cc: [SlackModels.Cc]? = nil,
-        headers: SlackModels.Headers? = nil,
-        saved: SlackModels.Saved? = nil,
-        reactions: [SlackModels.Reaction]? = nil,
+        shares: Shares? = nil,
+        to: [Cc]? = nil,
+        from: [Cc]? = nil,
+        cc: [Cc]? = nil,
+        headers: Headers? = nil,
+        saved: Saved? = nil,
+        reactions: [Reaction]? = nil,
         prettyType: Swift.String? = nil,
         userTeam: Swift.String? = nil,
         sourceTeam: Swift.String? = nil,
@@ -520,9 +517,9 @@ public struct ItemFile: Codable, Hashable, Sendable {
         channelActionsTs: Swift.String? = nil,
         channelActionsCount: Swift.Int? = nil,
         simplifiedHtml: Swift.String? = nil,
-        mediaProgress: SlackModels.MediaProgress? = nil,
+        mediaProgress: MediaProgress? = nil,
         botId: Swift.String? = nil,
-        initialComment: SlackModels.Comment? = nil,
+        initialComment: Comment? = nil,
         numStars: Swift.Int? = nil,
         isStarred: Swift.Bool? = nil,
         pinnedTo: [Swift.String]? = nil,

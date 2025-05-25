@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Schema`.
 public struct Schema: Codable, Hashable, Sendable {
@@ -20,7 +17,7 @@ public struct Schema: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Schema/type`.
     public var type: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Schema/options`.
-    public var options: SlackModels.Options?
+    public var options: Options?
     /// - Remark: Generated from `#/components/schemas/Schema/isPrimaryColumn`.
     public var isPrimaryColumn: Swift.Bool?
     /// Creates a new `Schema`.
@@ -37,7 +34,7 @@ public struct Schema: Codable, Hashable, Sendable {
         name: Swift.String? = nil,
         key: Swift.String? = nil,
         type: Swift.String? = nil,
-        options: SlackModels.Options? = nil,
+        options: Options? = nil,
         isPrimaryColumn: Swift.Bool? = nil
     ) {
         self.id = id

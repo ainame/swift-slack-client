@@ -1,24 +1,21 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Features`.
 public struct Features: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Features/shortcuts`.
-    public var shortcuts: [SlackModels.Shortcut]?
+    public var shortcuts: [Shortcut]?
     /// - Remark: Generated from `#/components/schemas/Features/appHome`.
-    public var appHome: SlackModels.AppHome?
+    public var appHome: AppHome?
     /// - Remark: Generated from `#/components/schemas/Features/botUser`.
-    public var botUser: SlackModels.BotUser?
+    public var botUser: BotUser?
     /// - Remark: Generated from `#/components/schemas/Features/slashCommands`.
-    public var slashCommands: [SlackModels.SlashCommand]?
+    public var slashCommands: [SlashCommand]?
     /// - Remark: Generated from `#/components/schemas/Features/unfurlDomains`.
     public var unfurlDomains: [Swift.String]?
     /// Creates a new `Features`.
@@ -30,10 +27,10 @@ public struct Features: Codable, Hashable, Sendable {
     ///   - slashCommands:
     ///   - unfurlDomains:
     public init(
-        shortcuts: [SlackModels.Shortcut]? = nil,
-        appHome: SlackModels.AppHome? = nil,
-        botUser: SlackModels.BotUser? = nil,
-        slashCommands: [SlackModels.SlashCommand]? = nil,
+        shortcuts: [Shortcut]? = nil,
+        appHome: AppHome? = nil,
+        botUser: BotUser? = nil,
+        slashCommands: [SlashCommand]? = nil,
         unfurlDomains: [Swift.String]? = nil
     ) {
         self.shortcuts = shortcuts

@@ -1,22 +1,19 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Preview`.
 public struct Preview: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Preview/type`.
     public var type: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Preview/title`.
-    public var title: SlackModels.Description?
+    public var title: Description?
     /// - Remark: Generated from `#/components/schemas/Preview/subtitle`.
-    public var subtitle: SlackModels.Description?
+    public var subtitle: Description?
     /// - Remark: Generated from `#/components/schemas/Preview/canRemove`.
     public var canRemove: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Preview/iconUrl`.
@@ -31,8 +28,8 @@ public struct Preview: Codable, Hashable, Sendable {
     ///   - iconUrl:
     public init(
         type: Swift.String? = nil,
-        title: SlackModels.Description? = nil,
-        subtitle: SlackModels.Description? = nil,
+        title: Description? = nil,
+        subtitle: Description? = nil,
         canRemove: Swift.Bool? = nil,
         iconUrl: Swift.String? = nil
     ) {

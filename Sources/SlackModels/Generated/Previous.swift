@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 #if canImport(SlackBlockKit)
 import SlackBlockKit
 #endif
@@ -29,9 +26,9 @@ public struct Previous: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Previous/permalink`.
     public var permalink: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Previous/attachments`.
-    public var attachments: [SlackModels.Attachment]?
+    public var attachments: [Attachment]?
     /// - Remark: Generated from `#/components/schemas/Previous/blocks`.
-    public var blocks: [SlackBlockKit.BlockType]?
+    public var blocks: [BlockType]?
     /// Creates a new `Previous`.
     ///
     /// - Parameters:
@@ -52,8 +49,8 @@ public struct Previous: Codable, Hashable, Sendable {
         text: Swift.String? = nil,
         iid: Swift.String? = nil,
         permalink: Swift.String? = nil,
-        attachments: [SlackModels.Attachment]? = nil,
-        blocks: [SlackBlockKit.BlockType]? = nil
+        attachments: [Attachment]? = nil,
+        blocks: [BlockType]? = nil
     ) {
         self.type = type
         self.user = user

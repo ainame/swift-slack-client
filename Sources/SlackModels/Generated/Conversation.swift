@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Conversation`.
 public struct Conversation: Codable, Hashable, Sendable {
@@ -20,11 +17,11 @@ public struct Conversation: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Conversation/created`.
     public var created: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Conversation/canvas`.
-    public var canvas: SlackModels.ListsClass?
+    public var canvas: ListsClass?
     /// - Remark: Generated from `#/components/schemas/Conversation/lists`.
-    public var lists: SlackModels.ListsClass?
+    public var lists: ListsClass?
     /// - Remark: Generated from `#/components/schemas/Conversation/properties`.
-    public var properties: SlackModels.Properties?
+    public var properties: Properties?
     /// - Remark: Generated from `#/components/schemas/Conversation/memberCount`.
     public var memberCount: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Conversation/creatorId`.
@@ -62,7 +59,7 @@ public struct Conversation: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Conversation/conversationHostId`.
     public var conversationHostId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Conversation/channelEmailAddresses`.
-    public var channelEmailAddresses: [SlackModels.ChannelEmailAddress]?
+    public var channelEmailAddresses: [ChannelEmailAddress]?
     /// - Remark: Generated from `#/components/schemas/Conversation/connectedLimitedTeamIds`.
     public var connectedLimitedTeamIds: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/Conversation/externalUserCount`.
@@ -115,9 +112,9 @@ public struct Conversation: Codable, Hashable, Sendable {
         name: Swift.String? = nil,
         purpose: Swift.String? = nil,
         created: Swift.Int? = nil,
-        canvas: SlackModels.ListsClass? = nil,
-        lists: SlackModels.ListsClass? = nil,
-        properties: SlackModels.Properties? = nil,
+        canvas: ListsClass? = nil,
+        lists: ListsClass? = nil,
+        properties: Properties? = nil,
         memberCount: Swift.Int? = nil,
         creatorId: Swift.String? = nil,
         isPrivate: Swift.Bool? = nil,
@@ -136,7 +133,7 @@ public struct Conversation: Codable, Hashable, Sendable {
         isPendingExtShared: Swift.Bool? = nil,
         connectedTeamIds: [Swift.String]? = nil,
         conversationHostId: Swift.String? = nil,
-        channelEmailAddresses: [SlackModels.ChannelEmailAddress]? = nil,
+        channelEmailAddresses: [ChannelEmailAddress]? = nil,
         connectedLimitedTeamIds: [Swift.String]? = nil,
         externalUserCount: Swift.Int? = nil,
         internalTeamIds: [Swift.String]? = nil,

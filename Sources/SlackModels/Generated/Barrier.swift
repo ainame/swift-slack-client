@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Barrier`.
 public struct Barrier: Codable, Hashable, Sendable {
@@ -16,9 +13,9 @@ public struct Barrier: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Barrier/enterpriseId`.
     public var enterpriseId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Barrier/primaryUsergroup`.
-    public var primaryUsergroup: SlackModels.Usergroup?
+    public var primaryUsergroup: Usergroup?
     /// - Remark: Generated from `#/components/schemas/Barrier/barrieredFromUsergroups`.
-    public var barrieredFromUsergroups: [SlackModels.Usergroup]?
+    public var barrieredFromUsergroups: [Usergroup]?
     /// - Remark: Generated from `#/components/schemas/Barrier/restrictedSubjects`.
     public var restrictedSubjects: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/Barrier/dateUpdate`.
@@ -35,8 +32,8 @@ public struct Barrier: Codable, Hashable, Sendable {
     public init(
         id: Swift.String? = nil,
         enterpriseId: Swift.String? = nil,
-        primaryUsergroup: SlackModels.Usergroup? = nil,
-        barrieredFromUsergroups: [SlackModels.Usergroup]? = nil,
+        primaryUsergroup: Usergroup? = nil,
+        barrieredFromUsergroups: [Usergroup]? = nil,
         restrictedSubjects: [Swift.String]? = nil,
         dateUpdate: Swift.Int? = nil
     ) {

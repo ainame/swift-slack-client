@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Review`.
 public struct Review: Codable, Hashable, Sendable {
@@ -16,7 +13,7 @@ public struct Review: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Review/dateReview`.
     public var dateReview: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Review/reviewingTeam`.
-    public var reviewingTeam: SlackModels.IngTeam?
+    public var reviewingTeam: IngTeam?
     /// Creates a new `Review`.
     ///
     /// - Parameters:
@@ -26,7 +23,7 @@ public struct Review: Codable, Hashable, Sendable {
     public init(
         type: Swift.String? = nil,
         dateReview: Swift.Int? = nil,
-        reviewingTeam: SlackModels.IngTeam? = nil
+        reviewingTeam: IngTeam? = nil
     ) {
         self.type = type
         self.dateReview = dateReview

@@ -1181,16 +1181,19 @@ class CommonModelsSplitter
   
   private
   
-  # Parses individual schema structs from the extension content
+  # Parses individual schema structs from the enum content
   def parse_individual_schemas(content)
     lines = content.lines
     schemas = {}
     
-    # Find the header (everything up to the extension content)
-    extension_start = lines.find_index { |line| line.strip.start_with?('extension Components.Schemas') }
-    return {} unless extension_start
+    # Find the header (everything up to the Components.Schemas enum)
+    components_start = lines.find_index { |line| line.strip.start_with?('public enum Components') }
+    return {} unless components_start
     
-    header = lines[0...extension_start].join
+    schemas_start = lines.find_index { |line| line.strip.start_with?('public enum Schemas') }
+    return {} unless schemas_start
+    
+    header = lines[0...components_start].join
     
     current_schema = nil
     schema_lines = []
@@ -1198,7 +1201,7 @@ class CommonModelsSplitter
     in_schema = false
     found_struct_declaration = false
     
-    lines[(extension_start + 1)..-1].each_with_index do |line, index|
+    lines[(schemas_start + 1)..-1].each_with_index do |line, index|
       stripped = line.strip
       
       # Look for schema struct declarations (only top-level schemas, not properties)
@@ -1208,8 +1211,8 @@ class CommonModelsSplitter
         # Look ahead to see if next line (after possible empty lines) is the struct declaration
         next_line_index = index + 1
         struct_found = false
-        while next_line_index < lines[(extension_start + 1)..-1].length
-          next_line = lines[(extension_start + 1)..-1][next_line_index]
+        while next_line_index < lines[(schemas_start + 1)..-1].length
+          next_line = lines[(schemas_start + 1)..-1][next_line_index]
           next_stripped = next_line.strip
           
           if next_stripped.match(/^public struct #{Regexp.escape(schema_name)}:/)
@@ -1348,8 +1351,10 @@ class CommonModelsSplitter
         end
       end
       
-      # Fix indentation: convert from extension (4 spaces) to top-level (no extra indentation)
-      if line.start_with?('    ')  # 4 spaces from extension
+      # Fix indentation: convert from enum nesting (8 spaces) to top-level (no extra indentation)  
+      if line.start_with?('        ')  # 8 spaces from nested enum
+        line = line[8..-1]  # Remove 8 spaces for top-level
+      elsif line.start_with?('    ')  # 4 spaces for some content
         line = line[4..-1]  # Remove 4 spaces for top-level
       end
       
@@ -1361,37 +1366,25 @@ class CommonModelsSplitter
   
   # Generates the complete model file content
   def generate_model_file_content(header, transformed_content, needs_slackblockkit_import)
-    # Extract platform-specific imports
-    platform_imports = []
-    other_imports = []
+    # Start with the standard platform-specific imports
+    imports = [
+      "#if os(Linux)",
+      "#else",
+      "import struct Foundation.URL",
+      "import struct Foundation.Data", 
+      "import struct Foundation.Date",
+      "#endif"
+    ]
     
-    header.lines.each do |line|
-      stripped = line.strip
-      next if stripped.include?('import SlackModels') || stripped == '#if canImport(SlackModels)'
-      
-      if stripped.start_with?('import ') || stripped.start_with?('#if ') || stripped.start_with?('#else') || stripped.start_with?('#endif')
-        if stripped.start_with?('#if os(Linux)') || 
-           stripped.start_with?('#else') || 
-           (stripped.start_with?('#endif') && platform_imports.any? { |l| l.include?('os(Linux)') }) ||
-           stripped.start_with?('import struct Foundation.') ||
-           stripped.start_with?('@preconcurrency import struct Foundation.')
-          platform_imports << line.chomp
-        else
-          other_imports << line.chomp
-        end
-      end
-    end
-    
-    # Add SlackBlockKit import after platform imports but before transformed content
+    # Add SlackBlockKit import if needed
     if needs_slackblockkit_import
-      other_imports << "#if canImport(SlackBlockKit)"
-      other_imports << "import SlackBlockKit"  
-      other_imports << "#endif"
+      imports << "#if canImport(SlackBlockKit)"
+      imports << "import SlackBlockKit"
+      imports << "#endif"
     end
     
-    # Generate final content with proper import order
-    all_imports = platform_imports + other_imports
-    [all_imports.join("\n"), "", transformed_content.strip].join("\n") + "\n"
+    # Generate final content
+    [imports.join("\n"), "", transformed_content.strip].join("\n") + "\n"
   end
 end
 

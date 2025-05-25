@@ -1,20 +1,17 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Organization`.
 public struct Organization: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Organization/canvas`.
-    public var canvas: SlackModels.Canvas?
+    public var canvas: Canvas?
     /// - Remark: Generated from `#/components/schemas/Organization/lists`.
-    public var lists: SlackModels.Canvas?
+    public var lists: Canvas?
     /// - Remark: Generated from `#/components/schemas/Organization/teamId`.
     public var teamId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Organization/teamName`.
@@ -30,9 +27,9 @@ public struct Organization: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Organization/mpimChannelCount`.
     public var mpimChannelCount: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Organization/connectedWorkspaces`.
-    public var connectedWorkspaces: [SlackModels.ConnectedWorkspace]?
+    public var connectedWorkspaces: [ConnectedWorkspace]?
     /// - Remark: Generated from `#/components/schemas/Organization/slackConnectPrefs`.
-    public var slackConnectPrefs: SlackModels.SlackConnectPrefs?
+    public var slackConnectPrefs: SlackConnectPrefs?
     /// - Remark: Generated from `#/components/schemas/Organization/connectionStatus`.
     public var connectionStatus: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Organization/lastActiveTimestamp`.
@@ -57,8 +54,8 @@ public struct Organization: Codable, Hashable, Sendable {
     ///   - lastActiveTimestamp:
     ///   - isSponsored:
     public init(
-        canvas: SlackModels.Canvas? = nil,
-        lists: SlackModels.Canvas? = nil,
+        canvas: Canvas? = nil,
+        lists: Canvas? = nil,
         teamId: Swift.String? = nil,
         teamName: Swift.String? = nil,
         teamDomain: Swift.String? = nil,
@@ -66,8 +63,8 @@ public struct Organization: Codable, Hashable, Sendable {
         privateChannelCount: Swift.Int? = nil,
         imChannelCount: Swift.Int? = nil,
         mpimChannelCount: Swift.Int? = nil,
-        connectedWorkspaces: [SlackModels.ConnectedWorkspace]? = nil,
-        slackConnectPrefs: SlackModels.SlackConnectPrefs? = nil,
+        connectedWorkspaces: [ConnectedWorkspace]? = nil,
+        slackConnectPrefs: SlackConnectPrefs? = nil,
         connectionStatus: Swift.String? = nil,
         lastActiveTimestamp: Swift.Int? = nil,
         isSponsored: Swift.Bool? = nil

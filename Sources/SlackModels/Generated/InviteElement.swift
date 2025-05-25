@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/InviteElement`.
 public struct InviteElement: Codable, Hashable, Sendable {
@@ -16,11 +13,11 @@ public struct InviteElement: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/InviteElement/status`.
     public var status: Swift.String?
     /// - Remark: Generated from `#/components/schemas/InviteElement/invite`.
-    public var invite: SlackModels.InviteInvite?
+    public var invite: InviteInvite?
     /// - Remark: Generated from `#/components/schemas/InviteElement/channel`.
-    public var channel: SlackModels.Channel?
+    public var channel: Channel?
     /// - Remark: Generated from `#/components/schemas/InviteElement/acceptances`.
-    public var acceptances: [SlackModels.Acceptance]?
+    public var acceptances: [Acceptance]?
     /// - Remark: Generated from `#/components/schemas/InviteElement/id`.
     public var id: Swift.String?
     /// - Remark: Generated from `#/components/schemas/InviteElement/sig`.
@@ -36,11 +33,11 @@ public struct InviteElement: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/InviteElement/dateInvalid`.
     public var dateInvalid: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/InviteElement/invitingTeam`.
-    public var invitingTeam: SlackModels.IngTeam?
+    public var invitingTeam: IngTeam?
     /// - Remark: Generated from `#/components/schemas/InviteElement/invitingUser`.
-    public var invitingUser: SlackModels.TingUser?
+    public var invitingUser: TingUser?
     /// - Remark: Generated from `#/components/schemas/InviteElement/invitePayload`.
-    public var invitePayload: SlackModels.InvitePayload?
+    public var invitePayload: InvitePayload?
     /// - Remark: Generated from `#/components/schemas/InviteElement/recipientUserId`.
     public var recipientUserId: Swift.String?
     /// Creates a new `InviteElement`.
@@ -65,9 +62,9 @@ public struct InviteElement: Codable, Hashable, Sendable {
     public init(
         direction: Swift.String? = nil,
         status: Swift.String? = nil,
-        invite: SlackModels.InviteInvite? = nil,
-        channel: SlackModels.Channel? = nil,
-        acceptances: [SlackModels.Acceptance]? = nil,
+        invite: InviteInvite? = nil,
+        channel: Channel? = nil,
+        acceptances: [Acceptance]? = nil,
         id: Swift.String? = nil,
         sig: Swift.String? = nil,
         link: Swift.String? = nil,
@@ -75,9 +72,9 @@ public struct InviteElement: Codable, Hashable, Sendable {
         inviteType: Swift.String? = nil,
         dateCreated: Swift.Int? = nil,
         dateInvalid: Swift.Int? = nil,
-        invitingTeam: SlackModels.IngTeam? = nil,
-        invitingUser: SlackModels.TingUser? = nil,
-        invitePayload: SlackModels.InvitePayload? = nil,
+        invitingTeam: IngTeam? = nil,
+        invitingUser: TingUser? = nil,
+        invitePayload: InvitePayload? = nil,
         recipientUserId: Swift.String? = nil
     ) {
         self.direction = direction

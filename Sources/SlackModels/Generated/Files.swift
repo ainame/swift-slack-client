@@ -1,24 +1,21 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Files`.
 public struct Files: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Files/total`.
     public var total: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Files/pagination`.
-    public var pagination: SlackModels.Pagination?
+    public var pagination: Pagination?
     /// - Remark: Generated from `#/components/schemas/Files/paging`.
-    public var paging: SlackModels.Paging?
+    public var paging: Paging?
     /// - Remark: Generated from `#/components/schemas/Files/matches`.
-    public var matches: [SlackModels.Match]?
+    public var matches: [Match]?
     /// Creates a new `Files`.
     ///
     /// - Parameters:
@@ -28,9 +25,9 @@ public struct Files: Codable, Hashable, Sendable {
     ///   - matches:
     public init(
         total: Swift.Int? = nil,
-        pagination: SlackModels.Pagination? = nil,
-        paging: SlackModels.Paging? = nil,
-        matches: [SlackModels.Match]? = nil
+        pagination: Pagination? = nil,
+        paging: Paging? = nil,
+        matches: [Match]? = nil
     ) {
         self.total = total
         self.pagination = pagination

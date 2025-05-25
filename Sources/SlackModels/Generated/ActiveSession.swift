@@ -1,20 +1,17 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/ActiveSession`.
 public struct ActiveSession: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ActiveSession/created`.
-    public var created: SlackModels.Created?
+    public var created: Created?
     /// - Remark: Generated from `#/components/schemas/ActiveSession/recent`.
-    public var recent: SlackModels.Created?
+    public var recent: Created?
     /// - Remark: Generated from `#/components/schemas/ActiveSession/userId`.
     public var userId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ActiveSession/sessionId`.
@@ -30,8 +27,8 @@ public struct ActiveSession: Codable, Hashable, Sendable {
     ///   - sessionId:
     ///   - teamId:
     public init(
-        created: SlackModels.Created? = nil,
-        recent: SlackModels.Created? = nil,
+        created: Created? = nil,
+        recent: Created? = nil,
         userId: Swift.String? = nil,
         sessionId: Swift.Int? = nil,
         teamId: Swift.String? = nil

@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/App`.
 public struct App: Codable, Hashable, Sendable {
@@ -18,7 +15,7 @@ public struct App: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/App/description`.
     public var description: Swift.String?
     /// - Remark: Generated from `#/components/schemas/App/icons`.
-    public var icons: SlackModels.Icons?
+    public var icons: Icons?
     /// - Remark: Generated from `#/components/schemas/App/helpUrl`.
     public var helpUrl: Swift.String?
     /// - Remark: Generated from `#/components/schemas/App/privacyPolicyUrl`.
@@ -54,7 +51,7 @@ public struct App: Codable, Hashable, Sendable {
         id: Swift.String? = nil,
         name: Swift.String? = nil,
         description: Swift.String? = nil,
-        icons: SlackModels.Icons? = nil,
+        icons: Icons? = nil,
         helpUrl: Swift.String? = nil,
         privacyPolicyUrl: Swift.String? = nil,
         appHomepageUrl: Swift.String? = nil,

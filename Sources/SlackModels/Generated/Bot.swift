@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Bot`.
 public struct Bot: Codable, Hashable, Sendable {
@@ -20,9 +17,9 @@ public struct Bot: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Bot/updated`.
     public var updated: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Bot/icons`.
-    public var icons: SlackModels.BotIcons?
+    public var icons: BotIcons?
     /// - Remark: Generated from `#/components/schemas/Bot/appId`.
-    public var appId: SlackModels.AppID?
+    public var appId: AppID?
     /// - Remark: Generated from `#/components/schemas/Bot/isWorkflowBot`.
     public var isWorkflowBot: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Bot/teamId`.
@@ -43,8 +40,8 @@ public struct Bot: Codable, Hashable, Sendable {
         deleted: Swift.Bool? = nil,
         name: Swift.String? = nil,
         updated: Swift.Int? = nil,
-        icons: SlackModels.BotIcons? = nil,
-        appId: SlackModels.AppID? = nil,
+        icons: BotIcons? = nil,
+        appId: AppID? = nil,
         isWorkflowBot: Swift.Bool? = nil,
         teamId: Swift.String? = nil
     ) {

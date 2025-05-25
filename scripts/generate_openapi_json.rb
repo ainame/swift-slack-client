@@ -7,6 +7,7 @@ require_relative './lib/visitors'
 require_relative './lib/helpers'
 
 # https://github.com/slack-edge/slack-web-api-client/blob/4d1d93df8abe423ea7ee3b18591cd83d9bcfe6e6/scripts/code_generator.rb#L91-L115
+# RTM API is legacy so not going to support it
 UNSUPPORTED_METHODS = [
   /admin\.analytics\.getFile/,
   /api\.test/,
@@ -19,7 +20,8 @@ UNSUPPORTED_METHODS = [
   /channels\./,
   /groups\./,
   /mpim\./,
-  /im\./
+  /im\./,
+  /rtm\./
 ]
 
 api_ref_dir = './tmp/slack-api-ref/methods/'
@@ -95,6 +97,7 @@ def generate_openapi_component(path, output_dir)
     SnakeCaseToCamelCaseConverter.new,
     OptionalityFixer.new,
     AcronymsFixer.new('DND' => 'Dnd'),
+    TypeFixer.new,
   ]
   visitors.each do |visitor|
     visitor.walk(json)

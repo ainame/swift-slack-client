@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Item`.
 public struct Item: Codable, Hashable, Sendable {
@@ -16,11 +13,11 @@ public struct Item: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Item/channel`.
     public var channel: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Item/message`.
-    public var message: SlackModels.Message?
+    public var message: Message?
     /// - Remark: Generated from `#/components/schemas/Item/file`.
-    public var file: SlackModels.ItemFile?
+    public var file: ItemFile?
     /// - Remark: Generated from `#/components/schemas/Item/comment`.
-    public var comment: SlackModels.Comment?
+    public var comment: Comment?
     /// - Remark: Generated from `#/components/schemas/Item/dateCreate`.
     public var dateCreate: Swift.Int?
     /// Creates a new `Item`.
@@ -35,9 +32,9 @@ public struct Item: Codable, Hashable, Sendable {
     public init(
         type: Swift.String? = nil,
         channel: Swift.String? = nil,
-        message: SlackModels.Message? = nil,
-        file: SlackModels.ItemFile? = nil,
-        comment: SlackModels.Comment? = nil,
+        message: Message? = nil,
+        file: ItemFile? = nil,
+        comment: Comment? = nil,
         dateCreate: Swift.Int? = nil
     ) {
         self.type = type

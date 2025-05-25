@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Member`.
 public struct Member: Codable, Hashable, Sendable {
@@ -22,7 +19,7 @@ public struct Member: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Member/tz`.
     public var tz: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Member/profile`.
-    public var profile: SlackModels.Profile?
+    public var profile: Profile?
     /// - Remark: Generated from `#/components/schemas/Member/updated`.
     public var updated: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Member/locale`.
@@ -58,7 +55,7 @@ public struct Member: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Member/has2fa`.
     public var has2fa: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Member/enterpriseUser`.
-    public var enterpriseUser: SlackModels.EnterpriseUser?
+    public var enterpriseUser: EnterpriseUser?
     /// - Remark: Generated from `#/components/schemas/Member/isInvitedUser`.
     public var isInvitedUser: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Member/isConnectorBot`.
@@ -101,7 +98,7 @@ public struct Member: Codable, Hashable, Sendable {
         deleted: Swift.Bool? = nil,
         color: Swift.String? = nil,
         tz: Swift.String? = nil,
-        profile: SlackModels.Profile? = nil,
+        profile: Profile? = nil,
         updated: Swift.Int? = nil,
         locale: Swift.String? = nil,
         teamId: Swift.String? = nil,
@@ -119,7 +116,7 @@ public struct Member: Codable, Hashable, Sendable {
         whoCanShareContactCard: Swift.String? = nil,
         isWorkflowBot: Swift.Bool? = nil,
         has2fa: Swift.Bool? = nil,
-        enterpriseUser: SlackModels.EnterpriseUser? = nil,
+        enterpriseUser: EnterpriseUser? = nil,
         isInvitedUser: Swift.Bool? = nil,
         isConnectorBot: Swift.Bool? = nil,
         twoFactorType: Swift.String? = nil

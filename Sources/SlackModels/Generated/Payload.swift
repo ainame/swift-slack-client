@@ -1,13 +1,10 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Payload`.
 public struct Payload: Codable, Hashable, Sendable {
@@ -20,9 +17,9 @@ public struct Payload: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Payload/type`.
     public var type: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Payload/trigger`.
-    public var trigger: SlackModels.Trigger?
+    public var trigger: Trigger?
     /// - Remark: Generated from `#/components/schemas/Payload/inputs`.
-    public var inputs: SlackModels.Inputs?
+    public var inputs: Inputs?
     /// - Remark: Generated from `#/components/schemas/Payload/details`.
     public var details: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Payload/action`.
@@ -94,8 +91,8 @@ public struct Payload: Codable, Hashable, Sendable {
         error: Swift.String? = nil,
         log: Swift.String? = nil,
         type: Swift.String? = nil,
-        trigger: SlackModels.Trigger? = nil,
-        inputs: SlackModels.Inputs? = nil,
+        trigger: Trigger? = nil,
+        inputs: Inputs? = nil,
         details: Swift.String? = nil,
         action: Swift.String? = nil,
         execOutcome: Swift.String? = nil,

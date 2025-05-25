@@ -1,30 +1,27 @@
+@_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
 #else
 import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
 #endif
-#endif
-#endif
-#if canImport(SlackBlockKit)
-import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/AppRequest`.
 public struct AppRequest: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/AppRequest/id`.
     public var id: Swift.String?
     /// - Remark: Generated from `#/components/schemas/AppRequest/app`.
-    public var app: SlackModels.App?
+    public var app: App?
     /// - Remark: Generated from `#/components/schemas/AppRequest/user`.
-    public var user: SlackModels.User?
+    public var user: User?
     /// - Remark: Generated from `#/components/schemas/AppRequest/team`.
-    public var team: SlackModels.Team?
+    public var team: Team?
     /// - Remark: Generated from `#/components/schemas/AppRequest/scopes`.
     public var scopes: [OpenAPIRuntime.OpenAPIValueContainer]?
     /// - Remark: Generated from `#/components/schemas/AppRequest/message`.
-    public var message: SlackModels.Message?
+    public var message: Message?
     /// - Remark: Generated from `#/components/schemas/AppRequest/previousResolution`.
-    public var previousResolution: SlackModels.PreviousResolution?
+    public var previousResolution: PreviousResolution?
     /// - Remark: Generated from `#/components/schemas/AppRequest/isUserAppCollaborator`.
     public var isUserAppCollaborator: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/AppRequest/dateCreated`.
@@ -43,12 +40,12 @@ public struct AppRequest: Codable, Hashable, Sendable {
     ///   - dateCreated:
     public init(
         id: Swift.String? = nil,
-        app: SlackModels.App? = nil,
-        user: SlackModels.User? = nil,
-        team: SlackModels.Team? = nil,
+        app: App? = nil,
+        user: User? = nil,
+        team: Team? = nil,
         scopes: [OpenAPIRuntime.OpenAPIValueContainer]? = nil,
-        message: SlackModels.Message? = nil,
-        previousResolution: SlackModels.PreviousResolution? = nil,
+        message: Message? = nil,
+        previousResolution: PreviousResolution? = nil,
         isUserAppCollaborator: Swift.Bool? = nil,
         dateCreated: Swift.Int? = nil
     ) {
