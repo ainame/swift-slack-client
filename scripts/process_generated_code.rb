@@ -1028,8 +1028,8 @@ class BaseFileCreator
     puts "Creating base files for Components and Operations..."
 
     # Read existing files to extract the declarations
-    components_file = File.join(@input_directory, 'Components.swift')
-    operations_file = File.join(@input_directory, 'Operations.swift')
+    components_file = File.join(@output_directory, 'Components.swift')
+    operations_file = File.join(@output_directory, 'Operations.swift')
 
     if File.exist?(components_file)
       create_components_base_file(components_file)
