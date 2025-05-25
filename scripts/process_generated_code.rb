@@ -9,14 +9,27 @@ class CodeTransformer
   # Dynamically determines which types have been moved to SlackModels
   def self.slackmodels_types
     @slackmodels_types ||= begin
-      models_dir = File.join(__dir__, '..', 'Sources', 'SlackModels', 'Generated')
-      if Dir.exist?(models_dir)
-        Dir.glob(File.join(models_dir, '*.swift')).map do |file|
-          File.basename(file, '.swift')
-        end.sort
-      else
-        []
+      types = []
+      
+      # Check both SlackModels root directory and Generated subdirectory
+      slackmodels_root = File.join(__dir__, '..', 'Sources', 'SlackModels')
+      slackmodels_generated = File.join(slackmodels_root, 'Generated')
+      
+      # Get manually created models from SlackModels root
+      if Dir.exist?(slackmodels_root)
+        Dir.glob(File.join(slackmodels_root, '*.swift')).each do |file|
+          types << File.basename(file, '.swift')
+        end
       end
+      
+      # Get generated models from SlackModels/Generated
+      if Dir.exist?(slackmodels_generated)
+        Dir.glob(File.join(slackmodels_generated, '*.swift')).each do |file|
+          types << File.basename(file, '.swift')
+        end
+      end
+      
+      types.sort.uniq
     end
   end
 
@@ -1322,7 +1335,7 @@ class CommonModelsSplitter
         line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'BlockType')
       end
       
-      # Replace other Components.Schemas.XXX with just XXX (since they're in the same module)
+      # Replace other Components.Schemas.XXX with just XXX (since we're inside SlackModels module)
       if line.match(/\bComponents\.Schemas\.(?!View\b|Block\b)\w+\b/)
         line = line.gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
           type_name = $1
@@ -1348,26 +1361,37 @@ class CommonModelsSplitter
   
   # Generates the complete model file content
   def generate_model_file_content(header, transformed_content, needs_slackblockkit_import)
-    imports = []
+    # Extract platform-specific imports
+    platform_imports = []
+    other_imports = []
     
-    # Extract imports from header (excluding SlackModels imports since we're within SlackModels)
     header.lines.each do |line|
       stripped = line.strip
       next if stripped.include?('import SlackModels') || stripped == '#if canImport(SlackModels)'
       
       if stripped.start_with?('import ') || stripped.start_with?('#if ') || stripped.start_with?('#else') || stripped.start_with?('#endif')
-        imports << line.chomp
+        if stripped.start_with?('#if os(Linux)') || 
+           stripped.start_with?('#else') || 
+           (stripped.start_with?('#endif') && platform_imports.any? { |l| l.include?('os(Linux)') }) ||
+           stripped.start_with?('import struct Foundation.') ||
+           stripped.start_with?('@preconcurrency import struct Foundation.')
+          platform_imports << line.chomp
+        else
+          other_imports << line.chomp
+        end
       end
     end
     
+    # Add SlackBlockKit import after platform imports but before transformed content
     if needs_slackblockkit_import
-      imports << "#if canImport(SlackBlockKit)"
-      imports << "import SlackBlockKit"  
-      imports << "#endif"
+      other_imports << "#if canImport(SlackBlockKit)"
+      other_imports << "import SlackBlockKit"  
+      other_imports << "#endif"
     end
     
-    # Generate final content
-    [imports.join("\n"), "", transformed_content.strip].join("\n") + "\n"
+    # Generate final content with proper import order
+    all_imports = platform_imports + other_imports
+    [all_imports.join("\n"), "", transformed_content.strip].join("\n") + "\n"
   end
 end
 

@@ -48,14 +48,27 @@ class EventsProcessor
   # Dynamically determines which types have been moved to SlackModels
   def get_slackmodels_types
     @slackmodels_types ||= begin
-      models_dir = File.join(__dir__, '..', 'Sources', 'SlackModels', 'Generated')
-      if Dir.exist?(models_dir)
-        Dir.glob(File.join(models_dir, '*.swift')).map do |file|
-          File.basename(file, '.swift')
-        end.sort
-      else
-        []
+      types = []
+      
+      # Check both SlackModels root directory and Generated subdirectory
+      slackmodels_root = File.join(__dir__, '..', 'Sources', 'SlackModels')
+      slackmodels_generated = File.join(slackmodels_root, 'Generated')
+      
+      # Get manually created models from SlackModels root
+      if Dir.exist?(slackmodels_root)
+        Dir.glob(File.join(slackmodels_root, '*.swift')).each do |file|
+          types << File.basename(file, '.swift')
+        end
       end
+      
+      # Get generated models from SlackModels/Generated
+      if Dir.exist?(slackmodels_generated)
+        Dir.glob(File.join(slackmodels_generated, '*.swift')).each do |file|
+          types << File.basename(file, '.swift')
+        end
+      end
+      
+      types.sort.uniq
     end
   end
 

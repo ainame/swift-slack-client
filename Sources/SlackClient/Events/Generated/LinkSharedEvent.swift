@@ -1,11 +1,12 @@
 #if Events
 import Foundation
+import SlackModels
 
 public struct LinkSharedEvent: SlackEvent {
     public var type: Swift.String?
     public var channel: Swift.String?
     public var user: Swift.String?
-    public var links: [Components.Schemas.Link]?
+    public var links: [SlackModels.Link]?
     public var source: Swift.String?
     public var messageTs: Swift.String?
     public var threadTs: Swift.String?

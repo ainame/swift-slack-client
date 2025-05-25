@@ -24,7 +24,7 @@ public struct AppMentionEvent: SlackEvent {
     public var displayAsBot: Swift.Bool?
     public var userTeam: Swift.String?
     public var sourceTeam: Swift.String?
-    public var userProfile: Components.Schemas.UserProfile?
+    public var userProfile: SlackModels.UserProfile?
     public var eventTs: Swift.String?
     public var threadTs: Swift.String?
 }
