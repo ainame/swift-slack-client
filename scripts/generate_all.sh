@@ -19,7 +19,7 @@ else
     echo "slack-api-ref repository already exists at ./tmp/slack-api-ref. Skipping clone."
 fi
 
-ruby scripts/generate_openapi_json.rb
+ruby scripts/generate_webapi.rb
 
 # Generate types with public and client with internal to avoid potential conflict other symbols named `Client`
 swift run swift-openapi-generator generate \
@@ -36,7 +36,7 @@ swift run swift-openapi-generator generate \
     --output-directory "${TMP_DIR}/WebAPI" \
     "${TMP_DIR}/WebAPI/openapi.json"
 
-ruby scripts/process_generated_code.rb "${TMP_DIR}/WebAPI" "Sources/SlackClient/WebAPI/Generated"
+ruby scripts/process_webapi.rb "${TMP_DIR}/WebAPI" "Sources/SlackClient/WebAPI/Generated"
 
 # Generate events
 ruby scripts/generate_events.rb
