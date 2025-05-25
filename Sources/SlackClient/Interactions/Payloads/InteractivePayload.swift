@@ -1,7 +1,8 @@
 import Foundation
+import SlackModels
 
 public protocol InteractivePayloadProtocol: Sendable {
-    var user: Components.Schemas.User { get }
+    var user: SlackModels.User { get }
     var callbackId: String? { get }
 }
 
