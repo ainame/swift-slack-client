@@ -29,7 +29,8 @@ public actor Slack {
         self.logger = logger ?? Logger(label: "Slack")
     }
 
-    public func setAccessToken(_ value: String) async {
+    public func setAccessToken(_ value: String?) async {
+        guard let value else { return }
         await requestMiddleware.setAccessToken(value)
     }
 

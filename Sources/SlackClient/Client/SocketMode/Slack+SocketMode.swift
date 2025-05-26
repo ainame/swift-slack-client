@@ -18,7 +18,9 @@ extension Slack {
     }
 
     func openConnection() async throws -> String {
-        let result = try await client.appsConnectionsOpen(body: .json(.init(token: clientConfiguration.appLevelToken)))
+        await setAccessToken(clientConfiguration.appLevelToken)
+        let result = try await client.appsConnectionsOpen(body: .json(.init()))
+        await setAccessToken(clientConfiguration.accessToken)
         guard let url = try result.ok.body.json.url else {
             throw Error.genericError("invalid response body - no url found")
         }
