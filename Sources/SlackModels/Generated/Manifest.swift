@@ -47,4 +47,12 @@ public struct Manifest: Codable, Hashable, Sendable {
         self.oauthConfig = oauthConfig
         self.settings = settings
     }
+    public enum CodingKeys: String, CodingKey {
+        case _metadata
+        case displayInformation = "display_information"
+        case features
+        case functions
+        case oauthConfig = "oauth_config"
+        case settings
+    }
 }

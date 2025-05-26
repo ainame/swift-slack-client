@@ -212,4 +212,45 @@ public struct Channel: Codable, Hashable, Sendable {
         self.updated = updated
         self.user = user
     }
+    public enum CodingKeys: String, CodingKey {
+        case contextTeamId = "context_team_id"
+        case conversationHostId = "conversation_host_id"
+        case created
+        case creator
+        case enterpriseId = "enterprise_id"
+        case id
+        case internalTeamIds = "internal_team_ids"
+        case isArchived = "is_archived"
+        case isChannel = "is_channel"
+        case isExtShared = "is_ext_shared"
+        case isGeneral = "is_general"
+        case isGlobalShared = "is_global_shared"
+        case isGroup = "is_group"
+        case isIm = "is_im"
+        case isMoved = "is_moved"
+        case isMpim = "is_mpim"
+        case isOpen = "is_open"
+        case isOrgDefault = "is_org_default"
+        case isOrgMandatory = "is_org_mandatory"
+        case isOrgShared = "is_org_shared"
+        case isPendingExtShared = "is_pending_ext_shared"
+        case isPrivate = "is_private"
+        case isShared = "is_shared"
+        case isUserDeleted = "is_user_deleted"
+        case lastRead = "last_read"
+        case name
+        case nameNormalized = "name_normalized"
+        case parentConversation = "parent_conversation"
+        case pendingConnectedTeamIds = "pending_connected_team_ids"
+        case pendingShared = "pending_shared"
+        case previousNames = "previous_names"
+        case priority
+        case properties
+        case purpose
+        case sharedTeamIds = "shared_team_ids"
+        case topic
+        case unlinked
+        case updated
+        case user
+    }
 }

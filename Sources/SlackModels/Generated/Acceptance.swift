@@ -52,4 +52,13 @@ public struct Acceptance: Codable, Hashable, Sendable {
         self.dateLastUpdated = dateLastUpdated
         self.reviews = reviews
     }
+    public enum CodingKeys: String, CodingKey {
+        case acceptingTeam = "accepting_team"
+        case acceptingUser = "accepting_user"
+        case approvalStatus = "approval_status"
+        case dateAccepted = "date_accepted"
+        case dateInvalid = "date_invalid"
+        case dateLastUpdated = "date_last_updated"
+        case reviews
+    }
 }

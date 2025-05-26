@@ -27,4 +27,8 @@ public struct ApprovalDestination: Codable, Hashable, Sendable {
         self.allWhoCanManageSharedChannels = allWhoCanManageSharedChannels
         self.channelId = channelId
     }
+    public enum CodingKeys: String, CodingKey {
+        case allWhoCanManageSharedChannels = "all_who_can_manage_shared_channels"
+        case channelId = "channel_id"
+    }
 }

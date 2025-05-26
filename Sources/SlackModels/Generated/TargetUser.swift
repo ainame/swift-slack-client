@@ -20,4 +20,7 @@ public struct TargetUser: Codable, Hashable, Sendable {
     public init(recipientEmail: Swift.String? = nil) {
         self.recipientEmail = recipientEmail
     }
+    public enum CodingKeys: String, CodingKey {
+        case recipientEmail = "recipient_email"
+    }
 }

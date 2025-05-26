@@ -77,4 +77,18 @@ public struct Activity: Codable, Hashable, Sendable {
         self.teamId = teamId
         self.traceId = traceId
     }
+    public enum CodingKeys: String, CodingKey {
+        case appId = "app_id"
+        case componentId = "component_id"
+        case componentType = "component_type"
+        case created
+        case enterpriseId = "enterprise_id"
+        case eventType = "event_type"
+        case level
+        case parentExecutionId = "parent_execution_id"
+        case payload
+        case source
+        case teamId = "team_id"
+        case traceId = "trace_id"
+    }
 }

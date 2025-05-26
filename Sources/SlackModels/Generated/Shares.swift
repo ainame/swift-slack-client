@@ -27,4 +27,8 @@ public struct Shares: Codable, Hashable, Sendable {
         self._private = _private
         self._public = _public
     }
+    public enum CodingKeys: String, CodingKey {
+        case _private = "private"
+        case _public = "public"
+    }
 }

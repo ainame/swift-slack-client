@@ -57,4 +57,14 @@ public struct IngTeam: Codable, Hashable, Sendable {
         self.name = name
         self.requiresSponsorship = requiresSponsorship
     }
+    public enum CodingKeys: String, CodingKey {
+        case avatarBaseUrl = "avatar_base_url"
+        case dateCreated = "date_created"
+        case domain
+        case icon
+        case id
+        case isVerified = "is_verified"
+        case name
+        case requiresSponsorship = "requires_sponsorship"
+    }
 }

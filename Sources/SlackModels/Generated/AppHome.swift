@@ -32,4 +32,9 @@ public struct AppHome: Codable, Hashable, Sendable {
         self.messagesTabEnabled = messagesTabEnabled
         self.messagesTabReadOnlyEnabled = messagesTabReadOnlyEnabled
     }
+    public enum CodingKeys: String, CodingKey {
+        case homeTabEnabled = "home_tab_enabled"
+        case messagesTabEnabled = "messages_tab_enabled"
+        case messagesTabReadOnlyEnabled = "messages_tab_read_only_enabled"
+    }
 }

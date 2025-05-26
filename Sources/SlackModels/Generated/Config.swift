@@ -32,4 +32,9 @@ public struct Config: Codable, Hashable, Sendable {
         self.domainRestrictions = domainRestrictions
         self.workflowAuthStrategy = workflowAuthStrategy
     }
+    public enum CodingKeys: String, CodingKey {
+        case appId = "app_id"
+        case domainRestrictions = "domain_restrictions"
+        case workflowAuthStrategy = "workflow_auth_strategy"
+    }
 }

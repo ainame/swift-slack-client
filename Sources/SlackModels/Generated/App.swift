@@ -77,4 +77,18 @@ public struct App: Codable, Hashable, Sendable {
         self.name = name
         self.privacyPolicyUrl = privacyPolicyUrl
     }
+    public enum CodingKeys: String, CodingKey {
+        case additionalInfo = "additional_info"
+        case appDirectoryUrl = "app_directory_url"
+        case appHomepageUrl = "app_homepage_url"
+        case description
+        case helpUrl = "help_url"
+        case icons
+        case id
+        case isAppDirectoryApproved = "is_app_directory_approved"
+        case isGranularBotApp = "is_granular_bot_app"
+        case isInternal = "is_internal"
+        case name
+        case privacyPolicyUrl = "privacy_policy_url"
+    }
 }

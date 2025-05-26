@@ -27,4 +27,8 @@ public struct Prefs: Codable, Hashable, Sendable {
         self.channels = channels
         self.groups = groups
     }
+    public enum CodingKeys: String, CodingKey {
+        case channels
+        case groups
+    }
 }

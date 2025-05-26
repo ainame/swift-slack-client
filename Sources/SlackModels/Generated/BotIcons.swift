@@ -32,4 +32,9 @@ public struct BotIcons: Codable, Hashable, Sendable {
         self.image48 = image48
         self.image72 = image72
     }
+    public enum CodingKeys: String, CodingKey {
+        case image36 = "image_36"
+        case image48 = "image_48"
+        case image72 = "image_72"
+    }
 }

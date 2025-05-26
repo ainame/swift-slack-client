@@ -62,4 +62,15 @@ public struct InviteRequest: Codable, Hashable, Sendable {
         self.isExternalLimited = isExternalLimited
         self.targetUser = targetUser
     }
+    public enum CodingKeys: String, CodingKey {
+        case channel
+        case dateCreated = "date_created"
+        case dateLastUpdated = "date_last_updated"
+        case expiresAt = "expires_at"
+        case id
+        case invitingTeam = "inviting_team"
+        case invitingUser = "inviting_user"
+        case isExternalLimited = "is_external_limited"
+        case targetUser = "target_user"
+    }
 }

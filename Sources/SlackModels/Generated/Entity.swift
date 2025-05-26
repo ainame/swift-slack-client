@@ -32,4 +32,9 @@ public struct Entity: Codable, Hashable, Sendable {
         self.entityId = entityId
         self.entityType = entityType
     }
+    public enum CodingKeys: String, CodingKey {
+        case dateAdded = "date_added"
+        case entityId = "entity_id"
+        case entityType = "entity_type"
+    }
 }

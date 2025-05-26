@@ -27,4 +27,8 @@ public struct DeniedRequest: Codable, Hashable, Sendable {
         self.deniedBy = deniedBy
         self.inviteRequest = inviteRequest
     }
+    public enum CodingKeys: String, CodingKey {
+        case deniedBy = "denied_by"
+        case inviteRequest = "invite_request"
+    }
 }

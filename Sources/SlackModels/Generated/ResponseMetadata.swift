@@ -20,4 +20,7 @@ public struct ResponseMetadata: Codable, Hashable, Sendable {
     public init(messages: [Swift.String]? = nil) {
         self.messages = messages
     }
+    public enum CodingKeys: String, CodingKey {
+        case messages
+    }
 }

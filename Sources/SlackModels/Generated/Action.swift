@@ -32,7 +32,7 @@ public struct Action: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Action/text`.
     public var text: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Action/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Action/url`.
     public var url: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Action/value`.
@@ -50,7 +50,7 @@ public struct Action: Codable, Hashable, Sendable {
     ///   - selectedOptions:
     ///   - style:
     ///   - text:
-    ///   - type:
+    ///   - _type:
     ///   - url:
     ///   - value:
     public init(
@@ -64,7 +64,7 @@ public struct Action: Codable, Hashable, Sendable {
         selectedOptions: [SelectedOptionElement]? = nil,
         style: Swift.String? = nil,
         text: Swift.String? = nil,
-        type: Swift.String? = nil,
+        _type: Swift.String? = nil,
         url: Swift.String? = nil,
         value: Swift.String? = nil
     ) {
@@ -78,8 +78,23 @@ public struct Action: Codable, Hashable, Sendable {
         self.selectedOptions = selectedOptions
         self.style = style
         self.text = text
-        self.type = type
+        self._type = _type
         self.url = url
         self.value = value
+    }
+    public enum CodingKeys: String, CodingKey {
+        case confirm
+        case dataSource = "data_source"
+        case id
+        case minQueryLength = "min_query_length"
+        case name
+        case optionGroups = "option_groups"
+        case options
+        case selectedOptions = "selected_options"
+        case style
+        case text
+        case _type = "type"
+        case url
+        case value
     }
 }

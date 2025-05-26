@@ -52,4 +52,13 @@ public struct EnterpriseUser: Codable, Hashable, Sendable {
         self.isPrimaryOwner = isPrimaryOwner
         self.teams = teams
     }
+    public enum CodingKeys: String, CodingKey {
+        case enterpriseId = "enterprise_id"
+        case enterpriseName = "enterprise_name"
+        case id
+        case isAdmin = "is_admin"
+        case isOwner = "is_owner"
+        case isPrimaryOwner = "is_primary_owner"
+        case teams
+    }
 }

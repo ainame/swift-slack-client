@@ -64,6 +64,15 @@ extension Components.Schemas {
             self.view = view
             self.warning = warning
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+            case view
+            case warning
+        }
     }
     /// - Remark: Generated from `#/components/schemas/ViewsPublishResponse`.
     public struct ViewsPublishResponse: Codable, Hashable, Sendable {
@@ -107,6 +116,15 @@ extension Components.Schemas {
             self.responseMetadata = responseMetadata
             self.view = view
             self.warning = warning
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+            case view
+            case warning
         }
     }
     /// - Remark: Generated from `#/components/schemas/ViewsPushResponse`.
@@ -152,6 +170,15 @@ extension Components.Schemas {
             self.view = view
             self.warning = warning
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+            case view
+            case warning
+        }
     }
     /// - Remark: Generated from `#/components/schemas/ViewsUpdateResponse`.
     public struct ViewsUpdateResponse: Codable, Hashable, Sendable {
@@ -195,6 +222,15 @@ extension Components.Schemas {
             self.responseMetadata = responseMetadata
             self.view = view
             self.warning = warning
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+            case view
+            case warning
         }
     }
 }

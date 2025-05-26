@@ -37,4 +37,10 @@ public struct Messages: Codable, Hashable, Sendable {
         self.paging = paging
         self.total = total
     }
+    public enum CodingKeys: String, CodingKey {
+        case matches
+        case pagination
+        case paging
+        case total
+    }
 }

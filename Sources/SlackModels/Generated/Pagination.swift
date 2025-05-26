@@ -47,4 +47,12 @@ public struct Pagination: Codable, Hashable, Sendable {
         self.perPage = perPage
         self.totalCount = totalCount
     }
+    public enum CodingKeys: String, CodingKey {
+        case first
+        case last
+        case page
+        case pageCount = "page_count"
+        case perPage = "per_page"
+        case totalCount = "total_count"
+    }
 }

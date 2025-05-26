@@ -67,4 +67,16 @@ public struct Login: Codable, Hashable, Sendable {
         self.userId = userId
         self.username = username
     }
+    public enum CodingKeys: String, CodingKey {
+        case count
+        case country
+        case dateFirst = "date_first"
+        case dateLast = "date_last"
+        case ip
+        case isp
+        case region
+        case userAgent = "user_agent"
+        case userId = "user_id"
+        case username
+    }
 }

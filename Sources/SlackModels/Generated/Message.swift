@@ -64,7 +64,7 @@ public struct Message: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Message/ts`.
     public var ts: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Message/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Message/upload`.
     public var upload: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Message/user`.
@@ -98,7 +98,7 @@ public struct Message: Codable, Hashable, Sendable {
     ///   - text:
     ///   - threadTs:
     ///   - ts:
-    ///   - type:
+    ///   - _type:
     ///   - upload:
     ///   - user:
     ///   - username:
@@ -127,7 +127,7 @@ public struct Message: Codable, Hashable, Sendable {
         text: Swift.String? = nil,
         threadTs: Swift.String? = nil,
         ts: Swift.String? = nil,
-        type: Swift.String? = nil,
+        _type: Swift.String? = nil,
         upload: Swift.Bool? = nil,
         user: Swift.String? = nil,
         username: Swift.String? = nil
@@ -156,9 +156,39 @@ public struct Message: Codable, Hashable, Sendable {
         self.text = text
         self.threadTs = threadTs
         self.ts = ts
-        self.type = type
+        self._type = _type
         self.upload = upload
         self.user = user
         self.username = username
+    }
+    public enum CodingKeys: String, CodingKey {
+        case attachments
+        case blocks
+        case botId = "bot_id"
+        case botProfile = "bot_profile"
+        case clientMsgId = "client_msg_id"
+        case displayAsBot = "display_as_bot"
+        case edited
+        case files
+        case inviter
+        case isLocked = "is_locked"
+        case isStarred = "is_starred"
+        case lastRead = "last_read"
+        case latestReply = "latest_reply"
+        case permalink
+        case reactions
+        case replyCount = "reply_count"
+        case replyUsers = "reply_users"
+        case replyUsersCount = "reply_users_count"
+        case subscribed
+        case subtype
+        case team
+        case text
+        case threadTs = "thread_ts"
+        case ts
+        case _type = "type"
+        case upload
+        case user
+        case username
     }
 }

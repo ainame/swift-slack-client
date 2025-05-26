@@ -42,4 +42,11 @@ public struct ScheduledMessage: Codable, Hashable, Sendable {
         self.postAt = postAt
         self.text = text
     }
+    public enum CodingKeys: String, CodingKey {
+        case channelId = "channel_id"
+        case dateCreated = "date_created"
+        case id
+        case postAt = "post_at"
+        case text
+    }
 }

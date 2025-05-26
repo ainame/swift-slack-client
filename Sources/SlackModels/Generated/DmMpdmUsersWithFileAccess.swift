@@ -27,4 +27,8 @@ public struct DmMpdmUsersWithFileAccess: Codable, Hashable, Sendable {
         self.access = access
         self.userId = userId
     }
+    public enum CodingKeys: String, CodingKey {
+        case access
+        case userId = "user_id"
+    }
 }

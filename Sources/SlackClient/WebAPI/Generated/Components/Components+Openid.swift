@@ -71,6 +71,18 @@ extension Components.Schemas {
             self.tokenType = tokenType
             self.warning = warning
         }
+        public enum CodingKeys: String, CodingKey {
+            case accessToken = "access_token"
+            case error
+            case expiresIn = "expires_in"
+            case idToken = "id_token"
+            case needed
+            case ok
+            case provided
+            case refreshToken = "refresh_token"
+            case tokenType = "token_type"
+            case warning
+        }
     }
     /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse`.
     public struct OpenidConnectUserInfoResponse: Codable, Hashable, Sendable {
@@ -254,6 +266,43 @@ extension Components.Schemas {
             self.provided = provided
             self.sub = sub
             self.warning = warning
+        }
+        public enum CodingKeys: String, CodingKey {
+            case dateEmailVerified = "date_email_verified"
+            case email
+            case emailVerified = "email_verified"
+            case error
+            case familyName = "family_name"
+            case givenName = "given_name"
+            case https_colon_Slack_comEnterpriseDomain = "https://slack.com/enterprise_domain"
+            case https_colon_Slack_comEnterpriseId = "https://slack.com/enterprise_id"
+            case https_colon_Slack_comEnterpriseName = "https://slack.com/enterprise_name"
+            case https_colon_Slack_comTeamDomain = "https://slack.com/team_domain"
+            case https_colon_Slack_comTeamId = "https://slack.com/team_id"
+            case https_colon_Slack_comTeamImage102 = "https://slack.com/team_image_102"
+            case https_colon_Slack_comTeamImage132 = "https://slack.com/team_image_132"
+            case https_colon_Slack_comTeamImage230 = "https://slack.com/team_image_230"
+            case https_colon_Slack_comTeamImage34 = "https://slack.com/team_image_34"
+            case https_colon_Slack_comTeamImage44 = "https://slack.com/team_image_44"
+            case https_colon_Slack_comTeamImage68 = "https://slack.com/team_image_68"
+            case https_colon_Slack_comTeamImage88 = "https://slack.com/team_image_88"
+            case https_colon_Slack_comTeamName = "https://slack.com/team_name"
+            case https_colon_Slack_comUserId = "https://slack.com/user_id"
+            case https_colon_Slack_comUserImage1024 = "https://slack.com/user_image_1024"
+            case https_colon_Slack_comUserImage192 = "https://slack.com/user_image_192"
+            case https_colon_Slack_comUserImage24 = "https://slack.com/user_image_24"
+            case https_colon_Slack_comUserImage32 = "https://slack.com/user_image_32"
+            case https_colon_Slack_comUserImage48 = "https://slack.com/user_image_48"
+            case https_colon_Slack_comUserImage512 = "https://slack.com/user_image_512"
+            case https_colon_Slack_comUserImage72 = "https://slack.com/user_image_72"
+            case locale
+            case name
+            case needed
+            case ok
+            case picture
+            case provided
+            case sub
+            case warning
         }
     }
 }

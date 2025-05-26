@@ -55,6 +55,14 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
+        public enum CodingKeys: String, CodingKey {
+            case bookmark
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse`.
     public struct BookmarksEditResponse: Codable, Hashable, Sendable {
@@ -93,6 +101,14 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+        }
+        public enum CodingKeys: String, CodingKey {
+            case bookmark
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
         }
     }
     /// - Remark: Generated from `#/components/schemas/BookmarksListResponse`.
@@ -133,6 +149,14 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
+        public enum CodingKeys: String, CodingKey {
+            case bookmarks
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse`.
     public struct BookmarksRemoveResponse: Codable, Hashable, Sendable {
@@ -166,6 +190,13 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
         }
     }
 }

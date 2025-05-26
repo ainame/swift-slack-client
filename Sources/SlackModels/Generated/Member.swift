@@ -152,4 +152,33 @@ public struct Member: Codable, Hashable, Sendable {
         self.updated = updated
         self.whoCanShareContactCard = whoCanShareContactCard
     }
+    public enum CodingKeys: String, CodingKey {
+        case color
+        case deleted
+        case enterpriseUser = "enterprise_user"
+        case has2fa = "has_2fa"
+        case id
+        case isAdmin = "is_admin"
+        case isAppUser = "is_app_user"
+        case isBot = "is_bot"
+        case isConnectorBot = "is_connector_bot"
+        case isEmailConfirmed = "is_email_confirmed"
+        case isInvitedUser = "is_invited_user"
+        case isOwner = "is_owner"
+        case isPrimaryOwner = "is_primary_owner"
+        case isRestricted = "is_restricted"
+        case isUltraRestricted = "is_ultra_restricted"
+        case isWorkflowBot = "is_workflow_bot"
+        case locale
+        case name
+        case profile
+        case realName = "real_name"
+        case teamId = "team_id"
+        case twoFactorType = "two_factor_type"
+        case tz
+        case tzLabel = "tz_label"
+        case tzOffset = "tz_offset"
+        case updated
+        case whoCanShareContactCard = "who_can_share_contact_card"
+    }
 }

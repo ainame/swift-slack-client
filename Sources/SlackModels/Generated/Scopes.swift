@@ -52,4 +52,13 @@ public struct Scopes: Codable, Hashable, Sendable {
         self.team = team
         self.user = user
     }
+    public enum CodingKeys: String, CodingKey {
+        case appHome = "app_home"
+        case channel
+        case group
+        case im
+        case mpim
+        case team
+        case user
+    }
 }

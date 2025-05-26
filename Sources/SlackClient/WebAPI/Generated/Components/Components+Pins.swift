@@ -45,6 +45,12 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/PinsListResponse`.
     public struct PinsListResponse: Codable, Hashable, Sendable {
@@ -79,6 +85,13 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case items
+            case needed
+            case ok
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/PinsRemoveResponse`.
     public struct PinsRemoveResponse: Codable, Hashable, Sendable {
@@ -107,6 +120,12 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
         }
     }
 }

@@ -87,4 +87,20 @@ public struct SlackConnectPrefs: Codable, Hashable, Sendable {
         self.scMpdmToPrivate = scMpdmToPrivate
         self.sharedChannelInviteRequested = sharedChannelInviteRequested
     }
+    public enum CodingKeys: String, CodingKey {
+        case acceptScInvites = "accept_sc_invites"
+        case allowScFileUploads = "allow_sc_file_uploads"
+        case allowedCanvasSharing = "allowed_canvas_sharing"
+        case allowedListSharing = "allowed_list_sharing"
+        case allowedWorkspaces = "allowed_workspaces"
+        case approvedOrgInfo = "approved_org_info"
+        case awayTeamScInvitePermissions = "away_team_sc_invite_permissions"
+        case awayTeamScInviteRequire2fa = "away_team_sc_invite_require_2fa"
+        case externalAwarenessContextBar = "external_awareness_context_bar"
+        case profileVisibility = "profile_visibility"
+        case requireScChannelForScDm = "require_sc_channel_for_sc_dm"
+        case scChannelLimitedAccess = "sc_channel_limited_access"
+        case scMpdmToPrivate = "sc_mpdm_to_private"
+        case sharedChannelInviteRequested = "shared_channel_invite_requested"
+    }
 }

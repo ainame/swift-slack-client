@@ -27,4 +27,8 @@ public struct ListsClass: Codable, Hashable, Sendable {
         self.ownershipDetails = ownershipDetails
         self.totalCount = totalCount
     }
+    public enum CodingKeys: String, CodingKey {
+        case ownershipDetails = "ownership_details"
+        case totalCount = "total_count"
+    }
 }

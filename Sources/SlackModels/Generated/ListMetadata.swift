@@ -71,4 +71,16 @@ public struct ListMetadata: Codable, Hashable, Sendable {
         self.schema = schema
         self.views = views
     }
+    public enum CodingKeys: String, CodingKey {
+        case creationSource = "creation_source"
+        case description
+        case descriptionBlocks = "description_blocks"
+        case icon
+        case iconTeamId = "icon_team_id"
+        case iconUrl = "icon_url"
+        case integrations
+        case isTrial = "is_trial"
+        case schema
+        case views
+    }
 }

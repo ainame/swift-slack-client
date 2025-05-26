@@ -46,6 +46,13 @@ extension Components.Schemas {
             self.provided = provided
             self.warning = warning
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case warning
+        }
     }
     /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetSuggestedPromptsResponse`.
     public struct AssistantThreadsSetSuggestedPromptsResponse: Codable, Hashable, Sendable {
@@ -80,6 +87,13 @@ extension Components.Schemas {
             self.provided = provided
             self.warning = warning
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case warning
+        }
     }
     /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetTitleResponse`.
     public struct AssistantThreadsSetTitleResponse: Codable, Hashable, Sendable {
@@ -113,6 +127,13 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.warning = warning
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case warning
         }
     }
 }

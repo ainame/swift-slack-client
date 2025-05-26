@@ -55,6 +55,14 @@ extension Components.Schemas {
             self.provided = provided
             self.ts = ts
         }
+        public enum CodingKeys: String, CodingKey {
+            case channel
+            case error
+            case needed
+            case ok
+            case provided
+            case ts
+        }
     }
     /// - Remark: Generated from `#/components/schemas/ChatDeleteScheduledMessageResponse`.
     public struct ChatDeleteScheduledMessageResponse: Codable, Hashable, Sendable {
@@ -83,6 +91,12 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChatGetPermalinkResponse`.
@@ -123,6 +137,14 @@ extension Components.Schemas {
             self.permalink = permalink
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case channel
+            case error
+            case needed
+            case ok
+            case permalink
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/ChatMeMessageResponse`.
     public struct ChatMeMessageResponse: Codable, Hashable, Sendable {
@@ -162,6 +184,14 @@ extension Components.Schemas {
             self.provided = provided
             self.ts = ts
         }
+        public enum CodingKeys: String, CodingKey {
+            case channel
+            case error
+            case needed
+            case ok
+            case provided
+            case ts
+        }
     }
     /// - Remark: Generated from `#/components/schemas/ChatPostEphemeralResponse`.
     public struct ChatPostEphemeralResponse: Codable, Hashable, Sendable {
@@ -195,6 +225,13 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case messageTs = "message_ts"
+            case needed
+            case ok
+            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse`.
@@ -255,6 +292,18 @@ extension Components.Schemas {
             self.responseMetadata = responseMetadata
             self.ts = ts
         }
+        public enum CodingKeys: String, CodingKey {
+            case channel
+            case deprecatedArgument = "deprecated_argument"
+            case error
+            case errors
+            case message
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+            case ts
+        }
     }
     /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse`.
     public struct ChatScheduleMessageResponse: Codable, Hashable, Sendable {
@@ -309,6 +358,17 @@ extension Components.Schemas {
             self.responseMetadata = responseMetadata
             self.scheduledMessageId = scheduledMessageId
         }
+        public enum CodingKeys: String, CodingKey {
+            case channel
+            case error
+            case message
+            case needed
+            case ok
+            case postAt = "post_at"
+            case provided
+            case responseMetadata = "response_metadata"
+            case scheduledMessageId = "scheduled_message_id"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse`.
     public struct ChatScheduledMessagesListResponse: Codable, Hashable, Sendable {
@@ -348,6 +408,14 @@ extension Components.Schemas {
             self.responseMetadata = responseMetadata
             self.scheduledMessages = scheduledMessages
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+            case scheduledMessages = "scheduled_messages"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/ChatUnfurlResponse`.
     public struct ChatUnfurlResponse: Codable, Hashable, Sendable {
@@ -376,6 +444,12 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse`.
@@ -430,6 +504,17 @@ extension Components.Schemas {
             self.responseMetadata = responseMetadata
             self.text = text
             self.ts = ts
+        }
+        public enum CodingKeys: String, CodingKey {
+            case channel
+            case error
+            case message
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+            case text
+            case ts
         }
     }
 }

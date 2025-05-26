@@ -65,6 +65,16 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case cacheTs = "cache_ts"
+            case categories
+            case categoriesVersion = "categories_version"
+            case emoji
+            case error
+            case needed
+            case ok
+            case provided
+        }
     }
 }
 #endif

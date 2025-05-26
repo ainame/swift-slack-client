@@ -37,4 +37,10 @@ public struct Function: Codable, Hashable, Sendable {
         self.outputParameters = outputParameters
         self.title = title
     }
+    public enum CodingKeys: String, CodingKey {
+        case description
+        case inputParameters = "input_parameters"
+        case outputParameters = "output_parameters"
+        case title
+    }
 }

@@ -37,4 +37,10 @@ public struct Paging: Codable, Hashable, Sendable {
         self.pages = pages
         self.total = total
     }
+    public enum CodingKeys: String, CodingKey {
+        case count
+        case page
+        case pages
+        case total
+    }
 }

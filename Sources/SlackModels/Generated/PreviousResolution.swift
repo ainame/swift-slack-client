@@ -27,4 +27,8 @@ public struct PreviousResolution: Codable, Hashable, Sendable {
         self.scopes = scopes
         self.status = status
     }
+    public enum CodingKeys: String, CodingKey {
+        case scopes
+        case status
+    }
 }

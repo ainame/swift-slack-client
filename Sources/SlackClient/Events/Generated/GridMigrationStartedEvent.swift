@@ -2,7 +2,7 @@
 import Foundation
 
 public struct GridMigrationStartedEvent: SlackEvent {
-    public var type: Swift.String?
     public var enterpriseId: Swift.String?
+    public var type: Swift.String?
 }
 #endif

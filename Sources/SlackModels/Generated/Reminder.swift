@@ -62,4 +62,15 @@ public struct Reminder: Codable, Hashable, Sendable {
         self.time = time
         self.user = user
     }
+    public enum CodingKeys: String, CodingKey {
+        case channel
+        case completeTs = "complete_ts"
+        case creator
+        case id
+        case recurrence
+        case recurring
+        case text
+        case time
+        case user
+    }
 }

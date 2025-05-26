@@ -37,4 +37,10 @@ public struct InvitePreferences: Codable, Hashable, Sendable {
         self.isRestricted = isRestricted
         self.isUltraRestricted = isUltraRestricted
     }
+    public enum CodingKeys: String, CodingKey {
+        case channelIds = "channel_ids"
+        case isDomainMatched = "is_domain_matched"
+        case isRestricted = "is_restricted"
+        case isUltraRestricted = "is_ultra_restricted"
+    }
 }

@@ -65,6 +65,16 @@ extension Components.Schemas {
             self.provided = provided
             self.query = query
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case files
+            case messages
+            case needed
+            case ok
+            case posts
+            case provided
+            case query
+        }
     }
     /// - Remark: Generated from `#/components/schemas/SearchFilesResponse`.
     public struct SearchFilesResponse: Codable, Hashable, Sendable {
@@ -104,6 +114,14 @@ extension Components.Schemas {
             self.provided = provided
             self.query = query
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case files
+            case needed
+            case ok
+            case provided
+            case query
+        }
     }
     /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse`.
     public struct SearchMessagesResponse: Codable, Hashable, Sendable {
@@ -142,6 +160,14 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.query = query
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case messages
+            case needed
+            case ok
+            case provided
+            case query
         }
     }
 }

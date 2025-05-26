@@ -60,6 +60,15 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case failedToUpdateChannelIds = "failed_to_update_channel_ids"
+            case failedToUpdateUserIds = "failed_to_update_user_ids"
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse`.
     public struct CanvasesAccessSetResponse: Codable, Hashable, Sendable {
@@ -103,6 +112,15 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case failedToUpdateChannelIds = "failed_to_update_channel_ids"
+            case failedToUpdateUserIds = "failed_to_update_user_ids"
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
         }
     }
     /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse`.
@@ -148,6 +166,15 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
+        public enum CodingKeys: String, CodingKey {
+            case canvasId = "canvas_id"
+            case detail
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse`.
     public struct CanvasesDeleteResponse: Codable, Hashable, Sendable {
@@ -181,6 +208,13 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
         }
     }
     /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse`.
@@ -221,6 +255,14 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
+        public enum CodingKeys: String, CodingKey {
+            case detail
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse`.
     public struct CanvasesSectionsLookupResponse: Codable, Hashable, Sendable {
@@ -259,6 +301,14 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
             self.sections = sections
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+            case sections
         }
     }
 }

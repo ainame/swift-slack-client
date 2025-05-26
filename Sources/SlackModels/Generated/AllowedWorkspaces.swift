@@ -20,7 +20,7 @@ public struct AllowedWorkspaces: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/AllowedWorkspaces/team_ids`.
     public var teamIds: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/AllowedWorkspaces/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// Creates a new `AllowedWorkspaces`.
     ///
     /// - Parameters:
@@ -28,18 +28,25 @@ public struct AllowedWorkspaces: Codable, Hashable, Sendable {
     ///   - dateUpdate:
     ///   - source:
     ///   - teamIds:
-    ///   - type:
+    ///   - _type:
     public init(
         actor: Swift.String? = nil,
         dateUpdate: Swift.Int? = nil,
         source: Swift.String? = nil,
         teamIds: [Swift.String]? = nil,
-        type: Swift.String? = nil
+        _type: Swift.String? = nil
     ) {
         self.actor = actor
         self.dateUpdate = dateUpdate
         self.source = source
         self.teamIds = teamIds
-        self.type = type
+        self._type = _type
+    }
+    public enum CodingKeys: String, CodingKey {
+        case actor
+        case dateUpdate = "date_update"
+        case source
+        case teamIds = "team_ids"
+        case _type = "type"
     }
 }

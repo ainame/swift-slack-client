@@ -37,4 +37,10 @@ public struct IncomingWebhook: Codable, Hashable, Sendable {
         self.configurationUrl = configurationUrl
         self.url = url
     }
+    public enum CodingKeys: String, CodingKey {
+        case channel
+        case channelId = "channel_id"
+        case configurationUrl = "configuration_url"
+        case url
+    }
 }

@@ -55,6 +55,14 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
+        public enum CodingKeys: String, CodingKey {
+            case channels
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/UsersDeletePhotoResponse`.
     public struct UsersDeletePhotoResponse: Codable, Hashable, Sendable {
@@ -83,6 +91,12 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse`.
@@ -122,6 +136,14 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case isDiscoverable = "is_discoverable"
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse`.
@@ -187,6 +209,19 @@ extension Components.Schemas {
             self.provided = provided
             self.warning = warning
         }
+        public enum CodingKeys: String, CodingKey {
+            case autoAway = "auto_away"
+            case connectionCount = "connection_count"
+            case error
+            case lastActivity = "last_activity"
+            case manualAway = "manual_away"
+            case needed
+            case ok
+            case online
+            case presence
+            case provided
+            case warning
+        }
     }
     /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse`.
     public struct UsersIdentityResponse: Codable, Hashable, Sendable {
@@ -231,6 +266,15 @@ extension Components.Schemas {
             self.user = user
             self.warning = warning
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case team
+            case user
+            case warning
+        }
     }
     /// - Remark: Generated from `#/components/schemas/UsersInfoResponse`.
     public struct UsersInfoResponse: Codable, Hashable, Sendable {
@@ -264,6 +308,13 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.user = user
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case user
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersListResponse`.
@@ -319,6 +370,17 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
+        public enum CodingKeys: String, CodingKey {
+            case arg
+            case cacheTs = "cache_ts"
+            case error
+            case members
+            case needed
+            case offset
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse`.
     public struct UsersLookupByEmailResponse: Codable, Hashable, Sendable {
@@ -358,6 +420,14 @@ extension Components.Schemas {
             self.responseMetadata = responseMetadata
             self.user = user
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+            case user
+        }
     }
     /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse`.
     public struct UsersProfileGetResponse: Codable, Hashable, Sendable {
@@ -391,6 +461,13 @@ extension Components.Schemas {
             self.ok = ok
             self.profile = profile
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case profile
+            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse`.
@@ -431,6 +508,14 @@ extension Components.Schemas {
             self.provided = provided
             self.username = username
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case profile
+            case provided
+            case username
+        }
     }
     /// - Remark: Generated from `#/components/schemas/UsersSetActiveResponse`.
     public struct UsersSetActiveResponse: Codable, Hashable, Sendable {
@@ -459,6 +544,12 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse`.
@@ -494,6 +585,13 @@ extension Components.Schemas {
             self.profile = profile
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case profile
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/UsersSetPresenceResponse`.
     public struct UsersSetPresenceResponse: Codable, Hashable, Sendable {
@@ -522,6 +620,12 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
         }
     }
 }

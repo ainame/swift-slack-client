@@ -32,4 +32,9 @@ public struct _Error: Codable, Hashable, Sendable {
         self.ok = ok
         self.user = user
     }
+    public enum CodingKeys: String, CodingKey {
+        case error
+        case ok
+        case user
+    }
 }

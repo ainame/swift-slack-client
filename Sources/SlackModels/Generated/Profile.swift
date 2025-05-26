@@ -62,4 +62,15 @@ public struct Profile: Codable, Hashable, Sendable {
         self.image72 = image72
         self.imageOriginal = imageOriginal
     }
+    public enum CodingKeys: String, CodingKey {
+        case avatarHash = "avatar_hash"
+        case image1024 = "image_1024"
+        case image192 = "image_192"
+        case image24 = "image_24"
+        case image32 = "image_32"
+        case image48 = "image_48"
+        case image512 = "image_512"
+        case image72 = "image_72"
+        case imageOriginal = "image_original"
+    }
 }

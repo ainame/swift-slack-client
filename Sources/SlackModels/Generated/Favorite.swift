@@ -32,4 +32,9 @@ public struct Favorite: Codable, Hashable, Sendable {
         self.collectionName = collectionName
         self.position = position
     }
+    public enum CodingKeys: String, CodingKey {
+        case collectionId = "collection_id"
+        case collectionName = "collection_name"
+        case position
+    }
 }

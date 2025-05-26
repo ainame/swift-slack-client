@@ -27,4 +27,8 @@ public struct DomainRestrictions: Codable, Hashable, Sendable {
         self.emails = emails
         self.urls = urls
     }
+    public enum CodingKeys: String, CodingKey {
+        case emails
+        case urls
+    }
 }

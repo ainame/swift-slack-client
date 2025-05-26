@@ -112,4 +112,25 @@ public struct Usergroup: Codable, Hashable, Sendable {
         self.updatedBy = updatedBy
         self.users = users
     }
+    public enum CodingKeys: String, CodingKey {
+        case autoProvision = "auto_provision"
+        case channelCount = "channel_count"
+        case createdBy = "created_by"
+        case dateCreate = "date_create"
+        case dateDelete = "date_delete"
+        case dateUpdate = "date_update"
+        case description
+        case enterpriseSubteamId = "enterprise_subteam_id"
+        case handle
+        case id
+        case isExternal = "is_external"
+        case isSection = "is_section"
+        case isSubteam = "is_subteam"
+        case isUsergroup = "is_usergroup"
+        case name
+        case prefs
+        case teamId = "team_id"
+        case updatedBy = "updated_by"
+        case users
+    }
 }

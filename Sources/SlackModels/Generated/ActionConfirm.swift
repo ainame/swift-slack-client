@@ -37,4 +37,10 @@ public struct ActionConfirm: Codable, Hashable, Sendable {
         self.text = text
         self.title = title
     }
+    public enum CodingKeys: String, CodingKey {
+        case dismissText = "dismiss_text"
+        case okText = "ok_text"
+        case text
+        case title
+    }
 }

@@ -67,4 +67,16 @@ public struct ListLimits: Codable, Hashable, Sendable {
         self.viewCount = viewCount
         self.viewCountLimit = viewCountLimit
     }
+    public enum CodingKeys: String, CodingKey {
+        case columnCount = "column_count"
+        case columnCountLimit = "column_count_limit"
+        case maxAttachmentsPerCell = "max_attachments_per_cell"
+        case overColumnMaximum = "over_column_maximum"
+        case overRowMaximum = "over_row_maximum"
+        case overViewMaximum = "over_view_maximum"
+        case rowCount = "row_count"
+        case rowCountLimit = "row_count_limit"
+        case viewCount = "view_count"
+        case viewCountLimit = "view_count_limit"
+    }
 }

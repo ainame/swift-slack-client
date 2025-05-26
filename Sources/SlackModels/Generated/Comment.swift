@@ -62,4 +62,15 @@ public struct Comment: Codable, Hashable, Sendable {
         self.timestamp = timestamp
         self.user = user
     }
+    public enum CodingKeys: String, CodingKey {
+        case channel
+        case comment
+        case created
+        case id
+        case isIntro = "is_intro"
+        case isStarred = "is_starred"
+        case numStars = "num_stars"
+        case timestamp
+        case user
+    }
 }

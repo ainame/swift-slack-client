@@ -47,4 +47,12 @@ public struct TingUser: Codable, Hashable, Sendable {
         self.updated = updated
         self.whoCanShareContactCard = whoCanShareContactCard
     }
+    public enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case profile
+        case teamId = "team_id"
+        case updated
+        case whoCanShareContactCard = "who_can_share_contact_card"
+    }
 }

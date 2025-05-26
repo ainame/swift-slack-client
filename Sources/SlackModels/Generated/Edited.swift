@@ -27,4 +27,8 @@ public struct Edited: Codable, Hashable, Sendable {
         self.ts = ts
         self.user = user
     }
+    public enum CodingKeys: String, CodingKey {
+        case ts
+        case user
+    }
 }

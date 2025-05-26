@@ -97,4 +97,22 @@ public struct InviteElement: Codable, Hashable, Sendable {
         self.sig = sig
         self.status = status
     }
+    public enum CodingKeys: String, CodingKey {
+        case acceptances
+        case channel
+        case dateCreated = "date_created"
+        case dateInvalid = "date_invalid"
+        case dateLastUpdated = "date_last_updated"
+        case direction
+        case id
+        case invite
+        case invitePayload = "invite_payload"
+        case inviteType = "invite_type"
+        case invitingTeam = "inviting_team"
+        case invitingUser = "inviting_user"
+        case link
+        case recipientUserId = "recipient_user_id"
+        case sig
+        case status
+    }
 }

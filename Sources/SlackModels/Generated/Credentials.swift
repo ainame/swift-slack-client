@@ -37,4 +37,10 @@ public struct Credentials: Codable, Hashable, Sendable {
         self.signingSecret = signingSecret
         self.verificationToken = verificationToken
     }
+    public enum CodingKeys: String, CodingKey {
+        case clientId = "client_id"
+        case clientSecret = "client_secret"
+        case signingSecret = "signing_secret"
+        case verificationToken = "verification_token"
+    }
 }

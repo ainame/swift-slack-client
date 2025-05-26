@@ -42,4 +42,11 @@ public struct Created: Codable, Hashable, Sendable {
         self.osVersion = osVersion
         self.slackClientVersion = slackClientVersion
     }
+    public enum CodingKeys: String, CodingKey {
+        case deviceHardware = "device_hardware"
+        case ip
+        case os
+        case osVersion = "os_version"
+        case slackClientVersion = "slack_client_version"
+    }
 }

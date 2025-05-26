@@ -52,4 +52,13 @@ public struct InitialComment: Codable, Hashable, Sendable {
         self.timestamp = timestamp
         self.user = user
     }
+    public enum CodingKeys: String, CodingKey {
+        case channel
+        case comment
+        case created
+        case id
+        case isIntro = "is_intro"
+        case timestamp
+        case user
+    }
 }

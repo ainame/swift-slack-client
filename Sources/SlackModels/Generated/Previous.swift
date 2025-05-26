@@ -28,7 +28,7 @@ public struct Previous: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Previous/ts`.
     public var ts: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Previous/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Previous/user`.
     public var user: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Previous/username`.
@@ -42,7 +42,7 @@ public struct Previous: Codable, Hashable, Sendable {
     ///   - permalink:
     ///   - text:
     ///   - ts:
-    ///   - type:
+    ///   - _type:
     ///   - user:
     ///   - username:
     public init(
@@ -52,7 +52,7 @@ public struct Previous: Codable, Hashable, Sendable {
         permalink: Swift.String? = nil,
         text: Swift.String? = nil,
         ts: Swift.String? = nil,
-        type: Swift.String? = nil,
+        _type: Swift.String? = nil,
         user: Swift.String? = nil,
         username: Swift.String? = nil
     ) {
@@ -62,8 +62,19 @@ public struct Previous: Codable, Hashable, Sendable {
         self.permalink = permalink
         self.text = text
         self.ts = ts
-        self.type = type
+        self._type = _type
         self.user = user
         self.username = username
+    }
+    public enum CodingKeys: String, CodingKey {
+        case attachments
+        case blocks
+        case iid
+        case permalink
+        case text
+        case ts
+        case _type = "type"
+        case user
+        case username
     }
 }

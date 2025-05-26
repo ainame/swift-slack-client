@@ -32,4 +32,9 @@ public struct Interactivity: Codable, Hashable, Sendable {
         self.messageMenuOptionsUrl = messageMenuOptionsUrl
         self.requestUrl = requestUrl
     }
+    public enum CodingKeys: String, CodingKey {
+        case isEnabled = "is_enabled"
+        case messageMenuOptionsUrl = "message_menu_options_url"
+        case requestUrl = "request_url"
+    }
 }

@@ -27,4 +27,8 @@ public struct UsergroupClude: Codable, Hashable, Sendable {
         self.id = id
         self.teamId = teamId
     }
+    public enum CodingKeys: String, CodingKey {
+        case id
+        case teamId = "team_id"
+    }
 }

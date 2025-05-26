@@ -32,4 +32,9 @@ public struct OauthConfig: Codable, Hashable, Sendable {
         self.scopes = scopes
         self.tokenManagementEnabled = tokenManagementEnabled
     }
+    public enum CodingKeys: String, CodingKey {
+        case redirectUrls = "redirect_urls"
+        case scopes
+        case tokenManagementEnabled = "token_management_enabled"
+    }
 }

@@ -45,6 +45,12 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse`.
     public struct ReactionsGetResponse: Codable, Hashable, Sendable {
@@ -61,7 +67,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/type`.
-        public var type: Swift.String?
+        public var _type: Swift.String?
         /// Creates a new `ReactionsGetResponse`.
         ///
         /// - Parameters:
@@ -71,7 +77,7 @@ extension Components.Schemas {
         ///   - needed:
         ///   - ok:
         ///   - provided:
-        ///   - type:
+        ///   - _type:
         public init(
             channel: Swift.String? = nil,
             error: Swift.String? = nil,
@@ -79,7 +85,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            type: Swift.String? = nil
+            _type: Swift.String? = nil
         ) {
             self.channel = channel
             self.error = error
@@ -87,7 +93,16 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
-            self.type = type
+            self._type = _type
+        }
+        public enum CodingKeys: String, CodingKey {
+            case channel
+            case error
+            case message
+            case needed
+            case ok
+            case provided
+            case _type = "type"
         }
     }
     /// - Remark: Generated from `#/components/schemas/ReactionsListResponse`.
@@ -133,6 +148,15 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case items
+            case needed
+            case ok
+            case paging
+            case provided
+            case responseMetadata = "response_metadata"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/ReactionsRemoveResponse`.
     public struct ReactionsRemoveResponse: Codable, Hashable, Sendable {
@@ -161,6 +185,12 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
         }
     }
 }

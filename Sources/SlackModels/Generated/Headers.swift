@@ -37,4 +37,10 @@ public struct Headers: Codable, Hashable, Sendable {
         self.messageId = messageId
         self.replyTo = replyTo
     }
+    public enum CodingKeys: String, CodingKey {
+        case date
+        case inReplyTo = "in_reply_to"
+        case messageId = "message_id"
+        case replyTo = "reply_to"
+    }
 }

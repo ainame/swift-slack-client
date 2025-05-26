@@ -42,4 +42,11 @@ public struct SlashCommand: Codable, Hashable, Sendable {
         self.url = url
         self.usageHint = usageHint
     }
+    public enum CodingKeys: String, CodingKey {
+        case command
+        case description
+        case shouldEscape = "should_escape"
+        case url
+        case usageHint = "usage_hint"
+    }
 }

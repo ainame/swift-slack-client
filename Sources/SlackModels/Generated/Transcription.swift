@@ -27,4 +27,8 @@ public struct Transcription: Codable, Hashable, Sendable {
         self.locale = locale
         self.status = status
     }
+    public enum CodingKeys: String, CodingKey {
+        case locale
+        case status
+    }
 }

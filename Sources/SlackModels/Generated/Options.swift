@@ -27,4 +27,8 @@ public struct Options: Codable, Hashable, Sendable {
         self.isProtected = isProtected
         self.isScim = isScim
     }
+    public enum CodingKeys: String, CodingKey {
+        case isProtected = "is_protected"
+        case isScim = "is_scim"
+    }
 }

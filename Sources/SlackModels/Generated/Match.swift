@@ -44,7 +44,7 @@ public struct Match: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Match/ts`.
     public var ts: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Match/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Match/user`.
     public var user: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Match/username`.
@@ -66,7 +66,7 @@ public struct Match: Codable, Hashable, Sendable {
     ///   - team:
     ///   - text:
     ///   - ts:
-    ///   - type:
+    ///   - _type:
     ///   - user:
     ///   - username:
     public init(
@@ -84,7 +84,7 @@ public struct Match: Codable, Hashable, Sendable {
         team: Swift.String? = nil,
         text: Swift.String? = nil,
         ts: Swift.String? = nil,
-        type: Swift.String? = nil,
+        _type: Swift.String? = nil,
         user: Swift.String? = nil,
         username: Swift.String? = nil
     ) {
@@ -102,8 +102,27 @@ public struct Match: Codable, Hashable, Sendable {
         self.team = team
         self.text = text
         self.ts = ts
-        self.type = type
+        self._type = _type
         self.user = user
         self.username = username
+    }
+    public enum CodingKeys: String, CodingKey {
+        case attachments
+        case blocks
+        case channel
+        case files
+        case iid
+        case isMpim = "is_mpim"
+        case noReactions = "no_reactions"
+        case permalink
+        case previous
+        case previous2 = "previous_2"
+        case score
+        case team
+        case text
+        case ts
+        case _type = "type"
+        case user
+        case username
     }
 }

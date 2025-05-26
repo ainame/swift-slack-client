@@ -56,7 +56,7 @@ public struct Payload: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Payload/trigger`.
     public var trigger: Trigger?
     /// - Remark: Generated from `#/components/schemas/Payload/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Payload/user_id`.
     public var userId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Payload/workflow_name`.
@@ -86,7 +86,7 @@ public struct Payload: Codable, Hashable, Sendable {
     ///   - teamId:
     ///   - totalSteps:
     ///   - trigger:
-    ///   - type:
+    ///   - _type:
     ///   - userId:
     ///   - workflowName:
     public init(
@@ -112,7 +112,7 @@ public struct Payload: Codable, Hashable, Sendable {
         teamId: Swift.String? = nil,
         totalSteps: Swift.Int? = nil,
         trigger: Trigger? = nil,
-        type: Swift.String? = nil,
+        _type: Swift.String? = nil,
         userId: Swift.String? = nil,
         workflowName: Swift.String? = nil
     ) {
@@ -138,8 +138,35 @@ public struct Payload: Codable, Hashable, Sendable {
         self.teamId = teamId
         self.totalSteps = totalSteps
         self.trigger = trigger
-        self.type = type
+        self._type = _type
         self.userId = userId
         self.workflowName = workflowName
+    }
+    public enum CodingKeys: String, CodingKey {
+        case action
+        case actor
+        case billingReason = "billing_reason"
+        case botUserId = "bot_user_id"
+        case bundleSizeKb = "bundle_size_kb"
+        case channelId = "channel_id"
+        case currentStep = "current_step"
+        case datastoreName = "datastore_name"
+        case details
+        case error
+        case execOutcome = "exec_outcome"
+        case functionExecutionId = "function_execution_id"
+        case functionId = "function_id"
+        case functionName = "function_name"
+        case functionType = "function_type"
+        case inputs
+        case isBillingExcluded = "is_billing_excluded"
+        case log
+        case requestType = "request_type"
+        case teamId = "team_id"
+        case totalSteps = "total_steps"
+        case trigger
+        case _type = "type"
+        case userId = "user_id"
+        case workflowName = "workflow_name"
     }
 }

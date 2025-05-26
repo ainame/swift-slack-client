@@ -41,6 +41,12 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/FunctionsCompleteSuccessResponse`.
     public struct FunctionsCompleteSuccessResponse: Codable, Hashable, Sendable {
@@ -69,6 +75,12 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
         }
     }
 }

@@ -37,4 +37,10 @@ public struct RoleAssignment: Codable, Hashable, Sendable {
         self.roleId = roleId
         self.userId = userId
     }
+    public enum CodingKeys: String, CodingKey {
+        case dateCreate = "date_create"
+        case entityId = "entity_id"
+        case roleId = "role_id"
+        case userId = "user_id"
+    }
 }

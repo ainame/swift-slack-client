@@ -27,4 +27,8 @@ public struct Field: Codable, Hashable, Sendable {
         self.alt = alt
         self.value = value
     }
+    public enum CodingKeys: String, CodingKey {
+        case alt
+        case value
+    }
 }

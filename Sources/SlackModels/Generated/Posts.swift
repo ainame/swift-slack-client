@@ -27,4 +27,8 @@ public struct Posts: Codable, Hashable, Sendable {
         self.matches = matches
         self.total = total
     }
+    public enum CodingKeys: String, CodingKey {
+        case matches
+        case total
+    }
 }

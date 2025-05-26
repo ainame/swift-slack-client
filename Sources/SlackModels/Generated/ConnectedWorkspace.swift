@@ -27,4 +27,8 @@ public struct ConnectedWorkspace: Codable, Hashable, Sendable {
         self.workspaceId = workspaceId
         self.workspaceName = workspaceName
     }
+    public enum CodingKeys: String, CodingKey {
+        case workspaceId = "workspace_id"
+        case workspaceName = "workspace_name"
+    }
 }

@@ -110,6 +110,25 @@ extension Components.Schemas {
             self.tokenType = tokenType
             self.warning = warning
         }
+        public enum CodingKeys: String, CodingKey {
+            case accessToken = "access_token"
+            case appId = "app_id"
+            case authedUser = "authed_user"
+            case botUserId = "bot_user_id"
+            case enterprise
+            case error
+            case expiresIn = "expires_in"
+            case incomingWebhook = "incoming_webhook"
+            case isEnterpriseInstall = "is_enterprise_install"
+            case needed
+            case ok
+            case provided
+            case refreshToken = "refresh_token"
+            case scope
+            case team
+            case tokenType = "token_type"
+            case warning
+        }
     }
     /// - Remark: Generated from `#/components/schemas/OauthV2ExchangeResponse`.
     public struct OauthV2ExchangeResponse: Codable, Hashable, Sendable {
@@ -208,6 +227,26 @@ extension Components.Schemas {
             self.team = team
             self.tokenType = tokenType
             self.warning = warning
+        }
+        public enum CodingKeys: String, CodingKey {
+            case accessToken = "access_token"
+            case appId = "app_id"
+            case authedUser = "authed_user"
+            case botUserId = "bot_user_id"
+            case enterprise
+            case error
+            case expiresIn = "expires_in"
+            case incomingWebhook = "incoming_webhook"
+            case isEnterpriseInstall = "is_enterprise_install"
+            case needed
+            case ok
+            case provided
+            case refreshToken = "refresh_token"
+            case responseMetadata = "response_metadata"
+            case scope
+            case team
+            case tokenType = "token_type"
+            case warning
         }
     }
 }

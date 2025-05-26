@@ -62,4 +62,15 @@ public struct InviteInvite: Codable, Hashable, Sendable {
         self.recipientUserId = recipientUserId
         self.sig = sig
     }
+    public enum CodingKeys: String, CodingKey {
+        case dateCreated = "date_created"
+        case dateInvalid = "date_invalid"
+        case id
+        case invitingTeam = "inviting_team"
+        case invitingUser = "inviting_user"
+        case link
+        case recipientEmail = "recipient_email"
+        case recipientUserId = "recipient_user_id"
+        case sig
+    }
 }

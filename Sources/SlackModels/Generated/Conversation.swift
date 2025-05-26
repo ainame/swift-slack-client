@@ -177,4 +177,38 @@ public struct Conversation: Codable, Hashable, Sendable {
         self.properties = properties
         self.purpose = purpose
     }
+    public enum CodingKeys: String, CodingKey {
+        case canvas
+        case channelEmailAddresses = "channel_email_addresses"
+        case channelManagerCount = "channel_manager_count"
+        case connectedLimitedTeamIds = "connected_limited_team_ids"
+        case connectedTeamIds = "connected_team_ids"
+        case contextTeamId = "context_team_id"
+        case conversationHostId = "conversation_host_id"
+        case created
+        case creatorId = "creator_id"
+        case externalUserCount = "external_user_count"
+        case id
+        case internalTeamIds = "internal_team_ids"
+        case internalTeamIdsCount = "internal_team_ids_count"
+        case internalTeamIdsSampleTeam = "internal_team_ids_sample_team"
+        case isArchived = "is_archived"
+        case isDisconnectInProgress = "is_disconnect_in_progress"
+        case isExtShared = "is_ext_shared"
+        case isFrozen = "is_frozen"
+        case isGeneral = "is_general"
+        case isGlobalShared = "is_global_shared"
+        case isOrgDefault = "is_org_default"
+        case isOrgMandatory = "is_org_mandatory"
+        case isOrgShared = "is_org_shared"
+        case isPendingExtShared = "is_pending_ext_shared"
+        case isPrivate = "is_private"
+        case lastActivityTs = "last_activity_ts"
+        case lists
+        case memberCount = "member_count"
+        case name
+        case pendingConnectedTeamIds = "pending_connected_team_ids"
+        case properties
+        case purpose
+    }
 }

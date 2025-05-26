@@ -55,6 +55,14 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case files
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesDeleteResponse`.
     public struct FilesDeleteResponse: Codable, Hashable, Sendable {
@@ -83,6 +91,12 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesGetUploadURLExternalResponse`.
@@ -127,6 +141,15 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
             self.uploadUrl = uploadUrl
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case fileId = "file_id"
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+            case uploadUrl = "upload_url"
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesInfoResponse`.
@@ -197,6 +220,20 @@ extension Components.Schemas {
             self.paging = paging
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case comments
+            case content
+            case contentHighlightCss = "content_highlight_css"
+            case contentHighlightHtml = "content_highlight_html"
+            case contentHighlightHtmlTruncated = "content_highlight_html_truncated"
+            case error
+            case file
+            case isTruncated = "is_truncated"
+            case needed
+            case ok
+            case paging
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesListResponse`.
     public struct FilesListResponse: Codable, Hashable, Sendable {
@@ -236,6 +273,14 @@ extension Components.Schemas {
             self.paging = paging
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case files
+            case needed
+            case ok
+            case paging
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRemoteAddResponse`.
     public struct FilesRemoteAddResponse: Codable, Hashable, Sendable {
@@ -270,6 +315,13 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case file
+            case needed
+            case ok
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRemoteInfoResponse`.
     public struct FilesRemoteInfoResponse: Codable, Hashable, Sendable {
@@ -303,6 +355,13 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case file
+            case needed
+            case ok
+            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRemoteListResponse`.
@@ -343,6 +402,14 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case files
+            case needed
+            case ok
+            case provided
+            case responseMetadata = "response_metadata"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRemoteRemoveResponse`.
     public struct FilesRemoteRemoveResponse: Codable, Hashable, Sendable {
@@ -371,6 +438,12 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRemoteShareResponse`.
@@ -406,6 +479,13 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case file
+            case needed
+            case ok
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRemoteUpdateResponse`.
     public struct FilesRemoteUpdateResponse: Codable, Hashable, Sendable {
@@ -439,6 +519,13 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case file
+            case needed
+            case ok
+            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/FilesRevokePublicURLResponse`.
@@ -474,6 +561,13 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case file
+            case needed
+            case ok
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesSharedPublicURLResponse`.
     public struct FilesSharedPublicURLResponse: Codable, Hashable, Sendable {
@@ -508,6 +602,13 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case file
+            case needed
+            case ok
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/FilesUploadResponse`.
     public struct FilesUploadResponse: Codable, Hashable, Sendable {
@@ -541,6 +642,13 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case file
+            case needed
+            case ok
+            case provided
         }
     }
 }

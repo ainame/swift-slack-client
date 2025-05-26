@@ -42,4 +42,11 @@ public struct Authorization: Codable, Hashable, Sendable {
         self.teamId = teamId
         self.userId = userId
     }
+    public enum CodingKeys: String, CodingKey {
+        case enterpriseId = "enterprise_id"
+        case isBot = "is_bot"
+        case isEnterpriseInstall = "is_enterprise_install"
+        case teamId = "team_id"
+        case userId = "user_id"
+    }
 }

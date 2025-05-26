@@ -32,4 +32,9 @@ public struct SessionSetting: Codable, Hashable, Sendable {
         self.duration = duration
         self.userId = userId
     }
+    public enum CodingKeys: String, CodingKey {
+        case desktopAppBrowserQuit = "desktop_app_browser_quit"
+        case duration
+        case userId = "user_id"
+    }
 }

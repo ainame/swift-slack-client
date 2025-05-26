@@ -52,4 +52,13 @@ public struct ChannelEmailAddress: Codable, Hashable, Sendable {
         self.teamId = teamId
         self.userId = userId
     }
+    public enum CodingKeys: String, CodingKey {
+        case address
+        case conversationId = "conversation_id"
+        case dateCreated = "date_created"
+        case icons
+        case name
+        case teamId = "team_id"
+        case userId = "user_id"
+    }
 }

@@ -62,4 +62,15 @@ public struct Icon: Codable, Hashable, Sendable {
         self.imageDefault = imageDefault
         self.imageOriginal = imageOriginal
     }
+    public enum CodingKeys: String, CodingKey {
+        case image102 = "image_102"
+        case image132 = "image_132"
+        case image230 = "image_230"
+        case image34 = "image_34"
+        case image44 = "image_44"
+        case image68 = "image_68"
+        case image88 = "image_88"
+        case imageDefault = "image_default"
+        case imageOriginal = "image_original"
+    }
 }

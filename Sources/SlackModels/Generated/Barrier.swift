@@ -47,4 +47,12 @@ public struct Barrier: Codable, Hashable, Sendable {
         self.primaryUsergroup = primaryUsergroup
         self.restrictedSubjects = restrictedSubjects
     }
+    public enum CodingKeys: String, CodingKey {
+        case barrieredFromUsergroups = "barriered_from_usergroups"
+        case dateUpdate = "date_update"
+        case enterpriseId = "enterprise_id"
+        case id
+        case primaryUsergroup = "primary_usergroup"
+        case restrictedSubjects = "restricted_subjects"
+    }
 }

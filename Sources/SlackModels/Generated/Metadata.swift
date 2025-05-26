@@ -72,4 +72,17 @@ public struct Metadata: Codable, Hashable, Sendable {
         self.thumb80 = thumb80
         self.thumbTiny = thumbTiny
     }
+    public enum CodingKeys: String, CodingKey {
+        case _extension = "extension"
+        case format
+        case originalH = "original_h"
+        case originalW = "original_w"
+        case rotation
+        case thumb160 = "thumb_160"
+        case thumb360H = "thumb_360_h"
+        case thumb360W = "thumb_360_w"
+        case thumb64 = "thumb_64"
+        case thumb80 = "thumb_80"
+        case thumbTiny = "thumb_tiny"
+    }
 }

@@ -24,7 +24,7 @@ public struct AcceptScInvites: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/AcceptScInvites/source`.
     public var source: Swift.String?
     /// - Remark: Generated from `#/components/schemas/AcceptScInvites/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// - Remark: Generated from `#/components/schemas/AcceptScInvites/use_allowed_workspaces`.
     public var useAllowedWorkspaces: Swift.Bool?
     /// Creates a new `AcceptScInvites`.
@@ -36,7 +36,7 @@ public struct AcceptScInvites: Codable, Hashable, Sendable {
     ///   - dateUpdate:
     ///   - invalidWorkspaceIds:
     ///   - source:
-    ///   - type:
+    ///   - _type:
     ///   - useAllowedWorkspaces:
     public init(
         acceptInWorkspaceIds: [Swift.String]? = nil,
@@ -45,7 +45,7 @@ public struct AcceptScInvites: Codable, Hashable, Sendable {
         dateUpdate: Swift.Int? = nil,
         invalidWorkspaceIds: [Swift.String]? = nil,
         source: Swift.String? = nil,
-        type: Swift.String? = nil,
+        _type: Swift.String? = nil,
         useAllowedWorkspaces: Swift.Bool? = nil
     ) {
         self.acceptInWorkspaceIds = acceptInWorkspaceIds
@@ -54,7 +54,17 @@ public struct AcceptScInvites: Codable, Hashable, Sendable {
         self.dateUpdate = dateUpdate
         self.invalidWorkspaceIds = invalidWorkspaceIds
         self.source = source
-        self.type = type
+        self._type = _type
         self.useAllowedWorkspaces = useAllowedWorkspaces
+    }
+    public enum CodingKeys: String, CodingKey {
+        case acceptInWorkspaceIds = "accept_in_workspace_ids"
+        case acceptPrivate = "accept_private"
+        case actor
+        case dateUpdate = "date_update"
+        case invalidWorkspaceIds = "invalid_workspace_ids"
+        case source
+        case _type = "type"
+        case useAllowedWorkspaces = "use_allowed_workspaces"
     }
 }

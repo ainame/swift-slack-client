@@ -47,4 +47,12 @@ public struct AuthedUser: Codable, Hashable, Sendable {
         self.scope = scope
         self.tokenType = tokenType
     }
+    public enum CodingKeys: String, CodingKey {
+        case accessToken = "access_token"
+        case expiresIn = "expires_in"
+        case id
+        case refreshToken = "refresh_token"
+        case scope
+        case tokenType = "token_type"
+    }
 }

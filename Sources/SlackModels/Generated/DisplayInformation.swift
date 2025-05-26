@@ -37,4 +37,10 @@ public struct DisplayInformation: Codable, Hashable, Sendable {
         self.longDescription = longDescription
         self.name = name
     }
+    public enum CodingKeys: String, CodingKey {
+        case backgroundColor = "background_color"
+        case description
+        case longDescription = "long_description"
+        case name
+    }
 }

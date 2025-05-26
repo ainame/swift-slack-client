@@ -52,4 +52,13 @@ public struct Properties: Codable, Hashable, Sendable {
         self.tabz = tabz
         self.threadsRestrictedTo = threadsRestrictedTo
     }
+    public enum CodingKeys: String, CodingKey {
+        case canvas
+        case huddlesRestricted = "huddles_restricted"
+        case meetingNotes = "meeting_notes"
+        case postingRestrictedTo = "posting_restricted_to"
+        case tabs
+        case tabz
+        case threadsRestrictedTo = "threads_restricted_to"
+    }
 }

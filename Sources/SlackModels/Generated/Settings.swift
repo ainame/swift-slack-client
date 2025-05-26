@@ -72,4 +72,17 @@ public struct Settings: Codable, Hashable, Sendable {
         self.socketModeEnabled = socketModeEnabled
         self.tokenRotationEnabled = tokenRotationEnabled
     }
+    public enum CodingKeys: String, CodingKey {
+        case allowedIpAddressRanges = "allowed_ip_address_ranges"
+        case backgroundColor = "background_color"
+        case description
+        case eventSubscriptions = "event_subscriptions"
+        case functionRuntime = "function_runtime"
+        case hermesAppType = "hermes_app_type"
+        case interactivity
+        case longDescription = "long_description"
+        case orgDeployEnabled = "org_deploy_enabled"
+        case socketModeEnabled = "socket_mode_enabled"
+        case tokenRotationEnabled = "token_rotation_enabled"
+    }
 }

@@ -18,23 +18,29 @@ public struct Shortcut: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Shortcut/name`.
     public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Shortcut/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// Creates a new `Shortcut`.
     ///
     /// - Parameters:
     ///   - callbackId:
     ///   - description:
     ///   - name:
-    ///   - type:
+    ///   - _type:
     public init(
         callbackId: Swift.String? = nil,
         description: Swift.String? = nil,
         name: Swift.String? = nil,
-        type: Swift.String? = nil
+        _type: Swift.String? = nil
     ) {
         self.callbackId = callbackId
         self.description = description
         self.name = name
-        self.type = type
+        self._type = _type
+    }
+    public enum CodingKeys: String, CodingKey {
+        case callbackId = "callback_id"
+        case description
+        case name
+        case _type = "type"
     }
 }

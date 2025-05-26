@@ -27,4 +27,8 @@ public struct Trigger: Codable, Hashable, Sendable {
         self.customizableInputParameters = customizableInputParameters
         self.url = url
     }
+    public enum CodingKeys: String, CodingKey {
+        case customizableInputParameters = "customizable_input_parameters"
+        case url
+    }
 }

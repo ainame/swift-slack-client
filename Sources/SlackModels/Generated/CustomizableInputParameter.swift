@@ -27,4 +27,8 @@ public struct CustomizableInputParameter: Codable, Hashable, Sendable {
         self.name = name
         self.value = value
     }
+    public enum CodingKeys: String, CodingKey {
+        case name
+        case value
+    }
 }

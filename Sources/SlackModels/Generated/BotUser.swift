@@ -27,4 +27,8 @@ public struct BotUser: Codable, Hashable, Sendable {
         self.alwaysOnline = alwaysOnline
         self.displayName = displayName
     }
+    public enum CodingKeys: String, CodingKey {
+        case alwaysOnline = "always_online"
+        case displayName = "display_name"
+    }
 }

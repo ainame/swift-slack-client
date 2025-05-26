@@ -27,4 +27,8 @@ public struct OwnershipDetail: Codable, Hashable, Sendable {
         self.count = count
         self.teamId = teamId
     }
+    public enum CodingKeys: String, CodingKey {
+        case count
+        case teamId = "team_id"
+    }
 }

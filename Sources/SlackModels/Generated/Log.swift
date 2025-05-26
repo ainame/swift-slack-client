@@ -97,4 +97,22 @@ public struct Log: Codable, Hashable, Sendable {
         self.userId = userId
         self.userName = userName
     }
+    public enum CodingKeys: String, CodingKey {
+        case appId = "app_id"
+        case appType = "app_type"
+        case changeType = "change_type"
+        case channel
+        case date
+        case reason
+        case resolution
+        case rssFeed = "rss_feed"
+        case rssFeedChangeType = "rss_feed_change_type"
+        case rssFeedTitle = "rss_feed_title"
+        case rssFeedUrl = "rss_feed_url"
+        case scope
+        case serviceId = "service_id"
+        case serviceType = "service_type"
+        case userId = "user_id"
+        case userName = "user_name"
+    }
 }

@@ -27,4 +27,8 @@ public struct FailedUserIDS: Codable, Hashable, Sendable {
         self.u00000000 = u00000000
         self.u00000001 = u00000001
     }
+    public enum CodingKeys: String, CodingKey {
+        case u00000000 = "U00000000"
+        case u00000001 = "U00000001"
+    }
 }

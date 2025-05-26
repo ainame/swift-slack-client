@@ -42,4 +42,11 @@ public struct Features: Codable, Hashable, Sendable {
         self.slashCommands = slashCommands
         self.unfurlDomains = unfurlDomains
     }
+    public enum CodingKeys: String, CodingKey {
+        case appHome = "app_home"
+        case botUser = "bot_user"
+        case shortcuts
+        case slashCommands = "slash_commands"
+        case unfurlDomains = "unfurl_domains"
+    }
 }

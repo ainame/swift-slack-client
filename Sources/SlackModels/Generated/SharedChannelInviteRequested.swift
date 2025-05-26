@@ -52,4 +52,13 @@ public struct SharedChannelInviteRequested: Codable, Hashable, Sendable {
         self.usergroupExclude = usergroupExclude
         self.usergroupInclude = usergroupInclude
     }
+    public enum CodingKeys: String, CodingKey {
+        case actor
+        case approvalDestination = "approval_destination"
+        case dateUpdate = "date_update"
+        case enabled
+        case source
+        case usergroupExclude = "usergroup_exclude"
+        case usergroupInclude = "usergroup_include"
+    }
 }

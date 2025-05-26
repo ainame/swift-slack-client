@@ -87,4 +87,20 @@ public struct Organization: Codable, Hashable, Sendable {
         self.teamId = teamId
         self.teamName = teamName
     }
+    public enum CodingKeys: String, CodingKey {
+        case canvas
+        case connectedWorkspaces = "connected_workspaces"
+        case connectionStatus = "connection_status"
+        case imChannelCount = "im_channel_count"
+        case isSponsored = "is_sponsored"
+        case lastActiveTimestamp = "last_active_timestamp"
+        case lists
+        case mpimChannelCount = "mpim_channel_count"
+        case privateChannelCount = "private_channel_count"
+        case publicChannelCount = "public_channel_count"
+        case slackConnectPrefs = "slack_connect_prefs"
+        case teamDomain = "team_domain"
+        case teamId = "team_id"
+        case teamName = "team_name"
+    }
 }

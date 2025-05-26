@@ -12,12 +12,15 @@ import struct Foundation.Date
 /// - Remark: Generated from `#/components/schemas/ThreadsRestrictedTo`.
 public struct ThreadsRestrictedTo: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ThreadsRestrictedTo/type`.
-    public var type: [Swift.String]?
+    public var _type: [Swift.String]?
     /// Creates a new `ThreadsRestrictedTo`.
     ///
     /// - Parameters:
-    ///   - type:
-    public init(type: [Swift.String]? = nil) {
-        self.type = type
+    ///   - _type:
+    public init(_type: [Swift.String]? = nil) {
+        self._type = _type
+    }
+    public enum CodingKeys: String, CodingKey {
+        case _type = "type"
     }
 }

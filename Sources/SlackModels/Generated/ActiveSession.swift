@@ -42,4 +42,11 @@ public struct ActiveSession: Codable, Hashable, Sendable {
         self.teamId = teamId
         self.userId = userId
     }
+    public enum CodingKeys: String, CodingKey {
+        case created
+        case recent
+        case sessionId = "session_id"
+        case teamId = "team_id"
+        case userId = "user_id"
+    }
 }

@@ -27,4 +27,8 @@ public struct Team: Codable, Hashable, Sendable {
         self.id = id
         self.name = name
     }
+    public enum CodingKeys: String, CodingKey {
+        case id
+        case name
+    }
 }

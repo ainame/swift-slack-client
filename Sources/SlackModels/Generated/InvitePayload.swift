@@ -37,4 +37,10 @@ public struct InvitePayload: Codable, Hashable, Sendable {
         self.isExternalLimited = isExternalLimited
         self.isSponsored = isSponsored
     }
+    public enum CodingKeys: String, CodingKey {
+        case channel
+        case inviteType = "invite_type"
+        case isExternalLimited = "is_external_limited"
+        case isSponsored = "is_sponsored"
+    }
 }

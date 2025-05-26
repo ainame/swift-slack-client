@@ -27,4 +27,8 @@ public struct Data: Codable, Hashable, Sendable {
         self.fileId = fileId
         self.sharedTs = sharedTs
     }
+    public enum CodingKeys: String, CodingKey {
+        case fileId = "file_id"
+        case sharedTs = "shared_ts"
+    }
 }

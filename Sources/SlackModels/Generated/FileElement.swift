@@ -657,4 +657,134 @@ public struct FileElement: Codable, Hashable, Sendable {
         self.username = username
         self.vtt = vtt
     }
+    public enum CodingKeys: String, CodingKey {
+        case altTxt = "alt_txt"
+        case appId = "app_id"
+        case appName = "app_name"
+        case botId = "bot_id"
+        case cc
+        case channelActionsCount = "channel_actions_count"
+        case channelActionsTs = "channel_actions_ts"
+        case channels
+        case commentsCount = "comments_count"
+        case convertedPdf = "converted_pdf"
+        case created
+        case deanimate
+        case deanimateGif = "deanimate_gif"
+        case displayAsBot = "display_as_bot"
+        case durationMs = "duration_ms"
+        case editLink = "edit_link"
+        case editable
+        case editor
+        case externalId = "external_id"
+        case externalType = "external_type"
+        case externalUrl = "external_url"
+        case fileAccess = "file_access"
+        case filetype
+        case from
+        case groups
+        case hasMore = "has_more"
+        case hasMoreShares = "has_more_shares"
+        case hasRichPreview = "has_rich_preview"
+        case headers
+        case hls
+        case hlsEmbed = "hls_embed"
+        case id
+        case imageExifRotation = "image_exif_rotation"
+        case ims
+        case initialComment = "initial_comment"
+        case isExternal = "is_external"
+        case isPublic = "is_public"
+        case isStarred = "is_starred"
+        case lastEditor = "last_editor"
+        case lines
+        case linesMore = "lines_more"
+        case mediaDisplayType = "media_display_type"
+        case mediaProgress = "media_progress"
+        case mimetype
+        case mode
+        case mp4
+        case mp4Low = "mp4_low"
+        case name
+        case nonOwnerEditable = "non_owner_editable"
+        case numStars = "num_stars"
+        case originalAttachmentCount = "original_attachment_count"
+        case originalH = "original_h"
+        case originalW = "original_w"
+        case permalink
+        case permalinkPublic = "permalink_public"
+        case pinnedTo = "pinned_to"
+        case pjpeg
+        case plainText = "plain_text"
+        case prettyType = "pretty_type"
+        case preview
+        case previewHighlight = "preview_highlight"
+        case previewIsTruncated = "preview_is_truncated"
+        case previewPlainText = "preview_plain_text"
+        case publicUrlShared = "public_url_shared"
+        case reactions
+        case saved
+        case sentToSelf = "sent_to_self"
+        case shares
+        case simplifiedHtml = "simplified_html"
+        case size
+        case sourceTeam = "source_team"
+        case subject
+        case subtype
+        case thumb1024 = "thumb_1024"
+        case thumb1024Gif = "thumb_1024_gif"
+        case thumb1024H = "thumb_1024_h"
+        case thumb1024W = "thumb_1024_w"
+        case thumb160 = "thumb_160"
+        case thumb160Gif = "thumb_160_gif"
+        case thumb160H = "thumb_160_h"
+        case thumb160W = "thumb_160_w"
+        case thumb360 = "thumb_360"
+        case thumb360Gif = "thumb_360_gif"
+        case thumb360H = "thumb_360_h"
+        case thumb360W = "thumb_360_w"
+        case thumb480 = "thumb_480"
+        case thumb480Gif = "thumb_480_gif"
+        case thumb480H = "thumb_480_h"
+        case thumb480W = "thumb_480_w"
+        case thumb64 = "thumb_64"
+        case thumb64Gif = "thumb_64_gif"
+        case thumb64H = "thumb_64_h"
+        case thumb64W = "thumb_64_w"
+        case thumb720 = "thumb_720"
+        case thumb720Gif = "thumb_720_gif"
+        case thumb720H = "thumb_720_h"
+        case thumb720W = "thumb_720_w"
+        case thumb80 = "thumb_80"
+        case thumb800 = "thumb_800"
+        case thumb800Gif = "thumb_800_gif"
+        case thumb800H = "thumb_800_h"
+        case thumb800W = "thumb_800_w"
+        case thumb80Gif = "thumb_80_gif"
+        case thumb80H = "thumb_80_h"
+        case thumb80W = "thumb_80_w"
+        case thumb960 = "thumb_960"
+        case thumb960Gif = "thumb_960_gif"
+        case thumb960H = "thumb_960_h"
+        case thumb960W = "thumb_960_w"
+        case thumbGif = "thumb_gif"
+        case thumbPdf = "thumb_pdf"
+        case thumbPdfH = "thumb_pdf_h"
+        case thumbPdfW = "thumb_pdf_w"
+        case thumbTiny = "thumb_tiny"
+        case thumbVideo = "thumb_video"
+        case thumbVideoH = "thumb_video_h"
+        case thumbVideoW = "thumb_video_w"
+        case timestamp
+        case title
+        case to
+        case transcription
+        case updated
+        case urlPrivate = "url_private"
+        case urlPrivateDownload = "url_private_download"
+        case user
+        case userTeam = "user_team"
+        case username
+        case vtt
+    }
 }

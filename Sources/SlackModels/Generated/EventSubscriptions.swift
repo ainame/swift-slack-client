@@ -32,4 +32,9 @@ public struct EventSubscriptions: Codable, Hashable, Sendable {
         self.requestUrl = requestUrl
         self.userEvents = userEvents
     }
+    public enum CodingKeys: String, CodingKey {
+        case botEvents = "bot_events"
+        case requestUrl = "request_url"
+        case userEvents = "user_events"
+    }
 }

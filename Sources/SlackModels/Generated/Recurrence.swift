@@ -27,4 +27,8 @@ public struct Recurrence: Codable, Hashable, Sendable {
         self.frequency = frequency
         self.weekdays = weekdays
     }
+    public enum CodingKeys: String, CodingKey {
+        case frequency
+        case weekdays
+    }
 }

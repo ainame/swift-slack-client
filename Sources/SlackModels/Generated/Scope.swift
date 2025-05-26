@@ -37,4 +37,10 @@ public struct Scope: Codable, Hashable, Sendable {
         self.name = name
         self.tokenType = tokenType
     }
+    public enum CodingKeys: String, CodingKey {
+        case description
+        case isSensitive = "is_sensitive"
+        case name
+        case tokenType = "token_type"
+    }
 }

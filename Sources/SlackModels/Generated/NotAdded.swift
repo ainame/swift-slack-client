@@ -27,4 +27,8 @@ public struct NotAdded: Codable, Hashable, Sendable {
         self.channelId = channelId
         self.errors = errors
     }
+    public enum CodingKeys: String, CodingKey {
+        case channelId = "channel_id"
+        case errors
+    }
 }

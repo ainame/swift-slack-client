@@ -47,4 +47,12 @@ public struct Section: Codable, Hashable, Sendable {
         self.sectionType = sectionType
         self.teamId = teamId
     }
+    public enum CodingKeys: String, CodingKey {
+        case id
+        case isHidden = "is_hidden"
+        case label
+        case order
+        case sectionType = "section_type"
+        case teamId = "team_id"
+    }
 }

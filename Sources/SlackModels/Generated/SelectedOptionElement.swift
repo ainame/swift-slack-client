@@ -27,4 +27,8 @@ public struct SelectedOptionElement: Codable, Hashable, Sendable {
         self.text = text
         self.value = value
     }
+    public enum CodingKeys: String, CodingKey {
+        case text
+        case value
+    }
 }

@@ -296,4 +296,61 @@ public struct Attachment: Codable, Hashable, Sendable {
         self.videoHtmlWidth = videoHtmlWidth
         self.videoUrl = videoUrl
     }
+    public enum CodingKeys: String, CodingKey {
+        case actions
+        case appId = "app_id"
+        case appUnfurlUrl = "app_unfurl_url"
+        case authorIcon = "author_icon"
+        case authorId = "author_id"
+        case authorLink = "author_link"
+        case authorName = "author_name"
+        case authorSubname = "author_subname"
+        case blocks
+        case botId = "bot_id"
+        case callbackId = "callback_id"
+        case channelId = "channel_id"
+        case channelName = "channel_name"
+        case channelTeam = "channel_team"
+        case color
+        case fallback
+        case fields
+        case filename
+        case files
+        case footer
+        case footerIcon = "footer_icon"
+        case fromUrl = "from_url"
+        case id
+        case imageBytes = "image_bytes"
+        case imageHeight = "image_height"
+        case imageUrl = "image_url"
+        case imageWidth = "image_width"
+        case indent
+        case isAppUnfurl = "is_app_unfurl"
+        case isMsgUnfurl = "is_msg_unfurl"
+        case isReplyUnfurl = "is_reply_unfurl"
+        case isThreadRootUnfurl = "is_thread_root_unfurl"
+        case metadata
+        case mimetype
+        case mrkdwnIn = "mrkdwn_in"
+        case msgSubtype = "msg_subtype"
+        case originalUrl = "original_url"
+        case pretext
+        case preview
+        case serviceIcon = "service_icon"
+        case serviceName = "service_name"
+        case serviceUrl = "service_url"
+        case size
+        case text
+        case thumbHeight = "thumb_height"
+        case thumbUrl = "thumb_url"
+        case thumbWidth = "thumb_width"
+        case title
+        case titleLink = "title_link"
+        case ts
+        case url
+        case videoHtml = "video_html"
+        case videoHtmlHeight = "video_html_height"
+        case videoHtmlWidth = "video_html_width"
+        case videoUrl = "video_url"
+    }
 }

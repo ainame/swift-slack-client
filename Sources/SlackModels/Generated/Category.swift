@@ -27,4 +27,8 @@ public struct Category: Codable, Hashable, Sendable {
         self.emojiNames = emojiNames
         self.name = name
     }
+    public enum CodingKeys: String, CodingKey {
+        case emojiNames = "emoji_names"
+        case name
+    }
 }

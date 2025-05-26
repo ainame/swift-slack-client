@@ -57,4 +57,14 @@ public struct Bot: Codable, Hashable, Sendable {
         self.teamId = teamId
         self.updated = updated
     }
+    public enum CodingKeys: String, CodingKey {
+        case appId = "app_id"
+        case deleted
+        case icons
+        case id
+        case isWorkflowBot = "is_workflow_bot"
+        case name
+        case teamId = "team_id"
+        case updated
+    }
 }

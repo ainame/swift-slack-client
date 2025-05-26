@@ -47,4 +47,12 @@ public struct Invite: Codable, Hashable, Sendable {
         self.inviterId = inviterId
         self.isBouncing = isBouncing
     }
+    public enum CodingKeys: String, CodingKey {
+        case dateCreated = "date_created"
+        case email
+        case id
+        case invitePreferences = "invite_preferences"
+        case inviterId = "inviter_id"
+        case isBouncing = "is_bouncing"
+    }
 }

@@ -37,4 +37,10 @@ public struct Saved: Codable, Hashable, Sendable {
         self.isArchived = isArchived
         self.state = state
     }
+    public enum CodingKeys: String, CodingKey {
+        case dateCompleted = "date_completed"
+        case dateDue = "date_due"
+        case isArchived = "is_archived"
+        case state
+    }
 }

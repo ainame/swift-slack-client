@@ -14,22 +14,27 @@ public struct CreationSource: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/CreationSource/reference_id`.
     public var referenceId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/CreationSource/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// - Remark: Generated from `#/components/schemas/CreationSource/workflow_function_id`.
     public var workflowFunctionId: Swift.String?
     /// Creates a new `CreationSource`.
     ///
     /// - Parameters:
     ///   - referenceId:
-    ///   - type:
+    ///   - _type:
     ///   - workflowFunctionId:
     public init(
         referenceId: Swift.String? = nil,
-        type: Swift.String? = nil,
+        _type: Swift.String? = nil,
         workflowFunctionId: Swift.String? = nil
     ) {
         self.referenceId = referenceId
-        self.type = type
+        self._type = _type
         self.workflowFunctionId = workflowFunctionId
+    }
+    public enum CodingKeys: String, CodingKey {
+        case referenceId = "reference_id"
+        case _type = "type"
+        case workflowFunctionId = "workflow_function_id"
     }
 }

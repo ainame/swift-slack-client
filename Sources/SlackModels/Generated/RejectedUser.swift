@@ -27,4 +27,8 @@ public struct RejectedUser: Codable, Hashable, Sendable {
         self.error = error
         self.id = id
     }
+    public enum CodingKeys: String, CodingKey {
+        case error
+        case id
+    }
 }

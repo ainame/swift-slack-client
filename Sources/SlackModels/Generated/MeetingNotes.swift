@@ -20,4 +20,7 @@ public struct MeetingNotes: Codable, Hashable, Sendable {
     public init(fileId: Swift.String? = nil) {
         self.fileId = fileId
     }
+    public enum CodingKeys: String, CodingKey {
+        case fileId = "file_id"
+    }
 }

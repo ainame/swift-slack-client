@@ -12,19 +12,23 @@ import struct Foundation.Date
 /// - Remark: Generated from `#/components/schemas/PostingRestrictedTo`.
 public struct PostingRestrictedTo: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/PostingRestrictedTo/type`.
-    public var type: [Swift.String]?
+    public var _type: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/PostingRestrictedTo/user`.
     public var user: [Swift.String]?
     /// Creates a new `PostingRestrictedTo`.
     ///
     /// - Parameters:
-    ///   - type:
+    ///   - _type:
     ///   - user:
     public init(
-        type: [Swift.String]? = nil,
+        _type: [Swift.String]? = nil,
         user: [Swift.String]? = nil
     ) {
-        self.type = type
+        self._type = _type
         self.user = user
+    }
+    public enum CodingKeys: String, CodingKey {
+        case _type = "type"
+        case user
     }
 }

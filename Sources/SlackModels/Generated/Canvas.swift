@@ -37,4 +37,10 @@ public struct Canvas: Codable, Hashable, Sendable {
         self.isMigrated = isMigrated
         self.quipThreadId = quipThreadId
     }
+    public enum CodingKeys: String, CodingKey {
+        case fileId = "file_id"
+        case isEmpty = "is_empty"
+        case isMigrated = "is_migrated"
+        case quipThreadId = "quip_thread_id"
+    }
 }

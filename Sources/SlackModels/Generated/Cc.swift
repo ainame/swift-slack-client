@@ -32,4 +32,9 @@ public struct Cc: Codable, Hashable, Sendable {
         self.name = name
         self.original = original
     }
+    public enum CodingKeys: String, CodingKey {
+        case address
+        case name
+        case original
+    }
 }

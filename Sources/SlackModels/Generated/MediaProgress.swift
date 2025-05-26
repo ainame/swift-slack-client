@@ -32,4 +32,9 @@ public struct MediaProgress: Codable, Hashable, Sendable {
         self.maxOffsetMs = maxOffsetMs
         self.offsetMs = offsetMs
     }
+    public enum CodingKeys: String, CodingKey {
+        case durationMs = "duration_ms"
+        case maxOffsetMs = "max_offset_ms"
+        case offsetMs = "offset_ms"
+    }
 }

@@ -27,4 +27,8 @@ public struct DeniedBy: Codable, Hashable, Sendable {
         self.actorId = actorId
         self.actorType = actorType
     }
+    public enum CodingKeys: String, CodingKey {
+        case actorId = "actor_id"
+        case actorType = "actor_type"
+    }
 }

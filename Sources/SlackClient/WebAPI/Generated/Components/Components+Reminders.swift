@@ -55,6 +55,14 @@ extension Components.Schemas {
             self.reminder = reminder
             self.responseMetadata = responseMetadata
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case reminder
+            case responseMetadata = "response_metadata"
+        }
     }
     /// - Remark: Generated from `#/components/schemas/RemindersCompleteResponse`.
     public struct RemindersCompleteResponse: Codable, Hashable, Sendable {
@@ -84,6 +92,12 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+        }
     }
     /// - Remark: Generated from `#/components/schemas/RemindersDeleteResponse`.
     public struct RemindersDeleteResponse: Codable, Hashable, Sendable {
@@ -112,6 +126,12 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse`.
@@ -147,6 +167,13 @@ extension Components.Schemas {
             self.provided = provided
             self.reminder = reminder
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case reminder
+        }
     }
     /// - Remark: Generated from `#/components/schemas/RemindersListResponse`.
     public struct RemindersListResponse: Codable, Hashable, Sendable {
@@ -180,6 +207,13 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.reminders = reminders
+        }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case reminders
         }
     }
 }

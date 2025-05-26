@@ -37,4 +37,10 @@ public struct Reaction: Codable, Hashable, Sendable {
         self.url = url
         self.users = users
     }
+    public enum CodingKeys: String, CodingKey {
+        case count
+        case name
+        case url
+        case users
+    }
 }

@@ -32,4 +32,9 @@ public struct Purpose: Codable, Hashable, Sendable {
         self.lastSet = lastSet
         self.value = value
     }
+    public enum CodingKeys: String, CodingKey {
+        case creator
+        case lastSet = "last_set"
+        case value
+    }
 }

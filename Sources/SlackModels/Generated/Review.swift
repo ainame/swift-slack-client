@@ -16,20 +16,25 @@ public struct Review: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Review/reviewing_team`.
     public var reviewingTeam: IngTeam?
     /// - Remark: Generated from `#/components/schemas/Review/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// Creates a new `Review`.
     ///
     /// - Parameters:
     ///   - dateReview:
     ///   - reviewingTeam:
-    ///   - type:
+    ///   - _type:
     public init(
         dateReview: Swift.Int? = nil,
         reviewingTeam: IngTeam? = nil,
-        type: Swift.String? = nil
+        _type: Swift.String? = nil
     ) {
         self.dateReview = dateReview
         self.reviewingTeam = reviewingTeam
-        self.type = type
+        self._type = _type
+    }
+    public enum CodingKeys: String, CodingKey {
+        case dateReview = "date_review"
+        case reviewingTeam = "reviewing_team"
+        case _type = "type"
     }
 }

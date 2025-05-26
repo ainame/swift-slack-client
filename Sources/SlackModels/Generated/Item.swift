@@ -22,7 +22,7 @@ public struct Item: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Item/message`.
     public var message: Message?
     /// - Remark: Generated from `#/components/schemas/Item/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// Creates a new `Item`.
     ///
     /// - Parameters:
@@ -31,20 +31,28 @@ public struct Item: Codable, Hashable, Sendable {
     ///   - dateCreate:
     ///   - file:
     ///   - message:
-    ///   - type:
+    ///   - _type:
     public init(
         channel: Swift.String? = nil,
         comment: Comment? = nil,
         dateCreate: Swift.Int? = nil,
         file: ItemFile? = nil,
         message: Message? = nil,
-        type: Swift.String? = nil
+        _type: Swift.String? = nil
     ) {
         self.channel = channel
         self.comment = comment
         self.dateCreate = dateCreate
         self.file = file
         self.message = message
-        self.type = type
+        self._type = _type
+    }
+    public enum CodingKeys: String, CodingKey {
+        case channel
+        case comment
+        case dateCreate = "date_create"
+        case file
+        case message
+        case _type = "type"
     }
 }

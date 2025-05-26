@@ -37,4 +37,10 @@ public struct ApprovedApp: Codable, Hashable, Sendable {
         self.lastResolvedBy = lastResolvedBy
         self.scopes = scopes
     }
+    public enum CodingKeys: String, CodingKey {
+        case app
+        case dateUpdated = "date_updated"
+        case lastResolvedBy = "last_resolved_by"
+        case scopes
+    }
 }

@@ -27,4 +27,8 @@ public struct ActionOptionGroup: Codable, Hashable, Sendable {
         self.options = options
         self.text = text
     }
+    public enum CodingKeys: String, CodingKey {
+        case options
+        case text
+    }
 }

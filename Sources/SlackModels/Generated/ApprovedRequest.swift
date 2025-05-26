@@ -32,4 +32,9 @@ public struct ApprovedRequest: Codable, Hashable, Sendable {
         self.invite = invite
         self.inviteRequest = inviteRequest
     }
+    public enum CodingKeys: String, CodingKey {
+        case approvedBy = "approved_by"
+        case invite
+        case inviteRequest = "invite_request"
+    }
 }

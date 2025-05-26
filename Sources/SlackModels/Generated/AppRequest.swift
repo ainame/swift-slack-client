@@ -62,4 +62,15 @@ public struct AppRequest: Codable, Hashable, Sendable {
         self.team = team
         self.user = user
     }
+    public enum CodingKeys: String, CodingKey {
+        case app
+        case dateCreated = "date_created"
+        case id
+        case isUserAppCollaborator = "is_user_app_collaborator"
+        case message
+        case previousResolution = "previous_resolution"
+        case scopes
+        case team
+        case user
+    }
 }

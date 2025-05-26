@@ -42,7 +42,7 @@ public struct Bookmark: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Bookmark/title`.
     public var title: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Bookmark/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// Creates a new `Bookmark`.
     ///
     /// - Parameters:
@@ -61,7 +61,7 @@ public struct Bookmark: Codable, Hashable, Sendable {
     ///   - rank:
     ///   - shortcutId:
     ///   - title:
-    ///   - type:
+    ///   - _type:
     public init(
         appActionId: Swift.String? = nil,
         appId: Swift.String? = nil,
@@ -78,7 +78,7 @@ public struct Bookmark: Codable, Hashable, Sendable {
         rank: Swift.String? = nil,
         shortcutId: Swift.String? = nil,
         title: Swift.String? = nil,
-        type: Swift.String? = nil
+        _type: Swift.String? = nil
     ) {
         self.appActionId = appActionId
         self.appId = appId
@@ -95,6 +95,24 @@ public struct Bookmark: Codable, Hashable, Sendable {
         self.rank = rank
         self.shortcutId = shortcutId
         self.title = title
-        self.type = type
+        self._type = _type
+    }
+    public enum CodingKeys: String, CodingKey {
+        case appActionId = "app_action_id"
+        case appId = "app_id"
+        case channelId = "channel_id"
+        case dateCreated = "date_created"
+        case dateUpdated = "date_updated"
+        case emoji
+        case entityId = "entity_id"
+        case iconUrl = "icon_url"
+        case id
+        case lastUpdatedByTeamId = "last_updated_by_team_id"
+        case lastUpdatedByUserId = "last_updated_by_user_id"
+        case link
+        case rank
+        case shortcutId = "shortcut_id"
+        case title
+        case _type = "type"
     }
 }

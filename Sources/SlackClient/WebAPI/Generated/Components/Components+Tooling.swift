@@ -80,6 +80,19 @@ extension Components.Schemas {
             self.token = token
             self.userId = userId
         }
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case exp
+            case iat
+            case needed
+            case ok
+            case provided
+            case refreshToken = "refresh_token"
+            case responseMetadata = "response_metadata"
+            case teamId = "team_id"
+            case token
+            case userId = "user_id"
+        }
     }
 }
 #endif

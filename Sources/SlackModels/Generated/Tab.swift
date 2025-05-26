@@ -20,7 +20,7 @@ public struct Tab: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Tab/label`.
     public var label: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Tab/type`.
-    public var type: Swift.String?
+    public var _type: Swift.String?
     /// Creates a new `Tab`.
     ///
     /// - Parameters:
@@ -28,18 +28,25 @@ public struct Tab: Codable, Hashable, Sendable {
     ///   - id:
     ///   - isDisabled:
     ///   - label:
-    ///   - type:
+    ///   - _type:
     public init(
         data: Data? = nil,
         id: Swift.String? = nil,
         isDisabled: Swift.Bool? = nil,
         label: Swift.String? = nil,
-        type: Swift.String? = nil
+        _type: Swift.String? = nil
     ) {
         self.data = data
         self.id = id
         self.isDisabled = isDisabled
         self.label = label
-        self.type = type
+        self._type = _type
+    }
+    public enum CodingKeys: String, CodingKey {
+        case data
+        case id
+        case isDisabled = "is_disabled"
+        case label
+        case _type = "type"
     }
 }
