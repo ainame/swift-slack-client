@@ -16,21 +16,13 @@ public struct InteractiveEnvelope: Decodable, Hashable, Sendable {
 
         switch type {
         case "block_actions":
-            let newContainer = try decoder.singleValueContainer()
-            let payload = try newContainer.decode(BlockActionsPaylaod.self)
-            self.body = .blockActions(payload)
+            self.body = .blockActions(try BlockActionsPaylaod(from: decoder))
         case "shortcut":
-            let newContainer = try decoder.singleValueContainer()
-            let payload = try newContainer.decode(GlobalShortcutPayload.self)
-            self.body = .shortcut(payload)
+            self.body = .shortcut(try GlobalShortcutPayload(from: decoder))
         case "view_submission":
-            let newContainer = try decoder.singleValueContainer()
-            let payload = try newContainer.decode(ViewSubmissionPayload.self)
-            self.body = .viewSubmission(payload)
+            self.body = .viewSubmission(try ViewSubmissionPayload(from: decoder))
         case "view_closed":
-            let newContainer = try decoder.singleValueContainer()
-            let payload = try newContainer.decode(ViewClosedPayload.self)
-            self.body = .viewClosed(payload)
+            self.body = .viewClosed(try ViewClosedPayload(from: decoder))
         default:
             self.body = .unsupported(type)
         }
