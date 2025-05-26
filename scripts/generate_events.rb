@@ -54,6 +54,7 @@ process_in_queue(normalized_events) do |path|
   end
 
   command = 'npx quicktype --lang schema' \
+            ' --alphabetize-properties' \
             ' --all-properties-optional' \
             " --top-level #{model_name}" \
             " #{path}" \

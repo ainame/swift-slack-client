@@ -105,25 +105,13 @@ class CodeTransformer
     lines.each do |line|
       stripped = line.strip
 
-      # Skip CodingKeys enum completely
+      # Keep CodingKeys enum completely
       if stripped.match(/^public enum CodingKeys:/)
-        skip_until_end = true
-        brace_depth = 0
+        # CodingKeys enum is important for proper key encoding/decoding
+        transformed_lines << line
         next
       end
 
-      if skip_until_end
-        brace_depth += line.count('{') - line.count('}')
-        if brace_depth < 0 && stripped == '}'
-          skip_until_end = false
-        end
-        next
-      end
-
-      # Transform _type property to type
-      if line.include?('_type')
-        line = line.gsub(/\b_type\b/, 'type')
-      end
 
       # Replace Components.Schemas.View with SlackBlockKit.ViewType (exact match only)
       if line.match(/\bComponents\.Schemas\.View\b/)
@@ -1355,10 +1343,6 @@ class CommonModelsSplitter
         line = line.gsub(/:\s*.*$/, ': Codable, Hashable, Sendable {')
       end
 
-      # Transform _type property to type
-      if line.include?('_type')
-        line = line.gsub(/\b_type\b/, 'type')
-      end
 
       # Replace Components.Schemas.View with ViewType from SlackBlockKit
       if line.match(/\bComponents\.Schemas\.View\b/)

@@ -152,21 +152,36 @@ class SlackModelsExtractor
     transformed_lines = []
     skip_until_end = false
     brace_depth = 0
+    in_coding_keys = false
 
     lines.each do |line|
       stripped = line.strip
 
-      # Skip CodingKeys enum
+      # Keep CodingKeys enum - it's essential for proper key encoding/decoding
       if stripped.match(/^public enum CodingKeys:/)
-        skip_until_end = true
-        brace_depth = 1
+        in_coding_keys = true
+        # Fix indentation for CodingKeys if needed
+        if line.start_with?('            ')  # 12 spaces - fix to 4 spaces
+          line = '    ' + line[12..-1]
+        end
+        transformed_lines << line
         next
       end
 
-      if skip_until_end
-        brace_depth += line.count('{') - line.count('}')
-        if brace_depth <= 0
-          skip_until_end = false
+      # Handle CodingKeys content
+      if in_coding_keys
+        # Fix indentation for all CodingKeys content
+        if line.start_with?('            ')  # 12 spaces - fix to 4 spaces
+          line = '    ' + line[12..-1]
+        elsif line.start_with?('        ')  # 8 spaces - fix to 4 spaces  
+          line = '    ' + line[8..-1]
+        end
+        
+        transformed_lines << line
+        
+        # Check if we're at the end of CodingKeys enum
+        if stripped == '}' && line.strip == '}'
+          in_coding_keys = false
         end
         next
       end
@@ -177,12 +192,13 @@ class SlackModelsExtractor
       end
 
       # Apply transformations using ContentTransformer
-      line = ContentTransformer.transform_type_properties(line)
       line = ContentTransformer.transform_blockkit_references(line)
       line = ContentTransformer.clean_remaining_schema_references(line)
 
       # Fix indentation: convert from enum nesting to top-level
-      if line.start_with?('        ')  # 8 spaces from nested enum
+      if line.start_with?('            ')  # 12 spaces from deeply nested structure
+        line = '    ' + line[12..-1]
+      elsif line.start_with?('        ')  # 8 spaces from nested enum
         line = line[8..-1]
       elsif line.start_with?('    ')   # 4 spaces
         line = line[4..-1]
