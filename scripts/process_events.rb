@@ -163,6 +163,12 @@ class EventsProcessor
       "        case \"#{type_value}\":\n            self = .#{case_name}(try #{event_name}(from: decoder))"
     end
 
+    # Generate switch cases for payload computed property
+    payload_cases = sorted_events.map do |event_name|
+      case_name = camel_case_to_lower_camel_case(event_name.gsub(/Event$/, ''))
+      "        case .#{case_name}(let event):\n            return event"
+    end
+
     file_content = <<~SWIFT
 #if Events
 import Foundation
@@ -180,6 +186,15 @@ public enum EventType: Decodable, Hashable, Sendable {
 #{switch_cases.join("\n")}
         default:
             self = .unsupported(type)
+        }
+    }
+
+    /// Returns the contained event as a SlackEvent
+    public var payload: (any SlackEvent)? {
+        switch self {
+#{payload_cases.join("\n")}
+        case .unsupported:
+            return nil
         }
     }
 

@@ -288,6 +288,196 @@ public enum EventType: Decodable, Hashable, Sendable {
         }
     }
 
+    /// Returns the contained event as a SlackEvent
+    public var payload: (any SlackEvent)? {
+        switch self {
+        case .appHomeOpened(let event):
+            return event
+        case .appMention(let event):
+            return event
+        case .appRateLimited(let event):
+            return event
+        case .appRequested(let event):
+            return event
+        case .appUninstalled(let event):
+            return event
+        case .callRejected(let event):
+            return event
+        case .channelArchive(let event):
+            return event
+        case .channelCreated(let event):
+            return event
+        case .channelDeleted(let event):
+            return event
+        case .channelHistoryChanged(let event):
+            return event
+        case .channelIdChanged(let event):
+            return event
+        case .channelLeft(let event):
+            return event
+        case .channelRename(let event):
+            return event
+        case .channelShared(let event):
+            return event
+        case .channelUnarchive(let event):
+            return event
+        case .channelUnshared(let event):
+            return event
+        case .dndUpdated(let event):
+            return event
+        case .dndUpdatedUser(let event):
+            return event
+        case .emailDomainChanged(let event):
+            return event
+        case .emojiChanged(let event):
+            return event
+        case .fileChange(let event):
+            return event
+        case .fileCreated(let event):
+            return event
+        case .fileDeleted(let event):
+            return event
+        case .filePublic(let event):
+            return event
+        case .fileShared(let event):
+            return event
+        case .fileUnshared(let event):
+            return event
+        case .goodbye(let event):
+            return event
+        case .gridMigrationFinished(let event):
+            return event
+        case .gridMigrationStarted(let event):
+            return event
+        case .groupArchive(let event):
+            return event
+        case .groupClose(let event):
+            return event
+        case .groupDeleted(let event):
+            return event
+        case .groupHistoryChanged(let event):
+            return event
+        case .groupLeft(let event):
+            return event
+        case .groupOpen(let event):
+            return event
+        case .groupRename(let event):
+            return event
+        case .groupUnarchive(let event):
+            return event
+        case .imClose(let event):
+            return event
+        case .imCreated(let event):
+            return event
+        case .imHistoryChanged(let event):
+            return event
+        case .imOpen(let event):
+            return event
+        case .inviteRequested(let event):
+            return event
+        case .linkShared(let event):
+            return event
+        case .memberJoinedChannel(let event):
+            return event
+        case .memberLeftChannel(let event):
+            return event
+        case .messageBot(let event):
+            return event
+        case .messageChanged(let event):
+            return event
+        case .messageChannelArchive(let event):
+            return event
+        case .messageChannelJoin(let event):
+            return event
+        case .messageChannelLeave(let event):
+            return event
+        case .messageChannelName(let event):
+            return event
+        case .messageChannelPostingPermissions(let event):
+            return event
+        case .messageChannelPurpose(let event):
+            return event
+        case .messageChannelTopic(let event):
+            return event
+        case .messageChannelUnarchive(let event):
+            return event
+        case .messageDeleted(let event):
+            return event
+        case .messageEkmAccessDenied(let event):
+            return event
+        case .message(let event):
+            return event
+        case .messageFileShare(let event):
+            return event
+        case .messageGroupTopic(let event):
+            return event
+        case .messageMe(let event):
+            return event
+        case .messageReplied(let event):
+            return event
+        case .messageThreadBroadcast(let event):
+            return event
+        case .pinAdded(let event):
+            return event
+        case .pinRemoved(let event):
+            return event
+        case .reactionAdded(let event):
+            return event
+        case .reactionRemoved(let event):
+            return event
+        case .scopeDenied(let event):
+            return event
+        case .scopeGranted(let event):
+            return event
+        case .starAdded(let event):
+            return event
+        case .starRemoved(let event):
+            return event
+        case .subteamCreated(let event):
+            return event
+        case .subteamMembersChanged(let event):
+            return event
+        case .subteamSelfAdded(let event):
+            return event
+        case .subteamSelfRemoved(let event):
+            return event
+        case .subteamUpdated(let event):
+            return event
+        case .teamAccessGranted(let event):
+            return event
+        case .teamAccessRevoked(let event):
+            return event
+        case .teamDomainChange(let event):
+            return event
+        case .teamJoin(let event):
+            return event
+        case .teamRename(let event):
+            return event
+        case .tokensRevoked(let event):
+            return event
+        case .userChange(let event):
+            return event
+        case .userHuddleChanged(let event):
+            return event
+        case .userProfileChanged(let event):
+            return event
+        case .userStatusChanged(let event):
+            return event
+        case .workflowDeleted(let event):
+            return event
+        case .workflowPublished(let event):
+            return event
+        case .workflowStepDeleted(let event):
+            return event
+        case .workflowStepExecute(let event):
+            return event
+        case .workflowUnpublished(let event):
+            return event
+        case .unsupported:
+            return nil
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case type
     }
