@@ -81,6 +81,7 @@ def generate_openapi_component(path, output_dir)
     puts "Found #{path} exists. Skip generating schema."
   else
     command = 'npx quicktype --lang schema' \
+              ' --alphabetize-properties' \
               ' --all-properties-optional' \
               " --top-level #{model_name}" \
               " #{path}" \

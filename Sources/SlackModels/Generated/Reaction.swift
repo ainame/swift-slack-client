@@ -11,30 +11,30 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Reaction`.
 public struct Reaction: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Reaction/name`.
-    public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Reaction/count`.
     public var count: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Reaction/users`.
-    public var users: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/Reaction/name`.
+    public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Reaction/url`.
     public var url: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Reaction/users`.
+    public var users: [Swift.String]?
     /// Creates a new `Reaction`.
     ///
     /// - Parameters:
-    ///   - name:
     ///   - count:
-    ///   - users:
+    ///   - name:
     ///   - url:
+    ///   - users:
     public init(
-        name: Swift.String? = nil,
         count: Swift.Int? = nil,
-        users: [Swift.String]? = nil,
-        url: Swift.String? = nil
+        name: Swift.String? = nil,
+        url: Swift.String? = nil,
+        users: [Swift.String]? = nil
     ) {
-        self.name = name
         self.count = count
-        self.users = users
+        self.name = name
         self.url = url
+        self.users = users
     }
 }

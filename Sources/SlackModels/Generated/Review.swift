@@ -11,25 +11,25 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Review`.
 public struct Review: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/Review/date_review`.
+    public var dateReview: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Review/reviewing_team`.
+    public var reviewingTeam: IngTeam?
     /// - Remark: Generated from `#/components/schemas/Review/type`.
     public var type: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Review/dateReview`.
-    public var dateReview: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Review/reviewingTeam`.
-    public var reviewingTeam: IngTeam?
     /// Creates a new `Review`.
     ///
     /// - Parameters:
-    ///   - type:
     ///   - dateReview:
     ///   - reviewingTeam:
+    ///   - type:
     public init(
-        type: Swift.String? = nil,
         dateReview: Swift.Int? = nil,
-        reviewingTeam: IngTeam? = nil
+        reviewingTeam: IngTeam? = nil,
+        type: Swift.String? = nil
     ) {
-        self.type = type
         self.dateReview = dateReview
         self.reviewingTeam = reviewingTeam
+        self.type = type
     }
 }

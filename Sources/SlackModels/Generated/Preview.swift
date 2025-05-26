@@ -11,35 +11,35 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Preview`.
 public struct Preview: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Preview/type`.
-    public var type: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Preview/title`.
-    public var title: Description?
+    /// - Remark: Generated from `#/components/schemas/Preview/can_remove`.
+    public var canRemove: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Preview/icon_url`.
+    public var iconUrl: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Preview/subtitle`.
     public var subtitle: Description?
-    /// - Remark: Generated from `#/components/schemas/Preview/canRemove`.
-    public var canRemove: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Preview/iconUrl`.
-    public var iconUrl: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Preview/title`.
+    public var title: Description?
+    /// - Remark: Generated from `#/components/schemas/Preview/type`.
+    public var type: Swift.String?
     /// Creates a new `Preview`.
     ///
     /// - Parameters:
-    ///   - type:
-    ///   - title:
-    ///   - subtitle:
     ///   - canRemove:
     ///   - iconUrl:
+    ///   - subtitle:
+    ///   - title:
+    ///   - type:
     public init(
-        type: Swift.String? = nil,
-        title: Description? = nil,
-        subtitle: Description? = nil,
         canRemove: Swift.Bool? = nil,
-        iconUrl: Swift.String? = nil
+        iconUrl: Swift.String? = nil,
+        subtitle: Description? = nil,
+        title: Description? = nil,
+        type: Swift.String? = nil
     ) {
-        self.type = type
-        self.title = title
-        self.subtitle = subtitle
         self.canRemove = canRemove
         self.iconUrl = iconUrl
+        self.subtitle = subtitle
+        self.title = title
+        self.type = type
     }
 }

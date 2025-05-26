@@ -15,36 +15,36 @@ public struct InvitingUser: Codable, Hashable, Sendable {
     public var id: Swift.String?
     /// - Remark: Generated from `#/components/schemas/InvitingUser/name`.
     public var name: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/InvitingUser/updated`.
-    public var updated: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/InvitingUser/profile`.
     public var profile: Profile?
-    /// - Remark: Generated from `#/components/schemas/InvitingUser/teamId`.
+    /// - Remark: Generated from `#/components/schemas/InvitingUser/team_id`.
     public var teamId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/InvitingUser/whoCanShareContactCard`.
+    /// - Remark: Generated from `#/components/schemas/InvitingUser/updated`.
+    public var updated: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/InvitingUser/who_can_share_contact_card`.
     public var whoCanShareContactCard: Swift.String?
     /// Creates a new `InvitingUser`.
     ///
     /// - Parameters:
     ///   - id:
     ///   - name:
-    ///   - updated:
     ///   - profile:
     ///   - teamId:
+    ///   - updated:
     ///   - whoCanShareContactCard:
     public init(
         id: Swift.String? = nil,
         name: Swift.String? = nil,
-        updated: Swift.Int? = nil,
         profile: Profile? = nil,
         teamId: Swift.String? = nil,
+        updated: Swift.Int? = nil,
         whoCanShareContactCard: Swift.String? = nil
     ) {
         self.id = id
         self.name = name
-        self.updated = updated
         self.profile = profile
         self.teamId = teamId
+        self.updated = updated
         self.whoCanShareContactCard = whoCanShareContactCard
     }
 }

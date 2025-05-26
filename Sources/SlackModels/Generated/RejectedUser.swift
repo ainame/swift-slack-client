@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/RejectedUser`.
 public struct RejectedUser: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/RejectedUser/id`.
-    public var id: Swift.String?
     /// - Remark: Generated from `#/components/schemas/RejectedUser/error`.
     public var error: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/RejectedUser/id`.
+    public var id: Swift.String?
     /// Creates a new `RejectedUser`.
     ///
     /// - Parameters:
-    ///   - id:
     ///   - error:
+    ///   - id:
     public init(
-        id: Swift.String? = nil,
-        error: Swift.String? = nil
+        error: Swift.String? = nil,
+        id: Swift.String? = nil
     ) {
-        self.id = id
         self.error = error
+        self.id = id
     }
 }

@@ -11,55 +11,55 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Reminder`.
 public struct Reminder: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Reminder/id`.
-    public var id: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Reminder/creator`.
-    public var creator: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Reminder/text`.
-    public var text: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Reminder/user`.
-    public var user: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Reminder/recurring`.
-    public var recurring: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Reminder/time`.
-    public var time: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Reminder/channel`.
     public var channel: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Reminder/complete_ts`.
+    public var completeTs: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Reminder/creator`.
+    public var creator: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Reminder/id`.
+    public var id: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Reminder/recurrence`.
     public var recurrence: Recurrence?
-    /// - Remark: Generated from `#/components/schemas/Reminder/completeTs`.
-    public var completeTs: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Reminder/recurring`.
+    public var recurring: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Reminder/text`.
+    public var text: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Reminder/time`.
+    public var time: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Reminder/user`.
+    public var user: Swift.String?
     /// Creates a new `Reminder`.
     ///
     /// - Parameters:
-    ///   - id:
-    ///   - creator:
-    ///   - text:
-    ///   - user:
-    ///   - recurring:
-    ///   - time:
     ///   - channel:
-    ///   - recurrence:
     ///   - completeTs:
+    ///   - creator:
+    ///   - id:
+    ///   - recurrence:
+    ///   - recurring:
+    ///   - text:
+    ///   - time:
+    ///   - user:
     public init(
-        id: Swift.String? = nil,
-        creator: Swift.String? = nil,
-        text: Swift.String? = nil,
-        user: Swift.String? = nil,
-        recurring: Swift.Bool? = nil,
-        time: Swift.Int? = nil,
         channel: Swift.String? = nil,
+        completeTs: Swift.Int? = nil,
+        creator: Swift.String? = nil,
+        id: Swift.String? = nil,
         recurrence: Recurrence? = nil,
-        completeTs: Swift.Int? = nil
+        recurring: Swift.Bool? = nil,
+        text: Swift.String? = nil,
+        time: Swift.Int? = nil,
+        user: Swift.String? = nil
     ) {
-        self.id = id
-        self.creator = creator
-        self.text = text
-        self.user = user
-        self.recurring = recurring
-        self.time = time
         self.channel = channel
-        self.recurrence = recurrence
         self.completeTs = completeTs
+        self.creator = creator
+        self.id = id
+        self.recurrence = recurrence
+        self.recurring = recurring
+        self.text = text
+        self.time = time
+        self.user = user
     }
 }

@@ -19,167 +19,167 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/RemindersAddResponse`.
     public struct RemindersAddResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/reminder`.
-        public var reminder: SlackModels.Reminder?
         /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/reminder`.
+        public var reminder: SlackModels.Reminder?
+        /// - Remark: Generated from `#/components/schemas/RemindersAddResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `RemindersAddResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - reminder:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - reminder:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
-            reminder: SlackModels.Reminder? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
+            reminder: SlackModels.Reminder? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
-            self.reminder = reminder
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.reminder = reminder
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/RemindersCompleteResponse`.
     public struct RemindersCompleteResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/RemindersCompleteResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/RemindersCompleteResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/RemindersCompleteResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/RemindersCompleteResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/RemindersCompleteResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `RemindersCompleteResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/RemindersDeleteResponse`.
     public struct RemindersDeleteResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/RemindersDeleteResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/RemindersDeleteResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/RemindersDeleteResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/RemindersDeleteResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/RemindersDeleteResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `RemindersDeleteResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse`.
     public struct RemindersInfoResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse/reminder`.
-        public var reminder: SlackModels.Reminder?
         /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/RemindersInfoResponse/reminder`.
+        public var reminder: SlackModels.Reminder?
         /// Creates a new `RemindersInfoResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - reminder:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - reminder:
         public init(
-            ok: Swift.Bool,
-            reminder: SlackModels.Reminder? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            reminder: SlackModels.Reminder? = nil
         ) {
-            self.ok = ok
-            self.reminder = reminder
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.reminder = reminder
         }
     }
     /// - Remark: Generated from `#/components/schemas/RemindersListResponse`.
     public struct RemindersListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/RemindersListResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/RemindersListResponse/reminders`.
-        public var reminders: [SlackModels.Reminder]?
         /// - Remark: Generated from `#/components/schemas/RemindersListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/RemindersListResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/RemindersListResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/RemindersListResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/RemindersListResponse/reminders`.
+        public var reminders: [SlackModels.Reminder]?
         /// Creates a new `RemindersListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - reminders:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - reminders:
         public init(
-            ok: Swift.Bool,
-            reminders: [SlackModels.Reminder]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            reminders: [SlackModels.Reminder]? = nil
         ) {
-            self.ok = ok
-            self.reminders = reminders
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.reminders = reminders
         }
     }
 }

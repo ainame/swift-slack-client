@@ -6,6 +6,7 @@ import SlackBlockKit
 #endif
 
 public struct MessageThreadBroadcastEvent: SlackEvent {
+    public var clientMsgId: Swift.String?
     public var type: Swift.String?
     public var subtype: Swift.String?
     public var channel: Swift.String?
@@ -15,7 +16,6 @@ public struct MessageThreadBroadcastEvent: SlackEvent {
     public var blocks: [BlockType]?
     public var attachments: [SlackModels.Attachment]?
     public var ts: Swift.String?
-    public var clientMsgId: Swift.String?
     public var threadTs: Swift.String?
     public var eventTs: Swift.String?
     public var channelType: Swift.String?

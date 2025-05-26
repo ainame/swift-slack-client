@@ -11,25 +11,25 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/MediaProgress`.
 public struct MediaProgress: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/MediaProgress/offsetMs`.
-    public var offsetMs: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/MediaProgress/maxOffsetMs`.
-    public var maxOffsetMs: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/MediaProgress/durationMs`.
+    /// - Remark: Generated from `#/components/schemas/MediaProgress/duration_ms`.
     public var durationMs: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/MediaProgress/max_offset_ms`.
+    public var maxOffsetMs: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/MediaProgress/offset_ms`.
+    public var offsetMs: Swift.Int?
     /// Creates a new `MediaProgress`.
     ///
     /// - Parameters:
-    ///   - offsetMs:
-    ///   - maxOffsetMs:
     ///   - durationMs:
+    ///   - maxOffsetMs:
+    ///   - offsetMs:
     public init(
-        offsetMs: Swift.Int? = nil,
+        durationMs: Swift.Int? = nil,
         maxOffsetMs: Swift.Int? = nil,
-        durationMs: Swift.Int? = nil
+        offsetMs: Swift.Int? = nil
     ) {
-        self.offsetMs = offsetMs
-        self.maxOffsetMs = maxOffsetMs
         self.durationMs = durationMs
+        self.maxOffsetMs = maxOffsetMs
+        self.offsetMs = offsetMs
     }
 }

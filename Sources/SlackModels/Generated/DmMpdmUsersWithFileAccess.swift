@@ -13,7 +13,7 @@ import struct Foundation.Date
 public struct DmMpdmUsersWithFileAccess: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/DmMpdmUsersWithFileAccess/access`.
     public var access: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/DmMpdmUsersWithFileAccess/userId`.
+    /// - Remark: Generated from `#/components/schemas/DmMpdmUsersWithFileAccess/user_id`.
     public var userId: Swift.String?
     /// Creates a new `DmMpdmUsersWithFileAccess`.
     ///

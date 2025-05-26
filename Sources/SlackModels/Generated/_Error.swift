@@ -11,25 +11,25 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Error`.
 public struct _Error: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Error/ok`.
-    public var ok: Swift.Bool
     /// - Remark: Generated from `#/components/schemas/Error/error`.
     public var error: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Error/ok`.
+    public var ok: Swift.Bool
     /// - Remark: Generated from `#/components/schemas/Error/user`.
     public var user: Swift.String?
     /// Creates a new `_Error`.
     ///
     /// - Parameters:
-    ///   - ok:
     ///   - error:
+    ///   - ok:
     ///   - user:
     public init(
-        ok: Swift.Bool,
         error: Swift.String? = nil,
+        ok: Swift.Bool,
         user: Swift.String? = nil
     ) {
-        self.ok = ok
         self.error = error
+        self.ok = ok
         self.user = user
     }
 }

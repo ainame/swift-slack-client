@@ -11,40 +11,40 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/AuthedUser`.
 public struct AuthedUser: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/AuthedUser/access_token`.
+    public var accessToken: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/AuthedUser/expires_in`.
+    public var expiresIn: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/AuthedUser/id`.
     public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/AuthedUser/refresh_token`.
+    public var refreshToken: Swift.String?
     /// - Remark: Generated from `#/components/schemas/AuthedUser/scope`.
     public var scope: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/AuthedUser/tokenType`.
+    /// - Remark: Generated from `#/components/schemas/AuthedUser/token_type`.
     public var tokenType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/AuthedUser/accessToken`.
-    public var accessToken: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/AuthedUser/refreshToken`.
-    public var refreshToken: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/AuthedUser/expiresIn`.
-    public var expiresIn: Swift.Int?
     /// Creates a new `AuthedUser`.
     ///
     /// - Parameters:
+    ///   - accessToken:
+    ///   - expiresIn:
     ///   - id:
+    ///   - refreshToken:
     ///   - scope:
     ///   - tokenType:
-    ///   - accessToken:
-    ///   - refreshToken:
-    ///   - expiresIn:
     public init(
-        id: Swift.String? = nil,
-        scope: Swift.String? = nil,
-        tokenType: Swift.String? = nil,
         accessToken: Swift.String? = nil,
+        expiresIn: Swift.Int? = nil,
+        id: Swift.String? = nil,
         refreshToken: Swift.String? = nil,
-        expiresIn: Swift.Int? = nil
+        scope: Swift.String? = nil,
+        tokenType: Swift.String? = nil
     ) {
+        self.accessToken = accessToken
+        self.expiresIn = expiresIn
         self.id = id
+        self.refreshToken = refreshToken
         self.scope = scope
         self.tokenType = tokenType
-        self.accessToken = accessToken
-        self.refreshToken = refreshToken
-        self.expiresIn = expiresIn
     }
 }

@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Options`.
 public struct Options: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Options/isScim`.
-    public var isScim: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Options/isProtected`.
+    /// - Remark: Generated from `#/components/schemas/Options/is_protected`.
     public var isProtected: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Options/is_scim`.
+    public var isScim: Swift.Bool?
     /// Creates a new `Options`.
     ///
     /// - Parameters:
-    ///   - isScim:
     ///   - isProtected:
+    ///   - isScim:
     public init(
-        isScim: Swift.Bool? = nil,
-        isProtected: Swift.Bool? = nil
+        isProtected: Swift.Bool? = nil,
+        isScim: Swift.Bool? = nil
     ) {
-        self.isScim = isScim
         self.isProtected = isProtected
+        self.isScim = isScim
     }
 }

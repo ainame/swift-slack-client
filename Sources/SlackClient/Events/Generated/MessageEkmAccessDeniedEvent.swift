@@ -14,8 +14,8 @@ public struct MessageEkmAccessDeniedEvent: SlackEvent {
     public var text: Swift.String?
     public var blocks: [BlockType]?
     public var attachments: [SlackModels.Attachment]?
-    public var ts: Swift.String?
     public var eventTs: Swift.String?
+    public var ts: Swift.String?
     public var channelType: Swift.String?
 }
 #endif

@@ -13,7 +13,7 @@ import struct Foundation.Date
 public struct UsergroupClude: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/UsergroupClude/id`.
     public var id: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/UsergroupClude/teamId`.
+    /// - Remark: Generated from `#/components/schemas/UsergroupClude/team_id`.
     public var teamId: Swift.String?
     /// Creates a new `UsergroupClude`.
     ///

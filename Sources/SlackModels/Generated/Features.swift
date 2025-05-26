@@ -11,34 +11,34 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Features`.
 public struct Features: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/Features/app_home`.
+    public var appHome: AppHome?
+    /// - Remark: Generated from `#/components/schemas/Features/bot_user`.
+    public var botUser: BotUser?
     /// - Remark: Generated from `#/components/schemas/Features/shortcuts`.
     public var shortcuts: [Shortcut]?
-    /// - Remark: Generated from `#/components/schemas/Features/appHome`.
-    public var appHome: AppHome?
-    /// - Remark: Generated from `#/components/schemas/Features/botUser`.
-    public var botUser: BotUser?
-    /// - Remark: Generated from `#/components/schemas/Features/slashCommands`.
+    /// - Remark: Generated from `#/components/schemas/Features/slash_commands`.
     public var slashCommands: [SlashCommand]?
-    /// - Remark: Generated from `#/components/schemas/Features/unfurlDomains`.
+    /// - Remark: Generated from `#/components/schemas/Features/unfurl_domains`.
     public var unfurlDomains: [Swift.String]?
     /// Creates a new `Features`.
     ///
     /// - Parameters:
-    ///   - shortcuts:
     ///   - appHome:
     ///   - botUser:
+    ///   - shortcuts:
     ///   - slashCommands:
     ///   - unfurlDomains:
     public init(
-        shortcuts: [Shortcut]? = nil,
         appHome: AppHome? = nil,
         botUser: BotUser? = nil,
+        shortcuts: [Shortcut]? = nil,
         slashCommands: [SlashCommand]? = nil,
         unfurlDomains: [Swift.String]? = nil
     ) {
-        self.shortcuts = shortcuts
         self.appHome = appHome
         self.botUser = botUser
+        self.shortcuts = shortcuts
         self.slashCommands = slashCommands
         self.unfurlDomains = unfurlDomains
     }

@@ -11,50 +11,50 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/AcceptScInvites`.
 public struct AcceptScInvites: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/AcceptScInvites/type`.
-    public var type: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/AcceptScInvites/accept_in_workspace_ids`.
+    public var acceptInWorkspaceIds: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/AcceptScInvites/accept_private`.
+    public var acceptPrivate: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/AcceptScInvites/actor`.
     public var actor: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/AcceptScInvites/date_update`.
+    public var dateUpdate: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/AcceptScInvites/invalid_workspace_ids`.
+    public var invalidWorkspaceIds: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/AcceptScInvites/source`.
     public var source: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/AcceptScInvites/acceptInWorkspaceIds`.
-    public var acceptInWorkspaceIds: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/AcceptScInvites/invalidWorkspaceIds`.
-    public var invalidWorkspaceIds: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/AcceptScInvites/useAllowedWorkspaces`.
+    /// - Remark: Generated from `#/components/schemas/AcceptScInvites/type`.
+    public var type: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/AcceptScInvites/use_allowed_workspaces`.
     public var useAllowedWorkspaces: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/AcceptScInvites/acceptPrivate`.
-    public var acceptPrivate: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/AcceptScInvites/dateUpdate`.
-    public var dateUpdate: Swift.Int?
     /// Creates a new `AcceptScInvites`.
     ///
     /// - Parameters:
-    ///   - type:
-    ///   - actor:
-    ///   - source:
     ///   - acceptInWorkspaceIds:
-    ///   - invalidWorkspaceIds:
-    ///   - useAllowedWorkspaces:
     ///   - acceptPrivate:
+    ///   - actor:
     ///   - dateUpdate:
+    ///   - invalidWorkspaceIds:
+    ///   - source:
+    ///   - type:
+    ///   - useAllowedWorkspaces:
     public init(
-        type: Swift.String? = nil,
-        actor: Swift.String? = nil,
-        source: Swift.String? = nil,
         acceptInWorkspaceIds: [Swift.String]? = nil,
-        invalidWorkspaceIds: [Swift.String]? = nil,
-        useAllowedWorkspaces: Swift.Bool? = nil,
         acceptPrivate: Swift.Bool? = nil,
-        dateUpdate: Swift.Int? = nil
+        actor: Swift.String? = nil,
+        dateUpdate: Swift.Int? = nil,
+        invalidWorkspaceIds: [Swift.String]? = nil,
+        source: Swift.String? = nil,
+        type: Swift.String? = nil,
+        useAllowedWorkspaces: Swift.Bool? = nil
     ) {
-        self.type = type
-        self.actor = actor
-        self.source = source
         self.acceptInWorkspaceIds = acceptInWorkspaceIds
-        self.invalidWorkspaceIds = invalidWorkspaceIds
-        self.useAllowedWorkspaces = useAllowedWorkspaces
         self.acceptPrivate = acceptPrivate
+        self.actor = actor
         self.dateUpdate = dateUpdate
+        self.invalidWorkspaceIds = invalidWorkspaceIds
+        self.source = source
+        self.type = type
+        self.useAllowedWorkspaces = useAllowedWorkspaces
     }
 }

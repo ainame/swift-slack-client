@@ -15,59 +15,59 @@ import struct Foundation.Date
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/FunctionsCompleteErrorResponse`.
     public struct FunctionsCompleteErrorResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/FunctionsCompleteErrorResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FunctionsCompleteErrorResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FunctionsCompleteErrorResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/FunctionsCompleteErrorResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FunctionsCompleteErrorResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `FunctionsCompleteErrorResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/FunctionsCompleteSuccessResponse`.
     public struct FunctionsCompleteSuccessResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/FunctionsCompleteSuccessResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FunctionsCompleteSuccessResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FunctionsCompleteSuccessResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/FunctionsCompleteSuccessResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/FunctionsCompleteSuccessResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `FunctionsCompleteSuccessResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }

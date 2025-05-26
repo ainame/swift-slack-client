@@ -15,31 +15,31 @@ public struct SlashCommand: Codable, Hashable, Sendable {
     public var command: Swift.String?
     /// - Remark: Generated from `#/components/schemas/SlashCommand/description`.
     public var description: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/SlashCommand/should_escape`.
+    public var shouldEscape: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/SlashCommand/url`.
     public var url: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/SlashCommand/usageHint`.
+    /// - Remark: Generated from `#/components/schemas/SlashCommand/usage_hint`.
     public var usageHint: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/SlashCommand/shouldEscape`.
-    public var shouldEscape: Swift.Bool?
     /// Creates a new `SlashCommand`.
     ///
     /// - Parameters:
     ///   - command:
     ///   - description:
+    ///   - shouldEscape:
     ///   - url:
     ///   - usageHint:
-    ///   - shouldEscape:
     public init(
         command: Swift.String? = nil,
         description: Swift.String? = nil,
+        shouldEscape: Swift.Bool? = nil,
         url: Swift.String? = nil,
-        usageHint: Swift.String? = nil,
-        shouldEscape: Swift.Bool? = nil
+        usageHint: Swift.String? = nil
     ) {
         self.command = command
         self.description = description
+        self.shouldEscape = shouldEscape
         self.url = url
         self.usageHint = usageHint
-        self.shouldEscape = shouldEscape
     }
 }

@@ -15,285 +15,285 @@ import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Attachment`.
 public struct Attachment: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Attachment/fallback`.
-    public var fallback: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/color`.
-    public var color: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/pretext`.
-    public var pretext: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/id`.
-    public var id: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Attachment/indent`.
-    public var indent: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Attachment/title`.
-    public var title: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/text`.
-    public var text: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/fields`.
-    public var fields: [Field]?
-    /// - Remark: Generated from `#/components/schemas/Attachment/footer`.
-    public var footer: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/ts`.
-    public var ts: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Attachment/actions`.
     public var actions: [Action]?
+    /// - Remark: Generated from `#/components/schemas/Attachment/app_id`.
+    public var appId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/app_unfurl_url`.
+    public var appUnfurlUrl: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/author_icon`.
+    public var authorIcon: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/author_id`.
+    public var authorId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/author_link`.
+    public var authorLink: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/author_name`.
+    public var authorName: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/author_subname`.
+    public var authorSubname: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Attachment/blocks`.
     public var blocks: [BlockType]?
-    /// - Remark: Generated from `#/components/schemas/Attachment/preview`.
-    public var preview: Preview?
-    /// - Remark: Generated from `#/components/schemas/Attachment/files`.
-    public var files: [FileElement]?
+    /// - Remark: Generated from `#/components/schemas/Attachment/bot_id`.
+    public var botId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/callback_id`.
+    public var callbackId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/channel_id`.
+    public var channelId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/channel_name`.
+    public var channelName: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/channel_team`.
+    public var channelTeam: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/color`.
+    public var color: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/fallback`.
+    public var fallback: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/fields`.
+    public var fields: [Field]?
     /// - Remark: Generated from `#/components/schemas/Attachment/filename`.
     public var filename: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/size`.
-    public var size: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Attachment/mimetype`.
-    public var mimetype: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/url`.
-    public var url: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/files`.
+    public var files: [FileElement]?
+    /// - Remark: Generated from `#/components/schemas/Attachment/footer`.
+    public var footer: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/footer_icon`.
+    public var footerIcon: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/from_url`.
+    public var fromUrl: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/id`.
+    public var id: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Attachment/image_bytes`.
+    public var imageBytes: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Attachment/image_height`.
+    public var imageHeight: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Attachment/image_url`.
+    public var imageUrl: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/image_width`.
+    public var imageWidth: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Attachment/indent`.
+    public var indent: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Attachment/is_app_unfurl`.
+    public var isAppUnfurl: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Attachment/is_msg_unfurl`.
+    public var isMsgUnfurl: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Attachment/is_reply_unfurl`.
+    public var isReplyUnfurl: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Attachment/is_thread_root_unfurl`.
+    public var isThreadRootUnfurl: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Attachment/metadata`.
     public var metadata: Metadata?
-    /// - Remark: Generated from `#/components/schemas/Attachment/msgSubtype`.
-    public var msgSubtype: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/callbackId`.
-    public var callbackId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/serviceUrl`.
-    public var serviceUrl: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/serviceName`.
-    public var serviceName: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/serviceIcon`.
-    public var serviceIcon: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/authorId`.
-    public var authorId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/authorName`.
-    public var authorName: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/authorLink`.
-    public var authorLink: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/authorIcon`.
-    public var authorIcon: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/fromUrl`.
-    public var fromUrl: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/originalUrl`.
-    public var originalUrl: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/authorSubname`.
-    public var authorSubname: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/channelId`.
-    public var channelId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/channelName`.
-    public var channelName: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/channelTeam`.
-    public var channelTeam: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/appId`.
-    public var appId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/botId`.
-    public var botId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/isMsgUnfurl`.
-    public var isMsgUnfurl: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Attachment/isReplyUnfurl`.
-    public var isReplyUnfurl: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Attachment/isThreadRootUnfurl`.
-    public var isThreadRootUnfurl: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Attachment/isAppUnfurl`.
-    public var isAppUnfurl: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Attachment/appUnfurlUrl`.
-    public var appUnfurlUrl: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/titleLink`.
-    public var titleLink: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/imageUrl`.
-    public var imageUrl: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/imageWidth`.
-    public var imageWidth: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Attachment/imageHeight`.
-    public var imageHeight: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Attachment/imageBytes`.
-    public var imageBytes: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Attachment/thumbUrl`.
-    public var thumbUrl: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/thumbWidth`.
-    public var thumbWidth: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Attachment/thumbHeight`.
-    public var thumbHeight: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Attachment/videoUrl`.
-    public var videoUrl: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/videoHtml`.
-    public var videoHtml: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/videoHtmlWidth`.
-    public var videoHtmlWidth: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Attachment/videoHtmlHeight`.
-    public var videoHtmlHeight: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Attachment/footerIcon`.
-    public var footerIcon: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Attachment/mrkdwnIn`.
+    /// - Remark: Generated from `#/components/schemas/Attachment/mimetype`.
+    public var mimetype: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/mrkdwn_in`.
     public var mrkdwnIn: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/Attachment/msg_subtype`.
+    public var msgSubtype: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/original_url`.
+    public var originalUrl: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/pretext`.
+    public var pretext: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/preview`.
+    public var preview: Preview?
+    /// - Remark: Generated from `#/components/schemas/Attachment/service_icon`.
+    public var serviceIcon: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/service_name`.
+    public var serviceName: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/service_url`.
+    public var serviceUrl: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/size`.
+    public var size: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Attachment/text`.
+    public var text: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/thumb_height`.
+    public var thumbHeight: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Attachment/thumb_url`.
+    public var thumbUrl: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/thumb_width`.
+    public var thumbWidth: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Attachment/title`.
+    public var title: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/title_link`.
+    public var titleLink: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/ts`.
+    public var ts: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/url`.
+    public var url: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/video_html`.
+    public var videoHtml: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Attachment/video_html_height`.
+    public var videoHtmlHeight: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Attachment/video_html_width`.
+    public var videoHtmlWidth: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Attachment/video_url`.
+    public var videoUrl: Swift.String?
     /// Creates a new `Attachment`.
     ///
     /// - Parameters:
-    ///   - fallback:
-    ///   - color:
-    ///   - pretext:
-    ///   - id:
-    ///   - indent:
-    ///   - title:
-    ///   - text:
-    ///   - fields:
-    ///   - footer:
-    ///   - ts:
     ///   - actions:
-    ///   - blocks:
-    ///   - preview:
-    ///   - files:
-    ///   - filename:
-    ///   - size:
-    ///   - mimetype:
-    ///   - url:
-    ///   - metadata:
-    ///   - msgSubtype:
-    ///   - callbackId:
-    ///   - serviceUrl:
-    ///   - serviceName:
-    ///   - serviceIcon:
-    ///   - authorId:
-    ///   - authorName:
-    ///   - authorLink:
+    ///   - appId:
+    ///   - appUnfurlUrl:
     ///   - authorIcon:
-    ///   - fromUrl:
-    ///   - originalUrl:
+    ///   - authorId:
+    ///   - authorLink:
+    ///   - authorName:
     ///   - authorSubname:
+    ///   - blocks:
+    ///   - botId:
+    ///   - callbackId:
     ///   - channelId:
     ///   - channelName:
     ///   - channelTeam:
-    ///   - appId:
-    ///   - botId:
+    ///   - color:
+    ///   - fallback:
+    ///   - fields:
+    ///   - filename:
+    ///   - files:
+    ///   - footer:
+    ///   - footerIcon:
+    ///   - fromUrl:
+    ///   - id:
+    ///   - imageBytes:
+    ///   - imageHeight:
+    ///   - imageUrl:
+    ///   - imageWidth:
+    ///   - indent:
+    ///   - isAppUnfurl:
     ///   - isMsgUnfurl:
     ///   - isReplyUnfurl:
     ///   - isThreadRootUnfurl:
-    ///   - isAppUnfurl:
-    ///   - appUnfurlUrl:
-    ///   - titleLink:
-    ///   - imageUrl:
-    ///   - imageWidth:
-    ///   - imageHeight:
-    ///   - imageBytes:
+    ///   - metadata:
+    ///   - mimetype:
+    ///   - mrkdwnIn:
+    ///   - msgSubtype:
+    ///   - originalUrl:
+    ///   - pretext:
+    ///   - preview:
+    ///   - serviceIcon:
+    ///   - serviceName:
+    ///   - serviceUrl:
+    ///   - size:
+    ///   - text:
+    ///   - thumbHeight:
     ///   - thumbUrl:
     ///   - thumbWidth:
-    ///   - thumbHeight:
-    ///   - videoUrl:
+    ///   - title:
+    ///   - titleLink:
+    ///   - ts:
+    ///   - url:
     ///   - videoHtml:
-    ///   - videoHtmlWidth:
     ///   - videoHtmlHeight:
-    ///   - footerIcon:
-    ///   - mrkdwnIn:
+    ///   - videoHtmlWidth:
+    ///   - videoUrl:
     public init(
-        fallback: Swift.String? = nil,
-        color: Swift.String? = nil,
-        pretext: Swift.String? = nil,
-        id: Swift.Int? = nil,
-        indent: Swift.Bool? = nil,
-        title: Swift.String? = nil,
-        text: Swift.String? = nil,
-        fields: [Field]? = nil,
-        footer: Swift.String? = nil,
-        ts: Swift.String? = nil,
         actions: [Action]? = nil,
-        blocks: [BlockType]? = nil,
-        preview: Preview? = nil,
-        files: [FileElement]? = nil,
-        filename: Swift.String? = nil,
-        size: Swift.Int? = nil,
-        mimetype: Swift.String? = nil,
-        url: Swift.String? = nil,
-        metadata: Metadata? = nil,
-        msgSubtype: Swift.String? = nil,
-        callbackId: Swift.String? = nil,
-        serviceUrl: Swift.String? = nil,
-        serviceName: Swift.String? = nil,
-        serviceIcon: Swift.String? = nil,
-        authorId: Swift.String? = nil,
-        authorName: Swift.String? = nil,
-        authorLink: Swift.String? = nil,
+        appId: Swift.String? = nil,
+        appUnfurlUrl: Swift.String? = nil,
         authorIcon: Swift.String? = nil,
-        fromUrl: Swift.String? = nil,
-        originalUrl: Swift.String? = nil,
+        authorId: Swift.String? = nil,
+        authorLink: Swift.String? = nil,
+        authorName: Swift.String? = nil,
         authorSubname: Swift.String? = nil,
+        blocks: [BlockType]? = nil,
+        botId: Swift.String? = nil,
+        callbackId: Swift.String? = nil,
         channelId: Swift.String? = nil,
         channelName: Swift.String? = nil,
         channelTeam: Swift.String? = nil,
-        appId: Swift.String? = nil,
-        botId: Swift.String? = nil,
+        color: Swift.String? = nil,
+        fallback: Swift.String? = nil,
+        fields: [Field]? = nil,
+        filename: Swift.String? = nil,
+        files: [FileElement]? = nil,
+        footer: Swift.String? = nil,
+        footerIcon: Swift.String? = nil,
+        fromUrl: Swift.String? = nil,
+        id: Swift.Int? = nil,
+        imageBytes: Swift.Int? = nil,
+        imageHeight: Swift.Int? = nil,
+        imageUrl: Swift.String? = nil,
+        imageWidth: Swift.Int? = nil,
+        indent: Swift.Bool? = nil,
+        isAppUnfurl: Swift.Bool? = nil,
         isMsgUnfurl: Swift.Bool? = nil,
         isReplyUnfurl: Swift.Bool? = nil,
         isThreadRootUnfurl: Swift.Bool? = nil,
-        isAppUnfurl: Swift.Bool? = nil,
-        appUnfurlUrl: Swift.String? = nil,
-        titleLink: Swift.String? = nil,
-        imageUrl: Swift.String? = nil,
-        imageWidth: Swift.Int? = nil,
-        imageHeight: Swift.Int? = nil,
-        imageBytes: Swift.Int? = nil,
+        metadata: Metadata? = nil,
+        mimetype: Swift.String? = nil,
+        mrkdwnIn: [Swift.String]? = nil,
+        msgSubtype: Swift.String? = nil,
+        originalUrl: Swift.String? = nil,
+        pretext: Swift.String? = nil,
+        preview: Preview? = nil,
+        serviceIcon: Swift.String? = nil,
+        serviceName: Swift.String? = nil,
+        serviceUrl: Swift.String? = nil,
+        size: Swift.Int? = nil,
+        text: Swift.String? = nil,
+        thumbHeight: Swift.Int? = nil,
         thumbUrl: Swift.String? = nil,
         thumbWidth: Swift.Int? = nil,
-        thumbHeight: Swift.Int? = nil,
-        videoUrl: Swift.String? = nil,
+        title: Swift.String? = nil,
+        titleLink: Swift.String? = nil,
+        ts: Swift.String? = nil,
+        url: Swift.String? = nil,
         videoHtml: Swift.String? = nil,
-        videoHtmlWidth: Swift.Int? = nil,
         videoHtmlHeight: Swift.Int? = nil,
-        footerIcon: Swift.String? = nil,
-        mrkdwnIn: [Swift.String]? = nil
+        videoHtmlWidth: Swift.Int? = nil,
+        videoUrl: Swift.String? = nil
     ) {
-        self.fallback = fallback
-        self.color = color
-        self.pretext = pretext
-        self.id = id
-        self.indent = indent
-        self.title = title
-        self.text = text
-        self.fields = fields
-        self.footer = footer
-        self.ts = ts
         self.actions = actions
-        self.blocks = blocks
-        self.preview = preview
-        self.files = files
-        self.filename = filename
-        self.size = size
-        self.mimetype = mimetype
-        self.url = url
-        self.metadata = metadata
-        self.msgSubtype = msgSubtype
-        self.callbackId = callbackId
-        self.serviceUrl = serviceUrl
-        self.serviceName = serviceName
-        self.serviceIcon = serviceIcon
-        self.authorId = authorId
-        self.authorName = authorName
-        self.authorLink = authorLink
+        self.appId = appId
+        self.appUnfurlUrl = appUnfurlUrl
         self.authorIcon = authorIcon
-        self.fromUrl = fromUrl
-        self.originalUrl = originalUrl
+        self.authorId = authorId
+        self.authorLink = authorLink
+        self.authorName = authorName
         self.authorSubname = authorSubname
+        self.blocks = blocks
+        self.botId = botId
+        self.callbackId = callbackId
         self.channelId = channelId
         self.channelName = channelName
         self.channelTeam = channelTeam
-        self.appId = appId
-        self.botId = botId
+        self.color = color
+        self.fallback = fallback
+        self.fields = fields
+        self.filename = filename
+        self.files = files
+        self.footer = footer
+        self.footerIcon = footerIcon
+        self.fromUrl = fromUrl
+        self.id = id
+        self.imageBytes = imageBytes
+        self.imageHeight = imageHeight
+        self.imageUrl = imageUrl
+        self.imageWidth = imageWidth
+        self.indent = indent
+        self.isAppUnfurl = isAppUnfurl
         self.isMsgUnfurl = isMsgUnfurl
         self.isReplyUnfurl = isReplyUnfurl
         self.isThreadRootUnfurl = isThreadRootUnfurl
-        self.isAppUnfurl = isAppUnfurl
-        self.appUnfurlUrl = appUnfurlUrl
-        self.titleLink = titleLink
-        self.imageUrl = imageUrl
-        self.imageWidth = imageWidth
-        self.imageHeight = imageHeight
-        self.imageBytes = imageBytes
+        self.metadata = metadata
+        self.mimetype = mimetype
+        self.mrkdwnIn = mrkdwnIn
+        self.msgSubtype = msgSubtype
+        self.originalUrl = originalUrl
+        self.pretext = pretext
+        self.preview = preview
+        self.serviceIcon = serviceIcon
+        self.serviceName = serviceName
+        self.serviceUrl = serviceUrl
+        self.size = size
+        self.text = text
+        self.thumbHeight = thumbHeight
         self.thumbUrl = thumbUrl
         self.thumbWidth = thumbWidth
-        self.thumbHeight = thumbHeight
-        self.videoUrl = videoUrl
+        self.title = title
+        self.titleLink = titleLink
+        self.ts = ts
+        self.url = url
         self.videoHtml = videoHtml
-        self.videoHtmlWidth = videoHtmlWidth
         self.videoHtmlHeight = videoHtmlHeight
-        self.footerIcon = footerIcon
-        self.mrkdwnIn = mrkdwnIn
+        self.videoHtmlWidth = videoHtmlWidth
+        self.videoUrl = videoUrl
     }
 }

@@ -11,40 +11,40 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Pagination`.
 public struct Pagination: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Pagination/page`.
-    public var page: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Pagination/first`.
     public var first: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Pagination/last`.
     public var last: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Pagination/totalCount`.
-    public var totalCount: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Pagination/perPage`.
-    public var perPage: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Pagination/pageCount`.
+    /// - Remark: Generated from `#/components/schemas/Pagination/page`.
+    public var page: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Pagination/page_count`.
     public var pageCount: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Pagination/per_page`.
+    public var perPage: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Pagination/total_count`.
+    public var totalCount: Swift.Int?
     /// Creates a new `Pagination`.
     ///
     /// - Parameters:
-    ///   - page:
     ///   - first:
     ///   - last:
-    ///   - totalCount:
-    ///   - perPage:
+    ///   - page:
     ///   - pageCount:
+    ///   - perPage:
+    ///   - totalCount:
     public init(
-        page: Swift.Int? = nil,
         first: Swift.Int? = nil,
         last: Swift.Int? = nil,
-        totalCount: Swift.Int? = nil,
+        page: Swift.Int? = nil,
+        pageCount: Swift.Int? = nil,
         perPage: Swift.Int? = nil,
-        pageCount: Swift.Int? = nil
+        totalCount: Swift.Int? = nil
     ) {
-        self.page = page
         self.first = first
         self.last = last
-        self.totalCount = totalCount
-        self.perPage = perPage
+        self.page = page
         self.pageCount = pageCount
+        self.perPage = perPage
+        self.totalCount = totalCount
     }
 }

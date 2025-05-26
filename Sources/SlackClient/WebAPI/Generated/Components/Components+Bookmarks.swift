@@ -19,151 +19,151 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse`.
     public struct BookmarksAddResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/bookmark`.
+        public var bookmark: SlackModels.Bookmark?
         /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/bookmark`.
-        public var bookmark: SlackModels.Bookmark?
-        /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `BookmarksAddResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
+        ///   - bookmark:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
-        ///   - bookmark:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
+            bookmark: SlackModels.Bookmark? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            bookmark: SlackModels.Bookmark? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
+            self.bookmark = bookmark
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
-            self.bookmark = bookmark
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse`.
     public struct BookmarksEditResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/bookmark`.
+        public var bookmark: SlackModels.Bookmark?
         /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/bookmark`.
-        public var bookmark: SlackModels.Bookmark?
-        /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `BookmarksEditResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
+        ///   - bookmark:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
-        ///   - bookmark:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
+            bookmark: SlackModels.Bookmark? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            bookmark: SlackModels.Bookmark? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
+            self.bookmark = bookmark
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
-            self.bookmark = bookmark
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/BookmarksListResponse`.
     public struct BookmarksListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/bookmarks`.
+        public var bookmarks: [SlackModels.Bookmark]?
         /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/bookmarks`.
-        public var bookmarks: [SlackModels.Bookmark]?
-        /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `BookmarksListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
+        ///   - bookmarks:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
-        ///   - bookmarks:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
+            bookmarks: [SlackModels.Bookmark]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            bookmarks: [SlackModels.Bookmark]? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
+            self.bookmarks = bookmarks
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
-            self.bookmarks = bookmarks
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse`.
     public struct BookmarksRemoveResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `BookmarksRemoveResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
         }

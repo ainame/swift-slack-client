@@ -284,7 +284,7 @@ public enum DndInfo {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Encoded team id where passed in user param belongs, required if org token is used. If no user param is passed, then a team which has access to the app should be passed.
                 ///
-                /// - Remark: Generated from `#/paths/dnd.info/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/dnd.info/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// User to fetch status for (defaults to current user).
                 ///
@@ -303,7 +303,7 @@ public enum DndInfo {
                     self.user = user
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case teamId
+                    case teamId = "team_id"
                     case user
                 }
             }
@@ -428,7 +428,7 @@ public enum DndSetSnooze {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// This argument is required. Number of minutes, from now, to snooze until.
                 ///
-                /// - Remark: Generated from `#/paths/dnd.setSnooze/POST/requestBody/json/numMinutes`.
+                /// - Remark: Generated from `#/paths/dnd.setSnooze/POST/requestBody/json/num_minutes`.
                 public var numMinutes: Swift.String
                 /// Creates a new `JsonPayload`.
                 ///
@@ -438,7 +438,7 @@ public enum DndSetSnooze {
                     self.numMinutes = numMinutes
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case numMinutes
+                    case numMinutes = "num_minutes"
                 }
             }
             /// - Remark: Generated from `#/paths/dnd.setSnooze/POST/requestBody/content/application\/json`.
@@ -566,7 +566,7 @@ public enum DndTeamInfo {
                 public var users: Swift.String
                 /// Encoded team id where passed in users belong, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/dnd.teamInfo/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/dnd.teamInfo/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -582,7 +582,7 @@ public enum DndTeamInfo {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case users
-                    case teamId
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/dnd.teamInfo/POST/requestBody/content/application\/json`.

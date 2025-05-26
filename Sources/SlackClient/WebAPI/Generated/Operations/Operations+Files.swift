@@ -42,7 +42,7 @@ public enum FilesCompleteUploadExternal {
                 public var blocks: Swift.String?
                 /// Channel ID where the file will be shared. If not specified the file will be private.
                 ///
-                /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/channelId`.
+                /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/channel_id`.
                 public var channelId: Swift.String?
                 /// Comma-separated string of channel IDs where the file will be shared.
                 ///
@@ -50,11 +50,11 @@ public enum FilesCompleteUploadExternal {
                 public var channels: Swift.String?
                 /// The message text introducing the file in specified channels.
                 ///
-                /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/initialComment`.
+                /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/initial_comment`.
                 public var initialComment: Swift.String?
                 /// Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use its parent instead. Also make sure to provide only one channel when using 'thread_ts'.
                 ///
-                /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/threadTs`.
+                /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/thread_ts`.
                 public var threadTs: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -83,10 +83,10 @@ public enum FilesCompleteUploadExternal {
                 public enum CodingKeys: String, CodingKey {
                     case files
                     case blocks
-                    case channelId
+                    case channelId = "channel_id"
                     case channels
-                    case initialComment
-                    case threadTs
+                    case initialComment = "initial_comment"
+                    case threadTs = "thread_ts"
                 }
             }
             /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/content/application\/json`.
@@ -352,11 +352,11 @@ public enum FilesGetUploadURLExternal {
                 public var length: Swift.Int
                 /// Description of image for screen-reader.
                 ///
-                /// - Remark: Generated from `#/paths/files.getUploadURLExternal/POST/requestBody/json/altTxt`.
+                /// - Remark: Generated from `#/paths/files.getUploadURLExternal/POST/requestBody/json/alt_txt`.
                 public var altTxt: Swift.String?
                 /// Syntax type of the snippet being uploaded.
                 ///
-                /// - Remark: Generated from `#/paths/files.getUploadURLExternal/POST/requestBody/json/snippetType`.
+                /// - Remark: Generated from `#/paths/files.getUploadURLExternal/POST/requestBody/json/snippet_type`.
                 public var snippetType: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -379,8 +379,8 @@ public enum FilesGetUploadURLExternal {
                 public enum CodingKeys: String, CodingKey {
                     case filename
                     case length
-                    case altTxt
-                    case snippetType
+                    case altTxt = "alt_txt"
+                    case snippetType = "snippet_type"
                 }
             }
             /// - Remark: Generated from `#/paths/files.getUploadURLExternal/POST/requestBody/content/application\/json`.
@@ -660,19 +660,19 @@ public enum FilesList {
                 public var channel: Swift.String?
                 /// Show truncated file info for files hidden due to being too old, and the team who owns the file being over the file limit.
                 ///
-                /// - Remark: Generated from `#/paths/files.list/POST/requestBody/json/showFilesHiddenByLimit`.
+                /// - Remark: Generated from `#/paths/files.list/POST/requestBody/json/show_files_hidden_by_limit`.
                 public var showFilesHiddenByLimit: Swift.Bool?
                 /// encoded team id to list files in, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/files.list/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/files.list/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Filter files created after this timestamp (inclusive).
                 ///
-                /// - Remark: Generated from `#/paths/files.list/POST/requestBody/json/tsFrom`.
+                /// - Remark: Generated from `#/paths/files.list/POST/requestBody/json/ts_from`.
                 public var tsFrom: Swift.String?
                 /// Filter files created before this timestamp (inclusive).
                 ///
-                /// - Remark: Generated from `#/paths/files.list/POST/requestBody/json/tsTo`.
+                /// - Remark: Generated from `#/paths/files.list/POST/requestBody/json/ts_to`.
                 public var tsTo: Swift.String?
                 /// Filter files by type (see below). You can pass multiple values in the types argument, like types=spaces,snippets.The default value is all, which does not filter the list.
                 ///
@@ -711,10 +711,10 @@ public enum FilesList {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case channel
-                    case showFilesHiddenByLimit
-                    case teamId
-                    case tsFrom
-                    case tsTo
+                    case showFilesHiddenByLimit = "show_files_hidden_by_limit"
+                    case teamId = "team_id"
+                    case tsFrom = "ts_from"
+                    case tsTo = "ts_to"
                     case types
                     case user
                 }
@@ -840,11 +840,11 @@ public enum FilesRemoteAdd {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Creator defined GUID for the file.
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/externalId`.
+                /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/external_id`.
                 public var externalId: Swift.String
                 /// URL of the remote file.
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/externalUrl`.
+                /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/external_url`.
                 public var externalUrl: Swift.String
                 /// Title of the file being shared.
                 ///
@@ -856,11 +856,11 @@ public enum FilesRemoteAdd {
                 public var filetype: Swift.String?
                 /// A text file (txt, pdf, doc, etc.) containing textual search terms that are used to improve discovery of the remote file.
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/indexableFileContents`.
+                /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/indexable_file_contents`.
                 public var indexableFileContents: Swift.String?
                 /// Preview of the document via multipart/form-data.
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/previewImage`.
+                /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/preview_image`.
                 public var previewImage: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -887,12 +887,12 @@ public enum FilesRemoteAdd {
                     self.previewImage = previewImage
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case externalId
-                    case externalUrl
+                    case externalId = "external_id"
+                    case externalUrl = "external_url"
                     case title
                     case filetype
-                    case indexableFileContents
-                    case previewImage
+                    case indexableFileContents = "indexable_file_contents"
+                    case previewImage = "preview_image"
                 }
             }
             /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/content/application\/json`.
@@ -1016,7 +1016,7 @@ public enum FilesRemoteInfo {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Creator defined GUID for the file.
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.info/POST/requestBody/json/externalId`.
+                /// - Remark: Generated from `#/paths/files.remote.info/POST/requestBody/json/external_id`.
                 public var externalId: Swift.String?
                 /// Specify a file by providing its ID.
                 ///
@@ -1035,7 +1035,7 @@ public enum FilesRemoteInfo {
                     self.file = file
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case externalId
+                    case externalId = "external_id"
                     case file
                 }
             }
@@ -1172,11 +1172,11 @@ public enum FilesRemoteList {
                 public var limit: Swift.Int?
                 /// Filter files created after this timestamp (inclusive).
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.list/POST/requestBody/json/tsFrom`.
+                /// - Remark: Generated from `#/paths/files.remote.list/POST/requestBody/json/ts_from`.
                 public var tsFrom: Swift.String?
                 /// Filter files created before this timestamp (inclusive).
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.list/POST/requestBody/json/tsTo`.
+                /// - Remark: Generated from `#/paths/files.remote.list/POST/requestBody/json/ts_to`.
                 public var tsTo: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -1203,8 +1203,8 @@ public enum FilesRemoteList {
                     case channel
                     case cursor
                     case limit
-                    case tsFrom
-                    case tsTo
+                    case tsFrom = "ts_from"
+                    case tsTo = "ts_to"
                 }
             }
             /// - Remark: Generated from `#/paths/files.remote.list/POST/requestBody/content/application\/json`.
@@ -1328,7 +1328,7 @@ public enum FilesRemoteRemove {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Creator defined GUID for the file.
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.remove/POST/requestBody/json/externalId`.
+                /// - Remark: Generated from `#/paths/files.remote.remove/POST/requestBody/json/external_id`.
                 public var externalId: Swift.String?
                 /// Specify a file by providing its ID.
                 ///
@@ -1347,7 +1347,7 @@ public enum FilesRemoteRemove {
                     self.file = file
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case externalId
+                    case externalId = "external_id"
                     case file
                 }
             }
@@ -1476,7 +1476,7 @@ public enum FilesRemoteShare {
                 public var channels: Swift.String
                 /// The globally unique identifier (GUID) for the file, as set by the app registering the file with Slack.  Either this field or file or both are required.
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.share/POST/requestBody/json/externalId`.
+                /// - Remark: Generated from `#/paths/files.remote.share/POST/requestBody/json/external_id`.
                 public var externalId: Swift.String?
                 /// Specify a file registered with Slack by providing its ID. Either this field or external_id or both are required.
                 ///
@@ -1499,7 +1499,7 @@ public enum FilesRemoteShare {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case channels
-                    case externalId
+                    case externalId = "external_id"
                     case file
                 }
             }
@@ -1624,11 +1624,11 @@ public enum FilesRemoteUpdate {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Creator defined GUID for the file.
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.update/POST/requestBody/json/externalId`.
+                /// - Remark: Generated from `#/paths/files.remote.update/POST/requestBody/json/external_id`.
                 public var externalId: Swift.String?
                 /// URL of the remote file.
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.update/POST/requestBody/json/externalUrl`.
+                /// - Remark: Generated from `#/paths/files.remote.update/POST/requestBody/json/external_url`.
                 public var externalUrl: Swift.String?
                 /// Specify a file by providing its ID.
                 ///
@@ -1640,11 +1640,11 @@ public enum FilesRemoteUpdate {
                 public var filetype: Swift.String?
                 /// File containing contents that can be used to improve searchability for the remote file.
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.update/POST/requestBody/json/indexableFileContents`.
+                /// - Remark: Generated from `#/paths/files.remote.update/POST/requestBody/json/indexable_file_contents`.
                 public var indexableFileContents: Swift.String?
                 /// Preview of the document via multipart/form-data.
                 ///
-                /// - Remark: Generated from `#/paths/files.remote.update/POST/requestBody/json/previewImage`.
+                /// - Remark: Generated from `#/paths/files.remote.update/POST/requestBody/json/preview_image`.
                 public var previewImage: Swift.String?
                 /// Title of the file being shared.
                 ///
@@ -1678,12 +1678,12 @@ public enum FilesRemoteUpdate {
                     self.title = title
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case externalId
-                    case externalUrl
+                    case externalId = "external_id"
+                    case externalUrl = "external_url"
                     case file
                     case filetype
-                    case indexableFileContents
-                    case previewImage
+                    case indexableFileContents = "indexable_file_contents"
+                    case previewImage = "preview_image"
                     case title
                 }
             }
@@ -2096,11 +2096,11 @@ public enum FilesUpload {
                 public var filetype: Swift.String?
                 /// The message text introducing the file in specified channels.
                 ///
-                /// - Remark: Generated from `#/paths/files.upload/POST/requestBody/json/initialComment`.
+                /// - Remark: Generated from `#/paths/files.upload/POST/requestBody/json/initial_comment`.
                 public var initialComment: Swift.String?
                 /// Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use its parent instead.
                 ///
-                /// - Remark: Generated from `#/paths/files.upload/POST/requestBody/json/threadTs`.
+                /// - Remark: Generated from `#/paths/files.upload/POST/requestBody/json/thread_ts`.
                 public var threadTs: Swift.String?
                 /// Title of file.
                 ///
@@ -2142,8 +2142,8 @@ public enum FilesUpload {
                     case file
                     case filename
                     case filetype
-                    case initialComment
-                    case threadTs
+                    case initialComment = "initial_comment"
+                    case threadTs = "thread_ts"
                     case title
                 }
             }

@@ -11,9 +11,9 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/LastResolvedBy`.
 public struct LastResolvedBy: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/LastResolvedBy/actorId`.
+    /// - Remark: Generated from `#/components/schemas/LastResolvedBy/actor_id`.
     public var actorId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/LastResolvedBy/actorType`.
+    /// - Remark: Generated from `#/components/schemas/LastResolvedBy/actor_type`.
     public var actorType: Swift.String?
     /// Creates a new `LastResolvedBy`.
     ///

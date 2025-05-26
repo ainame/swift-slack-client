@@ -11,30 +11,30 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Description`.
 public struct Description: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Description/type`.
-    public var type: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Description/text`.
-    public var text: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Description/emoji`.
     public var emoji: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Description/text`.
+    public var text: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Description/type`.
+    public var type: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Description/verbatim`.
     public var verbatim: Swift.Bool?
     /// Creates a new `Description`.
     ///
     /// - Parameters:
-    ///   - type:
-    ///   - text:
     ///   - emoji:
+    ///   - text:
+    ///   - type:
     ///   - verbatim:
     public init(
-        type: Swift.String? = nil,
-        text: Swift.String? = nil,
         emoji: Swift.Bool? = nil,
+        text: Swift.String? = nil,
+        type: Swift.String? = nil,
         verbatim: Swift.Bool? = nil
     ) {
-        self.type = type
-        self.text = text
         self.emoji = emoji
+        self.text = text
+        self.type = type
         self.verbatim = verbatim
     }
 }

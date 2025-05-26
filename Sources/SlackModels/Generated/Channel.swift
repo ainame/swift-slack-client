@@ -11,205 +11,205 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Channel`.
 public struct Channel: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Channel/id`.
-    public var id: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Channel/name`.
-    public var name: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Channel/context_team_id`.
+    public var contextTeamId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Channel/conversation_host_id`.
+    public var conversationHostId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Channel/created`.
     public var created: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Channel/unlinked`.
-    public var unlinked: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Channel/creator`.
     public var creator: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Channel/topic`.
-    public var topic: Purpose?
-    /// - Remark: Generated from `#/components/schemas/Channel/purpose`.
-    public var purpose: Purpose?
+    /// - Remark: Generated from `#/components/schemas/Channel/enterprise_id`.
+    public var enterpriseId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Channel/id`.
+    public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Channel/internal_team_ids`.
+    public var internalTeamIds: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_archived`.
+    public var isArchived: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_channel`.
+    public var isChannel: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_ext_shared`.
+    public var isExtShared: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_general`.
+    public var isGeneral: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_global_shared`.
+    public var isGlobalShared: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_group`.
+    public var isGroup: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_im`.
+    public var isIm: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_moved`.
+    public var isMoved: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_mpim`.
+    public var isMpim: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_open`.
+    public var isOpen: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_org_default`.
+    public var isOrgDefault: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_org_mandatory`.
+    public var isOrgMandatory: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_org_shared`.
+    public var isOrgShared: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_pending_ext_shared`.
+    public var isPendingExtShared: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_private`.
+    public var isPrivate: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_shared`.
+    public var isShared: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/is_user_deleted`.
+    public var isUserDeleted: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Channel/last_read`.
+    public var lastRead: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Channel/name`.
+    public var name: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Channel/name_normalized`.
+    public var nameNormalized: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Channel/parent_conversation`.
+    public var parentConversation: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Channel/pending_connected_team_ids`.
+    public var pendingConnectedTeamIds: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/Channel/pending_shared`.
+    public var pendingShared: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/Channel/previous_names`.
+    public var previousNames: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/Channel/priority`.
     public var priority: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Channel/user`.
-    public var user: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Channel/updated`.
-    public var updated: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Channel/properties`.
     public var properties: Properties?
-    /// - Remark: Generated from `#/components/schemas/Channel/isChannel`.
-    public var isChannel: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/isGroup`.
-    public var isGroup: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/isIm`.
-    public var isIm: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/isArchived`.
-    public var isArchived: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/isGeneral`.
-    public var isGeneral: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/nameNormalized`.
-    public var nameNormalized: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Channel/isShared`.
-    public var isShared: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/isExtShared`.
-    public var isExtShared: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/isOrgShared`.
-    public var isOrgShared: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/sharedTeamIds`.
+    /// - Remark: Generated from `#/components/schemas/Channel/purpose`.
+    public var purpose: Purpose?
+    /// - Remark: Generated from `#/components/schemas/Channel/shared_team_ids`.
     public var sharedTeamIds: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/Channel/pendingShared`.
-    public var pendingShared: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/Channel/pendingConnectedTeamIds`.
-    public var pendingConnectedTeamIds: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/Channel/isPendingExtShared`.
-    public var isPendingExtShared: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/isPrivate`.
-    public var isPrivate: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/isMpim`.
-    public var isMpim: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/previousNames`.
-    public var previousNames: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/Channel/conversationHostId`.
-    public var conversationHostId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Channel/isMoved`.
-    public var isMoved: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Channel/internalTeamIds`.
-    public var internalTeamIds: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/Channel/isGlobalShared`.
-    public var isGlobalShared: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/isOrgDefault`.
-    public var isOrgDefault: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/isOrgMandatory`.
-    public var isOrgMandatory: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/enterpriseId`.
-    public var enterpriseId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Channel/lastRead`.
-    public var lastRead: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Channel/isOpen`.
-    public var isOpen: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/isUserDeleted`.
-    public var isUserDeleted: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Channel/parentConversation`.
-    public var parentConversation: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Channel/contextTeamId`.
-    public var contextTeamId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Channel/topic`.
+    public var topic: Purpose?
+    /// - Remark: Generated from `#/components/schemas/Channel/unlinked`.
+    public var unlinked: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Channel/updated`.
+    public var updated: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Channel/user`.
+    public var user: Swift.String?
     /// Creates a new `Channel`.
     ///
     /// - Parameters:
-    ///   - id:
-    ///   - name:
+    ///   - contextTeamId:
+    ///   - conversationHostId:
     ///   - created:
-    ///   - unlinked:
     ///   - creator:
-    ///   - topic:
-    ///   - purpose:
-    ///   - priority:
-    ///   - user:
-    ///   - updated:
-    ///   - properties:
+    ///   - enterpriseId:
+    ///   - id:
+    ///   - internalTeamIds:
+    ///   - isArchived:
     ///   - isChannel:
+    ///   - isExtShared:
+    ///   - isGeneral:
+    ///   - isGlobalShared:
     ///   - isGroup:
     ///   - isIm:
-    ///   - isArchived:
-    ///   - isGeneral:
-    ///   - nameNormalized:
-    ///   - isShared:
-    ///   - isExtShared:
-    ///   - isOrgShared:
-    ///   - sharedTeamIds:
-    ///   - pendingShared:
-    ///   - pendingConnectedTeamIds:
-    ///   - isPendingExtShared:
-    ///   - isPrivate:
-    ///   - isMpim:
-    ///   - previousNames:
-    ///   - conversationHostId:
     ///   - isMoved:
-    ///   - internalTeamIds:
-    ///   - isGlobalShared:
+    ///   - isMpim:
+    ///   - isOpen:
     ///   - isOrgDefault:
     ///   - isOrgMandatory:
-    ///   - enterpriseId:
-    ///   - lastRead:
-    ///   - isOpen:
+    ///   - isOrgShared:
+    ///   - isPendingExtShared:
+    ///   - isPrivate:
+    ///   - isShared:
     ///   - isUserDeleted:
+    ///   - lastRead:
+    ///   - name:
+    ///   - nameNormalized:
     ///   - parentConversation:
-    ///   - contextTeamId:
+    ///   - pendingConnectedTeamIds:
+    ///   - pendingShared:
+    ///   - previousNames:
+    ///   - priority:
+    ///   - properties:
+    ///   - purpose:
+    ///   - sharedTeamIds:
+    ///   - topic:
+    ///   - unlinked:
+    ///   - updated:
+    ///   - user:
     public init(
-        id: Swift.String? = nil,
-        name: Swift.String? = nil,
+        contextTeamId: Swift.String? = nil,
+        conversationHostId: Swift.String? = nil,
         created: Swift.Int? = nil,
-        unlinked: Swift.Int? = nil,
         creator: Swift.String? = nil,
-        topic: Purpose? = nil,
-        purpose: Purpose? = nil,
-        priority: Swift.Int? = nil,
-        user: Swift.String? = nil,
-        updated: Swift.Int? = nil,
-        properties: Properties? = nil,
+        enterpriseId: Swift.String? = nil,
+        id: Swift.String? = nil,
+        internalTeamIds: [Swift.String]? = nil,
+        isArchived: Swift.Bool? = nil,
         isChannel: Swift.Bool? = nil,
+        isExtShared: Swift.Bool? = nil,
+        isGeneral: Swift.Bool? = nil,
+        isGlobalShared: Swift.Bool? = nil,
         isGroup: Swift.Bool? = nil,
         isIm: Swift.Bool? = nil,
-        isArchived: Swift.Bool? = nil,
-        isGeneral: Swift.Bool? = nil,
-        nameNormalized: Swift.String? = nil,
-        isShared: Swift.Bool? = nil,
-        isExtShared: Swift.Bool? = nil,
-        isOrgShared: Swift.Bool? = nil,
-        sharedTeamIds: [Swift.String]? = nil,
-        pendingShared: [Swift.String]? = nil,
-        pendingConnectedTeamIds: [Swift.String]? = nil,
-        isPendingExtShared: Swift.Bool? = nil,
-        isPrivate: Swift.Bool? = nil,
-        isMpim: Swift.Bool? = nil,
-        previousNames: [Swift.String]? = nil,
-        conversationHostId: Swift.String? = nil,
         isMoved: Swift.Int? = nil,
-        internalTeamIds: [Swift.String]? = nil,
-        isGlobalShared: Swift.Bool? = nil,
+        isMpim: Swift.Bool? = nil,
+        isOpen: Swift.Bool? = nil,
         isOrgDefault: Swift.Bool? = nil,
         isOrgMandatory: Swift.Bool? = nil,
-        enterpriseId: Swift.String? = nil,
-        lastRead: Swift.String? = nil,
-        isOpen: Swift.Bool? = nil,
+        isOrgShared: Swift.Bool? = nil,
+        isPendingExtShared: Swift.Bool? = nil,
+        isPrivate: Swift.Bool? = nil,
+        isShared: Swift.Bool? = nil,
         isUserDeleted: Swift.Bool? = nil,
+        lastRead: Swift.String? = nil,
+        name: Swift.String? = nil,
+        nameNormalized: Swift.String? = nil,
         parentConversation: Swift.String? = nil,
-        contextTeamId: Swift.String? = nil
+        pendingConnectedTeamIds: [Swift.String]? = nil,
+        pendingShared: [Swift.String]? = nil,
+        previousNames: [Swift.String]? = nil,
+        priority: Swift.Int? = nil,
+        properties: Properties? = nil,
+        purpose: Purpose? = nil,
+        sharedTeamIds: [Swift.String]? = nil,
+        topic: Purpose? = nil,
+        unlinked: Swift.Int? = nil,
+        updated: Swift.Int? = nil,
+        user: Swift.String? = nil
     ) {
-        self.id = id
-        self.name = name
+        self.contextTeamId = contextTeamId
+        self.conversationHostId = conversationHostId
         self.created = created
-        self.unlinked = unlinked
         self.creator = creator
-        self.topic = topic
-        self.purpose = purpose
-        self.priority = priority
-        self.user = user
-        self.updated = updated
-        self.properties = properties
+        self.enterpriseId = enterpriseId
+        self.id = id
+        self.internalTeamIds = internalTeamIds
+        self.isArchived = isArchived
         self.isChannel = isChannel
+        self.isExtShared = isExtShared
+        self.isGeneral = isGeneral
+        self.isGlobalShared = isGlobalShared
         self.isGroup = isGroup
         self.isIm = isIm
-        self.isArchived = isArchived
-        self.isGeneral = isGeneral
-        self.nameNormalized = nameNormalized
-        self.isShared = isShared
-        self.isExtShared = isExtShared
-        self.isOrgShared = isOrgShared
-        self.sharedTeamIds = sharedTeamIds
-        self.pendingShared = pendingShared
-        self.pendingConnectedTeamIds = pendingConnectedTeamIds
-        self.isPendingExtShared = isPendingExtShared
-        self.isPrivate = isPrivate
-        self.isMpim = isMpim
-        self.previousNames = previousNames
-        self.conversationHostId = conversationHostId
         self.isMoved = isMoved
-        self.internalTeamIds = internalTeamIds
-        self.isGlobalShared = isGlobalShared
+        self.isMpim = isMpim
+        self.isOpen = isOpen
         self.isOrgDefault = isOrgDefault
         self.isOrgMandatory = isOrgMandatory
-        self.enterpriseId = enterpriseId
-        self.lastRead = lastRead
-        self.isOpen = isOpen
+        self.isOrgShared = isOrgShared
+        self.isPendingExtShared = isPendingExtShared
+        self.isPrivate = isPrivate
+        self.isShared = isShared
         self.isUserDeleted = isUserDeleted
+        self.lastRead = lastRead
+        self.name = name
+        self.nameNormalized = nameNormalized
         self.parentConversation = parentConversation
-        self.contextTeamId = contextTeamId
+        self.pendingConnectedTeamIds = pendingConnectedTeamIds
+        self.pendingShared = pendingShared
+        self.previousNames = previousNames
+        self.priority = priority
+        self.properties = properties
+        self.purpose = purpose
+        self.sharedTeamIds = sharedTeamIds
+        self.topic = topic
+        self.unlinked = unlinked
+        self.updated = updated
+        self.user = user
     }
 }

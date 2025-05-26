@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Shares`.
 public struct Shares: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Shares/public`.
-    public var _public: OpenAPIRuntime.OpenAPIObjectContainer?
     /// - Remark: Generated from `#/components/schemas/Shares/private`.
     public var _private: OpenAPIRuntime.OpenAPIObjectContainer?
+    /// - Remark: Generated from `#/components/schemas/Shares/public`.
+    public var _public: OpenAPIRuntime.OpenAPIObjectContainer?
     /// Creates a new `Shares`.
     ///
     /// - Parameters:
-    ///   - _public:
     ///   - _private:
+    ///   - _public:
     public init(
-        _public: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-        _private: OpenAPIRuntime.OpenAPIObjectContainer? = nil
+        _private: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
+        _public: OpenAPIRuntime.OpenAPIObjectContainer? = nil
     ) {
-        self._public = _public
         self._private = _private
+        self._public = _public
     }
 }

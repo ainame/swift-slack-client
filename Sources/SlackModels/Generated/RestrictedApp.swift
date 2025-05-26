@@ -13,28 +13,28 @@ import struct Foundation.Date
 public struct RestrictedApp: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/RestrictedApp/app`.
     public var app: App?
+    /// - Remark: Generated from `#/components/schemas/RestrictedApp/date_updated`.
+    public var dateUpdated: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/RestrictedApp/last_resolved_by`.
+    public var lastResolvedBy: LastResolvedBy?
     /// - Remark: Generated from `#/components/schemas/RestrictedApp/scopes`.
     public var scopes: [Scope]?
-    /// - Remark: Generated from `#/components/schemas/RestrictedApp/dateUpdated`.
-    public var dateUpdated: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/RestrictedApp/lastResolvedBy`.
-    public var lastResolvedBy: LastResolvedBy?
     /// Creates a new `RestrictedApp`.
     ///
     /// - Parameters:
     ///   - app:
-    ///   - scopes:
     ///   - dateUpdated:
     ///   - lastResolvedBy:
+    ///   - scopes:
     public init(
         app: App? = nil,
-        scopes: [Scope]? = nil,
         dateUpdated: Swift.Int? = nil,
-        lastResolvedBy: LastResolvedBy? = nil
+        lastResolvedBy: LastResolvedBy? = nil,
+        scopes: [Scope]? = nil
     ) {
         self.app = app
-        self.scopes = scopes
         self.dateUpdated = dateUpdated
         self.lastResolvedBy = lastResolvedBy
+        self.scopes = scopes
     }
 }

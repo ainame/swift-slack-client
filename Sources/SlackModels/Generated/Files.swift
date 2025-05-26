@@ -11,30 +11,30 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Files`.
 public struct Files: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Files/total`.
-    public var total: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Files/matches`.
+    public var matches: [Match]?
     /// - Remark: Generated from `#/components/schemas/Files/pagination`.
     public var pagination: Pagination?
     /// - Remark: Generated from `#/components/schemas/Files/paging`.
     public var paging: Paging?
-    /// - Remark: Generated from `#/components/schemas/Files/matches`.
-    public var matches: [Match]?
+    /// - Remark: Generated from `#/components/schemas/Files/total`.
+    public var total: Swift.Int?
     /// Creates a new `Files`.
     ///
     /// - Parameters:
-    ///   - total:
+    ///   - matches:
     ///   - pagination:
     ///   - paging:
-    ///   - matches:
+    ///   - total:
     public init(
-        total: Swift.Int? = nil,
+        matches: [Match]? = nil,
         pagination: Pagination? = nil,
         paging: Paging? = nil,
-        matches: [Match]? = nil
+        total: Swift.Int? = nil
     ) {
-        self.total = total
+        self.matches = matches
         self.pagination = pagination
         self.paging = paging
-        self.matches = matches
+        self.total = total
     }
 }

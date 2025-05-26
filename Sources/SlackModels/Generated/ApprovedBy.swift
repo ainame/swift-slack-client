@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/ApprovedBy`.
 public struct ApprovedBy: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/ApprovedBy/actorType`.
-    public var actorType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ApprovedBy/actorId`.
+    /// - Remark: Generated from `#/components/schemas/ApprovedBy/actor_id`.
     public var actorId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ApprovedBy/actor_type`.
+    public var actorType: Swift.String?
     /// Creates a new `ApprovedBy`.
     ///
     /// - Parameters:
-    ///   - actorType:
     ///   - actorId:
+    ///   - actorType:
     public init(
-        actorType: Swift.String? = nil,
-        actorId: Swift.String? = nil
+        actorId: Swift.String? = nil,
+        actorType: Swift.String? = nil
     ) {
-        self.actorType = actorType
         self.actorId = actorId
+        self.actorType = actorType
     }
 }

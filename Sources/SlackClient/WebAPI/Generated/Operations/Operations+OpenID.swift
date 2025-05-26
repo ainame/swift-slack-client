@@ -34,11 +34,11 @@ public enum OpenidConnectToken {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Issued when you created your application.
                 ///
-                /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/clientId`.
+                /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/client_id`.
                 public var clientId: Swift.String?
                 /// Issued when you created your application.
                 ///
-                /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/clientSecret`.
+                /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/client_secret`.
                 public var clientSecret: Swift.String?
                 /// The code param returned via the OAuth callback.
                 ///
@@ -46,15 +46,15 @@ public enum OpenidConnectToken {
                 public var code: Swift.String?
                 /// The grant_type param as described in the OAuth spec.
                 ///
-                /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/grantType`.
+                /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/grant_type`.
                 public var grantType: Swift.String?
                 /// This must match the originally submitted URI (if one was sent).
                 ///
-                /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/redirectUri`.
+                /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/redirect_uri`.
                 public var redirectUri: Swift.String?
                 /// The refresh_token param as described in the OAuth spec.
                 ///
-                /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/refreshToken`.
+                /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/refresh_token`.
                 public var refreshToken: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -81,12 +81,12 @@ public enum OpenidConnectToken {
                     self.refreshToken = refreshToken
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case clientId
-                    case clientSecret
+                    case clientId = "client_id"
+                    case clientSecret = "client_secret"
                     case code
-                    case grantType
-                    case redirectUri
-                    case refreshToken
+                    case grantType = "grant_type"
+                    case redirectUri = "redirect_uri"
+                    case refreshToken = "refresh_token"
                 }
             }
             /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/content/application\/json`.

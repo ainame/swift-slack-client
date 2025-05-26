@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Edited`.
 public struct Edited: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Edited/user`.
-    public var user: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Edited/ts`.
     public var ts: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Edited/user`.
+    public var user: Swift.String?
     /// Creates a new `Edited`.
     ///
     /// - Parameters:
-    ///   - user:
     ///   - ts:
+    ///   - user:
     public init(
-        user: Swift.String? = nil,
-        ts: Swift.String? = nil
+        ts: Swift.String? = nil,
+        user: Swift.String? = nil
     ) {
-        self.user = user
         self.ts = ts
+        self.user = user
     }
 }

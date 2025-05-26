@@ -19,154 +19,154 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/AuthRevokeResponse`.
     public struct AuthRevokeResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/AuthRevokeResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AuthRevokeResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AuthRevokeResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthRevokeResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AuthRevokeResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `AuthRevokeResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse`.
     public struct AuthTeamsListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/teams`.
-        public var teams: [SlackModels.Team]?
         /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/teams`.
+        public var teams: [SlackModels.Team]?
         /// Creates a new `AuthTeamsListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - teams:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - teams:
         public init(
-            ok: Swift.Bool,
-            teams: [SlackModels.Team]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
+            teams: [SlackModels.Team]? = nil
         ) {
-            self.ok = ok
-            self.teams = teams
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.teams = teams
         }
     }
     /// - Remark: Generated from `#/components/schemas/AuthTestResponse`.
     public struct AuthTestResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/url`.
-        public var url: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/team`.
-        public var team: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/user`.
-        public var user: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/app_id`.
+        public var appId: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/app_name`.
+        public var appName: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/bot_id`.
+        public var botId: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/enterprise_id`.
+        public var enterpriseId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AuthTestResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/expires_in`.
+        public var expiresIn: Swift.Int?
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/is_enterprise_install`.
+        public var isEnterpriseInstall: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/AuthTestResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AuthTestResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/teamId`.
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/team`.
+        public var team: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/team_id`.
         public var teamId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/userId`.
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/url`.
+        public var url: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/user`.
+        public var user: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/user_id`.
         public var userId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/botId`.
-        public var botId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/isEnterpriseInstall`.
-        public var isEnterpriseInstall: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/appName`.
-        public var appName: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/appId`.
-        public var appId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/enterpriseId`.
-        public var enterpriseId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/expiresIn`.
-        public var expiresIn: Swift.Int?
         /// Creates a new `AuthTestResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - url:
-        ///   - team:
-        ///   - user:
-        ///   - error:
-        ///   - needed:
-        ///   - provided:
-        ///   - teamId:
-        ///   - userId:
-        ///   - botId:
-        ///   - isEnterpriseInstall:
-        ///   - appName:
         ///   - appId:
+        ///   - appName:
+        ///   - botId:
         ///   - enterpriseId:
+        ///   - error:
         ///   - expiresIn:
+        ///   - isEnterpriseInstall:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
+        ///   - team:
+        ///   - teamId:
+        ///   - url:
+        ///   - user:
+        ///   - userId:
         public init(
-            ok: Swift.Bool,
-            url: Swift.String? = nil,
-            team: Swift.String? = nil,
-            user: Swift.String? = nil,
-            error: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            teamId: Swift.String? = nil,
-            userId: Swift.String? = nil,
-            botId: Swift.String? = nil,
-            isEnterpriseInstall: Swift.Bool? = nil,
-            appName: Swift.String? = nil,
             appId: Swift.String? = nil,
+            appName: Swift.String? = nil,
+            botId: Swift.String? = nil,
             enterpriseId: Swift.String? = nil,
-            expiresIn: Swift.Int? = nil
+            error: Swift.String? = nil,
+            expiresIn: Swift.Int? = nil,
+            isEnterpriseInstall: Swift.Bool? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            team: Swift.String? = nil,
+            teamId: Swift.String? = nil,
+            url: Swift.String? = nil,
+            user: Swift.String? = nil,
+            userId: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.url = url
-            self.team = team
-            self.user = user
-            self.error = error
-            self.needed = needed
-            self.provided = provided
-            self.teamId = teamId
-            self.userId = userId
-            self.botId = botId
-            self.isEnterpriseInstall = isEnterpriseInstall
-            self.appName = appName
             self.appId = appId
+            self.appName = appName
+            self.botId = botId
             self.enterpriseId = enterpriseId
+            self.error = error
             self.expiresIn = expiresIn
+            self.isEnterpriseInstall = isEnterpriseInstall
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
+            self.team = team
+            self.teamId = teamId
+            self.url = url
+            self.user = user
+            self.userId = userId
         }
     }
 }

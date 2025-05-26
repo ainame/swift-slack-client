@@ -15,150 +15,150 @@ import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/Message`.
 public struct Message: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Message/type`.
-    public var type: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Message/text`.
-    public var text: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Message/user`.
-    public var user: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Message/ts`.
-    public var ts: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Message/team`.
-    public var team: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Message/attachments`.
     public var attachments: [Attachment]?
-    /// - Remark: Generated from `#/components/schemas/Message/permalink`.
-    public var permalink: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Message/subtype`.
-    public var subtype: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Message/username`.
-    public var username: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Message/blocks`.
     public var blocks: [BlockType]?
-    /// - Remark: Generated from `#/components/schemas/Message/subscribed`.
-    public var subscribed: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Message/reactions`.
-    public var reactions: [Reaction]?
+    /// - Remark: Generated from `#/components/schemas/Message/bot_id`.
+    public var botId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Message/bot_profile`.
+    public var botProfile: BotProfile?
+    /// - Remark: Generated from `#/components/schemas/Message/client_msg_id`.
+    public var clientMsgId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Message/display_as_bot`.
+    public var displayAsBot: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Message/edited`.
     public var edited: Edited?
     /// - Remark: Generated from `#/components/schemas/Message/files`.
     public var files: [FileElement]?
-    /// - Remark: Generated from `#/components/schemas/Message/upload`.
-    public var upload: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Message/inviter`.
     public var inviter: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Message/botId`.
-    public var botId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Message/isStarred`.
-    public var isStarred: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Message/clientMsgId`.
-    public var clientMsgId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Message/threadTs`.
-    public var threadTs: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Message/replyCount`.
-    public var replyCount: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Message/replyUsersCount`.
-    public var replyUsersCount: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Message/latestReply`.
-    public var latestReply: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Message/replyUsers`.
-    public var replyUsers: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/Message/lastRead`.
-    public var lastRead: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Message/botProfile`.
-    public var botProfile: BotProfile?
-    /// - Remark: Generated from `#/components/schemas/Message/displayAsBot`.
-    public var displayAsBot: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Message/isLocked`.
+    /// - Remark: Generated from `#/components/schemas/Message/is_locked`.
     public var isLocked: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Message/is_starred`.
+    public var isStarred: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Message/last_read`.
+    public var lastRead: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Message/latest_reply`.
+    public var latestReply: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Message/permalink`.
+    public var permalink: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Message/reactions`.
+    public var reactions: [Reaction]?
+    /// - Remark: Generated from `#/components/schemas/Message/reply_count`.
+    public var replyCount: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Message/reply_users`.
+    public var replyUsers: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/Message/reply_users_count`.
+    public var replyUsersCount: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Message/subscribed`.
+    public var subscribed: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Message/subtype`.
+    public var subtype: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Message/team`.
+    public var team: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Message/text`.
+    public var text: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Message/thread_ts`.
+    public var threadTs: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Message/ts`.
+    public var ts: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Message/type`.
+    public var type: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Message/upload`.
+    public var upload: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Message/user`.
+    public var user: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Message/username`.
+    public var username: Swift.String?
     /// Creates a new `Message`.
     ///
     /// - Parameters:
-    ///   - type:
-    ///   - text:
-    ///   - user:
-    ///   - ts:
-    ///   - team:
     ///   - attachments:
-    ///   - permalink:
-    ///   - subtype:
-    ///   - username:
     ///   - blocks:
-    ///   - subscribed:
-    ///   - reactions:
+    ///   - botId:
+    ///   - botProfile:
+    ///   - clientMsgId:
+    ///   - displayAsBot:
     ///   - edited:
     ///   - files:
-    ///   - upload:
     ///   - inviter:
-    ///   - botId:
-    ///   - isStarred:
-    ///   - clientMsgId:
-    ///   - threadTs:
-    ///   - replyCount:
-    ///   - replyUsersCount:
-    ///   - latestReply:
-    ///   - replyUsers:
-    ///   - lastRead:
-    ///   - botProfile:
-    ///   - displayAsBot:
     ///   - isLocked:
+    ///   - isStarred:
+    ///   - lastRead:
+    ///   - latestReply:
+    ///   - permalink:
+    ///   - reactions:
+    ///   - replyCount:
+    ///   - replyUsers:
+    ///   - replyUsersCount:
+    ///   - subscribed:
+    ///   - subtype:
+    ///   - team:
+    ///   - text:
+    ///   - threadTs:
+    ///   - ts:
+    ///   - type:
+    ///   - upload:
+    ///   - user:
+    ///   - username:
     public init(
-        type: Swift.String? = nil,
-        text: Swift.String? = nil,
-        user: Swift.String? = nil,
-        ts: Swift.String? = nil,
-        team: Swift.String? = nil,
         attachments: [Attachment]? = nil,
-        permalink: Swift.String? = nil,
-        subtype: Swift.String? = nil,
-        username: Swift.String? = nil,
         blocks: [BlockType]? = nil,
-        subscribed: Swift.Bool? = nil,
-        reactions: [Reaction]? = nil,
+        botId: Swift.String? = nil,
+        botProfile: BotProfile? = nil,
+        clientMsgId: Swift.String? = nil,
+        displayAsBot: Swift.Bool? = nil,
         edited: Edited? = nil,
         files: [FileElement]? = nil,
-        upload: Swift.Bool? = nil,
         inviter: Swift.String? = nil,
-        botId: Swift.String? = nil,
+        isLocked: Swift.Bool? = nil,
         isStarred: Swift.Bool? = nil,
-        clientMsgId: Swift.String? = nil,
-        threadTs: Swift.String? = nil,
-        replyCount: Swift.Int? = nil,
-        replyUsersCount: Swift.Int? = nil,
-        latestReply: Swift.String? = nil,
-        replyUsers: [Swift.String]? = nil,
         lastRead: Swift.String? = nil,
-        botProfile: BotProfile? = nil,
-        displayAsBot: Swift.Bool? = nil,
-        isLocked: Swift.Bool? = nil
+        latestReply: Swift.String? = nil,
+        permalink: Swift.String? = nil,
+        reactions: [Reaction]? = nil,
+        replyCount: Swift.Int? = nil,
+        replyUsers: [Swift.String]? = nil,
+        replyUsersCount: Swift.Int? = nil,
+        subscribed: Swift.Bool? = nil,
+        subtype: Swift.String? = nil,
+        team: Swift.String? = nil,
+        text: Swift.String? = nil,
+        threadTs: Swift.String? = nil,
+        ts: Swift.String? = nil,
+        type: Swift.String? = nil,
+        upload: Swift.Bool? = nil,
+        user: Swift.String? = nil,
+        username: Swift.String? = nil
     ) {
-        self.type = type
-        self.text = text
-        self.user = user
-        self.ts = ts
-        self.team = team
         self.attachments = attachments
-        self.permalink = permalink
-        self.subtype = subtype
-        self.username = username
         self.blocks = blocks
-        self.subscribed = subscribed
-        self.reactions = reactions
+        self.botId = botId
+        self.botProfile = botProfile
+        self.clientMsgId = clientMsgId
+        self.displayAsBot = displayAsBot
         self.edited = edited
         self.files = files
-        self.upload = upload
         self.inviter = inviter
-        self.botId = botId
-        self.isStarred = isStarred
-        self.clientMsgId = clientMsgId
-        self.threadTs = threadTs
-        self.replyCount = replyCount
-        self.replyUsersCount = replyUsersCount
-        self.latestReply = latestReply
-        self.replyUsers = replyUsers
-        self.lastRead = lastRead
-        self.botProfile = botProfile
-        self.displayAsBot = displayAsBot
         self.isLocked = isLocked
+        self.isStarred = isStarred
+        self.lastRead = lastRead
+        self.latestReply = latestReply
+        self.permalink = permalink
+        self.reactions = reactions
+        self.replyCount = replyCount
+        self.replyUsers = replyUsers
+        self.replyUsersCount = replyUsersCount
+        self.subscribed = subscribed
+        self.subtype = subtype
+        self.team = team
+        self.text = text
+        self.threadTs = threadTs
+        self.ts = ts
+        self.type = type
+        self.upload = upload
+        self.user = user
+        self.username = username
     }
 }

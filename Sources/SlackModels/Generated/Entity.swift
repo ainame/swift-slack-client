@@ -11,25 +11,25 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Entity`.
 public struct Entity: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Entity/entityId`.
-    public var entityId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Entity/entityType`.
-    public var entityType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Entity/dateAdded`.
+    /// - Remark: Generated from `#/components/schemas/Entity/date_added`.
     public var dateAdded: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Entity/entity_id`.
+    public var entityId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Entity/entity_type`.
+    public var entityType: Swift.String?
     /// Creates a new `Entity`.
     ///
     /// - Parameters:
+    ///   - dateAdded:
     ///   - entityId:
     ///   - entityType:
-    ///   - dateAdded:
     public init(
+        dateAdded: Swift.Int? = nil,
         entityId: Swift.String? = nil,
-        entityType: Swift.String? = nil,
-        dateAdded: Swift.Int? = nil
+        entityType: Swift.String? = nil
     ) {
+        self.dateAdded = dateAdded
         self.entityId = entityId
         self.entityType = entityType
-        self.dateAdded = dateAdded
     }
 }

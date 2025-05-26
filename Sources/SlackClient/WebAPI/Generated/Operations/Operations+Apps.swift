@@ -168,7 +168,7 @@ public enum AppsEventAuthorizationsList {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// .
                 ///
-                /// - Remark: Generated from `#/paths/apps.event.authorizations.list/POST/requestBody/json/eventContext`.
+                /// - Remark: Generated from `#/paths/apps.event.authorizations.list/POST/requestBody/json/event_context`.
                 public var eventContext: Swift.String
                 /// .
                 ///
@@ -194,7 +194,7 @@ public enum AppsEventAuthorizationsList {
                     self.limit = limit
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case eventContext
+                    case eventContext = "event_context"
                     case cursor
                     case limit
                 }
@@ -454,7 +454,7 @@ public enum AppsManifestDelete {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// The ID of the app you want to delete.
                 ///
-                /// - Remark: Generated from `#/paths/apps.manifest.delete/POST/requestBody/json/appId`.
+                /// - Remark: Generated from `#/paths/apps.manifest.delete/POST/requestBody/json/app_id`.
                 public var appId: Swift.String
                 /// Creates a new `JsonPayload`.
                 ///
@@ -464,7 +464,7 @@ public enum AppsManifestDelete {
                     self.appId = appId
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case appId
+                    case appId = "app_id"
                 }
             }
             /// - Remark: Generated from `#/paths/apps.manifest.delete/POST/requestBody/content/application\/json`.
@@ -588,7 +588,7 @@ public enum AppsManifestExport {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// The ID of the app whose configuration you want to export as a manifest.
                 ///
-                /// - Remark: Generated from `#/paths/apps.manifest.export/POST/requestBody/json/appId`.
+                /// - Remark: Generated from `#/paths/apps.manifest.export/POST/requestBody/json/app_id`.
                 public var appId: Swift.String
                 /// Creates a new `JsonPayload`.
                 ///
@@ -598,7 +598,7 @@ public enum AppsManifestExport {
                     self.appId = appId
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case appId
+                    case appId = "app_id"
                 }
             }
             /// - Remark: Generated from `#/paths/apps.manifest.export/POST/requestBody/content/application\/json`.
@@ -722,7 +722,7 @@ public enum AppsManifestUpdate {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// The ID of the app whose configuration you want to update.
                 ///
-                /// - Remark: Generated from `#/paths/apps.manifest.update/POST/requestBody/json/appId`.
+                /// - Remark: Generated from `#/paths/apps.manifest.update/POST/requestBody/json/app_id`.
                 public var appId: Swift.String
                 /// A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to creating one. As this method entirely replaces any previous configuration, manifest must contain both unmodified and modified fields.
                 ///
@@ -741,7 +741,7 @@ public enum AppsManifestUpdate {
                     self.manifest = manifest
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case appId
+                    case appId = "app_id"
                     case manifest
                 }
             }
@@ -870,7 +870,7 @@ public enum AppsManifestValidate {
                 public var manifest: Swift.String
                 /// The ID of the app whose configuration you want to validate.
                 ///
-                /// - Remark: Generated from `#/paths/apps.manifest.validate/POST/requestBody/json/appId`.
+                /// - Remark: Generated from `#/paths/apps.manifest.validate/POST/requestBody/json/app_id`.
                 public var appId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -886,7 +886,7 @@ public enum AppsManifestValidate {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case manifest
-                    case appId
+                    case appId = "app_id"
                 }
             }
             /// - Remark: Generated from `#/paths/apps.manifest.validate/POST/requestBody/content/application\/json`.
@@ -1010,11 +1010,11 @@ public enum AppsUninstall {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Issued when you created your application.
                 ///
-                /// - Remark: Generated from `#/paths/apps.uninstall/POST/requestBody/json/clientId`.
+                /// - Remark: Generated from `#/paths/apps.uninstall/POST/requestBody/json/client_id`.
                 public var clientId: Swift.String
                 /// Issued when you created your application.
                 ///
-                /// - Remark: Generated from `#/paths/apps.uninstall/POST/requestBody/json/clientSecret`.
+                /// - Remark: Generated from `#/paths/apps.uninstall/POST/requestBody/json/client_secret`.
                 public var clientSecret: Swift.String
                 /// Creates a new `JsonPayload`.
                 ///
@@ -1029,8 +1029,8 @@ public enum AppsUninstall {
                     self.clientSecret = clientSecret
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case clientId
-                    case clientSecret
+                    case clientId = "client_id"
+                    case clientSecret = "client_secret"
                 }
             }
             /// - Remark: Generated from `#/paths/apps.uninstall/POST/requestBody/content/application\/json`.

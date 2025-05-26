@@ -19,508 +19,508 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse`.
     public struct UsersConversationsResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/channels`.
         public var channels: [SlackModels.Channel]?
         /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `UsersConversationsResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - channels:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
             channels: [SlackModels.Channel]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
             self.channels = channels
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersDeletePhotoResponse`.
     public struct UsersDeletePhotoResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersDeletePhotoResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersDeletePhotoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersDeletePhotoResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersDeletePhotoResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersDeletePhotoResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `UsersDeletePhotoResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse`.
     public struct UsersDiscoverableContactsLookupResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse/is_discoverable`.
+        public var isDiscoverable: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
-        /// - Remark: Generated from `#/components/schemas/UsersDiscoverableContactsLookupResponse/isDiscoverable`.
-        public var isDiscoverable: Swift.Bool?
         /// Creates a new `UsersDiscoverableContactsLookupResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
+        ///   - isDiscoverable:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
-        ///   - isDiscoverable:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
+            isDiscoverable: Swift.Bool? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil,
-            isDiscoverable: Swift.Bool? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
             self.error = error
+            self.isDiscoverable = isDiscoverable
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
-            self.isDiscoverable = isDiscoverable
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse`.
     public struct UsersGetPresenceResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/warning`.
-        public var warning: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/auto_away`.
+        public var autoAway: Swift.Bool?
+        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/connection_count`.
+        public var connectionCount: Swift.Int?
         /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/last_activity`.
+        public var lastActivity: Swift.Int?
+        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/manual_away`.
+        public var manualAway: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/needed`.
         public var needed: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/provided`.
-        public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/presence`.
-        public var presence: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/online`.
         public var online: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/autoAway`.
-        public var autoAway: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/manualAway`.
-        public var manualAway: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/connectionCount`.
-        public var connectionCount: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/lastActivity`.
-        public var lastActivity: Swift.Int?
+        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/presence`.
+        public var presence: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/provided`.
+        public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersGetPresenceResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `UsersGetPresenceResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - warning:
-        ///   - error:
-        ///   - needed:
-        ///   - provided:
-        ///   - presence:
-        ///   - online:
         ///   - autoAway:
-        ///   - manualAway:
         ///   - connectionCount:
+        ///   - error:
         ///   - lastActivity:
+        ///   - manualAway:
+        ///   - needed:
+        ///   - ok:
+        ///   - online:
+        ///   - presence:
+        ///   - provided:
+        ///   - warning:
         public init(
-            ok: Swift.Bool,
-            warning: Swift.String? = nil,
-            error: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            presence: Swift.String? = nil,
-            online: Swift.Bool? = nil,
             autoAway: Swift.Bool? = nil,
-            manualAway: Swift.Bool? = nil,
             connectionCount: Swift.Int? = nil,
-            lastActivity: Swift.Int? = nil
+            error: Swift.String? = nil,
+            lastActivity: Swift.Int? = nil,
+            manualAway: Swift.Bool? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            online: Swift.Bool? = nil,
+            presence: Swift.String? = nil,
+            provided: Swift.String? = nil,
+            warning: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.warning = warning
-            self.error = error
-            self.needed = needed
-            self.provided = provided
-            self.presence = presence
-            self.online = online
             self.autoAway = autoAway
-            self.manualAway = manualAway
             self.connectionCount = connectionCount
+            self.error = error
             self.lastActivity = lastActivity
+            self.manualAway = manualAway
+            self.needed = needed
+            self.ok = ok
+            self.online = online
+            self.presence = presence
+            self.provided = provided
+            self.warning = warning
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse`.
     public struct UsersIdentityResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/warning`.
-        public var warning: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/user`.
-        public var user: SlackModels.User?
         /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/team`.
         public var team: SlackModels.Team?
+        /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/user`.
+        public var user: SlackModels.User?
+        /// - Remark: Generated from `#/components/schemas/UsersIdentityResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `UsersIdentityResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - warning:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
-        ///   - user:
         ///   - team:
+        ///   - user:
+        ///   - warning:
         public init(
-            ok: Swift.Bool,
-            warning: Swift.String? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
+            team: SlackModels.Team? = nil,
             user: SlackModels.User? = nil,
-            team: SlackModels.Team? = nil
+            warning: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.warning = warning
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
-            self.user = user
             self.team = team
+            self.user = user
+            self.warning = warning
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersInfoResponse`.
     public struct UsersInfoResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/user`.
-        public var user: SlackModels.User?
         /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/user`.
+        public var user: SlackModels.User?
         /// Creates a new `UsersInfoResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - user:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - user:
         public init(
-            ok: Swift.Bool,
-            user: SlackModels.User? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            user: SlackModels.User? = nil
         ) {
-            self.ok = ok
-            self.user = user
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.user = user
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersListResponse`.
     public struct UsersListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersListResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/UsersListResponse/members`.
-        public var members: [SlackModels.Member]?
-        /// - Remark: Generated from `#/components/schemas/UsersListResponse/offset`.
-        public var offset: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/UsersListResponse/error`.
-        public var error: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/UsersListResponse/needed`.
-        public var needed: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/UsersListResponse/provided`.
-        public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersListResponse/arg`.
         public var arg: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/UsersListResponse/cacheTs`.
+        /// - Remark: Generated from `#/components/schemas/UsersListResponse/cache_ts`.
         public var cacheTs: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/UsersListResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/UsersListResponse/error`.
+        public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersListResponse/members`.
+        public var members: [SlackModels.Member]?
+        /// - Remark: Generated from `#/components/schemas/UsersListResponse/needed`.
+        public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersListResponse/offset`.
+        public var offset: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersListResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/UsersListResponse/provided`.
+        public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersListResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `UsersListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - members:
-        ///   - offset:
-        ///   - error:
-        ///   - needed:
-        ///   - provided:
         ///   - arg:
         ///   - cacheTs:
+        ///   - error:
+        ///   - members:
+        ///   - needed:
+        ///   - offset:
+        ///   - ok:
+        ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
-            members: [SlackModels.Member]? = nil,
-            offset: Swift.String? = nil,
-            error: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
             arg: Swift.String? = nil,
             cacheTs: Swift.Int? = nil,
+            error: Swift.String? = nil,
+            members: [SlackModels.Member]? = nil,
+            needed: Swift.String? = nil,
+            offset: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
-            self.members = members
-            self.offset = offset
-            self.error = error
-            self.needed = needed
-            self.provided = provided
             self.arg = arg
             self.cacheTs = cacheTs
+            self.error = error
+            self.members = members
+            self.needed = needed
+            self.offset = offset
+            self.ok = ok
+            self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse`.
     public struct UsersLookupByEmailResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/user`.
-        public var user: SlackModels.User?
         /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/user`.
+        public var user: SlackModels.User?
         /// Creates a new `UsersLookupByEmailResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - user:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - user:
         public init(
-            ok: Swift.Bool,
-            user: SlackModels.User? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
+            user: SlackModels.User? = nil
         ) {
-            self.ok = ok
-            self.user = user
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.user = user
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse`.
     public struct UsersProfileGetResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse/profile`.
-        public var profile: SlackModels.Profile?
         /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse/profile`.
+        public var profile: SlackModels.Profile?
         /// - Remark: Generated from `#/components/schemas/UsersProfileGetResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `UsersProfileGetResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - profile:
         ///   - error:
         ///   - needed:
+        ///   - ok:
+        ///   - profile:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
-            profile: SlackModels.Profile? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            profile: SlackModels.Profile? = nil,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.profile = profile
             self.error = error
             self.needed = needed
+            self.ok = ok
+            self.profile = profile
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse`.
     public struct UsersProfileSetResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse/profile`.
-        public var profile: SlackModels.Profile?
-        /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse/username`.
-        public var username: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse/profile`.
+        public var profile: SlackModels.Profile?
         /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersProfileSetResponse/username`.
+        public var username: Swift.String?
         /// Creates a new `UsersProfileSetResponse`.
         ///
         /// - Parameters:
-        ///   - profile:
-        ///   - ok:
-        ///   - username:
         ///   - error:
         ///   - needed:
+        ///   - ok:
+        ///   - profile:
         ///   - provided:
+        ///   - username:
         public init(
-            profile: SlackModels.Profile? = nil,
-            ok: Swift.Bool,
-            username: Swift.String? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            profile: SlackModels.Profile? = nil,
+            provided: Swift.String? = nil,
+            username: Swift.String? = nil
         ) {
-            self.profile = profile
-            self.ok = ok
-            self.username = username
             self.error = error
             self.needed = needed
+            self.ok = ok
+            self.profile = profile
             self.provided = provided
+            self.username = username
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersSetActiveResponse`.
     public struct UsersSetActiveResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersSetActiveResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersSetActiveResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersSetActiveResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersSetActiveResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersSetActiveResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `UsersSetActiveResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse`.
     public struct UsersSetPhotoResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse/profile`.
-        public var profile: SlackModels.Profile?
         /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse/profile`.
+        public var profile: SlackModels.Profile?
         /// - Remark: Generated from `#/components/schemas/UsersSetPhotoResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `UsersSetPhotoResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - profile:
         ///   - error:
         ///   - needed:
+        ///   - ok:
+        ///   - profile:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
-            profile: SlackModels.Profile? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            profile: SlackModels.Profile? = nil,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.profile = profile
             self.error = error
             self.needed = needed
+            self.ok = ok
+            self.profile = profile
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/UsersSetPresenceResponse`.
     public struct UsersSetPresenceResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/UsersSetPresenceResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersSetPresenceResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersSetPresenceResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/UsersSetPresenceResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/UsersSetPresenceResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `UsersSetPresenceResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }

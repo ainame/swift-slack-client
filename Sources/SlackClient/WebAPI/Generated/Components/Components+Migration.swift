@@ -15,56 +15,56 @@ import struct Foundation.Date
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse`.
     public struct MigrationExchangeResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/warning`.
-        public var warning: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/enterprise_id`.
+        public var enterpriseId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/invalid_user_ids`.
+        public var invalidUserIds: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/teamId`.
+        /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/team_id`.
         public var teamId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/enterpriseId`.
-        public var enterpriseId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/invalidUserIds`.
-        public var invalidUserIds: [Swift.String]?
-        /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/userIdMap`.
+        /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/user_id_map`.
         public var userIdMap: OpenAPIRuntime.OpenAPIObjectContainer?
+        /// - Remark: Generated from `#/components/schemas/MigrationExchangeResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `MigrationExchangeResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - warning:
+        ///   - enterpriseId:
         ///   - error:
+        ///   - invalidUserIds:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - teamId:
-        ///   - enterpriseId:
-        ///   - invalidUserIds:
         ///   - userIdMap:
+        ///   - warning:
         public init(
-            ok: Swift.Bool,
-            warning: Swift.String? = nil,
+            enterpriseId: Swift.String? = nil,
             error: Swift.String? = nil,
+            invalidUserIds: [Swift.String]? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
             teamId: Swift.String? = nil,
-            enterpriseId: Swift.String? = nil,
-            invalidUserIds: [Swift.String]? = nil,
-            userIdMap: OpenAPIRuntime.OpenAPIObjectContainer? = nil
+            userIdMap: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
+            warning: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.warning = warning
+            self.enterpriseId = enterpriseId
             self.error = error
+            self.invalidUserIds = invalidUserIds
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.teamId = teamId
-            self.enterpriseId = enterpriseId
-            self.invalidUserIds = invalidUserIds
             self.userIdMap = userIdMap
+            self.warning = warning
         }
     }
 }

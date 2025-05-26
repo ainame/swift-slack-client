@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Team`.
 public struct Team: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Team/name`.
-    public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Team/id`.
     public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Team/name`.
+    public var name: Swift.String?
     /// Creates a new `Team`.
     ///
     /// - Parameters:
-    ///   - name:
     ///   - id:
+    ///   - name:
     public init(
-        name: Swift.String? = nil,
-        id: Swift.String? = nil
+        id: Swift.String? = nil,
+        name: Swift.String? = nil
     ) {
-        self.name = name
         self.id = id
+        self.name = name
     }
 }

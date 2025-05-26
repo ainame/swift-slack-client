@@ -11,50 +11,50 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Bot`.
 public struct Bot: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Bot/id`.
-    public var id: Id?
+    /// - Remark: Generated from `#/components/schemas/Bot/app_id`.
+    public var appId: AppID?
     /// - Remark: Generated from `#/components/schemas/Bot/deleted`.
     public var deleted: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Bot/name`.
-    public var name: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Bot/updated`.
-    public var updated: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Bot/icons`.
     public var icons: BotIcons?
-    /// - Remark: Generated from `#/components/schemas/Bot/appId`.
-    public var appId: AppID?
-    /// - Remark: Generated from `#/components/schemas/Bot/isWorkflowBot`.
+    /// - Remark: Generated from `#/components/schemas/Bot/id`.
+    public var id: Id?
+    /// - Remark: Generated from `#/components/schemas/Bot/is_workflow_bot`.
     public var isWorkflowBot: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Bot/teamId`.
+    /// - Remark: Generated from `#/components/schemas/Bot/name`.
+    public var name: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Bot/team_id`.
     public var teamId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Bot/updated`.
+    public var updated: Swift.Int?
     /// Creates a new `Bot`.
     ///
     /// - Parameters:
-    ///   - id:
-    ///   - deleted:
-    ///   - name:
-    ///   - updated:
-    ///   - icons:
     ///   - appId:
+    ///   - deleted:
+    ///   - icons:
+    ///   - id:
     ///   - isWorkflowBot:
+    ///   - name:
     ///   - teamId:
+    ///   - updated:
     public init(
-        id: Id? = nil,
-        deleted: Swift.Bool? = nil,
-        name: Swift.String? = nil,
-        updated: Swift.Int? = nil,
-        icons: BotIcons? = nil,
         appId: AppID? = nil,
+        deleted: Swift.Bool? = nil,
+        icons: BotIcons? = nil,
+        id: Id? = nil,
         isWorkflowBot: Swift.Bool? = nil,
-        teamId: Swift.String? = nil
+        name: Swift.String? = nil,
+        teamId: Swift.String? = nil,
+        updated: Swift.Int? = nil
     ) {
-        self.id = id
-        self.deleted = deleted
-        self.name = name
-        self.updated = updated
-        self.icons = icons
         self.appId = appId
+        self.deleted = deleted
+        self.icons = icons
+        self.id = id
         self.isWorkflowBot = isWorkflowBot
+        self.name = name
         self.teamId = teamId
+        self.updated = updated
     }
 }

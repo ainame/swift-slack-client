@@ -46,7 +46,7 @@ public enum TeamAccessLogs {
                 public var limit: Swift.Int?
                 /// encoded team id to get logs from, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/team.accessLogs/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/team.accessLogs/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -70,7 +70,7 @@ public enum TeamAccessLogs {
                     case before
                     case cursor
                     case limit
-                    case teamId
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/team.accessLogs/POST/requestBody/content/application\/json`.
@@ -202,7 +202,7 @@ public enum TeamBillableInfo {
                 public var limit: Swift.Int?
                 /// encoded team id to get the billable information from, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/team.billableInfo/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/team.billableInfo/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// A user to retrieve the billable information for. Defaults to all users.
                 ///
@@ -229,7 +229,7 @@ public enum TeamBillableInfo {
                 public enum CodingKeys: String, CodingKey {
                     case cursor
                     case limit
-                    case teamId
+                    case teamId = "team_id"
                     case user
                 }
             }
@@ -479,7 +479,7 @@ public enum TeamExternalTeamsDisconnect {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// The team ID of the target team.
                 ///
-                /// - Remark: Generated from `#/paths/team.externalTeams.disconnect/POST/requestBody/json/targetTeam`.
+                /// - Remark: Generated from `#/paths/team.externalTeams.disconnect/POST/requestBody/json/target_team`.
                 public var targetTeam: Swift.String
                 /// Creates a new `JsonPayload`.
                 ///
@@ -489,7 +489,7 @@ public enum TeamExternalTeamsDisconnect {
                     self.targetTeam = targetTeam
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case targetTeam
+                    case targetTeam = "target_team"
                 }
             }
             /// - Remark: Generated from `#/paths/team.externalTeams.disconnect/POST/requestBody/content/application\/json`.
@@ -613,7 +613,7 @@ public enum TeamExternalTeamsList {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Status of the connected team.
                 ///
-                /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/connectionStatusFilter`.
+                /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/connection_status_filter`.
                 public var connectionStatusFilter: Swift.String?
                 /// Paginate through collections of data by setting parameter to the team_id attribute returned by a previous request's response_metadata. If not provided, the first page of the collection is returned. See pagination for more detail.
                 ///
@@ -625,19 +625,19 @@ public enum TeamExternalTeamsList {
                 public var limit: Swift.Int?
                 /// Filters connected orgs by Slack Connect pref override(s). Value can be: approved_orgs_only allow_sc_file_uploads profile_visibility away_team_sc_invite_permissions accept_sc_invites sc_mpdm_to_private require_sc_channel_for_sc_dm external_awareness_context_bar.
                 ///
-                /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/slackConnectPrefFilter`.
+                /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/slack_connect_pref_filter`.
                 public var slackConnectPrefFilter: OpenAPIRuntime.OpenAPIArrayContainer?
                 /// Direction to sort in asc or desc.
                 ///
-                /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/sortDirection`.
+                /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/sort_direction`.
                 public var sortDirection: Swift.String?
                 /// Name of the parameter that we are sorting by.
                 ///
-                /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/sortField`.
+                /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/sort_field`.
                 public var sortField: Swift.String?
                 /// Shows connected orgs which are connected on a specified encoded workspace ID.
                 ///
-                /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/workspaceFilter`.
+                /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/workspace_filter`.
                 public var workspaceFilter: OpenAPIRuntime.OpenAPIArrayContainer?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -667,13 +667,13 @@ public enum TeamExternalTeamsList {
                     self.workspaceFilter = workspaceFilter
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case connectionStatusFilter
+                    case connectionStatusFilter = "connection_status_filter"
                     case cursor
                     case limit
-                    case slackConnectPrefFilter
-                    case sortDirection
-                    case sortField
-                    case workspaceFilter
+                    case slackConnectPrefFilter = "slack_connect_pref_filter"
+                    case sortDirection = "sort_direction"
+                    case sortField = "sort_field"
+                    case workspaceFilter = "workspace_filter"
                 }
             }
             /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/content/application\/json`.
@@ -941,19 +941,19 @@ public enum TeamIntegrationLogs {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Filter logs to this Slack app. Defaults to all logs.
                 ///
-                /// - Remark: Generated from `#/paths/team.integrationLogs/POST/requestBody/json/appId`.
+                /// - Remark: Generated from `#/paths/team.integrationLogs/POST/requestBody/json/app_id`.
                 public var appId: Swift.String?
                 /// Filter logs with this change type. Possible values are added, removed, enabled, disabled, and updated. Defaults to all logs.
                 ///
-                /// - Remark: Generated from `#/paths/team.integrationLogs/POST/requestBody/json/changeType`.
+                /// - Remark: Generated from `#/paths/team.integrationLogs/POST/requestBody/json/change_type`.
                 public var changeType: Swift.String?
                 /// Filter logs to this service. Defaults to all logs.
                 ///
-                /// - Remark: Generated from `#/paths/team.integrationLogs/POST/requestBody/json/serviceId`.
+                /// - Remark: Generated from `#/paths/team.integrationLogs/POST/requestBody/json/service_id`.
                 public var serviceId: Swift.String?
                 /// encoded team id to get logs from, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/team.integrationLogs/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/team.integrationLogs/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Filter logs generated by this user's actions. Defaults to all logs.
                 ///
@@ -981,10 +981,10 @@ public enum TeamIntegrationLogs {
                     self.user = user
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case appId
-                    case changeType
-                    case serviceId
-                    case teamId
+                    case appId = "app_id"
+                    case changeType = "change_type"
+                    case serviceId = "service_id"
+                    case teamId = "team_id"
                     case user
                 }
             }

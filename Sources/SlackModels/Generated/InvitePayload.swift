@@ -13,28 +13,28 @@ import struct Foundation.Date
 public struct InvitePayload: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/InvitePayload/channel`.
     public var channel: Channel?
-    /// - Remark: Generated from `#/components/schemas/InvitePayload/inviteType`.
+    /// - Remark: Generated from `#/components/schemas/InvitePayload/invite_type`.
     public var inviteType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/InvitePayload/isSponsored`.
-    public var isSponsored: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/InvitePayload/isExternalLimited`.
+    /// - Remark: Generated from `#/components/schemas/InvitePayload/is_external_limited`.
     public var isExternalLimited: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/InvitePayload/is_sponsored`.
+    public var isSponsored: Swift.Bool?
     /// Creates a new `InvitePayload`.
     ///
     /// - Parameters:
     ///   - channel:
     ///   - inviteType:
-    ///   - isSponsored:
     ///   - isExternalLimited:
+    ///   - isSponsored:
     public init(
         channel: Channel? = nil,
         inviteType: Swift.String? = nil,
-        isSponsored: Swift.Bool? = nil,
-        isExternalLimited: Swift.Bool? = nil
+        isExternalLimited: Swift.Bool? = nil,
+        isSponsored: Swift.Bool? = nil
     ) {
         self.channel = channel
         self.inviteType = inviteType
-        self.isSponsored = isSponsored
         self.isExternalLimited = isExternalLimited
+        self.isSponsored = isSponsored
     }
 }

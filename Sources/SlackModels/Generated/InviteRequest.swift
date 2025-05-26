@@ -11,55 +11,55 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/InviteRequest`.
 public struct InviteRequest: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/InviteRequest/id`.
-    public var id: Swift.String?
     /// - Remark: Generated from `#/components/schemas/InviteRequest/channel`.
     public var channel: Channel?
-    /// - Remark: Generated from `#/components/schemas/InviteRequest/dateCreated`.
+    /// - Remark: Generated from `#/components/schemas/InviteRequest/date_created`.
     public var dateCreated: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/InviteRequest/expiresAt`.
-    public var expiresAt: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/InviteRequest/invitingTeam`.
-    public var invitingTeam: Team?
-    /// - Remark: Generated from `#/components/schemas/InviteRequest/invitingUser`.
-    public var invitingUser: InvitingUser?
-    /// - Remark: Generated from `#/components/schemas/InviteRequest/isExternalLimited`.
-    public var isExternalLimited: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/InviteRequest/dateLastUpdated`.
+    /// - Remark: Generated from `#/components/schemas/InviteRequest/date_last_updated`.
     public var dateLastUpdated: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/InviteRequest/targetUser`.
+    /// - Remark: Generated from `#/components/schemas/InviteRequest/expires_at`.
+    public var expiresAt: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/InviteRequest/id`.
+    public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/InviteRequest/inviting_team`.
+    public var invitingTeam: Team?
+    /// - Remark: Generated from `#/components/schemas/InviteRequest/inviting_user`.
+    public var invitingUser: InvitingUser?
+    /// - Remark: Generated from `#/components/schemas/InviteRequest/is_external_limited`.
+    public var isExternalLimited: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/InviteRequest/target_user`.
     public var targetUser: TargetUser?
     /// Creates a new `InviteRequest`.
     ///
     /// - Parameters:
-    ///   - id:
     ///   - channel:
     ///   - dateCreated:
+    ///   - dateLastUpdated:
     ///   - expiresAt:
+    ///   - id:
     ///   - invitingTeam:
     ///   - invitingUser:
     ///   - isExternalLimited:
-    ///   - dateLastUpdated:
     ///   - targetUser:
     public init(
-        id: Swift.String? = nil,
         channel: Channel? = nil,
         dateCreated: Swift.Int? = nil,
+        dateLastUpdated: Swift.Int? = nil,
         expiresAt: Swift.Int? = nil,
+        id: Swift.String? = nil,
         invitingTeam: Team? = nil,
         invitingUser: InvitingUser? = nil,
         isExternalLimited: Swift.Bool? = nil,
-        dateLastUpdated: Swift.Int? = nil,
         targetUser: TargetUser? = nil
     ) {
-        self.id = id
         self.channel = channel
         self.dateCreated = dateCreated
+        self.dateLastUpdated = dateLastUpdated
         self.expiresAt = expiresAt
+        self.id = id
         self.invitingTeam = invitingTeam
         self.invitingUser = invitingUser
         self.isExternalLimited = isExternalLimited
-        self.dateLastUpdated = dateLastUpdated
         self.targetUser = targetUser
     }
 }

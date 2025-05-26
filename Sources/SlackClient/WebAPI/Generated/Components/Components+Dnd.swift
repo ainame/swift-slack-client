@@ -15,207 +15,207 @@ import struct Foundation.Date
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/DndEndDndResponse`.
     public struct DndEndDndResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/DndEndDndResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/DndEndDndResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/DndEndDndResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/DndEndDndResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/DndEndDndResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `DndEndDndResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse`.
     public struct DndEndSnoozeResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/dnd_enabled`.
+        public var dndEnabled: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/next_dnd_end_ts`.
+        public var nextDndEndTs: Swift.Int?
+        /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/next_dnd_start_ts`.
+        public var nextDndStartTs: Swift.Int?
+        /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/dndEnabled`.
-        public var dndEnabled: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/nextDndStartTs`.
-        public var nextDndStartTs: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/nextDndEndTs`.
-        public var nextDndEndTs: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/snoozeEnabled`.
+        /// - Remark: Generated from `#/components/schemas/DndEndSnoozeResponse/snooze_enabled`.
         public var snoozeEnabled: Swift.Bool?
         /// Creates a new `DndEndSnoozeResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
+        ///   - dndEnabled:
         ///   - error:
         ///   - needed:
-        ///   - provided:
-        ///   - dndEnabled:
-        ///   - nextDndStartTs:
         ///   - nextDndEndTs:
+        ///   - nextDndStartTs:
+        ///   - ok:
+        ///   - provided:
         ///   - snoozeEnabled:
         public init(
-            ok: Swift.Bool,
+            dndEnabled: Swift.Bool? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            dndEnabled: Swift.Bool? = nil,
-            nextDndStartTs: Swift.Int? = nil,
             nextDndEndTs: Swift.Int? = nil,
+            nextDndStartTs: Swift.Int? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
             snoozeEnabled: Swift.Bool? = nil
         ) {
-            self.ok = ok
+            self.dndEnabled = dndEnabled
             self.error = error
             self.needed = needed
-            self.provided = provided
-            self.dndEnabled = dndEnabled
-            self.nextDndStartTs = nextDndStartTs
             self.nextDndEndTs = nextDndEndTs
+            self.nextDndStartTs = nextDndStartTs
+            self.ok = ok
+            self.provided = provided
             self.snoozeEnabled = snoozeEnabled
         }
     }
     /// - Remark: Generated from `#/components/schemas/DndInfoResponse`.
     public struct DndInfoResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/DndInfoResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/DndInfoResponse/dnd_enabled`.
+        public var dndEnabled: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/DndInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/DndInfoResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/DndInfoResponse/next_dnd_end_ts`.
+        public var nextDndEndTs: Swift.Int?
+        /// - Remark: Generated from `#/components/schemas/DndInfoResponse/next_dnd_start_ts`.
+        public var nextDndStartTs: Swift.Int?
+        /// - Remark: Generated from `#/components/schemas/DndInfoResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/DndInfoResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/DndInfoResponse/dndEnabled`.
-        public var dndEnabled: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/DndInfoResponse/nextDndStartTs`.
-        public var nextDndStartTs: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/DndInfoResponse/nextDndEndTs`.
-        public var nextDndEndTs: Swift.Int?
         /// Creates a new `DndInfoResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
+        ///   - dndEnabled:
         ///   - error:
         ///   - needed:
-        ///   - provided:
-        ///   - dndEnabled:
-        ///   - nextDndStartTs:
         ///   - nextDndEndTs:
+        ///   - nextDndStartTs:
+        ///   - ok:
+        ///   - provided:
         public init(
-            ok: Swift.Bool,
+            dndEnabled: Swift.Bool? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            dndEnabled: Swift.Bool? = nil,
+            nextDndEndTs: Swift.Int? = nil,
             nextDndStartTs: Swift.Int? = nil,
-            nextDndEndTs: Swift.Int? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil
         ) {
-            self.ok = ok
+            self.dndEnabled = dndEnabled
             self.error = error
             self.needed = needed
-            self.provided = provided
-            self.dndEnabled = dndEnabled
-            self.nextDndStartTs = nextDndStartTs
             self.nextDndEndTs = nextDndEndTs
+            self.nextDndStartTs = nextDndStartTs
+            self.ok = ok
+            self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse`.
     public struct DndSetSnoozeResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/snoozeEnabled`.
+        /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/snooze_enabled`.
         public var snoozeEnabled: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/snoozeEndtime`.
+        /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/snooze_endtime`.
         public var snoozeEndtime: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/snoozeRemaining`.
-        public var snoozeRemaining: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/snoozeIsIndefinite`.
+        /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/snooze_is_indefinite`.
         public var snoozeIsIndefinite: Swift.Bool?
+        /// - Remark: Generated from `#/components/schemas/DndSetSnoozeResponse/snooze_remaining`.
+        public var snoozeRemaining: Swift.Int?
         /// Creates a new `DndSetSnoozeResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - snoozeEnabled:
         ///   - snoozeEndtime:
-        ///   - snoozeRemaining:
         ///   - snoozeIsIndefinite:
+        ///   - snoozeRemaining:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
             snoozeEnabled: Swift.Bool? = nil,
             snoozeEndtime: Swift.Int? = nil,
-            snoozeRemaining: Swift.Int? = nil,
-            snoozeIsIndefinite: Swift.Bool? = nil
+            snoozeIsIndefinite: Swift.Bool? = nil,
+            snoozeRemaining: Swift.Int? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.snoozeEnabled = snoozeEnabled
             self.snoozeEndtime = snoozeEndtime
-            self.snoozeRemaining = snoozeRemaining
             self.snoozeIsIndefinite = snoozeIsIndefinite
+            self.snoozeRemaining = snoozeRemaining
         }
     }
     /// - Remark: Generated from `#/components/schemas/DndTeamInfoResponse`.
     public struct DndTeamInfoResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/DndTeamInfoResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/DndTeamInfoResponse/users`.
-        public var users: OpenAPIRuntime.OpenAPIObjectContainer?
         /// - Remark: Generated from `#/components/schemas/DndTeamInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/DndTeamInfoResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/DndTeamInfoResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/DndTeamInfoResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/DndTeamInfoResponse/users`.
+        public var users: OpenAPIRuntime.OpenAPIObjectContainer?
         /// Creates a new `DndTeamInfoResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - users:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - users:
         public init(
-            ok: Swift.Bool,
-            users: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            users: OpenAPIRuntime.OpenAPIObjectContainer? = nil
         ) {
-            self.ok = ok
-            self.users = users
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.users = users
         }
     }
 }

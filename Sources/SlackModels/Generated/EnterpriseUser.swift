@@ -11,45 +11,45 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/EnterpriseUser`.
 public struct EnterpriseUser: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/EnterpriseUser/enterprise_id`.
+    public var enterpriseId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/EnterpriseUser/enterprise_name`.
+    public var enterpriseName: Swift.String?
     /// - Remark: Generated from `#/components/schemas/EnterpriseUser/id`.
     public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/EnterpriseUser/is_admin`.
+    public var isAdmin: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/EnterpriseUser/is_owner`.
+    public var isOwner: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/EnterpriseUser/is_primary_owner`.
+    public var isPrimaryOwner: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/EnterpriseUser/teams`.
     public var teams: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/EnterpriseUser/enterpriseId`.
-    public var enterpriseId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/EnterpriseUser/enterpriseName`.
-    public var enterpriseName: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/EnterpriseUser/isAdmin`.
-    public var isAdmin: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/EnterpriseUser/isOwner`.
-    public var isOwner: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/EnterpriseUser/isPrimaryOwner`.
-    public var isPrimaryOwner: Swift.Bool?
     /// Creates a new `EnterpriseUser`.
     ///
     /// - Parameters:
-    ///   - id:
-    ///   - teams:
     ///   - enterpriseId:
     ///   - enterpriseName:
+    ///   - id:
     ///   - isAdmin:
     ///   - isOwner:
     ///   - isPrimaryOwner:
+    ///   - teams:
     public init(
-        id: Swift.String? = nil,
-        teams: [Swift.String]? = nil,
         enterpriseId: Swift.String? = nil,
         enterpriseName: Swift.String? = nil,
+        id: Swift.String? = nil,
         isAdmin: Swift.Bool? = nil,
         isOwner: Swift.Bool? = nil,
-        isPrimaryOwner: Swift.Bool? = nil
+        isPrimaryOwner: Swift.Bool? = nil,
+        teams: [Swift.String]? = nil
     ) {
-        self.id = id
-        self.teams = teams
         self.enterpriseId = enterpriseId
         self.enterpriseName = enterpriseName
+        self.id = id
         self.isAdmin = isAdmin
         self.isOwner = isOwner
         self.isPrimaryOwner = isPrimaryOwner
+        self.teams = teams
     }
 }

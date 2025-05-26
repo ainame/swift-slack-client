@@ -19,93 +19,93 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/PinsAddResponse`.
     public struct PinsAddResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/PinsAddResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/PinsAddResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/PinsAddResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/PinsAddResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/PinsAddResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `PinsAddResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/PinsListResponse`.
     public struct PinsListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/PinsListResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/PinsListResponse/items`.
-        public var items: [SlackModels.Item]?
         /// - Remark: Generated from `#/components/schemas/PinsListResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/PinsListResponse/items`.
+        public var items: [SlackModels.Item]?
         /// - Remark: Generated from `#/components/schemas/PinsListResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/PinsListResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/PinsListResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `PinsListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - items:
         ///   - error:
+        ///   - items:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
-            items: [SlackModels.Item]? = nil,
             error: Swift.String? = nil,
+            items: [SlackModels.Item]? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.items = items
             self.error = error
+            self.items = items
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/PinsRemoveResponse`.
     public struct PinsRemoveResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/PinsRemoveResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/PinsRemoveResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/PinsRemoveResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/PinsRemoveResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/PinsRemoveResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `PinsRemoveResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }

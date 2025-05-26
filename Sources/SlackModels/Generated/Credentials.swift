@@ -11,30 +11,30 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Credentials`.
 public struct Credentials: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Credentials/clientId`.
+    /// - Remark: Generated from `#/components/schemas/Credentials/client_id`.
     public var clientId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Credentials/clientSecret`.
+    /// - Remark: Generated from `#/components/schemas/Credentials/client_secret`.
     public var clientSecret: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Credentials/verificationToken`.
-    public var verificationToken: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Credentials/signingSecret`.
+    /// - Remark: Generated from `#/components/schemas/Credentials/signing_secret`.
     public var signingSecret: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Credentials/verification_token`.
+    public var verificationToken: Swift.String?
     /// Creates a new `Credentials`.
     ///
     /// - Parameters:
     ///   - clientId:
     ///   - clientSecret:
-    ///   - verificationToken:
     ///   - signingSecret:
+    ///   - verificationToken:
     public init(
         clientId: Swift.String? = nil,
         clientSecret: Swift.String? = nil,
-        verificationToken: Swift.String? = nil,
-        signingSecret: Swift.String? = nil
+        signingSecret: Swift.String? = nil,
+        verificationToken: Swift.String? = nil
     ) {
         self.clientId = clientId
         self.clientSecret = clientSecret
-        self.verificationToken = verificationToken
         self.signingSecret = signingSecret
+        self.verificationToken = verificationToken
     }
 }

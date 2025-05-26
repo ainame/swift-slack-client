@@ -13,28 +13,28 @@ import struct Foundation.Date
 public struct ApprovedApp: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ApprovedApp/app`.
     public var app: App?
+    /// - Remark: Generated from `#/components/schemas/ApprovedApp/date_updated`.
+    public var dateUpdated: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ApprovedApp/last_resolved_by`.
+    public var lastResolvedBy: LastResolvedBy?
     /// - Remark: Generated from `#/components/schemas/ApprovedApp/scopes`.
     public var scopes: [Scope]?
-    /// - Remark: Generated from `#/components/schemas/ApprovedApp/dateUpdated`.
-    public var dateUpdated: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ApprovedApp/lastResolvedBy`.
-    public var lastResolvedBy: LastResolvedBy?
     /// Creates a new `ApprovedApp`.
     ///
     /// - Parameters:
     ///   - app:
-    ///   - scopes:
     ///   - dateUpdated:
     ///   - lastResolvedBy:
+    ///   - scopes:
     public init(
         app: App? = nil,
-        scopes: [Scope]? = nil,
         dateUpdated: Swift.Int? = nil,
-        lastResolvedBy: LastResolvedBy? = nil
+        lastResolvedBy: LastResolvedBy? = nil,
+        scopes: [Scope]? = nil
     ) {
         self.app = app
-        self.scopes = scopes
         self.dateUpdated = dateUpdated
         self.lastResolvedBy = lastResolvedBy
+        self.scopes = scopes
     }
 }

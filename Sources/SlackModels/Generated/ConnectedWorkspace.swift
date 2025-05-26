@@ -11,9 +11,9 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/ConnectedWorkspace`.
 public struct ConnectedWorkspace: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/ConnectedWorkspace/workspaceId`.
+    /// - Remark: Generated from `#/components/schemas/ConnectedWorkspace/workspace_id`.
     public var workspaceId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ConnectedWorkspace/workspaceName`.
+    /// - Remark: Generated from `#/components/schemas/ConnectedWorkspace/workspace_name`.
     public var workspaceName: Swift.String?
     /// Creates a new `ConnectedWorkspace`.
     ///

@@ -11,7 +11,7 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/MeetingNotes`.
 public struct MeetingNotes: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/MeetingNotes/fileId`.
+    /// - Remark: Generated from `#/components/schemas/MeetingNotes/file_id`.
     public var fileId: Swift.String?
     /// Creates a new `MeetingNotes`.
     ///

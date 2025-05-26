@@ -19,98 +19,98 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/StarsAddResponse`.
     public struct StarsAddResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/StarsAddResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/StarsAddResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/StarsAddResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/StarsAddResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/StarsAddResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `StarsAddResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/StarsListResponse`.
     public struct StarsListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/StarsListResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/StarsListResponse/items`.
-        public var items: [SlackModels.Item]?
-        /// - Remark: Generated from `#/components/schemas/StarsListResponse/paging`.
-        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/StarsListResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/StarsListResponse/items`.
+        public var items: [SlackModels.Item]?
         /// - Remark: Generated from `#/components/schemas/StarsListResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/StarsListResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/StarsListResponse/paging`.
+        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/StarsListResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `StarsListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - items:
-        ///   - paging:
         ///   - error:
+        ///   - items:
         ///   - needed:
+        ///   - ok:
+        ///   - paging:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
-            items: [SlackModels.Item]? = nil,
-            paging: SlackModels.Paging? = nil,
             error: Swift.String? = nil,
+            items: [SlackModels.Item]? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            paging: SlackModels.Paging? = nil,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.items = items
-            self.paging = paging
             self.error = error
+            self.items = items
             self.needed = needed
+            self.ok = ok
+            self.paging = paging
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/StarsRemoveResponse`.
     public struct StarsRemoveResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/StarsRemoveResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/StarsRemoveResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/StarsRemoveResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/StarsRemoveResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/StarsRemoveResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `StarsRemoveResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }

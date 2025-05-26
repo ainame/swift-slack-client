@@ -38,7 +38,7 @@ public enum UsersConversations {
                 public var cursor: Swift.String?
                 /// Set to true to exclude archived channels from the list.
                 ///
-                /// - Remark: Generated from `#/paths/users.conversations/POST/requestBody/json/excludeArchived`.
+                /// - Remark: Generated from `#/paths/users.conversations/POST/requestBody/json/exclude_archived`.
                 public var excludeArchived: Swift.Bool?
                 /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. Must be an integer with a max value of 999.
                 ///
@@ -46,7 +46,7 @@ public enum UsersConversations {
                 public var limit: Swift.Double?
                 /// encoded team id to list conversations in, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/users.conversations/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/users.conversations/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Mix and match channel types by providing a comma-separated list of any combination of public_channel, private_channel, mpim, im.
                 ///
@@ -82,9 +82,9 @@ public enum UsersConversations {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case cursor
-                    case excludeArchived
+                    case excludeArchived = "exclude_archived"
                     case limit
-                    case teamId
+                    case teamId = "team_id"
                     case types
                     case user
                 }
@@ -732,7 +732,7 @@ public enum UsersInfo {
                 public var user: Swift.String
                 /// Set this to true to receive the locale for this user. Defaults to false.
                 ///
-                /// - Remark: Generated from `#/paths/users.info/POST/requestBody/json/includeLocale`.
+                /// - Remark: Generated from `#/paths/users.info/POST/requestBody/json/include_locale`.
                 public var includeLocale: Swift.Bool?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -748,7 +748,7 @@ public enum UsersInfo {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case user
-                    case includeLocale
+                    case includeLocale = "include_locale"
                 }
             }
             /// - Remark: Generated from `#/paths/users.info/POST/requestBody/content/application\/json`.
@@ -876,7 +876,7 @@ public enum UsersList {
                 public var cursor: Swift.String?
                 /// Set this to true to receive the locale for users. Defaults to false.
                 ///
-                /// - Remark: Generated from `#/paths/users.list/POST/requestBody/json/includeLocale`.
+                /// - Remark: Generated from `#/paths/users.list/POST/requestBody/json/include_locale`.
                 public var includeLocale: Swift.Bool?
                 /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached. Providing no limit value will result in Slack attempting to deliver you the entire result set. If the collection is too large you may experience limit_required or HTTP 500 errors.
                 ///
@@ -884,7 +884,7 @@ public enum UsersList {
                 public var limit: Swift.Double?
                 /// encoded team id to list users in, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/users.list/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/users.list/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -906,9 +906,9 @@ public enum UsersList {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case cursor
-                    case includeLocale
+                    case includeLocale = "include_locale"
                     case limit
-                    case teamId
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/users.list/POST/requestBody/content/application\/json`.
@@ -1166,7 +1166,7 @@ public enum UsersProfileGet {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Include labels for each ID in custom profile fields. Using this parameter will heavily rate-limit your requests and is not recommended.
                 ///
-                /// - Remark: Generated from `#/paths/users.profile.get/POST/requestBody/json/includeLabels`.
+                /// - Remark: Generated from `#/paths/users.profile.get/POST/requestBody/json/include_labels`.
                 public var includeLabels: Swift.Bool?
                 /// User to retrieve profile info for.
                 ///
@@ -1185,7 +1185,7 @@ public enum UsersProfileGet {
                     self.user = user
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case includeLabels
+                    case includeLabels = "include_labels"
                     case user
                 }
             }
@@ -1595,15 +1595,15 @@ public enum UsersSetPhoto {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Width/height of crop box (always square).
                 ///
-                /// - Remark: Generated from `#/paths/users.setPhoto/POST/requestBody/json/cropW`.
+                /// - Remark: Generated from `#/paths/users.setPhoto/POST/requestBody/json/crop_w`.
                 public var cropW: Swift.String?
                 /// X coordinate of top-left corner of crop box.
                 ///
-                /// - Remark: Generated from `#/paths/users.setPhoto/POST/requestBody/json/cropX`.
+                /// - Remark: Generated from `#/paths/users.setPhoto/POST/requestBody/json/crop_x`.
                 public var cropX: Swift.String?
                 /// Y coordinate of top-left corner of crop box.
                 ///
-                /// - Remark: Generated from `#/paths/users.setPhoto/POST/requestBody/json/cropY`.
+                /// - Remark: Generated from `#/paths/users.setPhoto/POST/requestBody/json/crop_y`.
                 public var cropY: Swift.String?
                 /// File contents via multipart/form-data.
                 ///
@@ -1628,9 +1628,9 @@ public enum UsersSetPhoto {
                     self.image = image
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case cropW
-                    case cropX
-                    case cropY
+                    case cropW = "crop_w"
+                    case cropX = "crop_x"
+                    case cropY = "crop_y"
                     case image
                 }
             }

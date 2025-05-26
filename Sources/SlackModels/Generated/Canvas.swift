@@ -11,30 +11,30 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Canvas`.
 public struct Canvas: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Canvas/fileId`.
+    /// - Remark: Generated from `#/components/schemas/Canvas/file_id`.
     public var fileId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Canvas/isEmpty`.
+    /// - Remark: Generated from `#/components/schemas/Canvas/is_empty`.
     public var isEmpty: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Canvas/quipThreadId`.
-    public var quipThreadId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Canvas/isMigrated`.
+    /// - Remark: Generated from `#/components/schemas/Canvas/is_migrated`.
     public var isMigrated: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Canvas/quip_thread_id`.
+    public var quipThreadId: Swift.String?
     /// Creates a new `Canvas`.
     ///
     /// - Parameters:
     ///   - fileId:
     ///   - isEmpty:
-    ///   - quipThreadId:
     ///   - isMigrated:
+    ///   - quipThreadId:
     public init(
         fileId: Swift.String? = nil,
         isEmpty: Swift.Bool? = nil,
-        quipThreadId: Swift.String? = nil,
-        isMigrated: Swift.Bool? = nil
+        isMigrated: Swift.Bool? = nil,
+        quipThreadId: Swift.String? = nil
     ) {
         self.fileId = fileId
         self.isEmpty = isEmpty
-        self.quipThreadId = quipThreadId
         self.isMigrated = isMigrated
+        self.quipThreadId = quipThreadId
     }
 }

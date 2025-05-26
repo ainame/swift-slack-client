@@ -19,147 +19,147 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/ReactionsAddResponse`.
     public struct ReactionsAddResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ReactionsAddResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ReactionsAddResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ReactionsAddResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ReactionsAddResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ReactionsAddResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ReactionsAddResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse`.
     public struct ReactionsGetResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/type`.
-        public var type: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/channel`.
         public var channel: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/message`.
-        public var message: SlackModels.Message?
         /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/message`.
+        public var message: SlackModels.Message?
         /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/type`.
+        public var type: Swift.String?
         /// Creates a new `ReactionsGetResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - type:
         ///   - channel:
-        ///   - message:
         ///   - error:
+        ///   - message:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - type:
         public init(
-            ok: Swift.Bool,
-            type: Swift.String? = nil,
             channel: Swift.String? = nil,
-            message: SlackModels.Message? = nil,
             error: Swift.String? = nil,
+            message: SlackModels.Message? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            type: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.type = type
             self.channel = channel
-            self.message = message
             self.error = error
+            self.message = message
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.type = type
         }
     }
     /// - Remark: Generated from `#/components/schemas/ReactionsListResponse`.
     public struct ReactionsListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/items`.
-        public var items: [SlackModels.Item]?
-        /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/paging`.
-        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/items`.
+        public var items: [SlackModels.Item]?
         /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/paging`.
+        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/ReactionsListResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ReactionsListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - items:
-        ///   - paging:
         ///   - error:
+        ///   - items:
         ///   - needed:
+        ///   - ok:
+        ///   - paging:
         ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
-            items: [SlackModels.Item]? = nil,
-            paging: SlackModels.Paging? = nil,
             error: Swift.String? = nil,
+            items: [SlackModels.Item]? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            paging: SlackModels.Paging? = nil,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
-            self.items = items
-            self.paging = paging
             self.error = error
+            self.items = items
             self.needed = needed
+            self.ok = ok
+            self.paging = paging
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/ReactionsRemoveResponse`.
     public struct ReactionsRemoveResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ReactionsRemoveResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ReactionsRemoveResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ReactionsRemoveResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ReactionsRemoveResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ReactionsRemoveResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ReactionsRemoveResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }

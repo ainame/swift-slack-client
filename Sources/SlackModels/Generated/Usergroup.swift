@@ -11,105 +11,105 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Usergroup`.
 public struct Usergroup: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Usergroup/id`.
-    public var id: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/name`.
-    public var name: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/auto_provision`.
+    public var autoProvision: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/channel_count`.
+    public var channelCount: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/created_by`.
+    public var createdBy: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/date_create`.
+    public var dateCreate: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/date_delete`.
+    public var dateDelete: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/date_update`.
+    public var dateUpdate: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Usergroup/description`.
     public var description: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/enterprise_subteam_id`.
+    public var enterpriseSubteamId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Usergroup/handle`.
     public var handle: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/id`.
+    public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/is_external`.
+    public var isExternal: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/is_section`.
+    public var isSection: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/is_subteam`.
+    public var isSubteam: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/is_usergroup`.
+    public var isUsergroup: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/name`.
+    public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Usergroup/prefs`.
     public var prefs: Prefs?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/team_id`.
+    public var teamId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/updated_by`.
+    public var updatedBy: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Usergroup/users`.
     public var users: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/teamId`.
-    public var teamId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/isUsergroup`.
-    public var isUsergroup: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/isSubteam`.
-    public var isSubteam: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/isExternal`.
-    public var isExternal: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/dateCreate`.
-    public var dateCreate: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/dateUpdate`.
-    public var dateUpdate: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/dateDelete`.
-    public var dateDelete: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/autoProvision`.
-    public var autoProvision: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/enterpriseSubteamId`.
-    public var enterpriseSubteamId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/createdBy`.
-    public var createdBy: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/updatedBy`.
-    public var updatedBy: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/channelCount`.
-    public var channelCount: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/isSection`.
-    public var isSection: Swift.Bool?
     /// Creates a new `Usergroup`.
     ///
     /// - Parameters:
-    ///   - id:
-    ///   - name:
-    ///   - description:
-    ///   - handle:
-    ///   - prefs:
-    ///   - users:
-    ///   - teamId:
-    ///   - isUsergroup:
-    ///   - isSubteam:
-    ///   - isExternal:
-    ///   - dateCreate:
-    ///   - dateUpdate:
-    ///   - dateDelete:
     ///   - autoProvision:
-    ///   - enterpriseSubteamId:
-    ///   - createdBy:
-    ///   - updatedBy:
     ///   - channelCount:
+    ///   - createdBy:
+    ///   - dateCreate:
+    ///   - dateDelete:
+    ///   - dateUpdate:
+    ///   - description:
+    ///   - enterpriseSubteamId:
+    ///   - handle:
+    ///   - id:
+    ///   - isExternal:
     ///   - isSection:
+    ///   - isSubteam:
+    ///   - isUsergroup:
+    ///   - name:
+    ///   - prefs:
+    ///   - teamId:
+    ///   - updatedBy:
+    ///   - users:
     public init(
-        id: Swift.String? = nil,
-        name: Swift.String? = nil,
-        description: Swift.String? = nil,
-        handle: Swift.String? = nil,
-        prefs: Prefs? = nil,
-        users: [Swift.String]? = nil,
-        teamId: Swift.String? = nil,
-        isUsergroup: Swift.Bool? = nil,
-        isSubteam: Swift.Bool? = nil,
-        isExternal: Swift.Bool? = nil,
-        dateCreate: Swift.Int? = nil,
-        dateUpdate: Swift.Int? = nil,
-        dateDelete: Swift.Int? = nil,
         autoProvision: Swift.Bool? = nil,
-        enterpriseSubteamId: Swift.String? = nil,
-        createdBy: Swift.String? = nil,
-        updatedBy: Swift.String? = nil,
         channelCount: Swift.Int? = nil,
-        isSection: Swift.Bool? = nil
+        createdBy: Swift.String? = nil,
+        dateCreate: Swift.Int? = nil,
+        dateDelete: Swift.Int? = nil,
+        dateUpdate: Swift.Int? = nil,
+        description: Swift.String? = nil,
+        enterpriseSubteamId: Swift.String? = nil,
+        handle: Swift.String? = nil,
+        id: Swift.String? = nil,
+        isExternal: Swift.Bool? = nil,
+        isSection: Swift.Bool? = nil,
+        isSubteam: Swift.Bool? = nil,
+        isUsergroup: Swift.Bool? = nil,
+        name: Swift.String? = nil,
+        prefs: Prefs? = nil,
+        teamId: Swift.String? = nil,
+        updatedBy: Swift.String? = nil,
+        users: [Swift.String]? = nil
     ) {
-        self.id = id
-        self.name = name
-        self.description = description
-        self.handle = handle
-        self.prefs = prefs
-        self.users = users
-        self.teamId = teamId
-        self.isUsergroup = isUsergroup
-        self.isSubteam = isSubteam
-        self.isExternal = isExternal
-        self.dateCreate = dateCreate
-        self.dateUpdate = dateUpdate
-        self.dateDelete = dateDelete
         self.autoProvision = autoProvision
-        self.enterpriseSubteamId = enterpriseSubteamId
-        self.createdBy = createdBy
-        self.updatedBy = updatedBy
         self.channelCount = channelCount
+        self.createdBy = createdBy
+        self.dateCreate = dateCreate
+        self.dateDelete = dateDelete
+        self.dateUpdate = dateUpdate
+        self.description = description
+        self.enterpriseSubteamId = enterpriseSubteamId
+        self.handle = handle
+        self.id = id
+        self.isExternal = isExternal
         self.isSection = isSection
+        self.isSubteam = isSubteam
+        self.isUsergroup = isUsergroup
+        self.name = name
+        self.prefs = prefs
+        self.teamId = teamId
+        self.updatedBy = updatedBy
+        self.users = users
     }
 }

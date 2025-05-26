@@ -34,7 +34,7 @@ public enum EmojiList {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Include a list of categories for Unicode emoji and the emoji in each category.
                 ///
-                /// - Remark: Generated from `#/paths/emoji.list/POST/requestBody/json/includeCategories`.
+                /// - Remark: Generated from `#/paths/emoji.list/POST/requestBody/json/include_categories`.
                 public var includeCategories: Swift.Bool?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -44,7 +44,7 @@ public enum EmojiList {
                     self.includeCategories = includeCategories
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case includeCategories
+                    case includeCategories = "include_categories"
                 }
             }
             /// - Remark: Generated from `#/paths/emoji.list/POST/requestBody/content/application\/json`.

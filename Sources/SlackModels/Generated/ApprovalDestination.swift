@@ -11,9 +11,9 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/ApprovalDestination`.
 public struct ApprovalDestination: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/ApprovalDestination/allWhoCanManageSharedChannels`.
+    /// - Remark: Generated from `#/components/schemas/ApprovalDestination/all_who_can_manage_shared_channels`.
     public var allWhoCanManageSharedChannels: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/ApprovalDestination/channelId`.
+    /// - Remark: Generated from `#/components/schemas/ApprovalDestination/channel_id`.
     public var channelId: Swift.String?
     /// Creates a new `ApprovalDestination`.
     ///

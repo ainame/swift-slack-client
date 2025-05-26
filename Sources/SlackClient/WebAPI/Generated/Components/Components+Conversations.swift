@@ -19,1058 +19,1058 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse`.
     public struct ConversationsAcceptSharedInviteResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/can_open_scdm`.
+        public var canOpenScdm: Swift.Bool?
+        /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/channel_id`.
+        public var channelId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/implicit_approval`.
+        public var implicitApproval: Swift.Bool?
+        /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/invite_id`.
+        public var inviteId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/implicitApproval`.
-        public var implicitApproval: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/channelId`.
-        public var channelId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/inviteId`.
-        public var inviteId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsAcceptSharedInviteResponse/canOpenScdm`.
-        public var canOpenScdm: Swift.Bool?
         /// Creates a new `ConversationsAcceptSharedInviteResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - error:
-        ///   - needed:
-        ///   - provided:
-        ///   - implicitApproval:
-        ///   - channelId:
-        ///   - inviteId:
         ///   - canOpenScdm:
+        ///   - channelId:
+        ///   - error:
+        ///   - implicitApproval:
+        ///   - inviteId:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
         public init(
-            ok: Swift.Bool,
-            error: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            implicitApproval: Swift.Bool? = nil,
+            canOpenScdm: Swift.Bool? = nil,
             channelId: Swift.String? = nil,
+            error: Swift.String? = nil,
+            implicitApproval: Swift.Bool? = nil,
             inviteId: Swift.String? = nil,
-            canOpenScdm: Swift.Bool? = nil
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.error = error
-            self.needed = needed
-            self.provided = provided
-            self.implicitApproval = implicitApproval
-            self.channelId = channelId
-            self.inviteId = inviteId
             self.canOpenScdm = canOpenScdm
+            self.channelId = channelId
+            self.error = error
+            self.implicitApproval = implicitApproval
+            self.inviteId = inviteId
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsApproveSharedInviteResponse`.
     public struct ConversationsApproveSharedInviteResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsApproveSharedInviteResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsApproveSharedInviteResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsApproveSharedInviteResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsApproveSharedInviteResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsApproveSharedInviteResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ConversationsApproveSharedInviteResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsArchiveResponse`.
     public struct ConversationsArchiveResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsArchiveResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsArchiveResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsArchiveResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsArchiveResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsArchiveResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ConversationsArchiveResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsCanvasesCreateResponse`.
     public struct ConversationsCanvasesCreateResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsCanvasesCreateResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ConversationsCanvasesCreateResponse/canvas_id`.
+        public var canvasId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsCanvasesCreateResponse/detail`.
         public var detail: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsCanvasesCreateResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsCanvasesCreateResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsCanvasesCreateResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsCanvasesCreateResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsCanvasesCreateResponse/canvasId`.
-        public var canvasId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsCanvasesCreateResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/ConversationsCanvasesCreateResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ConversationsCanvasesCreateResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
+        ///   - canvasId:
         ///   - detail:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
-        ///   - canvasId:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
+            canvasId: Swift.String? = nil,
             detail: Swift.String? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            canvasId: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
+            self.canvasId = canvasId
             self.detail = detail
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
-            self.canvasId = canvasId
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsCloseResponse`.
     public struct ConversationsCloseResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsCloseResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ConversationsCloseResponse/already_closed`.
+        public var alreadyClosed: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/ConversationsCloseResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsCloseResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsCloseResponse/no_op`.
+        public var noOp: Swift.Bool?
+        /// - Remark: Generated from `#/components/schemas/ConversationsCloseResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsCloseResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsCloseResponse/alreadyClosed`.
-        public var alreadyClosed: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/ConversationsCloseResponse/noOp`.
-        public var noOp: Swift.Bool?
         /// Creates a new `ConversationsCloseResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
+        ///   - alreadyClosed:
         ///   - error:
         ///   - needed:
-        ///   - provided:
-        ///   - alreadyClosed:
         ///   - noOp:
+        ///   - ok:
+        ///   - provided:
         public init(
-            ok: Swift.Bool,
+            alreadyClosed: Swift.Bool? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            alreadyClosed: Swift.Bool? = nil,
-            noOp: Swift.Bool? = nil
+            noOp: Swift.Bool? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil
         ) {
-            self.ok = ok
+            self.alreadyClosed = alreadyClosed
             self.error = error
             self.needed = needed
-            self.provided = provided
-            self.alreadyClosed = alreadyClosed
             self.noOp = noOp
+            self.ok = ok
+            self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsCreateResponse`.
     public struct ConversationsCreateResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsCreateResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsCreateResponse/channel`.
         public var channel: SlackModels.Channel?
-        /// - Remark: Generated from `#/components/schemas/ConversationsCreateResponse/error`.
-        public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsCreateResponse/detail`.
         public var detail: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsCreateResponse/error`.
+        public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsCreateResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsCreateResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsCreateResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ConversationsCreateResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - channel:
-        ///   - error:
         ///   - detail:
+        ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             channel: SlackModels.Channel? = nil,
-            error: Swift.String? = nil,
             detail: Swift.String? = nil,
+            error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.channel = channel
-            self.error = error
             self.detail = detail
+            self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsDeclineSharedInviteResponse`.
     public struct ConversationsDeclineSharedInviteResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsDeclineSharedInviteResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsDeclineSharedInviteResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsDeclineSharedInviteResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsDeclineSharedInviteResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsDeclineSharedInviteResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ConversationsDeclineSharedInviteResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsExternalInvitePermissionsSetResponse`.
     public struct ConversationsExternalInvitePermissionsSetResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsExternalInvitePermissionsSetResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsExternalInvitePermissionsSetResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsExternalInvitePermissionsSetResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsExternalInvitePermissionsSetResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsExternalInvitePermissionsSetResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ConversationsExternalInvitePermissionsSetResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse`.
     public struct ConversationsHistoryResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/messages`.
-        public var messages: [SlackModels.Message]?
+        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/channel_actions_count`.
+        public var channelActionsCount: Swift.Int?
+        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/channel_actions_ts`.
+        public var channelActionsTs: Swift.Int?
         /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/error`.
         public var error: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/needed`.
-        public var needed: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/provided`.
-        public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/oldest`.
-        public var oldest: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/has_more`.
+        public var hasMore: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/latest`.
         public var latest: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/hasMore`.
-        public var hasMore: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/pinCount`.
+        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/messages`.
+        public var messages: [SlackModels.Message]?
+        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/needed`.
+        public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/oldest`.
+        public var oldest: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/pin_count`.
         public var pinCount: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/channelActionsTs`.
-        public var channelActionsTs: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/channelActionsCount`.
-        public var channelActionsCount: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/provided`.
+        public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsHistoryResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ConversationsHistoryResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - messages:
-        ///   - error:
-        ///   - needed:
-        ///   - provided:
-        ///   - oldest:
-        ///   - latest:
-        ///   - hasMore:
-        ///   - pinCount:
-        ///   - channelActionsTs:
         ///   - channelActionsCount:
+        ///   - channelActionsTs:
+        ///   - error:
+        ///   - hasMore:
+        ///   - latest:
+        ///   - messages:
+        ///   - needed:
+        ///   - ok:
+        ///   - oldest:
+        ///   - pinCount:
+        ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
-            messages: [SlackModels.Message]? = nil,
-            error: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            oldest: Swift.String? = nil,
-            latest: Swift.String? = nil,
-            hasMore: Swift.Bool? = nil,
-            pinCount: Swift.Int? = nil,
-            channelActionsTs: Swift.Int? = nil,
             channelActionsCount: Swift.Int? = nil,
+            channelActionsTs: Swift.Int? = nil,
+            error: Swift.String? = nil,
+            hasMore: Swift.Bool? = nil,
+            latest: Swift.String? = nil,
+            messages: [SlackModels.Message]? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            oldest: Swift.String? = nil,
+            pinCount: Swift.Int? = nil,
+            provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
-            self.messages = messages
-            self.error = error
-            self.needed = needed
-            self.provided = provided
-            self.oldest = oldest
-            self.latest = latest
-            self.hasMore = hasMore
-            self.pinCount = pinCount
-            self.channelActionsTs = channelActionsTs
             self.channelActionsCount = channelActionsCount
+            self.channelActionsTs = channelActionsTs
+            self.error = error
+            self.hasMore = hasMore
+            self.latest = latest
+            self.messages = messages
+            self.needed = needed
+            self.ok = ok
+            self.oldest = oldest
+            self.pinCount = pinCount
+            self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsInfoResponse`.
     public struct ConversationsInfoResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsInfoResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsInfoResponse/channel`.
         public var channel: SlackModels.Channel?
         /// - Remark: Generated from `#/components/schemas/ConversationsInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsInfoResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsInfoResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsInfoResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ConversationsInfoResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - channel:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             channel: SlackModels.Channel? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.channel = channel
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse`.
     public struct ConversationsInviteResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse/channel`.
         public var channel: SlackModels.Channel?
         /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse/error`.
         public var error: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse/needed`.
-        public var needed: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse/provided`.
-        public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse/errors`.
         public var errors: [SlackModels._Error]?
+        /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse/needed`.
+        public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ConversationsInviteResponse/provided`.
+        public var provided: Swift.String?
         /// Creates a new `ConversationsInviteResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - channel:
         ///   - error:
-        ///   - needed:
-        ///   - provided:
         ///   - errors:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
         public init(
-            ok: Swift.Bool,
             channel: SlackModels.Channel? = nil,
             error: Swift.String? = nil,
+            errors: [SlackModels._Error]? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            errors: [SlackModels._Error]? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.channel = channel
             self.error = error
-            self.needed = needed
-            self.provided = provided
             self.errors = errors
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse`.
     public struct ConversationsInviteSharedResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/conf_code`.
+        public var confCode: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/error`.
         public var error: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/url`.
-        public var url: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/invite_id`.
+        public var inviteId: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/is_legacy_shared_channel`.
+        public var isLegacySharedChannel: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/inviteId`.
-        public var inviteId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/confCode`.
-        public var confCode: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/isLegacySharedChannel`.
-        public var isLegacySharedChannel: Swift.Bool?
+        /// - Remark: Generated from `#/components/schemas/ConversationsInviteSharedResponse/url`.
+        public var url: Swift.String?
         /// Creates a new `ConversationsInviteSharedResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - error:
-        ///   - url:
-        ///   - needed:
-        ///   - provided:
-        ///   - inviteId:
         ///   - confCode:
+        ///   - error:
+        ///   - inviteId:
         ///   - isLegacySharedChannel:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
+        ///   - url:
         public init(
-            ok: Swift.Bool,
-            error: Swift.String? = nil,
-            url: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            inviteId: Swift.String? = nil,
             confCode: Swift.String? = nil,
-            isLegacySharedChannel: Swift.Bool? = nil
+            error: Swift.String? = nil,
+            inviteId: Swift.String? = nil,
+            isLegacySharedChannel: Swift.Bool? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            url: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.error = error
-            self.url = url
-            self.needed = needed
-            self.provided = provided
-            self.inviteId = inviteId
             self.confCode = confCode
+            self.error = error
+            self.inviteId = inviteId
             self.isLegacySharedChannel = isLegacySharedChannel
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
+            self.url = url
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsJoinResponse`.
     public struct ConversationsJoinResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsJoinResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsJoinResponse/channel`.
         public var channel: SlackModels.Channel?
-        /// - Remark: Generated from `#/components/schemas/ConversationsJoinResponse/warning`.
-        public var warning: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsJoinResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsJoinResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsJoinResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsJoinResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsJoinResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/ConversationsJoinResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/ConversationsJoinResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `ConversationsJoinResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - channel:
-        ///   - warning:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
-            ok: Swift.Bool,
             channel: SlackModels.Channel? = nil,
-            warning: Swift.String? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil
         ) {
-            self.ok = ok
             self.channel = channel
-            self.warning = warning
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsKickResponse`.
     public struct ConversationsKickResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsKickResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsKickResponse/error`.
         public var error: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsKickResponse/needed`.
-        public var needed: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsKickResponse/provided`.
-        public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsKickResponse/errors`.
         public var errors: SlackModels.Errors?
+        /// - Remark: Generated from `#/components/schemas/ConversationsKickResponse/needed`.
+        public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsKickResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ConversationsKickResponse/provided`.
+        public var provided: Swift.String?
         /// Creates a new `ConversationsKickResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
-        ///   - needed:
-        ///   - provided:
         ///   - errors:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
+            errors: SlackModels.Errors? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            errors: SlackModels.Errors? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
-            self.needed = needed
-            self.provided = provided
             self.errors = errors
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsLeaveResponse`.
     public struct ConversationsLeaveResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsLeaveResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsLeaveResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsLeaveResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsLeaveResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsLeaveResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ConversationsLeaveResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsListResponse`.
     public struct ConversationsListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsListResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsListResponse/channels`.
         public var channels: [SlackModels.Channel]?
         /// - Remark: Generated from `#/components/schemas/ConversationsListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsListResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsListResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsListResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsListResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/ConversationsListResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ConversationsListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - channels:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
             channels: [SlackModels.Channel]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
             self.channels = channels
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsListConnectInvitesResponse`.
     public struct ConversationsListConnectInvitesResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsListConnectInvitesResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/ConversationsListConnectInvitesResponse/error`.
-        public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsListConnectInvitesResponse/arg`.
         public var arg: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsListConnectInvitesResponse/error`.
+        public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsListConnectInvitesResponse/invites`.
         public var invites: [SlackModels.InviteElement]?
         /// - Remark: Generated from `#/components/schemas/ConversationsListConnectInvitesResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsListConnectInvitesResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsListConnectInvitesResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsListConnectInvitesResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/ConversationsListConnectInvitesResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ConversationsListConnectInvitesResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - error:
         ///   - arg:
+        ///   - error:
         ///   - invites:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
-            error: Swift.String? = nil,
             arg: Swift.String? = nil,
+            error: Swift.String? = nil,
             invites: [SlackModels.InviteElement]? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
-            self.error = error
             self.arg = arg
+            self.error = error
             self.invites = invites
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsMarkResponse`.
     public struct ConversationsMarkResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsMarkResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsMarkResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsMarkResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsMarkResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsMarkResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ConversationsMarkResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsMembersResponse`.
     public struct ConversationsMembersResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsMembersResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/ConversationsMembersResponse/members`.
-        public var members: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/ConversationsMembersResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsMembersResponse/members`.
+        public var members: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/ConversationsMembersResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsMembersResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsMembersResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsMembersResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/ConversationsMembersResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ConversationsMembersResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - members:
         ///   - error:
+        ///   - members:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
-            members: [Swift.String]? = nil,
             error: Swift.String? = nil,
+            members: [Swift.String]? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
-            self.members = members
             self.error = error
+            self.members = members
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsOpenResponse`.
     public struct ConversationsOpenResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsOpenResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ConversationsOpenResponse/already_open`.
+        public var alreadyOpen: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/ConversationsOpenResponse/channel`.
         public var channel: SlackModels.Channel?
         /// - Remark: Generated from `#/components/schemas/ConversationsOpenResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsOpenResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsOpenResponse/no_op`.
+        public var noOp: Swift.Bool?
+        /// - Remark: Generated from `#/components/schemas/ConversationsOpenResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsOpenResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsOpenResponse/noOp`.
-        public var noOp: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/ConversationsOpenResponse/alreadyOpen`.
-        public var alreadyOpen: Swift.Bool?
         /// Creates a new `ConversationsOpenResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
+        ///   - alreadyOpen:
         ///   - channel:
         ///   - error:
         ///   - needed:
-        ///   - provided:
         ///   - noOp:
-        ///   - alreadyOpen:
+        ///   - ok:
+        ///   - provided:
         public init(
-            ok: Swift.Bool,
+            alreadyOpen: Swift.Bool? = nil,
             channel: SlackModels.Channel? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
             noOp: Swift.Bool? = nil,
-            alreadyOpen: Swift.Bool? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil
         ) {
-            self.ok = ok
+            self.alreadyOpen = alreadyOpen
             self.channel = channel
             self.error = error
             self.needed = needed
-            self.provided = provided
             self.noOp = noOp
-            self.alreadyOpen = alreadyOpen
+            self.ok = ok
+            self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsRenameResponse`.
     public struct ConversationsRenameResponse: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/ConversationsRenameResponse/channel`.
         public var channel: SlackModels.Channel?
-        /// - Remark: Generated from `#/components/schemas/ConversationsRenameResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsRenameResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsRenameResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsRenameResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsRenameResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ConversationsRenameResponse`.
         ///
         /// - Parameters:
         ///   - channel:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
             channel: SlackModels.Channel? = nil,
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
             self.channel = channel
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse`.
     public struct ConversationsRepliesResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/messages`.
-        public var messages: [SlackModels.Message]?
-        /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/has_more`.
+        public var hasMore: Swift.Bool?
+        /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/messages`.
+        public var messages: [SlackModels.Message]?
         /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/hasMore`.
-        public var hasMore: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/ConversationsRepliesResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `ConversationsRepliesResponse`.
         ///
         /// - Parameters:
-        ///   - messages:
-        ///   - ok:
         ///   - error:
-        ///   - needed:
-        ///   - provided:
         ///   - hasMore:
+        ///   - messages:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
         ///   - responseMetadata:
         public init(
-            messages: [SlackModels.Message]? = nil,
-            ok: Swift.Bool,
             error: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
             hasMore: Swift.Bool? = nil,
+            messages: [SlackModels.Message]? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.messages = messages
-            self.ok = ok
             self.error = error
-            self.needed = needed
-            self.provided = provided
             self.hasMore = hasMore
+            self.messages = messages
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteApproveResponse`.
     public struct ConversationsRequestSharedInviteApproveResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteApproveResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteApproveResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteApproveResponse/invite_id`.
+        public var inviteId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteApproveResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteApproveResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteApproveResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteApproveResponse/inviteId`.
-        public var inviteId: Swift.String?
         /// Creates a new `ConversationsRequestSharedInviteApproveResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
-        ///   - needed:
-        ///   - provided:
         ///   - inviteId:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
+            inviteId: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            inviteId: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
-            self.needed = needed
-            self.provided = provided
             self.inviteId = inviteId
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteDenyResponse`.
     public struct ConversationsRequestSharedInviteDenyResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteDenyResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteDenyResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteDenyResponse/invite_id`.
+        public var inviteId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteDenyResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteDenyResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteDenyResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteDenyResponse/inviteId`.
-        public var inviteId: Swift.String?
         /// Creates a new `ConversationsRequestSharedInviteDenyResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
-        ///   - needed:
-        ///   - provided:
         ///   - inviteId:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
+            inviteId: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            inviteId: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
-            self.needed = needed
-            self.provided = provided
             self.inviteId = inviteId
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteListResponse`.
     public struct ConversationsRequestSharedInviteListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteListResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteListResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteListResponse/invite_requests`.
+        public var inviteRequests: [SlackModels.InviteRequest]?
         /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteListResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteListResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteListResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ConversationsRequestSharedInviteListResponse/inviteRequests`.
-        public var inviteRequests: [SlackModels.InviteRequest]?
         /// Creates a new `ConversationsRequestSharedInviteListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
-        ///   - needed:
-        ///   - provided:
         ///   - inviteRequests:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
+            inviteRequests: [SlackModels.InviteRequest]? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            inviteRequests: [SlackModels.InviteRequest]? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
-            self.needed = needed
-            self.provided = provided
             self.inviteRequests = inviteRequests
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsSetPurposeResponse`.
     public struct ConversationsSetPurposeResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsSetPurposeResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsSetPurposeResponse/channel`.
         public var channel: SlackModels.Channel?
         /// - Remark: Generated from `#/components/schemas/ConversationsSetPurposeResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsSetPurposeResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsSetPurposeResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsSetPurposeResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ConversationsSetPurposeResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - channel:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             channel: SlackModels.Channel? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.channel = channel
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsSetTopicResponse`.
     public struct ConversationsSetTopicResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsSetTopicResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsSetTopicResponse/channel`.
         public var channel: SlackModels.Channel?
         /// - Remark: Generated from `#/components/schemas/ConversationsSetTopicResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsSetTopicResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsSetTopicResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsSetTopicResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ConversationsSetTopicResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - channel:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             channel: SlackModels.Channel? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.channel = channel
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ConversationsUnarchiveResponse`.
     public struct ConversationsUnarchiveResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ConversationsUnarchiveResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsUnarchiveResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ConversationsUnarchiveResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ConversationsUnarchiveResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ConversationsUnarchiveResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ConversationsUnarchiveResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }

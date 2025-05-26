@@ -11,30 +11,30 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/RoleAssignment`.
 public struct RoleAssignment: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/RoleAssignment/roleId`.
-    public var roleId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/RoleAssignment/entityId`.
-    public var entityId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/RoleAssignment/userId`.
-    public var userId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/RoleAssignment/dateCreate`.
+    /// - Remark: Generated from `#/components/schemas/RoleAssignment/date_create`.
     public var dateCreate: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/RoleAssignment/entity_id`.
+    public var entityId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/RoleAssignment/role_id`.
+    public var roleId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/RoleAssignment/user_id`.
+    public var userId: Swift.String?
     /// Creates a new `RoleAssignment`.
     ///
     /// - Parameters:
-    ///   - roleId:
-    ///   - entityId:
-    ///   - userId:
     ///   - dateCreate:
+    ///   - entityId:
+    ///   - roleId:
+    ///   - userId:
     public init(
-        roleId: Swift.String? = nil,
+        dateCreate: Swift.Int? = nil,
         entityId: Swift.String? = nil,
-        userId: Swift.String? = nil,
-        dateCreate: Swift.Int? = nil
+        roleId: Swift.String? = nil,
+        userId: Swift.String? = nil
     ) {
-        self.roleId = roleId
-        self.entityId = entityId
-        self.userId = userId
         self.dateCreate = dateCreate
+        self.entityId = entityId
+        self.roleId = roleId
+        self.userId = userId
     }
 }

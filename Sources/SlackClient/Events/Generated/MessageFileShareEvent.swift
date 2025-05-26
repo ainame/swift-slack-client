@@ -13,12 +13,12 @@ public struct MessageFileShareEvent: SlackEvent {
     public var attachments: [SlackModels.Attachment]?
     public var files: [SlackModels.File]?
     public var upload: Swift.Bool?
-    public var user: Swift.String?
-    public var ts: Swift.String?
-    public var channel: Swift.String?
     public var displayAsBot: Swift.Bool?
+    public var user: Swift.String?
     public var parentUserId: Swift.String?
+    public var ts: Swift.String?
     public var threadTs: Swift.String?
+    public var channel: Swift.String?
     public var eventTs: Swift.String?
     public var channelType: Swift.String?
 }

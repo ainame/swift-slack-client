@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/DeniedBy`.
 public struct DeniedBy: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/DeniedBy/actorType`.
-    public var actorType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/DeniedBy/actorId`.
+    /// - Remark: Generated from `#/components/schemas/DeniedBy/actor_id`.
     public var actorId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/DeniedBy/actor_type`.
+    public var actorType: Swift.String?
     /// Creates a new `DeniedBy`.
     ///
     /// - Parameters:
-    ///   - actorType:
     ///   - actorId:
+    ///   - actorType:
     public init(
-        actorType: Swift.String? = nil,
-        actorId: Swift.String? = nil
+        actorId: Swift.String? = nil,
+        actorType: Swift.String? = nil
     ) {
-        self.actorType = actorType
         self.actorId = actorId
+        self.actorType = actorType
     }
 }

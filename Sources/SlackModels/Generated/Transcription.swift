@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Transcription`.
 public struct Transcription: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Transcription/status`.
-    public var status: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Transcription/locale`.
     public var locale: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Transcription/status`.
+    public var status: Swift.String?
     /// Creates a new `Transcription`.
     ///
     /// - Parameters:
-    ///   - status:
     ///   - locale:
+    ///   - status:
     public init(
-        status: Swift.String? = nil,
-        locale: Swift.String? = nil
+        locale: Swift.String? = nil,
+        status: Swift.String? = nil
     ) {
-        self.status = status
         self.locale = locale
+        self.status = status
     }
 }

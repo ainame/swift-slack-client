@@ -13,28 +13,28 @@ import struct Foundation.Date
 public struct Paging: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Paging/count`.
     public var count: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Paging/total`.
-    public var total: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Paging/page`.
     public var page: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Paging/pages`.
     public var pages: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Paging/total`.
+    public var total: Swift.Int?
     /// Creates a new `Paging`.
     ///
     /// - Parameters:
     ///   - count:
-    ///   - total:
     ///   - page:
     ///   - pages:
+    ///   - total:
     public init(
         count: Swift.Int? = nil,
-        total: Swift.Int? = nil,
         page: Swift.Int? = nil,
-        pages: Swift.Int? = nil
+        pages: Swift.Int? = nil,
+        total: Swift.Int? = nil
     ) {
         self.count = count
-        self.total = total
         self.page = page
         self.pages = pages
+        self.total = total
     }
 }

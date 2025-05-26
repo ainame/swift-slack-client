@@ -11,60 +11,60 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Login`.
 public struct Login: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Login/username`.
-    public var username: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Login/count`.
     public var count: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Login/country`.
+    public var country: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Login/date_first`.
+    public var dateFirst: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Login/date_last`.
+    public var dateLast: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Login/ip`.
     public var ip: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Login/isp`.
     public var isp: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Login/country`.
-    public var country: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Login/region`.
     public var region: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Login/userId`.
-    public var userId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Login/dateFirst`.
-    public var dateFirst: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Login/dateLast`.
-    public var dateLast: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Login/userAgent`.
+    /// - Remark: Generated from `#/components/schemas/Login/user_agent`.
     public var userAgent: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Login/user_id`.
+    public var userId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Login/username`.
+    public var username: Swift.String?
     /// Creates a new `Login`.
     ///
     /// - Parameters:
-    ///   - username:
     ///   - count:
-    ///   - ip:
-    ///   - isp:
     ///   - country:
-    ///   - region:
-    ///   - userId:
     ///   - dateFirst:
     ///   - dateLast:
+    ///   - ip:
+    ///   - isp:
+    ///   - region:
     ///   - userAgent:
+    ///   - userId:
+    ///   - username:
     public init(
-        username: Swift.String? = nil,
         count: Swift.Int? = nil,
-        ip: Swift.String? = nil,
-        isp: Swift.String? = nil,
         country: Swift.String? = nil,
-        region: Swift.String? = nil,
-        userId: Swift.String? = nil,
         dateFirst: Swift.Int? = nil,
         dateLast: Swift.Int? = nil,
-        userAgent: Swift.String? = nil
+        ip: Swift.String? = nil,
+        isp: Swift.String? = nil,
+        region: Swift.String? = nil,
+        userAgent: Swift.String? = nil,
+        userId: Swift.String? = nil,
+        username: Swift.String? = nil
     ) {
-        self.username = username
         self.count = count
-        self.ip = ip
-        self.isp = isp
         self.country = country
-        self.region = region
-        self.userId = userId
         self.dateFirst = dateFirst
         self.dateLast = dateLast
+        self.ip = ip
+        self.isp = isp
+        self.region = region
         self.userAgent = userAgent
+        self.userId = userId
+        self.username = username
     }
 }

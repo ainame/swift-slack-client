@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Trigger`.
 public struct Trigger: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/Trigger/customizable_input_parameters`.
+    public var customizableInputParameters: [CustomizableInputParameter]?
     /// - Remark: Generated from `#/components/schemas/Trigger/url`.
     public var url: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Trigger/customizableInputParameters`.
-    public var customizableInputParameters: [CustomizableInputParameter]?
     /// Creates a new `Trigger`.
     ///
     /// - Parameters:
-    ///   - url:
     ///   - customizableInputParameters:
+    ///   - url:
     public init(
-        url: Swift.String? = nil,
-        customizableInputParameters: [CustomizableInputParameter]? = nil
+        customizableInputParameters: [CustomizableInputParameter]? = nil,
+        url: Swift.String? = nil
     ) {
-        self.url = url
         self.customizableInputParameters = customizableInputParameters
+        self.url = url
     }
 }

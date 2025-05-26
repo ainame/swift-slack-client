@@ -42,7 +42,7 @@ public enum StarsAdd {
                 public var file: Swift.String?
                 /// File comment to add star to.
                 ///
-                /// - Remark: Generated from `#/paths/stars.add/POST/requestBody/json/fileComment`.
+                /// - Remark: Generated from `#/paths/stars.add/POST/requestBody/json/file_comment`.
                 public var fileComment: Swift.String?
                 /// Timestamp of the message to add star to.
                 ///
@@ -69,7 +69,7 @@ public enum StarsAdd {
                 public enum CodingKeys: String, CodingKey {
                     case channel
                     case file
-                    case fileComment
+                    case fileComment = "file_comment"
                     case timestamp
                 }
             }
@@ -202,7 +202,7 @@ public enum StarsList {
                 public var limit: Swift.Int?
                 /// encoded team id to list stars in, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/stars.list/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/stars.list/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -222,7 +222,7 @@ public enum StarsList {
                 public enum CodingKeys: String, CodingKey {
                     case cursor
                     case limit
-                    case teamId
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/stars.list/POST/requestBody/content/application\/json`.
@@ -354,7 +354,7 @@ public enum StarsRemove {
                 public var file: Swift.String?
                 /// File comment to remove star from.
                 ///
-                /// - Remark: Generated from `#/paths/stars.remove/POST/requestBody/json/fileComment`.
+                /// - Remark: Generated from `#/paths/stars.remove/POST/requestBody/json/file_comment`.
                 public var fileComment: Swift.String?
                 /// Timestamp of the message to remove star from.
                 ///
@@ -381,7 +381,7 @@ public enum StarsRemove {
                 public enum CodingKeys: String, CodingKey {
                     case channel
                     case file
-                    case fileComment
+                    case fileComment = "file_comment"
                     case timestamp
                 }
             }

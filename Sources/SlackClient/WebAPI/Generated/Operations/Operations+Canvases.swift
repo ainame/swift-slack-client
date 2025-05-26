@@ -34,15 +34,15 @@ public enum CanvasesAccessDelete {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Encoded ID of the canvas.
                 ///
-                /// - Remark: Generated from `#/paths/canvases.access.delete/POST/requestBody/json/canvasId`.
+                /// - Remark: Generated from `#/paths/canvases.access.delete/POST/requestBody/json/canvas_id`.
                 public var canvasId: Swift.String
                 /// List of channels you wish to update access for.
                 ///
-                /// - Remark: Generated from `#/paths/canvases.access.delete/POST/requestBody/json/channelIds`.
+                /// - Remark: Generated from `#/paths/canvases.access.delete/POST/requestBody/json/channel_ids`.
                 public var channelIds: OpenAPIRuntime.OpenAPIArrayContainer?
                 /// List of users you wish to update access for.
                 ///
-                /// - Remark: Generated from `#/paths/canvases.access.delete/POST/requestBody/json/userIds`.
+                /// - Remark: Generated from `#/paths/canvases.access.delete/POST/requestBody/json/user_ids`.
                 public var userIds: OpenAPIRuntime.OpenAPIArrayContainer?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -60,9 +60,9 @@ public enum CanvasesAccessDelete {
                     self.userIds = userIds
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case canvasId
-                    case channelIds
-                    case userIds
+                    case canvasId = "canvas_id"
+                    case channelIds = "channel_ids"
+                    case userIds = "user_ids"
                 }
             }
             /// - Remark: Generated from `#/paths/canvases.access.delete/POST/requestBody/content/application\/json`.
@@ -186,19 +186,19 @@ public enum CanvasesAccessSet {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Desired level of access.
                 ///
-                /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json/accessLevel`.
+                /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json/access_level`.
                 public var accessLevel: Swift.String
                 /// Encoded ID of the canvas.
                 ///
-                /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json/canvasId`.
+                /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json/canvas_id`.
                 public var canvasId: Swift.String
                 /// List of channels you wish to update access for. Can only be used if user_ids is not provided.
                 ///
-                /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json/channelIds`.
+                /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json/channel_ids`.
                 public var channelIds: OpenAPIRuntime.OpenAPIArrayContainer?
                 /// List of users you wish to update access for. Can only be used if channel_ids is not provided.
                 ///
-                /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json/userIds`.
+                /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json/user_ids`.
                 public var userIds: OpenAPIRuntime.OpenAPIArrayContainer?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -219,10 +219,10 @@ public enum CanvasesAccessSet {
                     self.userIds = userIds
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case accessLevel
-                    case canvasId
-                    case channelIds
-                    case userIds
+                    case accessLevel = "access_level"
+                    case canvasId = "canvas_id"
+                    case channelIds = "channel_ids"
+                    case userIds = "user_ids"
                 }
             }
             /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/content/application\/json`.
@@ -346,11 +346,11 @@ public enum CanvasesCreate {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Channel ID of the channel the canvas will be tabbed in. This is a required field for free teams.
                 ///
-                /// - Remark: Generated from `#/paths/canvases.create/POST/requestBody/json/channelId`.
+                /// - Remark: Generated from `#/paths/canvases.create/POST/requestBody/json/channel_id`.
                 public var channelId: Swift.String?
                 /// Structure describing the type and value of the content to create.
                 ///
-                /// - Remark: Generated from `#/paths/canvases.create/POST/requestBody/json/documentContent`.
+                /// - Remark: Generated from `#/paths/canvases.create/POST/requestBody/json/document_content`.
                 public var documentContent: Swift.String?
                 /// Title of the newly created canvas.
                 ///
@@ -372,8 +372,8 @@ public enum CanvasesCreate {
                     self.title = title
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case channelId
-                    case documentContent
+                    case channelId = "channel_id"
+                    case documentContent = "document_content"
                     case title
                 }
             }
@@ -498,7 +498,7 @@ public enum CanvasesDelete {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Encoded ID of the canvas.
                 ///
-                /// - Remark: Generated from `#/paths/canvases.delete/POST/requestBody/json/canvasId`.
+                /// - Remark: Generated from `#/paths/canvases.delete/POST/requestBody/json/canvas_id`.
                 public var canvasId: Swift.String
                 /// Creates a new `JsonPayload`.
                 ///
@@ -508,7 +508,7 @@ public enum CanvasesDelete {
                     self.canvasId = canvasId
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case canvasId
+                    case canvasId = "canvas_id"
                 }
             }
             /// - Remark: Generated from `#/paths/canvases.delete/POST/requestBody/content/application\/json`.
@@ -632,7 +632,7 @@ public enum CanvasesEdit {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Encoded ID of the canvas.
                 ///
-                /// - Remark: Generated from `#/paths/canvases.edit/POST/requestBody/json/canvasId`.
+                /// - Remark: Generated from `#/paths/canvases.edit/POST/requestBody/json/canvas_id`.
                 public var canvasId: Swift.String
                 /// List of changes to apply on the specified canvas.
                 ///
@@ -651,7 +651,7 @@ public enum CanvasesEdit {
                     self.changes = changes
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case canvasId
+                    case canvasId = "canvas_id"
                     case changes
                 }
             }
@@ -776,7 +776,7 @@ public enum CanvasesSectionsLookup {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Encoded ID of the canvas.
                 ///
-                /// - Remark: Generated from `#/paths/canvases.sections.lookup/POST/requestBody/json/canvasId`.
+                /// - Remark: Generated from `#/paths/canvases.sections.lookup/POST/requestBody/json/canvas_id`.
                 public var canvasId: Swift.String
                 /// Filtering criteria.
                 ///
@@ -795,7 +795,7 @@ public enum CanvasesSectionsLookup {
                     self.criteria = criteria
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case canvasId
+                    case canvasId = "canvas_id"
                     case criteria
                 }
             }

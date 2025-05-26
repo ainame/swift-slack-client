@@ -40,11 +40,11 @@ public enum ViewsOpen {
                 public var view: SlackBlockKit.ViewType
                 /// Exchange a trigger to post to the user.
                 ///
-                /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/triggerId`.
+                /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/trigger_id`.
                 public var triggerId: Swift.String?
                 /// Exchange an interactivity pointer to post to the user.
                 ///
-                /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/interactivityPointer`.
+                /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/interactivity_pointer`.
                 public var interactivityPointer: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -63,8 +63,8 @@ public enum ViewsOpen {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case view
-                    case triggerId
-                    case interactivityPointer
+                    case triggerId = "trigger_id"
+                    case interactivityPointer = "interactivity_pointer"
                 }
             }
             /// - Remark: Generated from `#/paths/views.open/POST/requestBody/content/application\/json`.
@@ -188,7 +188,7 @@ public enum ViewsPublish {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// id of the user you want publish a view to.
                 ///
-                /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/userId`.
+                /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/user_id`.
                 public var userId: Swift.String
                 /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/view`.
                 public var view: SlackBlockKit.ViewType
@@ -212,7 +212,7 @@ public enum ViewsPublish {
                     self.hash = hash
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case userId
+                    case userId = "user_id"
                     case view
                     case hash
                 }
@@ -340,11 +340,11 @@ public enum ViewsPush {
                 public var view: SlackBlockKit.ViewType
                 /// Exchange a trigger to post to the user.
                 ///
-                /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/triggerId`.
+                /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/trigger_id`.
                 public var triggerId: Swift.String?
                 /// Exchange an interactivity pointer to post to the user.
                 ///
-                /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/interactivityPointer`.
+                /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/interactivity_pointer`.
                 public var interactivityPointer: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -363,8 +363,8 @@ public enum ViewsPush {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case view
-                    case triggerId
-                    case interactivityPointer
+                    case triggerId = "trigger_id"
+                    case interactivityPointer = "interactivity_pointer"
                 }
             }
             /// - Remark: Generated from `#/paths/views.push/POST/requestBody/content/application\/json`.
@@ -490,11 +490,11 @@ public enum ViewsUpdate {
                 public var view: SlackBlockKit.ViewType
                 /// A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is required.
                 ///
-                /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/externalId`.
+                /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/external_id`.
                 public var externalId: Swift.String?
                 /// A unique identifier of the view to be updated. Either view_id or external_id is required.
                 ///
-                /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/viewId`.
+                /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/view_id`.
                 public var viewId: Swift.String?
                 /// A string that represents view state to protect against possible race conditions.
                 ///
@@ -520,8 +520,8 @@ public enum ViewsUpdate {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case view
-                    case externalId
-                    case viewId
+                    case externalId = "external_id"
+                    case viewId = "view_id"
                     case hash
                 }
             }

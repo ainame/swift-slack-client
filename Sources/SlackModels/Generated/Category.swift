@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Category`.
 public struct Category: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/Category/emoji_names`.
+    public var emojiNames: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/Category/name`.
     public var name: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Category/emojiNames`.
-    public var emojiNames: [Swift.String]?
     /// Creates a new `Category`.
     ///
     /// - Parameters:
-    ///   - name:
     ///   - emojiNames:
+    ///   - name:
     public init(
-        name: Swift.String? = nil,
-        emojiNames: [Swift.String]? = nil
+        emojiNames: [Swift.String]? = nil,
+        name: Swift.String? = nil
     ) {
-        self.name = name
         self.emojiNames = emojiNames
+        self.name = name
     }
 }

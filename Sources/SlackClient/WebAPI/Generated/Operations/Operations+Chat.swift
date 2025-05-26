@@ -42,7 +42,7 @@ public enum ChatDelete {
                 public var ts: Swift.String
                 /// Pass true to delete the message as the authed user with chat:write:user scope. Bot users in this context are considered authed users. If unused or false, the message will be deleted with chat:write:bot scope.
                 ///
-                /// - Remark: Generated from `#/paths/chat.delete/POST/requestBody/json/asUser`.
+                /// - Remark: Generated from `#/paths/chat.delete/POST/requestBody/json/as_user`.
                 public var asUser: Swift.Bool?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -62,7 +62,7 @@ public enum ChatDelete {
                 public enum CodingKeys: String, CodingKey {
                     case channel
                     case ts
-                    case asUser
+                    case asUser = "as_user"
                 }
             }
             /// - Remark: Generated from `#/paths/chat.delete/POST/requestBody/content/application\/json`.
@@ -190,11 +190,11 @@ public enum ChatDeleteScheduledMessage {
                 public var channel: Swift.String
                 /// scheduled_message_id returned from call to chat.scheduleMessage.
                 ///
-                /// - Remark: Generated from `#/paths/chat.deleteScheduledMessage/POST/requestBody/json/scheduledMessageId`.
+                /// - Remark: Generated from `#/paths/chat.deleteScheduledMessage/POST/requestBody/json/scheduled_message_id`.
                 public var scheduledMessageId: Swift.String
                 /// Pass true to delete the message as the authed user with chat:write:user scope. Bot users in this context are considered authed users. If unused or false, the message will be deleted with chat:write:bot scope.
                 ///
-                /// - Remark: Generated from `#/paths/chat.deleteScheduledMessage/POST/requestBody/json/asUser`.
+                /// - Remark: Generated from `#/paths/chat.deleteScheduledMessage/POST/requestBody/json/as_user`.
                 public var asUser: Swift.Bool?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -213,8 +213,8 @@ public enum ChatDeleteScheduledMessage {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case channel
-                    case scheduledMessageId
-                    case asUser
+                    case scheduledMessageId = "scheduled_message_id"
+                    case asUser = "as_user"
                 }
             }
             /// - Remark: Generated from `#/paths/chat.deleteScheduledMessage/POST/requestBody/content/application\/json`.
@@ -342,7 +342,7 @@ public enum ChatGetPermalink {
                 public var channel: Swift.String
                 /// A message's ts value, uniquely identifying it within a channel.
                 ///
-                /// - Remark: Generated from `#/paths/chat.getPermalink/POST/requestBody/json/messageTs`.
+                /// - Remark: Generated from `#/paths/chat.getPermalink/POST/requestBody/json/message_ts`.
                 public var messageTs: Swift.String
                 /// Creates a new `JsonPayload`.
                 ///
@@ -358,7 +358,7 @@ public enum ChatGetPermalink {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case channel
-                    case messageTs
+                    case messageTs = "message_ts"
                 }
             }
             /// - Remark: Generated from `#/paths/chat.getPermalink/POST/requestBody/content/application\/json`.
@@ -646,23 +646,23 @@ public enum ChatPostEphemeral {
                 public var text: Swift.String?
                 /// (Legacy) Pass true to post the message as the authed user. Defaults to true if the chat:write:bot scope is not included. Otherwise, defaults to false.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/asUser`.
+                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/as_user`.
                 public var asUser: Swift.Bool?
                 /// Emoji to use as the icon for this message. Overrides icon_url.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/iconEmoji`.
+                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/icon_emoji`.
                 public var iconEmoji: Swift.String?
                 /// URL to an image to use as the icon for this message.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/iconUrl`.
+                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/icon_url`.
                 public var iconUrl: Swift.String?
                 /// Find and link channel names and usernames.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/linkNames`.
+                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/link_names`.
                 public var linkNames: Swift.Bool?
                 /// Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/markdownText`.
+                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/markdown_text`.
                 public var markdownText: Swift.String?
                 /// Change how messages are treated. Defaults to none. See below.
                 ///
@@ -670,7 +670,7 @@ public enum ChatPostEphemeral {
                 public var parse: Swift.String?
                 /// Provide another message's ts value to post this message in a thread. Avoid using a reply's ts value; use its parent's value instead. Ephemeral messages in threads are only shown if there is already an active thread.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/threadTs`.
+                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/thread_ts`.
                 public var threadTs: Swift.String?
                 /// Set your bot's user name.
                 ///
@@ -727,13 +727,13 @@ public enum ChatPostEphemeral {
                     case attachments
                     case blocks
                     case text
-                    case asUser
-                    case iconEmoji
-                    case iconUrl
-                    case linkNames
-                    case markdownText
+                    case asUser = "as_user"
+                    case iconEmoji = "icon_emoji"
+                    case iconUrl = "icon_url"
+                    case linkNames = "link_names"
+                    case markdownText = "markdown_text"
                     case parse
-                    case threadTs
+                    case threadTs = "thread_ts"
                     case username
                 }
             }
@@ -874,27 +874,27 @@ public enum ChatPostMessage {
                 public var text: Swift.String?
                 /// Identify how the message was posted for agentforce BE logging.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/agentMessageSourceType`.
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/agent_message_source_type`.
                 public var agentMessageSourceType: Swift.String?
                 /// (Legacy) Pass true to post the message as the authed user instead of as a bot. Defaults to false. Can only be used by classic apps. See legacy as_user parameter below.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/asUser`.
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/as_user`.
                 public var asUser: Swift.Bool?
                 /// Emoji to use as the icon for this message. Overrides icon_url.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/iconEmoji`.
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/icon_emoji`.
                 public var iconEmoji: Swift.String?
                 /// URL to an image to use as the icon for this message.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/iconUrl`.
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/icon_url`.
                 public var iconUrl: Swift.String?
                 /// Find and link user groups. No longer supports linking individual users; use syntax shown in Mentioning Users instead.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/linkNames`.
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/link_names`.
                 public var linkNames: Swift.Bool?
                 /// Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/markdownText`.
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/markdown_text`.
                 public var markdownText: Swift.String?
                 /// JSON object with event_type and event_payload fields, presented as a URL-encoded string. Metadata you post to Slack is accessible to any app or user who is a member of that workspace.
                 ///
@@ -910,19 +910,19 @@ public enum ChatPostMessage {
                 public var parse: Swift.String?
                 /// Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/replyBroadcast`.
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/reply_broadcast`.
                 public var replyBroadcast: Swift.Bool?
                 /// Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/threadTs`.
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/thread_ts`.
                 public var threadTs: Swift.String?
                 /// Pass true to enable unfurling of primarily text-based content.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/unfurlLinks`.
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/unfurl_links`.
                 public var unfurlLinks: Swift.Bool?
                 /// Pass false to disable unfurling of media content.
                 ///
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/unfurlMedia`.
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/unfurl_media`.
                 public var unfurlMedia: Swift.Bool?
                 /// Set your bot's user name.
                 ///
@@ -993,19 +993,19 @@ public enum ChatPostMessage {
                     case attachments
                     case blocks
                     case text
-                    case agentMessageSourceType
-                    case asUser
-                    case iconEmoji
-                    case iconUrl
-                    case linkNames
-                    case markdownText
+                    case agentMessageSourceType = "agent_message_source_type"
+                    case asUser = "as_user"
+                    case iconEmoji = "icon_emoji"
+                    case iconUrl = "icon_url"
+                    case linkNames = "link_names"
+                    case markdownText = "markdown_text"
                     case metadata
                     case mrkdwn
                     case parse
-                    case replyBroadcast
-                    case threadTs
-                    case unfurlLinks
-                    case unfurlMedia
+                    case replyBroadcast = "reply_broadcast"
+                    case threadTs = "thread_ts"
+                    case unfurlLinks = "unfurl_links"
+                    case unfurlMedia = "unfurl_media"
                     case username
                 }
             }
@@ -1134,7 +1134,7 @@ public enum ChatScheduleMessage {
                 public var channel: Swift.String
                 /// Unix timestamp representing the future time the message should post to Slack.
                 ///
-                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/postAt`.
+                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/post_at`.
                 public var postAt: Swift.Int
                 /// A JSON-based array of structured attachments, presented as a URL-encoded string.
                 ///
@@ -1150,15 +1150,15 @@ public enum ChatScheduleMessage {
                 public var text: Swift.String?
                 /// Set to true to post the message as the authed user, instead of as a bot. Defaults to false. Cannot be used by new Slack apps. See chat.postMessage.
                 ///
-                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/asUser`.
+                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/as_user`.
                 public var asUser: Swift.Bool?
                 /// Find and link user groups. No longer supports linking individual users; use syntax shown in Mentioning Users instead.
                 ///
-                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/linkNames`.
+                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/link_names`.
                 public var linkNames: Swift.Bool?
                 /// Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
                 ///
-                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/markdownText`.
+                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/markdown_text`.
                 public var markdownText: Swift.String?
                 /// JSON object with event_type and event_payload fields, presented as a URL-encoded string. Metadata you post to Slack is accessible to any app or user who is a member of that workspace.
                 ///
@@ -1170,19 +1170,19 @@ public enum ChatScheduleMessage {
                 public var parse: Swift.String?
                 /// Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false.
                 ///
-                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/replyBroadcast`.
+                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/reply_broadcast`.
                 public var replyBroadcast: Swift.Bool?
                 /// Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead.
                 ///
-                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/threadTs`.
+                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/thread_ts`.
                 public var threadTs: Swift.String?
                 /// Pass true to enable unfurling of primarily text-based content.
                 ///
-                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/unfurlLinks`.
+                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/unfurl_links`.
                 public var unfurlLinks: Swift.Bool?
                 /// Pass false to disable unfurling of media content.
                 ///
-                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/unfurlMedia`.
+                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/unfurl_media`.
                 public var unfurlMedia: Swift.Bool?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -1234,19 +1234,19 @@ public enum ChatScheduleMessage {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case channel
-                    case postAt
+                    case postAt = "post_at"
                     case attachments
                     case blocks
                     case text
-                    case asUser
-                    case linkNames
-                    case markdownText
+                    case asUser = "as_user"
+                    case linkNames = "link_names"
+                    case markdownText = "markdown_text"
                     case metadata
                     case parse
-                    case replyBroadcast
-                    case threadTs
-                    case unfurlLinks
-                    case unfurlMedia
+                    case replyBroadcast = "reply_broadcast"
+                    case threadTs = "thread_ts"
+                    case unfurlLinks = "unfurl_links"
+                    case unfurlMedia = "unfurl_media"
                 }
             }
             /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/content/application\/json`.
@@ -1390,7 +1390,7 @@ public enum ChatScheduledMessagesList {
                 public var oldest: Swift.String?
                 /// encoded team id to list channels in, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/chat.scheduledMessages.list/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/chat.scheduledMessages.list/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -1422,7 +1422,7 @@ public enum ChatScheduledMessagesList {
                     case latest
                     case limit
                     case oldest
-                    case teamId
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/chat.scheduledMessages.list/POST/requestBody/content/application\/json`.
@@ -1562,23 +1562,23 @@ public enum ChatUnfurl {
                 public var source: Swift.String?
                 /// The ID of the link to unfurl. Both unfurl_id and source must be provided together, or channel and ts must be provided together.
                 ///
-                /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/unfurlId`.
+                /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/unfurl_id`.
                 public var unfurlId: Swift.String?
                 /// Provide a JSON based array of structured blocks presented as URL-encoded string to send as an ephemeral message to the user as invitation to authenticate further and enable full unfurling behavior.
                 ///
-                /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/userAuthBlocks`.
+                /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/user_auth_blocks`.
                 public var userAuthBlocks: Swift.String?
                 /// Provide a simply-formatted string to send as an ephemeral message to the user as invitation to authenticate further and enable full unfurling behavior. Provides two buttons, Not now or Never ask me again.
                 ///
-                /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/userAuthMessage`.
+                /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/user_auth_message`.
                 public var userAuthMessage: Swift.String?
                 /// Set to true or 1 to indicate the user must install your Slack app to trigger unfurls for this domain.
                 ///
-                /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/userAuthRequired`.
+                /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/user_auth_required`.
                 public var userAuthRequired: Swift.Bool?
                 /// Send users to this custom URL where they will complete authentication in your app to fully trigger unfurling. Value should be properly URL-encoded.
                 ///
-                /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/userAuthUrl`.
+                /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/user_auth_url`.
                 public var userAuthUrl: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -1618,11 +1618,11 @@ public enum ChatUnfurl {
                     case ts
                     case unfurls
                     case source
-                    case unfurlId
-                    case userAuthBlocks
-                    case userAuthMessage
-                    case userAuthRequired
-                    case userAuthUrl
+                    case unfurlId = "unfurl_id"
+                    case userAuthBlocks = "user_auth_blocks"
+                    case userAuthMessage = "user_auth_message"
+                    case userAuthRequired = "user_auth_required"
+                    case userAuthUrl = "user_auth_url"
                 }
             }
             /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/content/application\/json`.
@@ -1766,19 +1766,19 @@ public enum ChatUpdate {
                 public var text: Swift.String?
                 /// Pass true to update the message as the authed user. Bot users in this context are considered authed users.
                 ///
-                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/asUser`.
+                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/as_user`.
                 public var asUser: Swift.Bool?
                 /// Array of new file ids that will be sent with this message.
                 ///
-                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/fileIds`.
+                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/file_ids`.
                 public var fileIds: OpenAPIRuntime.OpenAPIArrayContainer?
                 /// Find and link channel names and usernames. Defaults to none. If you do not specify a value for this field, the original value set for the message will be overwritten with the default, none.
                 ///
-                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/linkNames`.
+                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/link_names`.
                 public var linkNames: Swift.Bool?
                 /// Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
                 ///
-                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/markdownText`.
+                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/markdown_text`.
                 public var markdownText: Swift.String?
                 /// JSON object with event_type and event_payload fields, presented as a URL-encoded string. If you don't include this field, the message's previous metadata will be retained. To remove previous metadata, include an empty object for this field. Metadata you post to Slack is accessible to any app or user who is a member of that workspace.
                 ///
@@ -1790,7 +1790,7 @@ public enum ChatUpdate {
                 public var parse: Swift.String?
                 /// Broadcast an existing thread reply to make it visible to everyone in the channel or conversation.
                 ///
-                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/replyBroadcast`.
+                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/reply_broadcast`.
                 public var replyBroadcast: Swift.Bool?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -1840,13 +1840,13 @@ public enum ChatUpdate {
                     case attachments
                     case blocks
                     case text
-                    case asUser
-                    case fileIds
-                    case linkNames
-                    case markdownText
+                    case asUser = "as_user"
+                    case fileIds = "file_ids"
+                    case linkNames = "link_names"
+                    case markdownText = "markdown_text"
                     case metadata
                     case parse
-                    case replyBroadcast
+                    case replyBroadcast = "reply_broadcast"
                 }
             }
             /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/content/application\/json`.

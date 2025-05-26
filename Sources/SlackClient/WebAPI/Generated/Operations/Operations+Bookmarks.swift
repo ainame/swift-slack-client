@@ -34,7 +34,7 @@ public enum BookmarksAdd {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Channel to add bookmark in.
                 ///
-                /// - Remark: Generated from `#/paths/bookmarks.add/POST/requestBody/json/channelId`.
+                /// - Remark: Generated from `#/paths/bookmarks.add/POST/requestBody/json/channel_id`.
                 public var channelId: Swift.String
                 /// Title for the bookmark.
                 ///
@@ -46,7 +46,7 @@ public enum BookmarksAdd {
                 public var _type: Swift.String
                 /// The level that we are setting the file's permission to (read or write).
                 ///
-                /// - Remark: Generated from `#/paths/bookmarks.add/POST/requestBody/json/accessLevel`.
+                /// - Remark: Generated from `#/paths/bookmarks.add/POST/requestBody/json/access_level`.
                 public var accessLevel: Swift.String?
                 /// Emoji tag to apply to the link.
                 ///
@@ -54,7 +54,7 @@ public enum BookmarksAdd {
                 public var emoji: Swift.String?
                 /// ID of the entity being bookmarked. Only applies to message and file types.
                 ///
-                /// - Remark: Generated from `#/paths/bookmarks.add/POST/requestBody/json/entityId`.
+                /// - Remark: Generated from `#/paths/bookmarks.add/POST/requestBody/json/entity_id`.
                 public var entityId: Swift.String?
                 /// Link to bookmark.
                 ///
@@ -62,7 +62,7 @@ public enum BookmarksAdd {
                 public var link: Swift.String?
                 /// Id of this bookmark's parent.
                 ///
-                /// - Remark: Generated from `#/paths/bookmarks.add/POST/requestBody/json/parentId`.
+                /// - Remark: Generated from `#/paths/bookmarks.add/POST/requestBody/json/parent_id`.
                 public var parentId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -95,14 +95,14 @@ public enum BookmarksAdd {
                     self.parentId = parentId
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case channelId
+                    case channelId = "channel_id"
                     case title
                     case _type = "type"
-                    case accessLevel
+                    case accessLevel = "access_level"
                     case emoji
-                    case entityId
+                    case entityId = "entity_id"
                     case link
-                    case parentId
+                    case parentId = "parent_id"
                 }
             }
             /// - Remark: Generated from `#/paths/bookmarks.add/POST/requestBody/content/application\/json`.
@@ -226,11 +226,11 @@ public enum BookmarksEdit {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Bookmark to update.
                 ///
-                /// - Remark: Generated from `#/paths/bookmarks.edit/POST/requestBody/json/bookmarkId`.
+                /// - Remark: Generated from `#/paths/bookmarks.edit/POST/requestBody/json/bookmark_id`.
                 public var bookmarkId: Swift.String
                 /// Channel to update bookmark in.
                 ///
-                /// - Remark: Generated from `#/paths/bookmarks.edit/POST/requestBody/json/channelId`.
+                /// - Remark: Generated from `#/paths/bookmarks.edit/POST/requestBody/json/channel_id`.
                 public var channelId: Swift.String
                 /// Emoji tag to apply to the link.
                 ///
@@ -266,8 +266,8 @@ public enum BookmarksEdit {
                     self.title = title
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case bookmarkId
-                    case channelId
+                    case bookmarkId = "bookmark_id"
+                    case channelId = "channel_id"
                     case emoji
                     case link
                     case title
@@ -394,7 +394,7 @@ public enum BookmarksList {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Channel to list bookmarks in.
                 ///
-                /// - Remark: Generated from `#/paths/bookmarks.list/POST/requestBody/json/channelId`.
+                /// - Remark: Generated from `#/paths/bookmarks.list/POST/requestBody/json/channel_id`.
                 public var channelId: Swift.String
                 /// Creates a new `JsonPayload`.
                 ///
@@ -404,7 +404,7 @@ public enum BookmarksList {
                     self.channelId = channelId
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case channelId
+                    case channelId = "channel_id"
                 }
             }
             /// - Remark: Generated from `#/paths/bookmarks.list/POST/requestBody/content/application\/json`.
@@ -528,15 +528,15 @@ public enum BookmarksRemove {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Bookmark to remove.
                 ///
-                /// - Remark: Generated from `#/paths/bookmarks.remove/POST/requestBody/json/bookmarkId`.
+                /// - Remark: Generated from `#/paths/bookmarks.remove/POST/requestBody/json/bookmark_id`.
                 public var bookmarkId: Swift.String
                 /// Channel to remove bookmark.
                 ///
-                /// - Remark: Generated from `#/paths/bookmarks.remove/POST/requestBody/json/channelId`.
+                /// - Remark: Generated from `#/paths/bookmarks.remove/POST/requestBody/json/channel_id`.
                 public var channelId: Swift.String
                 /// Quip section ID to unbookmark.
                 ///
-                /// - Remark: Generated from `#/paths/bookmarks.remove/POST/requestBody/json/quipSectionId`.
+                /// - Remark: Generated from `#/paths/bookmarks.remove/POST/requestBody/json/quip_section_id`.
                 public var quipSectionId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -554,9 +554,9 @@ public enum BookmarksRemove {
                     self.quipSectionId = quipSectionId
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case bookmarkId
-                    case channelId
-                    case quipSectionId
+                    case bookmarkId = "bookmark_id"
+                    case channelId = "channel_id"
+                    case quipSectionId = "quip_section_id"
                 }
             }
             /// - Remark: Generated from `#/paths/bookmarks.remove/POST/requestBody/content/application\/json`.

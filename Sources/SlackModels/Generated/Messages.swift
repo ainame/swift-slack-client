@@ -11,30 +11,30 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Messages`.
 public struct Messages: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Messages/total`.
-    public var total: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Messages/matches`.
+    public var matches: [Match]?
     /// - Remark: Generated from `#/components/schemas/Messages/pagination`.
     public var pagination: Pagination?
     /// - Remark: Generated from `#/components/schemas/Messages/paging`.
     public var paging: Paging?
-    /// - Remark: Generated from `#/components/schemas/Messages/matches`.
-    public var matches: [Match]?
+    /// - Remark: Generated from `#/components/schemas/Messages/total`.
+    public var total: Swift.Int?
     /// Creates a new `Messages`.
     ///
     /// - Parameters:
-    ///   - total:
+    ///   - matches:
     ///   - pagination:
     ///   - paging:
-    ///   - matches:
+    ///   - total:
     public init(
-        total: Swift.Int? = nil,
+        matches: [Match]? = nil,
         pagination: Pagination? = nil,
         paging: Paging? = nil,
-        matches: [Match]? = nil
+        total: Swift.Int? = nil
     ) {
-        self.total = total
+        self.matches = matches
         self.pagination = pagination
         self.paging = paging
-        self.matches = matches
+        self.total = total
     }
 }

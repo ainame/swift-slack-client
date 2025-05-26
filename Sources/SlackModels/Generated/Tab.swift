@@ -11,35 +11,35 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Tab`.
 public struct Tab: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/Tab/data`.
+    public var data: Data?
     /// - Remark: Generated from `#/components/schemas/Tab/id`.
     public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Tab/is_disabled`.
+    public var isDisabled: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Tab/label`.
     public var label: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Tab/type`.
     public var type: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Tab/data`.
-    public var data: Data?
-    /// - Remark: Generated from `#/components/schemas/Tab/isDisabled`.
-    public var isDisabled: Swift.Bool?
     /// Creates a new `Tab`.
     ///
     /// - Parameters:
+    ///   - data:
     ///   - id:
+    ///   - isDisabled:
     ///   - label:
     ///   - type:
-    ///   - data:
-    ///   - isDisabled:
     public init(
-        id: Swift.String? = nil,
-        label: Swift.String? = nil,
-        type: Swift.String? = nil,
         data: Data? = nil,
-        isDisabled: Swift.Bool? = nil
+        id: Swift.String? = nil,
+        isDisabled: Swift.Bool? = nil,
+        label: Swift.String? = nil,
+        type: Swift.String? = nil
     ) {
+        self.data = data
         self.id = id
+        self.isDisabled = isDisabled
         self.label = label
         self.type = type
-        self.data = data
-        self.isDisabled = isDisabled
     }
 }

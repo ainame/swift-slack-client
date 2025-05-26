@@ -34,7 +34,7 @@ public enum AssistantThreadsSetStatus {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Channel ID containing the assistant thread.
                 ///
-                /// - Remark: Generated from `#/paths/assistant.threads.setStatus/POST/requestBody/json/channelId`.
+                /// - Remark: Generated from `#/paths/assistant.threads.setStatus/POST/requestBody/json/channel_id`.
                 public var channelId: Swift.String
                 /// Status of the specified bot user, e.g. 'is thinking...'.
                 ///
@@ -42,7 +42,7 @@ public enum AssistantThreadsSetStatus {
                 public var status: Swift.String
                 /// Message timestamp of the thread of where to set the status.
                 ///
-                /// - Remark: Generated from `#/paths/assistant.threads.setStatus/POST/requestBody/json/threadTs`.
+                /// - Remark: Generated from `#/paths/assistant.threads.setStatus/POST/requestBody/json/thread_ts`.
                 public var threadTs: Swift.String
                 /// Creates a new `JsonPayload`.
                 ///
@@ -60,9 +60,9 @@ public enum AssistantThreadsSetStatus {
                     self.threadTs = threadTs
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case channelId
+                    case channelId = "channel_id"
                     case status
-                    case threadTs
+                    case threadTs = "thread_ts"
                 }
             }
             /// - Remark: Generated from `#/paths/assistant.threads.setStatus/POST/requestBody/content/application\/json`.
@@ -186,7 +186,7 @@ public enum AssistantThreadsSetSuggestedPrompts {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Channel ID containing the assistant thread.
                 ///
-                /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/requestBody/json/channelId`.
+                /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/requestBody/json/channel_id`.
                 public var channelId: Swift.String
                 /// Each prompt should be supplied with its title and message attribute.
                 ///
@@ -194,7 +194,7 @@ public enum AssistantThreadsSetSuggestedPrompts {
                 public var prompts: Swift.String
                 /// Message timestamp of the thread to set suggested prompts for.
                 ///
-                /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/requestBody/json/threadTs`.
+                /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/requestBody/json/thread_ts`.
                 public var threadTs: Swift.String
                 /// Title for the list of provided prompts. For example: Suggested Prompts, Related Questions.
                 ///
@@ -219,9 +219,9 @@ public enum AssistantThreadsSetSuggestedPrompts {
                     self.title = title
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case channelId
+                    case channelId = "channel_id"
                     case prompts
-                    case threadTs
+                    case threadTs = "thread_ts"
                     case title
                 }
             }
@@ -346,11 +346,11 @@ public enum AssistantThreadsSetTitle {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Channel ID containing the assistant thread.
                 ///
-                /// - Remark: Generated from `#/paths/assistant.threads.setTitle/POST/requestBody/json/channelId`.
+                /// - Remark: Generated from `#/paths/assistant.threads.setTitle/POST/requestBody/json/channel_id`.
                 public var channelId: Swift.String
                 /// Message timestamp of the thread to set suggested prompts for.
                 ///
-                /// - Remark: Generated from `#/paths/assistant.threads.setTitle/POST/requestBody/json/threadTs`.
+                /// - Remark: Generated from `#/paths/assistant.threads.setTitle/POST/requestBody/json/thread_ts`.
                 public var threadTs: Swift.String
                 /// The title to use for the thread.
                 ///
@@ -372,8 +372,8 @@ public enum AssistantThreadsSetTitle {
                     self.title = title
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case channelId
-                    case threadTs
+                    case channelId = "channel_id"
+                    case threadTs = "thread_ts"
                     case title
                 }
             }

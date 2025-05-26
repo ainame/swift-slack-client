@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/DeniedRequest`.
 public struct DeniedRequest: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/DeniedRequest/inviteRequest`.
-    public var inviteRequest: InviteRequest?
-    /// - Remark: Generated from `#/components/schemas/DeniedRequest/deniedBy`.
+    /// - Remark: Generated from `#/components/schemas/DeniedRequest/denied_by`.
     public var deniedBy: DeniedBy?
+    /// - Remark: Generated from `#/components/schemas/DeniedRequest/invite_request`.
+    public var inviteRequest: InviteRequest?
     /// Creates a new `DeniedRequest`.
     ///
     /// - Parameters:
-    ///   - inviteRequest:
     ///   - deniedBy:
+    ///   - inviteRequest:
     public init(
-        inviteRequest: InviteRequest? = nil,
-        deniedBy: DeniedBy? = nil
+        deniedBy: DeniedBy? = nil,
+        inviteRequest: InviteRequest? = nil
     ) {
-        self.inviteRequest = inviteRequest
         self.deniedBy = deniedBy
+        self.inviteRequest = inviteRequest
     }
 }

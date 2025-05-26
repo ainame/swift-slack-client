@@ -19,357 +19,357 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse`.
     public struct TeamAccessLogsResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/logins`.
-        public var logins: [SlackModels.Login]?
-        /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/paging`.
-        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/logins`.
+        public var logins: [SlackModels.Login]?
         /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/paging`.
+        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/TeamAccessLogsResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `TeamAccessLogsResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - logins:
-        ///   - paging:
         ///   - error:
+        ///   - logins:
         ///   - needed:
+        ///   - ok:
+        ///   - paging:
         ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
-            logins: [SlackModels.Login]? = nil,
-            paging: SlackModels.Paging? = nil,
             error: Swift.String? = nil,
+            logins: [SlackModels.Login]? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            paging: SlackModels.Paging? = nil,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
-            self.logins = logins
-            self.paging = paging
             self.error = error
+            self.logins = logins
             self.needed = needed
+            self.ok = ok
+            self.paging = paging
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse`.
     public struct TeamBillableInfoResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse/billable_info`.
+        public var billableInfo: OpenAPIRuntime.OpenAPIObjectContainer?
         /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse/billableInfo`.
-        public var billableInfo: OpenAPIRuntime.OpenAPIObjectContainer?
-        /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/TeamBillableInfoResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `TeamBillableInfoResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
+        ///   - billableInfo:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
-        ///   - billableInfo:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
+            billableInfo: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            billableInfo: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
+            self.billableInfo = billableInfo
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
-            self.billableInfo = billableInfo
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/TeamBillingInfoResponse`.
     public struct TeamBillingInfoResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/TeamBillingInfoResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamBillingInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamBillingInfoResponse/needed`.
         public var needed: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/TeamBillingInfoResponse/provided`.
-        public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamBillingInfoResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamBillingInfoResponse/plan`.
         public var plan: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamBillingInfoResponse/provided`.
+        public var provided: Swift.String?
         /// Creates a new `TeamBillingInfoResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
-        ///   - provided:
+        ///   - ok:
         ///   - plan:
+        ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            plan: Swift.String? = nil
+            ok: Swift.Bool,
+            plan: Swift.String? = nil,
+            provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
-            self.provided = provided
+            self.ok = ok
             self.plan = plan
+            self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsDisconnectResponse`.
     public struct TeamExternalTeamsDisconnectResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsDisconnectResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsDisconnectResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsDisconnectResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsDisconnectResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsDisconnectResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsDisconnectResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsDisconnectResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `TeamExternalTeamsDisconnectResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse`.
     public struct TeamExternalTeamsListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/organizations`.
-        public var organizations: [SlackModels.Organization]?
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/organizations`.
+        public var organizations: [SlackModels.Organization]?
         /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/totalCount`.
-        public var totalCount: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/TeamExternalTeamsListResponse/total_count`.
+        public var totalCount: Swift.Int?
         /// Creates a new `TeamExternalTeamsListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - organizations:
         ///   - error:
         ///   - needed:
+        ///   - ok:
+        ///   - organizations:
         ///   - provided:
-        ///   - totalCount:
         ///   - responseMetadata:
+        ///   - totalCount:
         public init(
-            ok: Swift.Bool,
-            organizations: [SlackModels.Organization]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            organizations: [SlackModels.Organization]? = nil,
             provided: Swift.String? = nil,
-            totalCount: Swift.Int? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
+            totalCount: Swift.Int? = nil
         ) {
-            self.ok = ok
-            self.organizations = organizations
             self.error = error
             self.needed = needed
+            self.ok = ok
+            self.organizations = organizations
             self.provided = provided
-            self.totalCount = totalCount
             self.responseMetadata = responseMetadata
+            self.totalCount = totalCount
         }
     }
     /// - Remark: Generated from `#/components/schemas/TeamInfoResponse`.
     public struct TeamInfoResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/TeamInfoResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/TeamInfoResponse/team`.
-        public var team: SlackModels.Team?
         /// - Remark: Generated from `#/components/schemas/TeamInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamInfoResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamInfoResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamInfoResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamInfoResponse/team`.
+        public var team: SlackModels.Team?
         /// Creates a new `TeamInfoResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - team:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - team:
         public init(
-            ok: Swift.Bool,
-            team: SlackModels.Team? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            team: SlackModels.Team? = nil
         ) {
-            self.ok = ok
-            self.team = team
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.team = team
         }
     }
     /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse`.
     public struct TeamIntegrationLogsResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/logs`.
-        public var logs: [SlackModels.Log]?
-        /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/paging`.
-        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/logs`.
+        public var logs: [SlackModels.Log]?
         /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/paging`.
+        public var paging: SlackModels.Paging?
         /// - Remark: Generated from `#/components/schemas/TeamIntegrationLogsResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `TeamIntegrationLogsResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - logs:
-        ///   - paging:
         ///   - error:
+        ///   - logs:
         ///   - needed:
+        ///   - ok:
+        ///   - paging:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
-            logs: [SlackModels.Log]? = nil,
-            paging: SlackModels.Paging? = nil,
             error: Swift.String? = nil,
+            logs: [SlackModels.Log]? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            paging: SlackModels.Paging? = nil,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.logs = logs
-            self.paging = paging
             self.error = error
+            self.logs = logs
             self.needed = needed
+            self.ok = ok
+            self.paging = paging
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse`.
     public struct TeamPreferencesListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/allow_message_deletion`.
+        public var allowMessageDeletion: Swift.Bool?
+        /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/disable_file_uploads`.
+        public var disableFileUploads: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/display_real_names`.
+        public var displayRealNames: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/msg_edit_window_mins`.
+        public var msgEditWindowMins: Swift.Int?
         /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/msgEditWindowMins`.
-        public var msgEditWindowMins: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/allowMessageDeletion`.
-        public var allowMessageDeletion: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/displayRealNames`.
-        public var displayRealNames: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/disableFileUploads`.
-        public var disableFileUploads: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/whoCanPostGeneral`.
+        /// - Remark: Generated from `#/components/schemas/TeamPreferencesListResponse/who_can_post_general`.
         public var whoCanPostGeneral: Swift.String?
         /// Creates a new `TeamPreferencesListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - error:
-        ///   - needed:
-        ///   - provided:
-        ///   - msgEditWindowMins:
         ///   - allowMessageDeletion:
-        ///   - displayRealNames:
         ///   - disableFileUploads:
+        ///   - displayRealNames:
+        ///   - error:
+        ///   - msgEditWindowMins:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
         ///   - whoCanPostGeneral:
         public init(
-            ok: Swift.Bool,
-            error: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            msgEditWindowMins: Swift.Int? = nil,
             allowMessageDeletion: Swift.Bool? = nil,
-            displayRealNames: Swift.Bool? = nil,
             disableFileUploads: Swift.String? = nil,
+            displayRealNames: Swift.Bool? = nil,
+            error: Swift.String? = nil,
+            msgEditWindowMins: Swift.Int? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
             whoCanPostGeneral: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.error = error
-            self.needed = needed
-            self.provided = provided
-            self.msgEditWindowMins = msgEditWindowMins
             self.allowMessageDeletion = allowMessageDeletion
-            self.displayRealNames = displayRealNames
             self.disableFileUploads = disableFileUploads
+            self.displayRealNames = displayRealNames
+            self.error = error
+            self.msgEditWindowMins = msgEditWindowMins
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
             self.whoCanPostGeneral = whoCanPostGeneral
         }
     }
     /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse`.
     public struct TeamProfileGetResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/profile`.
-        public var profile: SlackModels.Profile?
         /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/profile`.
+        public var profile: SlackModels.Profile?
         /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `TeamProfileGetResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - profile:
         ///   - error:
         ///   - needed:
+        ///   - ok:
+        ///   - profile:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
-            profile: SlackModels.Profile? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            profile: SlackModels.Profile? = nil,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.profile = profile
             self.error = error
             self.needed = needed
+            self.ok = ok
+            self.profile = profile
             self.provided = provided
         }
     }

@@ -11,55 +11,55 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/AppRequest`.
 public struct AppRequest: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/AppRequest/id`.
-    public var id: Swift.String?
     /// - Remark: Generated from `#/components/schemas/AppRequest/app`.
     public var app: App?
-    /// - Remark: Generated from `#/components/schemas/AppRequest/user`.
-    public var user: User?
-    /// - Remark: Generated from `#/components/schemas/AppRequest/team`.
-    public var team: Team?
-    /// - Remark: Generated from `#/components/schemas/AppRequest/scopes`.
-    public var scopes: [OpenAPIRuntime.OpenAPIValueContainer]?
+    /// - Remark: Generated from `#/components/schemas/AppRequest/date_created`.
+    public var dateCreated: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/AppRequest/id`.
+    public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/AppRequest/is_user_app_collaborator`.
+    public var isUserAppCollaborator: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/AppRequest/message`.
     public var message: Message?
-    /// - Remark: Generated from `#/components/schemas/AppRequest/previousResolution`.
+    /// - Remark: Generated from `#/components/schemas/AppRequest/previous_resolution`.
     public var previousResolution: PreviousResolution?
-    /// - Remark: Generated from `#/components/schemas/AppRequest/isUserAppCollaborator`.
-    public var isUserAppCollaborator: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/AppRequest/dateCreated`.
-    public var dateCreated: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/AppRequest/scopes`.
+    public var scopes: [OpenAPIRuntime.OpenAPIValueContainer]?
+    /// - Remark: Generated from `#/components/schemas/AppRequest/team`.
+    public var team: Team?
+    /// - Remark: Generated from `#/components/schemas/AppRequest/user`.
+    public var user: User?
     /// Creates a new `AppRequest`.
     ///
     /// - Parameters:
-    ///   - id:
     ///   - app:
-    ///   - user:
-    ///   - team:
-    ///   - scopes:
+    ///   - dateCreated:
+    ///   - id:
+    ///   - isUserAppCollaborator:
     ///   - message:
     ///   - previousResolution:
-    ///   - isUserAppCollaborator:
-    ///   - dateCreated:
+    ///   - scopes:
+    ///   - team:
+    ///   - user:
     public init(
-        id: Swift.String? = nil,
         app: App? = nil,
-        user: User? = nil,
-        team: Team? = nil,
-        scopes: [OpenAPIRuntime.OpenAPIValueContainer]? = nil,
+        dateCreated: Swift.Int? = nil,
+        id: Swift.String? = nil,
+        isUserAppCollaborator: Swift.Bool? = nil,
         message: Message? = nil,
         previousResolution: PreviousResolution? = nil,
-        isUserAppCollaborator: Swift.Bool? = nil,
-        dateCreated: Swift.Int? = nil
+        scopes: [OpenAPIRuntime.OpenAPIValueContainer]? = nil,
+        team: Team? = nil,
+        user: User? = nil
     ) {
-        self.id = id
         self.app = app
-        self.user = user
-        self.team = team
-        self.scopes = scopes
+        self.dateCreated = dateCreated
+        self.id = id
+        self.isUserAppCollaborator = isUserAppCollaborator
         self.message = message
         self.previousResolution = previousResolution
-        self.isUserAppCollaborator = isUserAppCollaborator
-        self.dateCreated = dateCreated
+        self.scopes = scopes
+        self.team = team
+        self.user = user
     }
 }

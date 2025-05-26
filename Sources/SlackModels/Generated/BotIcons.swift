@@ -11,11 +11,11 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/BotIcons`.
 public struct BotIcons: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/BotIcons/image36`.
+    /// - Remark: Generated from `#/components/schemas/BotIcons/image_36`.
     public var image36: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/BotIcons/image48`.
+    /// - Remark: Generated from `#/components/schemas/BotIcons/image_48`.
     public var image48: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/BotIcons/image72`.
+    /// - Remark: Generated from `#/components/schemas/BotIcons/image_72`.
     public var image72: Swift.String?
     /// Creates a new `BotIcons`.
     ///

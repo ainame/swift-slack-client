@@ -11,30 +11,30 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Function`.
 public struct Function: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Function/title`.
-    public var title: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Function/description`.
     public var description: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Function/inputParameters`.
+    /// - Remark: Generated from `#/components/schemas/Function/input_parameters`.
     public var inputParameters: OpenAPIRuntime.OpenAPIObjectContainer?
-    /// - Remark: Generated from `#/components/schemas/Function/outputParameters`.
+    /// - Remark: Generated from `#/components/schemas/Function/output_parameters`.
     public var outputParameters: OpenAPIRuntime.OpenAPIObjectContainer?
+    /// - Remark: Generated from `#/components/schemas/Function/title`.
+    public var title: Swift.String?
     /// Creates a new `Function`.
     ///
     /// - Parameters:
-    ///   - title:
     ///   - description:
     ///   - inputParameters:
     ///   - outputParameters:
+    ///   - title:
     public init(
-        title: Swift.String? = nil,
         description: Swift.String? = nil,
         inputParameters: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-        outputParameters: OpenAPIRuntime.OpenAPIObjectContainer? = nil
+        outputParameters: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
+        title: Swift.String? = nil
     ) {
-        self.title = title
         self.description = description
         self.inputParameters = inputParameters
         self.outputParameters = outputParameters
+        self.title = title
     }
 }

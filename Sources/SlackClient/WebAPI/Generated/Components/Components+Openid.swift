@@ -15,245 +15,245 @@ import struct Foundation.Date
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse`.
     public struct OpenidConnectTokenResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/warning`.
-        public var warning: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/access_token`.
+        public var accessToken: Swift.String?
         /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/expires_in`.
+        public var expiresIn: Swift.Int?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/id_token`.
+        public var idToken: Swift.String?
         /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/accessToken`.
-        public var accessToken: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/tokenType`.
-        public var tokenType: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/idToken`.
-        public var idToken: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/refreshToken`.
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/refresh_token`.
         public var refreshToken: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/expiresIn`.
-        public var expiresIn: Swift.Int?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/token_type`.
+        public var tokenType: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectTokenResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `OpenidConnectTokenResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - warning:
-        ///   - error:
-        ///   - needed:
-        ///   - provided:
         ///   - accessToken:
-        ///   - tokenType:
-        ///   - idToken:
-        ///   - refreshToken:
+        ///   - error:
         ///   - expiresIn:
+        ///   - idToken:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
+        ///   - refreshToken:
+        ///   - tokenType:
+        ///   - warning:
         public init(
-            ok: Swift.Bool,
-            warning: Swift.String? = nil,
-            error: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
             accessToken: Swift.String? = nil,
-            tokenType: Swift.String? = nil,
+            error: Swift.String? = nil,
+            expiresIn: Swift.Int? = nil,
             idToken: Swift.String? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
             refreshToken: Swift.String? = nil,
-            expiresIn: Swift.Int? = nil
+            tokenType: Swift.String? = nil,
+            warning: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.warning = warning
-            self.error = error
-            self.needed = needed
-            self.provided = provided
             self.accessToken = accessToken
-            self.tokenType = tokenType
-            self.idToken = idToken
-            self.refreshToken = refreshToken
+            self.error = error
             self.expiresIn = expiresIn
+            self.idToken = idToken
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
+            self.refreshToken = refreshToken
+            self.tokenType = tokenType
+            self.warning = warning
         }
     }
     /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse`.
     public struct OpenidConnectUserInfoResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/warning`.
-        public var warning: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/date_email_verified`.
+        public var dateEmailVerified: Swift.Int?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/email`.
+        public var email: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/email_verified`.
+        public var emailVerified: Swift.Bool?
         /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/family_name`.
+        public var familyName: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/given_name`.
+        public var givenName: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/enterprise_domain`.
+        public var https_colon_Slack_comEnterpriseDomain: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/enterprise_id`.
+        public var https_colon_Slack_comEnterpriseId: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/enterprise_name`.
+        public var https_colon_Slack_comEnterpriseName: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/team_domain`.
+        public var https_colon_Slack_comTeamDomain: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/team_id`.
+        public var https_colon_Slack_comTeamId: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/team_image_102`.
+        public var https_colon_Slack_comTeamImage102: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/team_image_132`.
+        public var https_colon_Slack_comTeamImage132: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/team_image_230`.
+        public var https_colon_Slack_comTeamImage230: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/team_image_34`.
+        public var https_colon_Slack_comTeamImage34: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/team_image_44`.
+        public var https_colon_Slack_comTeamImage44: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/team_image_68`.
+        public var https_colon_Slack_comTeamImage68: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/team_image_88`.
+        public var https_colon_Slack_comTeamImage88: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/team_name`.
+        public var https_colon_Slack_comTeamName: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/user_id`.
+        public var https_colon_Slack_comUserId: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/user_image_1024`.
+        public var https_colon_Slack_comUserImage1024: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/user_image_192`.
+        public var https_colon_Slack_comUserImage192: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/user_image_24`.
+        public var https_colon_Slack_comUserImage24: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/user_image_32`.
+        public var https_colon_Slack_comUserImage32: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/user_image_48`.
+        public var https_colon_Slack_comUserImage48: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/user_image_512`.
+        public var https_colon_Slack_comUserImage512: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/user_image_72`.
+        public var https_colon_Slack_comUserImage72: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/locale`.
+        public var locale: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/name`.
+        public var name: Swift.String?
         /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/picture`.
+        public var picture: Swift.String?
         /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/sub`.
         public var sub: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/email`.
-        public var email: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/name`.
-        public var name: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/picture`.
-        public var picture: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/locale`.
-        public var locale: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/userId`.
-        public var https_colon_Slack_comUserId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/teamId`.
-        public var https_colon_Slack_comTeamId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/enterpriseId`.
-        public var https_colon_Slack_comEnterpriseId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/emailVerified`.
-        public var emailVerified: Swift.Bool?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/dateEmailVerified`.
-        public var dateEmailVerified: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/givenName`.
-        public var givenName: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/familyName`.
-        public var familyName: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/teamName`.
-        public var https_colon_Slack_comTeamName: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/teamDomain`.
-        public var https_colon_Slack_comTeamDomain: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/enterpriseName`.
-        public var https_colon_Slack_comEnterpriseName: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/enterpriseDomain`.
-        public var https_colon_Slack_comEnterpriseDomain: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/userImage24`.
-        public var https_colon_Slack_comUserImage24: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/userImage32`.
-        public var https_colon_Slack_comUserImage32: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/userImage48`.
-        public var https_colon_Slack_comUserImage48: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/userImage72`.
-        public var https_colon_Slack_comUserImage72: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/userImage192`.
-        public var https_colon_Slack_comUserImage192: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/userImage512`.
-        public var https_colon_Slack_comUserImage512: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/userImage1024`.
-        public var https_colon_Slack_comUserImage1024: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/teamImage34`.
-        public var https_colon_Slack_comTeamImage34: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/teamImage44`.
-        public var https_colon_Slack_comTeamImage44: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/teamImage68`.
-        public var https_colon_Slack_comTeamImage68: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/teamImage88`.
-        public var https_colon_Slack_comTeamImage88: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/teamImage102`.
-        public var https_colon_Slack_comTeamImage102: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/teamImage132`.
-        public var https_colon_Slack_comTeamImage132: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/https://slack.com/teamImage230`.
-        public var https_colon_Slack_comTeamImage230: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/OpenidConnectUserInfoResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `OpenidConnectUserInfoResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - warning:
-        ///   - error:
-        ///   - needed:
-        ///   - provided:
-        ///   - sub:
-        ///   - email:
-        ///   - name:
-        ///   - picture:
-        ///   - locale:
-        ///   - https_colon_Slack_comUserId:
-        ///   - https_colon_Slack_comTeamId:
-        ///   - https_colon_Slack_comEnterpriseId:
-        ///   - emailVerified:
         ///   - dateEmailVerified:
-        ///   - givenName:
+        ///   - email:
+        ///   - emailVerified:
+        ///   - error:
         ///   - familyName:
-        ///   - https_colon_Slack_comTeamName:
-        ///   - https_colon_Slack_comTeamDomain:
-        ///   - https_colon_Slack_comEnterpriseName:
+        ///   - givenName:
         ///   - https_colon_Slack_comEnterpriseDomain:
-        ///   - https_colon_Slack_comUserImage24:
-        ///   - https_colon_Slack_comUserImage32:
-        ///   - https_colon_Slack_comUserImage48:
-        ///   - https_colon_Slack_comUserImage72:
-        ///   - https_colon_Slack_comUserImage192:
-        ///   - https_colon_Slack_comUserImage512:
-        ///   - https_colon_Slack_comUserImage1024:
+        ///   - https_colon_Slack_comEnterpriseId:
+        ///   - https_colon_Slack_comEnterpriseName:
+        ///   - https_colon_Slack_comTeamDomain:
+        ///   - https_colon_Slack_comTeamId:
+        ///   - https_colon_Slack_comTeamImage102:
+        ///   - https_colon_Slack_comTeamImage132:
+        ///   - https_colon_Slack_comTeamImage230:
         ///   - https_colon_Slack_comTeamImage34:
         ///   - https_colon_Slack_comTeamImage44:
         ///   - https_colon_Slack_comTeamImage68:
         ///   - https_colon_Slack_comTeamImage88:
-        ///   - https_colon_Slack_comTeamImage102:
-        ///   - https_colon_Slack_comTeamImage132:
-        ///   - https_colon_Slack_comTeamImage230:
+        ///   - https_colon_Slack_comTeamName:
+        ///   - https_colon_Slack_comUserId:
+        ///   - https_colon_Slack_comUserImage1024:
+        ///   - https_colon_Slack_comUserImage192:
+        ///   - https_colon_Slack_comUserImage24:
+        ///   - https_colon_Slack_comUserImage32:
+        ///   - https_colon_Slack_comUserImage48:
+        ///   - https_colon_Slack_comUserImage512:
+        ///   - https_colon_Slack_comUserImage72:
+        ///   - locale:
+        ///   - name:
+        ///   - needed:
+        ///   - ok:
+        ///   - picture:
+        ///   - provided:
+        ///   - sub:
+        ///   - warning:
         public init(
-            ok: Swift.Bool,
-            warning: Swift.String? = nil,
-            error: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            sub: Swift.String? = nil,
-            email: Swift.String? = nil,
-            name: Swift.String? = nil,
-            picture: Swift.String? = nil,
-            locale: Swift.String? = nil,
-            https_colon_Slack_comUserId: Swift.String? = nil,
-            https_colon_Slack_comTeamId: Swift.String? = nil,
-            https_colon_Slack_comEnterpriseId: Swift.String? = nil,
-            emailVerified: Swift.Bool? = nil,
             dateEmailVerified: Swift.Int? = nil,
-            givenName: Swift.String? = nil,
+            email: Swift.String? = nil,
+            emailVerified: Swift.Bool? = nil,
+            error: Swift.String? = nil,
             familyName: Swift.String? = nil,
-            https_colon_Slack_comTeamName: Swift.String? = nil,
-            https_colon_Slack_comTeamDomain: Swift.String? = nil,
-            https_colon_Slack_comEnterpriseName: Swift.String? = nil,
+            givenName: Swift.String? = nil,
             https_colon_Slack_comEnterpriseDomain: Swift.String? = nil,
-            https_colon_Slack_comUserImage24: Swift.String? = nil,
-            https_colon_Slack_comUserImage32: Swift.String? = nil,
-            https_colon_Slack_comUserImage48: Swift.String? = nil,
-            https_colon_Slack_comUserImage72: Swift.String? = nil,
-            https_colon_Slack_comUserImage192: Swift.String? = nil,
-            https_colon_Slack_comUserImage512: Swift.String? = nil,
-            https_colon_Slack_comUserImage1024: Swift.String? = nil,
+            https_colon_Slack_comEnterpriseId: Swift.String? = nil,
+            https_colon_Slack_comEnterpriseName: Swift.String? = nil,
+            https_colon_Slack_comTeamDomain: Swift.String? = nil,
+            https_colon_Slack_comTeamId: Swift.String? = nil,
+            https_colon_Slack_comTeamImage102: Swift.String? = nil,
+            https_colon_Slack_comTeamImage132: Swift.String? = nil,
+            https_colon_Slack_comTeamImage230: Swift.String? = nil,
             https_colon_Slack_comTeamImage34: Swift.String? = nil,
             https_colon_Slack_comTeamImage44: Swift.String? = nil,
             https_colon_Slack_comTeamImage68: Swift.String? = nil,
             https_colon_Slack_comTeamImage88: Swift.String? = nil,
-            https_colon_Slack_comTeamImage102: Swift.String? = nil,
-            https_colon_Slack_comTeamImage132: Swift.String? = nil,
-            https_colon_Slack_comTeamImage230: Swift.String? = nil
+            https_colon_Slack_comTeamName: Swift.String? = nil,
+            https_colon_Slack_comUserId: Swift.String? = nil,
+            https_colon_Slack_comUserImage1024: Swift.String? = nil,
+            https_colon_Slack_comUserImage192: Swift.String? = nil,
+            https_colon_Slack_comUserImage24: Swift.String? = nil,
+            https_colon_Slack_comUserImage32: Swift.String? = nil,
+            https_colon_Slack_comUserImage48: Swift.String? = nil,
+            https_colon_Slack_comUserImage512: Swift.String? = nil,
+            https_colon_Slack_comUserImage72: Swift.String? = nil,
+            locale: Swift.String? = nil,
+            name: Swift.String? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            picture: Swift.String? = nil,
+            provided: Swift.String? = nil,
+            sub: Swift.String? = nil,
+            warning: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.warning = warning
-            self.error = error
-            self.needed = needed
-            self.provided = provided
-            self.sub = sub
-            self.email = email
-            self.name = name
-            self.picture = picture
-            self.locale = locale
-            self.https_colon_Slack_comUserId = https_colon_Slack_comUserId
-            self.https_colon_Slack_comTeamId = https_colon_Slack_comTeamId
-            self.https_colon_Slack_comEnterpriseId = https_colon_Slack_comEnterpriseId
-            self.emailVerified = emailVerified
             self.dateEmailVerified = dateEmailVerified
-            self.givenName = givenName
+            self.email = email
+            self.emailVerified = emailVerified
+            self.error = error
             self.familyName = familyName
-            self.https_colon_Slack_comTeamName = https_colon_Slack_comTeamName
-            self.https_colon_Slack_comTeamDomain = https_colon_Slack_comTeamDomain
-            self.https_colon_Slack_comEnterpriseName = https_colon_Slack_comEnterpriseName
+            self.givenName = givenName
             self.https_colon_Slack_comEnterpriseDomain = https_colon_Slack_comEnterpriseDomain
-            self.https_colon_Slack_comUserImage24 = https_colon_Slack_comUserImage24
-            self.https_colon_Slack_comUserImage32 = https_colon_Slack_comUserImage32
-            self.https_colon_Slack_comUserImage48 = https_colon_Slack_comUserImage48
-            self.https_colon_Slack_comUserImage72 = https_colon_Slack_comUserImage72
-            self.https_colon_Slack_comUserImage192 = https_colon_Slack_comUserImage192
-            self.https_colon_Slack_comUserImage512 = https_colon_Slack_comUserImage512
-            self.https_colon_Slack_comUserImage1024 = https_colon_Slack_comUserImage1024
+            self.https_colon_Slack_comEnterpriseId = https_colon_Slack_comEnterpriseId
+            self.https_colon_Slack_comEnterpriseName = https_colon_Slack_comEnterpriseName
+            self.https_colon_Slack_comTeamDomain = https_colon_Slack_comTeamDomain
+            self.https_colon_Slack_comTeamId = https_colon_Slack_comTeamId
+            self.https_colon_Slack_comTeamImage102 = https_colon_Slack_comTeamImage102
+            self.https_colon_Slack_comTeamImage132 = https_colon_Slack_comTeamImage132
+            self.https_colon_Slack_comTeamImage230 = https_colon_Slack_comTeamImage230
             self.https_colon_Slack_comTeamImage34 = https_colon_Slack_comTeamImage34
             self.https_colon_Slack_comTeamImage44 = https_colon_Slack_comTeamImage44
             self.https_colon_Slack_comTeamImage68 = https_colon_Slack_comTeamImage68
             self.https_colon_Slack_comTeamImage88 = https_colon_Slack_comTeamImage88
-            self.https_colon_Slack_comTeamImage102 = https_colon_Slack_comTeamImage102
-            self.https_colon_Slack_comTeamImage132 = https_colon_Slack_comTeamImage132
-            self.https_colon_Slack_comTeamImage230 = https_colon_Slack_comTeamImage230
+            self.https_colon_Slack_comTeamName = https_colon_Slack_comTeamName
+            self.https_colon_Slack_comUserId = https_colon_Slack_comUserId
+            self.https_colon_Slack_comUserImage1024 = https_colon_Slack_comUserImage1024
+            self.https_colon_Slack_comUserImage192 = https_colon_Slack_comUserImage192
+            self.https_colon_Slack_comUserImage24 = https_colon_Slack_comUserImage24
+            self.https_colon_Slack_comUserImage32 = https_colon_Slack_comUserImage32
+            self.https_colon_Slack_comUserImage48 = https_colon_Slack_comUserImage48
+            self.https_colon_Slack_comUserImage512 = https_colon_Slack_comUserImage512
+            self.https_colon_Slack_comUserImage72 = https_colon_Slack_comUserImage72
+            self.locale = locale
+            self.name = name
+            self.needed = needed
+            self.ok = ok
+            self.picture = picture
+            self.provided = provided
+            self.sub = sub
+            self.warning = warning
         }
     }
 }

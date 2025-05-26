@@ -11,25 +11,25 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Interactivity`.
 public struct Interactivity: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Interactivity/isEnabled`.
+    /// - Remark: Generated from `#/components/schemas/Interactivity/is_enabled`.
     public var isEnabled: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Interactivity/requestUrl`.
-    public var requestUrl: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Interactivity/messageMenuOptionsUrl`.
+    /// - Remark: Generated from `#/components/schemas/Interactivity/message_menu_options_url`.
     public var messageMenuOptionsUrl: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Interactivity/request_url`.
+    public var requestUrl: Swift.String?
     /// Creates a new `Interactivity`.
     ///
     /// - Parameters:
     ///   - isEnabled:
-    ///   - requestUrl:
     ///   - messageMenuOptionsUrl:
+    ///   - requestUrl:
     public init(
         isEnabled: Swift.Bool? = nil,
-        requestUrl: Swift.String? = nil,
-        messageMenuOptionsUrl: Swift.String? = nil
+        messageMenuOptionsUrl: Swift.String? = nil,
+        requestUrl: Swift.String? = nil
     ) {
         self.isEnabled = isEnabled
-        self.requestUrl = requestUrl
         self.messageMenuOptionsUrl = messageMenuOptionsUrl
+        self.requestUrl = requestUrl
     }
 }

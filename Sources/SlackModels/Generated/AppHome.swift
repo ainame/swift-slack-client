@@ -11,11 +11,11 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/AppHome`.
 public struct AppHome: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/AppHome/homeTabEnabled`.
+    /// - Remark: Generated from `#/components/schemas/AppHome/home_tab_enabled`.
     public var homeTabEnabled: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/AppHome/messagesTabEnabled`.
+    /// - Remark: Generated from `#/components/schemas/AppHome/messages_tab_enabled`.
     public var messagesTabEnabled: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/AppHome/messagesTabReadOnlyEnabled`.
+    /// - Remark: Generated from `#/components/schemas/AppHome/messages_tab_read_only_enabled`.
     public var messagesTabReadOnlyEnabled: Swift.Bool?
     /// Creates a new `AppHome`.
     ///

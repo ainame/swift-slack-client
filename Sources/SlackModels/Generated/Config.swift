@@ -11,25 +11,25 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Config`.
 public struct Config: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Config/appId`.
+    /// - Remark: Generated from `#/components/schemas/Config/app_id`.
     public var appId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Config/workflowAuthStrategy`.
-    public var workflowAuthStrategy: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Config/domainRestrictions`.
+    /// - Remark: Generated from `#/components/schemas/Config/domain_restrictions`.
     public var domainRestrictions: DomainRestrictions?
+    /// - Remark: Generated from `#/components/schemas/Config/workflow_auth_strategy`.
+    public var workflowAuthStrategy: Swift.String?
     /// Creates a new `Config`.
     ///
     /// - Parameters:
     ///   - appId:
-    ///   - workflowAuthStrategy:
     ///   - domainRestrictions:
+    ///   - workflowAuthStrategy:
     public init(
         appId: Swift.String? = nil,
-        workflowAuthStrategy: Swift.String? = nil,
-        domainRestrictions: DomainRestrictions? = nil
+        domainRestrictions: DomainRestrictions? = nil,
+        workflowAuthStrategy: Swift.String? = nil
     ) {
         self.appId = appId
-        self.workflowAuthStrategy = workflowAuthStrategy
         self.domainRestrictions = domainRestrictions
+        self.workflowAuthStrategy = workflowAuthStrategy
     }
 }

@@ -11,25 +11,25 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/SessionSetting`.
 public struct SessionSetting: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/SessionSetting/desktop_app_browser_quit`.
+    public var desktopAppBrowserQuit: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/SessionSetting/duration`.
     public var duration: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/SessionSetting/userId`.
+    /// - Remark: Generated from `#/components/schemas/SessionSetting/user_id`.
     public var userId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/SessionSetting/desktopAppBrowserQuit`.
-    public var desktopAppBrowserQuit: Swift.Bool?
     /// Creates a new `SessionSetting`.
     ///
     /// - Parameters:
+    ///   - desktopAppBrowserQuit:
     ///   - duration:
     ///   - userId:
-    ///   - desktopAppBrowserQuit:
     public init(
+        desktopAppBrowserQuit: Swift.Bool? = nil,
         duration: Swift.Int? = nil,
-        userId: Swift.String? = nil,
-        desktopAppBrowserQuit: Swift.Bool? = nil
+        userId: Swift.String? = nil
     ) {
+        self.desktopAppBrowserQuit = desktopAppBrowserQuit
         self.duration = duration
         self.userId = userId
-        self.desktopAppBrowserQuit = desktopAppBrowserQuit
     }
 }

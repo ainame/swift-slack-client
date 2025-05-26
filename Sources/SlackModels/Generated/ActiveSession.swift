@@ -15,31 +15,31 @@ public struct ActiveSession: Codable, Hashable, Sendable {
     public var created: Created?
     /// - Remark: Generated from `#/components/schemas/ActiveSession/recent`.
     public var recent: Created?
-    /// - Remark: Generated from `#/components/schemas/ActiveSession/userId`.
-    public var userId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ActiveSession/sessionId`.
+    /// - Remark: Generated from `#/components/schemas/ActiveSession/session_id`.
     public var sessionId: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ActiveSession/teamId`.
+    /// - Remark: Generated from `#/components/schemas/ActiveSession/team_id`.
     public var teamId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ActiveSession/user_id`.
+    public var userId: Swift.String?
     /// Creates a new `ActiveSession`.
     ///
     /// - Parameters:
     ///   - created:
     ///   - recent:
-    ///   - userId:
     ///   - sessionId:
     ///   - teamId:
+    ///   - userId:
     public init(
         created: Created? = nil,
         recent: Created? = nil,
-        userId: Swift.String? = nil,
         sessionId: Swift.Int? = nil,
-        teamId: Swift.String? = nil
+        teamId: Swift.String? = nil,
+        userId: Swift.String? = nil
     ) {
         self.created = created
         self.recent = recent
-        self.userId = userId
         self.sessionId = sessionId
         self.teamId = teamId
+        self.userId = userId
     }
 }

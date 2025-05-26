@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/ActionOptionGroup`.
 public struct ActionOptionGroup: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/ActionOptionGroup/text`.
-    public var text: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ActionOptionGroup/options`.
     public var options: [SelectedOptionElement]?
+    /// - Remark: Generated from `#/components/schemas/ActionOptionGroup/text`.
+    public var text: Swift.String?
     /// Creates a new `ActionOptionGroup`.
     ///
     /// - Parameters:
-    ///   - text:
     ///   - options:
+    ///   - text:
     public init(
-        text: Swift.String? = nil,
-        options: [SelectedOptionElement]? = nil
+        options: [SelectedOptionElement]? = nil,
+        text: Swift.String? = nil
     ) {
-        self.text = text
         self.options = options
+        self.text = text
     }
 }

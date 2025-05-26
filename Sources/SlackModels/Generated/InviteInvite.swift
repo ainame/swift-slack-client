@@ -11,55 +11,55 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/InviteInvite`.
 public struct InviteInvite: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/InviteInvite/date_created`.
+    public var dateCreated: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/InviteInvite/date_invalid`.
+    public var dateInvalid: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/InviteInvite/id`.
     public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/InviteInvite/inviting_team`.
+    public var invitingTeam: IngTeam?
+    /// - Remark: Generated from `#/components/schemas/InviteInvite/inviting_user`.
+    public var invitingUser: TingUser?
     /// - Remark: Generated from `#/components/schemas/InviteInvite/link`.
     public var link: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/InviteInvite/recipient_email`.
+    public var recipientEmail: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/InviteInvite/recipient_user_id`.
+    public var recipientUserId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/InviteInvite/sig`.
     public var sig: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/InviteInvite/dateCreated`.
-    public var dateCreated: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/InviteInvite/dateInvalid`.
-    public var dateInvalid: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/InviteInvite/invitingTeam`.
-    public var invitingTeam: IngTeam?
-    /// - Remark: Generated from `#/components/schemas/InviteInvite/invitingUser`.
-    public var invitingUser: TingUser?
-    /// - Remark: Generated from `#/components/schemas/InviteInvite/recipientUserId`.
-    public var recipientUserId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/InviteInvite/recipientEmail`.
-    public var recipientEmail: Swift.String?
     /// Creates a new `InviteInvite`.
     ///
     /// - Parameters:
-    ///   - id:
-    ///   - link:
-    ///   - sig:
     ///   - dateCreated:
     ///   - dateInvalid:
+    ///   - id:
     ///   - invitingTeam:
     ///   - invitingUser:
-    ///   - recipientUserId:
+    ///   - link:
     ///   - recipientEmail:
+    ///   - recipientUserId:
+    ///   - sig:
     public init(
-        id: Swift.String? = nil,
-        link: Swift.String? = nil,
-        sig: Swift.String? = nil,
         dateCreated: Swift.Int? = nil,
         dateInvalid: Swift.Int? = nil,
+        id: Swift.String? = nil,
         invitingTeam: IngTeam? = nil,
         invitingUser: TingUser? = nil,
+        link: Swift.String? = nil,
+        recipientEmail: Swift.String? = nil,
         recipientUserId: Swift.String? = nil,
-        recipientEmail: Swift.String? = nil
+        sig: Swift.String? = nil
     ) {
-        self.id = id
-        self.link = link
-        self.sig = sig
         self.dateCreated = dateCreated
         self.dateInvalid = dateInvalid
+        self.id = id
         self.invitingTeam = invitingTeam
         self.invitingUser = invitingUser
-        self.recipientUserId = recipientUserId
+        self.link = link
         self.recipientEmail = recipientEmail
+        self.recipientUserId = recipientUserId
+        self.sig = sig
     }
 }

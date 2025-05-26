@@ -11,25 +11,25 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/EventSubscriptions`.
 public struct EventSubscriptions: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/EventSubscriptions/botEvents`.
+    /// - Remark: Generated from `#/components/schemas/EventSubscriptions/bot_events`.
     public var botEvents: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/EventSubscriptions/userEvents`.
-    public var userEvents: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/EventSubscriptions/requestUrl`.
+    /// - Remark: Generated from `#/components/schemas/EventSubscriptions/request_url`.
     public var requestUrl: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/EventSubscriptions/user_events`.
+    public var userEvents: [Swift.String]?
     /// Creates a new `EventSubscriptions`.
     ///
     /// - Parameters:
     ///   - botEvents:
-    ///   - userEvents:
     ///   - requestUrl:
+    ///   - userEvents:
     public init(
         botEvents: [Swift.String]? = nil,
-        userEvents: [Swift.String]? = nil,
-        requestUrl: Swift.String? = nil
+        requestUrl: Swift.String? = nil,
+        userEvents: [Swift.String]? = nil
     ) {
         self.botEvents = botEvents
-        self.userEvents = userEvents
         self.requestUrl = requestUrl
+        self.userEvents = userEvents
     }
 }

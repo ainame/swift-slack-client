@@ -13,38 +13,38 @@ import struct Foundation.Date
 public struct Section: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Section/id`.
     public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Section/is_hidden`.
+    public var isHidden: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Section/label`.
     public var label: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Section/order`.
     public var order: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Section/teamId`.
-    public var teamId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Section/sectionType`.
+    /// - Remark: Generated from `#/components/schemas/Section/section_type`.
     public var sectionType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Section/isHidden`.
-    public var isHidden: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Section/team_id`.
+    public var teamId: Swift.String?
     /// Creates a new `Section`.
     ///
     /// - Parameters:
     ///   - id:
+    ///   - isHidden:
     ///   - label:
     ///   - order:
-    ///   - teamId:
     ///   - sectionType:
-    ///   - isHidden:
+    ///   - teamId:
     public init(
         id: Swift.String? = nil,
+        isHidden: Swift.Bool? = nil,
         label: Swift.String? = nil,
         order: Swift.Int? = nil,
-        teamId: Swift.String? = nil,
         sectionType: Swift.String? = nil,
-        isHidden: Swift.Bool? = nil
+        teamId: Swift.String? = nil
     ) {
         self.id = id
+        self.isHidden = isHidden
         self.label = label
         self.order = order
-        self.teamId = teamId
         self.sectionType = sectionType
-        self.isHidden = isHidden
+        self.teamId = teamId
     }
 }

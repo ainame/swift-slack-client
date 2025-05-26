@@ -15,104 +15,104 @@ import struct Foundation.Date
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetStatusResponse`.
     public struct AssistantThreadsSetStatusResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetStatusResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetStatusResponse/warning`.
-        public var warning: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetStatusResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetStatusResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetStatusResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetStatusResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetStatusResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `AssistantThreadsSetStatusResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - warning:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - warning:
         public init(
-            ok: Swift.Bool,
-            warning: Swift.String? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            warning: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.warning = warning
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.warning = warning
         }
     }
     /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetSuggestedPromptsResponse`.
     public struct AssistantThreadsSetSuggestedPromptsResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetSuggestedPromptsResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetSuggestedPromptsResponse/warning`.
-        public var warning: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetSuggestedPromptsResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetSuggestedPromptsResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetSuggestedPromptsResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetSuggestedPromptsResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetSuggestedPromptsResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `AssistantThreadsSetSuggestedPromptsResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - warning:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - warning:
         public init(
-            ok: Swift.Bool,
-            warning: Swift.String? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            warning: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.warning = warning
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.warning = warning
         }
     }
     /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetTitleResponse`.
     public struct AssistantThreadsSetTitleResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetTitleResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetTitleResponse/warning`.
-        public var warning: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetTitleResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetTitleResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetTitleResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetTitleResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AssistantThreadsSetTitleResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `AssistantThreadsSetTitleResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - warning:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - warning:
         public init(
-            ok: Swift.Bool,
-            warning: Swift.String? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            warning: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.warning = warning
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.warning = warning
         }
     }
 }

@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Posts`.
 public struct Posts: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Posts/total`.
-    public var total: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Posts/matches`.
     public var matches: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/Posts/total`.
+    public var total: Swift.Int?
     /// Creates a new `Posts`.
     ///
     /// - Parameters:
-    ///   - total:
     ///   - matches:
+    ///   - total:
     public init(
-        total: Swift.Int? = nil,
-        matches: [Swift.String]? = nil
+        matches: [Swift.String]? = nil,
+        total: Swift.Int? = nil
     ) {
-        self.total = total
         self.matches = matches
+        self.total = total
     }
 }

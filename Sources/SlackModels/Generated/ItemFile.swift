@@ -11,650 +11,650 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/ItemFile`.
 public struct ItemFile: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/ItemFile/id`.
-    public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/alt_txt`.
+    public var altTxt: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/app_id`.
+    public var appId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/app_name`.
+    public var appName: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/bot_id`.
+    public var botId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/cc`.
+    public var cc: [Cc]?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/channel_actions_count`.
+    public var channelActionsCount: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/channel_actions_ts`.
+    public var channelActionsTs: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/channels`.
+    public var channels: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/comments_count`.
+    public var commentsCount: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/converted_pdf`.
+    public var convertedPdf: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ItemFile/created`.
     public var created: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/timestamp`.
-    public var timestamp: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/name`.
-    public var name: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/title`.
-    public var title: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/subject`.
-    public var subject: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/mimetype`.
-    public var mimetype: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/filetype`.
-    public var filetype: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/user`.
-    public var user: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/mode`.
-    public var mode: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/deanimate`.
+    public var deanimate: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/deanimate_gif`.
+    public var deanimateGif: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/display_as_bot`.
+    public var displayAsBot: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/duration_ms`.
+    public var durationMs: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/edit_link`.
+    public var editLink: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ItemFile/editable`.
     public var editable: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/ItemFile/editor`.
     public var editor: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/updated`.
-    public var updated: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/subtype`.
-    public var subtype: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/transcription`.
-    public var transcription: Transcription?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/mp4`.
-    public var mp4: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/vtt`.
-    public var vtt: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/hls`.
-    public var hls: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/username`.
-    public var username: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/size`.
-    public var size: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/deanimate`.
-    public var deanimate: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/pjpeg`.
-    public var pjpeg: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/permalink`.
-    public var permalink: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/preview`.
-    public var preview: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/lines`.
-    public var lines: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/channels`.
-    public var channels: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/groups`.
-    public var groups: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/ims`.
-    public var ims: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/shares`.
-    public var shares: Shares?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/to`.
-    public var to: [Cc]?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/external_id`.
+    public var externalId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/external_type`.
+    public var externalType: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/external_url`.
+    public var externalUrl: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/file_access`.
+    public var fileAccess: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/filetype`.
+    public var filetype: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ItemFile/from`.
     public var from: [Cc]?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/cc`.
-    public var cc: [Cc]?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/groups`.
+    public var groups: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/has_more`.
+    public var hasMore: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/has_more_shares`.
+    public var hasMoreShares: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/has_rich_preview`.
+    public var hasRichPreview: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/ItemFile/headers`.
     public var headers: Headers?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/saved`.
-    public var saved: Saved?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/hls`.
+    public var hls: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/hls_embed`.
+    public var hlsEmbed: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/id`.
+    public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/image_exif_rotation`.
+    public var imageExifRotation: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/ims`.
+    public var ims: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/initial_comment`.
+    public var initialComment: Comment?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/is_external`.
+    public var isExternal: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/is_public`.
+    public var isPublic: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/is_starred`.
+    public var isStarred: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/last_editor`.
+    public var lastEditor: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/lines`.
+    public var lines: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/lines_more`.
+    public var linesMore: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/media_display_type`.
+    public var mediaDisplayType: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/media_progress`.
+    public var mediaProgress: MediaProgress?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/mimetype`.
+    public var mimetype: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/mode`.
+    public var mode: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/mp4`.
+    public var mp4: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/mp4_low`.
+    public var mp4Low: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/name`.
+    public var name: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/non_owner_editable`.
+    public var nonOwnerEditable: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/num_stars`.
+    public var numStars: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/original_attachment_count`.
+    public var originalAttachmentCount: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/original_h`.
+    public var originalH: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/original_w`.
+    public var originalW: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/permalink`.
+    public var permalink: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/permalink_public`.
+    public var permalinkPublic: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/pinned_to`.
+    public var pinnedTo: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/pjpeg`.
+    public var pjpeg: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/plain_text`.
+    public var plainText: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/pretty_type`.
+    public var prettyType: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/preview`.
+    public var preview: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/preview_highlight`.
+    public var previewHighlight: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/preview_is_truncated`.
+    public var previewIsTruncated: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/preview_plain_text`.
+    public var previewPlainText: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/public_url_shared`.
+    public var publicUrlShared: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/ItemFile/reactions`.
     public var reactions: [Reaction]?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/prettyType`.
-    public var prettyType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/userTeam`.
-    public var userTeam: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/sourceTeam`.
-    public var sourceTeam: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/nonOwnerEditable`.
-    public var nonOwnerEditable: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/lastEditor`.
-    public var lastEditor: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/fileAccess`.
-    public var fileAccess: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/altTxt`.
-    public var altTxt: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/mp4Low`.
-    public var mp4Low: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/hlsEmbed`.
-    public var hlsEmbed: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/durationMs`.
-    public var durationMs: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumbVideoW`.
-    public var thumbVideoW: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumbVideoH`.
-    public var thumbVideoH: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/originalAttachmentCount`.
-    public var originalAttachmentCount: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/isExternal`.
-    public var isExternal: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/externalType`.
-    public var externalType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/externalId`.
-    public var externalId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/externalUrl`.
-    public var externalUrl: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/urlPrivate`.
-    public var urlPrivate: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/urlPrivateDownload`.
-    public var urlPrivateDownload: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/appId`.
-    public var appId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/appName`.
-    public var appName: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb64`.
-    public var thumb64: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb64Gif`.
-    public var thumb64Gif: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb64W`.
-    public var thumb64W: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb64H`.
-    public var thumb64H: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb80`.
-    public var thumb80: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb80Gif`.
-    public var thumb80Gif: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb80W`.
-    public var thumb80W: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb80H`.
-    public var thumb80H: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb160`.
-    public var thumb160: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb160Gif`.
-    public var thumb160Gif: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb160W`.
-    public var thumb160W: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb160H`.
-    public var thumb160H: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb360`.
-    public var thumb360: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb360Gif`.
-    public var thumb360Gif: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb360W`.
-    public var thumb360W: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb360H`.
-    public var thumb360H: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb480`.
-    public var thumb480: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb480Gif`.
-    public var thumb480Gif: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb480W`.
-    public var thumb480W: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb480H`.
-    public var thumb480H: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb720`.
-    public var thumb720: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb720Gif`.
-    public var thumb720Gif: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb720W`.
-    public var thumb720W: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb720H`.
-    public var thumb720H: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb800`.
-    public var thumb800: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb800Gif`.
-    public var thumb800Gif: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb800W`.
-    public var thumb800W: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb800H`.
-    public var thumb800H: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb960`.
-    public var thumb960: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb960Gif`.
-    public var thumb960Gif: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb960W`.
-    public var thumb960W: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb960H`.
-    public var thumb960H: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb1024`.
-    public var thumb1024: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb1024Gif`.
-    public var thumb1024Gif: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb1024W`.
-    public var thumb1024W: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb1024H`.
-    public var thumb1024H: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumbVideo`.
-    public var thumbVideo: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumbGif`.
-    public var thumbGif: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumbPdf`.
-    public var thumbPdf: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumbPdfW`.
-    public var thumbPdfW: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumbPdfH`.
-    public var thumbPdfH: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/thumbTiny`.
-    public var thumbTiny: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/convertedPdf`.
-    public var convertedPdf: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/imageExifRotation`.
-    public var imageExifRotation: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/originalW`.
-    public var originalW: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/originalH`.
-    public var originalH: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/deanimateGif`.
-    public var deanimateGif: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/permalinkPublic`.
-    public var permalinkPublic: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/editLink`.
-    public var editLink: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/hasRichPreview`.
-    public var hasRichPreview: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/mediaDisplayType`.
-    public var mediaDisplayType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/previewIsTruncated`.
-    public var previewIsTruncated: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/previewHighlight`.
-    public var previewHighlight: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/plainText`.
-    public var plainText: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/previewPlainText`.
-    public var previewPlainText: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/hasMore`.
-    public var hasMore: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/sentToSelf`.
+    /// - Remark: Generated from `#/components/schemas/ItemFile/saved`.
+    public var saved: Saved?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/sent_to_self`.
     public var sentToSelf: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/linesMore`.
-    public var linesMore: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/isPublic`.
-    public var isPublic: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/publicUrlShared`.
-    public var publicUrlShared: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/displayAsBot`.
-    public var displayAsBot: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/hasMoreShares`.
-    public var hasMoreShares: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/channelActionsTs`.
-    public var channelActionsTs: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/channelActionsCount`.
-    public var channelActionsCount: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/simplifiedHtml`.
+    /// - Remark: Generated from `#/components/schemas/ItemFile/shares`.
+    public var shares: Shares?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/simplified_html`.
     public var simplifiedHtml: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/mediaProgress`.
-    public var mediaProgress: MediaProgress?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/botId`.
-    public var botId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/initialComment`.
-    public var initialComment: Comment?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/numStars`.
-    public var numStars: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/isStarred`.
-    public var isStarred: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/pinnedTo`.
-    public var pinnedTo: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/ItemFile/commentsCount`.
-    public var commentsCount: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/size`.
+    public var size: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/source_team`.
+    public var sourceTeam: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/subject`.
+    public var subject: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/subtype`.
+    public var subtype: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_1024`.
+    public var thumb1024: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_1024_gif`.
+    public var thumb1024Gif: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_1024_h`.
+    public var thumb1024H: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_1024_w`.
+    public var thumb1024W: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_160`.
+    public var thumb160: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_160_gif`.
+    public var thumb160Gif: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_160_h`.
+    public var thumb160H: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_160_w`.
+    public var thumb160W: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_360`.
+    public var thumb360: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_360_gif`.
+    public var thumb360Gif: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_360_h`.
+    public var thumb360H: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_360_w`.
+    public var thumb360W: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_480`.
+    public var thumb480: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_480_gif`.
+    public var thumb480Gif: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_480_h`.
+    public var thumb480H: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_480_w`.
+    public var thumb480W: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_64`.
+    public var thumb64: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_64_gif`.
+    public var thumb64Gif: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_64_h`.
+    public var thumb64H: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_64_w`.
+    public var thumb64W: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_720`.
+    public var thumb720: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_720_gif`.
+    public var thumb720Gif: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_720_h`.
+    public var thumb720H: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_720_w`.
+    public var thumb720W: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_80`.
+    public var thumb80: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_800`.
+    public var thumb800: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_800_gif`.
+    public var thumb800Gif: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_800_h`.
+    public var thumb800H: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_800_w`.
+    public var thumb800W: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_80_gif`.
+    public var thumb80Gif: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_80_h`.
+    public var thumb80H: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_80_w`.
+    public var thumb80W: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_960`.
+    public var thumb960: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_960_gif`.
+    public var thumb960Gif: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_960_h`.
+    public var thumb960H: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_960_w`.
+    public var thumb960W: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_gif`.
+    public var thumbGif: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_pdf`.
+    public var thumbPdf: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_pdf_h`.
+    public var thumbPdfH: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_pdf_w`.
+    public var thumbPdfW: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_tiny`.
+    public var thumbTiny: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_video`.
+    public var thumbVideo: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_video_h`.
+    public var thumbVideoH: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/thumb_video_w`.
+    public var thumbVideoW: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/timestamp`.
+    public var timestamp: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/title`.
+    public var title: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/to`.
+    public var to: [Cc]?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/transcription`.
+    public var transcription: Transcription?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/updated`.
+    public var updated: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/url_private`.
+    public var urlPrivate: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/url_private_download`.
+    public var urlPrivateDownload: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/user`.
+    public var user: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/user_team`.
+    public var userTeam: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/username`.
+    public var username: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ItemFile/vtt`.
+    public var vtt: Swift.String?
     /// Creates a new `ItemFile`.
     ///
     /// - Parameters:
-    ///   - id:
-    ///   - created:
-    ///   - timestamp:
-    ///   - name:
-    ///   - title:
-    ///   - subject:
-    ///   - mimetype:
-    ///   - filetype:
-    ///   - user:
-    ///   - mode:
-    ///   - editable:
-    ///   - editor:
-    ///   - updated:
-    ///   - subtype:
-    ///   - transcription:
-    ///   - mp4:
-    ///   - vtt:
-    ///   - hls:
-    ///   - username:
-    ///   - size:
-    ///   - deanimate:
-    ///   - pjpeg:
-    ///   - permalink:
-    ///   - preview:
-    ///   - lines:
-    ///   - channels:
-    ///   - groups:
-    ///   - ims:
-    ///   - shares:
-    ///   - to:
-    ///   - from:
-    ///   - cc:
-    ///   - headers:
-    ///   - saved:
-    ///   - reactions:
-    ///   - prettyType:
-    ///   - userTeam:
-    ///   - sourceTeam:
-    ///   - nonOwnerEditable:
-    ///   - lastEditor:
-    ///   - fileAccess:
     ///   - altTxt:
-    ///   - mp4Low:
-    ///   - hlsEmbed:
-    ///   - durationMs:
-    ///   - thumbVideoW:
-    ///   - thumbVideoH:
-    ///   - originalAttachmentCount:
-    ///   - isExternal:
-    ///   - externalType:
-    ///   - externalId:
-    ///   - externalUrl:
-    ///   - urlPrivate:
-    ///   - urlPrivateDownload:
     ///   - appId:
     ///   - appName:
-    ///   - thumb64:
-    ///   - thumb64Gif:
-    ///   - thumb64W:
-    ///   - thumb64H:
-    ///   - thumb80:
-    ///   - thumb80Gif:
-    ///   - thumb80W:
-    ///   - thumb80H:
-    ///   - thumb160:
-    ///   - thumb160Gif:
-    ///   - thumb160W:
-    ///   - thumb160H:
-    ///   - thumb360:
-    ///   - thumb360Gif:
-    ///   - thumb360W:
-    ///   - thumb360H:
-    ///   - thumb480:
-    ///   - thumb480Gif:
-    ///   - thumb480W:
-    ///   - thumb480H:
-    ///   - thumb720:
-    ///   - thumb720Gif:
-    ///   - thumb720W:
-    ///   - thumb720H:
-    ///   - thumb800:
-    ///   - thumb800Gif:
-    ///   - thumb800W:
-    ///   - thumb800H:
-    ///   - thumb960:
-    ///   - thumb960Gif:
-    ///   - thumb960W:
-    ///   - thumb960H:
+    ///   - botId:
+    ///   - cc:
+    ///   - channelActionsCount:
+    ///   - channelActionsTs:
+    ///   - channels:
+    ///   - commentsCount:
+    ///   - convertedPdf:
+    ///   - created:
+    ///   - deanimate:
+    ///   - deanimateGif:
+    ///   - displayAsBot:
+    ///   - durationMs:
+    ///   - editLink:
+    ///   - editable:
+    ///   - editor:
+    ///   - externalId:
+    ///   - externalType:
+    ///   - externalUrl:
+    ///   - fileAccess:
+    ///   - filetype:
+    ///   - from:
+    ///   - groups:
+    ///   - hasMore:
+    ///   - hasMoreShares:
+    ///   - hasRichPreview:
+    ///   - headers:
+    ///   - hls:
+    ///   - hlsEmbed:
+    ///   - id:
+    ///   - imageExifRotation:
+    ///   - ims:
+    ///   - initialComment:
+    ///   - isExternal:
+    ///   - isPublic:
+    ///   - isStarred:
+    ///   - lastEditor:
+    ///   - lines:
+    ///   - linesMore:
+    ///   - mediaDisplayType:
+    ///   - mediaProgress:
+    ///   - mimetype:
+    ///   - mode:
+    ///   - mp4:
+    ///   - mp4Low:
+    ///   - name:
+    ///   - nonOwnerEditable:
+    ///   - numStars:
+    ///   - originalAttachmentCount:
+    ///   - originalH:
+    ///   - originalW:
+    ///   - permalink:
+    ///   - permalinkPublic:
+    ///   - pinnedTo:
+    ///   - pjpeg:
+    ///   - plainText:
+    ///   - prettyType:
+    ///   - preview:
+    ///   - previewHighlight:
+    ///   - previewIsTruncated:
+    ///   - previewPlainText:
+    ///   - publicUrlShared:
+    ///   - reactions:
+    ///   - saved:
+    ///   - sentToSelf:
+    ///   - shares:
+    ///   - simplifiedHtml:
+    ///   - size:
+    ///   - sourceTeam:
+    ///   - subject:
+    ///   - subtype:
     ///   - thumb1024:
     ///   - thumb1024Gif:
-    ///   - thumb1024W:
     ///   - thumb1024H:
-    ///   - thumbVideo:
+    ///   - thumb1024W:
+    ///   - thumb160:
+    ///   - thumb160Gif:
+    ///   - thumb160H:
+    ///   - thumb160W:
+    ///   - thumb360:
+    ///   - thumb360Gif:
+    ///   - thumb360H:
+    ///   - thumb360W:
+    ///   - thumb480:
+    ///   - thumb480Gif:
+    ///   - thumb480H:
+    ///   - thumb480W:
+    ///   - thumb64:
+    ///   - thumb64Gif:
+    ///   - thumb64H:
+    ///   - thumb64W:
+    ///   - thumb720:
+    ///   - thumb720Gif:
+    ///   - thumb720H:
+    ///   - thumb720W:
+    ///   - thumb80:
+    ///   - thumb800:
+    ///   - thumb800Gif:
+    ///   - thumb800H:
+    ///   - thumb800W:
+    ///   - thumb80Gif:
+    ///   - thumb80H:
+    ///   - thumb80W:
+    ///   - thumb960:
+    ///   - thumb960Gif:
+    ///   - thumb960H:
+    ///   - thumb960W:
     ///   - thumbGif:
     ///   - thumbPdf:
-    ///   - thumbPdfW:
     ///   - thumbPdfH:
+    ///   - thumbPdfW:
     ///   - thumbTiny:
-    ///   - convertedPdf:
-    ///   - imageExifRotation:
-    ///   - originalW:
-    ///   - originalH:
-    ///   - deanimateGif:
-    ///   - permalinkPublic:
-    ///   - editLink:
-    ///   - hasRichPreview:
-    ///   - mediaDisplayType:
-    ///   - previewIsTruncated:
-    ///   - previewHighlight:
-    ///   - plainText:
-    ///   - previewPlainText:
-    ///   - hasMore:
-    ///   - sentToSelf:
-    ///   - linesMore:
-    ///   - isPublic:
-    ///   - publicUrlShared:
-    ///   - displayAsBot:
-    ///   - hasMoreShares:
-    ///   - channelActionsTs:
-    ///   - channelActionsCount:
-    ///   - simplifiedHtml:
-    ///   - mediaProgress:
-    ///   - botId:
-    ///   - initialComment:
-    ///   - numStars:
-    ///   - isStarred:
-    ///   - pinnedTo:
-    ///   - commentsCount:
+    ///   - thumbVideo:
+    ///   - thumbVideoH:
+    ///   - thumbVideoW:
+    ///   - timestamp:
+    ///   - title:
+    ///   - to:
+    ///   - transcription:
+    ///   - updated:
+    ///   - urlPrivate:
+    ///   - urlPrivateDownload:
+    ///   - user:
+    ///   - userTeam:
+    ///   - username:
+    ///   - vtt:
     public init(
-        id: Swift.String? = nil,
-        created: Swift.Int? = nil,
-        timestamp: Swift.Int? = nil,
-        name: Swift.String? = nil,
-        title: Swift.String? = nil,
-        subject: Swift.String? = nil,
-        mimetype: Swift.String? = nil,
-        filetype: Swift.String? = nil,
-        user: Swift.String? = nil,
-        mode: Swift.String? = nil,
-        editable: Swift.Bool? = nil,
-        editor: Swift.String? = nil,
-        updated: Swift.Int? = nil,
-        subtype: Swift.String? = nil,
-        transcription: Transcription? = nil,
-        mp4: Swift.String? = nil,
-        vtt: Swift.String? = nil,
-        hls: Swift.String? = nil,
-        username: Swift.String? = nil,
-        size: Swift.Int? = nil,
-        deanimate: Swift.String? = nil,
-        pjpeg: Swift.String? = nil,
-        permalink: Swift.String? = nil,
-        preview: Swift.String? = nil,
-        lines: Swift.Int? = nil,
-        channels: [Swift.String]? = nil,
-        groups: [Swift.String]? = nil,
-        ims: [Swift.String]? = nil,
-        shares: Shares? = nil,
-        to: [Cc]? = nil,
-        from: [Cc]? = nil,
-        cc: [Cc]? = nil,
-        headers: Headers? = nil,
-        saved: Saved? = nil,
-        reactions: [Reaction]? = nil,
-        prettyType: Swift.String? = nil,
-        userTeam: Swift.String? = nil,
-        sourceTeam: Swift.String? = nil,
-        nonOwnerEditable: Swift.Bool? = nil,
-        lastEditor: Swift.String? = nil,
-        fileAccess: Swift.String? = nil,
         altTxt: Swift.String? = nil,
-        mp4Low: Swift.String? = nil,
-        hlsEmbed: Swift.String? = nil,
-        durationMs: Swift.Int? = nil,
-        thumbVideoW: Swift.Int? = nil,
-        thumbVideoH: Swift.Int? = nil,
-        originalAttachmentCount: Swift.Int? = nil,
-        isExternal: Swift.Bool? = nil,
-        externalType: Swift.String? = nil,
-        externalId: Swift.String? = nil,
-        externalUrl: Swift.String? = nil,
-        urlPrivate: Swift.String? = nil,
-        urlPrivateDownload: Swift.String? = nil,
         appId: Swift.String? = nil,
         appName: Swift.String? = nil,
-        thumb64: Swift.String? = nil,
-        thumb64Gif: Swift.String? = nil,
-        thumb64W: Swift.String? = nil,
-        thumb64H: Swift.String? = nil,
-        thumb80: Swift.String? = nil,
-        thumb80Gif: Swift.String? = nil,
-        thumb80W: Swift.String? = nil,
-        thumb80H: Swift.String? = nil,
-        thumb160: Swift.String? = nil,
-        thumb160Gif: Swift.String? = nil,
-        thumb160W: Swift.String? = nil,
-        thumb160H: Swift.String? = nil,
-        thumb360: Swift.String? = nil,
-        thumb360Gif: Swift.String? = nil,
-        thumb360W: Swift.String? = nil,
-        thumb360H: Swift.String? = nil,
-        thumb480: Swift.String? = nil,
-        thumb480Gif: Swift.String? = nil,
-        thumb480W: Swift.String? = nil,
-        thumb480H: Swift.String? = nil,
-        thumb720: Swift.String? = nil,
-        thumb720Gif: Swift.String? = nil,
-        thumb720W: Swift.String? = nil,
-        thumb720H: Swift.String? = nil,
-        thumb800: Swift.String? = nil,
-        thumb800Gif: Swift.String? = nil,
-        thumb800W: Swift.String? = nil,
-        thumb800H: Swift.String? = nil,
-        thumb960: Swift.String? = nil,
-        thumb960Gif: Swift.String? = nil,
-        thumb960W: Swift.String? = nil,
-        thumb960H: Swift.String? = nil,
+        botId: Swift.String? = nil,
+        cc: [Cc]? = nil,
+        channelActionsCount: Swift.Int? = nil,
+        channelActionsTs: Swift.String? = nil,
+        channels: [Swift.String]? = nil,
+        commentsCount: Swift.Int? = nil,
+        convertedPdf: Swift.String? = nil,
+        created: Swift.Int? = nil,
+        deanimate: Swift.String? = nil,
+        deanimateGif: Swift.String? = nil,
+        displayAsBot: Swift.Bool? = nil,
+        durationMs: Swift.Int? = nil,
+        editLink: Swift.String? = nil,
+        editable: Swift.Bool? = nil,
+        editor: Swift.String? = nil,
+        externalId: Swift.String? = nil,
+        externalType: Swift.String? = nil,
+        externalUrl: Swift.String? = nil,
+        fileAccess: Swift.String? = nil,
+        filetype: Swift.String? = nil,
+        from: [Cc]? = nil,
+        groups: [Swift.String]? = nil,
+        hasMore: Swift.Bool? = nil,
+        hasMoreShares: Swift.Bool? = nil,
+        hasRichPreview: Swift.Bool? = nil,
+        headers: Headers? = nil,
+        hls: Swift.String? = nil,
+        hlsEmbed: Swift.String? = nil,
+        id: Swift.String? = nil,
+        imageExifRotation: Swift.Int? = nil,
+        ims: [Swift.String]? = nil,
+        initialComment: Comment? = nil,
+        isExternal: Swift.Bool? = nil,
+        isPublic: Swift.Bool? = nil,
+        isStarred: Swift.Bool? = nil,
+        lastEditor: Swift.String? = nil,
+        lines: Swift.Int? = nil,
+        linesMore: Swift.Int? = nil,
+        mediaDisplayType: Swift.String? = nil,
+        mediaProgress: MediaProgress? = nil,
+        mimetype: Swift.String? = nil,
+        mode: Swift.String? = nil,
+        mp4: Swift.String? = nil,
+        mp4Low: Swift.String? = nil,
+        name: Swift.String? = nil,
+        nonOwnerEditable: Swift.Bool? = nil,
+        numStars: Swift.Int? = nil,
+        originalAttachmentCount: Swift.Int? = nil,
+        originalH: Swift.String? = nil,
+        originalW: Swift.String? = nil,
+        permalink: Swift.String? = nil,
+        permalinkPublic: Swift.String? = nil,
+        pinnedTo: [Swift.String]? = nil,
+        pjpeg: Swift.String? = nil,
+        plainText: Swift.String? = nil,
+        prettyType: Swift.String? = nil,
+        preview: Swift.String? = nil,
+        previewHighlight: Swift.String? = nil,
+        previewIsTruncated: Swift.Bool? = nil,
+        previewPlainText: Swift.String? = nil,
+        publicUrlShared: Swift.Bool? = nil,
+        reactions: [Reaction]? = nil,
+        saved: Saved? = nil,
+        sentToSelf: Swift.Bool? = nil,
+        shares: Shares? = nil,
+        simplifiedHtml: Swift.String? = nil,
+        size: Swift.Int? = nil,
+        sourceTeam: Swift.String? = nil,
+        subject: Swift.String? = nil,
+        subtype: Swift.String? = nil,
         thumb1024: Swift.String? = nil,
         thumb1024Gif: Swift.String? = nil,
-        thumb1024W: Swift.String? = nil,
         thumb1024H: Swift.String? = nil,
-        thumbVideo: Swift.String? = nil,
+        thumb1024W: Swift.String? = nil,
+        thumb160: Swift.String? = nil,
+        thumb160Gif: Swift.String? = nil,
+        thumb160H: Swift.String? = nil,
+        thumb160W: Swift.String? = nil,
+        thumb360: Swift.String? = nil,
+        thumb360Gif: Swift.String? = nil,
+        thumb360H: Swift.String? = nil,
+        thumb360W: Swift.String? = nil,
+        thumb480: Swift.String? = nil,
+        thumb480Gif: Swift.String? = nil,
+        thumb480H: Swift.String? = nil,
+        thumb480W: Swift.String? = nil,
+        thumb64: Swift.String? = nil,
+        thumb64Gif: Swift.String? = nil,
+        thumb64H: Swift.String? = nil,
+        thumb64W: Swift.String? = nil,
+        thumb720: Swift.String? = nil,
+        thumb720Gif: Swift.String? = nil,
+        thumb720H: Swift.String? = nil,
+        thumb720W: Swift.String? = nil,
+        thumb80: Swift.String? = nil,
+        thumb800: Swift.String? = nil,
+        thumb800Gif: Swift.String? = nil,
+        thumb800H: Swift.String? = nil,
+        thumb800W: Swift.String? = nil,
+        thumb80Gif: Swift.String? = nil,
+        thumb80H: Swift.String? = nil,
+        thumb80W: Swift.String? = nil,
+        thumb960: Swift.String? = nil,
+        thumb960Gif: Swift.String? = nil,
+        thumb960H: Swift.String? = nil,
+        thumb960W: Swift.String? = nil,
         thumbGif: Swift.String? = nil,
         thumbPdf: Swift.String? = nil,
-        thumbPdfW: Swift.String? = nil,
         thumbPdfH: Swift.String? = nil,
+        thumbPdfW: Swift.String? = nil,
         thumbTiny: Swift.String? = nil,
-        convertedPdf: Swift.String? = nil,
-        imageExifRotation: Swift.Int? = nil,
-        originalW: Swift.String? = nil,
-        originalH: Swift.String? = nil,
-        deanimateGif: Swift.String? = nil,
-        permalinkPublic: Swift.String? = nil,
-        editLink: Swift.String? = nil,
-        hasRichPreview: Swift.Bool? = nil,
-        mediaDisplayType: Swift.String? = nil,
-        previewIsTruncated: Swift.Bool? = nil,
-        previewHighlight: Swift.String? = nil,
-        plainText: Swift.String? = nil,
-        previewPlainText: Swift.String? = nil,
-        hasMore: Swift.Bool? = nil,
-        sentToSelf: Swift.Bool? = nil,
-        linesMore: Swift.Int? = nil,
-        isPublic: Swift.Bool? = nil,
-        publicUrlShared: Swift.Bool? = nil,
-        displayAsBot: Swift.Bool? = nil,
-        hasMoreShares: Swift.Bool? = nil,
-        channelActionsTs: Swift.String? = nil,
-        channelActionsCount: Swift.Int? = nil,
-        simplifiedHtml: Swift.String? = nil,
-        mediaProgress: MediaProgress? = nil,
-        botId: Swift.String? = nil,
-        initialComment: Comment? = nil,
-        numStars: Swift.Int? = nil,
-        isStarred: Swift.Bool? = nil,
-        pinnedTo: [Swift.String]? = nil,
-        commentsCount: Swift.Int? = nil
+        thumbVideo: Swift.String? = nil,
+        thumbVideoH: Swift.Int? = nil,
+        thumbVideoW: Swift.Int? = nil,
+        timestamp: Swift.Int? = nil,
+        title: Swift.String? = nil,
+        to: [Cc]? = nil,
+        transcription: Transcription? = nil,
+        updated: Swift.Int? = nil,
+        urlPrivate: Swift.String? = nil,
+        urlPrivateDownload: Swift.String? = nil,
+        user: Swift.String? = nil,
+        userTeam: Swift.String? = nil,
+        username: Swift.String? = nil,
+        vtt: Swift.String? = nil
     ) {
-        self.id = id
-        self.created = created
-        self.timestamp = timestamp
-        self.name = name
-        self.title = title
-        self.subject = subject
-        self.mimetype = mimetype
-        self.filetype = filetype
-        self.user = user
-        self.mode = mode
-        self.editable = editable
-        self.editor = editor
-        self.updated = updated
-        self.subtype = subtype
-        self.transcription = transcription
-        self.mp4 = mp4
-        self.vtt = vtt
-        self.hls = hls
-        self.username = username
-        self.size = size
-        self.deanimate = deanimate
-        self.pjpeg = pjpeg
-        self.permalink = permalink
-        self.preview = preview
-        self.lines = lines
-        self.channels = channels
-        self.groups = groups
-        self.ims = ims
-        self.shares = shares
-        self.to = to
-        self.from = from
-        self.cc = cc
-        self.headers = headers
-        self.saved = saved
-        self.reactions = reactions
-        self.prettyType = prettyType
-        self.userTeam = userTeam
-        self.sourceTeam = sourceTeam
-        self.nonOwnerEditable = nonOwnerEditable
-        self.lastEditor = lastEditor
-        self.fileAccess = fileAccess
         self.altTxt = altTxt
-        self.mp4Low = mp4Low
-        self.hlsEmbed = hlsEmbed
-        self.durationMs = durationMs
-        self.thumbVideoW = thumbVideoW
-        self.thumbVideoH = thumbVideoH
-        self.originalAttachmentCount = originalAttachmentCount
-        self.isExternal = isExternal
-        self.externalType = externalType
-        self.externalId = externalId
-        self.externalUrl = externalUrl
-        self.urlPrivate = urlPrivate
-        self.urlPrivateDownload = urlPrivateDownload
         self.appId = appId
         self.appName = appName
-        self.thumb64 = thumb64
-        self.thumb64Gif = thumb64Gif
-        self.thumb64W = thumb64W
-        self.thumb64H = thumb64H
-        self.thumb80 = thumb80
-        self.thumb80Gif = thumb80Gif
-        self.thumb80W = thumb80W
-        self.thumb80H = thumb80H
-        self.thumb160 = thumb160
-        self.thumb160Gif = thumb160Gif
-        self.thumb160W = thumb160W
-        self.thumb160H = thumb160H
-        self.thumb360 = thumb360
-        self.thumb360Gif = thumb360Gif
-        self.thumb360W = thumb360W
-        self.thumb360H = thumb360H
-        self.thumb480 = thumb480
-        self.thumb480Gif = thumb480Gif
-        self.thumb480W = thumb480W
-        self.thumb480H = thumb480H
-        self.thumb720 = thumb720
-        self.thumb720Gif = thumb720Gif
-        self.thumb720W = thumb720W
-        self.thumb720H = thumb720H
-        self.thumb800 = thumb800
-        self.thumb800Gif = thumb800Gif
-        self.thumb800W = thumb800W
-        self.thumb800H = thumb800H
-        self.thumb960 = thumb960
-        self.thumb960Gif = thumb960Gif
-        self.thumb960W = thumb960W
-        self.thumb960H = thumb960H
+        self.botId = botId
+        self.cc = cc
+        self.channelActionsCount = channelActionsCount
+        self.channelActionsTs = channelActionsTs
+        self.channels = channels
+        self.commentsCount = commentsCount
+        self.convertedPdf = convertedPdf
+        self.created = created
+        self.deanimate = deanimate
+        self.deanimateGif = deanimateGif
+        self.displayAsBot = displayAsBot
+        self.durationMs = durationMs
+        self.editLink = editLink
+        self.editable = editable
+        self.editor = editor
+        self.externalId = externalId
+        self.externalType = externalType
+        self.externalUrl = externalUrl
+        self.fileAccess = fileAccess
+        self.filetype = filetype
+        self.from = from
+        self.groups = groups
+        self.hasMore = hasMore
+        self.hasMoreShares = hasMoreShares
+        self.hasRichPreview = hasRichPreview
+        self.headers = headers
+        self.hls = hls
+        self.hlsEmbed = hlsEmbed
+        self.id = id
+        self.imageExifRotation = imageExifRotation
+        self.ims = ims
+        self.initialComment = initialComment
+        self.isExternal = isExternal
+        self.isPublic = isPublic
+        self.isStarred = isStarred
+        self.lastEditor = lastEditor
+        self.lines = lines
+        self.linesMore = linesMore
+        self.mediaDisplayType = mediaDisplayType
+        self.mediaProgress = mediaProgress
+        self.mimetype = mimetype
+        self.mode = mode
+        self.mp4 = mp4
+        self.mp4Low = mp4Low
+        self.name = name
+        self.nonOwnerEditable = nonOwnerEditable
+        self.numStars = numStars
+        self.originalAttachmentCount = originalAttachmentCount
+        self.originalH = originalH
+        self.originalW = originalW
+        self.permalink = permalink
+        self.permalinkPublic = permalinkPublic
+        self.pinnedTo = pinnedTo
+        self.pjpeg = pjpeg
+        self.plainText = plainText
+        self.prettyType = prettyType
+        self.preview = preview
+        self.previewHighlight = previewHighlight
+        self.previewIsTruncated = previewIsTruncated
+        self.previewPlainText = previewPlainText
+        self.publicUrlShared = publicUrlShared
+        self.reactions = reactions
+        self.saved = saved
+        self.sentToSelf = sentToSelf
+        self.shares = shares
+        self.simplifiedHtml = simplifiedHtml
+        self.size = size
+        self.sourceTeam = sourceTeam
+        self.subject = subject
+        self.subtype = subtype
         self.thumb1024 = thumb1024
         self.thumb1024Gif = thumb1024Gif
-        self.thumb1024W = thumb1024W
         self.thumb1024H = thumb1024H
-        self.thumbVideo = thumbVideo
+        self.thumb1024W = thumb1024W
+        self.thumb160 = thumb160
+        self.thumb160Gif = thumb160Gif
+        self.thumb160H = thumb160H
+        self.thumb160W = thumb160W
+        self.thumb360 = thumb360
+        self.thumb360Gif = thumb360Gif
+        self.thumb360H = thumb360H
+        self.thumb360W = thumb360W
+        self.thumb480 = thumb480
+        self.thumb480Gif = thumb480Gif
+        self.thumb480H = thumb480H
+        self.thumb480W = thumb480W
+        self.thumb64 = thumb64
+        self.thumb64Gif = thumb64Gif
+        self.thumb64H = thumb64H
+        self.thumb64W = thumb64W
+        self.thumb720 = thumb720
+        self.thumb720Gif = thumb720Gif
+        self.thumb720H = thumb720H
+        self.thumb720W = thumb720W
+        self.thumb80 = thumb80
+        self.thumb800 = thumb800
+        self.thumb800Gif = thumb800Gif
+        self.thumb800H = thumb800H
+        self.thumb800W = thumb800W
+        self.thumb80Gif = thumb80Gif
+        self.thumb80H = thumb80H
+        self.thumb80W = thumb80W
+        self.thumb960 = thumb960
+        self.thumb960Gif = thumb960Gif
+        self.thumb960H = thumb960H
+        self.thumb960W = thumb960W
         self.thumbGif = thumbGif
         self.thumbPdf = thumbPdf
-        self.thumbPdfW = thumbPdfW
         self.thumbPdfH = thumbPdfH
+        self.thumbPdfW = thumbPdfW
         self.thumbTiny = thumbTiny
-        self.convertedPdf = convertedPdf
-        self.imageExifRotation = imageExifRotation
-        self.originalW = originalW
-        self.originalH = originalH
-        self.deanimateGif = deanimateGif
-        self.permalinkPublic = permalinkPublic
-        self.editLink = editLink
-        self.hasRichPreview = hasRichPreview
-        self.mediaDisplayType = mediaDisplayType
-        self.previewIsTruncated = previewIsTruncated
-        self.previewHighlight = previewHighlight
-        self.plainText = plainText
-        self.previewPlainText = previewPlainText
-        self.hasMore = hasMore
-        self.sentToSelf = sentToSelf
-        self.linesMore = linesMore
-        self.isPublic = isPublic
-        self.publicUrlShared = publicUrlShared
-        self.displayAsBot = displayAsBot
-        self.hasMoreShares = hasMoreShares
-        self.channelActionsTs = channelActionsTs
-        self.channelActionsCount = channelActionsCount
-        self.simplifiedHtml = simplifiedHtml
-        self.mediaProgress = mediaProgress
-        self.botId = botId
-        self.initialComment = initialComment
-        self.numStars = numStars
-        self.isStarred = isStarred
-        self.pinnedTo = pinnedTo
-        self.commentsCount = commentsCount
+        self.thumbVideo = thumbVideo
+        self.thumbVideoH = thumbVideoH
+        self.thumbVideoW = thumbVideoW
+        self.timestamp = timestamp
+        self.title = title
+        self.to = to
+        self.transcription = transcription
+        self.updated = updated
+        self.urlPrivate = urlPrivate
+        self.urlPrivateDownload = urlPrivateDownload
+        self.user = user
+        self.userTeam = userTeam
+        self.username = username
+        self.vtt = vtt
     }
 }

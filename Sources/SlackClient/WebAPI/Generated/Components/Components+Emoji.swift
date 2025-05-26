@@ -19,51 +19,51 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/EmojiListResponse`.
     public struct EmojiListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/EmojiListResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/EmojiListResponse/cache_ts`.
+        public var cacheTs: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/EmojiListResponse/categories`.
+        public var categories: [SlackModels.Category]?
+        /// - Remark: Generated from `#/components/schemas/EmojiListResponse/categories_version`.
+        public var categoriesVersion: Swift.String?
         /// - Remark: Generated from `#/components/schemas/EmojiListResponse/emoji`.
         public var emoji: OpenAPIRuntime.OpenAPIObjectContainer?
         /// - Remark: Generated from `#/components/schemas/EmojiListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/EmojiListResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/EmojiListResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/EmojiListResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/EmojiListResponse/categories`.
-        public var categories: [SlackModels.Category]?
-        /// - Remark: Generated from `#/components/schemas/EmojiListResponse/cacheTs`.
-        public var cacheTs: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/EmojiListResponse/categoriesVersion`.
-        public var categoriesVersion: Swift.String?
         /// Creates a new `EmojiListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
+        ///   - cacheTs:
+        ///   - categories:
+        ///   - categoriesVersion:
         ///   - emoji:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
-        ///   - categories:
-        ///   - cacheTs:
-        ///   - categoriesVersion:
         public init(
-            ok: Swift.Bool,
+            cacheTs: Swift.String? = nil,
+            categories: [SlackModels.Category]? = nil,
+            categoriesVersion: Swift.String? = nil,
             emoji: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            categories: [SlackModels.Category]? = nil,
-            cacheTs: Swift.String? = nil,
-            categoriesVersion: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil
         ) {
-            self.ok = ok
+            self.cacheTs = cacheTs
+            self.categories = categories
+            self.categoriesVersion = categoriesVersion
             self.emoji = emoji
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
-            self.categories = categories
-            self.cacheTs = cacheTs
-            self.categoriesVersion = categoriesVersion
         }
     }
 }

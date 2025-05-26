@@ -11,90 +11,90 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Log`.
 public struct Log: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Log/date`.
-    public var date: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Log/scope`.
-    public var scope: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Log/app_id`.
+    public var appId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Log/app_type`.
+    public var appType: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Log/change_type`.
+    public var changeType: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Log/channel`.
     public var channel: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Log/date`.
+    public var date: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Log/reason`.
     public var reason: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Log/resolution`.
     public var resolution: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Log/userId`.
-    public var userId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Log/userName`.
-    public var userName: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Log/changeType`.
-    public var changeType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Log/appType`.
-    public var appType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Log/appId`.
-    public var appId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Log/rssFeed`.
+    /// - Remark: Generated from `#/components/schemas/Log/rss_feed`.
     public var rssFeed: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Log/rssFeedChangeType`.
+    /// - Remark: Generated from `#/components/schemas/Log/rss_feed_change_type`.
     public var rssFeedChangeType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Log/rssFeedTitle`.
+    /// - Remark: Generated from `#/components/schemas/Log/rss_feed_title`.
     public var rssFeedTitle: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Log/rssFeedUrl`.
+    /// - Remark: Generated from `#/components/schemas/Log/rss_feed_url`.
     public var rssFeedUrl: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Log/serviceId`.
+    /// - Remark: Generated from `#/components/schemas/Log/scope`.
+    public var scope: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Log/service_id`.
     public var serviceId: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Log/serviceType`.
+    /// - Remark: Generated from `#/components/schemas/Log/service_type`.
     public var serviceType: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Log/user_id`.
+    public var userId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Log/user_name`.
+    public var userName: Swift.String?
     /// Creates a new `Log`.
     ///
     /// - Parameters:
-    ///   - date:
-    ///   - scope:
+    ///   - appId:
+    ///   - appType:
+    ///   - changeType:
     ///   - channel:
+    ///   - date:
     ///   - reason:
     ///   - resolution:
-    ///   - userId:
-    ///   - userName:
-    ///   - changeType:
-    ///   - appType:
-    ///   - appId:
     ///   - rssFeed:
     ///   - rssFeedChangeType:
     ///   - rssFeedTitle:
     ///   - rssFeedUrl:
+    ///   - scope:
     ///   - serviceId:
     ///   - serviceType:
+    ///   - userId:
+    ///   - userName:
     public init(
-        date: Swift.String? = nil,
-        scope: Swift.String? = nil,
+        appId: Swift.String? = nil,
+        appType: Swift.String? = nil,
+        changeType: Swift.String? = nil,
         channel: Swift.String? = nil,
+        date: Swift.String? = nil,
         reason: Swift.String? = nil,
         resolution: Swift.String? = nil,
-        userId: Swift.String? = nil,
-        userName: Swift.String? = nil,
-        changeType: Swift.String? = nil,
-        appType: Swift.String? = nil,
-        appId: Swift.String? = nil,
         rssFeed: Swift.Bool? = nil,
         rssFeedChangeType: Swift.String? = nil,
         rssFeedTitle: Swift.String? = nil,
         rssFeedUrl: Swift.String? = nil,
+        scope: Swift.String? = nil,
         serviceId: Swift.Int? = nil,
-        serviceType: Swift.String? = nil
+        serviceType: Swift.String? = nil,
+        userId: Swift.String? = nil,
+        userName: Swift.String? = nil
     ) {
-        self.date = date
-        self.scope = scope
+        self.appId = appId
+        self.appType = appType
+        self.changeType = changeType
         self.channel = channel
+        self.date = date
         self.reason = reason
         self.resolution = resolution
-        self.userId = userId
-        self.userName = userName
-        self.changeType = changeType
-        self.appType = appType
-        self.appId = appId
         self.rssFeed = rssFeed
         self.rssFeedChangeType = rssFeedChangeType
         self.rssFeedTitle = rssFeedTitle
         self.rssFeedUrl = rssFeedUrl
+        self.scope = scope
         self.serviceId = serviceId
         self.serviceType = serviceType
+        self.userId = userId
+        self.userName = userName
     }
 }

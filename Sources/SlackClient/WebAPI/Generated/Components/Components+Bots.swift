@@ -19,35 +19,35 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/BotsInfoResponse`.
     public struct BotsInfoResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/BotsInfoResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/BotsInfoResponse/bot`.
         public var bot: SlackModels.Bot?
         /// - Remark: Generated from `#/components/schemas/BotsInfoResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BotsInfoResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/BotsInfoResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/BotsInfoResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `BotsInfoResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - bot:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             bot: SlackModels.Bot? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.bot = bot
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }

@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/BotUser`.
 public struct BotUser: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/BotUser/displayName`.
-    public var displayName: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/BotUser/alwaysOnline`.
+    /// - Remark: Generated from `#/components/schemas/BotUser/always_online`.
     public var alwaysOnline: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/BotUser/display_name`.
+    public var displayName: Swift.String?
     /// Creates a new `BotUser`.
     ///
     /// - Parameters:
-    ///   - displayName:
     ///   - alwaysOnline:
+    ///   - displayName:
     public init(
-        displayName: Swift.String? = nil,
-        alwaysOnline: Swift.Bool? = nil
+        alwaysOnline: Swift.Bool? = nil,
+        displayName: Swift.String? = nil
     ) {
-        self.displayName = displayName
         self.alwaysOnline = alwaysOnline
+        self.displayName = displayName
     }
 }

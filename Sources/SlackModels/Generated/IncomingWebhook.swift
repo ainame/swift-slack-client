@@ -11,30 +11,30 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/IncomingWebhook`.
 public struct IncomingWebhook: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/IncomingWebhook/url`.
-    public var url: Swift.String?
     /// - Remark: Generated from `#/components/schemas/IncomingWebhook/channel`.
     public var channel: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/IncomingWebhook/channelId`.
+    /// - Remark: Generated from `#/components/schemas/IncomingWebhook/channel_id`.
     public var channelId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/IncomingWebhook/configurationUrl`.
+    /// - Remark: Generated from `#/components/schemas/IncomingWebhook/configuration_url`.
     public var configurationUrl: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/IncomingWebhook/url`.
+    public var url: Swift.String?
     /// Creates a new `IncomingWebhook`.
     ///
     /// - Parameters:
-    ///   - url:
     ///   - channel:
     ///   - channelId:
     ///   - configurationUrl:
+    ///   - url:
     public init(
-        url: Swift.String? = nil,
         channel: Swift.String? = nil,
         channelId: Swift.String? = nil,
-        configurationUrl: Swift.String? = nil
+        configurationUrl: Swift.String? = nil,
+        url: Swift.String? = nil
     ) {
-        self.url = url
         self.channel = channel
         self.channelId = channelId
         self.configurationUrl = configurationUrl
+        self.url = url
     }
 }

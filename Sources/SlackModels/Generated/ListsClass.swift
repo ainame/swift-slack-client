@@ -11,20 +11,20 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/ListsClass`.
 public struct ListsClass: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/ListsClass/totalCount`.
-    public var totalCount: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/ListsClass/ownershipDetails`.
+    /// - Remark: Generated from `#/components/schemas/ListsClass/ownership_details`.
     public var ownershipDetails: [OwnershipDetail]?
+    /// - Remark: Generated from `#/components/schemas/ListsClass/total_count`.
+    public var totalCount: Swift.Int?
     /// Creates a new `ListsClass`.
     ///
     /// - Parameters:
-    ///   - totalCount:
     ///   - ownershipDetails:
+    ///   - totalCount:
     public init(
-        totalCount: Swift.Int? = nil,
-        ownershipDetails: [OwnershipDetail]? = nil
+        ownershipDetails: [OwnershipDetail]? = nil,
+        totalCount: Swift.Int? = nil
     ) {
-        self.totalCount = totalCount
         self.ownershipDetails = ownershipDetails
+        self.totalCount = totalCount
     }
 }

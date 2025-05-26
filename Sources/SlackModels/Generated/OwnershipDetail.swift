@@ -13,7 +13,7 @@ import struct Foundation.Date
 public struct OwnershipDetail: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/OwnershipDetail/count`.
     public var count: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/OwnershipDetail/teamId`.
+    /// - Remark: Generated from `#/components/schemas/OwnershipDetail/team_id`.
     public var teamId: Swift.String?
     /// Creates a new `OwnershipDetail`.
     ///

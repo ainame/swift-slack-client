@@ -38,7 +38,7 @@ public enum BotsInfo {
                 public var bot: Swift.String?
                 /// encoded team id or enterprise id where the bot exists, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/bots.info/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/bots.info/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -54,7 +54,7 @@ public enum BotsInfo {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case bot
-                    case teamId
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/bots.info/POST/requestBody/content/application\/json`.

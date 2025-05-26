@@ -11,7 +11,7 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/TargetUser`.
 public struct TargetUser: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/TargetUser/recipientEmail`.
+    /// - Remark: Generated from `#/components/schemas/TargetUser/recipient_email`.
     public var recipientEmail: Swift.String?
     /// Creates a new `TargetUser`.
     ///

@@ -11,40 +11,40 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Manifest`.
 public struct Manifest: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Manifest/settings`.
-    public var settings: Settings?
+    /// - Remark: Generated from `#/components/schemas/Manifest/_metadata`.
+    public var _metadata: Metadata?
+    /// - Remark: Generated from `#/components/schemas/Manifest/display_information`.
+    public var displayInformation: DisplayInformation?
     /// - Remark: Generated from `#/components/schemas/Manifest/features`.
     public var features: Features?
     /// - Remark: Generated from `#/components/schemas/Manifest/functions`.
     public var functions: OpenAPIRuntime.OpenAPIObjectContainer?
-    /// - Remark: Generated from `#/components/schemas/Manifest/Metadata`.
-    public var metadata: Metadata?
-    /// - Remark: Generated from `#/components/schemas/Manifest/displayInformation`.
-    public var displayInformation: DisplayInformation?
-    /// - Remark: Generated from `#/components/schemas/Manifest/oauthConfig`.
+    /// - Remark: Generated from `#/components/schemas/Manifest/oauth_config`.
     public var oauthConfig: OauthConfig?
+    /// - Remark: Generated from `#/components/schemas/Manifest/settings`.
+    public var settings: Settings?
     /// Creates a new `Manifest`.
     ///
     /// - Parameters:
-    ///   - settings:
+    ///   - _metadata:
+    ///   - displayInformation:
     ///   - features:
     ///   - functions:
-    ///   - metadata:
-    ///   - displayInformation:
     ///   - oauthConfig:
+    ///   - settings:
     public init(
-        settings: Settings? = nil,
+        _metadata: Metadata? = nil,
+        displayInformation: DisplayInformation? = nil,
         features: Features? = nil,
         functions: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-        metadata: Metadata? = nil,
-        displayInformation: DisplayInformation? = nil,
-        oauthConfig: OauthConfig? = nil
+        oauthConfig: OauthConfig? = nil,
+        settings: Settings? = nil
     ) {
-        self.settings = settings
+        self._metadata = _metadata
+        self.displayInformation = displayInformation
         self.features = features
         self.functions = functions
-        self.metadata = metadata
-        self.displayInformation = displayInformation
         self.oauthConfig = oauthConfig
+        self.settings = settings
     }
 }

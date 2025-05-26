@@ -11,40 +11,40 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Invite`.
 public struct Invite: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Invite/id`.
-    public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Invite/date_created`.
+    public var dateCreated: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Invite/email`.
     public var email: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Invite/inviterId`.
-    public var inviterId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Invite/dateCreated`.
-    public var dateCreated: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Invite/isBouncing`.
-    public var isBouncing: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Invite/invitePreferences`.
+    /// - Remark: Generated from `#/components/schemas/Invite/id`.
+    public var id: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Invite/invite_preferences`.
     public var invitePreferences: InvitePreferences?
+    /// - Remark: Generated from `#/components/schemas/Invite/inviter_id`.
+    public var inviterId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Invite/is_bouncing`.
+    public var isBouncing: Swift.Bool?
     /// Creates a new `Invite`.
     ///
     /// - Parameters:
-    ///   - id:
-    ///   - email:
-    ///   - inviterId:
     ///   - dateCreated:
-    ///   - isBouncing:
+    ///   - email:
+    ///   - id:
     ///   - invitePreferences:
+    ///   - inviterId:
+    ///   - isBouncing:
     public init(
-        id: Swift.String? = nil,
-        email: Swift.String? = nil,
-        inviterId: Swift.String? = nil,
         dateCreated: Swift.Int? = nil,
-        isBouncing: Swift.Bool? = nil,
-        invitePreferences: InvitePreferences? = nil
+        email: Swift.String? = nil,
+        id: Swift.String? = nil,
+        invitePreferences: InvitePreferences? = nil,
+        inviterId: Swift.String? = nil,
+        isBouncing: Swift.Bool? = nil
     ) {
-        self.id = id
-        self.email = email
-        self.inviterId = inviterId
         self.dateCreated = dateCreated
-        self.isBouncing = isBouncing
+        self.email = email
+        self.id = id
         self.invitePreferences = invitePreferences
+        self.inviterId = inviterId
+        self.isBouncing = isBouncing
     }
 }

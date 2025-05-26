@@ -11,25 +11,25 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/CreationSource`.
 public struct CreationSource: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/CreationSource/reference_id`.
+    public var referenceId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/CreationSource/type`.
     public var type: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/CreationSource/referenceId`.
-    public var referenceId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/CreationSource/workflowFunctionId`.
+    /// - Remark: Generated from `#/components/schemas/CreationSource/workflow_function_id`.
     public var workflowFunctionId: Swift.String?
     /// Creates a new `CreationSource`.
     ///
     /// - Parameters:
-    ///   - type:
     ///   - referenceId:
+    ///   - type:
     ///   - workflowFunctionId:
     public init(
-        type: Swift.String? = nil,
         referenceId: Swift.String? = nil,
+        type: Swift.String? = nil,
         workflowFunctionId: Swift.String? = nil
     ) {
-        self.type = type
         self.referenceId = referenceId
+        self.type = type
         self.workflowFunctionId = workflowFunctionId
     }
 }

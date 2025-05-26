@@ -19,246 +19,246 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse`.
     public struct CanvasesAccessDeleteResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/failed_to_update_channel_ids`.
+        public var failedToUpdateChannelIds: [Swift.String]?
+        /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/failed_to_update_user_ids`.
+        public var failedToUpdateUserIds: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/failedToUpdateChannelIds`.
-        public var failedToUpdateChannelIds: [Swift.String]?
-        /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/failedToUpdateUserIds`.
-        public var failedToUpdateUserIds: [Swift.String]?
-        /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `CanvasesAccessDeleteResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
-        ///   - needed:
-        ///   - provided:
         ///   - failedToUpdateChannelIds:
         ///   - failedToUpdateUserIds:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
             failedToUpdateChannelIds: [Swift.String]? = nil,
             failedToUpdateUserIds: [Swift.String]? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
             self.error = error
-            self.needed = needed
-            self.provided = provided
             self.failedToUpdateChannelIds = failedToUpdateChannelIds
             self.failedToUpdateUserIds = failedToUpdateUserIds
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse`.
     public struct CanvasesAccessSetResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/failed_to_update_channel_ids`.
+        public var failedToUpdateChannelIds: [Swift.String]?
+        /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/failed_to_update_user_ids`.
+        public var failedToUpdateUserIds: [Swift.String]?
         /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/failedToUpdateChannelIds`.
-        public var failedToUpdateChannelIds: [Swift.String]?
-        /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/failedToUpdateUserIds`.
-        public var failedToUpdateUserIds: [Swift.String]?
-        /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `CanvasesAccessSetResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
-        ///   - needed:
-        ///   - provided:
         ///   - failedToUpdateChannelIds:
         ///   - failedToUpdateUserIds:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
             failedToUpdateChannelIds: [Swift.String]? = nil,
             failedToUpdateUserIds: [Swift.String]? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
             self.error = error
-            self.needed = needed
-            self.provided = provided
             self.failedToUpdateChannelIds = failedToUpdateChannelIds
             self.failedToUpdateUserIds = failedToUpdateUserIds
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse`.
     public struct CanvasesCreateResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/ok`.
-        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/canvas_id`.
+        public var canvasId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/detail`.
         public var detail: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/canvasId`.
-        public var canvasId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `CanvasesCreateResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
+        ///   - canvasId:
         ///   - detail:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
-        ///   - canvasId:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
+            canvasId: Swift.String? = nil,
             detail: Swift.String? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            canvasId: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
+            self.canvasId = canvasId
             self.detail = detail
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
-            self.canvasId = canvasId
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse`.
     public struct CanvasesDeleteResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `CanvasesDeleteResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse`.
     public struct CanvasesEditResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse/detail`.
         public var detail: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// Creates a new `CanvasesEditResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - detail:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
         public init(
-            ok: Swift.Bool,
             detail: Swift.String? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil
         ) {
-            self.ok = ok
             self.detail = detail
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
         }
     }
     /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse`.
     public struct CanvasesSectionsLookupResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/error`.
         public var error: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/sections`.
-        public var sections: [SlackModels.Section]?
         /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/sections`.
+        public var sections: [SlackModels.Section]?
         /// Creates a new `CanvasesSectionsLookupResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
-        ///   - sections:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - sections:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
-            sections: [SlackModels.Section]? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
+            sections: [SlackModels.Section]? = nil
         ) {
-            self.ok = ok
             self.error = error
-            self.sections = sections
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.sections = sections
         }
     }
 }

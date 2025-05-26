@@ -194,7 +194,7 @@ public enum ReactionsGet {
                 public var file: Swift.String?
                 /// File comment to get reactions for.
                 ///
-                /// - Remark: Generated from `#/paths/reactions.get/POST/requestBody/json/fileComment`.
+                /// - Remark: Generated from `#/paths/reactions.get/POST/requestBody/json/file_comment`.
                 public var fileComment: Swift.String?
                 /// If true always return the complete reaction list.
                 ///
@@ -228,7 +228,7 @@ public enum ReactionsGet {
                 public enum CodingKeys: String, CodingKey {
                     case channel
                     case file
-                    case fileComment
+                    case fileComment = "file_comment"
                     case full
                     case timestamp
                 }
@@ -366,7 +366,7 @@ public enum ReactionsList {
                 public var limit: Swift.Int?
                 /// encoded team id to list reactions in, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Show reactions made by this user. Defaults to the authed user.
                 ///
@@ -397,7 +397,7 @@ public enum ReactionsList {
                     case cursor
                     case full
                     case limit
-                    case teamId
+                    case teamId = "team_id"
                     case user
                 }
             }
@@ -534,7 +534,7 @@ public enum ReactionsRemove {
                 public var file: Swift.String?
                 /// File comment to remove reaction from.
                 ///
-                /// - Remark: Generated from `#/paths/reactions.remove/POST/requestBody/json/fileComment`.
+                /// - Remark: Generated from `#/paths/reactions.remove/POST/requestBody/json/file_comment`.
                 public var fileComment: Swift.String?
                 /// Timestamp of the message to remove reaction from.
                 ///
@@ -565,7 +565,7 @@ public enum ReactionsRemove {
                     case name
                     case channel
                     case file
-                    case fileComment
+                    case fileComment = "file_comment"
                     case timestamp
                 }
             }

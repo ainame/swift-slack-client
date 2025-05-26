@@ -38,11 +38,11 @@ public enum MigrationExchange {
                 public var users: OpenAPIRuntime.OpenAPIArrayContainer
                 /// Specify team_id starts with T in case of Org Token.
                 ///
-                /// - Remark: Generated from `#/paths/migration.exchange/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/migration.exchange/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Specify true to convert W global user IDs to workspace-specific U IDs. Defaults to false.
                 ///
-                /// - Remark: Generated from `#/paths/migration.exchange/POST/requestBody/json/toOld`.
+                /// - Remark: Generated from `#/paths/migration.exchange/POST/requestBody/json/to_old`.
                 public var toOld: Swift.Bool?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -61,8 +61,8 @@ public enum MigrationExchange {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case users
-                    case teamId
-                    case toOld
+                    case teamId = "team_id"
+                    case toOld = "to_old"
                 }
             }
             /// - Remark: Generated from `#/paths/migration.exchange/POST/requestBody/content/application\/json`.

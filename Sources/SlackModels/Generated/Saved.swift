@@ -11,30 +11,30 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Saved`.
 public struct Saved: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/Saved/date_completed`.
+    public var dateCompleted: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Saved/date_due`.
+    public var dateDue: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Saved/is_archived`.
+    public var isArchived: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Saved/state`.
     public var state: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Saved/isArchived`.
-    public var isArchived: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Saved/dateCompleted`.
-    public var dateCompleted: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Saved/dateDue`.
-    public var dateDue: Swift.Int?
     /// Creates a new `Saved`.
     ///
     /// - Parameters:
-    ///   - state:
-    ///   - isArchived:
     ///   - dateCompleted:
     ///   - dateDue:
+    ///   - isArchived:
+    ///   - state:
     public init(
-        state: Swift.String? = nil,
-        isArchived: Swift.Bool? = nil,
         dateCompleted: Swift.Int? = nil,
-        dateDue: Swift.Int? = nil
+        dateDue: Swift.Int? = nil,
+        isArchived: Swift.Bool? = nil,
+        state: Swift.String? = nil
     ) {
-        self.state = state
-        self.isArchived = isArchived
         self.dateCompleted = dateCompleted
         self.dateDue = dateDue
+        self.isArchived = isArchived
+        self.state = state
     }
 }

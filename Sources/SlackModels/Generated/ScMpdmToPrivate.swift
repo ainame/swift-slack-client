@@ -11,40 +11,40 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate`.
 public struct ScMpdmToPrivate: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/type`.
-    public var type: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/accept_in_workspace_id`.
+    public var acceptInWorkspaceId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/actor`.
     public var actor: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/date_update`.
+    public var dateUpdate: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/invalid_workspace_ids`.
+    public var invalidWorkspaceIds: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/source`.
     public var source: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/acceptInWorkspaceId`.
-    public var acceptInWorkspaceId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/invalidWorkspaceIds`.
-    public var invalidWorkspaceIds: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/dateUpdate`.
-    public var dateUpdate: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/type`.
+    public var type: Swift.String?
     /// Creates a new `ScMpdmToPrivate`.
     ///
     /// - Parameters:
-    ///   - type:
-    ///   - actor:
-    ///   - source:
     ///   - acceptInWorkspaceId:
-    ///   - invalidWorkspaceIds:
+    ///   - actor:
     ///   - dateUpdate:
+    ///   - invalidWorkspaceIds:
+    ///   - source:
+    ///   - type:
     public init(
-        type: Swift.String? = nil,
-        actor: Swift.String? = nil,
-        source: Swift.String? = nil,
         acceptInWorkspaceId: Swift.String? = nil,
+        actor: Swift.String? = nil,
+        dateUpdate: Swift.Int? = nil,
         invalidWorkspaceIds: [Swift.String]? = nil,
-        dateUpdate: Swift.Int? = nil
+        source: Swift.String? = nil,
+        type: Swift.String? = nil
     ) {
-        self.type = type
-        self.actor = actor
-        self.source = source
         self.acceptInWorkspaceId = acceptInWorkspaceId
-        self.invalidWorkspaceIds = invalidWorkspaceIds
+        self.actor = actor
         self.dateUpdate = dateUpdate
+        self.invalidWorkspaceIds = invalidWorkspaceIds
+        self.source = source
+        self.type = type
     }
 }

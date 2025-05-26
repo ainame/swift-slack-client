@@ -19,108 +19,108 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/ChatDeleteResponse`.
     public struct ChatDeleteResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ChatDeleteResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatDeleteResponse/channel`.
         public var channel: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatDeleteResponse/ts`.
-        public var ts: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatDeleteResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatDeleteResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatDeleteResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatDeleteResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatDeleteResponse/ts`.
+        public var ts: Swift.String?
         /// Creates a new `ChatDeleteResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - channel:
-        ///   - ts:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - ts:
         public init(
-            ok: Swift.Bool,
             channel: Swift.String? = nil,
-            ts: Swift.String? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            ts: Swift.String? = nil
         ) {
-            self.ok = ok
             self.channel = channel
-            self.ts = ts
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.ts = ts
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChatDeleteScheduledMessageResponse`.
     public struct ChatDeleteScheduledMessageResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ChatDeleteScheduledMessageResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatDeleteScheduledMessageResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatDeleteScheduledMessageResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatDeleteScheduledMessageResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatDeleteScheduledMessageResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ChatDeleteScheduledMessageResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChatGetPermalinkResponse`.
     public struct ChatGetPermalinkResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ChatGetPermalinkResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/ChatGetPermalinkResponse/permalink`.
-        public var permalink: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatGetPermalinkResponse/channel`.
         public var channel: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatGetPermalinkResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatGetPermalinkResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatGetPermalinkResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ChatGetPermalinkResponse/permalink`.
+        public var permalink: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatGetPermalinkResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ChatGetPermalinkResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - permalink:
         ///   - channel:
         ///   - error:
         ///   - needed:
+        ///   - ok:
+        ///   - permalink:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
-            permalink: Swift.String? = nil,
             channel: Swift.String? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            permalink: Swift.String? = nil,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.permalink = permalink
             self.channel = channel
             self.error = error
             self.needed = needed
+            self.ok = ok
+            self.permalink = permalink
             self.provided = provided
         }
     }
@@ -128,308 +128,308 @@ extension Components.Schemas {
     public struct ChatMeMessageResponse: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/ChatMeMessageResponse/channel`.
         public var channel: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatMeMessageResponse/ts`.
-        public var ts: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatMeMessageResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatMeMessageResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatMeMessageResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatMeMessageResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatMeMessageResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatMeMessageResponse/ts`.
+        public var ts: Swift.String?
         /// Creates a new `ChatMeMessageResponse`.
         ///
         /// - Parameters:
         ///   - channel:
-        ///   - ts:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - ts:
         public init(
             channel: Swift.String? = nil,
-            ts: Swift.String? = nil,
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            ts: Swift.String? = nil
         ) {
             self.channel = channel
-            self.ts = ts
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.ts = ts
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChatPostEphemeralResponse`.
     public struct ChatPostEphemeralResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ChatPostEphemeralResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatPostEphemeralResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatPostEphemeralResponse/message_ts`.
+        public var messageTs: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatPostEphemeralResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatPostEphemeralResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatPostEphemeralResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatPostEphemeralResponse/messageTs`.
-        public var messageTs: Swift.String?
         /// Creates a new `ChatPostEphemeralResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
-        ///   - needed:
-        ///   - provided:
         ///   - messageTs:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
+            messageTs: Swift.String? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            messageTs: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
-            self.needed = needed
-            self.provided = provided
             self.messageTs = messageTs
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse`.
     public struct ChatPostMessageResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/channel`.
         public var channel: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/ts`.
-        public var ts: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/message`.
-        public var message: SlackModels.Message?
+        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/deprecated_argument`.
+        public var deprecatedArgument: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/error`.
         public var error: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/needed`.
-        public var needed: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/provided`.
-        public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/errors`.
         public var errors: [Swift.String]?
-        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/deprecatedArgument`.
-        public var deprecatedArgument: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/message`.
+        public var message: SlackModels.Message?
+        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/needed`.
+        public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/provided`.
+        public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/ChatPostMessageResponse/ts`.
+        public var ts: Swift.String?
         /// Creates a new `ChatPostMessageResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - channel:
-        ///   - ts:
-        ///   - message:
-        ///   - error:
-        ///   - needed:
-        ///   - provided:
-        ///   - errors:
         ///   - deprecatedArgument:
+        ///   - error:
+        ///   - errors:
+        ///   - message:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
         ///   - responseMetadata:
+        ///   - ts:
         public init(
-            ok: Swift.Bool,
             channel: Swift.String? = nil,
-            ts: Swift.String? = nil,
-            message: SlackModels.Message? = nil,
-            error: Swift.String? = nil,
-            needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            errors: [Swift.String]? = nil,
             deprecatedArgument: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            error: Swift.String? = nil,
+            errors: [Swift.String]? = nil,
+            message: SlackModels.Message? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
+            ts: Swift.String? = nil
         ) {
-            self.ok = ok
             self.channel = channel
-            self.ts = ts
-            self.message = message
-            self.error = error
-            self.needed = needed
-            self.provided = provided
-            self.errors = errors
             self.deprecatedArgument = deprecatedArgument
+            self.error = error
+            self.errors = errors
+            self.message = message
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
             self.responseMetadata = responseMetadata
+            self.ts = ts
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse`.
     public struct ChatScheduleMessageResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/channel`.
         public var channel: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/message`.
-        public var message: SlackModels.Message?
         /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/message`.
+        public var message: SlackModels.Message?
         /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/post_at`.
+        public var postAt: Swift.Int?
         /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/scheduledMessageId`.
-        public var scheduledMessageId: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/postAt`.
-        public var postAt: Swift.Int?
-        /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/ChatScheduleMessageResponse/scheduled_message_id`.
+        public var scheduledMessageId: Swift.String?
         /// Creates a new `ChatScheduleMessageResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - channel:
-        ///   - message:
         ///   - error:
+        ///   - message:
         ///   - needed:
-        ///   - provided:
-        ///   - scheduledMessageId:
+        ///   - ok:
         ///   - postAt:
+        ///   - provided:
         ///   - responseMetadata:
+        ///   - scheduledMessageId:
         public init(
-            ok: Swift.Bool,
             channel: Swift.String? = nil,
-            message: SlackModels.Message? = nil,
             error: Swift.String? = nil,
+            message: SlackModels.Message? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil,
-            scheduledMessageId: Swift.String? = nil,
+            ok: Swift.Bool,
             postAt: Swift.Int? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            provided: Swift.String? = nil,
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
+            scheduledMessageId: Swift.String? = nil
         ) {
-            self.ok = ok
             self.channel = channel
-            self.message = message
             self.error = error
+            self.message = message
             self.needed = needed
-            self.provided = provided
-            self.scheduledMessageId = scheduledMessageId
+            self.ok = ok
             self.postAt = postAt
+            self.provided = provided
             self.responseMetadata = responseMetadata
+            self.scheduledMessageId = scheduledMessageId
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse`.
     public struct ChatScheduledMessagesListResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse/scheduledMessages`.
-        public var scheduledMessages: [SlackModels.ScheduledMessage]?
-        /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/ChatScheduledMessagesListResponse/scheduled_messages`.
+        public var scheduledMessages: [SlackModels.ScheduledMessage]?
         /// Creates a new `ChatScheduledMessagesListResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
-        ///   - scheduledMessages:
         ///   - responseMetadata:
+        ///   - scheduledMessages:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            scheduledMessages: [SlackModels.ScheduledMessage]? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
+            scheduledMessages: [SlackModels.ScheduledMessage]? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
-            self.scheduledMessages = scheduledMessages
             self.responseMetadata = responseMetadata
+            self.scheduledMessages = scheduledMessages
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChatUnfurlResponse`.
     public struct ChatUnfurlResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ChatUnfurlResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatUnfurlResponse/error`.
         public var error: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ChatUnfurlResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatUnfurlResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatUnfurlResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `ChatUnfurlResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
             self.needed = needed
+            self.ok = ok
             self.provided = provided
         }
     }
     /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse`.
     public struct ChatUpdateResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/channel`.
         public var channel: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/ts`.
-        public var ts: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/text`.
-        public var text: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/message`.
-        public var message: SlackModels.Message?
         /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/message`.
+        public var message: SlackModels.Message?
         /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/provided`.
         public var provided: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/responseMetadata`.
+        /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/text`.
+        public var text: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatUpdateResponse/ts`.
+        public var ts: Swift.String?
         /// Creates a new `ChatUpdateResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - channel:
-        ///   - ts:
-        ///   - text:
-        ///   - message:
         ///   - error:
+        ///   - message:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - text:
+        ///   - ts:
         public init(
-            ok: Swift.Bool,
             channel: Swift.String? = nil,
-            ts: Swift.String? = nil,
-            text: Swift.String? = nil,
-            message: SlackModels.Message? = nil,
             error: Swift.String? = nil,
+            message: SlackModels.Message? = nil,
             needed: Swift.String? = nil,
+            ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
+            text: Swift.String? = nil,
+            ts: Swift.String? = nil
         ) {
-            self.ok = ok
             self.channel = channel
-            self.ts = ts
-            self.text = text
-            self.message = message
             self.error = error
+            self.message = message
             self.needed = needed
+            self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.text = text
+            self.ts = ts
         }
     }
 }

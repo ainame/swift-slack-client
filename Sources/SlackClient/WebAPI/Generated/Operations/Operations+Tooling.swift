@@ -34,7 +34,7 @@ public enum ToolingTokensRotate {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// The xoxe refresh token that was issued along with the old app configuration token.
                 ///
-                /// - Remark: Generated from `#/paths/tooling.tokens.rotate/POST/requestBody/json/refreshToken`.
+                /// - Remark: Generated from `#/paths/tooling.tokens.rotate/POST/requestBody/json/refresh_token`.
                 public var refreshToken: Swift.String
                 /// Creates a new `JsonPayload`.
                 ///
@@ -44,7 +44,7 @@ public enum ToolingTokensRotate {
                     self.refreshToken = refreshToken
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case refreshToken
+                    case refreshToken = "refresh_token"
                 }
             }
             /// - Remark: Generated from `#/paths/tooling.tokens.rotate/POST/requestBody/content/application\/json`.

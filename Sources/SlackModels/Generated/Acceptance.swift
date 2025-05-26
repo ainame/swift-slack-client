@@ -11,45 +11,45 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Acceptance`.
 public struct Acceptance: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/Acceptance/accepting_team`.
+    public var acceptingTeam: IngTeam?
+    /// - Remark: Generated from `#/components/schemas/Acceptance/accepting_user`.
+    public var acceptingUser: TingUser?
+    /// - Remark: Generated from `#/components/schemas/Acceptance/approval_status`.
+    public var approvalStatus: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Acceptance/date_accepted`.
+    public var dateAccepted: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Acceptance/date_invalid`.
+    public var dateInvalid: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Acceptance/date_last_updated`.
+    public var dateLastUpdated: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Acceptance/reviews`.
     public var reviews: [Review]?
-    /// - Remark: Generated from `#/components/schemas/Acceptance/approvalStatus`.
-    public var approvalStatus: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Acceptance/dateAccepted`.
-    public var dateAccepted: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Acceptance/dateInvalid`.
-    public var dateInvalid: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Acceptance/dateLastUpdated`.
-    public var dateLastUpdated: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Acceptance/acceptingTeam`.
-    public var acceptingTeam: IngTeam?
-    /// - Remark: Generated from `#/components/schemas/Acceptance/acceptingUser`.
-    public var acceptingUser: TingUser?
     /// Creates a new `Acceptance`.
     ///
     /// - Parameters:
-    ///   - reviews:
+    ///   - acceptingTeam:
+    ///   - acceptingUser:
     ///   - approvalStatus:
     ///   - dateAccepted:
     ///   - dateInvalid:
     ///   - dateLastUpdated:
-    ///   - acceptingTeam:
-    ///   - acceptingUser:
+    ///   - reviews:
     public init(
-        reviews: [Review]? = nil,
+        acceptingTeam: IngTeam? = nil,
+        acceptingUser: TingUser? = nil,
         approvalStatus: Swift.String? = nil,
         dateAccepted: Swift.Int? = nil,
         dateInvalid: Swift.Int? = nil,
         dateLastUpdated: Swift.Int? = nil,
-        acceptingTeam: IngTeam? = nil,
-        acceptingUser: TingUser? = nil
+        reviews: [Review]? = nil
     ) {
-        self.reviews = reviews
+        self.acceptingTeam = acceptingTeam
+        self.acceptingUser = acceptingUser
         self.approvalStatus = approvalStatus
         self.dateAccepted = dateAccepted
         self.dateInvalid = dateInvalid
         self.dateLastUpdated = dateLastUpdated
-        self.acceptingTeam = acceptingTeam
-        self.acceptingUser = acceptingUser
+        self.reviews = reviews
     }
 }

@@ -11,135 +11,135 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Payload`.
 public struct Payload: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Payload/actor`.
-    public var actor: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/error`.
-    public var error: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/log`.
-    public var log: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/type`.
-    public var type: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/trigger`.
-    public var trigger: Trigger?
-    /// - Remark: Generated from `#/components/schemas/Payload/inputs`.
-    public var inputs: Inputs?
-    /// - Remark: Generated from `#/components/schemas/Payload/details`.
-    public var details: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Payload/action`.
     public var action: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/execOutcome`.
-    public var execOutcome: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/workflowName`.
-    public var workflowName: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/functionName`.
-    public var functionName: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/functionType`.
-    public var functionType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/functionId`.
-    public var functionId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/functionExecutionId`.
-    public var functionExecutionId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/totalSteps`.
-    public var totalSteps: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Payload/currentStep`.
-    public var currentStep: Swift.Int?
-    /// - Remark: Generated from `#/components/schemas/Payload/billingReason`.
+    /// - Remark: Generated from `#/components/schemas/Payload/actor`.
+    public var actor: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/billing_reason`.
     public var billingReason: [Swift.String]?
-    /// - Remark: Generated from `#/components/schemas/Payload/isBillingExcluded`.
-    public var isBillingExcluded: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Payload/channelId`.
-    public var channelId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/botUserId`.
+    /// - Remark: Generated from `#/components/schemas/Payload/bot_user_id`.
     public var botUserId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/requestType`.
-    public var requestType: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/datastoreName`.
-    public var datastoreName: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/teamId`.
-    public var teamId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/userId`.
-    public var userId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Payload/bundleSizeKb`.
+    /// - Remark: Generated from `#/components/schemas/Payload/bundle_size_kb`.
     public var bundleSizeKb: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Payload/channel_id`.
+    public var channelId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/current_step`.
+    public var currentStep: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Payload/datastore_name`.
+    public var datastoreName: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/details`.
+    public var details: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/error`.
+    public var error: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/exec_outcome`.
+    public var execOutcome: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/function_execution_id`.
+    public var functionExecutionId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/function_id`.
+    public var functionId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/function_name`.
+    public var functionName: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/function_type`.
+    public var functionType: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/inputs`.
+    public var inputs: Inputs?
+    /// - Remark: Generated from `#/components/schemas/Payload/is_billing_excluded`.
+    public var isBillingExcluded: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Payload/log`.
+    public var log: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/request_type`.
+    public var requestType: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/team_id`.
+    public var teamId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/total_steps`.
+    public var totalSteps: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Payload/trigger`.
+    public var trigger: Trigger?
+    /// - Remark: Generated from `#/components/schemas/Payload/type`.
+    public var type: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/user_id`.
+    public var userId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/workflow_name`.
+    public var workflowName: Swift.String?
     /// Creates a new `Payload`.
     ///
     /// - Parameters:
-    ///   - actor:
-    ///   - error:
-    ///   - log:
-    ///   - type:
-    ///   - trigger:
-    ///   - inputs:
-    ///   - details:
     ///   - action:
+    ///   - actor:
+    ///   - billingReason:
+    ///   - botUserId:
+    ///   - bundleSizeKb:
+    ///   - channelId:
+    ///   - currentStep:
+    ///   - datastoreName:
+    ///   - details:
+    ///   - error:
     ///   - execOutcome:
-    ///   - workflowName:
+    ///   - functionExecutionId:
+    ///   - functionId:
     ///   - functionName:
     ///   - functionType:
-    ///   - functionId:
-    ///   - functionExecutionId:
-    ///   - totalSteps:
-    ///   - currentStep:
-    ///   - billingReason:
+    ///   - inputs:
     ///   - isBillingExcluded:
-    ///   - channelId:
-    ///   - botUserId:
+    ///   - log:
     ///   - requestType:
-    ///   - datastoreName:
     ///   - teamId:
+    ///   - totalSteps:
+    ///   - trigger:
+    ///   - type:
     ///   - userId:
-    ///   - bundleSizeKb:
+    ///   - workflowName:
     public init(
-        actor: Swift.String? = nil,
-        error: Swift.String? = nil,
-        log: Swift.String? = nil,
-        type: Swift.String? = nil,
-        trigger: Trigger? = nil,
-        inputs: Inputs? = nil,
-        details: Swift.String? = nil,
         action: Swift.String? = nil,
+        actor: Swift.String? = nil,
+        billingReason: [Swift.String]? = nil,
+        botUserId: Swift.String? = nil,
+        bundleSizeKb: Swift.Int? = nil,
+        channelId: Swift.String? = nil,
+        currentStep: Swift.Int? = nil,
+        datastoreName: Swift.String? = nil,
+        details: Swift.String? = nil,
+        error: Swift.String? = nil,
         execOutcome: Swift.String? = nil,
-        workflowName: Swift.String? = nil,
+        functionExecutionId: Swift.String? = nil,
+        functionId: Swift.String? = nil,
         functionName: Swift.String? = nil,
         functionType: Swift.String? = nil,
-        functionId: Swift.String? = nil,
-        functionExecutionId: Swift.String? = nil,
-        totalSteps: Swift.Int? = nil,
-        currentStep: Swift.Int? = nil,
-        billingReason: [Swift.String]? = nil,
+        inputs: Inputs? = nil,
         isBillingExcluded: Swift.Bool? = nil,
-        channelId: Swift.String? = nil,
-        botUserId: Swift.String? = nil,
+        log: Swift.String? = nil,
         requestType: Swift.String? = nil,
-        datastoreName: Swift.String? = nil,
         teamId: Swift.String? = nil,
+        totalSteps: Swift.Int? = nil,
+        trigger: Trigger? = nil,
+        type: Swift.String? = nil,
         userId: Swift.String? = nil,
-        bundleSizeKb: Swift.Int? = nil
+        workflowName: Swift.String? = nil
     ) {
-        self.actor = actor
-        self.error = error
-        self.log = log
-        self.type = type
-        self.trigger = trigger
-        self.inputs = inputs
-        self.details = details
         self.action = action
+        self.actor = actor
+        self.billingReason = billingReason
+        self.botUserId = botUserId
+        self.bundleSizeKb = bundleSizeKb
+        self.channelId = channelId
+        self.currentStep = currentStep
+        self.datastoreName = datastoreName
+        self.details = details
+        self.error = error
         self.execOutcome = execOutcome
-        self.workflowName = workflowName
+        self.functionExecutionId = functionExecutionId
+        self.functionId = functionId
         self.functionName = functionName
         self.functionType = functionType
-        self.functionId = functionId
-        self.functionExecutionId = functionExecutionId
-        self.totalSteps = totalSteps
-        self.currentStep = currentStep
-        self.billingReason = billingReason
+        self.inputs = inputs
         self.isBillingExcluded = isBillingExcluded
-        self.channelId = channelId
-        self.botUserId = botUserId
+        self.log = log
         self.requestType = requestType
-        self.datastoreName = datastoreName
         self.teamId = teamId
+        self.totalSteps = totalSteps
+        self.trigger = trigger
+        self.type = type
         self.userId = userId
-        self.bundleSizeKb = bundleSizeKb
+        self.workflowName = workflowName
     }
 }

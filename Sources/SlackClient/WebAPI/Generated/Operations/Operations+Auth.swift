@@ -172,7 +172,7 @@ public enum AuthTeamsList {
                 public var cursor: Swift.String?
                 /// Whether to return icon paths for each workspace. An icon path represents a URI pointing to the image signifying the workspace.
                 ///
-                /// - Remark: Generated from `#/paths/auth.teams.list/POST/requestBody/json/includeIcon`.
+                /// - Remark: Generated from `#/paths/auth.teams.list/POST/requestBody/json/include_icon`.
                 public var includeIcon: Swift.Bool?
                 /// The maximum number of workspaces to return. Must be a positive integer no larger than 1000.
                 ///
@@ -195,7 +195,7 @@ public enum AuthTeamsList {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case cursor
-                    case includeIcon
+                    case includeIcon = "include_icon"
                     case limit
                 }
             }

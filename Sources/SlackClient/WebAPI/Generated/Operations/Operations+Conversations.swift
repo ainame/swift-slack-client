@@ -34,27 +34,27 @@ public enum ConversationsAcceptSharedInvite {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Name of the channel. If the channel does not exist already in your workspace, this name is the one that the channel will take.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/channelName`.
+                /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/channel_name`.
                 public var channelName: Swift.String
                 /// ID of the channel that you'd like to accept. Must provide either invite_id or channel_id.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/channelId`.
+                /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/channel_id`.
                 public var channelId: Swift.String?
                 /// Whether you'd like to use your workspace's free trial to begin using Slack Connect.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/freeTrialAccepted`.
+                /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/free_trial_accepted`.
                 public var freeTrialAccepted: Swift.Bool?
                 /// ID of the invite that you'd like to accept. Must provide either invite_id or channel_id. See the shared_channel_invite_received event payload for more details on how to retrieve the ID of the invitation.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/inviteId`.
+                /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/invite_id`.
                 public var inviteId: Swift.String?
                 /// Whether the channel should be private.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/isPrivate`.
+                /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/is_private`.
                 public var isPrivate: Swift.Bool?
                 /// The ID of the workspace to accept the channel in. If an org-level token is used to call this method, the team_id argument is required.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -81,12 +81,12 @@ public enum ConversationsAcceptSharedInvite {
                     self.teamId = teamId
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case channelName
-                    case channelId
-                    case freeTrialAccepted
-                    case inviteId
-                    case isPrivate
-                    case teamId
+                    case channelName = "channel_name"
+                    case channelId = "channel_id"
+                    case freeTrialAccepted = "free_trial_accepted"
+                    case inviteId = "invite_id"
+                    case isPrivate = "is_private"
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/content/application\/json`.
@@ -210,11 +210,11 @@ public enum ConversationsApproveSharedInvite {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// ID of the shared channel invite to approve.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.approveSharedInvite/POST/requestBody/json/inviteId`.
+                /// - Remark: Generated from `#/paths/conversations.approveSharedInvite/POST/requestBody/json/invite_id`.
                 public var inviteId: Swift.String
                 /// The team or enterprise id of the other party involved in the invitation you are approving.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.approveSharedInvite/POST/requestBody/json/targetTeam`.
+                /// - Remark: Generated from `#/paths/conversations.approveSharedInvite/POST/requestBody/json/target_team`.
                 public var targetTeam: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -229,8 +229,8 @@ public enum ConversationsApproveSharedInvite {
                     self.targetTeam = targetTeam
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case inviteId
-                    case targetTeam
+                    case inviteId = "invite_id"
+                    case targetTeam = "target_team"
                 }
             }
             /// - Remark: Generated from `#/paths/conversations.approveSharedInvite/POST/requestBody/content/application\/json`.
@@ -488,11 +488,11 @@ public enum ConversationsCanvasesCreate {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Channel ID of the channel we create the channel canvas for.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.canvases.create/POST/requestBody/json/channelId`.
+                /// - Remark: Generated from `#/paths/conversations.canvases.create/POST/requestBody/json/channel_id`.
                 public var channelId: Swift.String
                 /// Structure describing the type and value of the content to create.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.canvases.create/POST/requestBody/json/documentContent`.
+                /// - Remark: Generated from `#/paths/conversations.canvases.create/POST/requestBody/json/document_content`.
                 public var documentContent: Swift.String?
                 /// Title of the newly created canvas.
                 ///
@@ -514,8 +514,8 @@ public enum ConversationsCanvasesCreate {
                     self.title = title
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case channelId
-                    case documentContent
+                    case channelId = "channel_id"
+                    case documentContent = "document_content"
                     case title
                 }
             }
@@ -778,11 +778,11 @@ public enum ConversationsCreate {
                 public var name: Swift.String
                 /// Create a private channel instead of a public one.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.create/POST/requestBody/json/isPrivate`.
+                /// - Remark: Generated from `#/paths/conversations.create/POST/requestBody/json/is_private`.
                 public var isPrivate: Swift.Bool?
                 /// encoded team id to create the channel in, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.create/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/conversations.create/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -801,8 +801,8 @@ public enum ConversationsCreate {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case name
-                    case isPrivate
-                    case teamId
+                    case isPrivate = "is_private"
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/conversations.create/POST/requestBody/content/application\/json`.
@@ -926,11 +926,11 @@ public enum ConversationsDeclineSharedInvite {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// ID of the Slack Connect invite to decline. Subscribe to the shared_channel_invite_accepted event to receive IDs of Slack Connect channel invites that have been accepted and are awaiting approval.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.declineSharedInvite/POST/requestBody/json/inviteId`.
+                /// - Remark: Generated from `#/paths/conversations.declineSharedInvite/POST/requestBody/json/invite_id`.
                 public var inviteId: Swift.String
                 /// The team or enterprise id of the other party involved in the invitation you are declining.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.declineSharedInvite/POST/requestBody/json/targetTeam`.
+                /// - Remark: Generated from `#/paths/conversations.declineSharedInvite/POST/requestBody/json/target_team`.
                 public var targetTeam: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -945,8 +945,8 @@ public enum ConversationsDeclineSharedInvite {
                     self.targetTeam = targetTeam
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case inviteId
-                    case targetTeam
+                    case inviteId = "invite_id"
+                    case targetTeam = "target_team"
                 }
             }
             /// - Remark: Generated from `#/paths/conversations.declineSharedInvite/POST/requestBody/content/application\/json`.
@@ -1078,7 +1078,7 @@ public enum ConversationsExternalInvitePermissionsSet {
                 public var channel: Swift.String
                 /// The encoded team ID of the target team.  Must be in the specified channel.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.externalInvitePermissions.set/POST/requestBody/json/targetTeam`.
+                /// - Remark: Generated from `#/paths/conversations.externalInvitePermissions.set/POST/requestBody/json/target_team`.
                 public var targetTeam: Swift.String
                 /// Creates a new `JsonPayload`.
                 ///
@@ -1098,7 +1098,7 @@ public enum ConversationsExternalInvitePermissionsSet {
                 public enum CodingKeys: String, CodingKey {
                     case action
                     case channel
-                    case targetTeam
+                    case targetTeam = "target_team"
                 }
             }
             /// - Remark: Generated from `#/paths/conversations.externalInvitePermissions.set/POST/requestBody/content/application\/json`.
@@ -1230,7 +1230,7 @@ public enum ConversationsHistory {
                 public var cursor: Swift.String?
                 /// Return all metadata associated with this message.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.history/POST/requestBody/json/includeAllMetadata`.
+                /// - Remark: Generated from `#/paths/conversations.history/POST/requestBody/json/include_all_metadata`.
                 public var includeAllMetadata: Swift.Bool?
                 /// Include messages with oldest or latest timestamps in results. Ignored unless either timestamp is specified.
                 ///
@@ -1278,7 +1278,7 @@ public enum ConversationsHistory {
                 public enum CodingKeys: String, CodingKey {
                     case channel
                     case cursor
-                    case includeAllMetadata
+                    case includeAllMetadata = "include_all_metadata"
                     case inclusive
                     case latest
                     case limit
@@ -1410,11 +1410,11 @@ public enum ConversationsInfo {
                 public var channel: Swift.String
                 /// Set this to true to receive the locale for this conversation. Defaults to false.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.info/POST/requestBody/json/includeLocale`.
+                /// - Remark: Generated from `#/paths/conversations.info/POST/requestBody/json/include_locale`.
                 public var includeLocale: Swift.Bool?
                 /// Set to true to include the member count for the specified conversation. Defaults to false.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.info/POST/requestBody/json/includeNumMembers`.
+                /// - Remark: Generated from `#/paths/conversations.info/POST/requestBody/json/include_num_members`.
                 public var includeNumMembers: Swift.Bool?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -1433,8 +1433,8 @@ public enum ConversationsInfo {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case channel
-                    case includeLocale
-                    case includeNumMembers
+                    case includeLocale = "include_locale"
+                    case includeNumMembers = "include_num_members"
                 }
             }
             /// - Remark: Generated from `#/paths/conversations.info/POST/requestBody/content/application\/json`.
@@ -1718,11 +1718,11 @@ public enum ConversationsInviteShared {
                 public var emails: OpenAPIRuntime.OpenAPIArrayContainer?
                 /// Optional boolean on whether invite is to an external limited member. Defaults to true.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/json/externalLimited`.
+                /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/json/external_limited`.
                 public var externalLimited: Swift.Bool?
                 /// Optional user_id to receive this invite. Either emails or user_ids must be provided. Only one email or one user ID may be invited at a time.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/json/userIds`.
+                /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/json/user_ids`.
                 public var userIds: OpenAPIRuntime.OpenAPIArrayContainer?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -1745,8 +1745,8 @@ public enum ConversationsInviteShared {
                 public enum CodingKeys: String, CodingKey {
                     case channel
                     case emails
-                    case externalLimited
-                    case userIds
+                    case externalLimited = "external_limited"
+                    case userIds = "user_ids"
                 }
             }
             /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/content/application\/json`.
@@ -2286,7 +2286,7 @@ public enum ConversationsList {
                 public var cursor: Swift.String?
                 /// Set to true to exclude archived channels from the list.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.list/POST/requestBody/json/excludeArchived`.
+                /// - Remark: Generated from `#/paths/conversations.list/POST/requestBody/json/exclude_archived`.
                 public var excludeArchived: Swift.Bool?
                 /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. Must be an integer under 1000.
                 ///
@@ -2294,7 +2294,7 @@ public enum ConversationsList {
                 public var limit: Swift.Double?
                 /// encoded team id to list channels in, required if token belongs to org-wide app.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.list/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/conversations.list/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Mix and match channel types by providing a comma-separated list of any combination of public_channel, private_channel, mpim, im.
                 ///
@@ -2323,9 +2323,9 @@ public enum ConversationsList {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case cursor
-                    case excludeArchived
+                    case excludeArchived = "exclude_archived"
                     case limit
-                    case teamId
+                    case teamId = "team_id"
                     case types
                 }
             }
@@ -2454,7 +2454,7 @@ public enum ConversationsListConnectInvites {
                 public var cursor: Swift.String?
                 /// Encoded team id for the workspace to retrieve invites for, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.listConnectInvites/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/conversations.listConnectInvites/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -2470,7 +2470,7 @@ public enum ConversationsListConnectInvites {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case cursor
-                    case teamId
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/conversations.listConnectInvites/POST/requestBody/content/application\/json`.
@@ -2894,11 +2894,11 @@ public enum ConversationsOpen {
                 public var channel: Swift.String?
                 /// Do not create a direct message or multi-person direct message. This is used to see if there is an existing dm or mpdm.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/preventCreation`.
+                /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/prevent_creation`.
                 public var preventCreation: Swift.Bool?
                 /// Boolean, indicates you want the full IM channel definition in the response.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/returnIm`.
+                /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/return_im`.
                 public var returnIm: Swift.Bool?
                 /// Comma separated lists of users. If only one user is included, this creates a 1:1 DM.  The ordering of the users is preserved whenever a multi-person direct message is returned. Supply a channel when not supplying users.
                 ///
@@ -2924,8 +2924,8 @@ public enum ConversationsOpen {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case channel
-                    case preventCreation
-                    case returnIm
+                    case preventCreation = "prevent_creation"
+                    case returnIm = "return_im"
                     case users
                 }
             }
@@ -3206,7 +3206,7 @@ public enum ConversationsReplies {
                 public var cursor: Swift.String?
                 /// Return all metadata associated with this message.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.replies/POST/requestBody/json/includeAllMetadata`.
+                /// - Remark: Generated from `#/paths/conversations.replies/POST/requestBody/json/include_all_metadata`.
                 public var includeAllMetadata: Swift.Bool?
                 /// Include messages with oldest or latest timestamps in results. Ignored unless either timestamp is specified.
                 ///
@@ -3258,7 +3258,7 @@ public enum ConversationsReplies {
                     case channel
                     case ts
                     case cursor
-                    case includeAllMetadata
+                    case includeAllMetadata = "include_all_metadata"
                     case inclusive
                     case latest
                     case limit
@@ -3386,15 +3386,15 @@ public enum ConversationsRequestSharedInviteApprove {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// ID of the requested shared channel invite to approve.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/inviteId`.
+                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/invite_id`.
                 public var inviteId: Swift.String
                 /// Optional channel_id to which external user will be invited to. Will override the value on the requested invite.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/channelId`.
+                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/channel_id`.
                 public var channelId: Swift.String?
                 /// Optional boolean on whether the invited team will have post-only permissions in the channel. Will override the value on the requested invite.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/isExternalLimited`.
+                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/is_external_limited`.
                 public var isExternalLimited: Swift.Bool?
                 /// Object describing the text to send along with the invite. If this object is specified, both text and is_override are required properties. If is_override is set to true, text will override the original invitation message. Otherwise, text will be appended to the original invitation message. The total length of the message cannot exceed 560 characters. If is_override is set to false, the length of text and the user specified message on the invite request in total must be less than 560 characters.
                 ///
@@ -3419,9 +3419,9 @@ public enum ConversationsRequestSharedInviteApprove {
                     self.message = message
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case inviteId
-                    case channelId
-                    case isExternalLimited
+                    case inviteId = "invite_id"
+                    case channelId = "channel_id"
+                    case isExternalLimited = "is_external_limited"
                     case message
                 }
             }
@@ -3546,7 +3546,7 @@ public enum ConversationsRequestSharedInviteDeny {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// ID of the requested shared channel invite to deny.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.deny/POST/requestBody/json/inviteId`.
+                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.deny/POST/requestBody/json/invite_id`.
                 public var inviteId: Swift.String
                 /// Optional message explaining why the request to invite was denied.
                 ///
@@ -3565,7 +3565,7 @@ public enum ConversationsRequestSharedInviteDeny {
                     self.message = message
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case inviteId
+                    case inviteId = "invite_id"
                     case message
                 }
             }
@@ -3694,19 +3694,19 @@ public enum ConversationsRequestSharedInviteList {
                 public var cursor: Swift.String?
                 /// When true approved invitation requests will be returned, otherwise they will be excluded.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/includeApproved`.
+                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/include_approved`.
                 public var includeApproved: Swift.Bool?
                 /// When true denied invitation requests will be returned, otherwise they will be excluded.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/includeDenied`.
+                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/include_denied`.
                 public var includeDenied: Swift.Bool?
                 /// When true expired invitation requests will be returned, otherwise they will be excluded.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/includeExpired`.
+                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/include_expired`.
                 public var includeExpired: Swift.Bool?
                 /// An optional list of invitation ids to look up.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/inviteIds`.
+                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/invite_ids`.
                 public var inviteIds: OpenAPIRuntime.OpenAPIArrayContainer?
                 /// The number of items to return. Must be between 1 - 1000 (inclusive).
                 ///
@@ -3714,7 +3714,7 @@ public enum ConversationsRequestSharedInviteList {
                 public var limit: Swift.Int?
                 /// Optional filter to return invitation requests for the inviting user.
                 ///
-                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/userId`.
+                /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/user_id`.
                 public var userId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -3745,12 +3745,12 @@ public enum ConversationsRequestSharedInviteList {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case cursor
-                    case includeApproved
-                    case includeDenied
-                    case includeExpired
-                    case inviteIds
+                    case includeApproved = "include_approved"
+                    case includeDenied = "include_denied"
+                    case includeExpired = "include_expired"
+                    case inviteIds = "invite_ids"
                     case limit
-                    case userId
+                    case userId = "user_id"
                 }
             }
             /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/content/application\/json`.

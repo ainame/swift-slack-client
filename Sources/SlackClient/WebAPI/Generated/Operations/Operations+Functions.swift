@@ -38,7 +38,7 @@ public enum FunctionsCompleteError {
                 public var error: Swift.String
                 /// Context identifier that maps to the executed function.
                 ///
-                /// - Remark: Generated from `#/paths/functions.completeError/POST/requestBody/json/functionExecutionId`.
+                /// - Remark: Generated from `#/paths/functions.completeError/POST/requestBody/json/function_execution_id`.
                 public var functionExecutionId: Swift.String
                 /// Creates a new `JsonPayload`.
                 ///
@@ -54,7 +54,7 @@ public enum FunctionsCompleteError {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case error
-                    case functionExecutionId
+                    case functionExecutionId = "function_execution_id"
                 }
             }
             /// - Remark: Generated from `#/paths/functions.completeError/POST/requestBody/content/application\/json`.
@@ -178,7 +178,7 @@ public enum FunctionsCompleteSuccess {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Context identifier that maps to the executed function.
                 ///
-                /// - Remark: Generated from `#/paths/functions.completeSuccess/POST/requestBody/json/functionExecutionId`.
+                /// - Remark: Generated from `#/paths/functions.completeSuccess/POST/requestBody/json/function_execution_id`.
                 public var functionExecutionId: Swift.String
                 /// A JSON-based object that conforms to the output parameters schema for the custom function defined in the manifest.
                 ///
@@ -197,7 +197,7 @@ public enum FunctionsCompleteSuccess {
                     self.outputs = outputs
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case functionExecutionId
+                    case functionExecutionId = "function_execution_id"
                     case outputs
                 }
             }

@@ -13,28 +13,28 @@ import struct Foundation.Date
 public struct Headers: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Headers/date`.
     public var date: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Headers/inReplyTo`.
+    /// - Remark: Generated from `#/components/schemas/Headers/in_reply_to`.
     public var inReplyTo: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Headers/replyTo`.
-    public var replyTo: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Headers/messageId`.
+    /// - Remark: Generated from `#/components/schemas/Headers/message_id`.
     public var messageId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Headers/reply_to`.
+    public var replyTo: Swift.String?
     /// Creates a new `Headers`.
     ///
     /// - Parameters:
     ///   - date:
     ///   - inReplyTo:
-    ///   - replyTo:
     ///   - messageId:
+    ///   - replyTo:
     public init(
         date: Swift.String? = nil,
         inReplyTo: Swift.String? = nil,
-        replyTo: Swift.String? = nil,
-        messageId: Swift.String? = nil
+        messageId: Swift.String? = nil,
+        replyTo: Swift.String? = nil
     ) {
         self.date = date
         self.inReplyTo = inReplyTo
-        self.replyTo = replyTo
         self.messageId = messageId
+        self.replyTo = replyTo
     }
 }

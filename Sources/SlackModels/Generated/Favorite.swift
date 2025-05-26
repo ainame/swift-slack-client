@@ -11,25 +11,25 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Favorite`.
 public struct Favorite: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/Favorite/collection_id`.
+    public var collectionId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Favorite/collection_name`.
+    public var collectionName: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Favorite/position`.
     public var position: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Favorite/collectionId`.
-    public var collectionId: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Favorite/collectionName`.
-    public var collectionName: Swift.String?
     /// Creates a new `Favorite`.
     ///
     /// - Parameters:
-    ///   - position:
     ///   - collectionId:
     ///   - collectionName:
+    ///   - position:
     public init(
-        position: Swift.String? = nil,
         collectionId: Swift.String? = nil,
-        collectionName: Swift.String? = nil
+        collectionName: Swift.String? = nil,
+        position: Swift.String? = nil
     ) {
-        self.position = position
         self.collectionId = collectionId
         self.collectionName = collectionName
+        self.position = position
     }
 }

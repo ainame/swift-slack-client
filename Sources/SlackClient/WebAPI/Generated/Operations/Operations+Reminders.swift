@@ -46,7 +46,7 @@ public enum RemindersAdd {
                 public var recurrence: OpenAPIRuntime.OpenAPIObjectContainer?
                 /// Encoded team id, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// No longer supported - reminders cannot be set for other users. Previously, was the user who would receive the reminder.
                 ///
@@ -77,7 +77,7 @@ public enum RemindersAdd {
                     case text
                     case time
                     case recurrence
-                    case teamId
+                    case teamId = "team_id"
                     case user
                 }
             }
@@ -206,7 +206,7 @@ public enum RemindersComplete {
                 public var reminder: Swift.String
                 /// Encoded team id, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/reminders.complete/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/reminders.complete/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -222,7 +222,7 @@ public enum RemindersComplete {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case reminder
-                    case teamId
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/reminders.complete/POST/requestBody/content/application\/json`.
@@ -350,7 +350,7 @@ public enum RemindersDelete {
                 public var reminder: Swift.String
                 /// Encoded team id, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/reminders.delete/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/reminders.delete/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -366,7 +366,7 @@ public enum RemindersDelete {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case reminder
-                    case teamId
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/reminders.delete/POST/requestBody/content/application\/json`.
@@ -494,7 +494,7 @@ public enum RemindersInfo {
                 public var reminder: Swift.String
                 /// Encoded team id, required if org token is passed.
                 ///
-                /// - Remark: Generated from `#/paths/reminders.info/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/reminders.info/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -510,7 +510,7 @@ public enum RemindersInfo {
                 }
                 public enum CodingKeys: String, CodingKey {
                     case reminder
-                    case teamId
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/reminders.info/POST/requestBody/content/application\/json`.
@@ -634,7 +634,7 @@ public enum RemindersList {
             public struct JsonPayload: Codable, Hashable, Sendable {
                 /// Encoded team id, required if org token is passed.
                 ///
-                /// - Remark: Generated from `#/paths/reminders.list/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/reminders.list/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -644,7 +644,7 @@ public enum RemindersList {
                     self.teamId = teamId
                 }
                 public enum CodingKeys: String, CodingKey {
-                    case teamId
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/reminders.list/POST/requestBody/content/application\/json`.

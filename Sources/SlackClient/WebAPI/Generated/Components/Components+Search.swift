@@ -19,129 +19,129 @@ import SlackModels
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/SearchAllResponse`.
     public struct SearchAllResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/SearchAllResponse/ok`.
-        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/SearchAllResponse/error`.
         public var error: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/SearchAllResponse/query`.
-        public var query: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/SearchAllResponse/messages`.
-        public var messages: SlackModels.Messages?
         /// - Remark: Generated from `#/components/schemas/SearchAllResponse/files`.
         public var files: SlackModels.Files?
-        /// - Remark: Generated from `#/components/schemas/SearchAllResponse/posts`.
-        public var posts: SlackModels.Posts?
+        /// - Remark: Generated from `#/components/schemas/SearchAllResponse/messages`.
+        public var messages: SlackModels.Messages?
         /// - Remark: Generated from `#/components/schemas/SearchAllResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/SearchAllResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/SearchAllResponse/posts`.
+        public var posts: SlackModels.Posts?
         /// - Remark: Generated from `#/components/schemas/SearchAllResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/SearchAllResponse/query`.
+        public var query: Swift.String?
         /// Creates a new `SearchAllResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
         ///   - error:
-        ///   - query:
-        ///   - messages:
         ///   - files:
-        ///   - posts:
+        ///   - messages:
         ///   - needed:
+        ///   - ok:
+        ///   - posts:
         ///   - provided:
+        ///   - query:
         public init(
-            ok: Swift.Bool,
             error: Swift.String? = nil,
-            query: Swift.String? = nil,
-            messages: SlackModels.Messages? = nil,
             files: SlackModels.Files? = nil,
-            posts: SlackModels.Posts? = nil,
+            messages: SlackModels.Messages? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            posts: SlackModels.Posts? = nil,
+            provided: Swift.String? = nil,
+            query: Swift.String? = nil
         ) {
-            self.ok = ok
             self.error = error
-            self.query = query
-            self.messages = messages
             self.files = files
-            self.posts = posts
+            self.messages = messages
             self.needed = needed
+            self.ok = ok
+            self.posts = posts
             self.provided = provided
+            self.query = query
         }
     }
     /// - Remark: Generated from `#/components/schemas/SearchFilesResponse`.
     public struct SearchFilesResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/query`.
-        public var query: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/files`.
-        public var files: SlackModels.Files?
         /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/files`.
+        public var files: SlackModels.Files?
         /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/SearchFilesResponse/query`.
+        public var query: Swift.String?
         /// Creates a new `SearchFilesResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - query:
-        ///   - files:
         ///   - error:
+        ///   - files:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - query:
         public init(
-            ok: Swift.Bool,
-            query: Swift.String? = nil,
-            files: SlackModels.Files? = nil,
             error: Swift.String? = nil,
+            files: SlackModels.Files? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            query: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.query = query
-            self.files = files
             self.error = error
+            self.files = files
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.query = query
         }
     }
     /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse`.
     public struct SearchMessagesResponse: Codable, Hashable, Sendable {
-        /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/ok`.
-        public var ok: Swift.Bool
-        /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/query`.
-        public var query: Swift.String?
-        /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/messages`.
-        public var messages: SlackModels.Messages?
         /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/error`.
         public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/messages`.
+        public var messages: SlackModels.Messages?
         /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/needed`.
         public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/ok`.
+        public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/SearchMessagesResponse/query`.
+        public var query: Swift.String?
         /// Creates a new `SearchMessagesResponse`.
         ///
         /// - Parameters:
-        ///   - ok:
-        ///   - query:
-        ///   - messages:
         ///   - error:
+        ///   - messages:
         ///   - needed:
+        ///   - ok:
         ///   - provided:
+        ///   - query:
         public init(
-            ok: Swift.Bool,
-            query: Swift.String? = nil,
-            messages: SlackModels.Messages? = nil,
             error: Swift.String? = nil,
+            messages: SlackModels.Messages? = nil,
             needed: Swift.String? = nil,
-            provided: Swift.String? = nil
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            query: Swift.String? = nil
         ) {
-            self.ok = ok
-            self.query = query
-            self.messages = messages
             self.error = error
+            self.messages = messages
             self.needed = needed
+            self.ok = ok
             self.provided = provided
+            self.query = query
         }
     }
 }

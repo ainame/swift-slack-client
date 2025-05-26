@@ -46,11 +46,11 @@ public enum SearchAll {
                 public var sort: Swift.String?
                 /// Change sort direction to ascending (asc) or descending (desc).
                 ///
-                /// - Remark: Generated from `#/paths/search.all/POST/requestBody/json/sortDir`.
+                /// - Remark: Generated from `#/paths/search.all/POST/requestBody/json/sort_dir`.
                 public var sortDir: Swift.String?
                 /// encoded team id to search in, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/search.all/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/search.all/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -77,8 +77,8 @@ public enum SearchAll {
                     case query
                     case highlight
                     case sort
-                    case sortDir
-                    case teamId
+                    case sortDir = "sort_dir"
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/search.all/POST/requestBody/content/application\/json`.
@@ -214,11 +214,11 @@ public enum SearchFiles {
                 public var sort: Swift.String?
                 /// Change sort direction to ascending (asc) or descending (desc).
                 ///
-                /// - Remark: Generated from `#/paths/search.files/POST/requestBody/json/sortDir`.
+                /// - Remark: Generated from `#/paths/search.files/POST/requestBody/json/sort_dir`.
                 public var sortDir: Swift.String?
                 /// encoded team id to search in, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/search.files/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/search.files/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -245,8 +245,8 @@ public enum SearchFiles {
                     case query
                     case highlight
                     case sort
-                    case sortDir
-                    case teamId
+                    case sortDir = "sort_dir"
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/search.files/POST/requestBody/content/application\/json`.
@@ -386,11 +386,11 @@ public enum SearchMessages {
                 public var sort: Swift.String?
                 /// Change sort direction to ascending (asc) or descending (desc).
                 ///
-                /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json/sortDir`.
+                /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json/sort_dir`.
                 public var sortDir: Swift.String?
                 /// encoded team id to search in, required if org token is used.
                 ///
-                /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json/teamId`.
+                /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json/team_id`.
                 public var teamId: Swift.String?
                 /// Creates a new `JsonPayload`.
                 ///
@@ -421,8 +421,8 @@ public enum SearchMessages {
                     case cursor
                     case highlight
                     case sort
-                    case sortDir
-                    case teamId
+                    case sortDir = "sort_dir"
+                    case teamId = "team_id"
                 }
             }
             /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/content/application\/json`.

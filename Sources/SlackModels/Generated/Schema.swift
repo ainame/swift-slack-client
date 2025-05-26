@@ -13,38 +13,38 @@ import struct Foundation.Date
 public struct Schema: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Schema/id`.
     public var id: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Schema/name`.
-    public var name: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Schema/is_primary_column`.
+    public var isPrimaryColumn: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Schema/key`.
     public var key: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Schema/type`.
-    public var type: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Schema/name`.
+    public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Schema/options`.
     public var options: Options?
-    /// - Remark: Generated from `#/components/schemas/Schema/isPrimaryColumn`.
-    public var isPrimaryColumn: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Schema/type`.
+    public var type: Swift.String?
     /// Creates a new `Schema`.
     ///
     /// - Parameters:
     ///   - id:
-    ///   - name:
-    ///   - key:
-    ///   - type:
-    ///   - options:
     ///   - isPrimaryColumn:
+    ///   - key:
+    ///   - name:
+    ///   - options:
+    ///   - type:
     public init(
         id: Swift.String? = nil,
-        name: Swift.String? = nil,
+        isPrimaryColumn: Swift.Bool? = nil,
         key: Swift.String? = nil,
-        type: Swift.String? = nil,
+        name: Swift.String? = nil,
         options: Options? = nil,
-        isPrimaryColumn: Swift.Bool? = nil
+        type: Swift.String? = nil
     ) {
         self.id = id
-        self.name = name
-        self.key = key
-        self.type = type
-        self.options = options
         self.isPrimaryColumn = isPrimaryColumn
+        self.key = key
+        self.name = name
+        self.options = options
+        self.type = type
     }
 }

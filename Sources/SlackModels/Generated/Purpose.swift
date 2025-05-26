@@ -11,25 +11,25 @@ import struct Foundation.Date
 
 /// - Remark: Generated from `#/components/schemas/Purpose`.
 public struct Purpose: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Purpose/value`.
-    public var value: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Purpose/creator`.
     public var creator: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Purpose/lastSet`.
+    /// - Remark: Generated from `#/components/schemas/Purpose/last_set`.
     public var lastSet: Swift.Int?
+    /// - Remark: Generated from `#/components/schemas/Purpose/value`.
+    public var value: Swift.String?
     /// Creates a new `Purpose`.
     ///
     /// - Parameters:
-    ///   - value:
     ///   - creator:
     ///   - lastSet:
+    ///   - value:
     public init(
-        value: Swift.String? = nil,
         creator: Swift.String? = nil,
-        lastSet: Swift.Int? = nil
+        lastSet: Swift.Int? = nil,
+        value: Swift.String? = nil
     ) {
-        self.value = value
         self.creator = creator
         self.lastSet = lastSet
+        self.value = value
     }
 }
