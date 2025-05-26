@@ -4,7 +4,7 @@ import Foundation
 // This is a wrapper Decodable struct to help handle completely different shape of response by
 // dispatching decoding type to the decoder by `type` attribute. Actual content will be in `self.body`
 // "hello" and "disconnect" are SocketMode (WebSocket) related messages from Slack platform.
-struct SocketModeMessageWrapper: Decodable {
+struct SocketModeMessageType: Decodable {
     enum Body: Decodable {
         case hello(SocketModeHelloMessage)
         case disconnect(SocketModeDisconnectMessage)

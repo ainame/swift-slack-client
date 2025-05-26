@@ -1,12 +1,12 @@
 import Foundation
 import SlackModels
 
-public protocol InteractivePayloadProtocol: Sendable {
+public protocol InteractivePayloadProtocol: Decodable, Hashable, Sendable {
     var user: SlackModels.User { get }
     var callbackId: String? { get }
 }
 
-public enum InteractivePayload: Decodable, Sendable {
+public enum InteractivePayload: Decodable, Hashable, Sendable {
     case blockActions(BlockActionsPaylaod)
     case shortcut(GlobalShortcutPayload)
     case viewSubmission(ViewSubmissionPayload)

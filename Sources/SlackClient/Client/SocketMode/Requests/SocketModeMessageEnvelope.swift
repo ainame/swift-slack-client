@@ -1,8 +1,8 @@
 #if SocketMode
 import Foundation
 
-struct SocketModeMessageEnvelope: Decodable {
-    enum Payload: Decodable {
+public struct SocketModeMessageEnvelope: Decodable, Hashable, Sendable {
+    public enum Payload: Decodable, Hashable, Sendable {
         case interactive(InteractiveEnvelope)
 #if Events
         case eventsApi(EventsApiEnvelope<EventType>)
@@ -10,19 +10,19 @@ struct SocketModeMessageEnvelope: Decodable {
         case unsupported(String)
     }
 
-    let envelopeId: String
-    let type: String
-    let payload: Payload
-    let acceptsResponsePayload: Bool
+    public let envelopeId: String
+    public let type: String
+    public let payload: Payload
+    public let acceptsResponsePayload: Bool
 
-    enum CodingKeys: CodingKey {
+    public enum CodingKeys: CodingKey {
         case envelopeId
         case type
         case payload
         case acceptsResponsePayload
     }
 
-    init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
         self.type = try container.decode(String.self, forKey: CodingKeys.type)
         self.envelopeId = try container.decode(String.self, forKey: CodingKeys.envelopeId)

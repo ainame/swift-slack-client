@@ -9,20 +9,6 @@ public actor Slack {
     var requestMiddleware: RequestMiddlware
     let logger: Logger
 
-    #if SocketMode
-    var socketModeState: SocketModeState = .notReady
-    let jsonEncoder: JSONEncoder = {
-        let encoder = JSONEncoder()
-        encoder.keyEncodingStrategy = .convertToSnakeCase
-        return encoder
-    }()
-    let jsonDecoder: JSONDecoder = {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return decoder
-    }()
-    #endif
-
     public init(
         serverURL: URL = URL(string: "https://slack.com/api")!,
         transport: any ClientTransport,
@@ -46,4 +32,20 @@ public actor Slack {
     public func setAccessToken(_ value: String) async {
         await requestMiddleware.setAccessToken(value)
     }
+
+#if SocketMode
+    var socketModeState: SocketModeState = .notReady
+    var messageRouters: [SlackMessageRouter.Container] = []
+
+    let jsonEncoder: JSONEncoder = {
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        return encoder
+    }()
+    let jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
+    }()
+#endif
 }
