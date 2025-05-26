@@ -21,7 +21,7 @@ public struct MessageEvent: SlackEvent {
     public var text: Swift.String?
     public var threadTs: Swift.String?
     public var ts: Swift.String?
-    public var type: Swift.String?
+    public var type: Swift.String
     public var user: Swift.String?
 }
 #endif

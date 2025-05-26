@@ -18,7 +18,7 @@ public struct Shortcut: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Shortcut/name`.
     public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Shortcut/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// Creates a new `Shortcut`.
     ///
     /// - Parameters:
@@ -30,7 +30,7 @@ public struct Shortcut: Codable, Hashable, Sendable {
         callbackId: Swift.String? = nil,
         description: Swift.String? = nil,
         name: Swift.String? = nil,
-        _type: Swift.String? = nil
+        _type: Swift.String
     ) {
         self.callbackId = callbackId
         self.description = description

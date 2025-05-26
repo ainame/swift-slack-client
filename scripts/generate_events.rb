@@ -65,6 +65,7 @@ end
 
 # Update JSON schemas
 visitors = [
+  OptionalityFixer.new,
   ReferenceFixer.new,
   AcronymsFixer.new('DND' => 'Dnd'),
   TypeFixer.new,

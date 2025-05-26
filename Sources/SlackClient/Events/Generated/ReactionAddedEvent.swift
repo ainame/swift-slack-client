@@ -7,7 +7,7 @@ public struct ReactionAddedEvent: SlackEvent {
     public var item: SlackModels.Item?
     public var itemUser: Swift.String?
     public var reaction: Swift.String?
-    public var type: Swift.String?
+    public var type: Swift.String
     public var user: Swift.String?
 }
 #endif

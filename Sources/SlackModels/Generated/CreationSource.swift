@@ -14,7 +14,7 @@ public struct CreationSource: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/CreationSource/reference_id`.
     public var referenceId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/CreationSource/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// - Remark: Generated from `#/components/schemas/CreationSource/workflow_function_id`.
     public var workflowFunctionId: Swift.String?
     /// Creates a new `CreationSource`.
@@ -25,7 +25,7 @@ public struct CreationSource: Codable, Hashable, Sendable {
     ///   - workflowFunctionId:
     public init(
         referenceId: Swift.String? = nil,
-        _type: Swift.String? = nil,
+        _type: Swift.String,
         workflowFunctionId: Swift.String? = nil
     ) {
         self.referenceId = referenceId

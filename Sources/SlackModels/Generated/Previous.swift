@@ -28,7 +28,7 @@ public struct Previous: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Previous/ts`.
     public var ts: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Previous/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// - Remark: Generated from `#/components/schemas/Previous/user`.
     public var user: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Previous/username`.
@@ -52,7 +52,7 @@ public struct Previous: Codable, Hashable, Sendable {
         permalink: Swift.String? = nil,
         text: Swift.String? = nil,
         ts: Swift.String? = nil,
-        _type: Swift.String? = nil,
+        _type: Swift.String,
         user: Swift.String? = nil,
         username: Swift.String? = nil
     ) {

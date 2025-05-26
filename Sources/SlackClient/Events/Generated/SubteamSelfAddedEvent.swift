@@ -4,6 +4,6 @@ import Foundation
 public struct SubteamSelfAddedEvent: SlackEvent {
     public var eventTs: Swift.String?
     public var subteamId: Swift.String?
-    public var type: Swift.String?
+    public var type: Swift.String
 }
 #endif

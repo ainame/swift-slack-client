@@ -8,7 +8,7 @@ public struct MemberJoinedChannelEvent: SlackEvent {
     public var eventTs: Swift.String?
     public var inviter: Swift.String?
     public var team: Swift.String?
-    public var type: Swift.String?
+    public var type: Swift.String
     public var user: Swift.String?
 }
 #endif

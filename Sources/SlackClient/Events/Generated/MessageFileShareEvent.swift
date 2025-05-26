@@ -18,7 +18,7 @@ public struct MessageFileShareEvent: SlackEvent {
     public var text: Swift.String?
     public var threadTs: Swift.String?
     public var ts: Swift.String?
-    public var type: Swift.String?
+    public var type: Swift.String
     public var upload: Swift.Bool?
     public var user: Swift.String?
 }

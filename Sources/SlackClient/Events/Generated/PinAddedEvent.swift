@@ -9,7 +9,7 @@ public struct PinAddedEvent: SlackEvent {
     public var itemUser: Swift.String?
     public var pinCount: Swift.Int?
     public var pinnedInfo: SlackModels.PinnedInfo?
-    public var type: Swift.String?
+    public var type: Swift.String
     public var user: Swift.String?
 }
 #endif

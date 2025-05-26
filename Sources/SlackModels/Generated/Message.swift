@@ -64,7 +64,7 @@ public struct Message: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Message/ts`.
     public var ts: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Message/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// - Remark: Generated from `#/components/schemas/Message/upload`.
     public var upload: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Message/user`.
@@ -127,7 +127,7 @@ public struct Message: Codable, Hashable, Sendable {
         text: Swift.String? = nil,
         threadTs: Swift.String? = nil,
         ts: Swift.String? = nil,
-        _type: Swift.String? = nil,
+        _type: Swift.String,
         upload: Swift.Bool? = nil,
         user: Swift.String? = nil,
         username: Swift.String? = nil

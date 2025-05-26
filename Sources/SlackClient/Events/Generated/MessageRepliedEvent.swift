@@ -9,6 +9,6 @@ public struct MessageRepliedEvent: SlackEvent {
     public var message: SlackModels.Message?
     public var subtype: Swift.String?
     public var ts: Swift.String?
-    public var type: Swift.String?
+    public var type: Swift.String
 }
 #endif

@@ -16,7 +16,7 @@ public struct Description: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Description/text`.
     public var text: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Description/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// - Remark: Generated from `#/components/schemas/Description/verbatim`.
     public var verbatim: Swift.Bool?
     /// Creates a new `Description`.
@@ -29,7 +29,7 @@ public struct Description: Codable, Hashable, Sendable {
     public init(
         emoji: Swift.Bool? = nil,
         text: Swift.String? = nil,
-        _type: Swift.String? = nil,
+        _type: Swift.String,
         verbatim: Swift.Bool? = nil
     ) {
         self.emoji = emoji

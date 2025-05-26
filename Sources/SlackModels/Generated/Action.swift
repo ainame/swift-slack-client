@@ -32,7 +32,7 @@ public struct Action: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Action/text`.
     public var text: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Action/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// - Remark: Generated from `#/components/schemas/Action/url`.
     public var url: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Action/value`.
@@ -64,7 +64,7 @@ public struct Action: Codable, Hashable, Sendable {
         selectedOptions: [SelectedOptionElement]? = nil,
         style: Swift.String? = nil,
         text: Swift.String? = nil,
-        _type: Swift.String? = nil,
+        _type: Swift.String,
         url: Swift.String? = nil,
         value: Swift.String? = nil
     ) {

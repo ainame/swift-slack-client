@@ -10,7 +10,7 @@ public struct LinkSharedEvent: SlackEvent {
     public var messageTs: Swift.String?
     public var source: Swift.String?
     public var threadTs: Swift.String?
-    public var type: Swift.String?
+    public var type: Swift.String
     public var unfurlId: Swift.String?
     public var user: Swift.String?
 }

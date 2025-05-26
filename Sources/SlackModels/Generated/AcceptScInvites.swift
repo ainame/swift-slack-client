@@ -24,7 +24,7 @@ public struct AcceptScInvites: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/AcceptScInvites/source`.
     public var source: Swift.String?
     /// - Remark: Generated from `#/components/schemas/AcceptScInvites/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// - Remark: Generated from `#/components/schemas/AcceptScInvites/use_allowed_workspaces`.
     public var useAllowedWorkspaces: Swift.Bool?
     /// Creates a new `AcceptScInvites`.
@@ -45,7 +45,7 @@ public struct AcceptScInvites: Codable, Hashable, Sendable {
         dateUpdate: Swift.Int? = nil,
         invalidWorkspaceIds: [Swift.String]? = nil,
         source: Swift.String? = nil,
-        _type: Swift.String? = nil,
+        _type: Swift.String,
         useAllowedWorkspaces: Swift.Bool? = nil
     ) {
         self.acceptInWorkspaceIds = acceptInWorkspaceIds

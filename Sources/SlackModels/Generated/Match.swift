@@ -44,7 +44,7 @@ public struct Match: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Match/ts`.
     public var ts: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Match/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// - Remark: Generated from `#/components/schemas/Match/user`.
     public var user: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Match/username`.
@@ -84,7 +84,7 @@ public struct Match: Codable, Hashable, Sendable {
         team: Swift.String? = nil,
         text: Swift.String? = nil,
         ts: Swift.String? = nil,
-        _type: Swift.String? = nil,
+        _type: Swift.String,
         user: Swift.String? = nil,
         username: Swift.String? = nil
     ) {

@@ -11,6 +11,6 @@ public struct SubteamMembersChangedEvent: SlackEvent {
     public var removedUsersCount: Swift.Int?
     public var subteamId: Swift.String?
     public var teamId: Swift.String?
-    public var type: Swift.String?
+    public var type: Swift.String
 }
 #endif

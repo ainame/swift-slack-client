@@ -20,7 +20,7 @@ public struct AllowScFileUploads: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/AllowScFileUploads/source`.
     public var source: Swift.String?
     /// - Remark: Generated from `#/components/schemas/AllowScFileUploads/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// - Remark: Generated from `#/components/schemas/AllowScFileUploads/value`.
     public var value: Swift.Bool?
     /// Creates a new `AllowScFileUploads`.
@@ -37,7 +37,7 @@ public struct AllowScFileUploads: Codable, Hashable, Sendable {
         approvalType: Swift.String? = nil,
         dateUpdate: Swift.Int? = nil,
         source: Swift.String? = nil,
-        _type: Swift.String? = nil,
+        _type: Swift.String,
         value: Swift.Bool? = nil
     ) {
         self.actor = actor

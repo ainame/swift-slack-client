@@ -20,7 +20,7 @@ public struct Preview: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Preview/title`.
     public var title: Description?
     /// - Remark: Generated from `#/components/schemas/Preview/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// Creates a new `Preview`.
     ///
     /// - Parameters:
@@ -34,7 +34,7 @@ public struct Preview: Codable, Hashable, Sendable {
         iconUrl: Swift.String? = nil,
         subtitle: Description? = nil,
         title: Description? = nil,
-        _type: Swift.String? = nil
+        _type: Swift.String
     ) {
         self.canRemove = canRemove
         self.iconUrl = iconUrl

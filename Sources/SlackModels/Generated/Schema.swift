@@ -22,7 +22,7 @@ public struct Schema: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Schema/options`.
     public var options: Options?
     /// - Remark: Generated from `#/components/schemas/Schema/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// Creates a new `Schema`.
     ///
     /// - Parameters:
@@ -38,7 +38,7 @@ public struct Schema: Codable, Hashable, Sendable {
         key: Swift.String? = nil,
         name: Swift.String? = nil,
         options: Options? = nil,
-        _type: Swift.String? = nil
+        _type: Swift.String
     ) {
         self.id = id
         self.isPrimaryColumn = isPrimaryColumn

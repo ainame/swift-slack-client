@@ -16,7 +16,7 @@ public struct Review: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Review/reviewing_team`.
     public var reviewingTeam: IngTeam?
     /// - Remark: Generated from `#/components/schemas/Review/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// Creates a new `Review`.
     ///
     /// - Parameters:
@@ -26,7 +26,7 @@ public struct Review: Codable, Hashable, Sendable {
     public init(
         dateReview: Swift.Int? = nil,
         reviewingTeam: IngTeam? = nil,
-        _type: Swift.String? = nil
+        _type: Swift.String
     ) {
         self.dateReview = dateReview
         self.reviewingTeam = reviewingTeam

@@ -22,7 +22,7 @@ public struct ScMpdmToPrivate: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/source`.
     public var source: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// Creates a new `ScMpdmToPrivate`.
     ///
     /// - Parameters:
@@ -38,7 +38,7 @@ public struct ScMpdmToPrivate: Codable, Hashable, Sendable {
         dateUpdate: Swift.Int? = nil,
         invalidWorkspaceIds: [Swift.String]? = nil,
         source: Swift.String? = nil,
-        _type: Swift.String? = nil
+        _type: Swift.String
     ) {
         self.acceptInWorkspaceId = acceptInWorkspaceId
         self.actor = actor

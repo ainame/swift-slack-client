@@ -56,7 +56,7 @@ public struct Payload: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Payload/trigger`.
     public var trigger: Trigger?
     /// - Remark: Generated from `#/components/schemas/Payload/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// - Remark: Generated from `#/components/schemas/Payload/user_id`.
     public var userId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Payload/workflow_name`.
@@ -112,7 +112,7 @@ public struct Payload: Codable, Hashable, Sendable {
         teamId: Swift.String? = nil,
         totalSteps: Swift.Int? = nil,
         trigger: Trigger? = nil,
-        _type: Swift.String? = nil,
+        _type: Swift.String,
         userId: Swift.String? = nil,
         workflowName: Swift.String? = nil
     ) {

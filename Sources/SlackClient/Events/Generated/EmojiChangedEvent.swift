@@ -7,7 +7,7 @@ public struct EmojiChangedEvent: SlackEvent {
     public var newName: Swift.String?
     public var oldName: Swift.String?
     public var subtype: Swift.String?
-    public var type: Swift.String?
+    public var type: Swift.String
     public var value: Swift.String?
 }
 #endif

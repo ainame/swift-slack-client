@@ -6,6 +6,6 @@ public struct AppRateLimitedEvent: SlackEvent {
     public var minuteRateLimited: Swift.Int?
     public var teamId: Swift.String?
     public var token: Swift.String?
-    public var type: Swift.String?
+    public var type: Swift.String
 }
 #endif

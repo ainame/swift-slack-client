@@ -11,6 +11,6 @@ public struct MessageChangedEvent: SlackEvent {
     public var previousMessage: SlackModels.Message?
     public var subtype: Swift.String?
     public var ts: Swift.String?
-    public var type: Swift.String?
+    public var type: Swift.String
 }
 #endif

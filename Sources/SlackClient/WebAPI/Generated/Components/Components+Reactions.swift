@@ -67,7 +67,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/provided`.
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/ReactionsGetResponse/type`.
-        public var _type: Swift.String?
+        public var _type: Swift.String
         /// Creates a new `ReactionsGetResponse`.
         ///
         /// - Parameters:
@@ -85,7 +85,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            _type: Swift.String? = nil
+            _type: Swift.String
         ) {
             self.channel = channel
             self.error = error

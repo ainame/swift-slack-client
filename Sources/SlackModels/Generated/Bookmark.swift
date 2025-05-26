@@ -42,7 +42,7 @@ public struct Bookmark: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Bookmark/title`.
     public var title: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Bookmark/type`.
-    public var _type: Swift.String?
+    public var _type: Swift.String
     /// Creates a new `Bookmark`.
     ///
     /// - Parameters:
@@ -78,7 +78,7 @@ public struct Bookmark: Codable, Hashable, Sendable {
         rank: Swift.String? = nil,
         shortcutId: Swift.String? = nil,
         title: Swift.String? = nil,
-        _type: Swift.String? = nil
+        _type: Swift.String
     ) {
         self.appActionId = appActionId
         self.appId = appId

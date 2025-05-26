@@ -35,9 +35,16 @@ class OptionalityFixer
     when Array
       data.each { visit(_1) }
     when Hash
-      if data.keys.include?('properties') && data.keys.include?('required') && data['properties'].keys.include?('ok') && !data['required'].include?('ok')
-        data['required'].append('ok')
-        data['required'].uniq!
+      if data.keys.include?('properties') && data.keys.include?('required')
+        if data['properties'].keys.include?('ok')
+          data['required'].append('ok')
+          data['required'].uniq!
+        end
+
+        if data['properties']['type'] && data['properties']['type']['type'] == 'string'
+          data['required'].append('type')
+          data['required'].uniq!
+        end
       end
 
       # Additional properties should be allowed but don't need to be decoded
