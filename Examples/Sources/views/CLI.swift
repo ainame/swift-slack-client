@@ -18,7 +18,17 @@ struct CLI {
             )
         )
 
-//        let result = try await slack.client.viewsOpen(.init(body: .json(.init(view: .init()))))
-//        debugPrint(try result.ok.body.json)
+        let router = SlackMessageRouter()
+        router.onInteractive { client, envelope in
+            switch envelope.body {
+            case .shortcut(let payload):
+                print(payload.callbackId ?? "callback id")
+            default:
+                break
+            }
+        }
+        await slack.addMessageRouter(router)
+
+        try await slack.runInSocketMode()
     }
 }

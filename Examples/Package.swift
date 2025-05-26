@@ -16,7 +16,6 @@ let package = Package(
             path: "../",
             traits: [
                 "SocketMode",
-                "BlockKit",
                 "WebAPI_Apps",
                 "WebAPI_Chat",
                 "WebAPI_Views",
@@ -39,6 +38,7 @@ func executable(_ name: String) -> Target {
         name: name,
         dependencies: [
             .product(name: "SlackClient", package: "swift-slack-client"),
+            .product(name: "SlackBlockKit", package: "swift-slack-client"),
             .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
         ]
     )
