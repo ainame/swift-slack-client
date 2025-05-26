@@ -94,7 +94,6 @@ def generate_openapi_component(path, output_dir)
   json = JSON.parse(File.read(output_path))
   visitors = [
     ReferenceFixer.new,
-    SnakeCaseToCamelCaseConverter.new,
     OptionalityFixer.new,
     AcronymsFixer.new('DND' => 'Dnd'),
     TypeFixer.new,
@@ -145,19 +144,18 @@ def generate_openapi_path(path)
   operation_id = method_name.camelize(separator: '\.')
   required = []
   request_body_props = json['args'].each_with_object({}) do |(name, attributes), props|
-    camelized_name = name.camelize
-    required.append(camelized_name) if attributes['required']
+    required.append(name) if attributes['required']
 
     if name == 'view'
       props['view'] = { '$ref': '#/components/schemas/View' }
     else
       normalized_type = normalize_type(name, attributes)
-      props[camelized_name] = {
+      props[name] = {
         type: normalized_type,
         example: attributes['example'],
         description: attributes['desc'],
       }
-      props[camelized_name][:format] = 'binary' if name == 'image' && attributes['type'] == 'string'
+      props[name][:format] = 'binary' if name == 'image' && attributes['type'] == 'string'
     end
   end
 
