@@ -39,32 +39,66 @@ struct Command {
 
                 Divider()
 
-                Input(
-                    element: {
-                        PlainTextInput()
-                            .actionId("name_field")
-                            .placeholder("Enter your name")
-                    },
-                    label: {
-                        Text("Your Name")
-                    }
-                )
+                Input {
+                    PlainTextInput()
+                        .actionId("name_field")
+                        .placeholder("Enter your name")
+                } label: {
+                    Text("Your Name")
+                }
 
-                Input(
-                    element: {
-                        StaticSelect()
-                            .actionId("color_select")
-                            .placeholder(Text("Choose a color"))
-                            .options([
-                                Option("Red").value("red"),
-                                Option("Green").value("green"),
-                                Option("Blue").value("blue")
-                            ])
-                    },
-                    label: {
-                        Text("Favorite Color")
+                Input {
+                    StaticSelect()
+                        .actionId("color_select")
+                        .placeholder(Text("Choose a color"))
+                        .options {
+                            Option("Red").value("red")
+                            Option("Green").value("green")
+                            Option("Blue").value("blue")
+                        }
+                } label: {
+                    Text("Favorite Color")
+                }
+
+                Input {
+                    RadioButtons {
+                        Option("Small").value("small")
+                        Option("Medium").value("medium")
+                        Option("Large").value("large")
                     }
-                )
+                    .actionId("size_select")
+                } label: {
+                    Text("Size Preference")
+                }
+
+                Input {
+                    Checkboxes {
+                        Option("📧 Email notifications").value("email")
+                        Option("📱 Push notifications").value("push")
+                        Option("🔔 Desktop notifications").value("desktop")
+                        Option("📊 Weekly reports").value("reports")
+                    }
+                    .actionId("notifications")
+                } label: {
+                    Text("Notification Preferences")
+                }
+
+                Input {
+                    UsersSelect()
+                        .actionId("manager_select")
+                        .placeholder("Select your manager")
+                } label: {
+                    Text("Manager")
+                }
+                .optional(true)
+
+                Input {
+                    DatePicker()
+                        .actionId("start_date")
+                        .placeholder("Select start date")
+                } label: {
+                    Text("Start Date")
+                }
 
                 Actions {
                     Button("Cancel")
@@ -205,6 +239,88 @@ struct Command {
         router.onBlockAction("done") { context, payload in
             // Close the modal
             print("Done button clicked, closing modal")
+        }
+
+        // Handle additional interactive actions
+        router.onBlockAction("get_started") { context, payload in
+            // Create an advanced form modal showcasing option groups
+            let view = Modal(
+                title: Text("Advanced Settings")
+            ) {
+                Header {
+                    Text("Configure Your Preferences")
+                }
+
+                Section {
+                    Text("*Choose your preferred settings from the organized categories below.*").style(.mrkdwn)
+                }
+
+                Input {
+                    StaticSelect()
+                        .actionId("category_select")
+                        .placeholder("Select from categories")
+                        .optionGroups {
+                            OptionGroup(label: "Development") {
+                                Option("🐍 Python").value("python")
+                                Option("☕ Java").value("java")
+                                Option("🦀 Rust").value("rust")
+                                Option("🔷 TypeScript").value("typescript")
+                            }
+                            OptionGroup(label: "Design") {
+                                Option("🎨 Figma").value("figma")
+                                Option("✨ Sketch").value("sketch")
+                                Option("🌈 Adobe XD").value("xd")
+                            }
+                            OptionGroup(label: "Management") {
+                                Option("📊 Jira").value("jira")
+                                Option("📝 Notion").value("notion")
+                                Option("📋 Trello").value("trello")
+                            }
+                        }
+                } label: {
+                    Text("Primary Tool")
+                }
+
+                Input {
+                    ConversationsSelect()
+                        .actionId("channel_select")
+                        .placeholder("Select a channel")
+                        .defaultToCurrentConversation(false)
+                } label: {
+                    Text("Default Channel")
+                }
+
+                Input {
+                    NumberInput()
+                        .actionId("hours_input")
+                        .placeholder("Enter hours per week")
+                        .minValue("1")
+                        .maxValue("168")
+                } label: {
+                    Text("Work Hours Per Week")
+                }
+
+                Actions {
+                    Button("Cancel")
+                        .actionId("cancel_advanced")
+                    
+                    Button("Save Settings")
+                        .actionId("save_advanced")
+                        .style(.primary)
+                }
+            }
+            .callbackId("advanced_settings_modal")
+            .asView()
+
+            // Open the advanced modal
+            let response = try await context.client.viewsOpen(
+                .init(body: .json(.init(
+                    view: view,
+                    triggerId: payload.triggerId
+                )))
+            )
+
+            print("Advanced modal opened: \(response)")
         }
 
         await slack.addSocketModeMessageRouter(router)
