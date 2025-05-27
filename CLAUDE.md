@@ -56,7 +56,7 @@ Uses Swift Package Manager with multiple targets and traits system:
 
 ### Traits
 - WebAPI traits: Each Slack API group (Admin, Apps, Chat, etc.) is a separate trait
-- SocketMode trait: Enables WebSocket-based real-time functionality  
+- SocketMode trait: Enables WebSocket-based real-time functionality
 - Events trait: Enables Events API support for 96+ event types
 - Conditional compilation: Features are wrapped in `#if WebAPI_*`, `#if SocketMode`, `#if Events`
 
@@ -77,7 +77,7 @@ Uses Swift Package Manager with multiple targets and traits system:
 Custom implementation of Slack's BlockKit UI framework at `Sources/SlackBlockKit/`:
 
 - **CompositionObjects**: Core building blocks (TextObject, OptionObject, ConfirmationDialogObject, etc.)
-- **BlockElements**: Interactive elements (ButtonElement, SelectMenus, Input elements, etc.)  
+- **BlockElements**: Interactive elements (ButtonElement, SelectMenus, Input elements, etc.)
 - **Blocks**: Layout blocks (ActionsBlock, SectionBlock, InputBlock, etc.)
 - **Views**: Surface types (ModalView, HomeTabView)
 
@@ -184,7 +184,7 @@ Modal(title: Text("Settings")) {
     Section {
         Text("*Preferences*").style(.mrkdwn)
     }
-    
+
     Input(
         element: {
             Checkboxes {
@@ -198,7 +198,7 @@ Modal(title: Text("Settings")) {
         }
     )
     .optional(true)
-    
+
     Actions {
         Button("Save")
             .style(.primary)
@@ -220,3 +220,7 @@ Modal(title: Text("Settings")) {
 - **Modifier Pattern**: All components support chaining for configuration
 - **Result Builders**: `@BlockBuilder`, `@ActionElementBuilder`, `@ContextElementBuilder`, etc.
 - **Protocol Design**: Conversion methods (`asXXX`) are implementation details not intended for direct use
+
+## Memories
+
+- Since swift-openapi-generator can't rely on keyEncoding/DecodingStrategy option, we need to use hardcoded CodingKeys entirely to convert snake_case <-> lowerCamel keys.
