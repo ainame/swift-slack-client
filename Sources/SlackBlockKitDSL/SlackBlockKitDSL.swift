@@ -1,4 +1,5 @@
 import Foundation
+import SlackBlockKit
 
 // MARK: - Text DSL
 

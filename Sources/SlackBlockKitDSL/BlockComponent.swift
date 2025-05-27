@@ -1,4 +1,5 @@
 import Foundation
+import SlackBlockKit
 
 /// Protocol for components that can render to BlockKit blocks
 public protocol BlockComponent {

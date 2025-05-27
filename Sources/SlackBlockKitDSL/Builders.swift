@@ -1,4 +1,5 @@
 import Foundation
+import SlackBlockKit
 
 /// Result builder for constructing arrays of blocks
 @resultBuilder

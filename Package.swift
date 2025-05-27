@@ -47,6 +47,7 @@ let package = Package(
     products: [
         .library(name: "SlackClient", targets: ["SlackClient"]),
         .library(name: "SlackBlockKit", targets: ["SlackBlockKit"]),
+        .library(name: "SlackBlockKitDSL", targets: ["SlackBlockKitDSL"]),
         .library(name: "SlackModels", targets: ["SlackModels"]),
     ],
     traits: Set(traits),
@@ -80,9 +81,19 @@ let package = Package(
             ]
         ),
         .target(name: "SlackBlockKit"),
+        .target(
+            name: "SlackBlockKitDSL",
+            dependencies: [
+                .target(name: "SlackBlockKit"),
+            ]
+        ),
         .testTarget(
             name: "SlackBlockKitTests",
             dependencies: ["SlackBlockKit"]
+        ),
+        .testTarget(
+            name: "SlackBlockKitDSLTests",
+            dependencies: ["SlackBlockKitDSL"]
         ),
     ]
 )

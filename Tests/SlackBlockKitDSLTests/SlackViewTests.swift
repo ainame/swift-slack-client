@@ -1,6 +1,7 @@
 import Foundation
 import Testing
-@testable import SlackBlockKit
+@testable import SlackBlockKitDSL
+import SlackBlockKit
 
 struct SlackViewTests {
 

@@ -1,5 +1,6 @@
 import Foundation
-@testable import SlackBlockKit
+@testable import SlackBlockKitDSL
+import SlackBlockKit
 import Testing
 
 // Tests for the SwiftUI-like DSL
