@@ -16,6 +16,7 @@ let package = Package(
             path: "../",
             traits: [
                 "SocketMode",
+                "Events",
                 "WebAPI_Apps",
                 "WebAPI_Chat",
                 "WebAPI_Views",

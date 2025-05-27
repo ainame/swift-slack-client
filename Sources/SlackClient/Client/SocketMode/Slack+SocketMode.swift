@@ -13,8 +13,8 @@ extension Slack {
         try await doStartSocketMode(with: url)
     }
 
-    public func addMessageRouter(_ messageRouter: SlackMessageRouter) {
-        messageRouters.append(SlackMessageRouter.Container(from: messageRouter))
+    public func addSocketModeMessageRouter(_ router: SocketModeMessageRouter) {
+        routers.append(SocketModeMessageRouter.FixedRouter(from: router))
     }
 
     func openConnection() async throws -> String {
@@ -28,6 +28,7 @@ extension Slack {
     }
 
     func doStartSocketMode(with url: String) async throws {
+        let routerContext = SocketModeMessageRouter.Context(client: client, logger: logger)
         let ws = WebSocketClient(url: url, logger: logger) { inbound, outbound, context in
             context.logger.info("SocketMode client connected")
             await self.setWebSocketOutboundWriter(outbound)
@@ -39,8 +40,8 @@ extension Slack {
                     do {
                         let message = try await self.onMessageRecieved(frame.data)
                         if case .message(let envelope) = message.body {
-                            for router in await self.messageRouters {
-                                try await router.dispatch(client: self.client, messageEnvelope: envelope)
+                            for router in await self.routers {
+                                try await router.dispatch(context: routerContext, messageEnvelope: envelope)
                             }
                         }
                     } catch {

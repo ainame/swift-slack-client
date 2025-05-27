@@ -21,8 +21,28 @@ struct CLI {
             )
         )
 
-        let router = SlackMessageRouter()
-        router.onInteractive { client, envelope in
+        let router = SocketModeMessageRouter()
+
+        router.onSocketModeMessage { api, envelope in
+            print("onMessage")
+        }
+
+        router.onEvent { api, envelope in
+            switch envelope.event {
+            case .appMention:
+                print("global onEvent appMention")
+            case .message:
+                print("global onEvent meessage")
+            default:
+                break
+            }
+        }
+
+        router.onEvent(AppMentionEvent.self) { api, envelope, payload in
+            print("onEvent(AppMentionEvent.self)")
+        }
+
+        router.onInteractive { context, envelope in
             switch envelope.body {
             case .shortcut(let payload):
                 print(payload)
@@ -32,13 +52,26 @@ struct CLI {
                         .section(.init(text: .init(type: .plainText, text: "Section")))
                     ]
                 )
-                let resp = try await client.viewsOpen(.init(body: .json(.init(view: .modal(view), triggerId: payload.triggerId))))
+                let resp = try await context.client.viewsOpen(.init(body: .json(.init(view: .modal(view), triggerId: payload.triggerId))))
                 print(try resp.ok.body.json)
             default:
                 break
             }
         }
-        await slack.addMessageRouter(router)
+
+        router.onGlboalShortcut("run-something") { api, payload in
+            print("onGlobalShortcut: \(payload.type) \(payload.callbackId!)")
+        }
+
+        router.onBlockAction("run-something") { api, payload in
+            print("onGlobalShortcut: \(payload.type) \(payload.callbackId!)")
+        }
+
+        router.onSlackMessageMatched(with: "Hello", "World") { api, envelope, payload in
+            print("onSlackMessageMatched: \(payload.text!)")
+        }
+
+        await slack.addSocketModeMessageRouter(router)
 
         try await slack.runInSocketMode()
     }
