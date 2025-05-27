@@ -6,6 +6,7 @@ import PackageDescription
 var targets: [Target] = []
 targets.append(executable("chatPostMessage"))
 targets.append(executable("router"))
+targets.append(executable("dsl"))
 
 let package = Package(
     name: "Examples",
@@ -27,6 +28,7 @@ let package = Package(
     targets: [
         executable("chatPostMessage"),
         executable("router"),
+        executable("dsl"),
     ]
 )
 
