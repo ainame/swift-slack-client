@@ -10,19 +10,19 @@ struct SocketModeMessageType: Decodable {
         case disconnect(SocketModeDisconnectMessage)
         case message(SocketModeMessageEnvelope)
     }
-    let type: String
+    let _type: String
     let body: Body
 
-    enum CodingKeys: CodingKey {
-        case type
+    private enum CodingKeys: String, CodingKey {
+        case _type = "type"
     }
 
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let type = try container.decode(String.self, forKey: .type)
-        self.type = type
+        let _type = try container.decode(String.self, forKey: ._type)
+        self._type = _type
 
-        switch type {
+        switch _type {
         case "hello":
             let newContainer = try decoder.singleValueContainer()
             let payload = try newContainer.decode(SocketModeHelloMessage.self)

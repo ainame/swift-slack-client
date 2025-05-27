@@ -8,4 +8,9 @@ public struct WorkflowConfiguration: Codable, Hashable, Sendable {
         self.versionId = versionId
         self.appSteps = appSteps
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case versionId = "version_id"
+        case appSteps = "app_steps"
+    }
 }

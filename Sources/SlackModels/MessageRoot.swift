@@ -21,6 +21,31 @@ public struct MessageRoot: Codable, Hashable, Sendable {
     public var lastRead: Swift.String?
     public var unreadCount: Swift.Int?
     public var noNotifications: Swift.Bool?
+    
+    private enum CodingKeys: String, CodingKey {
+        case text
+        case user
+        case username
+        case team
+        case mrkdwn
+        case type
+        case subtype
+        case icons
+        case edited
+        case subscribed
+        case ts
+        case room
+        case parentUserId = "parent_user_id"
+        case botId = "bot_id"
+        case threadTs = "thread_ts"
+        case botProfile = "bot_profile"
+        case replyCount = "reply_count"
+        case replyUsersCount = "reply_users_count"
+        case latestReply = "latest_reply"
+        case lastRead = "last_read"
+        case unreadCount = "unread_count"
+        case noNotifications = "no_notifications"
+    }
 
     public init(
         text: Swift.String? = nil,

@@ -14,4 +14,10 @@ public struct AppStep: Codable, Hashable, Sendable {
         self.workflowStepId = workflowStepId
         self.callbackId = callbackId
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case appId = "app_id"
+        case workflowStepId = "workflow_step_id"
+        case callbackId = "callback_id"
+    }
 }

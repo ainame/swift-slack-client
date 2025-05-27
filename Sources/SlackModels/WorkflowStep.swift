@@ -25,4 +25,13 @@ public struct WorkflowStep: Codable, Hashable, Sendable {
         self.inputs = inputs
         self.outputs = outputs
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case workflowStepExecuteId = "workflow_step_execute_id"
+        case workflowId = "workflow_id"
+        case workflowInstanceId = "workflow_instance_id"
+        case stepId = "step_id"
+        case inputs
+        case outputs
+    }
 }

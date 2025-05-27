@@ -14,4 +14,10 @@ public struct DndStatus: Codable, Hashable, Sendable {
         self.nextDndStartTs = nextDndStartTs
         self.nextDndEndTs = nextDndEndTs
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case dndEnabled = "dnd_enabled"
+        case nextDndStartTs = "next_dnd_start_ts"
+        case nextDndEndTs = "next_dnd_end_ts"
+    }
 }

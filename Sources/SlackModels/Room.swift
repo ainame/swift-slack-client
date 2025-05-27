@@ -23,6 +23,33 @@ public struct Room: Codable, Hashable, Sendable {
     public var appId: Swift.String?
     public var callFamily: Swift.String?
     public var huddleLink: Swift.String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case recording
+        case mediaServer = "media_server"
+        case createdBy = "created_by"
+        case dateStart = "date_start"
+        case dateEnd = "date_end"
+        case canvasThreadTs = "canvas_thread_ts"
+        case threadRootTs = "thread_root_ts"
+        case isDmCall = "is_dm_call"
+        case wasRejected = "was_rejected"
+        case wasMissed = "was_missed"
+        case wasAccepted = "was_accepted"
+        case hasEnded = "has_ended"
+        case backgroundId = "background_id"
+        case canvasBackground = "canvas_background"
+        case isPrewarmed = "is_prewarmed"
+        case isScheduled = "is_scheduled"
+        case mediaBackendType = "media_backend_type"
+        case displayId = "display_id"
+        case externalUniqueId = "external_unique_id"
+        case appId = "app_id"
+        case callFamily = "call_family"
+        case huddleLink = "huddle_link"
+    }
 
     public init(
         id: Swift.String? = nil,

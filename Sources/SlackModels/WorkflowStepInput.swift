@@ -11,4 +11,10 @@ public struct WorkflowStepInput: Codable, Hashable, Sendable {
         self.skipVariableReplacement = skipVariableReplacement
         self.variables = variables
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case value
+        case skipVariableReplacement = "skip_variable_replacement"
+        case variables
+    }
 }

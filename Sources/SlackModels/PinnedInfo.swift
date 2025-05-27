@@ -14,4 +14,10 @@ public struct PinnedInfo: Codable, Hashable, Sendable {
         self.pinnedBy = pinnedBy
         self.pinnedTs = pinnedTs
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case channel
+        case pinnedBy = "pinned_by"
+        case pinnedTs = "pinned_ts"
+    }
 }

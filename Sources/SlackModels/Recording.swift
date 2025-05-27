@@ -18,4 +18,12 @@ public struct Recording: Codable, Hashable, Sendable {
         self.summaryStatus = summaryStatus
         self.canRecordSummary = canRecordSummary
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case transcript
+        case summary
+        case notetaking
+        case summaryStatus = "summary_status"
+        case canRecordSummary = "can_record_summary"
+    }
 }

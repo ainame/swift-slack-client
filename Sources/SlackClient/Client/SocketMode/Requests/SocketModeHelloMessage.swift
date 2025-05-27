@@ -22,13 +22,13 @@ struct SocketModeHelloMessage: Decodable {
         }
     }
 
-    let type: String
+    let _type: String
     let connectionInfo: ConnectionInfo
     let debugInfo: DebugInfo
     let numConnections: Int
 
     enum CodingKeys: String, CodingKey {
-        case type
+        case _type = "type"
         case connectionInfo = "connection_info"
         case debugInfo = "debug_info"
         case numConnections = "num_connections"
@@ -36,7 +36,7 @@ struct SocketModeHelloMessage: Decodable {
 
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.type = try container.decode(String.self, forKey: .type)
+        self._type = try container.decode(String.self, forKey: ._type)
         self.connectionInfo = try container.decode(SocketModeHelloMessage.ConnectionInfo.self, forKey: .connectionInfo)
         self.debugInfo = try container.decode(SocketModeHelloMessage.DebugInfo.self, forKey: .debugInfo)
         self.numConnections = try container.decode(Int.self, forKey: .numConnections)

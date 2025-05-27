@@ -32,4 +32,16 @@ public struct UserProfile: Codable, Hashable, Sendable {
         self.avatarHash = avatarHash
         self.image72 = image72
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case team
+        case firstName = "first_name"
+        case realName = "real_name"
+        case displayName = "display_name"
+        case isRestricted = "is_restricted"
+        case isUltraRestricted = "is_ultra_restricted"
+        case avatarHash = "avatar_hash"
+        case image72 = "image_72"
+    }
 }
