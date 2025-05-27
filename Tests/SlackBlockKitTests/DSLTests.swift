@@ -18,7 +18,7 @@ private let jsonDecoder = JSONDecoder()
         Input(
             element: {
                 PlainTextInput()
-                    .placeholder("Enter your display name")
+                    .placeholder(Text("Enter your display name"))
                     .actionId("display_name")
                     .maxLength(80)
             },
@@ -70,12 +70,14 @@ private let jsonDecoder = JSONDecoder()
             Button("Reset to Defaults")
                 .actionId("reset")
                 .style(.danger)
-                .confirm(ConfirmationDialog(
-                    title: Text("Reset Settings?"),
-                    text: Text("This will reset all your preferences to default values."),
-                    confirm: Text("Yes, Reset"),
-                    deny: Text("Cancel")
-                ).style(.danger))
+                .confirm(
+                    ConfirmationDialog(
+                        title: Text("Reset Settings?"),
+                        text: Text("This will reset all your preferences to default values."),
+                        confirm: Text("Yes, Reset"),
+                        deny: Text("Cancel")
+                    ).style(.danger)
+                )
         }
         .blockId("action_buttons")
         
@@ -347,5 +349,90 @@ private let jsonDecoder = JSONDecoder()
         #expect(checkboxesElement.focusOnLoad == true)
     default:
         Issue.record("Expected checkboxes element")
+    }
+}
+
+@Test func testAutoclosureModifiers() throws {
+    // Test Button with autoclosure confirm
+    let button = Button("Delete")
+        .actionId("delete_action")
+        .style(.danger)
+        .confirm(
+            ConfirmationDialog(
+                title: Text("Are you sure?"),
+                text: Text("This action cannot be undone."),
+                confirm: Text("Yes, delete"),
+                deny: Text("Cancel")
+            ).style(.danger)
+        )
+    
+    let actionElement = button.asActionElement()
+    switch actionElement {
+    case .button(let buttonElement):
+        #expect(buttonElement.confirm != nil)
+        #expect(buttonElement.confirm?.title.text == "Are you sure?")
+        #expect(buttonElement.confirm?.style == .danger)
+    default:
+        Issue.record("Expected button element")
+    }
+    
+    // Test PlainTextInput with autoclosure placeholder
+    let input = PlainTextInput()
+        .placeholder(Text("Enter your email address").emoji(false))
+        .actionId("email_input")
+    
+    let inputElement = input.asInputElement()
+    switch inputElement {
+    case .plainTextInput(let plainTextElement):
+        #expect(plainTextElement.placeholder?.text == "Enter your email address")
+        #expect(plainTextElement.placeholder?.emoji == false)
+    default:
+        Issue.record("Expected plain text input element")
+    }
+    
+    // Test Checkboxes with autoclosure confirm
+    let checkboxes = Checkboxes {
+        Option("Delete all data").value("delete_all")
+    }
+    .confirm(
+        ConfirmationDialog(
+            title: Text("Confirm deletion"),
+            text: Text("This will delete all your data permanently."),
+            confirm: Text("Delete"),
+            deny: Text("Keep my data")
+        ).style(.danger)
+    )
+    
+    let checkboxElement = checkboxes.asActionElement()
+    switch checkboxElement {
+    case .checkboxes(let element):
+        #expect(element.confirm?.title.text == "Confirm deletion")
+    default:
+        Issue.record("Expected checkboxes element")
+    }
+    
+    // Test Section with autoclosure accessory
+    let section = Section {
+        Text("Click to continue →").style(.mrkdwn)
+    }
+    .accessory(
+        Button("Continue")
+            .actionId("continue_action")
+            .style(.primary)
+    )
+    
+    let sectionBlock = section.render()
+    switch sectionBlock {
+    case .section(let block):
+        #expect(block.accessory != nil)
+        switch block.accessory {
+        case .button(let button)?:
+            #expect(button.text.text == "Continue")
+            #expect(button.style == .primary)
+        default:
+            Issue.record("Expected button accessory")
+        }
+    default:
+        Issue.record("Expected section block")
     }
 }

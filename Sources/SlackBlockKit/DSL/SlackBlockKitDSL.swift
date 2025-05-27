@@ -123,9 +123,9 @@ public struct Section: BlockComponent {
         // Empty section for accessory-only use
     }
     
-    public func accessory<T: SectionAccessoryConvertible>(_ accessory: T) -> Section {
+    public func accessory<T: SectionAccessoryConvertible>(_ accessory: @autoclosure () -> T) -> Section {
         var copy = self
-        copy.accessory = accessory.asSectionAccessory()
+        copy.accessory = accessory().asSectionAccessory()
         return copy
     }
     
@@ -163,9 +163,9 @@ public struct Input<Element: InputElementConvertible>: BlockComponent {
         self.label = label()
     }
     
-    public func hint(_ hint: Text) -> Input {
+    public func hint(_ hint: @autoclosure () -> Text) -> Input {
         var copy = self
-        copy.hint = hint
+        copy.hint = hint()
         return copy
     }
     
@@ -236,9 +236,9 @@ public struct Checkboxes: InputElementConvertible, ActionElementConvertible {
         return copy
     }
     
-    public func confirm(_ confirm: ConfirmationDialog) -> Checkboxes {
+    public func confirm(_ confirm: @autoclosure () -> ConfirmationDialog) -> Checkboxes {
         var copy = self
-        copy.confirm = confirm
+        copy.confirm = confirm()
         return copy
     }
     
@@ -283,9 +283,9 @@ public struct PlainTextInput: InputElementConvertible {
     
     public init() {}
     
-    public func placeholder(_ placeholder: Text) -> PlainTextInput {
+    public func placeholder(_ placeholder: @autoclosure () -> Text) -> PlainTextInput {
         var copy = self
-        copy.placeholder = placeholder
+        copy.placeholder = placeholder()
         return copy
     }
     
@@ -394,9 +394,9 @@ public struct Button: ActionElementConvertible, SectionAccessoryConvertible {
         return copy
     }
     
-    public func confirm(_ confirm: ConfirmationDialog) -> Button {
+    public func confirm(_ confirm: @autoclosure () -> ConfirmationDialog) -> Button {
         var copy = self
-        copy.confirm = confirm
+        copy.confirm = confirm()
         return copy
     }
     
@@ -674,19 +674,30 @@ public struct Modal: ViewConvertible {
 
 // MARK: - Protocol Conformances
 
+/// Protocol for types that can be converted to InputElementType.
+/// Note: The conversion methods are implementation details and not intended for direct use.
 public protocol InputElementConvertible {
+    /// Converts to InputElementType. This is an implementation detail.
     func asInputElement() -> InputElementType
 }
 
+/// Protocol for types that can be converted to ActionElementType.
+/// Note: The conversion methods are implementation details and not intended for direct use.
 public protocol ActionElementConvertible {
+    /// Converts to ActionElementType. This is an implementation detail.
     func asActionElement() -> ActionElementType
 }
 
+/// Protocol for types that can be converted to SectionAccessory.
+/// Note: The conversion methods are implementation details and not intended for direct use.
 public protocol SectionAccessoryConvertible {
+    /// Converts to SectionAccessory. This is an implementation detail.
     func asSectionAccessory() -> SectionAccessory
 }
 
+/// Protocol for types that can be converted to ViewType.
 public protocol ViewConvertible {
+    /// Converts to ViewType. Use this method to get the final view representation.
     func asView() -> ViewType
 }
 
