@@ -4,7 +4,7 @@ import SlackClient
 import SlackBlockKit
 
 @main
-struct CLI {
+struct Command {
     static func main() async throws {
         guard let accessToken = ProcessInfo.processInfo.environment["SLACK_OAUTH_TOKEN"],
               let appLevelToken = ProcessInfo.processInfo.environment["SLACK_APP_LEVEL_TOKEN"] else {
@@ -23,51 +23,49 @@ struct CLI {
 
         let router = SocketModeMessageRouter()
 
-        router.onSocketModeMessage { api, envelope in
+        router.onSocketModeMessage { context, envelope in
             print("onMessage")
         }
 
-        router.onEvent { api, envelope in
+        router.onEvent { context, envelope in
             switch envelope.event {
             case .appMention:
-                print("global onEvent appMention")
+                print("onEvent: appMention")
             case .message:
-                print("global onEvent meessage")
+                print("onEvent: meessage")
             default:
                 break
             }
         }
 
-        router.onEvent(AppMentionEvent.self) { api, envelope, payload in
-            print("onEvent(AppMentionEvent.self)")
+        router.onEvent(AppMentionEvent.self) { context, envelope, payload in
+            print("onEvent: AppMentionEvent")
         }
 
         router.onInteractive { context, envelope in
             switch envelope.body {
-            case .shortcut(let payload):
-                print(payload)
-                let view: ModalView  = ModalView(
-                    title: .init(type: .plainText, text: "Modal test"),
-                    blocks: [
-                        .section(.init(text: .init(type: .plainText, text: "Section")))
-                    ]
-                )
-                let resp = try await context.client.viewsOpen(.init(body: .json(.init(view: .modal(view), triggerId: payload.triggerId))))
-                print(try resp.ok.body.json)
-            default:
-                break
+            case .shortcut:
+                print("onInteractive: .shortcut")
+            case .blockActions:
+                print("onInteractive: .blockActions")
+            case .viewSubmission:
+                print("onInteractive: .viewSubmission")
+            case .viewClosed:
+                print("onInteractive: .viewClosed")
+            case .unsupported:
+                print("onInteractive: .unsupported")
             }
         }
 
-        router.onGlboalShortcut("run-something") { api, payload in
+        router.onGlboalShortcut("run-something") { context, payload in
             print("onGlobalShortcut: \(payload.type) \(payload.callbackId!)")
         }
 
-        router.onBlockAction("run-something") { api, payload in
+        router.onBlockAction("run-something") { context, payload in
             print("onGlobalShortcut: \(payload.type) \(payload.callbackId!)")
         }
 
-        router.onSlackMessageMatched(with: "Hello", "World") { api, envelope, payload in
+        router.onSlackMessageMatched(with: "Hello", "World") { context, envelope, payload in
             print("onSlackMessageMatched: \(payload.text!)")
         }
 

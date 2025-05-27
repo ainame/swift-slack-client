@@ -3,7 +3,7 @@ import SlackClient
 import OpenAPIAsyncHTTPClient
 
 @main
-struct CLI {
+struct Command {
     static func main() async throws {
         guard let accessToken = ProcessInfo.processInfo.environment["SLACK_OAUTH_TOKEN"] else {
             print("Prepare SLACK_OAUTH_TOKEN to run this script")
