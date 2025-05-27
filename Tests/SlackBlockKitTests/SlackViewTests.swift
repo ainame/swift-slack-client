@@ -1,3 +1,4 @@
+import Foundation
 import Testing
 @testable import SlackBlockKit
 
@@ -227,11 +228,11 @@ struct SlackViewTests {
             let userName: String
 
             var title: TextObject {
-                "Hello \(userName)".asTextObject()
+                TextObject(type: .plainText, text: "Hello \(userName)")
             }
 
             var submit: TextObject? {
-                "Submit".asTextObject()
+                TextObject(type: .plainText, text: "Submit")
             }
 
             var callbackId: String? {
@@ -311,7 +312,7 @@ struct SlackViewTests {
     @Test func minimalModalView() {
         struct MinimalModal: SlackModalView {
             var title: TextObject {
-                "Minimal Modal".asTextObject()
+                TextObject(type: .plainText, text: "Minimal Modal")
             }
 
             var blocks: [BlockType] {

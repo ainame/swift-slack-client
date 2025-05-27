@@ -731,30 +731,6 @@ public struct StaticSelect: InputElementConvertible, ActionElementConvertible, S
         self.optionGroups = optionGroups()
     }
 
-    public func options(_ options: [Option]) -> StaticSelect {
-        var copy = self
-        copy.options = options
-        return copy
-    }
-
-    public func options(@OptionBuilder _ options: () -> [Option]) -> StaticSelect {
-        var copy = self
-        copy.options = options()
-        return copy
-    }
-
-    public func optionGroups(_ groups: [OptionGroup]) -> StaticSelect {
-        var copy = self
-        copy.optionGroups = groups
-        return copy
-    }
-
-    public func optionGroups(@OptionGroupBuilder _ groups: () -> [OptionGroup]) -> StaticSelect {
-        var copy = self
-        copy.optionGroups = groups()
-        return copy
-    }
-
     public func actionId(_ id: String) -> StaticSelect {
         var copy = self
         copy.actionId = id

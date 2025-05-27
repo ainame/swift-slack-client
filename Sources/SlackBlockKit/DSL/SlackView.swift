@@ -98,78 +98,11 @@ public extension SlackHomeTabView {
     }
 }
 
-// MARK: - Built-in Views
-
-/// An empty view that renders no blocks
-public struct EmptyView: SlackView {
-    @BlockBuilder
-    public var blocks: [BlockType] {
-        // Empty - produces no blocks
-    }
-
-    public init() {}
-}
-
-/// A view that groups multiple blocks together
-public struct Group: SlackView {
-    private let _blocks: [BlockType]
-
-    @BlockBuilder
-    public var blocks: [BlockType] {
-        for block in _blocks {
-            block
-        }
-    }
-
-    public init(@BlockBuilder content: () -> [BlockType]) {
-        self._blocks = content()
-    }
-}
-
-// MARK: - Type Erasure
-
-/// A type-erased Slack view
-public struct AnySlackView: SlackView {
-    private let _blocks: () -> [BlockType]
-
-    @BlockBuilder
-    public var blocks: [BlockType] {
-        for block in _blocks() {
-            block
-        }
-    }
-
-    public init<V: SlackView>(_ view: V) {
-        self._blocks = { view.blocks }
-    }
-}
-
 // MARK: - Convenience Extensions
 
 /// Extension to allow embedding SlackViews within other views
 extension BlockBuilder {
     public static func buildExpression<V: SlackView>(_ expression: V) -> [BlockType] {
         expression.blocks
-    }
-}
-
-// MARK: - Helper Extensions
-
-public extension String {
-    /// Converts a string to a plain text TextObject
-    func asTextObject() -> TextObject {
-        TextObject(type: .plainText, text: self)
-    }
-
-    /// Converts a string to a markdown TextObject
-    func asMrkdwnTextObject() -> TextObject {
-        TextObject(type: .mrkdwn, text: self)
-    }
-}
-
-public extension Text {
-    /// Converts a Text to a TextObject
-    func asTextObject() -> TextObject {
-        render()
     }
 }

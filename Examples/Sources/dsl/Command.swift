@@ -256,27 +256,26 @@ struct Command {
                 }
 
                 Input {
-                    StaticSelect()
-                        .actionId("category_select")
-                        .placeholder("Select from categories")
-                        .optionGroups {
-                            OptionGroup(label: "Development") {
-                                Option("🐍 Python").value("python")
-                                Option("☕ Java").value("java")
-                                Option("🦀 Rust").value("rust")
-                                Option("🔷 TypeScript").value("typescript")
-                            }
-                            OptionGroup(label: "Design") {
-                                Option("🎨 Figma").value("figma")
-                                Option("✨ Sketch").value("sketch")
-                                Option("🌈 Adobe XD").value("xd")
-                            }
-                            OptionGroup(label: "Management") {
-                                Option("📊 Jira").value("jira")
-                                Option("📝 Notion").value("notion")
-                                Option("📋 Trello").value("trello")
-                            }
+                    StaticSelect {
+                        OptionGroup(label: "Development") {
+                            Option("🐍 Python").value("python")
+                            Option("☕ Java").value("java")
+                            Option("🦀 Rust").value("rust")
+                            Option("🔷 TypeScript").value("typescript")
                         }
+                        OptionGroup(label: "Design") {
+                            Option("🎨 Figma").value("figma")
+                            Option("✨ Sketch").value("sketch")
+                            Option("🌈 Adobe XD").value("xd")
+                        }
+                        OptionGroup(label: "Management") {
+                            Option("📊 Jira").value("jira")
+                            Option("📝 Notion").value("notion")
+                            Option("📋 Trello").value("trello")
+                        }
+                    }
+                    .actionId("category_select")
+                    .placeholder("Select from categories")
                 } label: {
                     Text("Primary Tool")
                 }
