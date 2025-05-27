@@ -15,11 +15,11 @@ public struct SocketModeMessageEnvelope: Decodable, Hashable, Sendable {
     public let payload: Payload
     public let acceptsResponsePayload: Bool
 
-    public enum CodingKeys: CodingKey {
-        case envelopeId
+    public enum CodingKeys: String, CodingKey {
+        case envelopeId = "envelope_id"
         case type
         case payload
-        case acceptsResponsePayload
+        case acceptsResponsePayload = "accepts_response_payload"
     }
 
     public init(from decoder: any Decoder) throws {

@@ -4,12 +4,22 @@ import Foundation
 struct SocketModeHelloMessage: Decodable {
     struct ConnectionInfo: Decodable {
         let appId: String
+        
+        private enum CodingKeys: String, CodingKey {
+            case appId = "app_id"
+        }
     }
 
     struct DebugInfo: Decodable {
         let approximateConnectionTime: Int
         let buildNumber: Int
         let host: String
+        
+        private enum CodingKeys: String, CodingKey {
+            case approximateConnectionTime = "approximate_connection_time"
+            case buildNumber = "build_number"
+            case host
+        }
     }
 
     let type: String
@@ -17,11 +27,11 @@ struct SocketModeHelloMessage: Decodable {
     let debugInfo: DebugInfo
     let numConnections: Int
 
-    enum CodingKeys: CodingKey {
+    enum CodingKeys: String, CodingKey {
         case type
-        case connectionInfo
-        case debugInfo
-        case numConnections
+        case connectionInfo = "connection_info"
+        case debugInfo = "debug_info"
+        case numConnections = "num_connections"
     }
 
     init(from decoder: any Decoder) throws {

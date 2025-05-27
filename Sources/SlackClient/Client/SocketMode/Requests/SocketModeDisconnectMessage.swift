@@ -10,10 +10,10 @@ struct SocketModeDisconnectMessage: Decodable {
     let reason: String
     let debugInfo: DebugInfo
 
-    enum CodingKeys: CodingKey {
+    enum CodingKeys: String, CodingKey {
         case type
         case reason
-        case debugInfo
+        case debugInfo = "debug_info"
     }
 
     init(from decoder: any Decoder) throws {
