@@ -281,8 +281,196 @@ All manually created models now include explicit CodingKeys for snake_case conve
 - Interaction Payloads: BlockActionsPaylaod, GlobalShortcutPayload, ViewClosedPayload, ViewSubmissionPayload  
 - SocketMode Messages: EventsApiEnvelope, SocketModeDisconnectMessage, SocketModeHelloMessage, SocketModeMessageEnvelope, SocketModeAcknowledgementlMessage
 
+## SlackView Protocol System
+
+A SwiftUI-inspired protocol system for building Slack Block Kit views at `Sources/SlackBlockKit/DSL/SlackView.swift`:
+
+### Core Protocol Design
+
+```swift
+/// Base protocol for all Slack views  
+public protocol SlackView {
+    @BlockBuilder
+    var blocks: [BlockType] { get }
+}
+
+/// Protocol for modal views
+public protocol SlackModalView: SlackView {
+    var title: TextObject { get }
+    var submit: TextObject? { get }
+    var close: TextObject? { get }
+    var callbackId: String? { get }
+    // ... other modal properties with defaults
+}
+
+/// Protocol for home tab views
+public protocol SlackHomeTabView: SlackView {
+    var externalId: String? { get }
+    var privateMetadata: String? { get }
+}
+```
+
+### Key Features
+
+1. **Type Safety**: Compiler ensures all required properties are implemented
+2. **Default Implementations**: Optional properties have sensible defaults (`nil`)
+3. **Unified Build Method**: Both protocols use `build()` to create final view types
+4. **Blocks Property**: Uses `blocks` (not `body`) to match BlockKit API naming
+5. **Native Control Flow**: Works with Swift's `if/else` and `for-in` loops naturally
+
+### Usage Examples
+
+```swift
+struct WelcomeModal: SlackModalView {
+    let userName: String
+    
+    var title: TextObject {
+        "Welcome \(userName)!" // ✨ String literal support
+    }
+    
+    var submit: TextObject? {
+        "Get Started"
+    }
+    
+    var blocks: [BlockType] {
+        Section {
+            Text("Welcome to our workspace!")
+        }
+        
+        for feature in ["Chat", "Share", "Meet"] {
+            Section {
+                Text("• \(feature)")
+            }
+        }
+    }
+}
+
+// Usage
+let modal = WelcomeModal(userName: "Alice")
+let modalView = modal.build() // Returns ModalView
+```
+
+### Reusable Subviews
+
+SlackView protocol enables composition and reusability:
+
+```swift
+struct UserStatsView: SlackView {
+    let userName: String
+    let messageCount: Int
+    
+    var blocks: [BlockType] {
+        Section {
+            Text("*\(userName)'s Activity*").style(.mrkdwn)
+            Text("Messages: \(messageCount)")
+        }
+    }
+}
+
+// Embed in other views
+struct ProfileModal: SlackModalView {
+    var blocks: [BlockType] {
+        Header { Text("Profile") }
+        
+        UserStatsView(userName: "Alice", messageCount: 42) // ✨ Reusable subview
+        
+        Actions {
+            Button("Edit Profile").actionId("edit")
+        }
+    }
+}
+```
+
+### Testing
+
+Tests use swift-testing framework and verify:
+- Native for-in loops work with @BlockBuilder
+- Conditional rendering with if/else
+- Nested loops and complex control flow
+- Modal and home tab protocol implementations
+- Subview composition and reusability
+
+### Benefits
+
+- **SwiftUI-like**: Familiar protocol-based design pattern
+- **Type Safe**: Compile-time guarantees for required view properties  
+- **Composable**: Easy to create reusable subview components
+- **Clean API**: Unified `build()` method for all view types
+- **BlockKit Consistent**: Uses `blocks` property to match Slack's API naming
+
+## TextObject ExpressibleByStringLiteral
+
+TextObject now conforms to `ExpressibleByStringLiteral` for clean, SwiftUI-like syntax at `Sources/SlackBlockKit/CompositionObjects/TextObject.swift`:
+
+### Implementation
+
+```swift
+extension TextObject: ExpressibleByStringLiteral {
+    /// Creates a plain text TextObject from a string literal
+    public init(stringLiteral value: String) {
+        self.init(type: .plainText, text: value)
+    }
+}
+```
+
+### Before vs After
+
+**❌ Old verbose way:**
+```swift
+var title: TextObject {
+    "Hello".asTextObject()
+}
+
+var submit: TextObject? {
+    "Submit".asTextObject()
+}
+```
+
+**✅ New clean way:**
+```swift
+var title: TextObject {
+    "Hello" // ✨ String literal becomes TextObject automatically
+}
+
+var submit: TextObject? {
+    "Submit" // ✨ Clean and readable
+}
+```
+
+### Features
+
+1. **String Interpolation**: Works with `"Hello \(userName)!"`
+2. **Conditional Support**: `hasMessages ? "New Messages" : "All Clear"`
+3. **Backward Compatible**: Old explicit syntax still works
+4. **SwiftUI-like**: Follows Swift's native ExpressibleBy patterns
+5. **Plain Text Default**: String literals create `.plainText` type (use `.asMrkdwnTextObject()` for markdown)
+
+### Usage Examples
+
+```swift
+struct CleanModal: SlackModalView {
+    let userName: String
+    let hasNotifications: Bool
+    
+    var title: TextObject {
+        hasNotifications ? 
+            "You have new messages!" : 
+            "All caught up \(userName)!"
+    }
+    
+    var blocks: [BlockType] {
+        Section {
+            Text("Much cleaner syntax!")
+        }
+    }
+}
+```
+
 ## Memories
 
 - Since swift-openapi-generator can't rely on keyEncoding/DecodingStrategy option, we need to use hardcoded CodingKeys entirely to convert snake_case <-> lowerCamel keys.
 - The `_type` property is preserved as-is from swift-openapi-generator (not transformed to `type`) to maintain consistency across the codebase.
 - All DSL components in SlackBlockKit use @autoclosure modifiers for cleaner syntax without explicit closures.
+- SlackView protocol uses `blocks` property (not `body`) to match BlockKit API naming conventions.
+- TextObject implements ExpressibleByStringLiteral for clean string literal syntax, defaulting to `.plainText` type.
+- Tests use swift-testing framework (not XCTest) for modern Swift testing patterns.
