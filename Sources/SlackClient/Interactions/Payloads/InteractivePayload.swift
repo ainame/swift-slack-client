@@ -15,12 +15,12 @@ public enum InteractivePayload: Decodable, Hashable, Sendable {
 }
 
 extension InteractivePayload {
-    public var type: String {
+    public var _type: String {
         switch self {
-        case let .blockActions(payload): payload.type
-        case let .shortcut(payload): payload.type
-        case let .viewClosed(payload): payload.type
-        case let .viewSubmission(payload): payload.type
+        case let .blockActions(payload): payload._type
+        case let .shortcut(payload): payload._type
+        case let .viewClosed(payload): payload._type
+        case let .viewSubmission(payload): payload._type
         case let .unsupported(t): t
         }
     }

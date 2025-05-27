@@ -5,7 +5,7 @@ import SlackModels
 
 // https://docs.slack.dev/reference/interaction-payloads/block_actions-payload#fields
 public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendable {
-    public let type: String // "block_actions"
+    public let _type = "block_actions"
     public let triggerId: String?
     public let user: User
     public let team: Team
@@ -16,7 +16,7 @@ public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendab
     public let view: ViewType
     
     private enum CodingKeys: String, CodingKey {
-        case type
+        case _type = "type"
         case triggerId = "trigger_id"
         case user
         case team

@@ -3,14 +3,14 @@ import SlackBlockKit
 import SlackModels
 
 public struct ViewClosedPayload: InteractivePayloadProtocol, Decodable, Sendable {
-    public let type: String // view_closed
+    public let _type = "view_closed"
     public let team: Team
     public let user: User
     public let view: ViewType
     public let isCleared: Bool
     
     private enum CodingKeys: String, CodingKey {
-        case type
+        case _type = "type"
         case team
         case user
         case view
