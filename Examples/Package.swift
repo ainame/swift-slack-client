@@ -7,6 +7,7 @@ var targets: [Target] = []
 targets.append(executable("chatPostMessage"))
 targets.append(executable("router"))
 targets.append(executable("dsl"))
+targets.append(executable("slackview-demo"))
 
 let package = Package(
     name: "Examples",
@@ -25,11 +26,7 @@ let package = Package(
         ),
         .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
     ],
-    targets: [
-        executable("chatPostMessage"),
-        executable("router"),
-        executable("dsl"),
-    ]
+    targets: targets
 )
 
 func products(from targets: [Target]) -> [Product] {
