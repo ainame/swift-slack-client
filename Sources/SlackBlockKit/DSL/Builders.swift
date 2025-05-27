@@ -13,20 +13,15 @@ public struct BlockBuilder {
     }
     
     // Handle single BlockComponent  
-    public static func buildBlock<C: BlockComponent>(_ component: C) -> [BlockType] where C.Output == BlockType {
+    public static func buildBlock<C: BlockComponent>(_ component: C) -> [BlockType] {
         [component.render()]
     }
     
     // Handle multiple BlockComponents
     public static func buildBlock(_ first: any BlockComponent, _ rest: any BlockComponent...) -> [BlockType] {
-        var result: [BlockType] = []
-        if let blockType = first.render() as? BlockType {
-            result.append(blockType)
-        }
+        var result: [BlockType] = [first.render()]
         for component in rest {
-            if let blockType = component.render() as? BlockType {
-                result.append(blockType)
-            }
+            result.append(component.render())
         }
         return result
     }
@@ -47,7 +42,7 @@ public struct BlockBuilder {
         component
     }
     
-    public static func buildExpression<C: BlockComponent>(_ expression: C) -> [BlockType] where C.Output == BlockType {
+    public static func buildExpression<C: BlockComponent>(_ expression: C) -> [BlockType] {
         [expression.render()]
     }
 }
@@ -60,18 +55,16 @@ public struct ActionElementBuilder {
     }
     
     // Handle arrays of ActionElementType (from buildExpression)
+    public static func buildBlock(_ components: ActionElementType...) -> [ActionElementType] {
+        components
+    }
+    
     public static func buildBlock(_ components: [ActionElementType]...) -> [ActionElementType] {
         components.flatMap { $0 }
     }
     
-    // Handle single ActionElement
-    public static func buildBlock(_ element: any ActionElement) -> [ActionElementType] {
-        [element.toActionElement()]
-    }
-    
-    // Handle multiple ActionElements
-    public static func buildBlock(_ elements: any ActionElement...) -> [ActionElementType] {
-        elements.map { $0.toActionElement() }
+    public static func buildExpression<T: ActionElementConvertible>(_ expression: T) -> ActionElementType {
+        expression.asActionElement()
     }
     
     public static func buildArray(_ components: [[ActionElementType]]) -> [ActionElementType] {
@@ -89,10 +82,6 @@ public struct ActionElementBuilder {
     public static func buildEither(second component: [ActionElementType]) -> [ActionElementType] {
         component
     }
-    
-    public static func buildExpression(_ expression: any ActionElement) -> [ActionElementType] {
-        [expression.toActionElement()]
-    }
 }
 
 /// Result builder for constructing arrays of context elements
@@ -103,18 +92,16 @@ public struct ContextElementBuilder {
     }
     
     // Handle arrays of ContextElementType (from buildExpression)
-    public static func buildBlock(_ components: [ContextElementType]...) -> [ContextElementType] {
-        components.flatMap { $0 }
+    public static func buildBlock(_ components: ContextElementType...) -> [ContextElementType] {
+        components
     }
     
-    // Handle single ContextElement
-    public static func buildBlock(_ element: any ContextElement) -> [ContextElementType] {
-        [element.toContextElement()]
+    public static func buildExpression(_ expression: Text) -> ContextElementType {
+        .text(expression.render())
     }
     
-    // Handle multiple ContextElements
-    public static func buildBlock(_ elements: any ContextElement...) -> [ContextElementType] {
-        elements.map { $0.toContextElement() }
+    public static func buildExpression(_ expression: ContextImage) -> ContextElementType {
+        expression.asContextElement()
     }
     
     public static func buildArray(_ components: [[ContextElementType]]) -> [ContextElementType] {
@@ -132,36 +119,52 @@ public struct ContextElementBuilder {
     public static func buildEither(second component: [ContextElementType]) -> [ContextElementType] {
         component
     }
-    
-    public static func buildExpression(_ expression: any ContextElement) -> [ContextElementType] {
-        [expression.toContextElement()]
+}
+
+/// Result builder for Text DSL components
+@resultBuilder
+public struct TextBuilder {
+    public static func buildBlock(_ component: Text) -> Text {
+        component
     }
 }
 
-/// Result builder for text content
+/// Result builder for lists of Text components
 @resultBuilder
-public struct TextBuilder {
-    public static func buildBlock() -> String {
-        ""
+public struct TextListBuilder {
+    public static func buildBlock(_ components: Text...) -> [Text] {
+        components
+    }
+}
+
+/// Result builder for Option components
+@resultBuilder
+public struct OptionBuilder {
+    public static func buildBlock(_ components: Option...) -> [Option] {
+        components
     }
     
-    public static func buildBlock(_ components: String...) -> String {
-        components.joined()
+    public static func buildArray(_ components: [[Option]]) -> [Option] {
+        components.flatMap { $0 }
     }
     
-    public static func buildArray(_ components: [String]) -> String {
-        components.joined()
+    public static func buildOptional(_ component: [Option]?) -> [Option] {
+        component ?? []
     }
     
-    public static func buildOptional(_ component: String?) -> String {
-        component ?? ""
-    }
-    
-    public static func buildEither(first component: String) -> String {
+    public static func buildEither(first component: [Option]) -> [Option] {
         component
     }
     
-    public static func buildEither(second component: String) -> String {
+    public static func buildEither(second component: [Option]) -> [Option] {
+        component
+    }
+}
+
+/// Result builder for input elements
+@resultBuilder
+public struct InputElementBuilder {
+    public static func buildBlock<T: InputElementConvertible>(_ component: T) -> T {
         component
     }
 }

@@ -2,11 +2,8 @@ import Foundation
 
 /// Protocol for components that can render to BlockKit blocks
 public protocol BlockComponent {
-    /// The concrete block type this component renders to
-    associatedtype Output: Codable
-    
     /// Renders this component to its BlockKit representation
-    func render() -> Output
+    func render() -> BlockType
 }
 
 /// Protocol for components that can be used inside blocks (elements)
