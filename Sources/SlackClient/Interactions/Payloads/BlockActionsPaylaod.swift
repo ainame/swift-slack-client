@@ -9,7 +9,7 @@ public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendab
     public let triggerId: String?
     public let user: User
     public let team: Team
-    public let container: OpenAPIObjectContainer
+    public let container: Container
     public let apiAppId: String?
     public let actions: [ActionElementType]?
     public let channel: Channel?

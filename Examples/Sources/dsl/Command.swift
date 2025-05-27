@@ -194,7 +194,7 @@ struct Command {
             let response = try await context.client.viewsUpdate(
                 .init(body: .json(.init(
                     view: view,
-                    viewId: payload.container.value["view_id"] as? String ?? ""
+                    viewId: payload.container.viewId
                 )))
             )
 
