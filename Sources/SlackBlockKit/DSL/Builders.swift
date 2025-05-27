@@ -6,17 +6,17 @@ public struct BlockBuilder {
     public static func buildBlock() -> [BlockType] {
         []
     }
-    
+
     // Handle arrays of BlockType (which is what gets passed from buildExpression)
     public static func buildBlock(_ components: [BlockType]...) -> [BlockType] {
         components.flatMap { $0 }
     }
-    
-    // Handle single BlockComponent  
+
+    // Handle single BlockComponent
     public static func buildBlock<C: BlockComponent>(_ component: C) -> [BlockType] {
         [component.render()]
     }
-    
+
     // Handle multiple BlockComponents
     public static func buildBlock(_ first: any BlockComponent, _ rest: any BlockComponent...) -> [BlockType] {
         var result: [BlockType] = [first.render()]
@@ -25,25 +25,29 @@ public struct BlockBuilder {
         }
         return result
     }
-    
+
     public static func buildArray(_ components: [[BlockType]]) -> [BlockType] {
         components.flatMap { $0 }
     }
-    
+
     public static func buildOptional(_ component: [BlockType]?) -> [BlockType] {
         component ?? []
     }
-    
+
     public static func buildEither(first component: [BlockType]) -> [BlockType] {
         component
     }
-    
+
     public static func buildEither(second component: [BlockType]) -> [BlockType] {
         component
     }
-    
+
     public static func buildExpression<C: BlockComponent>(_ expression: C) -> [BlockType] {
         [expression.render()]
+    }
+
+    public static func buildExpression(_ expression: BlockType) -> [BlockType] {
+        [expression]
     }
 }
 
@@ -53,32 +57,32 @@ public struct ActionElementBuilder {
     public static func buildBlock() -> [ActionElementType] {
         []
     }
-    
+
     // Handle arrays of ActionElementType (from buildExpression)
     public static func buildBlock(_ components: ActionElementType...) -> [ActionElementType] {
         components
     }
-    
+
     public static func buildBlock(_ components: [ActionElementType]...) -> [ActionElementType] {
         components.flatMap { $0 }
     }
-    
+
     public static func buildExpression<T: ActionElementConvertible>(_ expression: T) -> ActionElementType {
         expression.asActionElement()
     }
-    
+
     public static func buildArray(_ components: [[ActionElementType]]) -> [ActionElementType] {
         components.flatMap { $0 }
     }
-    
+
     public static func buildOptional(_ component: [ActionElementType]?) -> [ActionElementType] {
         component ?? []
     }
-    
+
     public static func buildEither(first component: [ActionElementType]) -> [ActionElementType] {
         component
     }
-    
+
     public static func buildEither(second component: [ActionElementType]) -> [ActionElementType] {
         component
     }
@@ -90,32 +94,32 @@ public struct ContextElementBuilder {
     public static func buildBlock() -> [ContextElementType] {
         []
     }
-    
+
     // Handle arrays of ContextElementType (from buildExpression)
     public static func buildBlock(_ components: ContextElementType...) -> [ContextElementType] {
         components
     }
-    
+
     public static func buildExpression(_ expression: Text) -> ContextElementType {
         .text(expression.render())
     }
-    
+
     public static func buildExpression(_ expression: ContextImage) -> ContextElementType {
         expression.asContextElement()
     }
-    
+
     public static func buildArray(_ components: [[ContextElementType]]) -> [ContextElementType] {
         components.flatMap { $0 }
     }
-    
+
     public static func buildOptional(_ component: [ContextElementType]?) -> [ContextElementType] {
         component ?? []
     }
-    
+
     public static func buildEither(first component: [ContextElementType]) -> [ContextElementType] {
         component
     }
-    
+
     public static func buildEither(second component: [ContextElementType]) -> [ContextElementType] {
         component
     }
@@ -143,43 +147,43 @@ public struct OptionBuilder {
     public static func buildBlock(_ components: Option...) -> [Option] {
         components
     }
-    
+
     public static func buildArray(_ components: [[Option]]) -> [Option] {
         components.flatMap { $0 }
     }
-    
+
     public static func buildOptional(_ component: [Option]?) -> [Option] {
         component ?? []
     }
-    
+
     public static func buildEither(first component: [Option]) -> [Option] {
         component
     }
-    
+
     public static func buildEither(second component: [Option]) -> [Option] {
         component
     }
 }
 
 /// Result builder for OptionGroup components
-@resultBuilder  
+@resultBuilder
 public struct OptionGroupBuilder {
     public static func buildBlock(_ components: OptionGroup...) -> [OptionGroup] {
         components
     }
-    
+
     public static func buildArray(_ components: [[OptionGroup]]) -> [OptionGroup] {
         components.flatMap { $0 }
     }
-    
+
     public static func buildOptional(_ component: [OptionGroup]?) -> [OptionGroup] {
         component ?? []
     }
-    
+
     public static func buildEither(first component: [OptionGroup]) -> [OptionGroup] {
         component
     }
-    
+
     public static func buildEither(second component: [OptionGroup]) -> [OptionGroup] {
         component
     }
