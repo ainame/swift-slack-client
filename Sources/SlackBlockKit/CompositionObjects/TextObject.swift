@@ -14,6 +14,15 @@ public struct TextObject: Codable, Hashable, Sendable {
     }
 }
 
+// MARK: - ExpressibleByStringLiteral
+
+extension TextObject: ExpressibleByStringLiteral {
+    /// Creates a plain text TextObject from a string literal
+    public init(stringLiteral value: String) {
+        self.init(type: .plainText, text: value)
+    }
+}
+
 public enum TextType: String, Codable, Hashable, Sendable {
     case plainText = "plain_text"
     case mrkdwn = "mrkdwn"
