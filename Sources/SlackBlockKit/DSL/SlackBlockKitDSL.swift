@@ -701,3 +701,168 @@ public protocol ViewConvertible {
     func asView() -> ViewType
 }
 
+// MARK: - StaticSelect DSL
+
+/// A DSL component for creating static select menus.
+public struct StaticSelect: InputElementConvertible, ActionElementConvertible, SectionAccessoryConvertible {
+    private var options: [Option]?
+    private var optionGroups: [OptionGroup]?
+    private var actionId: String?
+    private var initialOption: Option?
+    private var confirm: ConfirmationDialog?
+    private var focusOnLoad: Bool?
+    private var placeholder: Text?
+    
+    public init() {}
+    
+    public func options(_ options: [Option]) -> StaticSelect {
+        var copy = self
+        copy.options = options
+        return copy
+    }
+    
+    public func optionGroups(_ groups: [OptionGroup]) -> StaticSelect {
+        var copy = self
+        copy.optionGroups = groups
+        return copy
+    }
+    
+    public func actionId(_ id: String) -> StaticSelect {
+        var copy = self
+        copy.actionId = id
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: @autoclosure () -> Text) -> StaticSelect {
+        var copy = self
+        copy.placeholder = placeholder()
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: String) -> StaticSelect {
+        var copy = self
+        copy.placeholder = Text(placeholder)
+        return copy
+    }
+    
+    public func initialOption(_ option: @autoclosure () -> Option) -> StaticSelect {
+        var copy = self
+        copy.initialOption = option()
+        return copy
+    }
+    
+    public func confirm(_ confirm: @autoclosure () -> ConfirmationDialog) -> StaticSelect {
+        var copy = self
+        copy.confirm = confirm()
+        return copy
+    }
+    
+    public func focusOnLoad(_ focus: Bool = true) -> StaticSelect {
+        var copy = self
+        copy.focusOnLoad = focus
+        return copy
+    }
+    
+    public func asInputElement() -> InputElementType {
+        .staticSelect(StaticSelectElement(
+            options: options?.map { $0.render() },
+            optionGroups: optionGroups?.map { $0.render() },
+            actionId: actionId,
+            initialOption: initialOption?.render(),
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asActionElement() -> ActionElementType {
+        .staticSelect(StaticSelectElement(
+            options: options?.map { $0.render() },
+            optionGroups: optionGroups?.map { $0.render() },
+            actionId: actionId,
+            initialOption: initialOption?.render(),
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asSectionAccessory() -> SectionAccessory {
+        .staticSelect(StaticSelectElement(
+            options: options?.map { $0.render() },
+            optionGroups: optionGroups?.map { $0.render() },
+            actionId: actionId,
+            initialOption: initialOption?.render(),
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+}
+
+// MARK: - OptionGroup DSL
+
+/// A DSL component for creating option groups.
+public struct OptionGroup {
+    private var label: Text
+    private var options: [Option]
+    
+    public init(label: Text, @OptionBuilder options: () -> [Option]) {
+        self.label = label
+        self.options = options()
+    }
+    
+    public init(label: String, @OptionBuilder options: () -> [Option]) {
+        self.label = Text(label)
+        self.options = options()
+    }
+    
+    public func render() -> OptionGroupObject {
+        OptionGroupObject(
+            label: label.render(),
+            options: options.map { $0.render() }
+        )
+    }
+}
+
+// MARK: - HomeTab DSL
+
+/// A DSL component for creating home tab views.
+public struct HomeTab: ViewConvertible {
+    private var blocks: [BlockType]
+    private var privateMetadata: String?
+    private var callbackId: String?
+    private var externalId: String?
+    
+    public init(@BlockBuilder blocks: () -> [BlockType]) {
+        self.blocks = blocks()
+    }
+    
+    public func privateMetadata(_ metadata: String) -> HomeTab {
+        var copy = self
+        copy.privateMetadata = metadata
+        return copy
+    }
+    
+    public func callbackId(_ id: String) -> HomeTab {
+        var copy = self
+        copy.callbackId = id
+        return copy
+    }
+    
+    public func externalId(_ id: String) -> HomeTab {
+        var copy = self
+        copy.externalId = id
+        return copy
+    }
+    
+    public func asView() -> ViewType {
+        .homeTab(HomeTabView(
+            blocks: blocks,
+            privateMetadata: privateMetadata,
+            callbackId: callbackId,
+            externalId: externalId
+        ))
+    }
+}
+
