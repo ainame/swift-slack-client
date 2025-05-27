@@ -1,5 +1,5 @@
 import Foundation
-import SlackBlockKit
+import SlackBlockKitDSL
 
 // MARK: - Example SlackViews
 

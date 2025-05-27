@@ -1,4 +1,4 @@
-import SlackBlockKit
+import SlackBlockKitDSL
 
 // MARK: - Demonstrating TextObject ExpressibleByStringLiteral
 

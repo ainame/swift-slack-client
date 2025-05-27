@@ -1,7 +1,7 @@
 import Foundation
 import OpenAPIAsyncHTTPClient
 import SlackClient
-import SlackBlockKit
+import SlackBlockKitDSL
 
 @main
 struct Command {

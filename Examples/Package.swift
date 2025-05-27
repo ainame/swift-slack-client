@@ -38,7 +38,7 @@ func executable(_ name: String) -> Target {
         name: name,
         dependencies: [
             .product(name: "SlackClient", package: "swift-slack-client"),
-            .product(name: "SlackBlockKit", package: "swift-slack-client"),
+            .product(name: "SlackBlockKitDSL", package: "swift-slack-client"),
             .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
         ]
     )

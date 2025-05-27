@@ -1,7 +1,7 @@
 import Foundation
 import ArgumentParser
 import SlackClient
-import SlackBlockKit
+import SlackBlockKitDSL
 import SlackModels
 
 // A simple example demonstrating SlackView usage

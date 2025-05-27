@@ -1,4 +1,4 @@
-import SlackBlockKit
+import SlackBlockKitDSL
 
 // MARK: - Clean Modal Examples with String Literals
 

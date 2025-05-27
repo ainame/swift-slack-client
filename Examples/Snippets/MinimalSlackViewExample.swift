@@ -1,5 +1,5 @@
 import Foundation
-import SlackBlockKit
+import SlackBlockKitDSL
 
 // A minimal example showing the clean SlackView syntax without buildBlocks
 

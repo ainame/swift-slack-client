@@ -1,4 +1,4 @@
-import SlackBlockKit
+import SlackBlockKitDSL
 
 // Simple modal with minimal configuration
 struct SimpleGreetingModal: SlackModalView {

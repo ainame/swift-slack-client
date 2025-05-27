@@ -1,4 +1,4 @@
-import SlackBlockKit
+import SlackBlockKitDSL
 
 // Simple modal example
 struct WelcomeModal: SlackModalView {

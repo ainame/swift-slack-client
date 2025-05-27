@@ -1,7 +1,7 @@
 import Foundation
 import OpenAPIAsyncHTTPClient
 import SlackClient
-import SlackBlockKit
+import SlackBlockKitDSL
 
 @main
 struct Command {
@@ -24,7 +24,9 @@ struct Command {
         let router = SocketModeMessageRouter()
 
         // Handle global shortcuts
-        router.onGlboalShortcut("run-something") { context, payload in
+        router.onGlboalShortcut("run-something") {
+            context,
+            payload in
             // Create a modal using the new SwiftUI-like DSL
             let view = Modal(
                 title: Text("Welcome!")
@@ -48,14 +50,13 @@ struct Command {
                 }
 
                 Input {
-                    StaticSelect()
-                        .actionId("color_select")
-                        .placeholder(Text("Choose a color"))
-                        .options {
-                            Option("Red").value("red")
-                            Option("Green").value("green")
-                            Option("Blue").value("blue")
-                        }
+                    StaticSelect() {
+                        Option("Red").value("red")
+                        Option("Green").value("green")
+                        Option("Blue").value("blue")
+                    }
+                    .actionId("color_select")
+                    .placeholder(Text("Choose a color"))
                 } label: {
                     Text("Favorite Color")
                 }
@@ -324,6 +325,7 @@ struct Command {
 
         await slack.addSocketModeMessageRouter(router)
 
+        // This is demo so this doesn't automatically reconnect to socket when disconnected
         print("Starting Socket Mode connection...")
         try await slack.runInSocketMode()
     }
