@@ -701,6 +701,12 @@ public protocol ViewConvertible {
     func asView() -> ViewType
 }
 
+/// Protocol for types that can be converted to BlockType.
+public protocol BlockConvertible {
+    /// Converts to BlockType. Use this method to get the final block representation.
+    func asBlock() -> BlockType
+}
+
 // MARK: - StaticSelect DSL
 
 /// A DSL component for creating static select menus.
@@ -862,6 +868,883 @@ public struct HomeTab: ViewConvertible {
             privateMetadata: privateMetadata,
             callbackId: callbackId,
             externalId: externalId
+        ))
+    }
+}
+
+// MARK: - ChannelsSelect DSL
+
+/// A DSL component for creating channel select menus.
+public struct ChannelsSelect: InputElementConvertible, ActionElementConvertible, SectionAccessoryConvertible {
+    private var actionId: String?
+    private var initialChannel: String?
+    private var responseUrlEnabled: Bool?
+    private var confirm: ConfirmationDialog?
+    private var focusOnLoad: Bool?
+    private var placeholder: Text?
+    
+    public init() {}
+    
+    public func actionId(_ id: String) -> ChannelsSelect {
+        var copy = self
+        copy.actionId = id
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: @autoclosure () -> Text) -> ChannelsSelect {
+        var copy = self
+        copy.placeholder = placeholder()
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: String) -> ChannelsSelect {
+        var copy = self
+        copy.placeholder = Text(placeholder)
+        return copy
+    }
+    
+    public func initialChannel(_ channelId: String) -> ChannelsSelect {
+        var copy = self
+        copy.initialChannel = channelId
+        return copy
+    }
+    
+    public func responseUrlEnabled(_ enabled: Bool = true) -> ChannelsSelect {
+        var copy = self
+        copy.responseUrlEnabled = enabled
+        return copy
+    }
+    
+    public func confirm(_ confirm: @autoclosure () -> ConfirmationDialog) -> ChannelsSelect {
+        var copy = self
+        copy.confirm = confirm()
+        return copy
+    }
+    
+    public func focusOnLoad(_ focus: Bool = true) -> ChannelsSelect {
+        var copy = self
+        copy.focusOnLoad = focus
+        return copy
+    }
+    
+    public func asInputElement() -> InputElementType {
+        .channelsSelect(ChannelsSelectElement(
+            actionId: actionId,
+            initialChannel: initialChannel,
+            responseUrlEnabled: responseUrlEnabled,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asActionElement() -> ActionElementType {
+        .channelsSelect(ChannelsSelectElement(
+            actionId: actionId,
+            initialChannel: initialChannel,
+            responseUrlEnabled: responseUrlEnabled,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asSectionAccessory() -> SectionAccessory {
+        .channelsSelect(ChannelsSelectElement(
+            actionId: actionId,
+            initialChannel: initialChannel,
+            responseUrlEnabled: responseUrlEnabled,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+}
+
+// MARK: - ExternalSelect DSL
+
+/// A DSL component for creating external select menus.
+public struct ExternalSelect: InputElementConvertible, ActionElementConvertible, SectionAccessoryConvertible {
+    private var actionId: String?
+    private var initialOption: Option?
+    private var minQueryLength: Int?
+    private var confirm: ConfirmationDialog?
+    private var focusOnLoad: Bool?
+    private var placeholder: Text?
+    
+    public init() {}
+    
+    public func actionId(_ id: String) -> ExternalSelect {
+        var copy = self
+        copy.actionId = id
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: @autoclosure () -> Text) -> ExternalSelect {
+        var copy = self
+        copy.placeholder = placeholder()
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: String) -> ExternalSelect {
+        var copy = self
+        copy.placeholder = Text(placeholder)
+        return copy
+    }
+    
+    public func initialOption(_ option: @autoclosure () -> Option) -> ExternalSelect {
+        var copy = self
+        copy.initialOption = option()
+        return copy
+    }
+    
+    public func minQueryLength(_ length: Int) -> ExternalSelect {
+        var copy = self
+        copy.minQueryLength = length
+        return copy
+    }
+    
+    public func confirm(_ confirm: @autoclosure () -> ConfirmationDialog) -> ExternalSelect {
+        var copy = self
+        copy.confirm = confirm()
+        return copy
+    }
+    
+    public func focusOnLoad(_ focus: Bool = true) -> ExternalSelect {
+        var copy = self
+        copy.focusOnLoad = focus
+        return copy
+    }
+    
+    public func asInputElement() -> InputElementType {
+        .externalSelect(ExternalSelectElement(
+            actionId: actionId,
+            initialOption: initialOption?.render(),
+            minQueryLength: minQueryLength,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asActionElement() -> ActionElementType {
+        .externalSelect(ExternalSelectElement(
+            actionId: actionId,
+            initialOption: initialOption?.render(),
+            minQueryLength: minQueryLength,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asSectionAccessory() -> SectionAccessory {
+        .externalSelect(ExternalSelectElement(
+            actionId: actionId,
+            initialOption: initialOption?.render(),
+            minQueryLength: minQueryLength,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+}
+
+// MARK: - UsersSelect DSL
+
+/// A DSL component for creating user select menus.
+public struct UsersSelect: InputElementConvertible, ActionElementConvertible, SectionAccessoryConvertible {
+    private var actionId: String?
+    private var initialUser: String?
+    private var confirm: ConfirmationDialog?
+    private var focusOnLoad: Bool?
+    private var placeholder: Text?
+    
+    public init() {}
+    
+    public func actionId(_ id: String) -> UsersSelect {
+        var copy = self
+        copy.actionId = id
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: @autoclosure () -> Text) -> UsersSelect {
+        var copy = self
+        copy.placeholder = placeholder()
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: String) -> UsersSelect {
+        var copy = self
+        copy.placeholder = Text(placeholder)
+        return copy
+    }
+    
+    public func initialUser(_ userId: String) -> UsersSelect {
+        var copy = self
+        copy.initialUser = userId
+        return copy
+    }
+    
+    public func confirm(_ confirm: @autoclosure () -> ConfirmationDialog) -> UsersSelect {
+        var copy = self
+        copy.confirm = confirm()
+        return copy
+    }
+    
+    public func focusOnLoad(_ focus: Bool = true) -> UsersSelect {
+        var copy = self
+        copy.focusOnLoad = focus
+        return copy
+    }
+    
+    public func asInputElement() -> InputElementType {
+        .usersSelect(UsersSelectElement(
+            actionId: actionId,
+            initialUser: initialUser,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asActionElement() -> ActionElementType {
+        .usersSelect(UsersSelectElement(
+            actionId: actionId,
+            initialUser: initialUser,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asSectionAccessory() -> SectionAccessory {
+        .usersSelect(UsersSelectElement(
+            actionId: actionId,
+            initialUser: initialUser,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+}
+
+// MARK: - ConversationsSelect DSL
+
+/// A DSL component for creating conversation select menus.
+public struct ConversationsSelect: InputElementConvertible, ActionElementConvertible, SectionAccessoryConvertible {
+    private var actionId: String?
+    private var initialConversation: String?
+    private var defaultToCurrentConversation: Bool?
+    private var confirm: ConfirmationDialog?
+    private var responseUrlEnabled: Bool?
+    private var filter: ConversationFilterObject?
+    private var focusOnLoad: Bool?
+    private var placeholder: Text?
+    
+    public init() {}
+    
+    public func actionId(_ id: String) -> ConversationsSelect {
+        var copy = self
+        copy.actionId = id
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: @autoclosure () -> Text) -> ConversationsSelect {
+        var copy = self
+        copy.placeholder = placeholder()
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: String) -> ConversationsSelect {
+        var copy = self
+        copy.placeholder = Text(placeholder)
+        return copy
+    }
+    
+    public func initialConversation(_ conversationId: String) -> ConversationsSelect {
+        var copy = self
+        copy.initialConversation = conversationId
+        return copy
+    }
+    
+    public func defaultToCurrentConversation(_ useDefault: Bool = true) -> ConversationsSelect {
+        var copy = self
+        copy.defaultToCurrentConversation = useDefault
+        return copy
+    }
+    
+    public func confirm(_ confirm: @autoclosure () -> ConfirmationDialog) -> ConversationsSelect {
+        var copy = self
+        copy.confirm = confirm()
+        return copy
+    }
+    
+    public func responseUrlEnabled(_ enabled: Bool = true) -> ConversationsSelect {
+        var copy = self
+        copy.responseUrlEnabled = enabled
+        return copy
+    }
+    
+    public func filter(_ filter: ConversationFilterObject) -> ConversationsSelect {
+        var copy = self
+        copy.filter = filter
+        return copy
+    }
+    
+    public func focusOnLoad(_ focus: Bool = true) -> ConversationsSelect {
+        var copy = self
+        copy.focusOnLoad = focus
+        return copy
+    }
+    
+    public func asInputElement() -> InputElementType {
+        .conversationsSelect(ConversationsSelectElement(
+            actionId: actionId,
+            initialConversation: initialConversation,
+            defaultToCurrentConversation: defaultToCurrentConversation,
+            responseUrlEnabled: responseUrlEnabled,
+            filter: filter,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asActionElement() -> ActionElementType {
+        .conversationsSelect(ConversationsSelectElement(
+            actionId: actionId,
+            initialConversation: initialConversation,
+            defaultToCurrentConversation: defaultToCurrentConversation,
+            responseUrlEnabled: responseUrlEnabled,
+            filter: filter,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asSectionAccessory() -> SectionAccessory {
+        .conversationsSelect(ConversationsSelectElement(
+            actionId: actionId,
+            initialConversation: initialConversation,
+            defaultToCurrentConversation: defaultToCurrentConversation,
+            responseUrlEnabled: responseUrlEnabled,
+            filter: filter,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+}
+
+// MARK: - DatePicker DSL
+
+/// A DSL component for creating date picker elements.
+public struct DatePicker: InputElementConvertible, ActionElementConvertible, SectionAccessoryConvertible {
+    private var actionId: String?
+    private var initialDate: String?
+    private var confirm: ConfirmationDialog?
+    private var focusOnLoad: Bool?
+    private var placeholder: Text?
+    
+    public init() {}
+    
+    public func actionId(_ id: String) -> DatePicker {
+        var copy = self
+        copy.actionId = id
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: @autoclosure () -> Text) -> DatePicker {
+        var copy = self
+        copy.placeholder = placeholder()
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: String) -> DatePicker {
+        var copy = self
+        copy.placeholder = Text(placeholder)
+        return copy
+    }
+    
+    public func initialDate(_ date: String) -> DatePicker {
+        var copy = self
+        copy.initialDate = date
+        return copy
+    }
+    
+    public func confirm(_ confirm: @autoclosure () -> ConfirmationDialog) -> DatePicker {
+        var copy = self
+        copy.confirm = confirm()
+        return copy
+    }
+    
+    public func focusOnLoad(_ focus: Bool = true) -> DatePicker {
+        var copy = self
+        copy.focusOnLoad = focus
+        return copy
+    }
+    
+    public func asInputElement() -> InputElementType {
+        .datePicker(DatePickerElement(
+            actionId: actionId,
+            initialDate: initialDate,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asActionElement() -> ActionElementType {
+        .datePicker(DatePickerElement(
+            actionId: actionId,
+            initialDate: initialDate,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asSectionAccessory() -> SectionAccessory {
+        .datePicker(DatePickerElement(
+            actionId: actionId,
+            initialDate: initialDate,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+}
+
+// MARK: - TimePicker DSL
+
+/// A DSL component for creating time picker elements.
+public struct TimePicker: InputElementConvertible, ActionElementConvertible, SectionAccessoryConvertible {
+    private var actionId: String?
+    private var initialTime: String?
+    private var confirm: ConfirmationDialog?
+    private var focusOnLoad: Bool?
+    private var placeholder: Text?
+    
+    public init() {}
+    
+    public func actionId(_ id: String) -> TimePicker {
+        var copy = self
+        copy.actionId = id
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: @autoclosure () -> Text) -> TimePicker {
+        var copy = self
+        copy.placeholder = placeholder()
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: String) -> TimePicker {
+        var copy = self
+        copy.placeholder = Text(placeholder)
+        return copy
+    }
+    
+    public func initialTime(_ time: String) -> TimePicker {
+        var copy = self
+        copy.initialTime = time
+        return copy
+    }
+    
+    public func confirm(_ confirm: @autoclosure () -> ConfirmationDialog) -> TimePicker {
+        var copy = self
+        copy.confirm = confirm()
+        return copy
+    }
+    
+    public func focusOnLoad(_ focus: Bool = true) -> TimePicker {
+        var copy = self
+        copy.focusOnLoad = focus
+        return copy
+    }
+    
+    public func asInputElement() -> InputElementType {
+        .timePicker(TimePickerElement(
+            actionId: actionId,
+            initialTime: initialTime,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asActionElement() -> ActionElementType {
+        .timePicker(TimePickerElement(
+            actionId: actionId,
+            initialTime: initialTime,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+    
+    public func asSectionAccessory() -> SectionAccessory {
+        .timePicker(TimePickerElement(
+            actionId: actionId,
+            initialTime: initialTime,
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+}
+
+// MARK: - RadioButtons DSL
+
+/// A DSL component for creating radio button groups.
+public struct RadioButtons: InputElementConvertible, ActionElementConvertible, SectionAccessoryConvertible {
+    private var actionId: String?
+    private var options: [Option]?
+    private var initialOption: Option?
+    private var confirm: ConfirmationDialog?
+    private var focusOnLoad: Bool?
+    
+    public init() {}
+    
+    public init(@OptionBuilder options: () -> [Option]) {
+        self.options = options()
+    }
+    
+    public func actionId(_ id: String) -> RadioButtons {
+        var copy = self
+        copy.actionId = id
+        return copy
+    }
+    
+    public func options(_ options: [Option]) -> RadioButtons {
+        var copy = self
+        copy.options = options
+        return copy
+    }
+    
+    public func initialOption(_ option: @autoclosure () -> Option) -> RadioButtons {
+        var copy = self
+        copy.initialOption = option()
+        return copy
+    }
+    
+    public func confirm(_ confirm: @autoclosure () -> ConfirmationDialog) -> RadioButtons {
+        var copy = self
+        copy.confirm = confirm()
+        return copy
+    }
+    
+    public func focusOnLoad(_ focus: Bool = true) -> RadioButtons {
+        var copy = self
+        copy.focusOnLoad = focus
+        return copy
+    }
+    
+    public func asInputElement() -> InputElementType {
+        .radioButtons(RadioButtonsElement(
+            options: options?.map { $0.render() } ?? [],
+            actionId: actionId,
+            initialOption: initialOption?.render(),
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad
+        ))
+    }
+    
+    public func asActionElement() -> ActionElementType {
+        .radioButtons(RadioButtonsElement(
+            options: options?.map { $0.render() } ?? [],
+            actionId: actionId,
+            initialOption: initialOption?.render(),
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad
+        ))
+    }
+    
+    public func asSectionAccessory() -> SectionAccessory {
+        .radioButtons(RadioButtonsElement(
+            options: options?.map { $0.render() } ?? [],
+            actionId: actionId,
+            initialOption: initialOption?.render(),
+            confirm: confirm?.render(),
+            focusOnLoad: focusOnLoad
+        ))
+    }
+}
+
+// MARK: - Image DSL
+
+/// A DSL component for creating image blocks.
+public struct Image: BlockConvertible {
+    private var imageUrl: URL
+    private var altText: String
+    private var title: Text?
+    private var blockId: String?
+    
+    public init(imageUrl: URL, altText: String) {
+        self.imageUrl = imageUrl
+        self.altText = altText
+    }
+    
+    public func title(_ title: @autoclosure () -> Text) -> Image {
+        var copy = self
+        copy.title = title()
+        return copy
+    }
+    
+    public func title(_ title: String) -> Image {
+        var copy = self
+        copy.title = Text(title)
+        return copy
+    }
+    
+    public func blockId(_ id: String) -> Image {
+        var copy = self
+        copy.blockId = id
+        return copy
+    }
+    
+    public func asBlock() -> BlockType {
+        .image(ImageBlock(
+            altText: altText,
+            imageUrl: imageUrl,
+            title: title?.render(),
+            blockId: blockId
+        ))
+    }
+}
+
+// MARK: - Video DSL
+
+/// A DSL component for creating video blocks.
+public struct Video: BlockConvertible {
+    private var altText: String
+    private var authorName: String?
+    private var description: Text?
+    private var providerIconUrl: URL?
+    private var providerName: String?
+    private var title: Text
+    private var titleUrl: URL?
+    private var thumbnailUrl: URL
+    private var videoUrl: URL
+    private var blockId: String?
+    
+    public init(
+        videoUrl: URL,
+        thumbnailUrl: URL,
+        altText: String,
+        title: Text
+    ) {
+        self.videoUrl = videoUrl
+        self.thumbnailUrl = thumbnailUrl
+        self.altText = altText
+        self.title = title
+    }
+    
+    public init(
+        videoUrl: URL,
+        thumbnailUrl: URL,
+        altText: String,
+        title: String
+    ) {
+        self.videoUrl = videoUrl
+        self.thumbnailUrl = thumbnailUrl
+        self.altText = altText
+        self.title = Text(title)
+    }
+    
+    public func authorName(_ name: String) -> Video {
+        var copy = self
+        copy.authorName = name
+        return copy
+    }
+    
+    public func description(_ description: @autoclosure () -> Text) -> Video {
+        var copy = self
+        copy.description = description()
+        return copy
+    }
+    
+    public func description(_ description: String) -> Video {
+        var copy = self
+        copy.description = Text(description)
+        return copy
+    }
+    
+    public func provider(name: String, iconUrl: URL? = nil) -> Video {
+        var copy = self
+        copy.providerName = name
+        copy.providerIconUrl = iconUrl
+        return copy
+    }
+    
+    public func titleUrl(_ url: URL) -> Video {
+        var copy = self
+        copy.titleUrl = url
+        return copy
+    }
+    
+    public func blockId(_ id: String) -> Video {
+        var copy = self
+        copy.blockId = id
+        return copy
+    }
+    
+    public func asBlock() -> BlockType {
+        .video(VideoBlock(
+            altText: altText,
+            videoUrl: videoUrl,
+            thumbnailUrl: thumbnailUrl,
+            title: title.render(),
+            titleUrl: titleUrl,
+            description: description?.render(),
+            providerName: providerName,
+            providerIconUrl: providerIconUrl,
+            authorName: authorName,
+            blockId: blockId
+        ))
+    }
+}
+
+// MARK: - NumberInput DSL
+
+/// A DSL component for creating number input elements.
+public struct NumberInput: InputElementConvertible {
+    private var isDecimalAllowed: Bool?
+    private var actionId: String?
+    private var initialValue: String?
+    private var minValue: String?
+    private var maxValue: String?
+    private var dispatchActionConfig: DispatchActionConfigurationObject?
+    private var focusOnLoad: Bool?
+    private var placeholder: Text?
+    
+    public init() {}
+    
+    public func actionId(_ id: String) -> NumberInput {
+        var copy = self
+        copy.actionId = id
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: @autoclosure () -> Text) -> NumberInput {
+        var copy = self
+        copy.placeholder = placeholder()
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: String) -> NumberInput {
+        var copy = self
+        copy.placeholder = Text(placeholder)
+        return copy
+    }
+    
+    public func initialValue(_ value: String) -> NumberInput {
+        var copy = self
+        copy.initialValue = value
+        return copy
+    }
+    
+    public func minValue(_ value: String) -> NumberInput {
+        var copy = self
+        copy.minValue = value
+        return copy
+    }
+    
+    public func maxValue(_ value: String) -> NumberInput {
+        var copy = self
+        copy.maxValue = value
+        return copy
+    }
+    
+    public func allowDecimal(_ allow: Bool = true) -> NumberInput {
+        var copy = self
+        copy.isDecimalAllowed = allow
+        return copy
+    }
+    
+    public func dispatchActionConfig(_ config: @autoclosure () -> DispatchActionConfig) -> NumberInput {
+        var copy = self
+        copy.dispatchActionConfig = config().render()
+        return copy
+    }
+    
+    public func focusOnLoad(_ focus: Bool = true) -> NumberInput {
+        var copy = self
+        copy.focusOnLoad = focus
+        return copy
+    }
+    
+    public func asInputElement() -> InputElementType {
+        .numberInput(NumberInputElement(
+            isDecimalAllowed: isDecimalAllowed ?? false,
+            actionId: actionId,
+            initialValue: initialValue,
+            minValue: minValue,
+            maxValue: maxValue,
+            dispatchActionConfig: dispatchActionConfig,
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
+        ))
+    }
+}
+
+// MARK: - EmailInput DSL
+
+/// A DSL component for creating email input elements.
+public struct EmailInput: InputElementConvertible {
+    private var actionId: String?
+    private var initialValue: String?
+    private var dispatchActionConfig: DispatchActionConfigurationObject?
+    private var focusOnLoad: Bool?
+    private var placeholder: Text?
+    
+    public init() {}
+    
+    public func actionId(_ id: String) -> EmailInput {
+        var copy = self
+        copy.actionId = id
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: @autoclosure () -> Text) -> EmailInput {
+        var copy = self
+        copy.placeholder = placeholder()
+        return copy
+    }
+    
+    public func placeholder(_ placeholder: String) -> EmailInput {
+        var copy = self
+        copy.placeholder = Text(placeholder)
+        return copy
+    }
+    
+    public func initialValue(_ value: String) -> EmailInput {
+        var copy = self
+        copy.initialValue = value
+        return copy
+    }
+    
+    public func dispatchActionConfig(_ config: @autoclosure () -> DispatchActionConfig) -> EmailInput {
+        var copy = self
+        copy.dispatchActionConfig = config().render()
+        return copy
+    }
+    
+    public func focusOnLoad(_ focus: Bool = true) -> EmailInput {
+        var copy = self
+        copy.focusOnLoad = focus
+        return copy
+    }
+    
+    public func asInputElement() -> InputElementType {
+        .emailInput(EmailInputElement(
+            actionId: actionId,
+            initialValue: initialValue,
+            dispatchActionConfig: dispatchActionConfig,
+            focusOnLoad: focusOnLoad,
+            placeholder: placeholder?.render()
         ))
     }
 }
