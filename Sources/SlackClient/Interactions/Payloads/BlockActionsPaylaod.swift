@@ -11,7 +11,7 @@ public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendab
     public let team: Team
     public let container: OpenAPIObjectContainer
     public let apiAppId: String?
-    public let actions: [BlockType]?
+    public let actions: [ActionElementType]?
     public let channel: Channel?
     public let view: ViewType
 }
