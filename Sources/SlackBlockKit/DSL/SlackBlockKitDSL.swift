@@ -721,15 +721,37 @@ public struct StaticSelect: InputElementConvertible, ActionElementConvertible, S
     
     public init() {}
     
+    /// Initialize with options using a result builder
+    public init(@OptionBuilder options: () -> [Option]) {
+        self.options = options()
+    }
+    
+    /// Initialize with option groups using a result builder
+    public init(@OptionGroupBuilder optionGroups: () -> [OptionGroup]) {
+        self.optionGroups = optionGroups()
+    }
+    
     public func options(_ options: [Option]) -> StaticSelect {
         var copy = self
         copy.options = options
         return copy
     }
     
+    public func options(@OptionBuilder _ options: () -> [Option]) -> StaticSelect {
+        var copy = self
+        copy.options = options()
+        return copy
+    }
+    
     public func optionGroups(_ groups: [OptionGroup]) -> StaticSelect {
         var copy = self
         copy.optionGroups = groups
+        return copy
+    }
+    
+    public func optionGroups(@OptionGroupBuilder _ groups: () -> [OptionGroup]) -> StaticSelect {
+        var copy = self
+        copy.optionGroups = groups()
         return copy
     }
     
@@ -1421,6 +1443,12 @@ public struct RadioButtons: InputElementConvertible, ActionElementConvertible, S
     public func options(_ options: [Option]) -> RadioButtons {
         var copy = self
         copy.options = options
+        return copy
+    }
+    
+    public func options(@OptionBuilder _ options: () -> [Option]) -> RadioButtons {
+        var copy = self
+        copy.options = options()
         return copy
     }
     

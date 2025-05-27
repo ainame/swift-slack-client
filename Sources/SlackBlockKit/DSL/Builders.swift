@@ -161,6 +161,30 @@ public struct OptionBuilder {
     }
 }
 
+/// Result builder for OptionGroup components
+@resultBuilder  
+public struct OptionGroupBuilder {
+    public static func buildBlock(_ components: OptionGroup...) -> [OptionGroup] {
+        components
+    }
+    
+    public static func buildArray(_ components: [[OptionGroup]]) -> [OptionGroup] {
+        components.flatMap { $0 }
+    }
+    
+    public static func buildOptional(_ component: [OptionGroup]?) -> [OptionGroup] {
+        component ?? []
+    }
+    
+    public static func buildEither(first component: [OptionGroup]) -> [OptionGroup] {
+        component
+    }
+    
+    public static func buildEither(second component: [OptionGroup]) -> [OptionGroup] {
+        component
+    }
+}
+
 /// Result builder for input elements
 @resultBuilder
 public struct InputElementBuilder {
