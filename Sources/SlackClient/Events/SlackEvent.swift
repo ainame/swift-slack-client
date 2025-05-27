@@ -1,3 +1,3 @@
 public protocol SlackEvent: Decodable, Sendable, Hashable {
-    var type: String { get }
+    var _type: String { get }
 }

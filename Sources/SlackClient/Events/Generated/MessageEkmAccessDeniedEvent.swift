@@ -15,7 +15,20 @@ public struct MessageEkmAccessDeniedEvent: SlackEvent {
     public var subtype: Swift.String?
     public var text: Swift.String?
     public var ts: Swift.String?
-    public var type: Swift.String
+    public var _type: Swift.String
     public var user: Swift.String?
+    public enum CodingKeys: String, CodingKey {
+        case attachments
+        case blocks
+        case channel
+        case channelType = "channel_type"
+        case eventTs = "event_ts"
+        case hidden
+        case subtype
+        case text
+        case ts
+        case _type = "type"
+        case user
+    }
 }
 #endif

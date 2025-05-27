@@ -11,6 +11,17 @@ public struct MessageChangedEvent: SlackEvent {
     public var previousMessage: SlackModels.Message?
     public var subtype: Swift.String?
     public var ts: Swift.String?
-    public var type: Swift.String
+    public var _type: Swift.String
+    public enum CodingKeys: String, CodingKey {
+        case channel
+        case channelType = "channel_type"
+        case eventTs = "event_ts"
+        case hidden
+        case message
+        case previousMessage = "previous_message"
+        case subtype
+        case ts
+        case _type = "type"
+    }
 }
 #endif

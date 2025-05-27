@@ -18,8 +18,25 @@ public struct MessageFileShareEvent: SlackEvent {
     public var text: Swift.String?
     public var threadTs: Swift.String?
     public var ts: Swift.String?
-    public var type: Swift.String
+    public var _type: Swift.String
     public var upload: Swift.Bool?
     public var user: Swift.String?
+    public enum CodingKeys: String, CodingKey {
+        case attachments
+        case blocks
+        case channel
+        case channelType = "channel_type"
+        case displayAsBot = "display_as_bot"
+        case eventTs = "event_ts"
+        case files
+        case parentUserId = "parent_user_id"
+        case subtype
+        case text
+        case threadTs = "thread_ts"
+        case ts
+        case _type = "type"
+        case upload
+        case user
+    }
 }
 #endif

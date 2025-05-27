@@ -244,8 +244,10 @@ public enum EventType: Decodable, Hashable, Sendable {
     lines = content.lines
     transformed_lines = []
     skip_until_end = false
-    brace_depth = 0
+    skip_brace_depth = 0
+    struct_brace_depth = 0
     in_struct = false
+    in_coding_keys = false
 
     lines.each do |line|
       stripped = line.strip
@@ -253,6 +255,7 @@ public enum EventType: Decodable, Hashable, Sendable {
       # Detect start of struct
       if line.match(/(\s*)public struct #{Regexp.escape(event_name)}:/)
         in_struct = true
+        struct_brace_depth = 1  # Opening brace of struct
         # Change struct declaration to conform to SlackEvent
         line = line.gsub(/:.*$/, ': SlackEvent {')
         transformed_lines << line
@@ -262,10 +265,39 @@ public enum EventType: Decodable, Hashable, Sendable {
       # Only process lines inside the struct
       next unless in_struct
 
-      # Skip CodingKeys enum completely
+      # Track overall struct brace depth
+      struct_brace_depth += line.count('{') - line.count('}')
+      
+      # Check if we've reached the end of the struct
+      if struct_brace_depth == 0
+        transformed_lines << "}\n"
+        break
+      end
+
+      # Handle CodingKeys enum - KEEP IT but fix indentation
       if stripped.match(/^public enum CodingKeys:/)
-        skip_until_end = true
-        brace_depth = 1  # CodingKeys enum starts with opening brace
+        in_coding_keys = true
+        # Fix indentation for CodingKeys enum declaration
+        if line.start_with?('            ')  # 12 spaces from deeply nested structure
+          line = '    ' + line[12..-1]      # Replace with 4 spaces for top-level struct
+        end
+        transformed_lines << line
+        next
+      end
+
+      # Handle CodingKeys content
+      if in_coding_keys
+        # Fix indentation for CodingKeys content
+        if line.start_with?('            ')  # 12 spaces from deeply nested structure
+          line = '    ' + line[12..-1]      # Replace with 4 spaces for top-level struct
+        end
+        
+        transformed_lines << line
+        
+        # Check if we're at the end of CodingKeys enum
+        if stripped == '}' && line.strip == '}'
+          in_coding_keys = false
+        end
         next
       end
 
@@ -275,13 +307,13 @@ public enum EventType: Decodable, Hashable, Sendable {
          stripped.start_with?('public init(from decoder:') ||
          stripped.start_with?('public func encode(')
         skip_until_end = true
-        brace_depth = line.count('{') - line.count('}')
+        skip_brace_depth = line.count('{') - line.count('}')
         next
       end
 
       if skip_until_end
-        brace_depth += line.count('{') - line.count('}')
-        if brace_depth <= 0
+        skip_brace_depth += line.count('{') - line.count('}')
+        if skip_brace_depth <= 0
           skip_until_end = false
         end
         next
@@ -308,12 +340,6 @@ public enum EventType: Decodable, Hashable, Sendable {
             match  # Keep original if not moved to SlackModels
           end
         end
-      end
-
-      # Handle closing brace
-      if stripped == '}' && !skip_until_end
-        transformed_lines << "}\n"
-        break
       end
 
       # Keep property declarations, remark comments, and empty lines

@@ -9,6 +9,15 @@ public struct MessageRepliedEvent: SlackEvent {
     public var message: SlackModels.Message?
     public var subtype: Swift.String?
     public var ts: Swift.String?
-    public var type: Swift.String
+    public var _type: Swift.String
+    public enum CodingKeys: String, CodingKey {
+        case channel
+        case eventTs = "event_ts"
+        case hidden
+        case message
+        case subtype
+        case ts
+        case _type = "type"
+    }
 }
 #endif

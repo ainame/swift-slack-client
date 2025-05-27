@@ -1,8 +1,8 @@
 # Centralized content transformation utilities for code generation
 module ContentTransformer
-  # Transforms _type properties to type (used in multiple files)
+  # No longer transforms _type properties - keeping them as is for consistency
   def self.transform_type_properties(content)
-    content.gsub(/\b_type\b/, 'type')
+    content
   end
 
   # Transforms Block Kit references (used in multiple files)
@@ -30,7 +30,7 @@ module ContentTransformer
     # Transform struct declaration
     content = content.gsub(/^(\s*)public struct #{Regexp.escape(schema_name)}:.*$/, '\1public struct \2: Codable, Hashable, Sendable {')
     
-    # Transform _type property to type
+    # No longer transform _type property - keeping it as is
     content = transform_type_properties(content)
     
     # Transform Block Kit references  

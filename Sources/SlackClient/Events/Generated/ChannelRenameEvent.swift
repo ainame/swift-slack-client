@@ -5,6 +5,11 @@ import SlackModels
 public struct ChannelRenameEvent: SlackEvent {
     public var channel: SlackModels.Channel?
     public var eventTs: Swift.String?
-    public var type: Swift.String
+    public var _type: Swift.String
+    public enum CodingKeys: String, CodingKey {
+        case channel
+        case eventTs = "event_ts"
+        case _type = "type"
+    }
 }
 #endif

@@ -17,7 +17,22 @@ public struct MessageThreadBroadcastEvent: SlackEvent {
     public var text: Swift.String?
     public var threadTs: Swift.String?
     public var ts: Swift.String?
-    public var type: Swift.String
+    public var _type: Swift.String
     public var user: Swift.String?
+    public enum CodingKeys: String, CodingKey {
+        case attachments
+        case blocks
+        case channel
+        case channelType = "channel_type"
+        case clientMsgId = "client_msg_id"
+        case eventTs = "event_ts"
+        case root
+        case subtype
+        case text
+        case threadTs = "thread_ts"
+        case ts
+        case _type = "type"
+        case user
+    }
 }
 #endif

@@ -93,7 +93,7 @@ class CodeTransformer
     transformed_content
   end
 
-  # Transforms components content by removing CodingKeys and fixing property names
+  # Transforms components content by preserving CodingKeys and fixing property names
   def self.transform_components_content(content)
     lines = content.lines
     transformed_lines = []
@@ -337,7 +337,7 @@ class CodeGenerationProcessor
   end
 
   def initialize(input_directory = nil, output_directory = nil)
-    @input_directory = input_directory || File.join(__dir__, '..', '.tmp')
+    @input_directory = input_directory || File.join(__dir__, '..', '.tmp', 'WebAPI')
     @output_directory = output_directory || File.join(__dir__, '..', 'Sources', 'SlackClient', 'WebAPI', 'Generated')
     @client_file = File.join(@input_directory, 'Client.swift')
     @types_file = File.join(@input_directory, 'Types.swift')
@@ -1319,21 +1319,38 @@ class CommonModelsSplitter
     transformed_lines = []
     skip_until_end = false
     brace_depth = 0
+    in_coding_keys = false
 
     lines.each do |line|
       stripped = line.strip
 
-      # Skip CodingKeys enum completely
+      # Keep CodingKeys enum - it's essential for proper key encoding/decoding
       if stripped.match(/^public enum CodingKeys:/)
-        skip_until_end = true
-        brace_depth = 1
+        in_coding_keys = true
+        # Fix indentation for CodingKeys if needed
+        if line.start_with?('        ')  # 8 spaces from nested enum
+          line = line[8..-1]  # Remove 8 spaces for top-level
+        elsif line.start_with?('    ')  # 4 spaces for some content
+          line = line[4..-1]  # Remove 4 spaces for top-level
+        end
+        transformed_lines << line
         next
       end
 
-      if skip_until_end
-        brace_depth += line.count('{') - line.count('}')
-        if brace_depth <= 0
-          skip_until_end = false
+      # Handle CodingKeys content
+      if in_coding_keys
+        # Fix indentation for all CodingKeys content
+        if line.start_with?('        ')  # 8 spaces from nested enum
+          line = line[8..-1]  # Remove 8 spaces for top-level
+        elsif line.start_with?('    ')  # 4 spaces for some content
+          line = line[4..-1]  # Remove 4 spaces for top-level
+        end
+        
+        transformed_lines << line
+        
+        # Check if we're at the end of CodingKeys enum
+        if stripped == '}' && line.strip == '}'
+          in_coding_keys = false
         end
         next
       end
@@ -1360,10 +1377,12 @@ class CommonModelsSplitter
       end
 
       # Fix indentation: convert from enum nesting (8 spaces) to top-level (no extra indentation)
-      if line.start_with?('        ')  # 8 spaces from nested enum
-        line = line[8..-1]  # Remove 8 spaces for top-level
-      elsif line.start_with?('    ')  # 4 spaces for some content
-        line = line[4..-1]  # Remove 4 spaces for top-level
+      if !in_coding_keys  # Don't apply this to CodingKeys content
+        if line.start_with?('        ')  # 8 spaces from nested enum
+          line = line[8..-1]  # Remove 8 spaces for top-level
+        elsif line.start_with?('    ')  # 4 spaces for some content
+          line = line[4..-1]  # Remove 4 spaces for top-level
+        end
       end
 
       transformed_lines << line
