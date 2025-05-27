@@ -38,15 +38,7 @@ public actor Slack {
     var socketModeState: SocketModeState = .notReady
     var routers: [SocketModeMessageRouter.FixedRouter] = []
 
-    let jsonEncoder: JSONEncoder = {
-        let encoder = JSONEncoder()
-        encoder.keyEncodingStrategy = .convertToSnakeCase
-        return encoder
-    }()
-    let jsonDecoder: JSONDecoder = {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return decoder
-    }()
+    let jsonEncoder = JSONEncoder()
+    let jsonDecoder = JSONDecoder()
 #endif
 }
