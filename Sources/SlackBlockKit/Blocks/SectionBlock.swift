@@ -22,6 +22,15 @@ public struct SectionBlock: Codable, Hashable, Sendable {
         self.blockId = blockId
         self.expand = expand
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case text
+        case fields
+        case accessory
+        case blockId = "block_id"
+        case expand
+    }
 }
 
 public enum SectionAccessory: Codable, Hashable, Sendable {

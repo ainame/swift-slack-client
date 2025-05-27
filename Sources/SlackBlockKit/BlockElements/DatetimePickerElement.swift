@@ -19,4 +19,12 @@ public struct DatetimePickerElement: Codable, Hashable, Sendable {
         self.confirm = confirm
         self.focusOnLoad = focusOnLoad
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case actionId = "action_id"
+        case initialDateTime = "initial_date_time"
+        case confirm
+        case focusOnLoad = "focus_on_load"
+    }
 }

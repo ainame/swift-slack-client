@@ -12,4 +12,11 @@ public struct FileBlock: Codable, Hashable, Sendable {
         self.source = "remote"
         self.blockId = blockId
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case externalId = "external_id"
+        case source
+        case blockId = "block_id"
+    }
 }

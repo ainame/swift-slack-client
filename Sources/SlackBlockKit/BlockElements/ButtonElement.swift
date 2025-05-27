@@ -28,6 +28,17 @@ public struct ButtonElement: Codable, Hashable, Sendable {
         self.confirm = confirm
         self.accessibilityLabel = accessibilityLabel
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case text
+        case actionId = "action_id"
+        case url
+        case value
+        case style
+        case confirm
+        case accessibilityLabel = "accessibility_label"
+    }
 }
 
 public enum ButtonStyle: String, Codable, Hashable, Sendable {

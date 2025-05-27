@@ -22,4 +22,13 @@ public struct DatePickerElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case actionId = "action_id"
+        case initialDate = "initial_date"
+        case confirm
+        case focusOnLoad = "focus_on_load"
+        case placeholder
+    }
 }

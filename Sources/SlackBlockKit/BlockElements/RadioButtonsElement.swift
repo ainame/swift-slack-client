@@ -22,4 +22,13 @@ public struct RadioButtonsElement: Codable, Hashable, Sendable {
         self.confirm = confirm
         self.focusOnLoad = focusOnLoad
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case options
+        case actionId = "action_id"
+        case initialOption = "initial_option"
+        case confirm
+        case focusOnLoad = "focus_on_load"
+    }
 }

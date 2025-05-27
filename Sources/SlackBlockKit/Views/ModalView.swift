@@ -37,4 +37,18 @@ public struct ModalView: Codable, Hashable, Sendable {
         self.externalId = externalId
         self.submitDisabled = submitDisabled
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case title
+        case blocks
+        case close
+        case submit
+        case privateMetadata = "private_metadata"
+        case callbackId = "callback_id"
+        case clearOnClose = "clear_on_close"
+        case notifyOnClose = "notify_on_close"
+        case externalId = "external_id"
+        case submitDisabled = "submit_disabled"
+    }
 }

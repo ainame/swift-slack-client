@@ -10,4 +10,10 @@ public struct HeaderBlock: Codable, Hashable, Sendable {
         self.text = text
         self.blockId = blockId
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case text
+        case blockId = "block_id"
+    }
 }

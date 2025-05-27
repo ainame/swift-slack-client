@@ -19,4 +19,12 @@ public struct HomeTabView: Codable, Hashable, Sendable {
         self.callbackId = callbackId
         self.externalId = externalId
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case blocks
+        case privateMetadata = "private_metadata"
+        case callbackId = "callback_id"
+        case externalId = "external_id"
+    }
 }

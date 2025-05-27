@@ -31,4 +31,16 @@ public struct PlainTextInputElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case actionId = "action_id"
+        case initialValue = "initial_value"
+        case multiline
+        case minLength = "min_length"
+        case maxLength = "max_length"
+        case dispatchActionConfig = "dispatch_action_config"
+        case focusOnLoad = "focus_on_load"
+        case placeholder
+    }
 }

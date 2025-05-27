@@ -31,4 +31,16 @@ public struct MultiConversationsSelectElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case actionId = "action_id"
+        case initialConversations = "initial_conversations"
+        case defaultToCurrentConversation = "default_to_current_conversation"
+        case maxSelectedItems = "max_selected_items"
+        case filter
+        case confirm
+        case focusOnLoad = "focus_on_load"
+        case placeholder
+    }
 }

@@ -28,4 +28,15 @@ public struct StaticSelectElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case options
+        case optionGroups = "option_groups"
+        case actionId = "action_id"
+        case initialOption = "initial_option"
+        case confirm
+        case focusOnLoad = "focus_on_load"
+        case placeholder
+    }
 }

@@ -31,4 +31,16 @@ public struct NumberInputElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case isDecimalAllowed = "is_decimal_allowed"
+        case actionId = "action_id"
+        case initialValue = "initial_value"
+        case minValue = "min_value"
+        case maxValue = "max_value"
+        case dispatchActionConfig = "dispatch_action_config"
+        case focusOnLoad = "focus_on_load"
+        case placeholder
+    }
 }

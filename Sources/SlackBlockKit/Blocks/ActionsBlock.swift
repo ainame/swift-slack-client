@@ -10,6 +10,12 @@ public struct ActionsBlock: Codable, Hashable, Sendable {
         self.elements = elements
         self.blockId = blockId
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case elements
+        case blockId = "block_id"
+    }
 }
 
 public enum ActionElementType: Codable, Hashable, Sendable {

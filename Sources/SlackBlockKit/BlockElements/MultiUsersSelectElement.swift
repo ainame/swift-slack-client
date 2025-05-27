@@ -25,4 +25,14 @@ public struct MultiUsersSelectElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case actionId = "action_id"
+        case initialUsers = "initial_users"
+        case maxSelectedItems = "max_selected_items"
+        case confirm
+        case focusOnLoad = "focus_on_load"
+        case placeholder
+    }
 }

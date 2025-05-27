@@ -25,6 +25,16 @@ public struct InputBlock: Codable, Hashable, Sendable {
         self.hint = hint
         self.optional = optional
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case label
+        case element
+        case blockId = "block_id"
+        case dispatchAction = "dispatch_action"
+        case hint
+        case optional
+    }
 }
 
 public enum InputElementType: Codable, Hashable, Sendable {

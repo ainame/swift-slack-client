@@ -22,4 +22,13 @@ public struct UsersSelectElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case actionId = "action_id"
+        case initialUser = "initial_user"
+        case confirm
+        case focusOnLoad = "focus_on_load"
+        case placeholder
+    }
 }

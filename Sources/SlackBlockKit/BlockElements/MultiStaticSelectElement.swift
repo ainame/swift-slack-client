@@ -28,4 +28,15 @@ public struct MultiStaticSelectElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case actionId = "action_id"
+        case options
+        case initialOptions = "initial_options"
+        case maxSelectedItems = "max_selected_items"
+        case confirm
+        case focusOnLoad = "focus_on_load"
+        case placeholder
+    }
 }

@@ -31,4 +31,16 @@ public struct ConversationsSelectElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case actionId = "action_id"
+        case initialConversation = "initial_conversation"
+        case defaultToCurrentConversation = "default_to_current_conversation"
+        case responseUrlEnabled = "response_url_enabled"
+        case filter
+        case confirm
+        case focusOnLoad = "focus_on_load"
+        case placeholder
+    }
 }

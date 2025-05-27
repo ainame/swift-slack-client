@@ -22,4 +22,13 @@ public struct ImageBlock: Codable, Hashable, Sendable {
         self.title = title
         self.blockId = blockId
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case altText = "alt_text"
+        case imageUrl = "image_url"
+        case slackFile = "slack_file"
+        case title
+        case blockId = "block_id"
+    }
 }

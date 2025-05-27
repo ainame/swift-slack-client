@@ -16,4 +16,11 @@ public struct FileInputElement: Codable, Hashable, Sendable {
         self.filetypes = filetypes
         self.maxFiles = maxFiles
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case actionId = "action_id"
+        case filetypes
+        case maxFiles = "max_files"
+    }
 }

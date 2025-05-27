@@ -22,4 +22,13 @@ public struct CheckboxesElement: Codable, Hashable, Sendable {
         self.confirm = confirm
         self.focusOnLoad = focusOnLoad
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case actionId = "action_id"
+        case options
+        case initialOptions = "initial_options"
+        case confirm
+        case focusOnLoad = "focus_on_load"
+    }
 }

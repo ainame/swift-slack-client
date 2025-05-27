@@ -25,4 +25,14 @@ public struct ChannelsSelectElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case actionId = "action_id"
+        case initialChannel = "initial_channel"
+        case responseUrlEnabled = "response_url_enabled"
+        case confirm
+        case focusOnLoad = "focus_on_load"
+        case placeholder
+    }
 }

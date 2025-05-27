@@ -10,6 +10,12 @@ public struct RichTextBlock: Codable, Hashable, Sendable {
         self.elements = elements
         self.blockId = blockId
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case elements
+        case blockId = "block_id"
+    }
 }
 
 public enum RichTextElementType: Codable, Hashable, Sendable {
@@ -247,6 +253,12 @@ public struct RichTextUserElement: Codable, Hashable, Sendable {
         self.userId = userId
         self.style = style
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case userId = "user_id"
+        case style
+    }
 }
 
 public struct RichTextUserStyle: Codable, Hashable, Sendable {
@@ -272,6 +284,15 @@ public struct RichTextUserStyle: Codable, Hashable, Sendable {
         self.clientHighlight = clientHighlight
         self.unlink = unlink
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case bold
+        case italic
+        case strike
+        case highlight
+        case clientHighlight = "client_highlight"
+        case unlink
+    }
 }
 
 public struct RichTextChannelElement: Codable, Hashable, Sendable {
@@ -283,6 +304,12 @@ public struct RichTextChannelElement: Codable, Hashable, Sendable {
         self.type = "channel"
         self.channelId = channelId
         self.style = style
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case channelId = "channel_id"
+        case style
     }
 }
 

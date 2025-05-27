@@ -12,4 +12,11 @@ public struct ImageElement: Codable, Hashable, Sendable {
         self.imageUrl = imageUrl
         self.slackFile = slackFile
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case altText = "alt_text"
+        case imageUrl = "image_url"
+        case slackFile = "slack_file"
+    }
 }

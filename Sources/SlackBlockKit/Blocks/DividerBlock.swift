@@ -8,4 +8,9 @@ public struct DividerBlock: Codable, Hashable, Sendable {
         self.type = "divider"
         self.blockId = blockId
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case blockId = "block_id"
+    }
 }

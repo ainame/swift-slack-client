@@ -37,4 +37,18 @@ public struct VideoBlock: Codable, Hashable, Sendable {
         self.authorName = authorName
         self.blockId = blockId
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case altText = "alt_text"
+        case videoUrl = "video_url"
+        case thumbnailUrl = "thumbnail_url"
+        case title
+        case titleUrl = "title_url"
+        case description
+        case providerName = "provider_name"
+        case providerIconUrl = "provider_icon_url"
+        case authorName = "author_name"
+        case blockId = "block_id"
+    }
 }

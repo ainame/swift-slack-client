@@ -16,4 +16,11 @@ public struct OverflowMenuElement: Codable, Hashable, Sendable {
         self.actionId = actionId
         self.confirm = confirm
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case actionId = "action_id"
+        case options
+        case confirm
+    }
 }
