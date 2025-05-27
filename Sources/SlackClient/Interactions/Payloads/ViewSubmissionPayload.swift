@@ -8,6 +8,14 @@ public struct ViewSubmissionPayload: InteractivePayloadProtocol, Decodable, Send
     public let user: User
     public let view: ViewType
     public let apiAppId: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case team
+        case user
+        case view
+        case apiAppId = "api_app_id"
+    }
 }
 
 extension ViewSubmissionPayload {

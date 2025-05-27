@@ -8,6 +8,14 @@ public struct ViewClosedPayload: InteractivePayloadProtocol, Decodable, Sendable
     public let user: User
     public let view: ViewType
     public let isCleared: Bool
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case team
+        case user
+        case view
+        case isCleared = "is_cleared"
+    }
 }
 
 extension ViewClosedPayload {

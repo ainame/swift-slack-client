@@ -14,6 +14,18 @@ public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendab
     public let actions: [ActionElementType]?
     public let channel: Channel?
     public let view: ViewType
+    
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case triggerId = "trigger_id"
+        case user
+        case team
+        case container
+        case apiAppId = "api_app_id"
+        case actions
+        case channel
+        case view
+    }
 }
 
 extension BlockActionsPaylaod {
