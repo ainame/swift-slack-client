@@ -8,9 +8,13 @@ import OpenAPIRuntime
 import WSClient
 
 extension Slack {
-    public func runInSocketMode() async throws {
-        let url = try await openConnection()
-        try await doStartSocketMode(with: url)
+    public func runInSocketMode(autoReconnect: Bool = true) async throws {
+        while true {
+            if Task.isCancelled { break }
+            let url = try await openConnection()
+            try await doStartSocketMode(with: url)
+            if !autoReconnect { break }
+        }
     }
 
     public func addSocketModeMessageRouter(_ router: SocketModeMessageRouter) {
