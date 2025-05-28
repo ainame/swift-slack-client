@@ -21,6 +21,7 @@ let package = Package(
             traits: [
                 "SocketMode",
                 "Events",
+                "WebAPI_Auth",
                 "WebAPI_Apps",
                 "WebAPI_Chat",
                 "WebAPI_Views",
