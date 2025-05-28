@@ -8,12 +8,19 @@ import OpenAPIRuntime
 import WSClient
 
 extension Slack {
-    public func runInSocketMode(autoReconnect: Bool = true) async throws {
+    public func runInSocketMode(
+        options: SocketModeOptions = [
+            .autoReconnectWhenDisconnected,
+            .recoverFromAppError,
+        ]
+    ) async throws {
         while true {
             if Task.isCancelled { break }
+
             let url = try await openConnection()
-            try await doStartSocketMode(with: url)
-            if !autoReconnect { break }
+            try await doStartSocketMode(with: url, options: options)
+
+            if !options.contains(.autoReconnectWhenDisconnected){ break }
         }
     }
 
@@ -31,30 +38,28 @@ extension Slack {
         return url
     }
 
-    func doStartSocketMode(with url: String) async throws {
+    func doStartSocketMode(with url: String, options: SocketModeOptions) async throws {
         let routerContext = SocketModeMessageRouter.Context(client: client, logger: logger)
         let ws = WebSocketClient(url: url, logger: logger) { inbound, outbound, context in
             context.logger.info("SocketMode client connected")
             await self.setWebSocketOutboundWriter(outbound)
 
-            do {
-                for try await frame in inbound {
-                    guard frame.opcode == .text else { continue }
+            for try await frame in inbound {
+                guard frame.opcode == .text else { continue }
 
+                let message = try await self.onMessageRecieved(frame.data)
+                if case .message(let envelope) = message.body {
                     do {
-                        let message = try await self.onMessageRecieved(frame.data)
-                        if case .message(let envelope) = message.body {
-                            for router in await self.routers {
-                                try await router.dispatch(context: routerContext, messageEnvelope: envelope)
-                            }
+                        for router in await self.routers {
+                            try await router.dispatch(context: routerContext, messageEnvelope: envelope)
                         }
                     } catch {
-                        let message = String(buffer: frame.data)
-                        context.logger.error("Parsing message failed: \(error) /// \(message)")
+                        context.logger.error("App Level Error: \(error)")
+                        if !options.contains(.recoverFromAppError) {
+                            throw error
+                        }
                     }
                 }
-            } catch {
-                context.logger.error("Error during WebSocketClient run: \(error.localizedDescription)")
             }
             context.logger.info("SocketMode client disconnected")
         }
@@ -63,16 +68,22 @@ extension Slack {
     }
 
     private func onMessageRecieved(_ buffer: ByteBuffer) async throws -> SocketModeMessageType {
-        let messageType = try jsonDecoder.decode(SocketModeMessageType.self, from: buffer)
-        switch messageType.body {
-        case .message(let message):
-            try await ack(message)
-        case .hello(let message):
-            logger.info("\(message)")
-        case .disconnect(let message):
-            logger.info("\(message)")
+        do {
+            let messageType = try jsonDecoder.decode(SocketModeMessageType.self, from: buffer)
+            switch messageType.body {
+            case .message(let message):
+                try await ack(message)
+            case .hello(let message):
+                logger.info("\(message)")
+            case .disconnect(let message):
+                logger.info("\(message)")
+            }
+            return messageType
+        } catch {
+            let message = String(buffer: buffer)
+            logger.error("Parsing message failed: \(error) /// \(message)")
+            throw error
         }
-        return messageType
     }
 
     private func ack(_ messageEnvelope: SocketModeMessageEnvelope) async throws {

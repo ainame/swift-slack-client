@@ -6,6 +6,8 @@ public typealias SocketModeMessagePayloadHandler<Payload: Sendable> =
     @Sendable (SocketModeMessageRouter.Context, Payload) async throws -> Void
 public typealias SocketModeMessageEnvelopePayloadHandler<Envelope: Sendable, Payload: Sendable> =
     @Sendable (SocketModeMessageRouter.Context, Envelope, Payload) async throws -> Void
+public typealias SocketModeErrorHandler =
+    @Sendable (SocketModeMessageRouter.Context, SocketModeMessageEnvelope, Swift.Error) async throws -> Void
 
 public final class SocketModeMessageRouter {
     public struct Context: Sendable {
@@ -14,22 +16,32 @@ public final class SocketModeMessageRouter {
     }
 
     private var handlers: [SocketModeMessageHandler] = []
+    private var errorHandler: SocketModeErrorHandler?
 
     public init() {
     }
 
-    final class FixedRouter: Sendable {
+    struct FixedRouter {
         private let handlers: [SocketModeMessageHandler]
+        private let errorHandler: SocketModeErrorHandler?
 
         init(from router: SocketModeMessageRouter) {
             self.handlers = router.handlers
+            self.errorHandler = router.errorHandler
         }
 
         func dispatch(context: SocketModeMessageRouter.Context, messageEnvelope: SocketModeMessageEnvelope) async throws {
             try await withThrowingDiscardingTaskGroup { group in
                 for handler in handlers {
                     group.addTask {
-                        try await handler(context, messageEnvelope)
+                        do {
+                            try await handler(context, messageEnvelope)
+                        } catch {
+                            if let errorHandler {
+                                try await errorHandler(context, messageEnvelope, error)
+                            }
+                            throw error
+                        }
                     }
                 }
             }
@@ -141,6 +153,15 @@ public final class SocketModeMessageRouter {
             try await handler(context, payload)
         }
         handlers.append(filterHandler)
+    }
+
+    /// Register an error handler. You can receive the original app-level error occured and
+    /// re-throw it with or without converting error. If `SocketModeOptions.recoverFromAppError`
+    /// is enabled, error will not be propagated up-to `Slack.runInSocketMode` call-site.
+    ///
+    /// Only the last registered handler is valid.
+    public func onError(_ handler: @escaping SocketModeErrorHandler) {
+        errorHandler = handler
     }
 
 #if Events
