@@ -9,6 +9,7 @@ targets.append(executable("router"))
 targets.append(executable("dsl"))
 targets.append(executable("slackview-demo"))
 targets.append(executable("echoSlashCommand"))
+targets.append(executable("threadExpander"))
 
 let package = Package(
     name: "Examples",
