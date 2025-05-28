@@ -102,6 +102,7 @@ Custom implementation of Slack's Events API at `Sources/SlackClient/Events/`:
 - **Generated Events**: 96 Event types automatically extracted from OpenAPI specs to `Sources/SlackClient/Events/Generated/`
 - **SlackEvent Protocol**: Base protocol that all events conform to (`Decodable, Sendable, Hashable`) with `var _type: String { get }` requirement
 - **Custom Events**: Hand-written events in `Sources/SlackClient/Events/` for special cases
+- **EventType Enum**: Polymorphic enum that can decode any Slack event based on the type field
 
 ### Events Processing Pipeline
 
@@ -113,6 +114,48 @@ The `scripts/process_events.rb` script processes `.tmp/Events/Types.swift` and:
 4. **Fixes indentation** - Converts from 12-space nested to 4-space top-level struct format
 5. **Adds trait compilation** - Wraps content with `#if Events` for conditional compilation
 6. **SlackEvent conformance** - Updates inheritance from `Codable, Hashable, Sendable` to `SlackEvent`
+7. **Generates EventType enum** - Creates polymorphic decoder with special handling for message subtypes
+
+### Message Event Subtypes
+
+Slack's message events are unique in using a `subtype` field for differentiation:
+
+- **Regular messages**: `type: "message"` with no subtype
+- **Message subtypes**: `type: "message"` with `subtype: "bot_message"`, `"channel_join"`, etc.
+- **Special handling in EventType**: Checks subtype field for message events to decode correct type
+
+#### Message Subtype Decoding Logic
+
+```swift
+case "message":
+    let subtypeContainer = try decoder.container(keyedBy: MessageSubtypeCodingKeys.self)
+    let subtype = try subtypeContainer.decodeIfPresent(String.self, forKey: .subtype)
+    
+    switch subtype {
+    case "bot_message":
+        self = .messageBot(try MessageBotEvent(from: decoder))
+    case "channel_join":
+        self = .messageChannelJoin(try MessageChannelJoinEvent(from: decoder))
+    // ... other known subtypes
+    case nil:
+        // No subtype - regular message
+        self = .message(try MessageEvent(from: decoder))
+    case .some(let unknownSubtype):
+        // Unknown subtype - mark as unsupported
+        self = .unsupported("message - \(unknownSubtype)")
+    }
+```
+
+#### Supported Message Subtypes
+
+- `bot_message` → MessageBotEvent
+- `message_changed` → MessageChangedEvent
+- `message_deleted` → MessageDeletedEvent
+- `channel_archive`, `channel_join`, `channel_leave`, etc. → MessageChannel*Event
+- `file_share` → MessageFileShareEvent
+- `me_message` → MessageMeEvent
+- `thread_broadcast` → MessageThreadBroadcastEvent
+- And more...
 
 ### Key Transformations
 
@@ -120,6 +163,25 @@ The `scripts/process_events.rb` script processes `.tmp/Events/Types.swift` and:
 - `Components.Schemas.Block` → `BlockType` (with SlackBlockKit import)
 - Preserves `_type` property as generated (no transformation to `type`)
 - Preserves CodingKeys enums for proper JSON serialization
+- Maps event class names to Slack event type strings (e.g., `ChannelIDChangedEvent` → `"channel_id_changed"`)
+
+### Error Handling
+
+- **Proper error propagation**: Uses `try` instead of `try?` for JSON parsing
+- **Unknown types**: Returns `.unsupported(String)` with the unknown type
+- **Unknown message subtypes**: Returns `.unsupported("message - <subtype>")` 
+- **Invalid JSON**: Throws decoding errors up to caller
+
+### Testing
+
+Comprehensive unit tests in `Tests/SlackClientTests/EventTypeTests.swift` verify:
+- Regular message decoding (no subtype)
+- Known subtype handling (bot_message, channel_join, etc.)
+- Unknown subtype handling (returns unsupported with full info)
+- Null subtype handling (treated as regular message)
+- Invalid subtype type handling (throws error)
+- Payload extraction via `.payload` property
+- All known message subtypes don't decode as unsupported
 
 ## Important Technical Notes
 
@@ -466,6 +528,37 @@ struct CleanModal: SlackModalView {
 }
 ```
 
+## Socket Mode
+
+Real-time WebSocket-based communication at `Sources/SlackClient/Client/SocketMode/`:
+
+### Features
+- **Event-driven architecture**: Uses `SocketModeMessageRouter` for handling different message types
+- **Automatic acknowledgment**: Framework handles Socket Mode acknowledgments automatically
+- **Type-safe handlers**: Strongly typed handlers for events, slash commands, and interactions
+- **Slash command support**: Added via `router.onSlashCommand("/command") { context, payload in ... }`
+- **WebSocket management**: Automatic connection handling and message routing
+
+### Message Types
+- **Events API**: AppMentionEvent, MessageEvent, and all other Slack events
+- **Slash Commands**: Interactive slash command payloads
+- **Interactive Components**: Block actions, view submissions, shortcuts
+- **Hello/Disconnect**: Connection lifecycle messages
+
+### Example Usage
+```swift
+// Echo slash command example
+router.onSlashCommand("/echo") { context, payload in
+    let text = payload.text.trimmingCharacters(in: .whitespacesAndNewlines)
+    let responseText = text.isEmpty ? "👋 Hello!" : "🔊 Echo: \(text)"
+    
+    try await client.chatPostMessage(
+        channel: payload.channelId,
+        text: responseText
+    )
+}
+```
+
 ## Memories
 
 - Since swift-openapi-generator can't rely on keyEncoding/DecodingStrategy option, we need to use hardcoded CodingKeys entirely to convert snake_case <-> lowerCamel keys.
@@ -474,3 +567,5 @@ struct CleanModal: SlackModalView {
 - SlackView protocol uses `blocks` property (not `body`) to match BlockKit API naming conventions.
 - TextObject implements ExpressibleByStringLiteral for clean string literal syntax, defaulting to `.plainText` type.
 - Tests use swift-testing framework (not XCTest) for modern Swift testing patterns.
+- Message events use special subtype field handling - regular messages have no subtype, while specialized messages like bot_message have specific subtypes.
+- EventType enum provides polymorphic decoding with proper error handling for unknown types and subtypes.
