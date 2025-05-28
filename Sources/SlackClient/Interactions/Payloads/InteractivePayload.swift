@@ -7,8 +7,9 @@ public protocol InteractivePayloadProtocol: Decodable, Hashable, Sendable {
 }
 
 public enum InteractivePayload: Decodable, Hashable, Sendable {
-    case blockActions(BlockActionsPaylaod)
     case shortcut(GlobalShortcutPayload)
+    case messageAction(MessageShortcutPayload)
+    case blockActions(BlockActionsPaylaod)
     case viewSubmission(ViewSubmissionPayload)
     case viewClosed(ViewClosedPayload)
     case unsupported(String)
@@ -17,8 +18,9 @@ public enum InteractivePayload: Decodable, Hashable, Sendable {
 extension InteractivePayload {
     public var _type: String {
         switch self {
-        case let .blockActions(payload): payload._type
         case let .shortcut(payload): payload._type
+        case let .messageAction(payload): payload._type
+        case let .blockActions(payload): payload._type
         case let .viewClosed(payload): payload._type
         case let .viewSubmission(payload): payload._type
         case let .unsupported(t): t

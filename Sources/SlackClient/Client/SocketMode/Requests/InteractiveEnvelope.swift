@@ -15,10 +15,12 @@ public struct InteractiveEnvelope: Decodable, Hashable, Sendable {
         self._type = _type
 
         switch _type {
-        case "block_actions":
-            self.body = .blockActions(try BlockActionsPaylaod(from: decoder))
         case "shortcut":
             self.body = .shortcut(try GlobalShortcutPayload(from: decoder))
+        case "message_action":
+            self.body = .messageAction(try MessageShortcutPayload(from: decoder))
+        case "block_actions":
+            self.body = .blockActions(try BlockActionsPaylaod(from: decoder))
         case "view_submission":
             self.body = .viewSubmission(try ViewSubmissionPayload(from: decoder))
         case "view_closed":

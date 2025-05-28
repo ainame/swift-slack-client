@@ -46,6 +46,10 @@ struct Command {
             switch envelope.body {
             case .shortcut:
                 print("onInteractive: .shortcut")
+            case .messageAction:
+                print("onInteractive: .messageAction")
+            case .slashCommands:
+                print("onInteractive: .slashCommands")
             case .blockActions:
                 print("onInteractive: .blockActions")
             case .viewSubmission:
@@ -58,11 +62,11 @@ struct Command {
         }
 
         router.onGlboalShortcut("run-something") { context, payload in
-            print("onGlobalShortcut: \(payload.type) \(payload.callbackId!)")
+            print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
         }
 
         router.onBlockAction("run-something") { context, payload in
-            print("onGlobalShortcut: \(payload.type) \(payload.callbackId!)")
+            print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
         }
 
         router.onSlackMessageMatched(with: "Hello", "World") { context, envelope, payload in

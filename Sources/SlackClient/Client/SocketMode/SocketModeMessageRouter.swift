@@ -65,6 +65,34 @@ public final class SocketModeMessageRouter {
         handlers.append(filterHandler)
     }
 
+    public func onMessageShortcut(_ callbackId: String, handler: @escaping SocketModeMessagePayloadHandler<MessageShortcutPayload>) {
+        let filterHandler: SocketModeMessageHandler = { context, envelope in
+            guard case let .interactive(interactiveEnvelope) = envelope.payload else { return }
+            guard case let .messageAction(payload) = interactiveEnvelope.body,
+                  payload.callbackId == callbackId else {
+                return
+            }
+            try await handler(context, payload)
+        }
+        handlers.append(filterHandler)
+    }
+
+    public func onSlashCommand(
+        _ command: String,
+        handler: @escaping SocketModeMessagePayloadHandler<SlashCommandsPayload>
+    ) {
+        precondition(command.hasPrefix("/"), "A command should be registered with `/` prefix; e.g. `/command`")
+
+        let filterHandler: SocketModeMessageHandler = { context, envelope in
+            guard case let .slashCommands(payload) = envelope.payload,
+                  payload.command == command else {
+                return
+            }
+            try await handler(context, payload)
+        }
+        handlers.append(filterHandler)
+    }
+
     public func onBlockAction(_ callbackId: String, handler: @escaping SocketModeMessagePayloadHandler<BlockActionsPaylaod>) {
         let filterHandler: SocketModeMessageHandler = { context, envelope in
             guard case let .interactive(interactiveEnvelope) = envelope.payload,

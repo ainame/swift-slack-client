@@ -46,7 +46,7 @@ extension Slack {
                         }
                     } catch {
                         let message = String(buffer: frame.data)
-                        context.logger.error("Parsing message failed: \(error.localizedDescription) /// \(message)")
+                        context.logger.error("Parsing message failed: \(error) /// \(message)")
                     }
                 }
             } catch {

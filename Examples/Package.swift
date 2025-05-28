@@ -8,6 +8,7 @@ targets.append(executable("chatPostMessage"))
 targets.append(executable("router"))
 targets.append(executable("dsl"))
 targets.append(executable("slackview-demo"))
+targets.append(executable("echo"))
 
 let package = Package(
     name: "Examples",

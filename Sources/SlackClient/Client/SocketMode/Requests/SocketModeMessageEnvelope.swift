@@ -4,6 +4,7 @@ import Foundation
 public struct SocketModeMessageEnvelope: Decodable, Hashable, Sendable {
     public enum Payload: Decodable, Hashable, Sendable {
         case interactive(InteractiveEnvelope)
+        case slashCommands(SlashCommandsPayload)
 #if Events
         case eventsApi(EventsApiEnvelope<EventType>)
 #endif
@@ -32,6 +33,9 @@ public struct SocketModeMessageEnvelope: Decodable, Hashable, Sendable {
         case "interactive":
             let interaction = try container.decode(InteractiveEnvelope.self, forKey: CodingKeys.payload)
             self.payload = .interactive(interaction)
+        case "slash_commands":           
+            let payload = try container.decode(SlashCommandsPayload.self, forKey: CodingKeys.payload)
+            self.payload = .slashCommands(payload)
 #if Events
         case "events_api":
             let event = try container.decode(EventsApiEnvelope<EventType>.self, forKey: CodingKeys.payload)
