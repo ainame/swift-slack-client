@@ -191,42 +191,6 @@ public enum EventType: Decodable, Hashable, Sendable {
             self = .memberJoinedChannel(try MemberJoinedChannelEvent(from: decoder))
         case "member_left_channel":
             self = .memberLeftChannel(try MemberLeftChannelEvent(from: decoder))
-        case "message_bot":
-            self = .messageBot(try MessageBotEvent(from: decoder))
-        case "message_changed":
-            self = .messageChanged(try MessageChangedEvent(from: decoder))
-        case "message_channel_archive":
-            self = .messageChannelArchive(try MessageChannelArchiveEvent(from: decoder))
-        case "message_channel_join":
-            self = .messageChannelJoin(try MessageChannelJoinEvent(from: decoder))
-        case "message_channel_leave":
-            self = .messageChannelLeave(try MessageChannelLeaveEvent(from: decoder))
-        case "message_channel_name":
-            self = .messageChannelName(try MessageChannelNameEvent(from: decoder))
-        case "message_channel_posting_permissions":
-            self = .messageChannelPostingPermissions(try MessageChannelPostingPermissionsEvent(from: decoder))
-        case "message_channel_purpose":
-            self = .messageChannelPurpose(try MessageChannelPurposeEvent(from: decoder))
-        case "message_channel_topic":
-            self = .messageChannelTopic(try MessageChannelTopicEvent(from: decoder))
-        case "message_channel_unarchive":
-            self = .messageChannelUnarchive(try MessageChannelUnarchiveEvent(from: decoder))
-        case "message_deleted":
-            self = .messageDeleted(try MessageDeletedEvent(from: decoder))
-        case "message_ekm_access_denied":
-            self = .messageEkmAccessDenied(try MessageEkmAccessDeniedEvent(from: decoder))
-        case "message":
-            self = .message(try MessageEvent(from: decoder))
-        case "message_file_share":
-            self = .messageFileShare(try MessageFileShareEvent(from: decoder))
-        case "message_group_topic":
-            self = .messageGroupTopic(try MessageGroupTopicEvent(from: decoder))
-        case "message_me":
-            self = .messageMe(try MessageMeEvent(from: decoder))
-        case "message_replied":
-            self = .messageReplied(try MessageRepliedEvent(from: decoder))
-        case "message_thread_broadcast":
-            self = .messageThreadBroadcast(try MessageThreadBroadcastEvent(from: decoder))
         case "pin_added":
             self = .pinAdded(try PinAddedEvent(from: decoder))
         case "pin_removed":
@@ -283,6 +247,53 @@ public enum EventType: Decodable, Hashable, Sendable {
             self = .workflowStepExecute(try WorkflowStepExecuteEvent(from: decoder))
         case "workflow_unpublished":
             self = .workflowUnpublished(try WorkflowUnpublishedEvent(from: decoder))
+        case "message":
+            // Message events require checking the subtype field
+            let subtypeContainer = try decoder.container(keyedBy: MessageSubtypeCodingKeys.self)
+            let subtype = try subtypeContainer.decodeIfPresent(String.self, forKey: .subtype)
+            
+            switch subtype {
+            case "bot_message":
+                self = .messageBot(try MessageBotEvent(from: decoder))
+            case "message_changed":
+                self = .messageChanged(try MessageChangedEvent(from: decoder))
+            case "channel_archive":
+                self = .messageChannelArchive(try MessageChannelArchiveEvent(from: decoder))
+            case "channel_join":
+                self = .messageChannelJoin(try MessageChannelJoinEvent(from: decoder))
+            case "channel_leave":
+                self = .messageChannelLeave(try MessageChannelLeaveEvent(from: decoder))
+            case "channel_name":
+                self = .messageChannelName(try MessageChannelNameEvent(from: decoder))
+            case "channel_posting_permissions":
+                self = .messageChannelPostingPermissions(try MessageChannelPostingPermissionsEvent(from: decoder))
+            case "channel_purpose":
+                self = .messageChannelPurpose(try MessageChannelPurposeEvent(from: decoder))
+            case "channel_topic":
+                self = .messageChannelTopic(try MessageChannelTopicEvent(from: decoder))
+            case "channel_unarchive":
+                self = .messageChannelUnarchive(try MessageChannelUnarchiveEvent(from: decoder))
+            case "message_deleted":
+                self = .messageDeleted(try MessageDeletedEvent(from: decoder))
+            case "ekm_access_denied":
+                self = .messageEkmAccessDenied(try MessageEkmAccessDeniedEvent(from: decoder))
+            case "file_share":
+                self = .messageFileShare(try MessageFileShareEvent(from: decoder))
+            case "group_topic":
+                self = .messageGroupTopic(try MessageGroupTopicEvent(from: decoder))
+            case "me_message":
+                self = .messageMe(try MessageMeEvent(from: decoder))
+            case "message_replied":
+                self = .messageReplied(try MessageRepliedEvent(from: decoder))
+            case "thread_broadcast":
+                self = .messageThreadBroadcast(try MessageThreadBroadcastEvent(from: decoder))
+            case nil:
+                // No subtype - regular message
+                self = .message(try MessageEvent(from: decoder))
+            case .some(let unknownSubtype):
+                // Unknown subtype - mark as unsupported
+                self = .unsupported("message - \(unknownSubtype)")
+            }
         default:
             self = .unsupported(type)
         }
@@ -480,6 +491,10 @@ public enum EventType: Decodable, Hashable, Sendable {
 
     private enum CodingKeys: String, CodingKey {
         case type
+    }
+    
+    private enum MessageSubtypeCodingKeys: String, CodingKey {
+        case subtype
     }
 }
 #endif

@@ -150,17 +150,44 @@ class EventsProcessor
     # Sort event names for consistent output
     sorted_events = event_names.sort
 
-    # Generate enum cases
+    # Separate message subtypes from regular events
+    message_subtypes = []
+    regular_events = []
+    
+    sorted_events.each do |event_name|
+      # Check if this is a message subtype event
+      # MessageEvent itself is the base message type (no subtype)
+      # Events like MessageChangedEvent, MessageBotEvent etc are subtypes
+      if event_name.start_with?('Message') && event_name != 'MessageEvent'
+        message_subtypes << event_name
+      else
+        regular_events << event_name
+      end
+    end
+
+    # Generate enum cases (all events get enum cases)
     enum_cases = sorted_events.map do |event_name|
       case_name = camel_case_to_lower_camel_case(event_name.gsub(/Event$/, ''))
       "    case #{case_name}(#{event_name})"
     end
 
-    # Generate switch cases for decoding
-    switch_cases = sorted_events.map do |event_name|
+    # Generate switch cases for regular events (non-message subtypes)
+    # Exclude MessageEvent from regular switch cases if we have message subtypes to handle
+    events_for_switch = regular_events.dup
+    if !message_subtypes.empty?
+      events_for_switch.delete('MessageEvent')
+    end
+    
+    switch_cases = events_for_switch.map do |event_name|
       case_name = camel_case_to_lower_camel_case(event_name.gsub(/Event$/, ''))
       type_value = generate_slack_event_type(event_name)
       "        case \"#{type_value}\":\n            self = .#{case_name}(try #{event_name}(from: decoder))"
+    end
+
+    # Add special case for "message" type that checks subtype
+    if regular_events.include?('MessageEvent') || !message_subtypes.empty?
+      message_subtype_cases = generate_message_subtype_cases(message_subtypes)
+      switch_cases << generate_message_type_case(message_subtype_cases)
     end
 
     # Generate switch cases for payload computed property
@@ -201,6 +228,10 @@ public enum EventType: Decodable, Hashable, Sendable {
     private enum CodingKeys: String, CodingKey {
         case type
     }
+    
+    private enum MessageSubtypeCodingKeys: String, CodingKey {
+        case subtype
+    }
 }
 #endif
     SWIFT
@@ -210,6 +241,92 @@ public enum EventType: Decodable, Hashable, Sendable {
     filepath = File.join(@output_directory, filename)
     File.write(filepath, file_content)
     Output.created filename
+  end
+
+  # Generates the message subtype cases for the special "message" type handling
+  def generate_message_subtype_cases(message_subtypes)
+    message_subtypes.map do |event_name|
+      case_name = camel_case_to_lower_camel_case(event_name.gsub(/Event$/, ''))
+      subtype_value = generate_message_subtype_value(event_name)
+      "            case \"#{subtype_value}\":\n                self = .#{case_name}(try #{event_name}(from: decoder))"
+    end
+  end
+
+  # Generates the special case statement for "message" type that checks subtype
+  def generate_message_type_case(subtype_cases)
+    <<~CASE.chomp
+        case "message":
+            // Message events require checking the subtype field
+            let subtypeContainer = try decoder.container(keyedBy: MessageSubtypeCodingKeys.self)
+            let subtype = try subtypeContainer.decodeIfPresent(String.self, forKey: .subtype)
+            
+            switch subtype {
+#{subtype_cases.join("\n")}
+            case nil:
+                // No subtype - regular message
+                self = .message(try MessageEvent(from: decoder))
+            case .some(let unknownSubtype):
+                // Unknown subtype - mark as unsupported
+                self = .unsupported("message - \\(unknownSubtype)")
+            }
+    CASE
+  end
+
+  # Generates the Slack message subtype value from the event class name
+  def generate_message_subtype_value(event_name)
+    # Remove 'Event' suffix and 'Message' prefix
+    base_name = event_name.gsub(/Event$/, '').gsub(/^Message/, '')
+    
+    # Handle special cases
+    case base_name
+    when 'Bot'
+      'bot_message'
+    when 'Changed'
+      'message_changed'
+    when 'Deleted'
+      'message_deleted'
+    when 'Replied'
+      'message_replied'
+    when 'ThreadBroadcast'
+      'thread_broadcast'
+    when 'Me'
+      'me_message'
+    when 'FileShare'
+      'file_share'
+    when 'EkmAccessDenied'
+      'ekm_access_denied'
+    when 'GroupTopic'
+      'group_topic'
+    else
+      # For channel-related subtypes like MessageChannelArchive -> channel_archive
+      if base_name.start_with?('Channel')
+        base_name = base_name.gsub(/^Channel/, '')
+        case base_name
+        when 'Archive'
+          'channel_archive'
+        when 'Join'
+          'channel_join'
+        when 'Leave'
+          'channel_leave'
+        when 'Name'
+          'channel_name'
+        when 'Purpose'
+          'channel_purpose'
+        when 'Topic'
+          'channel_topic'
+        when 'Unarchive'
+          'channel_unarchive'
+        when 'PostingPermissions'
+          'channel_posting_permissions'
+        else
+          # Default: convert to snake_case
+          base_name.gsub(/([A-Z])/) { "_#{$1.downcase}" }.sub(/^_/, '').downcase
+        end
+      else
+        # Default: convert to snake_case
+        base_name.gsub(/([A-Z])/) { "_#{$1.downcase}" }.sub(/^_/, '').downcase
+      end
+    end
   end
 
   # Converts CamelCase to lowerCamelCase for enum case names
