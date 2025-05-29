@@ -15,7 +15,6 @@
 --enable redundantReturn
 --enable redundantSelf
 --enable strongOutlets
---enable trailingCommas
 --enable typeSugar
 --enable wrap
 --enable wrapArguments
