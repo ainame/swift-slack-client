@@ -4,6 +4,7 @@ import Foundation
 import HTTPTypes
 import Logging
 import NIOCore
+import NIOFoundationCompat
 import OpenAPIRuntime
 import WSClient
 
