@@ -70,6 +70,11 @@ public struct RichTextSection: Codable, Hashable, Sendable {
     public init(elements: [RichTextContentElement]) {
         self.elements = elements
     }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case elements
+    }
 }
 
 public struct RichTextList: Codable, Hashable, Sendable {
@@ -93,6 +98,15 @@ public struct RichTextList: Codable, Hashable, Sendable {
         self.offset = offset
         self.border = border
     }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case style
+        case elements
+        case indent
+        case offset
+        case border
+    }
 }
 
 public struct RichTextPreformatted: Codable, Hashable, Sendable {
@@ -104,6 +118,12 @@ public struct RichTextPreformatted: Codable, Hashable, Sendable {
         self.elements = elements
         self.border = border
     }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case elements
+        case border
+    }
 }
 
 public struct RichTextQuote: Codable, Hashable, Sendable {
@@ -114,6 +134,12 @@ public struct RichTextQuote: Codable, Hashable, Sendable {
     public init(elements: [RichTextContentElement], border: Int? = nil) {
         self.elements = elements
         self.border = border
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case elements
+        case border
     }
 }
 
@@ -192,6 +218,12 @@ public struct RichTextTextElement: Codable, Hashable, Sendable {
         self.text = text
         self.style = style
     }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case text
+        case style
+    }
 }
 
 public struct RichTextTextStyle: Codable, Hashable, Sendable {
@@ -221,6 +253,14 @@ public struct RichTextLinkElement: Codable, Hashable, Sendable {
         self.unsafe = unsafe
         self.style = style
     }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case url
+        case text
+        case unsafe
+        case style
+    }
 }
 
 public struct RichTextEmojiElement: Codable, Hashable, Sendable {
@@ -231,6 +271,12 @@ public struct RichTextEmojiElement: Codable, Hashable, Sendable {
     public init(name: String, unicode: String? = nil) {
         self.name = name
         self.unicode = unicode
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case name
+        case unicode
     }
 }
 
@@ -315,6 +361,14 @@ public struct RichTextDateElement: Codable, Hashable, Sendable {
         self.url = url
         self.fallback = fallback
     }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case timestamp
+        case format
+        case url
+        case fallback
+    }
 }
 
 public struct RichTextBroadcastElement: Codable, Hashable, Sendable {
@@ -323,5 +377,10 @@ public struct RichTextBroadcastElement: Codable, Hashable, Sendable {
 
     public init(range: String) {
         self.range = range
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case range
     }
 }

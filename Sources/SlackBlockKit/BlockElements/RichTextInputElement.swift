@@ -40,4 +40,9 @@ public struct RichTextObject: Codable, Hashable, Sendable {
     public init(elements: [RichTextElementType]) {
         self.elements = elements
     }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case elements
+    }
 }
