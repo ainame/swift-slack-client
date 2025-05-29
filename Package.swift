@@ -88,10 +88,6 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "SlackBlockKitTests",
-            dependencies: ["SlackBlockKit"]
-        ),
-        .testTarget(
             name: "SlackBlockKitDSLTests",
             dependencies: ["SlackBlockKitDSL"]
         ),
