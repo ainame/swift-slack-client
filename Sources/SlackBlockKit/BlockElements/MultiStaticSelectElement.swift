@@ -1,7 +1,7 @@
 import Foundation
 
 public struct MultiStaticSelectElement: Codable, Hashable, Sendable {
-    public let type: String // "multi_static_select"
+    public let type = "multi_static_select"
     public let actionId: String?
     public let options: [OptionObject]
     public let initialOptions: [OptionObject]?
@@ -19,7 +19,6 @@ public struct MultiStaticSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        type = "multi_static_select"
         self.options = options
         self.actionId = actionId
         self.initialOptions = initialOptions

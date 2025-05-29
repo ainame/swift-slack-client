@@ -1,7 +1,7 @@
 import Foundation
 
 public struct NumberInputElement: Codable, Hashable, Sendable {
-    public let type: String // "number_input"
+    public let type = "number_input"
     public let isDecimalAllowed: Bool
     public let actionId: String?
     public let initialValue: String?
@@ -21,7 +21,6 @@ public struct NumberInputElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        type = "number_input"
         self.isDecimalAllowed = isDecimalAllowed
         self.actionId = actionId
         self.initialValue = initialValue

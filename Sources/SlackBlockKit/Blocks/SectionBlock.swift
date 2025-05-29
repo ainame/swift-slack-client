@@ -1,7 +1,7 @@
 import Foundation
 
 public struct SectionBlock: Codable, Hashable, Sendable {
-    public let type: String // "section"
+    public let type = "section"
     public let text: TextObject?
     public let fields: [TextObject]?
     public let accessory: SectionAccessory?
@@ -15,7 +15,6 @@ public struct SectionBlock: Codable, Hashable, Sendable {
         blockId: String? = nil,
         expand: Bool? = nil
     ) {
-        type = "section"
         self.text = text
         self.fields = fields
         self.accessory = accessory

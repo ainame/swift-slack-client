@@ -1,7 +1,7 @@
 import Foundation
 
 public struct PlainTextInputElement: Codable, Hashable, Sendable {
-    public let type: String // "plain_text_input"
+    public let type = "plain_text_input"
     public let actionId: String?
     public let initialValue: String?
     public let multiline: Bool?
@@ -21,7 +21,6 @@ public struct PlainTextInputElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        type = "plain_text_input"
         self.actionId = actionId
         self.initialValue = initialValue
         self.multiline = multiline

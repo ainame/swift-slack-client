@@ -1,7 +1,7 @@
 import Foundation
 
 public struct HomeTabView: Codable, Hashable, Sendable {
-    public let type: String // "home"
+    public let type = "home"
     public let blocks: [BlockType]
     public let privateMetadata: String?
     public let callbackId: String?
@@ -13,7 +13,6 @@ public struct HomeTabView: Codable, Hashable, Sendable {
         callbackId: String? = nil,
         externalId: String? = nil
     ) {
-        type = "home"
         self.blocks = blocks
         self.privateMetadata = privateMetadata
         self.callbackId = callbackId

@@ -1,7 +1,7 @@
 import Foundation
 
 public struct ImageBlock: Codable, Hashable, Sendable {
-    public let type: String // "image"
+    public let type = "image"
     public let altText: String
     public let imageUrl: URL?
     public let slackFile: SlackFileObject?
@@ -15,7 +15,6 @@ public struct ImageBlock: Codable, Hashable, Sendable {
         title: TextObject? = nil,
         blockId: String? = nil
     ) {
-        type = "image"
         self.altText = altText
         self.imageUrl = imageUrl
         self.slackFile = slackFile

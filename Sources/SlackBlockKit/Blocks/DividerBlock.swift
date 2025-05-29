@@ -1,11 +1,10 @@
 import Foundation
 
 public struct DividerBlock: Codable, Hashable, Sendable {
-    public let type: String // "divider"
+    public let type = "divider"
     public let blockId: String?
 
     public init(blockId: String? = nil) {
-        type = "divider"
         self.blockId = blockId
     }
 

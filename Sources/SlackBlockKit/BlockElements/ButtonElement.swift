@@ -1,7 +1,7 @@
 import Foundation
 
 public struct ButtonElement: Codable, Hashable, Sendable {
-    public let type: String // "button"
+    public let type = "button"
     public let text: TextObject
     public let actionId: String?
     public let url: URL?
@@ -19,7 +19,6 @@ public struct ButtonElement: Codable, Hashable, Sendable {
         confirm: ConfirmationDialogObject? = nil,
         accessibilityLabel: String? = nil
     ) {
-        type = "button"
         self.text = text
         self.actionId = actionId
         self.url = url

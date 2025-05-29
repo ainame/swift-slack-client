@@ -1,12 +1,11 @@
 import Foundation
 
 public struct ContextBlock: Codable, Hashable, Sendable {
-    public let type: String // "context"
+    public let type = "context"
     public let elements: [ContextElementType]
     public let blockId: String?
 
     public init(elements: [ContextElementType], blockId: String? = nil) {
-        type = "context"
         self.elements = elements
         self.blockId = blockId
     }

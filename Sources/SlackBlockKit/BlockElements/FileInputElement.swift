@@ -1,7 +1,7 @@
 import Foundation
 
 public struct FileInputElement: Codable, Hashable, Sendable {
-    public let type: String // "file_input"
+    public let type = "file_input"
     public let actionId: String
     public let filetypes: [String]?
     public let maxFiles: Int?
@@ -11,7 +11,6 @@ public struct FileInputElement: Codable, Hashable, Sendable {
         filetypes: [String]? = nil,
         maxFiles: Int? = nil
     ) {
-        type = "file_input"
         self.actionId = actionId
         self.filetypes = filetypes
         self.maxFiles = maxFiles
