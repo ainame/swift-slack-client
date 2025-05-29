@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.SearchAll.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.SearchAll.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -205,9 +203,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.SearchFiles.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.SearchFiles.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -387,9 +383,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.SearchMessages.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.SearchMessages.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -403,8 +397,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json/query`.
                     public var query: Swift.String
-                    /// Use this when getting results with cursormark pagination. For first call send * for subsequent calls, send the value
-                    /// of next_cursor returned in the previous call's results.
+                    /// Use this when getting results with cursormark pagination. For first call send * for subsequent calls, send the value of next_cursor returned in the previous call's results.
                     ///
                     /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
@@ -428,8 +421,8 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - query: Search query.
-                    ///   - cursor: Use this when getting results with cursormark pagination. For first call send * for subsequent calls,
-                    /// send the value of next_cursor returned in the previous call's results.
+                    ///   - cursor: Use this when getting results with cursormark pagination. For first call send * for subsequent calls, send the value of next_cursor returned in the previous call's
+                    /// results.
                     ///   - highlight: Pass a value of true to enable query highlight markers (see below).
                     ///   - sort: Return matches sorted by either score or timestamp.
                     ///   - sortDir: Change sort direction to ascending (asc) or descending (desc).

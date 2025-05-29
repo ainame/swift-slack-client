@@ -27,9 +27,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsOpen.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsOpen.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -191,9 +189,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsPublish.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsPublish.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -355,9 +351,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsPush.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsPush.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -519,9 +513,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsUpdate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsUpdate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -533,8 +525,7 @@ extension Operations {
                 public struct JsonPayload: Codable, Hashable, Sendable {
                     /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/view`.
                     public var view: SlackBlockKit.ViewType
-                    /// A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255
-                    /// characters. Either view_id or external_id is required.
+                    /// A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is required.
                     ///
                     /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/external_id`.
                     public var externalId: Swift.String?
@@ -550,8 +541,8 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - view:
-                    ///   - externalId: A unique identifier of the view set by the developer. Must be unique for all views on a team. Max
-                    /// length of 255 characters. Either view_id or external_id is required.
+                    ///   - externalId: A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is
+                    /// required.
                     ///   - viewId: A unique identifier of the view to be updated. Either view_id or external_id is required.
                     ///   - hash: A string that represents view state to protect against possible race conditions.
                     public init(

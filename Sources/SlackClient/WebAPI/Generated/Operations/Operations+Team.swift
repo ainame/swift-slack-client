@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamAccessLogs.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamAccessLogs.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -39,15 +37,13 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/team.accessLogs/POST/requestBody/json/before`.
                     public var before: Swift.String?
-                    /// Parameter for pagination. Set cursor equal to the next_cursor attribute returned by the previous request's
-                    /// response_metadata. This parameter is optional, but pagination is mandatory: the default value simply fetches the
-                    /// first "page" of the collection. See pagination for more details.
+                    /// Parameter for pagination. Set cursor equal to the next_cursor attribute returned by the previous request's response_metadata. This parameter is optional, but pagination is
+                    /// mandatory: the default value simply fetches the first "page" of the collection. See pagination for more details.
                     ///
                     /// - Remark: Generated from `#/paths/team.accessLogs/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
-                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of
-                    /// the list hasn't been reached. If specified, result is returned using a cursor-based approach instead of a classic
-                    /// one.
+                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. If specified, result is
+                    /// returned using a cursor-based approach instead of a classic one.
                     ///
                     /// - Remark: Generated from `#/paths/team.accessLogs/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
@@ -59,12 +55,10 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - before: End of time range of logs to include in results (inclusive).
-                    ///   - cursor: Parameter for pagination. Set cursor equal to the next_cursor attribute returned by the previous
-                    /// request's response_metadata. This parameter is optional, but pagination is mandatory: the default value simply
-                    /// fetches the first "page" of the collection. See pagination for more details.
-                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if
-                    /// the end of the list hasn't been reached. If specified, result is returned using a cursor-based approach instead of a
-                    /// classic one.
+                    ///   - cursor: Parameter for pagination. Set cursor equal to the next_cursor attribute returned by the previous request's response_metadata. This parameter is optional, but
+                    /// pagination is mandatory: the default value simply fetches the first "page" of the collection. See pagination for more details.
+                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. If specified,
+                    /// result is returned using a cursor-based approach instead of a classic one.
                     ///   - teamId: encoded team id to get logs from, required if org token is used.
                     public init(
                         before: Swift.String? = nil,
@@ -205,9 +199,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamBillableInfo.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamBillableInfo.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -217,8 +209,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/team.billableInfo/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Set cursor to next_cursor returned by previous call, to indicate from where you want to list next page of users
-                    /// list. Default value fetches the first page.
+                    /// Set cursor to next_cursor returned by previous call, to indicate from where you want to list next page of users list. Default value fetches the first page.
                     ///
                     /// - Remark: Generated from `#/paths/team.billableInfo/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
@@ -237,8 +228,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - cursor: Set cursor to next_cursor returned by previous call, to indicate from where you want to list next page
-                    /// of users list. Default value fetches the first page.
+                    ///   - cursor: Set cursor to next_cursor returned by previous call, to indicate from where you want to list next page of users list. Default value fetches the first page.
                     ///   - limit: The maximum number of items to return.
                     ///   - teamId: encoded team id to get the billable information from, required if org token is used.
                     ///   - user: A user to retrieve the billable information for. Defaults to all users.
@@ -381,9 +371,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamBillingInfo.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamBillingInfo.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -519,9 +507,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamExternalTeamsDisconnect.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamExternalTeamsDisconnect.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -667,9 +653,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamExternalTeamsList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamExternalTeamsList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -683,8 +667,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/connection_status_filter`.
                     public var connectionStatusFilter: Swift.String?
-                    /// Paginate through collections of data by setting parameter to the team_id attribute returned by a previous request's
-                    /// response_metadata. If not provided, the first page of the collection is returned. See pagination for more detail.
+                    /// Paginate through collections of data by setting parameter to the team_id attribute returned by a previous request's response_metadata. If not provided, the first page of the
+                    /// collection is returned. See pagination for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
@@ -692,9 +676,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// Filters connected orgs by Slack Connect pref override(s). Value can be: approved_orgs_only allow_sc_file_uploads
-                    /// profile_visibility away_team_sc_invite_permissions accept_sc_invites sc_mpdm_to_private require_sc_channel_for_sc_dm
-                    /// external_awareness_context_bar.
+                    /// Filters connected orgs by Slack Connect pref override(s). Value can be: approved_orgs_only allow_sc_file_uploads profile_visibility away_team_sc_invite_permissions
+                    /// accept_sc_invites sc_mpdm_to_private require_sc_channel_for_sc_dm external_awareness_context_bar.
                     ///
                     /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/slack_connect_pref_filter`.
                     public var slackConnectPrefFilter: OpenAPIRuntime.OpenAPIArrayContainer?
@@ -714,13 +697,11 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - connectionStatusFilter: Status of the connected team.
-                    ///   - cursor: Paginate through collections of data by setting parameter to the team_id attribute returned by a
-                    /// previous request's response_metadata. If not provided, the first page of the collection is returned. See pagination
-                    /// for more detail.
+                    ///   - cursor: Paginate through collections of data by setting parameter to the team_id attribute returned by a previous request's response_metadata. If not provided, the first
+                    /// page of the collection is returned. See pagination for more detail.
                     ///   - limit: The maximum number of items to return per page.
-                    ///   - slackConnectPrefFilter: Filters connected orgs by Slack Connect pref override(s). Value can be:
-                    /// approved_orgs_only allow_sc_file_uploads profile_visibility away_team_sc_invite_permissions accept_sc_invites
-                    /// sc_mpdm_to_private require_sc_channel_for_sc_dm external_awareness_context_bar.
+                    ///   - slackConnectPrefFilter: Filters connected orgs by Slack Connect pref override(s). Value can be: approved_orgs_only allow_sc_file_uploads profile_visibility
+                    /// away_team_sc_invite_permissions accept_sc_invites sc_mpdm_to_private require_sc_channel_for_sc_dm external_awareness_context_bar.
                     ///   - sortDirection: Direction to sort in asc or desc.
                     ///   - sortField: Name of the parameter that we are sorting by.
                     ///   - workspaceFilter: Shows connected orgs which are connected on a specified encoded workspace ID.
@@ -872,9 +853,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamInfo.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamInfo.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -884,9 +863,8 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/team.info/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Query by domain instead of team (only when team is null). This only works for domains in the same enterprise as the
-                    /// querying team token. This also expects the domain to belong to a team and not the enterprise itself. This is the
-                    /// value set up for the 'Joining This Workspace' workspace setting. If it contains more than one domain, the field will
+                    /// Query by domain instead of team (only when team is null). This only works for domains in the same enterprise as the querying team token. This also expects the domain to belong
+                    /// to a team and not the enterprise itself. This is the value set up for the 'Joining This Workspace' workspace setting. If it contains more than one domain, the field will
                     /// contain multiple comma-separated domain values. If no domain is set, the field is empty.
                     ///
                     /// - Remark: Generated from `#/paths/team.info/POST/requestBody/json/domain`.
@@ -898,10 +876,9 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - domain: Query by domain instead of team (only when team is null). This only works for domains in the same
-                    /// enterprise as the querying team token. This also expects the domain to belong to a team and not the enterprise
-                    /// itself. This is the value set up for the 'Joining This Workspace' workspace setting. If it contains more than one
-                    /// domain, the field will contain multiple comma-separated domain values. If no domain is set, the field is empty.
+                    ///   - domain: Query by domain instead of team (only when team is null). This only works for domains in the same enterprise as the querying team token. This also expects the
+                    /// domain to belong to a team and not the enterprise itself. This is the value set up for the 'Joining This Workspace' workspace setting. If it contains more than one domain, the
+                    /// field will contain multiple comma-separated domain values. If no domain is set, the field is empty.
                     ///   - team: Team to get info about; if omitted, will return information about the current team.
                     public init(
                         domain: Swift.String? = nil,
@@ -1036,9 +1013,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamIntegrationLogs.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamIntegrationLogs.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1052,8 +1027,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/team.integrationLogs/POST/requestBody/json/app_id`.
                     public var appId: Swift.String?
-                    /// Filter logs with this change type. Possible values are added, removed, enabled, disabled, and updated. Defaults to
-                    /// all logs.
+                    /// Filter logs with this change type. Possible values are added, removed, enabled, disabled, and updated. Defaults to all logs.
                     ///
                     /// - Remark: Generated from `#/paths/team.integrationLogs/POST/requestBody/json/change_type`.
                     public var changeType: Swift.String?
@@ -1073,8 +1047,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - appId: Filter logs to this Slack app. Defaults to all logs.
-                    ///   - changeType: Filter logs with this change type. Possible values are added, removed, enabled, disabled, and
-                    /// updated. Defaults to all logs.
+                    ///   - changeType: Filter logs with this change type. Possible values are added, removed, enabled, disabled, and updated. Defaults to all logs.
                     ///   - serviceId: Filter logs to this service. Defaults to all logs.
                     ///   - teamId: encoded team id to get logs from, required if org token is used.
                     ///   - user: Filter logs generated by this user's actions. Defaults to all logs.
@@ -1220,9 +1193,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamPreferencesList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamPreferencesList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1358,9 +1329,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamProfileGet.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.TeamProfileGet.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }

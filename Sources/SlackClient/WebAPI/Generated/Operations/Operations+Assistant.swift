@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AssistantThreadsSetStatus.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AssistantThreadsSetStatus.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -184,17 +182,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AssistantThreadsSetSuggestedPrompts.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AssistantThreadsSetSuggestedPrompts.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AssistantThreadsSetSuggestedPrompts.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AssistantThreadsSetSuggestedPrompts.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -270,8 +263,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/assistant.threads.setSuggestedPrompts/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AssistantThreadsSetSuggestedPromptsResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -300,8 +292,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//assistant.threads.setSuggestedPrompts/post(assistantThreadsSetSuggestedPrompts)/responses/200`.
+            /// - Remark: Generated from `#/paths//assistant.threads.setSuggestedPrompts/post(assistantThreadsSetSuggestedPrompts)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AssistantThreadsSetSuggestedPrompts.Output.Ok)
@@ -368,9 +359,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AssistantThreadsSetTitle.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AssistantThreadsSetTitle.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }

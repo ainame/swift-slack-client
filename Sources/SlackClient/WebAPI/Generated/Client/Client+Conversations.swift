@@ -17,8 +17,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /conversations.acceptSharedInvite`.
     /// - Remark: Generated from `#/paths//conversations.acceptSharedInvite/post(conversationsAcceptSharedInvite)`.
-    func conversationsAcceptSharedInvite(_ input: Operations.ConversationsAcceptSharedInvite.Input) async throws -> Operations
-        .ConversationsAcceptSharedInvite.Output {
+    func conversationsAcceptSharedInvite(_ input: Operations.ConversationsAcceptSharedInvite.Input) async throws -> Operations.ConversationsAcceptSharedInvite.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsAcceptSharedInvite.id,
@@ -87,8 +86,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /conversations.approveSharedInvite`.
     /// - Remark: Generated from `#/paths//conversations.approveSharedInvite/post(conversationsApproveSharedInvite)`.
-    func conversationsApproveSharedInvite(_ input: Operations.ConversationsApproveSharedInvite.Input) async throws -> Operations
-        .ConversationsApproveSharedInvite.Output {
+    func conversationsApproveSharedInvite(_ input: Operations.ConversationsApproveSharedInvite.Input) async throws -> Operations.ConversationsApproveSharedInvite.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsApproveSharedInvite.id,
@@ -226,8 +224,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /conversations.canvases.create`.
     /// - Remark: Generated from `#/paths//conversations.canvases.create/post(conversationsCanvasesCreate)`.
-    func conversationsCanvasesCreate(_ input: Operations.ConversationsCanvasesCreate.Input) async throws -> Operations
-        .ConversationsCanvasesCreate.Output {
+    func conversationsCanvasesCreate(_ input: Operations.ConversationsCanvasesCreate.Input) async throws -> Operations.ConversationsCanvasesCreate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsCanvasesCreate.id,
@@ -434,8 +431,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /conversations.declineSharedInvite`.
     /// - Remark: Generated from `#/paths//conversations.declineSharedInvite/post(conversationsDeclineSharedInvite)`.
-    func conversationsDeclineSharedInvite(_ input: Operations.ConversationsDeclineSharedInvite.Input) async throws -> Operations
-        .ConversationsDeclineSharedInvite.Output {
+    func conversationsDeclineSharedInvite(_ input: Operations.ConversationsDeclineSharedInvite.Input) async throws -> Operations.ConversationsDeclineSharedInvite.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsDeclineSharedInvite.id,
@@ -504,9 +500,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /conversations.externalInvitePermissions.set`.
     /// - Remark: Generated from `#/paths//conversations.externalInvitePermissions.set/post(conversationsExternalInvitePermissionsSet)`.
-    func conversationsExternalInvitePermissionsSet(_ input: Operations.ConversationsExternalInvitePermissionsSet
-        .Input
-    ) async throws -> Operations.ConversationsExternalInvitePermissionsSet.Output {
+    func conversationsExternalInvitePermissionsSet(_ input: Operations.ConversationsExternalInvitePermissionsSet.Input) async throws -> Operations.ConversationsExternalInvitePermissionsSet.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsExternalInvitePermissionsSet.id,
@@ -782,8 +776,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /conversations.inviteShared`.
     /// - Remark: Generated from `#/paths//conversations.inviteShared/post(conversationsInviteShared)`.
-    func conversationsInviteShared(_ input: Operations.ConversationsInviteShared.Input) async throws -> Operations.ConversationsInviteShared
-        .Output {
+    func conversationsInviteShared(_ input: Operations.ConversationsInviteShared.Input) async throws -> Operations.ConversationsInviteShared.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsInviteShared.id,
@@ -1128,8 +1121,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /conversations.listConnectInvites`.
     /// - Remark: Generated from `#/paths//conversations.listConnectInvites/post(conversationsListConnectInvites)`.
-    func conversationsListConnectInvites(_ input: Operations.ConversationsListConnectInvites.Input) async throws -> Operations
-        .ConversationsListConnectInvites.Output {
+    func conversationsListConnectInvites(_ input: Operations.ConversationsListConnectInvites.Input) async throws -> Operations.ConversationsListConnectInvites.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsListConnectInvites.id,
@@ -1543,9 +1535,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /conversations.requestSharedInvite.approve`.
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.approve/post(conversationsRequestSharedInviteApprove)`.
-    func conversationsRequestSharedInviteApprove(_ input: Operations.ConversationsRequestSharedInviteApprove
-        .Input
-    ) async throws -> Operations.ConversationsRequestSharedInviteApprove.Output {
+    func conversationsRequestSharedInviteApprove(_ input: Operations.ConversationsRequestSharedInviteApprove.Input) async throws -> Operations.ConversationsRequestSharedInviteApprove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsRequestSharedInviteApprove.id,
@@ -1614,8 +1604,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /conversations.requestSharedInvite.deny`.
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.deny/post(conversationsRequestSharedInviteDeny)`.
-    func conversationsRequestSharedInviteDeny(_ input: Operations.ConversationsRequestSharedInviteDeny.Input) async throws -> Operations
-        .ConversationsRequestSharedInviteDeny.Output {
+    func conversationsRequestSharedInviteDeny(_ input: Operations.ConversationsRequestSharedInviteDeny.Input) async throws -> Operations.ConversationsRequestSharedInviteDeny.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsRequestSharedInviteDeny.id,
@@ -1684,8 +1673,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /conversations.requestSharedInvite.list`.
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.list/post(conversationsRequestSharedInviteList)`.
-    func conversationsRequestSharedInviteList(_ input: Operations.ConversationsRequestSharedInviteList.Input) async throws -> Operations
-        .ConversationsRequestSharedInviteList.Output {
+    func conversationsRequestSharedInviteList(_ input: Operations.ConversationsRequestSharedInviteList.Input) async throws -> Operations.ConversationsRequestSharedInviteList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsRequestSharedInviteList.id,
@@ -1754,8 +1742,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /conversations.setPurpose`.
     /// - Remark: Generated from `#/paths//conversations.setPurpose/post(conversationsSetPurpose)`.
-    func conversationsSetPurpose(_ input: Operations.ConversationsSetPurpose.Input) async throws -> Operations.ConversationsSetPurpose
-        .Output {
+    func conversationsSetPurpose(_ input: Operations.ConversationsSetPurpose.Input) async throws -> Operations.ConversationsSetPurpose.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ConversationsSetPurpose.id,

@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesCompleteUploadExternal.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesCompleteUploadExternal.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -39,8 +37,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/files`.
                     public var files: OpenAPIRuntime.OpenAPIArrayContainer
-                    /// A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the initial_comment field
-                    /// is provided, the blocks field is ignored.
+                    /// A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the initial_comment field is provided, the blocks field is ignored.
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/blocks`.
                     public var blocks: Swift.String?
@@ -56,8 +53,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/initial_comment`.
                     public var initialComment: Swift.String?
-                    /// Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use its parent
-                    /// instead. Also make sure to provide only one channel when using 'thread_ts'.
+                    /// Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use its parent instead. Also make sure to provide only one channel when using
+                    /// 'thread_ts'.
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/thread_ts`.
                     public var threadTs: Swift.String?
@@ -65,13 +62,12 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - files: Array of file ids and their corresponding (optional) titles.
-                    ///   - blocks: A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the
-                    /// initial_comment field is provided, the blocks field is ignored.
+                    ///   - blocks: A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the initial_comment field is provided, the blocks field is ignored.
                     ///   - channelId: Channel ID where the file will be shared. If not specified the file will be private.
                     ///   - channels: Comma-separated string of channel IDs where the file will be shared.
                     ///   - initialComment: The message text introducing the file in specified channels.
-                    ///   - threadTs: Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use
-                    /// its parent instead. Also make sure to provide only one channel when using 'thread_ts'.
+                    ///   - threadTs: Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use its parent instead. Also make sure to provide only one
+                    /// channel when using 'thread_ts'.
                     public init(
                         files: OpenAPIRuntime.OpenAPIArrayContainer,
                         blocks: Swift.String? = nil,
@@ -217,9 +213,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesDelete.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesDelete.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -365,9 +359,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesGetUploadURLExternal.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesGetUploadURLExternal.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -539,9 +531,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesInfo.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesInfo.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -555,15 +545,12 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.info/POST/requestBody/json/file`.
                     public var file: Swift.String
-                    /// Parameter for pagination. File comments are paginated for a single file. Set cursor equal to the next_cursor
-                    /// attribute returned by the previous request's response_metadata. This parameter is optional, but pagination is
-                    /// mandatory: the default value simply fetches the first "page" of the collection of comments. See pagination for more
-                    /// details.
+                    /// Parameter for pagination. File comments are paginated for a single file. Set cursor equal to the next_cursor attribute returned by the previous request's response_metadata.
+                    /// This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection of comments. See pagination for more details.
                     ///
                     /// - Remark: Generated from `#/paths/files.info/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
-                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of
-                    /// the list hasn't been reached.
+                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
                     ///
                     /// - Remark: Generated from `#/paths/files.info/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
@@ -571,12 +558,10 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - file: Specify a file by providing its ID.
-                    ///   - cursor: Parameter for pagination. File comments are paginated for a single file. Set cursor equal to the
-                    /// next_cursor attribute returned by the previous request's response_metadata. This parameter is optional, but
-                    /// pagination is mandatory: the default value simply fetches the first "page" of the collection of comments. See
-                    /// pagination for more details.
-                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if
-                    /// the end of the list hasn't been reached.
+                    ///   - cursor: Parameter for pagination. File comments are paginated for a single file. Set cursor equal to the next_cursor attribute returned by the previous request's
+                    /// response_metadata. This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection of comments. See pagination for
+                    /// more details.
+                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
                     public init(
                         file: Swift.String,
                         cursor: Swift.String? = nil,
@@ -713,9 +698,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -729,8 +712,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.list/POST/requestBody/json/channel`.
                     public var channel: Swift.String?
-                    /// Show truncated file info for files hidden due to being too old, and the team who owns the file being over the file
-                    /// limit.
+                    /// Show truncated file info for files hidden due to being too old, and the team who owns the file being over the file limit.
                     ///
                     /// - Remark: Generated from `#/paths/files.list/POST/requestBody/json/show_files_hidden_by_limit`.
                     public var showFilesHiddenByLimit: Swift.Bool?
@@ -746,8 +728,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.list/POST/requestBody/json/ts_to`.
                     public var tsTo: Swift.String?
-                    /// Filter files by type (see below). You can pass multiple values in the types argument, like types=spaces,snippets.The
-                    /// default value is all, which does not filter the list.
+                    /// Filter files by type (see below). You can pass multiple values in the types argument, like types=spaces,snippets.The default value is all, which does not filter the list.
                     ///
                     /// - Remark: Generated from `#/paths/files.list/POST/requestBody/json/types`.
                     public var types: Swift.String?
@@ -759,13 +740,12 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channel: Filter files appearing in a specific channel, indicated by its ID.
-                    ///   - showFilesHiddenByLimit: Show truncated file info for files hidden due to being too old, and the team who owns
-                    /// the file being over the file limit.
+                    ///   - showFilesHiddenByLimit: Show truncated file info for files hidden due to being too old, and the team who owns the file being over the file limit.
                     ///   - teamId: encoded team id to list files in, required if org token is used.
                     ///   - tsFrom: Filter files created after this timestamp (inclusive).
                     ///   - tsTo: Filter files created before this timestamp (inclusive).
-                    ///   - types: Filter files by type (see below). You can pass multiple values in the types argument, like
-                    /// types=spaces,snippets.The default value is all, which does not filter the list.
+                    ///   - types: Filter files by type (see below). You can pass multiple values in the types argument, like types=spaces,snippets.The default value is all, which does not filter the
+                    /// list.
                     ///   - user: Filter files created by a single user.
                     public init(
                         channel: Swift.String? = nil,
@@ -915,9 +895,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRemoteAdd.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRemoteAdd.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -943,8 +921,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/filetype`.
                     public var filetype: Swift.String?
-                    /// A text file (txt, pdf, doc, etc.) containing textual search terms that are used to improve discovery of the remote
-                    /// file.
+                    /// A text file (txt, pdf, doc, etc.) containing textual search terms that are used to improve discovery of the remote file.
                     ///
                     /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/indexable_file_contents`.
                     public var indexableFileContents: Swift.String?
@@ -959,8 +936,7 @@ extension Operations {
                     ///   - externalUrl: URL of the remote file.
                     ///   - title: Title of the file being shared.
                     ///   - filetype: type of file.
-                    ///   - indexableFileContents: A text file (txt, pdf, doc, etc.) containing textual search terms that are used to
-                    /// improve discovery of the remote file.
+                    ///   - indexableFileContents: A text file (txt, pdf, doc, etc.) containing textual search terms that are used to improve discovery of the remote file.
                     ///   - previewImage: Preview of the document via multipart/form-data.
                     public init(
                         externalId: Swift.String,
@@ -1107,9 +1083,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRemoteInfo.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRemoteInfo.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1265,9 +1239,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRemoteList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRemoteList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1281,9 +1253,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.remote.list/POST/requestBody/json/channel`.
                     public var channel: Swift.String?
-                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a
-                    /// previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination for
-                    /// more detail.
+                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value fetches the
+                    /// first "page" of the collection. See pagination for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/files.remote.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
@@ -1303,9 +1274,8 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channel: Filter files appearing in a specific channel, indicated by its ID.
-                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned
-                    /// by a previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination
-                    /// for more detail.
+                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value
+                    /// fetches the first "page" of the collection. See pagination for more detail.
                     ///   - limit: The maximum number of items to return.
                     ///   - tsFrom: Filter files created after this timestamp (inclusive).
                     ///   - tsTo: Filter files created before this timestamp (inclusive).
@@ -1451,9 +1421,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRemoteRemove.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRemoteRemove.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1609,9 +1577,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRemoteShare.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRemoteShare.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1625,8 +1591,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.remote.share/POST/requestBody/json/channels`.
                     public var channels: Swift.String
-                    /// The globally unique identifier (GUID) for the file, as set by the app registering the file with Slack.  Either this
-                    /// field or file or both are required.
+                    /// The globally unique identifier (GUID) for the file, as set by the app registering the file with Slack.  Either this field or file or both are required.
                     ///
                     /// - Remark: Generated from `#/paths/files.remote.share/POST/requestBody/json/external_id`.
                     public var externalId: Swift.String?
@@ -1638,10 +1603,8 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channels: Comma-separated list of channel IDs where the file will be shared.
-                    ///   - externalId: The globally unique identifier (GUID) for the file, as set by the app registering the file with
-                    /// Slack.  Either this field or file or both are required.
-                    ///   - file: Specify a file registered with Slack by providing its ID. Either this field or external_id or both are
-                    /// required.
+                    ///   - externalId: The globally unique identifier (GUID) for the file, as set by the app registering the file with Slack.  Either this field or file or both are required.
+                    ///   - file: Specify a file registered with Slack by providing its ID. Either this field or external_id or both are required.
                     public init(
                         channels: Swift.String,
                         externalId: Swift.String? = nil,
@@ -1778,9 +1741,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRemoteUpdate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRemoteUpdate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1976,9 +1937,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRevokePublicURL.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesRevokePublicURL.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2124,9 +2083,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesSharedPublicURL.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesSharedPublicURL.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2272,9 +2229,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesUpload.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FilesUpload.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2308,8 +2263,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.upload/POST/requestBody/json/initial_comment`.
                     public var initialComment: Swift.String?
-                    /// Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use its parent
-                    /// instead.
+                    /// Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use its parent instead.
                     ///
                     /// - Remark: Generated from `#/paths/files.upload/POST/requestBody/json/thread_ts`.
                     public var threadTs: Swift.String?
@@ -2326,8 +2280,7 @@ extension Operations {
                     ///   - filename: Filename of file.
                     ///   - filetype: A file type identifier.
                     ///   - initialComment: The message text introducing the file in specified channels.
-                    ///   - threadTs: Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use
-                    /// its parent instead.
+                    ///   - threadTs: Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use its parent instead.
                     ///   - title: Title of file.
                     public init(
                         channels: Swift.String? = nil,

@@ -157,8 +157,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /users.discoverableContacts.lookup`.
     /// - Remark: Generated from `#/paths//users.discoverableContacts.lookup/post(usersDiscoverableContactsLookup)`.
-    func usersDiscoverableContactsLookup(_ input: Operations.UsersDiscoverableContactsLookup.Input) async throws -> Operations
-        .UsersDiscoverableContactsLookup.Output {
+    func usersDiscoverableContactsLookup(_ input: Operations.UsersDiscoverableContactsLookup.Input) async throws -> Operations.UsersDiscoverableContactsLookup.Output {
         try await client.send(
             input: input,
             forOperation: Operations.UsersDiscoverableContactsLookup.id,

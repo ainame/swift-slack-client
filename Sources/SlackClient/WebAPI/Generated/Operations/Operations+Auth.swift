@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AuthRevoke.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AuthRevoke.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -42,8 +40,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - test: Setting this parameter to 1 triggers a testing mode where the specified token will not actually be
-                    /// revoked.
+                    ///   - test: Setting this parameter to 1 triggers a testing mode where the specified token will not actually be revoked.
                     public init(test: Swift.Bool? = nil) {
                         self.test = test
                     }
@@ -172,9 +169,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AuthTeamsList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AuthTeamsList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -188,8 +183,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/auth.teams.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
-                    /// Whether to return icon paths for each workspace. An icon path represents a URI pointing to the image signifying the
-                    /// workspace.
+                    /// Whether to return icon paths for each workspace. An icon path represents a URI pointing to the image signifying the workspace.
                     ///
                     /// - Remark: Generated from `#/paths/auth.teams.list/POST/requestBody/json/include_icon`.
                     public var includeIcon: Swift.Bool?
@@ -201,8 +195,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///   - includeIcon: Whether to return icon paths for each workspace. An icon path represents a URI pointing to the
-                    /// image signifying the workspace.
+                    ///   - includeIcon: Whether to return icon paths for each workspace. An icon path represents a URI pointing to the image signifying the workspace.
                     ///   - limit: The maximum number of workspaces to return. Must be a positive integer no larger than 1000.
                     public init(
                         cursor: Swift.String? = nil,
@@ -340,9 +333,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AuthTest.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AuthTest.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }

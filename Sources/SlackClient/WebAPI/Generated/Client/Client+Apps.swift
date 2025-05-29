@@ -13,8 +13,7 @@ import struct Foundation.URL
 import HTTPTypes
 
 extension Client {
-    /// Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads
-    /// over.
+    /// Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over.
     ///
     /// - Remark: HTTP `POST /apps.connections.open`.
     /// - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
@@ -85,13 +84,11 @@ extension Client {
         )
     }
 
-    /// Get a list of authorizations for the given event context. Each authorization represents an app installation that the event is
-    /// visible to.
+    /// Get a list of authorizations for the given event context. Each authorization represents an app installation that the event is visible to.
     ///
     /// - Remark: HTTP `POST /apps.event.authorizations.list`.
     /// - Remark: Generated from `#/paths//apps.event.authorizations.list/post(appsEventAuthorizationsList)`.
-    func appsEventAuthorizationsList(_ input: Operations.AppsEventAuthorizationsList.Input) async throws -> Operations
-        .AppsEventAuthorizationsList.Output {
+    func appsEventAuthorizationsList(_ input: Operations.AppsEventAuthorizationsList.Input) async throws -> Operations.AppsEventAuthorizationsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AppsEventAuthorizationsList.id,

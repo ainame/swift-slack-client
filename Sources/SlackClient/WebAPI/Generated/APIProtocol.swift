@@ -16,8 +16,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /admin.apps.activities.list`.
     /// - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
-    func adminAppsActivitiesList(_ input: Operations.AdminAppsActivitiesList.Input) async throws -> Operations.AdminAppsActivitiesList
-        .Output
+    func adminAppsActivitiesList(_ input: Operations.AdminAppsActivitiesList.Input) async throws -> Operations.AdminAppsActivitiesList.Output
     /// Approve an app for installation on a workspace.
     ///
     /// - Remark: HTTP `POST /admin.apps.approve`.
@@ -32,8 +31,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /admin.apps.clearResolution`.
     /// - Remark: Generated from `#/paths//admin.apps.clearResolution/post(adminAppsClearResolution)`.
-    func adminAppsClearResolution(_ input: Operations.AdminAppsClearResolution.Input) async throws -> Operations.AdminAppsClearResolution
-        .Output
+    func adminAppsClearResolution(_ input: Operations.AdminAppsClearResolution.Input) async throws -> Operations.AdminAppsClearResolution.Output
     /// Look up the app config for connectors by their IDs
     ///
     /// - Remark: HTTP `POST /admin.apps.config.lookup`.
@@ -48,8 +46,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /admin.apps.requests.cancel`.
     /// - Remark: Generated from `#/paths//admin.apps.requests.cancel/post(adminAppsRequestsCancel)`.
-    func adminAppsRequestsCancel(_ input: Operations.AdminAppsRequestsCancel.Input) async throws -> Operations.AdminAppsRequestsCancel
-        .Output
+    func adminAppsRequestsCancel(_ input: Operations.AdminAppsRequestsCancel.Input) async throws -> Operations.AdminAppsRequestsCancel.Output
     /// List app requests for a team/workspace.
     ///
     /// - Remark: HTTP `POST /admin.apps.requests.list`.
@@ -64,8 +61,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /admin.apps.restricted.list`.
     /// - Remark: Generated from `#/paths//admin.apps.restricted.list/post(adminAppsRestrictedList)`.
-    func adminAppsRestrictedList(_ input: Operations.AdminAppsRestrictedList.Input) async throws -> Operations.AdminAppsRestrictedList
-        .Output
+    func adminAppsRestrictedList(_ input: Operations.AdminAppsRestrictedList.Input) async throws -> Operations.AdminAppsRestrictedList.Output
     /// Uninstall an app from one or many workspaces, or an entire enterprise organization.
     ///
     /// - Remark: HTTP `POST /admin.apps.uninstall`.
@@ -75,20 +71,17 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /admin.auth.policy.assignEntities`.
     /// - Remark: Generated from `#/paths//admin.auth.policy.assignEntities/post(adminAuthPolicyAssignEntities)`.
-    func adminAuthPolicyAssignEntities(_ input: Operations.AdminAuthPolicyAssignEntities.Input) async throws -> Operations
-        .AdminAuthPolicyAssignEntities.Output
+    func adminAuthPolicyAssignEntities(_ input: Operations.AdminAuthPolicyAssignEntities.Input) async throws -> Operations.AdminAuthPolicyAssignEntities.Output
     /// Fetch all the entities assigned to a particular authentication policy by name.
     ///
     /// - Remark: HTTP `POST /admin.auth.policy.getEntities`.
     /// - Remark: Generated from `#/paths//admin.auth.policy.getEntities/post(adminAuthPolicyGetEntities)`.
-    func adminAuthPolicyGetEntities(_ input: Operations.AdminAuthPolicyGetEntities.Input) async throws -> Operations
-        .AdminAuthPolicyGetEntities.Output
+    func adminAuthPolicyGetEntities(_ input: Operations.AdminAuthPolicyGetEntities.Input) async throws -> Operations.AdminAuthPolicyGetEntities.Output
     /// Remove specified entities from a specified authentication policy.
     ///
     /// - Remark: HTTP `POST /admin.auth.policy.removeEntities`.
     /// - Remark: Generated from `#/paths//admin.auth.policy.removeEntities/post(adminAuthPolicyRemoveEntities)`.
-    func adminAuthPolicyRemoveEntities(_ input: Operations.AdminAuthPolicyRemoveEntities.Input) async throws -> Operations
-        .AdminAuthPolicyRemoveEntities.Output
+    func adminAuthPolicyRemoveEntities(_ input: Operations.AdminAuthPolicyRemoveEntities.Input) async throws -> Operations.AdminAuthPolicyRemoveEntities.Output
     /// Create an Information Barrier
     ///
     /// - Remark: HTTP `POST /admin.barriers.create`.
@@ -113,156 +106,129 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /admin.conversations.archive`.
     /// - Remark: Generated from `#/paths//admin.conversations.archive/post(adminConversationsArchive)`.
-    func adminConversationsArchive(_ input: Operations.AdminConversationsArchive.Input) async throws -> Operations.AdminConversationsArchive
-        .Output
+    func adminConversationsArchive(_ input: Operations.AdminConversationsArchive.Input) async throws -> Operations.AdminConversationsArchive.Output
     /// Archive public or private channels in bulk.
     ///
     /// - Remark: HTTP `POST /admin.conversations.bulkArchive`.
     /// - Remark: Generated from `#/paths//admin.conversations.bulkArchive/post(adminConversationsBulkArchive)`.
-    func adminConversationsBulkArchive(_ input: Operations.AdminConversationsBulkArchive.Input) async throws -> Operations
-        .AdminConversationsBulkArchive.Output
+    func adminConversationsBulkArchive(_ input: Operations.AdminConversationsBulkArchive.Input) async throws -> Operations.AdminConversationsBulkArchive.Output
     /// Delete public or private channels in bulk
     ///
     /// - Remark: HTTP `POST /admin.conversations.bulkDelete`.
     /// - Remark: Generated from `#/paths//admin.conversations.bulkDelete/post(adminConversationsBulkDelete)`.
-    func adminConversationsBulkDelete(_ input: Operations.AdminConversationsBulkDelete.Input) async throws -> Operations
-        .AdminConversationsBulkDelete.Output
+    func adminConversationsBulkDelete(_ input: Operations.AdminConversationsBulkDelete.Input) async throws -> Operations.AdminConversationsBulkDelete.Output
     /// Move public or private channels in bulk.
     ///
     /// - Remark: HTTP `POST /admin.conversations.bulkMove`.
     /// - Remark: Generated from `#/paths//admin.conversations.bulkMove/post(adminConversationsBulkMove)`.
-    func adminConversationsBulkMove(_ input: Operations.AdminConversationsBulkMove.Input) async throws -> Operations
-        .AdminConversationsBulkMove.Output
+    func adminConversationsBulkMove(_ input: Operations.AdminConversationsBulkMove.Input) async throws -> Operations.AdminConversationsBulkMove.Output
     /// Convert a public channel to a private channel.
     ///
     /// - Remark: HTTP `POST /admin.conversations.convertToPrivate`.
     /// - Remark: Generated from `#/paths//admin.conversations.convertToPrivate/post(adminConversationsConvertToPrivate)`.
-    func adminConversationsConvertToPrivate(_ input: Operations.AdminConversationsConvertToPrivate.Input) async throws -> Operations
-        .AdminConversationsConvertToPrivate.Output
+    func adminConversationsConvertToPrivate(_ input: Operations.AdminConversationsConvertToPrivate.Input) async throws -> Operations.AdminConversationsConvertToPrivate.Output
     /// Convert a private channel to a public channel.
     ///
     /// - Remark: HTTP `POST /admin.conversations.convertToPublic`.
     /// - Remark: Generated from `#/paths//admin.conversations.convertToPublic/post(adminConversationsConvertToPublic)`.
-    func adminConversationsConvertToPublic(_ input: Operations.AdminConversationsConvertToPublic.Input) async throws -> Operations
-        .AdminConversationsConvertToPublic.Output
+    func adminConversationsConvertToPublic(_ input: Operations.AdminConversationsConvertToPublic.Input) async throws -> Operations.AdminConversationsConvertToPublic.Output
     /// Create a public or private channel-based conversation.
     ///
     /// - Remark: HTTP `POST /admin.conversations.create`.
     /// - Remark: Generated from `#/paths//admin.conversations.create/post(adminConversationsCreate)`.
-    func adminConversationsCreate(_ input: Operations.AdminConversationsCreate.Input) async throws -> Operations.AdminConversationsCreate
-        .Output
+    func adminConversationsCreate(_ input: Operations.AdminConversationsCreate.Input) async throws -> Operations.AdminConversationsCreate.Output
     /// Delete a public or private channel.
     ///
     /// - Remark: HTTP `POST /admin.conversations.delete`.
     /// - Remark: Generated from `#/paths//admin.conversations.delete/post(adminConversationsDelete)`.
-    func adminConversationsDelete(_ input: Operations.AdminConversationsDelete.Input) async throws -> Operations.AdminConversationsDelete
-        .Output
+    func adminConversationsDelete(_ input: Operations.AdminConversationsDelete.Input) async throws -> Operations.AdminConversationsDelete.Output
     /// Disconnect a connected channel from one or more workspaces.
     ///
     /// - Remark: HTTP `POST /admin.conversations.disconnectShared`.
     /// - Remark: Generated from `#/paths//admin.conversations.disconnectShared/post(adminConversationsDisconnectShared)`.
-    func adminConversationsDisconnectShared(_ input: Operations.AdminConversationsDisconnectShared.Input) async throws -> Operations
-        .AdminConversationsDisconnectShared.Output
-    /// List all disconnected channels—i.e., channels that were once connected to other workspaces and then disconnected—and the
-    /// corresponding original channel IDs for key revocation with EKM.
+    func adminConversationsDisconnectShared(_ input: Operations.AdminConversationsDisconnectShared.Input) async throws -> Operations.AdminConversationsDisconnectShared.Output
+    /// List all disconnected channels—i.e., channels that were once connected to other workspaces and then disconnected—and the corresponding original channel IDs for key revocation with EKM.
     ///
     /// - Remark: HTTP `POST /admin.conversations.ekm.listOriginalConnectedChannelInfo`.
-    /// - Remark: Generated from
-    /// `#/paths//admin.conversations.ekm.listOriginalConnectedChannelInfo/post(adminConversationsEkmListOriginalConnectedChannelInfo)`.
-    func adminConversationsEkmListOriginalConnectedChannelInfo(_ input: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo
-        .Input
-    ) async throws -> Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Output
+    /// - Remark: Generated from `#/paths//admin.conversations.ekm.listOriginalConnectedChannelInfo/post(adminConversationsEkmListOriginalConnectedChannelInfo)`.
+    func adminConversationsEkmListOriginalConnectedChannelInfo(_ input: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input) async throws -> Operations
+        .AdminConversationsEkmListOriginalConnectedChannelInfo.Output
     /// Get conversation preferences for a public or private channel.
     ///
     /// - Remark: HTTP `POST /admin.conversations.getConversationPrefs`.
     /// - Remark: Generated from `#/paths//admin.conversations.getConversationPrefs/post(adminConversationsGetConversationPrefs)`.
-    func adminConversationsGetConversationPrefs(_ input: Operations.AdminConversationsGetConversationPrefs.Input) async throws -> Operations
-        .AdminConversationsGetConversationPrefs.Output
+    func adminConversationsGetConversationPrefs(_ input: Operations.AdminConversationsGetConversationPrefs.Input) async throws -> Operations.AdminConversationsGetConversationPrefs.Output
     /// This API endpoint can be used by any admin to get a conversation's retention policy.
     ///
     /// - Remark: HTTP `POST /admin.conversations.getCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.getCustomRetention/post(adminConversationsGetCustomRetention)`.
-    func adminConversationsGetCustomRetention(_ input: Operations.AdminConversationsGetCustomRetention.Input) async throws -> Operations
-        .AdminConversationsGetCustomRetention.Output
+    func adminConversationsGetCustomRetention(_ input: Operations.AdminConversationsGetCustomRetention.Input) async throws -> Operations.AdminConversationsGetCustomRetention.Output
     /// Get all the workspaces a given public or private channel is connected to within this Enterprise org.
     ///
     /// - Remark: HTTP `POST /admin.conversations.getTeams`.
     /// - Remark: Generated from `#/paths//admin.conversations.getTeams/post(adminConversationsGetTeams)`.
-    func adminConversationsGetTeams(_ input: Operations.AdminConversationsGetTeams.Input) async throws -> Operations
-        .AdminConversationsGetTeams.Output
+    func adminConversationsGetTeams(_ input: Operations.AdminConversationsGetTeams.Input) async throws -> Operations.AdminConversationsGetTeams.Output
     /// Invite a user to a public or private channel.
     ///
     /// - Remark: HTTP `POST /admin.conversations.invite`.
     /// - Remark: Generated from `#/paths//admin.conversations.invite/post(adminConversationsInvite)`.
-    func adminConversationsInvite(_ input: Operations.AdminConversationsInvite.Input) async throws -> Operations.AdminConversationsInvite
-        .Output
+    func adminConversationsInvite(_ input: Operations.AdminConversationsInvite.Input) async throws -> Operations.AdminConversationsInvite.Output
     /// Returns channels on the given team using the filters.
     ///
     /// - Remark: HTTP `POST /admin.conversations.lookup`.
     /// - Remark: Generated from `#/paths//admin.conversations.lookup/post(adminConversationsLookup)`.
-    func adminConversationsLookup(_ input: Operations.AdminConversationsLookup.Input) async throws -> Operations.AdminConversationsLookup
-        .Output
+    func adminConversationsLookup(_ input: Operations.AdminConversationsLookup.Input) async throws -> Operations.AdminConversationsLookup.Output
     /// This API endpoint can be used by any admin to remove a conversation's retention policy.
     ///
     /// - Remark: HTTP `POST /admin.conversations.removeCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.removeCustomRetention/post(adminConversationsRemoveCustomRetention)`.
-    func adminConversationsRemoveCustomRetention(_ input: Operations.AdminConversationsRemoveCustomRetention.Input) async throws
-        -> Operations.AdminConversationsRemoveCustomRetention.Output
+    func adminConversationsRemoveCustomRetention(_ input: Operations.AdminConversationsRemoveCustomRetention.Input) async throws -> Operations.AdminConversationsRemoveCustomRetention.Output
     /// Rename a public or private channel.
     ///
     /// - Remark: HTTP `POST /admin.conversations.rename`.
     /// - Remark: Generated from `#/paths//admin.conversations.rename/post(adminConversationsRename)`.
-    func adminConversationsRename(_ input: Operations.AdminConversationsRename.Input) async throws -> Operations.AdminConversationsRename
-        .Output
+    func adminConversationsRename(_ input: Operations.AdminConversationsRename.Input) async throws -> Operations.AdminConversationsRename.Output
     /// Add an allowlist of IDP groups for accessing a channel
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.addGroup`.
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.addGroup/post(adminConversationsRestrictAccessAddGroup)`.
-    func adminConversationsRestrictAccessAddGroup(_ input: Operations.AdminConversationsRestrictAccessAddGroup.Input) async throws
-        -> Operations.AdminConversationsRestrictAccessAddGroup.Output
+    func adminConversationsRestrictAccessAddGroup(_ input: Operations.AdminConversationsRestrictAccessAddGroup.Input) async throws -> Operations.AdminConversationsRestrictAccessAddGroup.Output
     /// List all IDP Groups linked to a channel
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.listGroups`.
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.listGroups/post(adminConversationsRestrictAccessListGroups)`.
-    func adminConversationsRestrictAccessListGroups(_ input: Operations.AdminConversationsRestrictAccessListGroups.Input) async throws
-        -> Operations.AdminConversationsRestrictAccessListGroups.Output
+    func adminConversationsRestrictAccessListGroups(_ input: Operations.AdminConversationsRestrictAccessListGroups.Input) async throws -> Operations.AdminConversationsRestrictAccessListGroups.Output
     /// Remove a linked IDP group linked from a private channel
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.removeGroup`.
-    /// - Remark: Generated from
-    /// `#/paths//admin.conversations.restrictAccess.removeGroup/post(adminConversationsRestrictAccessRemoveGroup)`.
-    func adminConversationsRestrictAccessRemoveGroup(_ input: Operations.AdminConversationsRestrictAccessRemoveGroup.Input) async throws
-        -> Operations.AdminConversationsRestrictAccessRemoveGroup.Output
+    /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.removeGroup/post(adminConversationsRestrictAccessRemoveGroup)`.
+    func adminConversationsRestrictAccessRemoveGroup(_ input: Operations.AdminConversationsRestrictAccessRemoveGroup.Input) async throws -> Operations.AdminConversationsRestrictAccessRemoveGroup
+        .Output
     /// Search for public or private channels in an Enterprise organization.
     ///
     /// - Remark: HTTP `POST /admin.conversations.search`.
     /// - Remark: Generated from `#/paths//admin.conversations.search/post(adminConversationsSearch)`.
-    func adminConversationsSearch(_ input: Operations.AdminConversationsSearch.Input) async throws -> Operations.AdminConversationsSearch
-        .Output
+    func adminConversationsSearch(_ input: Operations.AdminConversationsSearch.Input) async throws -> Operations.AdminConversationsSearch.Output
     /// Set the posting permissions for a public or private channel.
     ///
     /// - Remark: HTTP `POST /admin.conversations.setConversationPrefs`.
     /// - Remark: Generated from `#/paths//admin.conversations.setConversationPrefs/post(adminConversationsSetConversationPrefs)`.
-    func adminConversationsSetConversationPrefs(_ input: Operations.AdminConversationsSetConversationPrefs.Input) async throws -> Operations
-        .AdminConversationsSetConversationPrefs.Output
+    func adminConversationsSetConversationPrefs(_ input: Operations.AdminConversationsSetConversationPrefs.Input) async throws -> Operations.AdminConversationsSetConversationPrefs.Output
     /// This API endpoint can be used by any admin to set a conversation's retention policy.
     ///
     /// - Remark: HTTP `POST /admin.conversations.setCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.setCustomRetention/post(adminConversationsSetCustomRetention)`.
-    func adminConversationsSetCustomRetention(_ input: Operations.AdminConversationsSetCustomRetention.Input) async throws -> Operations
-        .AdminConversationsSetCustomRetention.Output
+    func adminConversationsSetCustomRetention(_ input: Operations.AdminConversationsSetCustomRetention.Input) async throws -> Operations.AdminConversationsSetCustomRetention.Output
     /// Set the workspaces in an Enterprise grid org that connect to a public or private channel.
     ///
     /// - Remark: HTTP `POST /admin.conversations.setTeams`.
     /// - Remark: Generated from `#/paths//admin.conversations.setTeams/post(adminConversationsSetTeams)`.
-    func adminConversationsSetTeams(_ input: Operations.AdminConversationsSetTeams.Input) async throws -> Operations
-        .AdminConversationsSetTeams.Output
+    func adminConversationsSetTeams(_ input: Operations.AdminConversationsSetTeams.Input) async throws -> Operations.AdminConversationsSetTeams.Output
     /// Unarchive a public or private channel.
     ///
     /// - Remark: HTTP `POST /admin.conversations.unarchive`.
     /// - Remark: Generated from `#/paths//admin.conversations.unarchive/post(adminConversationsUnarchive)`.
-    func adminConversationsUnarchive(_ input: Operations.AdminConversationsUnarchive.Input) async throws -> Operations
-        .AdminConversationsUnarchive.Output
+    func adminConversationsUnarchive(_ input: Operations.AdminConversationsUnarchive.Input) async throws -> Operations.AdminConversationsUnarchive.Output
     /// Add an emoji.
     ///
     /// - Remark: HTTP `POST /admin.emoji.add`.
@@ -297,62 +263,52 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /admin.functions.permissions.lookup`.
     /// - Remark: Generated from `#/paths//admin.functions.permissions.lookup/post(adminFunctionsPermissionsLookup)`.
-    func adminFunctionsPermissionsLookup(_ input: Operations.AdminFunctionsPermissionsLookup.Input) async throws -> Operations
-        .AdminFunctionsPermissionsLookup.Output
+    func adminFunctionsPermissionsLookup(_ input: Operations.AdminFunctionsPermissionsLookup.Input) async throws -> Operations.AdminFunctionsPermissionsLookup.Output
     /// Set the visibility of a Slack function and define the users or workspaces if it is set to named_entities
     ///
     /// - Remark: HTTP `POST /admin.functions.permissions.set`.
     /// - Remark: Generated from `#/paths//admin.functions.permissions.set/post(adminFunctionsPermissionsSet)`.
-    func adminFunctionsPermissionsSet(_ input: Operations.AdminFunctionsPermissionsSet.Input) async throws -> Operations
-        .AdminFunctionsPermissionsSet.Output
+    func adminFunctionsPermissionsSet(_ input: Operations.AdminFunctionsPermissionsSet.Input) async throws -> Operations.AdminFunctionsPermissionsSet.Output
     /// Approve a workspace invite request.
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.approve`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.approve/post(adminInviteRequestsApprove)`.
-    func adminInviteRequestsApprove(_ input: Operations.AdminInviteRequestsApprove.Input) async throws -> Operations
-        .AdminInviteRequestsApprove.Output
+    func adminInviteRequestsApprove(_ input: Operations.AdminInviteRequestsApprove.Input) async throws -> Operations.AdminInviteRequestsApprove.Output
     /// List all approved workspace invite requests.
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.approved.list`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.approved.list/post(adminInviteRequestsApprovedList)`.
-    func adminInviteRequestsApprovedList(_ input: Operations.AdminInviteRequestsApprovedList.Input) async throws -> Operations
-        .AdminInviteRequestsApprovedList.Output
+    func adminInviteRequestsApprovedList(_ input: Operations.AdminInviteRequestsApprovedList.Input) async throws -> Operations.AdminInviteRequestsApprovedList.Output
     /// List all denied workspace invite requests.
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.denied.list`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.denied.list/post(adminInviteRequestsDeniedList)`.
-    func adminInviteRequestsDeniedList(_ input: Operations.AdminInviteRequestsDeniedList.Input) async throws -> Operations
-        .AdminInviteRequestsDeniedList.Output
+    func adminInviteRequestsDeniedList(_ input: Operations.AdminInviteRequestsDeniedList.Input) async throws -> Operations.AdminInviteRequestsDeniedList.Output
     /// Deny a workspace invite request.
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.deny`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.deny/post(adminInviteRequestsDeny)`.
-    func adminInviteRequestsDeny(_ input: Operations.AdminInviteRequestsDeny.Input) async throws -> Operations.AdminInviteRequestsDeny
-        .Output
+    func adminInviteRequestsDeny(_ input: Operations.AdminInviteRequestsDeny.Input) async throws -> Operations.AdminInviteRequestsDeny.Output
     /// List all pending workspace invite requests.
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.list`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.list/post(adminInviteRequestsList)`.
-    func adminInviteRequestsList(_ input: Operations.AdminInviteRequestsList.Input) async throws -> Operations.AdminInviteRequestsList
-        .Output
+    func adminInviteRequestsList(_ input: Operations.AdminInviteRequestsList.Input) async throws -> Operations.AdminInviteRequestsList.Output
     /// Adds members to the specified role with the specified scopes
     ///
     /// - Remark: HTTP `POST /admin.roles.addAssignments`.
     /// - Remark: Generated from `#/paths//admin.roles.addAssignments/post(adminRolesAddAssignments)`.
-    func adminRolesAddAssignments(_ input: Operations.AdminRolesAddAssignments.Input) async throws -> Operations.AdminRolesAddAssignments
-        .Output
+    func adminRolesAddAssignments(_ input: Operations.AdminRolesAddAssignments.Input) async throws -> Operations.AdminRolesAddAssignments.Output
     /// Lists assignments for all roles across entities. Options to scope results by any combination of roles or entities
     ///
     /// - Remark: HTTP `POST /admin.roles.listAssignments`.
     /// - Remark: Generated from `#/paths//admin.roles.listAssignments/post(adminRolesListAssignments)`.
-    func adminRolesListAssignments(_ input: Operations.AdminRolesListAssignments.Input) async throws -> Operations.AdminRolesListAssignments
-        .Output
+    func adminRolesListAssignments(_ input: Operations.AdminRolesListAssignments.Input) async throws -> Operations.AdminRolesListAssignments.Output
     /// Removes a set of users from a role for the given scopes and entities
     ///
     /// - Remark: HTTP `POST /admin.roles.removeAssignments`.
     /// - Remark: Generated from `#/paths//admin.roles.removeAssignments/post(adminRolesRemoveAssignments)`.
-    func adminRolesRemoveAssignments(_ input: Operations.AdminRolesRemoveAssignments.Input) async throws -> Operations
-        .AdminRolesRemoveAssignments.Output
+    func adminRolesRemoveAssignments(_ input: Operations.AdminRolesRemoveAssignments.Input) async throws -> Operations.AdminRolesRemoveAssignments.Output
     /// List all of the admins on a given workspace.
     ///
     /// - Remark: HTTP `POST /admin.teams.admins.list`.
@@ -382,32 +338,27 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setDefaultChannels`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDefaultChannels/post(adminTeamsSettingsSetDefaultChannels)`.
-    func adminTeamsSettingsSetDefaultChannels(_ input: Operations.AdminTeamsSettingsSetDefaultChannels.Input) async throws -> Operations
-        .AdminTeamsSettingsSetDefaultChannels.Output
+    func adminTeamsSettingsSetDefaultChannels(_ input: Operations.AdminTeamsSettingsSetDefaultChannels.Input) async throws -> Operations.AdminTeamsSettingsSetDefaultChannels.Output
     /// Set the description of a given workspace.
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setDescription`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDescription/post(adminTeamsSettingsSetDescription)`.
-    func adminTeamsSettingsSetDescription(_ input: Operations.AdminTeamsSettingsSetDescription.Input) async throws -> Operations
-        .AdminTeamsSettingsSetDescription.Output
+    func adminTeamsSettingsSetDescription(_ input: Operations.AdminTeamsSettingsSetDescription.Input) async throws -> Operations.AdminTeamsSettingsSetDescription.Output
     /// An API method that allows admins to set the discoverability of a given workspace
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setDiscoverability`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDiscoverability/post(adminTeamsSettingsSetDiscoverability)`.
-    func adminTeamsSettingsSetDiscoverability(_ input: Operations.AdminTeamsSettingsSetDiscoverability.Input) async throws -> Operations
-        .AdminTeamsSettingsSetDiscoverability.Output
+    func adminTeamsSettingsSetDiscoverability(_ input: Operations.AdminTeamsSettingsSetDiscoverability.Input) async throws -> Operations.AdminTeamsSettingsSetDiscoverability.Output
     /// Sets the icon of a workspace.
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setIcon`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setIcon/post(adminTeamsSettingsSetIcon)`.
-    func adminTeamsSettingsSetIcon(_ input: Operations.AdminTeamsSettingsSetIcon.Input) async throws -> Operations.AdminTeamsSettingsSetIcon
-        .Output
+    func adminTeamsSettingsSetIcon(_ input: Operations.AdminTeamsSettingsSetIcon.Input) async throws -> Operations.AdminTeamsSettingsSetIcon.Output
     /// Set the name of a given workspace.
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setName`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setName/post(adminTeamsSettingsSetName)`.
-    func adminTeamsSettingsSetName(_ input: Operations.AdminTeamsSettingsSetName.Input) async throws -> Operations.AdminTeamsSettingsSetName
-        .Output
+    func adminTeamsSettingsSetName(_ input: Operations.AdminTeamsSettingsSetName.Input) async throws -> Operations.AdminTeamsSettingsSetName.Output
     /// Add an Enterprise user to a workspace.
     ///
     /// - Remark: HTTP `POST /admin.users.assign`.
@@ -432,20 +383,17 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /admin.users.session.clearSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.clearSettings/post(adminUsersSessionClearSettings)`.
-    func adminUsersSessionClearSettings(_ input: Operations.AdminUsersSessionClearSettings.Input) async throws -> Operations
-        .AdminUsersSessionClearSettings.Output
+    func adminUsersSessionClearSettings(_ input: Operations.AdminUsersSessionClearSettings.Input) async throws -> Operations.AdminUsersSessionClearSettings.Output
     /// Get user-specific session settings—the session duration and what happens when the client closes—given a list of users.
     ///
     /// - Remark: HTTP `POST /admin.users.session.getSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.getSettings/post(adminUsersSessionGetSettings)`.
-    func adminUsersSessionGetSettings(_ input: Operations.AdminUsersSessionGetSettings.Input) async throws -> Operations
-        .AdminUsersSessionGetSettings.Output
+    func adminUsersSessionGetSettings(_ input: Operations.AdminUsersSessionGetSettings.Input) async throws -> Operations.AdminUsersSessionGetSettings.Output
     /// Revoke a single session for a user. The user will be forced to login to Slack.
     ///
     /// - Remark: HTTP `POST /admin.users.session.invalidate`.
     /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)`.
-    func adminUsersSessionInvalidate(_ input: Operations.AdminUsersSessionInvalidate.Input) async throws -> Operations
-        .AdminUsersSessionInvalidate.Output
+    func adminUsersSessionInvalidate(_ input: Operations.AdminUsersSessionInvalidate.Input) async throws -> Operations.AdminUsersSessionInvalidate.Output
     /// List active user sessions for an organization
     ///
     /// - Remark: HTTP `POST /admin.users.session.list`.
@@ -460,14 +408,12 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /admin.users.session.resetBulk`.
     /// - Remark: Generated from `#/paths//admin.users.session.resetBulk/post(adminUsersSessionResetBulk)`.
-    func adminUsersSessionResetBulk(_ input: Operations.AdminUsersSessionResetBulk.Input) async throws -> Operations
-        .AdminUsersSessionResetBulk.Output
+    func adminUsersSessionResetBulk(_ input: Operations.AdminUsersSessionResetBulk.Input) async throws -> Operations.AdminUsersSessionResetBulk.Output
     /// Configure the user-level session settings—the session duration and what happens when the client closes—for one or more users.
     ///
     /// - Remark: HTTP `POST /admin.users.session.setSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.setSettings/post(adminUsersSessionSetSettings)`.
-    func adminUsersSessionSetSettings(_ input: Operations.AdminUsersSessionSetSettings.Input) async throws -> Operations
-        .AdminUsersSessionSetSettings.Output
+    func adminUsersSessionSetSettings(_ input: Operations.AdminUsersSessionSetSettings.Input) async throws -> Operations.AdminUsersSessionSetSettings.Output
     /// Set an existing regular user or owner to be a workspace admin.
     ///
     /// - Remark: HTTP `POST /admin.users.setAdmin`.
@@ -477,8 +423,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /admin.users.setExpiration`.
     /// - Remark: Generated from `#/paths//admin.users.setExpiration/post(adminUsersSetExpiration)`.
-    func adminUsersSetExpiration(_ input: Operations.AdminUsersSetExpiration.Input) async throws -> Operations.AdminUsersSetExpiration
-        .Output
+    func adminUsersSetExpiration(_ input: Operations.AdminUsersSetExpiration.Input) async throws -> Operations.AdminUsersSetExpiration.Output
     /// Set an existing regular user or admin to be a workspace owner.
     ///
     /// - Remark: HTTP `POST /admin.users.setOwner`.
@@ -493,23 +438,19 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /admin.users.unsupportedVersions.export`.
     /// - Remark: Generated from `#/paths//admin.users.unsupportedVersions.export/post(adminUsersUnsupportedVersionsExport)`.
-    func adminUsersUnsupportedVersionsExport(_ input: Operations.AdminUsersUnsupportedVersionsExport.Input) async throws -> Operations
-        .AdminUsersUnsupportedVersionsExport.Output
-    /// Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads
-    /// over.
+    func adminUsersUnsupportedVersionsExport(_ input: Operations.AdminUsersUnsupportedVersionsExport.Input) async throws -> Operations.AdminUsersUnsupportedVersionsExport.Output
+    /// Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over.
     ///
     /// - Remark: HTTP `POST /apps.connections.open`.
     /// - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
     #endif
     #if WebAPI_Apps
     func appsConnectionsOpen(_ input: Operations.AppsConnectionsOpen.Input) async throws -> Operations.AppsConnectionsOpen.Output
-    /// Get a list of authorizations for the given event context. Each authorization represents an app installation that the event is
-    /// visible to.
+    /// Get a list of authorizations for the given event context. Each authorization represents an app installation that the event is visible to.
     ///
     /// - Remark: HTTP `POST /apps.event.authorizations.list`.
     /// - Remark: Generated from `#/paths//apps.event.authorizations.list/post(appsEventAuthorizationsList)`.
-    func appsEventAuthorizationsList(_ input: Operations.AppsEventAuthorizationsList.Input) async throws -> Operations
-        .AppsEventAuthorizationsList.Output
+    func appsEventAuthorizationsList(_ input: Operations.AppsEventAuthorizationsList.Input) async throws -> Operations.AppsEventAuthorizationsList.Output
     /// Create an app from an app manifest.
     ///
     /// - Remark: HTTP `POST /apps.manifest.create`.
@@ -546,20 +487,17 @@ public protocol APIProtocol: Sendable {
     /// - Remark: Generated from `#/paths//assistant.threads.setStatus/post(assistantThreadsSetStatus)`.
     #endif
     #if WebAPI_Assistant
-    func assistantThreadsSetStatus(_ input: Operations.AssistantThreadsSetStatus.Input) async throws -> Operations.AssistantThreadsSetStatus
-        .Output
+    func assistantThreadsSetStatus(_ input: Operations.AssistantThreadsSetStatus.Input) async throws -> Operations.AssistantThreadsSetStatus.Output
     /// Set suggested prompts for the given assistant thread
     ///
     /// - Remark: HTTP `POST /assistant.threads.setSuggestedPrompts`.
     /// - Remark: Generated from `#/paths//assistant.threads.setSuggestedPrompts/post(assistantThreadsSetSuggestedPrompts)`.
-    func assistantThreadsSetSuggestedPrompts(_ input: Operations.AssistantThreadsSetSuggestedPrompts.Input) async throws -> Operations
-        .AssistantThreadsSetSuggestedPrompts.Output
+    func assistantThreadsSetSuggestedPrompts(_ input: Operations.AssistantThreadsSetSuggestedPrompts.Input) async throws -> Operations.AssistantThreadsSetSuggestedPrompts.Output
     /// Set the title for the given assistant thread
     ///
     /// - Remark: HTTP `POST /assistant.threads.setTitle`.
     /// - Remark: Generated from `#/paths//assistant.threads.setTitle/post(assistantThreadsSetTitle)`.
-    func assistantThreadsSetTitle(_ input: Operations.AssistantThreadsSetTitle.Input) async throws -> Operations.AssistantThreadsSetTitle
-        .Output
+    func assistantThreadsSetTitle(_ input: Operations.AssistantThreadsSetTitle.Input) async throws -> Operations.AssistantThreadsSetTitle.Output
     /// Revokes a token.
     ///
     /// - Remark: HTTP `POST /auth.revoke`.
@@ -649,8 +587,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /chat.deleteScheduledMessage`.
     /// - Remark: Generated from `#/paths//chat.deleteScheduledMessage/post(chatDeleteScheduledMessage)`.
-    func chatDeleteScheduledMessage(_ input: Operations.ChatDeleteScheduledMessage.Input) async throws -> Operations
-        .ChatDeleteScheduledMessage.Output
+    func chatDeleteScheduledMessage(_ input: Operations.ChatDeleteScheduledMessage.Input) async throws -> Operations.ChatDeleteScheduledMessage.Output
     /// Retrieve a permalink URL for a specific extant message
     ///
     /// - Remark: HTTP `POST /chat.getPermalink`.
@@ -680,8 +617,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /chat.scheduledMessages.list`.
     /// - Remark: Generated from `#/paths//chat.scheduledMessages.list/post(chatScheduledMessagesList)`.
-    func chatScheduledMessagesList(_ input: Operations.ChatScheduledMessagesList.Input) async throws -> Operations.ChatScheduledMessagesList
-        .Output
+    func chatScheduledMessagesList(_ input: Operations.ChatScheduledMessagesList.Input) async throws -> Operations.ChatScheduledMessagesList.Output
     /// Provide custom unfurl behavior for user-posted URLs
     ///
     /// - Remark: HTTP `POST /chat.unfurl`.
@@ -698,14 +634,12 @@ public protocol APIProtocol: Sendable {
     /// - Remark: Generated from `#/paths//conversations.acceptSharedInvite/post(conversationsAcceptSharedInvite)`.
     #endif
     #if WebAPI_Conversations
-    func conversationsAcceptSharedInvite(_ input: Operations.ConversationsAcceptSharedInvite.Input) async throws -> Operations
-        .ConversationsAcceptSharedInvite.Output
+    func conversationsAcceptSharedInvite(_ input: Operations.ConversationsAcceptSharedInvite.Input) async throws -> Operations.ConversationsAcceptSharedInvite.Output
     /// Approves an invitation to a Slack Connect channel
     ///
     /// - Remark: HTTP `POST /conversations.approveSharedInvite`.
     /// - Remark: Generated from `#/paths//conversations.approveSharedInvite/post(conversationsApproveSharedInvite)`.
-    func conversationsApproveSharedInvite(_ input: Operations.ConversationsApproveSharedInvite.Input) async throws -> Operations
-        .ConversationsApproveSharedInvite.Output
+    func conversationsApproveSharedInvite(_ input: Operations.ConversationsApproveSharedInvite.Input) async throws -> Operations.ConversationsApproveSharedInvite.Output
     /// Archives a conversation.
     ///
     /// - Remark: HTTP `POST /conversations.archive`.
@@ -715,8 +649,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /conversations.canvases.create`.
     /// - Remark: Generated from `#/paths//conversations.canvases.create/post(conversationsCanvasesCreate)`.
-    func conversationsCanvasesCreate(_ input: Operations.ConversationsCanvasesCreate.Input) async throws -> Operations
-        .ConversationsCanvasesCreate.Output
+    func conversationsCanvasesCreate(_ input: Operations.ConversationsCanvasesCreate.Input) async throws -> Operations.ConversationsCanvasesCreate.Output
     /// Closes a direct message or multi-person direct message.
     ///
     /// - Remark: HTTP `POST /conversations.close`.
@@ -731,14 +664,12 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /conversations.declineSharedInvite`.
     /// - Remark: Generated from `#/paths//conversations.declineSharedInvite/post(conversationsDeclineSharedInvite)`.
-    func conversationsDeclineSharedInvite(_ input: Operations.ConversationsDeclineSharedInvite.Input) async throws -> Operations
-        .ConversationsDeclineSharedInvite.Output
+    func conversationsDeclineSharedInvite(_ input: Operations.ConversationsDeclineSharedInvite.Input) async throws -> Operations.ConversationsDeclineSharedInvite.Output
     /// Upgrade or downgrade Slack Connect channel permissions between 'can post only' and 'can post and invite'.
     ///
     /// - Remark: HTTP `POST /conversations.externalInvitePermissions.set`.
     /// - Remark: Generated from `#/paths//conversations.externalInvitePermissions.set/post(conversationsExternalInvitePermissionsSet)`.
-    func conversationsExternalInvitePermissionsSet(_ input: Operations.ConversationsExternalInvitePermissionsSet.Input) async throws
-        -> Operations.ConversationsExternalInvitePermissionsSet.Output
+    func conversationsExternalInvitePermissionsSet(_ input: Operations.ConversationsExternalInvitePermissionsSet.Input) async throws -> Operations.ConversationsExternalInvitePermissionsSet.Output
     /// Fetches a conversation's history of messages and events.
     ///
     /// - Remark: HTTP `POST /conversations.history`.
@@ -758,8 +689,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /conversations.inviteShared`.
     /// - Remark: Generated from `#/paths//conversations.inviteShared/post(conversationsInviteShared)`.
-    func conversationsInviteShared(_ input: Operations.ConversationsInviteShared.Input) async throws -> Operations.ConversationsInviteShared
-        .Output
+    func conversationsInviteShared(_ input: Operations.ConversationsInviteShared.Input) async throws -> Operations.ConversationsInviteShared.Output
     /// Joins an existing conversation.
     ///
     /// - Remark: HTTP `POST /conversations.join`.
@@ -784,8 +714,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /conversations.listConnectInvites`.
     /// - Remark: Generated from `#/paths//conversations.listConnectInvites/post(conversationsListConnectInvites)`.
-    func conversationsListConnectInvites(_ input: Operations.ConversationsListConnectInvites.Input) async throws -> Operations
-        .ConversationsListConnectInvites.Output
+    func conversationsListConnectInvites(_ input: Operations.ConversationsListConnectInvites.Input) async throws -> Operations.ConversationsListConnectInvites.Output
     /// Sets the read cursor in a channel.
     ///
     /// - Remark: HTTP `POST /conversations.mark`.
@@ -815,26 +744,22 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /conversations.requestSharedInvite.approve`.
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.approve/post(conversationsRequestSharedInviteApprove)`.
-    func conversationsRequestSharedInviteApprove(_ input: Operations.ConversationsRequestSharedInviteApprove.Input) async throws
-        -> Operations.ConversationsRequestSharedInviteApprove.Output
+    func conversationsRequestSharedInviteApprove(_ input: Operations.ConversationsRequestSharedInviteApprove.Input) async throws -> Operations.ConversationsRequestSharedInviteApprove.Output
     /// Denies a request to invite an external user to a channel
     ///
     /// - Remark: HTTP `POST /conversations.requestSharedInvite.deny`.
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.deny/post(conversationsRequestSharedInviteDeny)`.
-    func conversationsRequestSharedInviteDeny(_ input: Operations.ConversationsRequestSharedInviteDeny.Input) async throws -> Operations
-        .ConversationsRequestSharedInviteDeny.Output
+    func conversationsRequestSharedInviteDeny(_ input: Operations.ConversationsRequestSharedInviteDeny.Input) async throws -> Operations.ConversationsRequestSharedInviteDeny.Output
     /// Lists requests to add external users to channels with ability to filter.
     ///
     /// - Remark: HTTP `POST /conversations.requestSharedInvite.list`.
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.list/post(conversationsRequestSharedInviteList)`.
-    func conversationsRequestSharedInviteList(_ input: Operations.ConversationsRequestSharedInviteList.Input) async throws -> Operations
-        .ConversationsRequestSharedInviteList.Output
+    func conversationsRequestSharedInviteList(_ input: Operations.ConversationsRequestSharedInviteList.Input) async throws -> Operations.ConversationsRequestSharedInviteList.Output
     /// Sets the channel description.
     ///
     /// - Remark: HTTP `POST /conversations.setPurpose`.
     /// - Remark: Generated from `#/paths//conversations.setPurpose/post(conversationsSetPurpose)`.
-    func conversationsSetPurpose(_ input: Operations.ConversationsSetPurpose.Input) async throws -> Operations.ConversationsSetPurpose
-        .Output
+    func conversationsSetPurpose(_ input: Operations.ConversationsSetPurpose.Input) async throws -> Operations.ConversationsSetPurpose.Output
     /// Sets the topic for a conversation.
     ///
     /// - Remark: HTTP `POST /conversations.setTopic`.
@@ -885,8 +810,7 @@ public protocol APIProtocol: Sendable {
     /// - Remark: Generated from `#/paths//files.completeUploadExternal/post(filesCompleteUploadExternal)`.
     #endif
     #if WebAPI_Files
-    func filesCompleteUploadExternal(_ input: Operations.FilesCompleteUploadExternal.Input) async throws -> Operations
-        .FilesCompleteUploadExternal.Output
+    func filesCompleteUploadExternal(_ input: Operations.FilesCompleteUploadExternal.Input) async throws -> Operations.FilesCompleteUploadExternal.Output
     /// Deletes a file.
     ///
     /// - Remark: HTTP `POST /files.delete`.
@@ -896,8 +820,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /files.getUploadURLExternal`.
     /// - Remark: Generated from `#/paths//files.getUploadURLExternal/post(filesGetUploadURLExternal)`.
-    func filesGetUploadURLExternal(_ input: Operations.FilesGetUploadURLExternal.Input) async throws -> Operations.FilesGetUploadURLExternal
-        .Output
+    func filesGetUploadURLExternal(_ input: Operations.FilesGetUploadURLExternal.Input) async throws -> Operations.FilesGetUploadURLExternal.Output
     /// Gets information about a file.
     ///
     /// - Remark: HTTP `POST /files.info`.
@@ -964,8 +887,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /functions.completeSuccess`.
     /// - Remark: Generated from `#/paths//functions.completeSuccess/post(functionsCompleteSuccess)`.
-    func functionsCompleteSuccess(_ input: Operations.FunctionsCompleteSuccess.Input) async throws -> Operations.FunctionsCompleteSuccess
-        .Output
+    func functionsCompleteSuccess(_ input: Operations.FunctionsCompleteSuccess.Input) async throws -> Operations.FunctionsCompleteSuccess.Output
     /// For Enterprise Grid workspaces, map local user IDs to global user IDs
     ///
     /// - Remark: HTTP `POST /migration.exchange`.
@@ -1118,8 +1040,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /team.externalTeams.disconnect`.
     /// - Remark: Generated from `#/paths//team.externalTeams.disconnect/post(teamExternalTeamsDisconnect)`.
-    func teamExternalTeamsDisconnect(_ input: Operations.TeamExternalTeamsDisconnect.Input) async throws -> Operations
-        .TeamExternalTeamsDisconnect.Output
+    func teamExternalTeamsDisconnect(_ input: Operations.TeamExternalTeamsDisconnect.Input) async throws -> Operations.TeamExternalTeamsDisconnect.Output
     /// Returns a list of all the external teams connected and details about the connection.
     ///
     /// - Remark: HTTP `POST /team.externalTeams.list`.
@@ -1168,8 +1089,7 @@ public protocol APIProtocol: Sendable {
     ///
     /// - Remark: HTTP `POST /users.discoverableContacts.lookup`.
     /// - Remark: Generated from `#/paths//users.discoverableContacts.lookup/post(usersDiscoverableContactsLookup)`.
-    func usersDiscoverableContactsLookup(_ input: Operations.UsersDiscoverableContactsLookup.Input) async throws -> Operations
-        .UsersDiscoverableContactsLookup.Output
+    func usersDiscoverableContactsLookup(_ input: Operations.UsersDiscoverableContactsLookup.Input) async throws -> Operations.UsersDiscoverableContactsLookup.Output
     /// Gets user presence information.
     ///
     /// - Remark: HTTP `POST /users.getPresence`.
@@ -1626,23 +1546,18 @@ extension APIProtocol {
         ))
     }
 
-    /// List all disconnected channels—i.e., channels that were once connected to other workspaces and then disconnected—and the
-    /// corresponding original channel IDs for key revocation with EKM.
+    /// List all disconnected channels—i.e., channels that were once connected to other workspaces and then disconnected—and the corresponding original channel IDs for key revocation with EKM.
     ///
     /// - Remark: HTTP `POST /admin.conversations.ekm.listOriginalConnectedChannelInfo`.
-    /// - Remark: Generated from
-    /// `#/paths//admin.conversations.ekm.listOriginalConnectedChannelInfo/post(adminConversationsEkmListOriginalConnectedChannelInfo)`.
+    /// - Remark: Generated from `#/paths//admin.conversations.ekm.listOriginalConnectedChannelInfo/post(adminConversationsEkmListOriginalConnectedChannelInfo)`.
     public func adminConversationsEkmListOriginalConnectedChannelInfo(
         headers: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input.Headers = .init(),
         body: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input.Body
     ) async throws -> Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Output {
-        try await adminConversationsEkmListOriginalConnectedChannelInfo(
-            Operations.AdminConversationsEkmListOriginalConnectedChannelInfo
-                .Input(
-                    headers: headers,
-                    body: body,
-                ),
-        )
+        try await adminConversationsEkmListOriginalConnectedChannelInfo(Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input(
+            headers: headers,
+            body: body,
+        ))
     }
 
     /// Get conversation preferences for a public or private channel.
@@ -1774,8 +1689,7 @@ extension APIProtocol {
     /// Remove a linked IDP group linked from a private channel
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.removeGroup`.
-    /// - Remark: Generated from
-    /// `#/paths//admin.conversations.restrictAccess.removeGroup/post(adminConversationsRestrictAccessRemoveGroup)`.
+    /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.removeGroup/post(adminConversationsRestrictAccessRemoveGroup)`.
     public func adminConversationsRestrictAccessRemoveGroup(
         headers: Operations.AdminConversationsRestrictAccessRemoveGroup.Input.Headers = .init(),
         body: Operations.AdminConversationsRestrictAccessRemoveGroup.Input.Body
@@ -2443,8 +2357,7 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads
-    /// over.
+    /// Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over.
     ///
     /// - Remark: HTTP `POST /apps.connections.open`.
     /// - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
@@ -2460,8 +2373,7 @@ extension APIProtocol {
         ))
     }
 
-    /// Get a list of authorizations for the given event context. Each authorization represents an app installation that the event is
-    /// visible to.
+    /// Get a list of authorizations for the given event context. Each authorization represents an app installation that the event is visible to.
     ///
     /// - Remark: HTTP `POST /apps.event.authorizations.list`.
     /// - Remark: Generated from `#/paths//apps.event.authorizations.list/post(appsEventAuthorizationsList)`.

@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndEndDnd.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndEndDnd.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -161,9 +159,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndEndSnooze.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndEndSnooze.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -309,8 +305,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/dnd.info/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Encoded team id where passed in user param belongs, required if org token is used. If no user param is passed, then
-                    /// a team which has access to the app should be passed.
+                    /// Encoded team id where passed in user param belongs, required if org token is used. If no user param is passed, then a team which has access to the app should be passed.
                     ///
                     /// - Remark: Generated from `#/paths/dnd.info/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
@@ -321,8 +316,8 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - teamId: Encoded team id where passed in user param belongs, required if org token is used. If no user param is
-                    /// passed, then a team which has access to the app should be passed.
+                    ///   - teamId: Encoded team id where passed in user param belongs, required if org token is used. If no user param is passed, then a team which has access to the app should be
+                    /// passed.
                     ///   - user: User to fetch status for (defaults to current user).
                     public init(
                         teamId: Swift.String? = nil,
@@ -457,9 +452,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndSetSnooze.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndSetSnooze.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -605,9 +598,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndTeamInfo.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndTeamInfo.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }

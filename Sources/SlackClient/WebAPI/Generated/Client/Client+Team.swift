@@ -226,8 +226,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /team.externalTeams.disconnect`.
     /// - Remark: Generated from `#/paths//team.externalTeams.disconnect/post(teamExternalTeamsDisconnect)`.
-    func teamExternalTeamsDisconnect(_ input: Operations.TeamExternalTeamsDisconnect.Input) async throws -> Operations
-        .TeamExternalTeamsDisconnect.Output {
+    func teamExternalTeamsDisconnect(_ input: Operations.TeamExternalTeamsDisconnect.Input) async throws -> Operations.TeamExternalTeamsDisconnect.Output {
         try await client.send(
             input: input,
             forOperation: Operations.TeamExternalTeamsDisconnect.id,

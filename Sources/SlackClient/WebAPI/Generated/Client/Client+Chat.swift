@@ -86,8 +86,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /chat.deleteScheduledMessage`.
     /// - Remark: Generated from `#/paths//chat.deleteScheduledMessage/post(chatDeleteScheduledMessage)`.
-    func chatDeleteScheduledMessage(_ input: Operations.ChatDeleteScheduledMessage.Input) async throws -> Operations
-        .ChatDeleteScheduledMessage.Output {
+    func chatDeleteScheduledMessage(_ input: Operations.ChatDeleteScheduledMessage.Input) async throws -> Operations.ChatDeleteScheduledMessage.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ChatDeleteScheduledMessage.id,
@@ -501,8 +500,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /chat.scheduledMessages.list`.
     /// - Remark: Generated from `#/paths//chat.scheduledMessages.list/post(chatScheduledMessagesList)`.
-    func chatScheduledMessagesList(_ input: Operations.ChatScheduledMessagesList.Input) async throws -> Operations.ChatScheduledMessagesList
-        .Output {
+    func chatScheduledMessagesList(_ input: Operations.ChatScheduledMessagesList.Input) async throws -> Operations.ChatScheduledMessagesList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.ChatScheduledMessagesList.id,

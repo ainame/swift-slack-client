@@ -18,17 +18,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.ConversationsAcceptSharedInvite.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsAcceptSharedInvite.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.ConversationsAcceptSharedInvite.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsAcceptSharedInvite.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -38,8 +33,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Name of the channel. If the channel does not exist already in your workspace, this name is the one that the channel
-                    /// will take.
+                    /// Name of the channel. If the channel does not exist already in your workspace, this name is the one that the channel will take.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/channel_name`.
                     public var channelName: Swift.String
@@ -51,8 +45,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/free_trial_accepted`.
                     public var freeTrialAccepted: Swift.Bool?
-                    /// ID of the invite that you'd like to accept. Must provide either invite_id or channel_id. See the
-                    /// shared_channel_invite_received event payload for more details on how to retrieve the ID of the invitation.
+                    /// ID of the invite that you'd like to accept. Must provide either invite_id or channel_id. See the shared_channel_invite_received event payload for more details on how to
+                    /// retrieve the ID of the invitation.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/invite_id`.
                     public var inviteId: Swift.String?
@@ -60,23 +54,20 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/is_private`.
                     public var isPrivate: Swift.Bool?
-                    /// The ID of the workspace to accept the channel in. If an org-level token is used to call this method, the team_id
-                    /// argument is required.
+                    /// The ID of the workspace to accept the channel in. If an org-level token is used to call this method, the team_id argument is required.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - channelName: Name of the channel. If the channel does not exist already in your workspace, this name is the one
-                    /// that the channel will take.
+                    ///   - channelName: Name of the channel. If the channel does not exist already in your workspace, this name is the one that the channel will take.
                     ///   - channelId: ID of the channel that you'd like to accept. Must provide either invite_id or channel_id.
                     ///   - freeTrialAccepted: Whether you'd like to use your workspace's free trial to begin using Slack Connect.
-                    ///   - inviteId: ID of the invite that you'd like to accept. Must provide either invite_id or channel_id. See the
-                    /// shared_channel_invite_received event payload for more details on how to retrieve the ID of the invitation.
+                    ///   - inviteId: ID of the invite that you'd like to accept. Must provide either invite_id or channel_id. See the shared_channel_invite_received event payload for more details on
+                    /// how to retrieve the ID of the invitation.
                     ///   - isPrivate: Whether the channel should be private.
-                    ///   - teamId: The ID of the workspace to accept the channel in. If an org-level token is used to call this method, the
-                    /// team_id argument is required.
+                    ///   - teamId: The ID of the workspace to accept the channel in. If an org-level token is used to call this method, the team_id argument is required.
                     public init(
                         channelName: Swift.String,
                         channelId: Swift.String? = nil,
@@ -217,17 +208,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/conversations.approveSharedInvite/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.ConversationsApproveSharedInvite.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsApproveSharedInvite.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.ConversationsApproveSharedInvite.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsApproveSharedInvite.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -383,9 +369,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsArchive.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsArchive.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -531,9 +515,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsCanvasesCreate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsCanvasesCreate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -697,9 +679,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsClose.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsClose.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -845,9 +825,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsCreate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsCreate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1006,17 +984,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/conversations.declineSharedInvite/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.ConversationsDeclineSharedInvite.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsDeclineSharedInvite.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.ConversationsDeclineSharedInvite.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsDeclineSharedInvite.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1026,8 +999,8 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.declineSharedInvite/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// ID of the Slack Connect invite to decline. Subscribe to the shared_channel_invite_accepted event to receive IDs of
-                    /// Slack Connect channel invites that have been accepted and are awaiting approval.
+                    /// ID of the Slack Connect invite to decline. Subscribe to the shared_channel_invite_accepted event to receive IDs of Slack Connect channel invites that have been accepted and are
+                    /// awaiting approval.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.declineSharedInvite/POST/requestBody/json/invite_id`.
                     public var inviteId: Swift.String
@@ -1038,8 +1011,8 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - inviteId: ID of the Slack Connect invite to decline. Subscribe to the shared_channel_invite_accepted event to
-                    /// receive IDs of Slack Connect channel invites that have been accepted and are awaiting approval.
+                    ///   - inviteId: ID of the Slack Connect invite to decline. Subscribe to the shared_channel_invite_accepted event to receive IDs of Slack Connect channel invites that have been
+                    /// accepted and are awaiting approval.
                     ///   - targetTeam: The team or enterprise id of the other party involved in the invitation you are declining.
                     public init(
                         inviteId: Swift.String,
@@ -1169,19 +1142,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/conversations.externalInvitePermissions.set/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.ConversationsExternalInvitePermissionsSet.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsExternalInvitePermissionsSet.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.ConversationsExternalInvitePermissionsSet.AcceptableContentType>,
-                ] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsExternalInvitePermissionsSet.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1226,8 +1192,7 @@ extension Operations {
                     }
                 }
 
-                /// - Remark: Generated from
-                /// `#/paths/conversations.externalInvitePermissions.set/POST/requestBody/content/application\/json`.
+                /// - Remark: Generated from `#/paths/conversations.externalInvitePermissions.set/POST/requestBody/content/application\/json`.
                 case json(Operations.ConversationsExternalInvitePermissionsSet.Input.Body.JsonPayload)
             }
 
@@ -1250,8 +1215,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.externalInvitePermissions.set/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/conversations.externalInvitePermissions.set/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/conversations.externalInvitePermissions.set/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.ConversationsExternalInvitePermissionsSetResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -1280,8 +1244,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//conversations.externalInvitePermissions.set/post(conversationsExternalInvitePermissionsSet)/responses/200`.
+            /// - Remark: Generated from `#/paths//conversations.externalInvitePermissions.set/post(conversationsExternalInvitePermissionsSet)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.ConversationsExternalInvitePermissionsSet.Output.Ok)
@@ -1348,9 +1311,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsHistory.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsHistory.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1364,9 +1325,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.history/POST/requestBody/json/channel`.
                     public var channel: Swift.String
-                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a
-                    /// previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination for
-                    /// more detail.
+                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value fetches the
+                    /// first "page" of the collection. See pagination for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.history/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
@@ -1382,8 +1342,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.history/POST/requestBody/json/latest`.
                     public var latest: Swift.String?
-                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of
-                    /// the conversation history hasn't been reached. Maximum of 999.
+                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the conversation history hasn't been reached. Maximum of
+                    /// 999.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.history/POST/requestBody/json/limit`.
                     public var limit: Swift.Double?
@@ -1395,15 +1355,13 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channel: Conversation ID to fetch history for.
-                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned
-                    /// by a previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination
-                    /// for more detail.
+                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value
+                    /// fetches the first "page" of the collection. See pagination for more detail.
                     ///   - includeAllMetadata: Return all metadata associated with this message.
-                    ///   - inclusive: Include messages with oldest or latest timestamps in results. Ignored unless either timestamp is
-                    /// specified.
+                    ///   - inclusive: Include messages with oldest or latest timestamps in results. Ignored unless either timestamp is specified.
                     ///   - latest: Only messages before this Unix timestamp will be included in results. Default is the current time.
-                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if
-                    /// the end of the conversation history hasn't been reached. Maximum of 999.
+                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the conversation history hasn't been reached.
+                    /// Maximum of 999.
                     ///   - oldest: Only messages after this Unix timestamp will be included in results.
                     public init(
                         channel: Swift.String,
@@ -1553,9 +1511,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsInfo.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsInfo.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1719,9 +1675,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsInvite.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsInvite.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1739,8 +1693,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.invite/POST/requestBody/json/users`.
                     public var users: Swift.String
-                    /// When set to true and multiple user IDs are provided, continue inviting the valid ones while disregarding invalid
-                    /// IDs. Defaults to false.
+                    /// When set to true and multiple user IDs are provided, continue inviting the valid ones while disregarding invalid IDs. Defaults to false.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.invite/POST/requestBody/json/force`.
                     public var force: Swift.Bool?
@@ -1749,8 +1702,7 @@ extension Operations {
                     /// - Parameters:
                     ///   - channel: The ID of the public or private channel to invite user(s) to.
                     ///   - users: A comma separated list of user IDs. Up to 1000 users may be listed.
-                    ///   - force: When set to true and multiple user IDs are provided, continue inviting the valid ones while disregarding
-                    /// invalid IDs. Defaults to false.
+                    ///   - force: When set to true and multiple user IDs are provided, continue inviting the valid ones while disregarding invalid IDs. Defaults to false.
                     public init(
                         channel: Swift.String,
                         users: Swift.String,
@@ -1887,9 +1839,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsInviteShared.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsInviteShared.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1903,8 +1853,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/json/channel`.
                     public var channel: Swift.String
-                    /// Optional email to receive this invite. Either emails or user_ids must be provided. Only one email or one user ID may
-                    /// be invited at a time.
+                    /// Optional email to receive this invite. Either emails or user_ids must be provided. Only one email or one user ID may be invited at a time.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/json/emails`.
                     public var emails: OpenAPIRuntime.OpenAPIArrayContainer?
@@ -1912,8 +1861,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/json/external_limited`.
                     public var externalLimited: Swift.Bool?
-                    /// Optional user_id to receive this invite. Either emails or user_ids must be provided. Only one email or one user ID
-                    /// may be invited at a time.
+                    /// Optional user_id to receive this invite. Either emails or user_ids must be provided. Only one email or one user ID may be invited at a time.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/json/user_ids`.
                     public var userIds: OpenAPIRuntime.OpenAPIArrayContainer?
@@ -1921,11 +1869,9 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channel: ID of the channel on your team that you'd like to share.
-                    ///   - emails: Optional email to receive this invite. Either emails or user_ids must be provided. Only one email or one
-                    /// user ID may be invited at a time.
+                    ///   - emails: Optional email to receive this invite. Either emails or user_ids must be provided. Only one email or one user ID may be invited at a time.
                     ///   - externalLimited: Optional boolean on whether invite is to an external limited member. Defaults to true.
-                    ///   - userIds: Optional user_id to receive this invite. Either emails or user_ids must be provided. Only one email or
-                    /// one user ID may be invited at a time.
+                    ///   - userIds: Optional user_id to receive this invite. Either emails or user_ids must be provided. Only one email or one user ID may be invited at a time.
                     public init(
                         channel: Swift.String,
                         emails: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
@@ -2065,9 +2011,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsJoin.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsJoin.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2213,9 +2157,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsKick.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsKick.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2371,9 +2313,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsLeave.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsLeave.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2519,9 +2459,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2531,9 +2469,8 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a
-                    /// previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination for
-                    /// more detail.
+                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value fetches the
+                    /// first "page" of the collection. See pagination for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
@@ -2541,8 +2478,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.list/POST/requestBody/json/exclude_archived`.
                     public var excludeArchived: Swift.Bool?
-                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of
-                    /// the list hasn't been reached. Must be an integer under 1000.
+                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. Must be an integer under 1000.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Double?
@@ -2550,23 +2486,20 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.list/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
-                    /// Mix and match channel types by providing a comma-separated list of any combination of public_channel,
-                    /// private_channel, mpim, im.
+                    /// Mix and match channel types by providing a comma-separated list of any combination of public_channel, private_channel, mpim, im.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.list/POST/requestBody/json/types`.
                     public var types: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned
-                    /// by a previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination
-                    /// for more detail.
+                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value
+                    /// fetches the first "page" of the collection. See pagination for more detail.
                     ///   - excludeArchived: Set to true to exclude archived channels from the list.
-                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if
-                    /// the end of the list hasn't been reached. Must be an integer under 1000.
+                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. Must be an integer
+                    /// under 1000.
                     ///   - teamId: encoded team id to list channels in, required if token belongs to org-wide app.
-                    ///   - types: Mix and match channel types by providing a comma-separated list of any combination of public_channel,
-                    /// private_channel, mpim, im.
+                    ///   - types: Mix and match channel types by providing a comma-separated list of any combination of public_channel, private_channel, mpim, im.
                     public init(
                         cursor: Swift.String? = nil,
                         excludeArchived: Swift.Bool? = nil,
@@ -2704,17 +2637,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/conversations.listConnectInvites/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.ConversationsListConnectInvites.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsListConnectInvites.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.ConversationsListConnectInvites.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsListConnectInvites.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2870,9 +2798,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsMark.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsMark.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -3028,9 +2954,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsMembers.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsMembers.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -3044,14 +2968,12 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.members/POST/requestBody/json/channel`.
                     public var channel: Swift.String
-                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a
-                    /// previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination for
-                    /// more detail.
+                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value fetches the
+                    /// first "page" of the collection. See pagination for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.members/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
-                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of
-                    /// the users list hasn't been reached.
+                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.members/POST/requestBody/json/limit`.
                     public var limit: Swift.Double?
@@ -3059,11 +2981,9 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channel: ID of the conversation to retrieve members for.
-                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned
-                    /// by a previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination
-                    /// for more detail.
-                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if
-                    /// the end of the users list hasn't been reached.
+                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value
+                    /// fetches the first "page" of the collection. See pagination for more detail.
+                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached.
                     public init(
                         channel: Swift.String,
                         cursor: Swift.String? = nil,
@@ -3200,9 +3120,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsOpen.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsOpen.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -3216,8 +3134,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/channel`.
                     public var channel: Swift.String?
-                    /// Do not create a direct message or multi-person direct message. This is used to see if there is an existing dm or
-                    /// mpdm.
+                    /// Do not create a direct message or multi-person direct message. This is used to see if there is an existing dm or mpdm.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/prevent_creation`.
                     public var preventCreation: Swift.Bool?
@@ -3225,8 +3142,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/return_im`.
                     public var returnIm: Swift.Bool?
-                    /// Comma separated lists of users. If only one user is included, this creates a 1:1 DM.  The ordering of the users is
-                    /// preserved whenever a multi-person direct message is returned. Supply a channel when not supplying users.
+                    /// Comma separated lists of users. If only one user is included, this creates a 1:1 DM.  The ordering of the users is preserved whenever a multi-person direct message is returned.
+                    /// Supply a channel when not supplying users.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/users`.
                     public var users: Swift.String?
@@ -3234,11 +3151,10 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channel: Resume a conversation by supplying an im or mpim's ID. Or provide the users field instead.
-                    ///   - preventCreation: Do not create a direct message or multi-person direct message. This is used to see if there is
-                    /// an existing dm or mpdm.
+                    ///   - preventCreation: Do not create a direct message or multi-person direct message. This is used to see if there is an existing dm or mpdm.
                     ///   - returnIm: Boolean, indicates you want the full IM channel definition in the response.
-                    ///   - users: Comma separated lists of users. If only one user is included, this creates a 1:1 DM.  The ordering of the
-                    /// users is preserved whenever a multi-person direct message is returned. Supply a channel when not supplying users.
+                    ///   - users: Comma separated lists of users. If only one user is included, this creates a 1:1 DM.  The ordering of the users is preserved whenever a multi-person direct message
+                    /// is returned. Supply a channel when not supplying users.
                     public init(
                         channel: Swift.String? = nil,
                         preventCreation: Swift.Bool? = nil,
@@ -3378,9 +3294,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsRename.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsRename.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -3536,9 +3450,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsReplies.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsReplies.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -3552,15 +3464,13 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.replies/POST/requestBody/json/channel`.
                     public var channel: Swift.String
-                    /// Unique identifier of either a thread's parent message or a message in the thread. ts must be the timestamp of an
-                    /// existing message with 0 or more replies. If there are no replies then just the single message referenced by ts will
-                    /// return - it is just an ordinary, unthreaded message.
+                    /// Unique identifier of either a thread's parent message or a message in the thread. ts must be the timestamp of an existing message with 0 or more replies. If there are no
+                    /// replies then just the single message referenced by ts will return - it is just an ordinary, unthreaded message.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.replies/POST/requestBody/json/ts`.
                     public var ts: Swift.String
-                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a
-                    /// previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination for
-                    /// more detail.
+                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value fetches the
+                    /// first "page" of the collection. See pagination for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.replies/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
@@ -3576,8 +3486,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.replies/POST/requestBody/json/latest`.
                     public var latest: Swift.String?
-                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of
-                    /// the users list hasn't been reached.
+                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.replies/POST/requestBody/json/limit`.
                     public var limit: Swift.Double?
@@ -3589,18 +3498,14 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channel: Conversation ID to fetch thread from.
-                    ///   - ts: Unique identifier of either a thread's parent message or a message in the thread. ts must be the timestamp
-                    /// of an existing message with 0 or more replies. If there are no replies then just the single message referenced by ts
-                    /// will return - it is just an ordinary, unthreaded message.
-                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned
-                    /// by a previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination
-                    /// for more detail.
+                    ///   - ts: Unique identifier of either a thread's parent message or a message in the thread. ts must be the timestamp of an existing message with 0 or more replies. If there are
+                    /// no replies then just the single message referenced by ts will return - it is just an ordinary, unthreaded message.
+                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value
+                    /// fetches the first "page" of the collection. See pagination for more detail.
                     ///   - includeAllMetadata: Return all metadata associated with this message.
-                    ///   - inclusive: Include messages with oldest or latest timestamps in results. Ignored unless either timestamp is
-                    /// specified.
+                    ///   - inclusive: Include messages with oldest or latest timestamps in results. Ignored unless either timestamp is specified.
                     ///   - latest: Only messages before this Unix timestamp will be included in results.
-                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if
-                    /// the end of the users list hasn't been reached.
+                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached.
                     ///   - oldest: Only messages after this Unix timestamp will be included in results.
                     public init(
                         channel: Swift.String,
@@ -3748,19 +3653,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.ConversationsRequestSharedInviteApprove.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsRequestSharedInviteApprove.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.ConversationsRequestSharedInviteApprove.AcceptableContentType>,
-                ] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsRequestSharedInviteApprove.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -3778,17 +3676,13 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/channel_id`.
                     public var channelId: Swift.String?
-                    /// Optional boolean on whether the invited team will have post-only permissions in the channel. Will override the value
-                    /// on the requested invite.
+                    /// Optional boolean on whether the invited team will have post-only permissions in the channel. Will override the value on the requested invite.
                     ///
-                    /// - Remark: Generated from
-                    /// `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/is_external_limited`.
+                    /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/is_external_limited`.
                     public var isExternalLimited: Swift.Bool?
-                    /// Object describing the text to send along with the invite. If this object is specified, both text and is_override are
-                    /// required properties. If is_override is set to true, text will override the original invitation message. Otherwise,
-                    /// text will be appended to the original invitation message. The total length of the message cannot exceed 560
-                    /// characters. If is_override is set to false, the length of text and the user specified message on the invite request
-                    /// in total must be less than 560 characters.
+                    /// Object describing the text to send along with the invite. If this object is specified, both text and is_override are required properties. If is_override is set to true, text
+                    /// will override the original invitation message. Otherwise, text will be appended to the original invitation message. The total length of the message cannot exceed 560
+                    /// characters. If is_override is set to false, the length of text and the user specified message on the invite request in total must be less than 560 characters.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/message`.
                     public var message: OpenAPIRuntime.OpenAPIObjectContainer?
@@ -3796,15 +3690,11 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - inviteId: ID of the requested shared channel invite to approve.
-                    ///   - channelId: Optional channel_id to which external user will be invited to. Will override the value on the
-                    /// requested invite.
-                    ///   - isExternalLimited: Optional boolean on whether the invited team will have post-only permissions in the channel.
-                    /// Will override the value on the requested invite.
-                    ///   - message: Object describing the text to send along with the invite. If this object is specified, both text and
-                    /// is_override are required properties. If is_override is set to true, text will override the original invitation
-                    /// message. Otherwise, text will be appended to the original invitation message. The total length of the message cannot
-                    /// exceed 560 characters. If is_override is set to false, the length of text and the user specified message on the
-                    /// invite request in total must be less than 560 characters.
+                    ///   - channelId: Optional channel_id to which external user will be invited to. Will override the value on the requested invite.
+                    ///   - isExternalLimited: Optional boolean on whether the invited team will have post-only permissions in the channel. Will override the value on the requested invite.
+                    ///   - message: Object describing the text to send along with the invite. If this object is specified, both text and is_override are required properties. If is_override is set to
+                    /// true, text will override the original invitation message. Otherwise, text will be appended to the original invitation message. The total length of the message cannot exceed 560
+                    /// characters. If is_override is set to false, the length of text and the user specified message on the invite request in total must be less than 560 characters.
                     public init(
                         inviteId: Swift.String,
                         channelId: Swift.String? = nil,
@@ -3848,8 +3738,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/conversations.requestSharedInvite.approve/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.ConversationsRequestSharedInviteApproveResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -3878,8 +3767,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//conversations.requestSharedInvite.approve/post(conversationsRequestSharedInviteApprove)/responses/200`.
+            /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.approve/post(conversationsRequestSharedInviteApprove)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.ConversationsRequestSharedInviteApprove.Output.Ok)
@@ -3941,17 +3829,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.deny/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.ConversationsRequestSharedInviteDeny.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsRequestSharedInviteDeny.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.ConversationsRequestSharedInviteDeny.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsRequestSharedInviteDeny.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -4011,8 +3894,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.deny/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/conversations.requestSharedInvite.deny/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.deny/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.ConversationsRequestSharedInviteDenyResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -4041,8 +3923,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//conversations.requestSharedInvite.deny/post(conversationsRequestSharedInviteDeny)/responses/200`.
+            /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.deny/post(conversationsRequestSharedInviteDeny)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.ConversationsRequestSharedInviteDeny.Output.Ok)
@@ -4104,17 +3985,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.ConversationsRequestSharedInviteList.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsRequestSharedInviteList.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.ConversationsRequestSharedInviteList.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsRequestSharedInviteList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -4124,8 +4000,8 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a
-                    /// previous request's response_metadata. See pagination for more detail.
+                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. See pagination for more
+                    /// detail.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
@@ -4156,8 +4032,8 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned
-                    /// by a previous request's response_metadata. See pagination for more detail.
+                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. See pagination
+                    /// for more detail.
                     ///   - includeApproved: When true approved invitation requests will be returned, otherwise they will be excluded.
                     ///   - includeDenied: When true denied invitation requests will be returned, otherwise they will be excluded.
                     ///   - includeExpired: When true expired invitation requests will be returned, otherwise they will be excluded.
@@ -4216,8 +4092,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/conversations.requestSharedInvite.list/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.ConversationsRequestSharedInviteListResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -4246,8 +4121,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//conversations.requestSharedInvite.list/post(conversationsRequestSharedInviteList)/responses/200`.
+            /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.list/post(conversationsRequestSharedInviteList)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.ConversationsRequestSharedInviteList.Output.Ok)
@@ -4314,9 +4188,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsSetPurpose.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsSetPurpose.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -4472,9 +4344,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsSetTopic.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsSetTopic.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -4630,9 +4500,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsUnarchive.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ConversationsUnarchive.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }

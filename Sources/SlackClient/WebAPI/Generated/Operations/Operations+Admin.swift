@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsActivitiesList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsActivitiesList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -47,8 +45,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/component_type`.
                     public var componentType: Swift.String?
-                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a
-                    /// previous request's response_metadata. See pagination for more detail.
+                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. See pagination for more
+                    /// detail.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
@@ -68,8 +66,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/min_date_created`.
                     public var minDateCreated: Swift.Int?
-                    /// The minimum log level of the log events to be returned. Defaults to info. Acceptable values (in order of relative
-                    /// importance from smallest to largest) are trace, debug, info, warn, error and fatal.
+                    /// The minimum log level of the log events to be returned. Defaults to info. Acceptable values (in order of relative importance from smallest to largest) are trace, debug, info,
+                    /// warn, error and fatal.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/min_log_level`.
                     public var minLogLevel: Swift.String?
@@ -93,18 +91,16 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - appId: The ID of the app to get activities from.
-                    ///   - componentId: The component ID of log events to be returned. Will be FnXXXXXX for functions, and WfXXXXXX for
-                    /// worflows.
-                    ///   - componentType: The component type of log events to be returned. Acceptable values are events_api, workflows,
-                    /// functions and tables.
-                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned
-                    /// by a previous request's response_metadata. See pagination for more detail.
+                    ///   - componentId: The component ID of log events to be returned. Will be FnXXXXXX for functions, and WfXXXXXX for worflows.
+                    ///   - componentType: The component type of log events to be returned. Acceptable values are events_api, workflows, functions and tables.
+                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. See pagination
+                    /// for more detail.
                     ///   - limit: The maximum number of items to return.
                     ///   - logEventType: The event type of log events to be returned.
                     ///   - maxDateCreated: The latest timestamp of the log to retrieve (epoch microseconds).
                     ///   - minDateCreated: The earliest timestamp of the log to retrieve (epoch microseconds).
-                    ///   - minLogLevel: The minimum log level of the log events to be returned. Defaults to info. Acceptable values (in
-                    /// order of relative importance from smallest to largest) are trace, debug, info, warn, error and fatal.
+                    ///   - minLogLevel: The minimum log level of the log events to be returned. Defaults to info. Acceptable values (in order of relative importance from smallest to largest) are
+                    /// trace, debug, info, warn, error and fatal.
                     ///   - sortDirection: The direction you want the data sorted by (always by timestamp).
                     ///   - source: The source of log events to be returned. Acceptable values are slack and developer.
                     ///   - teamId: The team who owns this log.
@@ -275,9 +271,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsApprove.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsApprove.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -449,9 +443,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsApprovedList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsApprovedList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -484,8 +476,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - certified: Limit the results to only include certified apps. When false, no certified apps will appear in the
-                    /// result.
+                    ///   - certified: Limit the results to only include certified apps. When false, no certified apps will appear in the result.
                     ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///   - enterpriseId: .
                     ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
@@ -632,9 +623,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsClearResolution.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsClearResolution.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -798,9 +787,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsConfigLookup.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsConfigLookup.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -946,9 +933,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsConfigSet.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsConfigSet.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -962,8 +947,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.config.set/POST/requestBody/json/app_id`.
                     public var appId: Swift.String
-                    /// Domain restrictions for the app. Should be an object with two properties: urls and emails. Each is an array of
-                    /// strings, and each sets the allowed URLs and emails for connector authorization, respectively.
+                    /// Domain restrictions for the app. Should be an object with two properties: urls and emails. Each is an array of strings, and each sets the allowed URLs and emails for connector
+                    /// authorization, respectively.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.config.set/POST/requestBody/json/domain_restrictions`.
                     public var domainRestrictions: OpenAPIRuntime.OpenAPIObjectContainer?
@@ -975,8 +960,8 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - appId: The encoded app ID to set the app config for.
-                    ///   - domainRestrictions: Domain restrictions for the app. Should be an object with two properties: urls and emails.
-                    /// Each is an array of strings, and each sets the allowed URLs and emails for connector authorization, respectively.
+                    ///   - domainRestrictions: Domain restrictions for the app. Should be an object with two properties: urls and emails. Each is an array of strings, and each sets the allowed URLs
+                    /// and emails for connector authorization, respectively.
                     ///   - workflowAuthStrategy: The workflow auth permission. Can be one of builder_choice or end_user_only.
                     public init(
                         appId: Swift.String,
@@ -1114,9 +1099,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsRequestsCancel.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsRequestsCancel.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1280,9 +1263,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsRequestsList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsRequestsList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1462,9 +1443,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsRestrict.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsRestrict.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1636,9 +1615,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsRestrictedList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsRestrictedList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1671,8 +1648,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - certified: Limit the results to only include certified apps. When false, no certified apps will appear in the
-                    /// result.
+                    ///   - certified: Limit the results to only include certified apps. When false, no certified apps will appear in the result.
                     ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///   - enterpriseId: .
                     ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
@@ -1819,9 +1795,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsUninstall.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAppsUninstall.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1835,8 +1809,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.uninstall/POST/requestBody/json/app_id`.
                     public var appId: Swift.String
-                    /// The enterprise to completely uninstall the application from (across all workspaces). With an org-level token, this
-                    /// or team_ids is required.
+                    /// The enterprise to completely uninstall the application from (across all workspaces). With an org-level token, this or team_ids is required.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.uninstall/POST/requestBody/json/enterprise_id`.
                     public var enterpriseId: Swift.String?
@@ -1848,10 +1821,8 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - appId: The ID of the app to uninstall.
-                    ///   - enterpriseId: The enterprise to completely uninstall the application from (across all workspaces). With an
-                    /// org-level token, this or team_ids is required.
-                    ///   - teamIds: IDs of the teams to uninstall from (max 100). With an org-level token, this or enterprise_id is
-                    /// required.
+                    ///   - enterpriseId: The enterprise to completely uninstall the application from (across all workspaces). With an org-level token, this or team_ids is required.
+                    ///   - teamIds: IDs of the teams to uninstall from (max 100). With an org-level token, this or enterprise_id is required.
                     public init(
                         appId: Swift.String,
                         enterpriseId: Swift.String? = nil,
@@ -1988,10 +1959,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminAuthPolicyAssignEntities.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAuthPolicyAssignEntities.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2009,8 +1977,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.auth.policy.assignEntities/POST/requestBody/json/entity_type`.
                     public var entityType: Swift.String
-                    /// The name of the authentication policy to assign the entities to. Currently, email_password is the only policy that
-                    /// may be used with this method.
+                    /// The name of the authentication policy to assign the entities to. Currently, email_password is the only policy that may be used with this method.
                     ///
                     /// - Remark: Generated from `#/paths/admin.auth.policy.assignEntities/POST/requestBody/json/policy_name`.
                     public var policyName: Swift.String
@@ -2019,8 +1986,7 @@ extension Operations {
                     /// - Parameters:
                     ///   - entityIds: Array of IDs to assign to the policy.
                     ///   - entityType: The type of entity to assign to the policy. Currently, USER is supported.
-                    ///   - policyName: The name of the authentication policy to assign the entities to. Currently, email_password is the
-                    /// only policy that may be used with this method.
+                    ///   - policyName: The name of the authentication policy to assign the entities to. Currently, email_password is the only policy that may be used with this method.
                     public init(
                         entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         entityType: Swift.String,
@@ -2157,9 +2123,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAuthPolicyGetEntities.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAuthPolicyGetEntities.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2169,8 +2133,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.auth.policy.getEntities/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The name of the policy to fetch entities for. Currently, email_password is the only policy that may be used with
-                    /// this method.
+                    /// The name of the policy to fetch entities for. Currently, email_password is the only policy that may be used with this method.
                     ///
                     /// - Remark: Generated from `#/paths/admin.auth.policy.getEntities/POST/requestBody/json/policy_name`.
                     public var policyName: Swift.String
@@ -2189,8 +2152,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - policyName: The name of the policy to fetch entities for. Currently, email_password is the only policy that may
-                    /// be used with this method.
+                    ///   - policyName: The name of the policy to fetch entities for. Currently, email_password is the only policy that may be used with this method.
                     ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///   - entityType: The type of entity to assign to the policy. Currently, USER is supported.
                     ///   - limit: The maximum number of items to return. Must be between 1 and 1000, both inclusive.
@@ -2333,10 +2295,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminAuthPolicyRemoveEntities.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminAuthPolicyRemoveEntities.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2354,8 +2313,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.auth.policy.removeEntities/POST/requestBody/json/entity_type`.
                     public var entityType: Swift.String
-                    /// The name of the policy to remove entities from. Currently, email_password is the only policy that may be used with
-                    /// this method.
+                    /// The name of the policy to remove entities from. Currently, email_password is the only policy that may be used with this method.
                     ///
                     /// - Remark: Generated from `#/paths/admin.auth.policy.removeEntities/POST/requestBody/json/policy_name`.
                     public var policyName: Swift.String
@@ -2364,8 +2322,7 @@ extension Operations {
                     /// - Parameters:
                     ///   - entityIds: Encoded IDs of the entities you'd like to remove from the policy.
                     ///   - entityType: The type of entity to assign to the policy. Currently, USER is supported.
-                    ///   - policyName: The name of the policy to remove entities from. Currently, email_password is the only policy that
-                    /// may be used with this method.
+                    ///   - policyName: The name of the policy to remove entities from. Currently, email_password is the only policy that may be used with this method.
                     public init(
                         entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         entityType: Swift.String,
@@ -2502,9 +2459,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminBarriersCreate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminBarriersCreate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2531,8 +2486,7 @@ extension Operations {
                     /// - Parameters:
                     ///   - barrieredFromUsergroupIds: A list of IDP Groups ids that the primary usergroup is to be barriered from.
                     ///   - primaryUsergroupId: The id of the primary IDP Group.
-                    ///   - restrictedSubjects: What kind of interactions are blocked by this barrier? For v1, we only support a list of all
-                    /// 3, eg im, mpim, call.
+                    ///   - restrictedSubjects: What kind of interactions are blocked by this barrier? For v1, we only support a list of all 3, eg im, mpim, call.
                     public init(
                         barrieredFromUsergroupIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         primaryUsergroupId: Swift.String,
@@ -2669,9 +2623,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminBarriersDelete.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminBarriersDelete.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2817,9 +2769,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminBarriersList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminBarriersList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -2975,9 +2925,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminBarriersUpdate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminBarriersUpdate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -3009,8 +2957,7 @@ extension Operations {
                     ///   - barrierId: The ID of the barrier you're trying to modify.
                     ///   - barrieredFromUsergroupIds: A list of IDP Groups ids that the primary usergroup is to be barriered from.
                     ///   - primaryUsergroupId: The id of the primary IDP Group.
-                    ///   - restrictedSubjects: What kind of interactions are blocked by this barrier? For v1, we only support a list of all
-                    /// 3, eg im, mpim, call.
+                    ///   - restrictedSubjects: What kind of interactions are blocked by this barrier? For v1, we only support a list of all 3, eg im, mpim, call.
                     public init(
                         barrierId: Swift.String,
                         barrieredFromUsergroupIds: OpenAPIRuntime.OpenAPIArrayContainer,
@@ -3150,9 +3097,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsArchive.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsArchive.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -3298,10 +3243,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsBulkArchive.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsBulkArchive.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -3447,10 +3389,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsBulkDelete.AcceptableContentType>] =
-                        .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsBulkDelete.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -3596,9 +3535,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsBulkMove.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsBulkMove.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -3749,17 +3686,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.conversations.convertToPrivate/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminConversationsConvertToPrivate.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsConvertToPrivate.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsConvertToPrivate.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsConvertToPrivate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -3819,8 +3751,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.convertToPrivate/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.convertToPrivate/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.convertToPrivate/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminConversationsConvertToPrivateResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -3849,8 +3780,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.conversations.convertToPrivate/post(adminConversationsConvertToPrivate)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.conversations.convertToPrivate/post(adminConversationsConvertToPrivate)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminConversationsConvertToPrivate.Output.Ok)
@@ -3912,17 +3842,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.conversations.convertToPublic/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminConversationsConvertToPublic.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsConvertToPublic.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsConvertToPublic.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsConvertToPublic.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -4001,8 +3926,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.conversations.convertToPublic/post(adminConversationsConvertToPublic)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.conversations.convertToPublic/post(adminConversationsConvertToPublic)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminConversationsConvertToPublic.Output.Ok)
@@ -4069,9 +3993,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsCreate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsCreate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -4093,8 +4015,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.create/POST/requestBody/json/description`.
                     public var description: Swift.String?
-                    /// When true, the channel will be available org-wide. Note: if the channel is not org_wide=true, you must specify a
-                    /// team_id for this channel.
+                    /// When true, the channel will be available org-wide. Note: if the channel is not org_wide=true, you must specify a team_id for this channel.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.create/POST/requestBody/json/org_wide`.
                     public var orgWide: Swift.Bool?
@@ -4108,8 +4029,7 @@ extension Operations {
                     ///   - isPrivate: When true, creates a private channel instead of a public channel.
                     ///   - name: Name of the public or private channel to create.
                     ///   - description: Description of the public or private channel to create.
-                    ///   - orgWide: When true, the channel will be available org-wide. Note: if the channel is not org_wide=true, you must
-                    /// specify a team_id for this channel.
+                    ///   - orgWide: When true, the channel will be available org-wide. Note: if the channel is not org_wide=true, you must specify a team_id for this channel.
                     ///   - teamId: The workspace to create the channel in. Note: this argument is required unless you set org_wide=true.
                     public init(
                         isPrivate: Swift.Bool,
@@ -4253,9 +4173,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsDelete.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsDelete.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -4396,17 +4314,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.conversations.disconnectShared/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminConversationsDisconnectShared.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsDisconnectShared.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsDisconnectShared.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsDisconnectShared.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -4466,8 +4379,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.disconnectShared/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.disconnectShared/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.disconnectShared/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminConversationsDisconnectSharedResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -4496,8 +4408,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.conversations.disconnectShared/post(adminConversationsDisconnectShared)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.conversations.disconnectShared/post(adminConversationsDisconnectShared)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminConversationsDisconnectShared.Output.Ok)
@@ -4559,19 +4470,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.AcceptableContentType>,
-                ] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -4583,23 +4487,19 @@ extension Operations {
                 public struct JsonPayload: Codable, Hashable, Sendable {
                     /// A comma-separated list of channels to filter to.
                     ///
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/channel_ids`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/channel_ids`.
                     public var channelIds: Swift.String?
                     /// Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/cursor`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
                     /// The maximum number of items to return. Must be between 1 - 1000 both inclusive.
                     ///
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/limit`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
                     /// A comma-separated list of the workspaces to which the channels you would like returned belong.
                     ///
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/team_ids`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/team_ids`.
                     public var teamIds: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
@@ -4628,8 +4528,7 @@ extension Operations {
                     }
                 }
 
-                /// - Remark: Generated from
-                /// `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/content/application\/json`.
+                /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/content/application\/json`.
                 case json(Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input.Body.JsonPayload)
             }
 
@@ -4652,8 +4551,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminConversationsEkmListOriginalConnectedChannelInfoResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -4744,17 +4642,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.conversations.getConversationPrefs/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminConversationsGetConversationPrefs.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsGetConversationPrefs.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsGetConversationPrefs.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsGetConversationPrefs.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -4804,8 +4697,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.getConversationPrefs/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.getConversationPrefs/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.getConversationPrefs/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminConversationsGetConversationPrefsResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -4834,8 +4726,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.conversations.getConversationPrefs/post(adminConversationsGetConversationPrefs)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.conversations.getConversationPrefs/post(adminConversationsGetConversationPrefs)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminConversationsGetConversationPrefs.Output.Ok)
@@ -4897,17 +4788,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.conversations.getCustomRetention/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminConversationsGetCustomRetention.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsGetCustomRetention.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsGetCustomRetention.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsGetCustomRetention.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -4957,8 +4843,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.getCustomRetention/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.getCustomRetention/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.getCustomRetention/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminConversationsGetCustomRetentionResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -4987,8 +4872,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.conversations.getCustomRetention/post(adminConversationsGetCustomRetention)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.conversations.getCustomRetention/post(adminConversationsGetCustomRetention)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminConversationsGetCustomRetention.Output.Ok)
@@ -5055,9 +4939,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsGetTeams.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsGetTeams.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -5221,9 +5103,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsInvite.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsInvite.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -5379,9 +5259,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsLookup.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsLookup.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -5414,8 +5292,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - lastMessageActivityBefore: Filter by public channels where the most recent message was sent before
-                    /// last_message_activity.
+                    ///   - lastMessageActivityBefore: Filter by public channels where the most recent message was sent before last_message_activity.
                     ///   - teamIds: Array of team IDs to filter by.
                     ///   - cursor: Set cursor to next_cursor returned in the previous call, to fetch the next page.
                     ///   - limit: Maximum number of results.
@@ -5557,19 +5434,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.conversations.removeCustomRetention/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminConversationsRemoveCustomRetention.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsRemoveCustomRetention.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsRemoveCustomRetention.AcceptableContentType>,
-                ] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsRemoveCustomRetention.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -5619,8 +5489,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.removeCustomRetention/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.removeCustomRetention/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.removeCustomRetention/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminConversationsRemoveCustomRetentionResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -5649,8 +5518,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.conversations.removeCustomRetention/post(adminConversationsRemoveCustomRetention)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.conversations.removeCustomRetention/post(adminConversationsRemoveCustomRetention)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminConversationsRemoveCustomRetention.Output.Ok)
@@ -5717,9 +5585,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsRename.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsRename.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -5870,19 +5736,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.addGroup/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminConversationsRestrictAccessAddGroup.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsRestrictAccessAddGroup.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsRestrictAccessAddGroup.AcceptableContentType>,
-                ] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsRestrictAccessAddGroup.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -5900,8 +5759,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.addGroup/POST/requestBody/json/group_id`.
                     public var groupId: Swift.String
-                    /// The workspace where the channel exists. This argument is required for channels only tied to one workspace, and
-                    /// optional for channels that are shared across an organization.
+                    /// The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an organization.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.addGroup/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
@@ -5910,8 +5768,8 @@ extension Operations {
                     /// - Parameters:
                     ///   - channelId: The channel to link this group to.
                     ///   - groupId: The IDP Group ID to be an allowlist for the private channel.
-                    ///   - teamId: The workspace where the channel exists. This argument is required for channels only tied to one
-                    /// workspace, and optional for channels that are shared across an organization.
+                    ///   - teamId: The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an
+                    /// organization.
                     public init(
                         channelId: Swift.String,
                         groupId: Swift.String,
@@ -5929,8 +5787,7 @@ extension Operations {
                     }
                 }
 
-                /// - Remark: Generated from
-                /// `#/paths/admin.conversations.restrictAccess.addGroup/POST/requestBody/content/application\/json`.
+                /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.addGroup/POST/requestBody/content/application\/json`.
                 case json(Operations.AdminConversationsRestrictAccessAddGroup.Input.Body.JsonPayload)
             }
 
@@ -5953,8 +5810,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.addGroup/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.restrictAccess.addGroup/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.addGroup/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminConversationsRestrictAccessAddGroupResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -5983,8 +5839,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.conversations.restrictAccess.addGroup/post(adminConversationsRestrictAccessAddGroup)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.addGroup/post(adminConversationsRestrictAccessAddGroup)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminConversationsRestrictAccessAddGroup.Output.Ok)
@@ -6046,19 +5901,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.listGroups/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminConversationsRestrictAccessListGroups.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsRestrictAccessListGroups.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsRestrictAccessListGroups.AcceptableContentType>,
-                ] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsRestrictAccessListGroups.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -6072,8 +5920,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.listGroups/POST/requestBody/json/channel_id`.
                     public var channelId: Swift.String
-                    /// The workspace where the channel exists. This argument is required for channels only tied to one workspace, and
-                    /// optional for channels that are shared across an organization.
+                    /// The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an organization.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.listGroups/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
@@ -6081,8 +5928,8 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channelId: .
-                    ///   - teamId: The workspace where the channel exists. This argument is required for channels only tied to one
-                    /// workspace, and optional for channels that are shared across an organization.
+                    ///   - teamId: The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an
+                    /// organization.
                     public init(
                         channelId: Swift.String,
                         teamId: Swift.String? = nil
@@ -6097,8 +5944,7 @@ extension Operations {
                     }
                 }
 
-                /// - Remark: Generated from
-                /// `#/paths/admin.conversations.restrictAccess.listGroups/POST/requestBody/content/application\/json`.
+                /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.listGroups/POST/requestBody/content/application\/json`.
                 case json(Operations.AdminConversationsRestrictAccessListGroups.Input.Body.JsonPayload)
             }
 
@@ -6121,8 +5967,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.listGroups/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.restrictAccess.listGroups/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.listGroups/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminConversationsRestrictAccessListGroupsResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -6151,8 +5996,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.conversations.restrictAccess.listGroups/post(adminConversationsRestrictAccessListGroups)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.listGroups/post(adminConversationsRestrictAccessListGroups)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminConversationsRestrictAccessListGroups.Output.Ok)
@@ -6214,19 +6058,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.removeGroup/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminConversationsRestrictAccessRemoveGroup.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsRestrictAccessRemoveGroup.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsRestrictAccessRemoveGroup.AcceptableContentType>,
-                ] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsRestrictAccessRemoveGroup.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -6244,8 +6081,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.removeGroup/POST/requestBody/json/group_id`.
                     public var groupId: Swift.String
-                    /// The workspace where the channel exists. This argument is required for channels only tied to one workspace, and
-                    /// optional for channels that are shared across an organization.
+                    /// The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an organization.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.removeGroup/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String
@@ -6254,8 +6090,8 @@ extension Operations {
                     /// - Parameters:
                     ///   - channelId: The channel to remove the linked group from.
                     ///   - groupId: The IDP Group ID to remove from the private channel.
-                    ///   - teamId: The workspace where the channel exists. This argument is required for channels only tied to one
-                    /// workspace, and optional for channels that are shared across an organization.
+                    ///   - teamId: The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an
+                    /// organization.
                     public init(
                         channelId: Swift.String,
                         groupId: Swift.String,
@@ -6273,8 +6109,7 @@ extension Operations {
                     }
                 }
 
-                /// - Remark: Generated from
-                /// `#/paths/admin.conversations.restrictAccess.removeGroup/POST/requestBody/content/application\/json`.
+                /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.removeGroup/POST/requestBody/content/application\/json`.
                 case json(Operations.AdminConversationsRestrictAccessRemoveGroup.Input.Body.JsonPayload)
             }
 
@@ -6297,8 +6132,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.removeGroup/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.restrictAccess.removeGroup/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.removeGroup/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminConversationsRestrictAccessRemoveGroupResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -6327,8 +6161,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.conversations.restrictAccess.removeGroup/post(adminConversationsRestrictAccessRemoveGroup)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.removeGroup/post(adminConversationsRestrictAccessRemoveGroup)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminConversationsRestrictAccessRemoveGroup.Output.Ok)
@@ -6395,9 +6228,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsSearch.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsSearch.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -6423,19 +6254,17 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/query`.
                     public var query: Swift.String?
-                    /// The type of channel to include or exclude in the search. For example private will search private channels, while
-                    /// private_exclude will exclude them. For a full list of types, check the Types section.
+                    /// The type of channel to include or exclude in the search. For example private will search private channels, while private_exclude will exclude them. For a full list of types,
+                    /// check the Types section.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/search_channel_types`.
                     public var searchChannelTypes: OpenAPIRuntime.OpenAPIArrayContainer?
-                    /// Possible values are relevant (search ranking based on what we think is closest), name (alphabetical), member_count
-                    /// (number of users in the channel), and created (date channel was created). You can optionally pair this with the
-                    /// sort_dir arg to change how it is sorted.
+                    /// Possible values are relevant (search ranking based on what we think is closest), name (alphabetical), member_count (number of users in the channel), and created (date channel
+                    /// was created). You can optionally pair this with the sort_dir arg to change how it is sorted.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/sort`.
                     public var sort: Swift.String?
-                    /// Sort direction. Possible values are asc for ascending order like (1, 2, 3) or (a, b, c), and desc for descending
-                    /// order like (3, 2, 1) or (c, b, a).
+                    /// Sort direction. Possible values are asc for ascending order like (1, 2, 3) or (a, b, c), and desc for descending order like (3, 2, 1) or (c, b, a).
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/sort_dir`.
                     public var sortDir: Swift.String?
@@ -6443,8 +6272,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/team_ids`.
                     public var teamIds: OpenAPIRuntime.OpenAPIArrayContainer?
-                    /// Only return the total_count of channels. Omits channel data and allows access for admins without channel manager
-                    /// permissions.
+                    /// Only return the total_count of channels. Omits channel data and allows access for admins without channel manager permissions.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/total_count_only`.
                     public var totalCountOnly: Swift.Bool?
@@ -6455,16 +6283,13 @@ extension Operations {
                     ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///   - limit: Maximum number of items to be returned. Must be between 1 - 20 both inclusive. Default is 10.
                     ///   - query: Name of the the channel to query by.
-                    ///   - searchChannelTypes: The type of channel to include or exclude in the search. For example private will search
-                    /// private channels, while private_exclude will exclude them. For a full list of types, check the Types section.
-                    ///   - sort: Possible values are relevant (search ranking based on what we think is closest), name (alphabetical),
-                    /// member_count (number of users in the channel), and created (date channel was created). You can optionally pair this
-                    /// with the sort_dir arg to change how it is sorted.
-                    ///   - sortDir: Sort direction. Possible values are asc for ascending order like (1, 2, 3) or (a, b, c), and desc for
-                    /// descending order like (3, 2, 1) or (c, b, a).
+                    ///   - searchChannelTypes: The type of channel to include or exclude in the search. For example private will search private channels, while private_exclude will exclude them. For
+                    /// a full list of types, check the Types section.
+                    ///   - sort: Possible values are relevant (search ranking based on what we think is closest), name (alphabetical), member_count (number of users in the channel), and created (date
+                    /// channel was created). You can optionally pair this with the sort_dir arg to change how it is sorted.
+                    ///   - sortDir: Sort direction. Possible values are asc for ascending order like (1, 2, 3) or (a, b, c), and desc for descending order like (3, 2, 1) or (c, b, a).
                     ///   - teamIds: Comma separated string of team IDs, signifying the internal workspaces to search through.
-                    ///   - totalCountOnly: Only return the total_count of channels. Omits channel data and allows access for admins without
-                    /// channel manager permissions.
+                    ///   - totalCountOnly: Only return the total_count of channels. Omits channel data and allows access for admins without channel manager permissions.
                     public init(
                         connectedTeamIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         cursor: Swift.String? = nil,
@@ -6614,17 +6439,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.conversations.setConversationPrefs/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminConversationsSetConversationPrefs.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsSetConversationPrefs.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsSetConversationPrefs.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsSetConversationPrefs.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -6684,8 +6504,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.setConversationPrefs/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.setConversationPrefs/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.setConversationPrefs/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminConversationsSetConversationPrefsResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -6714,8 +6533,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.conversations.setConversationPrefs/post(adminConversationsSetConversationPrefs)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.conversations.setConversationPrefs/post(adminConversationsSetConversationPrefs)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminConversationsSetConversationPrefs.Output.Ok)
@@ -6777,17 +6595,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.conversations.setCustomRetention/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminConversationsSetCustomRetention.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsSetCustomRetention.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminConversationsSetCustomRetention.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsSetCustomRetention.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -6847,8 +6660,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.setCustomRetention/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.conversations.setCustomRetention/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.conversations.setCustomRetention/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminConversationsSetCustomRetentionResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -6877,8 +6689,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.conversations.setCustomRetention/post(adminConversationsSetCustomRetention)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.conversations.setCustomRetention/post(adminConversationsSetCustomRetention)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminConversationsSetCustomRetention.Output.Ok)
@@ -6945,9 +6756,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsSetTeams.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsSetTeams.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -6965,13 +6774,11 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.setTeams/POST/requestBody/json/org_channel`.
                     public var orgChannel: Swift.Bool?
-                    /// A comma-separated list of workspaces to which the channel should be shared. Not required if the channel is being
-                    /// shared org-wide.
+                    /// A comma-separated list of workspaces to which the channel should be shared. Not required if the channel is being shared org-wide.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.setTeams/POST/requestBody/json/target_team_ids`.
                     public var targetTeamIds: OpenAPIRuntime.OpenAPIArrayContainer?
-                    /// The workspace to which the channel belongs if the channel is a local workspace channel. Omit this argument if the
-                    /// channel is a cross-workspace or org-wide shared channel.
+                    /// The workspace to which the channel belongs if the channel is a local workspace channel. Omit this argument if the channel is a cross-workspace or org-wide shared channel.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.setTeams/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
@@ -6980,10 +6787,9 @@ extension Operations {
                     /// - Parameters:
                     ///   - channelId: The encoded channel_id to add or remove to workspaces.
                     ///   - orgChannel: True if channel has to be converted to an org channel.
-                    ///   - targetTeamIds: A comma-separated list of workspaces to which the channel should be shared. Not required if the
-                    /// channel is being shared org-wide.
-                    ///   - teamId: The workspace to which the channel belongs if the channel is a local workspace channel. Omit this
-                    /// argument if the channel is a cross-workspace or org-wide shared channel.
+                    ///   - targetTeamIds: A comma-separated list of workspaces to which the channel should be shared. Not required if the channel is being shared org-wide.
+                    ///   - teamId: The workspace to which the channel belongs if the channel is a local workspace channel. Omit this argument if the channel is a cross-workspace or org-wide shared
+                    /// channel.
                     public init(
                         channelId: Swift.String,
                         orgChannel: Swift.Bool? = nil,
@@ -7123,9 +6929,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsUnarchive.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminConversationsUnarchive.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -7271,9 +7075,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminEmojiAdd.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminEmojiAdd.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -7283,23 +7085,19 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.emoji.add/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The name of the emoji to be added (using lower-case letters only). Colons (:myemoji:) around the value are not
-                    /// required, although they may be included.
+                    /// The name of the emoji to be added (using lower-case letters only). Colons (:myemoji:) around the value are not required, although they may be included.
                     ///
                     /// - Remark: Generated from `#/paths/admin.emoji.add/POST/requestBody/json/name`.
                     public var name: Swift.String
-                    /// The URL of a file to use as an image for the emoji. Square images under 128KB and with transparent backgrounds work
-                    /// best.
+                    /// The URL of a file to use as an image for the emoji. Square images under 128KB and with transparent backgrounds work best.
                     ///
                     /// - Remark: Generated from `#/paths/admin.emoji.add/POST/requestBody/json/url`.
                     public var url: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - name: The name of the emoji to be added (using lower-case letters only). Colons (:myemoji:) around the value are
-                    /// not required, although they may be included.
-                    ///   - url: The URL of a file to use as an image for the emoji. Square images under 128KB and with transparent
-                    /// backgrounds work best.
+                    ///   - name: The name of the emoji to be added (using lower-case letters only). Colons (:myemoji:) around the value are not required, although they may be included.
+                    ///   - url: The URL of a file to use as an image for the emoji. Square images under 128KB and with transparent backgrounds work best.
                     public init(
                         name: Swift.String,
                         url: Swift.String
@@ -7433,9 +7231,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminEmojiAddAlias.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminEmojiAddAlias.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -7445,8 +7241,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.emoji.addAlias/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Name of the emoji for which the alias is being made. Any wrapping whitespace or colons will be automatically
-                    /// trimmed.
+                    /// Name of the emoji for which the alias is being made. Any wrapping whitespace or colons will be automatically trimmed.
                     ///
                     /// - Remark: Generated from `#/paths/admin.emoji.addAlias/POST/requestBody/json/alias_for`.
                     public var aliasFor: Swift.String
@@ -7457,8 +7252,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - aliasFor: Name of the emoji for which the alias is being made. Any wrapping whitespace or colons will be
-                    /// automatically trimmed.
+                    ///   - aliasFor: Name of the emoji for which the alias is being made. Any wrapping whitespace or colons will be automatically trimmed.
                     ///   - name: The new alias for the specified emoji. Any wrapping whitespace or colons will be automatically trimmed.
                     public init(
                         aliasFor: Swift.String,
@@ -7593,9 +7387,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminEmojiList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminEmojiList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -7751,9 +7543,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminEmojiRemove.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminEmojiRemove.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -7763,16 +7553,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.emoji.remove/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The name of the emoji to be removed. Colons (:myemoji:) around the value are not required, although they may be
-                    /// included.
+                    /// The name of the emoji to be removed. Colons (:myemoji:) around the value are not required, although they may be included.
                     ///
                     /// - Remark: Generated from `#/paths/admin.emoji.remove/POST/requestBody/json/name`.
                     public var name: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - name: The name of the emoji to be removed. Colons (:myemoji:) around the value are not required, although they
-                    /// may be included.
+                    ///   - name: The name of the emoji to be removed. Colons (:myemoji:) around the value are not required, although they may be included.
                     public init(name: Swift.String) {
                         self.name = name
                     }
@@ -7901,9 +7689,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminEmojiRename.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminEmojiRename.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -7913,8 +7699,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.emoji.rename/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The name of the emoji to be renamed. Colons (:myemoji:) around the value are not required, although they may be
-                    /// included.
+                    /// The name of the emoji to be renamed. Colons (:myemoji:) around the value are not required, although they may be included.
                     ///
                     /// - Remark: Generated from `#/paths/admin.emoji.rename/POST/requestBody/json/name`.
                     public var name: Swift.String
@@ -7925,8 +7710,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - name: The name of the emoji to be renamed. Colons (:myemoji:) around the value are not required, although they
-                    /// may be included.
+                    ///   - name: The name of the emoji to be renamed. Colons (:myemoji:) around the value are not required, although they may be included.
                     ///   - newName: The new name of the emoji.
                     public init(
                         name: Swift.String,
@@ -8061,9 +7845,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminFunctionsList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminFunctionsList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -8081,8 +7863,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.functions.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
-                    /// The number of results that will be returned by the API on each invocation. Must be between 1 and 1000, both
-                    /// inclusive.
+                    /// The number of results that will be returned by the API on each invocation. Must be between 1 and 1000, both inclusive.
                     ///
                     /// - Remark: Generated from `#/paths/admin.functions.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
@@ -8095,8 +7876,7 @@ extension Operations {
                     /// - Parameters:
                     ///   - appIds: Comma-separated array of app IDs to get functions for; max 50.
                     ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///   - limit: The number of results that will be returned by the API on each invocation. Must be between 1 and 1000,
-                    /// both inclusive.
+                    ///   - limit: The number of results that will be returned by the API on each invocation. Must be between 1 and 1000, both inclusive.
                     ///   - teamId: The team context to retrieve functions from.
                     public init(
                         appIds: OpenAPIRuntime.OpenAPIArrayContainer,
@@ -8232,17 +8012,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.functions.permissions.lookup/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminFunctionsPermissionsLookup.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminFunctionsPermissionsLookup.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminFunctionsPermissionsLookup.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminFunctionsPermissionsLookup.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -8388,10 +8163,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminFunctionsPermissionsSet.AcceptableContentType>] =
-                        .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminFunctionsPermissionsSet.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -8555,9 +8327,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminInviteRequestsApprove.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminInviteRequestsApprove.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -8708,17 +8478,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.inviteRequests.approved.list/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminInviteRequestsApprovedList.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminInviteRequestsApprovedList.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminInviteRequestsApprovedList.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminInviteRequestsApprovedList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -8744,8 +8509,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - cursor: Value of the next_cursor field sent as part of the previous API response.
-                    ///   - limit: The number of results that will be returned by the API on each invocation. Must be between 1 - 1000, both
-                    /// inclusive.
+                    ///   - limit: The number of results that will be returned by the API on each invocation. Must be between 1 - 1000, both inclusive.
                     ///   - teamId: ID for the workspace where the invite requests were made.
                     public init(
                         cursor: Swift.String? = nil,
@@ -8883,10 +8647,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminInviteRequestsDeniedList.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminInviteRequestsDeniedList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -8912,8 +8673,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - cursor: Value of the next_cursor field sent as part of the previous api response.
-                    ///   - limit: The number of results that will be returned by the API on each invocation. Must be between 1 - 1000 both
-                    /// inclusive.
+                    ///   - limit: The number of results that will be returned by the API on each invocation. Must be between 1 - 1000 both inclusive.
                     ///   - teamId: ID for the workspace where the invite requests were made.
                     public init(
                         cursor: Swift.String? = nil,
@@ -9051,9 +8811,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminInviteRequestsDeny.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminInviteRequestsDeny.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -9209,9 +8967,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminInviteRequestsList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminInviteRequestsList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -9237,8 +8993,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - cursor: Value of the next_cursor field sent as part of the previous API response.
-                    ///   - limit: The number of results that will be returned by the API on each invocation. Must be between 1 - 1000, both
-                    /// inclusive.
+                    ///   - limit: The number of results that will be returned by the API on each invocation. Must be between 1 - 1000, both inclusive.
                     ///   - teamId: ID for the workspace where the invite requests were made.
                     public init(
                         cursor: Swift.String? = nil,
@@ -9376,9 +9131,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminRolesAddAssignments.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminRolesAddAssignments.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -9403,8 +9156,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - entityIds: List of the entity IDs for which roles will be assigned. These can be Org IDs, Team IDs or Channel
-                    /// IDs.
+                    ///   - entityIds: List of the entity IDs for which roles will be assigned. These can be Org IDs, Team IDs or Channel IDs.
                     ///   - roleId: ID of the role to which users will be assigned.
                     ///   - userIds: List of IDs from the users to be added to the given role.
                     public init(
@@ -9543,9 +9295,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminRolesListAssignments.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminRolesListAssignments.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -9725,9 +9475,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminRolesRemoveAssignments.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminRolesRemoveAssignments.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -9752,8 +9500,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - entityIds: List of the entity IDs for which roles will be revoked. These can be Org IDs, Team IDs or Channel
-                    /// IDs.
+                    ///   - entityIds: List of the entity IDs for which roles will be revoked. These can be Org IDs, Team IDs or Channel IDs.
                     ///   - roleId: ID of the role to which users will be assigned.
                     ///   - userIds: List of IDs of the users whose roles will be revoked.
                     public init(
@@ -9892,9 +9639,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsAdminsList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsAdminsList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -10058,9 +9803,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsCreate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsCreate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -10092,8 +9835,7 @@ extension Operations {
                     ///   - teamDomain: Team domain (for example, slacksoftballteam). Domains are limited to 21 characters.
                     ///   - teamName: Team name (for example, Slack Softball Team).
                     ///   - teamDescription: Description for the team.
-                    ///   - teamDiscoverability: Who can join the team. A team's discoverability can be open, closed, invite_only, or
-                    /// unlisted.
+                    ///   - teamDiscoverability: Who can join the team. A team's discoverability can be open, closed, invite_only, or unlisted.
                     public init(
                         teamDomain: Swift.String,
                         teamName: Swift.String,
@@ -10233,9 +9975,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -10391,9 +10131,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsOwnersList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsOwnersList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -10557,9 +10295,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsSettingsInfo.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsSettingsInfo.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -10700,17 +10436,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.teams.settings.setDefaultChannels/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminTeamsSettingsSetDefaultChannels.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsSettingsSetDefaultChannels.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminTeamsSettingsSetDefaultChannels.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsSettingsSetDefaultChannels.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -10770,8 +10501,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.teams.settings.setDefaultChannels/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.teams.settings.setDefaultChannels/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.teams.settings.setDefaultChannels/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminTeamsSettingsSetDefaultChannelsResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -10800,8 +10530,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.teams.settings.setDefaultChannels/post(adminTeamsSettingsSetDefaultChannels)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.teams.settings.setDefaultChannels/post(adminTeamsSettingsSetDefaultChannels)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminTeamsSettingsSetDefaultChannels.Output.Ok)
@@ -10863,17 +10592,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.teams.settings.setDescription/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminTeamsSettingsSetDescription.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsSettingsSetDescription.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminTeamsSettingsSetDescription.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsSettingsSetDescription.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -10962,8 +10686,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.teams.settings.setDescription/post(adminTeamsSettingsSetDescription)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.teams.settings.setDescription/post(adminTeamsSettingsSetDescription)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminTeamsSettingsSetDescription.Output.Ok)
@@ -11025,17 +10748,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.teams.settings.setDiscoverability/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminTeamsSettingsSetDiscoverability.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsSettingsSetDiscoverability.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminTeamsSettingsSetDiscoverability.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsSettingsSetDiscoverability.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -11056,8 +10774,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - discoverability: This workspace's discovery setting. It must be set to one of open, invite_only, closed, or
-                    /// unlisted.
+                    ///   - discoverability: This workspace's discovery setting. It must be set to one of open, invite_only, closed, or unlisted.
                     ///   - teamId: The ID of the workspace to set discoverability on.
                     public init(
                         discoverability: Swift.String,
@@ -11096,8 +10813,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.teams.settings.setDiscoverability/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.teams.settings.setDiscoverability/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.teams.settings.setDiscoverability/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminTeamsSettingsSetDiscoverabilityResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -11126,8 +10842,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.teams.settings.setDiscoverability/post(adminTeamsSettingsSetDiscoverability)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.teams.settings.setDiscoverability/post(adminTeamsSettingsSetDiscoverability)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminTeamsSettingsSetDiscoverability.Output.Ok)
@@ -11194,9 +10909,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsSettingsSetIcon.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsSettingsSetIcon.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -11352,9 +11065,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsSettingsSetName.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminTeamsSettingsSetName.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -11510,9 +11221,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersAssign.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersAssign.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -11692,9 +11401,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersInvite.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersInvite.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -11724,8 +11431,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/email_password_policy_enabled`.
                     public var emailPasswordPolicyEnabled: Swift.Bool?
-                    /// Timestamp when guest account should be disabled. Only include this timestamp if you are inviting a guest user and
-                    /// you want their account to expire on a certain date.
+                    /// Timestamp when guest account should be disabled. Only include this timestamp if you are inviting a guest user and you want their account to expire on a certain date.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/guest_expiration_ts`.
                     public var guestExpirationTs: Swift.String?
@@ -11741,8 +11447,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/real_name`.
                     public var realName: Swift.String?
-                    /// Allow this invite to be resent in the future if a user has not signed up yet. Resending can only be done via the UI
-                    /// and has no expiration. (default: false).
+                    /// Allow this invite to be resent in the future if a user has not signed up yet. Resending can only be done via the UI and has no expiration. (default: false).
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/resend`.
                     public var resend: Swift.Bool?
@@ -11753,15 +11458,13 @@ extension Operations {
                     ///   - email: The email address of the person to invite.
                     ///   - teamId: The ID (T1234) of the workspace.
                     ///   - customMessage: An optional message to send to the user in the invite email.
-                    ///   - emailPasswordPolicyEnabled: Allow invited user to sign in via email and password. Only available for Enterprise
-                    /// Grid teams via admin invite.
-                    ///   - guestExpirationTs: Timestamp when guest account should be disabled. Only include this timestamp if you are
-                    /// inviting a guest user and you want their account to expire on a certain date.
+                    ///   - emailPasswordPolicyEnabled: Allow invited user to sign in via email and password. Only available for Enterprise Grid teams via admin invite.
+                    ///   - guestExpirationTs: Timestamp when guest account should be disabled. Only include this timestamp if you are inviting a guest user and you want their account to expire on a
+                    /// certain date.
                     ///   - isRestricted: Is this user a multi-channel guest user? (default: false).
                     ///   - isUltraRestricted: Is this user a single channel guest user? (default: false).
                     ///   - realName: Full name of the user.
-                    ///   - resend: Allow this invite to be resent in the future if a user has not signed up yet. Resending can only be done
-                    /// via the UI and has no expiration. (default: false).
+                    ///   - resend: Allow this invite to be resent in the future if a user has not signed up yet. Resending can only be done via the UI and has no expiration. (default: false).
                     public init(
                         channelIds: Swift.String,
                         email: Swift.String,
@@ -11919,9 +11622,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -11935,8 +11636,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
-                    /// Only applies with org token and no team_id. If true, return workspaces for a user even if they may be deactivated on
-                    /// them. If false, return workspaces for a user only when user is active on them. Default is false.
+                    /// Only applies with org token and no team_id. If true, return workspaces for a user even if they may be deactivated on them. If false, return workspaces for a user only when user
+                    /// is active on them. Default is false.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/include_deactivated_user_workspaces`.
                     public var includeDeactivatedUserWorkspaces: Swift.Bool?
@@ -11956,11 +11657,9 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///   - includeDeactivatedUserWorkspaces: Only applies with org token and no team_id. If true, return workspaces for a
-                    /// user even if they may be deactivated on them. If false, return workspaces for a user only when user is active on
-                    /// them. Default is false.
-                    ///   - isActive: If true, only active users will be returned. If false, only deactivated users will be returned.
-                    /// Default is true.
+                    ///   - includeDeactivatedUserWorkspaces: Only applies with org token and no team_id. If true, return workspaces for a user even if they may be deactivated on them. If false,
+                    /// return workspaces for a user only when user is active on them. Default is false.
+                    ///   - isActive: If true, only active users will be returned. If false, only deactivated users will be returned. Default is true.
                     ///   - limit: Limit for how many users to be retrieved per page.
                     ///   - teamId: The ID (T1234) of a workspace. Filters results to just the specified workspace.
                     public init(
@@ -12105,9 +11804,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersRemove.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersRemove.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -12263,10 +11960,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminUsersSessionClearSettings.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionClearSettings.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -12412,10 +12106,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionGetSettings.AcceptableContentType>] =
-                        .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionGetSettings.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -12425,16 +12116,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.users.session.getSettings/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The IDs of users you'd like to fetch session settings for. Note: if a user does not have any active sessions, they
-                    /// will not be returned in the response.
+                    /// The IDs of users you'd like to fetch session settings for. Note: if a user does not have any active sessions, they will not be returned in the response.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.session.getSettings/POST/requestBody/json/user_ids`.
                     public var userIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - userIds: The IDs of users you'd like to fetch session settings for. Note: if a user does not have any active
-                    /// sessions, they will not be returned in the response.
+                    ///   - userIds: The IDs of users you'd like to fetch session settings for. Note: if a user does not have any active sessions, they will not be returned in the response.
                     public init(userIds: OpenAPIRuntime.OpenAPIArrayContainer) {
                         self.userIds = userIds
                     }
@@ -12563,9 +12252,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionInvalidate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionInvalidate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -12721,9 +12408,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -12741,8 +12426,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.session.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// The ID of the workspace you'd like active sessions for. If you pass a team_id, you'll need to pass a user_id as
-                    /// well.
+                    /// The ID of the workspace you'd like active sessions for. If you pass a team_id, you'll need to pass a user_id as well.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.session.list/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
@@ -12755,10 +12439,8 @@ extension Operations {
                     /// - Parameters:
                     ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
-                    ///   - teamId: The ID of the workspace you'd like active sessions for. If you pass a team_id, you'll need to pass a
-                    /// user_id as well.
-                    ///   - userId: The ID of user you'd like active sessions for. If you pass a user_id, you'll need to pass a team_id as
-                    /// well.
+                    ///   - teamId: The ID of the workspace you'd like active sessions for. If you pass a team_id, you'll need to pass a user_id as well.
+                    ///   - userId: The ID of user you'd like active sessions for. If you pass a user_id, you'll need to pass a team_id as well.
                     public init(
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
@@ -12898,9 +12580,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionReset.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionReset.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -13064,9 +12744,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionResetBulk.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionResetBulk.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -13230,10 +12908,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(
-                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionSetSettings.AcceptableContentType>] =
-                        .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionSetSettings.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -13251,8 +12926,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.session.setSettings/POST/requestBody/json/desktop_app_browser_quit`.
                     public var desktopAppBrowserQuit: Swift.Bool?
-                    /// The session duration, in seconds. The minimum value is 28800, which represents 8 hours; the max value is 315569520
-                    /// or 10 years (that's a long Slack session).
+                    /// The session duration, in seconds. The minimum value is 28800, which represents 8 hours; the max value is 315569520 or 10 years (that's a long Slack session).
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.session.setSettings/POST/requestBody/json/duration`.
                     public var duration: Swift.Int?
@@ -13260,10 +12934,8 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - userIds: The list of up to 1,000 user IDs to apply the session settings for.
-                    ///   - desktopAppBrowserQuit: Terminate the session when the client—either the desktop app or a browser window—is
-                    /// closed.
-                    ///   - duration: The session duration, in seconds. The minimum value is 28800, which represents 8 hours; the max value
-                    /// is 315569520 or 10 years (that's a long Slack session).
+                    ///   - desktopAppBrowserQuit: Terminate the session when the client—either the desktop app or a browser window—is closed.
+                    ///   - duration: The session duration, in seconds. The minimum value is 28800, which represents 8 hours; the max value is 315569520 or 10 years (that's a long Slack session).
                     public init(
                         userIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         desktopAppBrowserQuit: Swift.Bool? = nil,
@@ -13400,9 +13072,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSetAdmin.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSetAdmin.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -13558,9 +13228,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSetExpiration.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSetExpiration.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -13724,9 +13392,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSetOwner.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSetOwner.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -13882,9 +13548,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSetRegular.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSetRegular.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -14035,17 +13699,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/admin.users.unsupportedVersions.export/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AdminUsersUnsupportedVersionsExport.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersUnsupportedVersionsExport.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.AdminUsersUnsupportedVersionsExport.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersUnsupportedVersionsExport.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -14055,23 +13714,19 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.users.unsupportedVersions.export/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Unix timestamp of the date of past or upcoming end of support cycles. If not provided will include all announced end
-                    /// of support cycles.
+                    /// Unix timestamp of the date of past or upcoming end of support cycles. If not provided will include all announced end of support cycles.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.unsupportedVersions.export/POST/requestBody/json/date_end_of_support`.
                     public var dateEndOfSupport: Swift.Int?
                     /// Unix timestamp of a date to start looking for user sessions. If not provided will start six months ago.
                     ///
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.users.unsupportedVersions.export/POST/requestBody/json/date_sessions_started`.
+                    /// - Remark: Generated from `#/paths/admin.users.unsupportedVersions.export/POST/requestBody/json/date_sessions_started`.
                     public var dateSessionsStarted: Swift.Int?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - dateEndOfSupport: Unix timestamp of the date of past or upcoming end of support cycles. If not provided will
-                    /// include all announced end of support cycles.
-                    ///   - dateSessionsStarted: Unix timestamp of a date to start looking for user sessions. If not provided will start six
-                    /// months ago.
+                    ///   - dateEndOfSupport: Unix timestamp of the date of past or upcoming end of support cycles. If not provided will include all announced end of support cycles.
+                    ///   - dateSessionsStarted: Unix timestamp of a date to start looking for user sessions. If not provided will start six months ago.
                     public init(
                         dateEndOfSupport: Swift.Int? = nil,
                         dateSessionsStarted: Swift.Int? = nil
@@ -14109,8 +13764,7 @@ extension Operations {
             public struct Ok: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.users.unsupportedVersions.export/POST/responses/200/content`.
                 @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from
-                    /// `#/paths/admin.users.unsupportedVersions.export/POST/responses/200/content/application\/json`.
+                    /// - Remark: Generated from `#/paths/admin.users.unsupportedVersions.export/POST/responses/200/content/application\/json`.
                     case json(Components.Schemas.AdminUsersUnsupportedVersionsExportResponse)
                     /// The associated value of the enum case if `self` is `.json`.
                     ///
@@ -14139,8 +13793,7 @@ extension Operations {
 
             /// OK
             ///
-            /// - Remark: Generated from
-            /// `#/paths//admin.users.unsupportedVersions.export/post(adminUsersUnsupportedVersionsExport)/responses/200`.
+            /// - Remark: Generated from `#/paths//admin.users.unsupportedVersions.export/post(adminUsersUnsupportedVersionsExport)/responses/200`.
             ///
             /// HTTP response code: `200 ok`.
             case ok(Operations.AdminUsersUnsupportedVersionsExport.Output.Ok)

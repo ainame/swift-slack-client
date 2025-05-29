@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FunctionsCompleteError.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FunctionsCompleteError.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -181,9 +179,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FunctionsCompleteSuccess.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.FunctionsCompleteSuccess.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -205,8 +201,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - functionExecutionId: Context identifier that maps to the executed function.
-                    ///   - outputs: A JSON-based object that conforms to the output parameters schema for the custom function defined in
-                    /// the manifest.
+                    ///   - outputs: A JSON-based object that conforms to the output parameters schema for the custom function defined in the manifest.
                     public init(
                         functionExecutionId: Swift.String,
                         outputs: Swift.String

@@ -17,8 +17,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.apps.activities.list`.
     /// - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
-    func adminAppsActivitiesList(_ input: Operations.AdminAppsActivitiesList.Input) async throws -> Operations.AdminAppsActivitiesList
-        .Output {
+    func adminAppsActivitiesList(_ input: Operations.AdminAppsActivitiesList.Input) async throws -> Operations.AdminAppsActivitiesList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsActivitiesList.id,
@@ -225,8 +224,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.apps.clearResolution`.
     /// - Remark: Generated from `#/paths//admin.apps.clearResolution/post(adminAppsClearResolution)`.
-    func adminAppsClearResolution(_ input: Operations.AdminAppsClearResolution.Input) async throws -> Operations.AdminAppsClearResolution
-        .Output {
+    func adminAppsClearResolution(_ input: Operations.AdminAppsClearResolution.Input) async throws -> Operations.AdminAppsClearResolution.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsClearResolution.id,
@@ -433,8 +431,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.apps.requests.cancel`.
     /// - Remark: Generated from `#/paths//admin.apps.requests.cancel/post(adminAppsRequestsCancel)`.
-    func adminAppsRequestsCancel(_ input: Operations.AdminAppsRequestsCancel.Input) async throws -> Operations.AdminAppsRequestsCancel
-        .Output {
+    func adminAppsRequestsCancel(_ input: Operations.AdminAppsRequestsCancel.Input) async throws -> Operations.AdminAppsRequestsCancel.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsRequestsCancel.id,
@@ -641,8 +638,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.apps.restricted.list`.
     /// - Remark: Generated from `#/paths//admin.apps.restricted.list/post(adminAppsRestrictedList)`.
-    func adminAppsRestrictedList(_ input: Operations.AdminAppsRestrictedList.Input) async throws -> Operations.AdminAppsRestrictedList
-        .Output {
+    func adminAppsRestrictedList(_ input: Operations.AdminAppsRestrictedList.Input) async throws -> Operations.AdminAppsRestrictedList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAppsRestrictedList.id,
@@ -780,8 +776,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.auth.policy.assignEntities`.
     /// - Remark: Generated from `#/paths//admin.auth.policy.assignEntities/post(adminAuthPolicyAssignEntities)`.
-    func adminAuthPolicyAssignEntities(_ input: Operations.AdminAuthPolicyAssignEntities.Input) async throws -> Operations
-        .AdminAuthPolicyAssignEntities.Output {
+    func adminAuthPolicyAssignEntities(_ input: Operations.AdminAuthPolicyAssignEntities.Input) async throws -> Operations.AdminAuthPolicyAssignEntities.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAuthPolicyAssignEntities.id,
@@ -850,8 +845,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.auth.policy.getEntities`.
     /// - Remark: Generated from `#/paths//admin.auth.policy.getEntities/post(adminAuthPolicyGetEntities)`.
-    func adminAuthPolicyGetEntities(_ input: Operations.AdminAuthPolicyGetEntities.Input) async throws -> Operations
-        .AdminAuthPolicyGetEntities.Output {
+    func adminAuthPolicyGetEntities(_ input: Operations.AdminAuthPolicyGetEntities.Input) async throws -> Operations.AdminAuthPolicyGetEntities.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAuthPolicyGetEntities.id,
@@ -920,8 +914,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.auth.policy.removeEntities`.
     /// - Remark: Generated from `#/paths//admin.auth.policy.removeEntities/post(adminAuthPolicyRemoveEntities)`.
-    func adminAuthPolicyRemoveEntities(_ input: Operations.AdminAuthPolicyRemoveEntities.Input) async throws -> Operations
-        .AdminAuthPolicyRemoveEntities.Output {
+    func adminAuthPolicyRemoveEntities(_ input: Operations.AdminAuthPolicyRemoveEntities.Input) async throws -> Operations.AdminAuthPolicyRemoveEntities.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminAuthPolicyRemoveEntities.id,
@@ -1266,8 +1259,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.archive`.
     /// - Remark: Generated from `#/paths//admin.conversations.archive/post(adminConversationsArchive)`.
-    func adminConversationsArchive(_ input: Operations.AdminConversationsArchive.Input) async throws -> Operations.AdminConversationsArchive
-        .Output {
+    func adminConversationsArchive(_ input: Operations.AdminConversationsArchive.Input) async throws -> Operations.AdminConversationsArchive.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsArchive.id,
@@ -1336,8 +1328,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.bulkArchive`.
     /// - Remark: Generated from `#/paths//admin.conversations.bulkArchive/post(adminConversationsBulkArchive)`.
-    func adminConversationsBulkArchive(_ input: Operations.AdminConversationsBulkArchive.Input) async throws -> Operations
-        .AdminConversationsBulkArchive.Output {
+    func adminConversationsBulkArchive(_ input: Operations.AdminConversationsBulkArchive.Input) async throws -> Operations.AdminConversationsBulkArchive.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsBulkArchive.id,
@@ -1406,8 +1397,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.bulkDelete`.
     /// - Remark: Generated from `#/paths//admin.conversations.bulkDelete/post(adminConversationsBulkDelete)`.
-    func adminConversationsBulkDelete(_ input: Operations.AdminConversationsBulkDelete.Input) async throws -> Operations
-        .AdminConversationsBulkDelete.Output {
+    func adminConversationsBulkDelete(_ input: Operations.AdminConversationsBulkDelete.Input) async throws -> Operations.AdminConversationsBulkDelete.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsBulkDelete.id,
@@ -1476,8 +1466,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.bulkMove`.
     /// - Remark: Generated from `#/paths//admin.conversations.bulkMove/post(adminConversationsBulkMove)`.
-    func adminConversationsBulkMove(_ input: Operations.AdminConversationsBulkMove.Input) async throws -> Operations
-        .AdminConversationsBulkMove.Output {
+    func adminConversationsBulkMove(_ input: Operations.AdminConversationsBulkMove.Input) async throws -> Operations.AdminConversationsBulkMove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsBulkMove.id,
@@ -1546,8 +1535,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.convertToPrivate`.
     /// - Remark: Generated from `#/paths//admin.conversations.convertToPrivate/post(adminConversationsConvertToPrivate)`.
-    func adminConversationsConvertToPrivate(_ input: Operations.AdminConversationsConvertToPrivate.Input) async throws -> Operations
-        .AdminConversationsConvertToPrivate.Output {
+    func adminConversationsConvertToPrivate(_ input: Operations.AdminConversationsConvertToPrivate.Input) async throws -> Operations.AdminConversationsConvertToPrivate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsConvertToPrivate.id,
@@ -1616,8 +1604,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.convertToPublic`.
     /// - Remark: Generated from `#/paths//admin.conversations.convertToPublic/post(adminConversationsConvertToPublic)`.
-    func adminConversationsConvertToPublic(_ input: Operations.AdminConversationsConvertToPublic.Input) async throws -> Operations
-        .AdminConversationsConvertToPublic.Output {
+    func adminConversationsConvertToPublic(_ input: Operations.AdminConversationsConvertToPublic.Input) async throws -> Operations.AdminConversationsConvertToPublic.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsConvertToPublic.id,
@@ -1686,8 +1673,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.create`.
     /// - Remark: Generated from `#/paths//admin.conversations.create/post(adminConversationsCreate)`.
-    func adminConversationsCreate(_ input: Operations.AdminConversationsCreate.Input) async throws -> Operations.AdminConversationsCreate
-        .Output {
+    func adminConversationsCreate(_ input: Operations.AdminConversationsCreate.Input) async throws -> Operations.AdminConversationsCreate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsCreate.id,
@@ -1756,8 +1742,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.delete`.
     /// - Remark: Generated from `#/paths//admin.conversations.delete/post(adminConversationsDelete)`.
-    func adminConversationsDelete(_ input: Operations.AdminConversationsDelete.Input) async throws -> Operations.AdminConversationsDelete
-        .Output {
+    func adminConversationsDelete(_ input: Operations.AdminConversationsDelete.Input) async throws -> Operations.AdminConversationsDelete.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsDelete.id,
@@ -1826,8 +1811,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.disconnectShared`.
     /// - Remark: Generated from `#/paths//admin.conversations.disconnectShared/post(adminConversationsDisconnectShared)`.
-    func adminConversationsDisconnectShared(_ input: Operations.AdminConversationsDisconnectShared.Input) async throws -> Operations
-        .AdminConversationsDisconnectShared.Output {
+    func adminConversationsDisconnectShared(_ input: Operations.AdminConversationsDisconnectShared.Input) async throws -> Operations.AdminConversationsDisconnectShared.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsDisconnectShared.id,
@@ -1892,15 +1876,12 @@ extension Client {
         )
     }
 
-    /// List all disconnected channels—i.e., channels that were once connected to other workspaces and then disconnected—and the
-    /// corresponding original channel IDs for key revocation with EKM.
+    /// List all disconnected channels—i.e., channels that were once connected to other workspaces and then disconnected—and the corresponding original channel IDs for key revocation with EKM.
     ///
     /// - Remark: HTTP `POST /admin.conversations.ekm.listOriginalConnectedChannelInfo`.
-    /// - Remark: Generated from
-    /// `#/paths//admin.conversations.ekm.listOriginalConnectedChannelInfo/post(adminConversationsEkmListOriginalConnectedChannelInfo)`.
-    func adminConversationsEkmListOriginalConnectedChannelInfo(_ input: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo
-        .Input
-    ) async throws -> Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Output {
+    /// - Remark: Generated from `#/paths//admin.conversations.ekm.listOriginalConnectedChannelInfo/post(adminConversationsEkmListOriginalConnectedChannelInfo)`.
+    func adminConversationsEkmListOriginalConnectedChannelInfo(_ input: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input) async throws -> Operations
+        .AdminConversationsEkmListOriginalConnectedChannelInfo.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.id,
@@ -1969,8 +1950,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.getConversationPrefs`.
     /// - Remark: Generated from `#/paths//admin.conversations.getConversationPrefs/post(adminConversationsGetConversationPrefs)`.
-    func adminConversationsGetConversationPrefs(_ input: Operations.AdminConversationsGetConversationPrefs.Input) async throws -> Operations
-        .AdminConversationsGetConversationPrefs.Output {
+    func adminConversationsGetConversationPrefs(_ input: Operations.AdminConversationsGetConversationPrefs.Input) async throws -> Operations.AdminConversationsGetConversationPrefs.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsGetConversationPrefs.id,
@@ -2039,8 +2019,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.getCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.getCustomRetention/post(adminConversationsGetCustomRetention)`.
-    func adminConversationsGetCustomRetention(_ input: Operations.AdminConversationsGetCustomRetention.Input) async throws -> Operations
-        .AdminConversationsGetCustomRetention.Output {
+    func adminConversationsGetCustomRetention(_ input: Operations.AdminConversationsGetCustomRetention.Input) async throws -> Operations.AdminConversationsGetCustomRetention.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsGetCustomRetention.id,
@@ -2109,8 +2088,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.getTeams`.
     /// - Remark: Generated from `#/paths//admin.conversations.getTeams/post(adminConversationsGetTeams)`.
-    func adminConversationsGetTeams(_ input: Operations.AdminConversationsGetTeams.Input) async throws -> Operations
-        .AdminConversationsGetTeams.Output {
+    func adminConversationsGetTeams(_ input: Operations.AdminConversationsGetTeams.Input) async throws -> Operations.AdminConversationsGetTeams.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsGetTeams.id,
@@ -2179,8 +2157,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.invite`.
     /// - Remark: Generated from `#/paths//admin.conversations.invite/post(adminConversationsInvite)`.
-    func adminConversationsInvite(_ input: Operations.AdminConversationsInvite.Input) async throws -> Operations.AdminConversationsInvite
-        .Output {
+    func adminConversationsInvite(_ input: Operations.AdminConversationsInvite.Input) async throws -> Operations.AdminConversationsInvite.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsInvite.id,
@@ -2249,8 +2226,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.lookup`.
     /// - Remark: Generated from `#/paths//admin.conversations.lookup/post(adminConversationsLookup)`.
-    func adminConversationsLookup(_ input: Operations.AdminConversationsLookup.Input) async throws -> Operations.AdminConversationsLookup
-        .Output {
+    func adminConversationsLookup(_ input: Operations.AdminConversationsLookup.Input) async throws -> Operations.AdminConversationsLookup.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsLookup.id,
@@ -2319,9 +2295,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.removeCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.removeCustomRetention/post(adminConversationsRemoveCustomRetention)`.
-    func adminConversationsRemoveCustomRetention(_ input: Operations.AdminConversationsRemoveCustomRetention
-        .Input
-    ) async throws -> Operations.AdminConversationsRemoveCustomRetention.Output {
+    func adminConversationsRemoveCustomRetention(_ input: Operations.AdminConversationsRemoveCustomRetention.Input) async throws -> Operations.AdminConversationsRemoveCustomRetention.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsRemoveCustomRetention.id,
@@ -2390,8 +2364,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.rename`.
     /// - Remark: Generated from `#/paths//admin.conversations.rename/post(adminConversationsRename)`.
-    func adminConversationsRename(_ input: Operations.AdminConversationsRename.Input) async throws -> Operations.AdminConversationsRename
-        .Output {
+    func adminConversationsRename(_ input: Operations.AdminConversationsRename.Input) async throws -> Operations.AdminConversationsRename.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsRename.id,
@@ -2460,9 +2433,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.addGroup`.
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.addGroup/post(adminConversationsRestrictAccessAddGroup)`.
-    func adminConversationsRestrictAccessAddGroup(_ input: Operations.AdminConversationsRestrictAccessAddGroup
-        .Input
-    ) async throws -> Operations.AdminConversationsRestrictAccessAddGroup.Output {
+    func adminConversationsRestrictAccessAddGroup(_ input: Operations.AdminConversationsRestrictAccessAddGroup.Input) async throws -> Operations.AdminConversationsRestrictAccessAddGroup.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsRestrictAccessAddGroup.id,
@@ -2531,9 +2502,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.listGroups`.
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.listGroups/post(adminConversationsRestrictAccessListGroups)`.
-    func adminConversationsRestrictAccessListGroups(_ input: Operations.AdminConversationsRestrictAccessListGroups
-        .Input
-    ) async throws -> Operations.AdminConversationsRestrictAccessListGroups.Output {
+    func adminConversationsRestrictAccessListGroups(_ input: Operations.AdminConversationsRestrictAccessListGroups.Input) async throws -> Operations.AdminConversationsRestrictAccessListGroups.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsRestrictAccessListGroups.id,
@@ -2601,11 +2570,9 @@ extension Client {
     /// Remove a linked IDP group linked from a private channel
     ///
     /// - Remark: HTTP `POST /admin.conversations.restrictAccess.removeGroup`.
-    /// - Remark: Generated from
-    /// `#/paths//admin.conversations.restrictAccess.removeGroup/post(adminConversationsRestrictAccessRemoveGroup)`.
-    func adminConversationsRestrictAccessRemoveGroup(_ input: Operations.AdminConversationsRestrictAccessRemoveGroup
-        .Input
-    ) async throws -> Operations.AdminConversationsRestrictAccessRemoveGroup.Output {
+    /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.removeGroup/post(adminConversationsRestrictAccessRemoveGroup)`.
+    func adminConversationsRestrictAccessRemoveGroup(_ input: Operations.AdminConversationsRestrictAccessRemoveGroup.Input) async throws -> Operations.AdminConversationsRestrictAccessRemoveGroup
+        .Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsRestrictAccessRemoveGroup.id,
@@ -2674,8 +2641,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.search`.
     /// - Remark: Generated from `#/paths//admin.conversations.search/post(adminConversationsSearch)`.
-    func adminConversationsSearch(_ input: Operations.AdminConversationsSearch.Input) async throws -> Operations.AdminConversationsSearch
-        .Output {
+    func adminConversationsSearch(_ input: Operations.AdminConversationsSearch.Input) async throws -> Operations.AdminConversationsSearch.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsSearch.id,
@@ -2744,8 +2710,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.setConversationPrefs`.
     /// - Remark: Generated from `#/paths//admin.conversations.setConversationPrefs/post(adminConversationsSetConversationPrefs)`.
-    func adminConversationsSetConversationPrefs(_ input: Operations.AdminConversationsSetConversationPrefs.Input) async throws -> Operations
-        .AdminConversationsSetConversationPrefs.Output {
+    func adminConversationsSetConversationPrefs(_ input: Operations.AdminConversationsSetConversationPrefs.Input) async throws -> Operations.AdminConversationsSetConversationPrefs.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsSetConversationPrefs.id,
@@ -2814,8 +2779,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.setCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.setCustomRetention/post(adminConversationsSetCustomRetention)`.
-    func adminConversationsSetCustomRetention(_ input: Operations.AdminConversationsSetCustomRetention.Input) async throws -> Operations
-        .AdminConversationsSetCustomRetention.Output {
+    func adminConversationsSetCustomRetention(_ input: Operations.AdminConversationsSetCustomRetention.Input) async throws -> Operations.AdminConversationsSetCustomRetention.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsSetCustomRetention.id,
@@ -2884,8 +2848,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.setTeams`.
     /// - Remark: Generated from `#/paths//admin.conversations.setTeams/post(adminConversationsSetTeams)`.
-    func adminConversationsSetTeams(_ input: Operations.AdminConversationsSetTeams.Input) async throws -> Operations
-        .AdminConversationsSetTeams.Output {
+    func adminConversationsSetTeams(_ input: Operations.AdminConversationsSetTeams.Input) async throws -> Operations.AdminConversationsSetTeams.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsSetTeams.id,
@@ -2954,8 +2917,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.conversations.unarchive`.
     /// - Remark: Generated from `#/paths//admin.conversations.unarchive/post(adminConversationsUnarchive)`.
-    func adminConversationsUnarchive(_ input: Operations.AdminConversationsUnarchive.Input) async throws -> Operations
-        .AdminConversationsUnarchive.Output {
+    func adminConversationsUnarchive(_ input: Operations.AdminConversationsUnarchive.Input) async throws -> Operations.AdminConversationsUnarchive.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminConversationsUnarchive.id,
@@ -3438,8 +3400,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.functions.permissions.lookup`.
     /// - Remark: Generated from `#/paths//admin.functions.permissions.lookup/post(adminFunctionsPermissionsLookup)`.
-    func adminFunctionsPermissionsLookup(_ input: Operations.AdminFunctionsPermissionsLookup.Input) async throws -> Operations
-        .AdminFunctionsPermissionsLookup.Output {
+    func adminFunctionsPermissionsLookup(_ input: Operations.AdminFunctionsPermissionsLookup.Input) async throws -> Operations.AdminFunctionsPermissionsLookup.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminFunctionsPermissionsLookup.id,
@@ -3508,8 +3469,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.functions.permissions.set`.
     /// - Remark: Generated from `#/paths//admin.functions.permissions.set/post(adminFunctionsPermissionsSet)`.
-    func adminFunctionsPermissionsSet(_ input: Operations.AdminFunctionsPermissionsSet.Input) async throws -> Operations
-        .AdminFunctionsPermissionsSet.Output {
+    func adminFunctionsPermissionsSet(_ input: Operations.AdminFunctionsPermissionsSet.Input) async throws -> Operations.AdminFunctionsPermissionsSet.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminFunctionsPermissionsSet.id,
@@ -3578,8 +3538,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.approve`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.approve/post(adminInviteRequestsApprove)`.
-    func adminInviteRequestsApprove(_ input: Operations.AdminInviteRequestsApprove.Input) async throws -> Operations
-        .AdminInviteRequestsApprove.Output {
+    func adminInviteRequestsApprove(_ input: Operations.AdminInviteRequestsApprove.Input) async throws -> Operations.AdminInviteRequestsApprove.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminInviteRequestsApprove.id,
@@ -3648,8 +3607,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.approved.list`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.approved.list/post(adminInviteRequestsApprovedList)`.
-    func adminInviteRequestsApprovedList(_ input: Operations.AdminInviteRequestsApprovedList.Input) async throws -> Operations
-        .AdminInviteRequestsApprovedList.Output {
+    func adminInviteRequestsApprovedList(_ input: Operations.AdminInviteRequestsApprovedList.Input) async throws -> Operations.AdminInviteRequestsApprovedList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminInviteRequestsApprovedList.id,
@@ -3718,8 +3676,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.denied.list`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.denied.list/post(adminInviteRequestsDeniedList)`.
-    func adminInviteRequestsDeniedList(_ input: Operations.AdminInviteRequestsDeniedList.Input) async throws -> Operations
-        .AdminInviteRequestsDeniedList.Output {
+    func adminInviteRequestsDeniedList(_ input: Operations.AdminInviteRequestsDeniedList.Input) async throws -> Operations.AdminInviteRequestsDeniedList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminInviteRequestsDeniedList.id,
@@ -3788,8 +3745,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.deny`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.deny/post(adminInviteRequestsDeny)`.
-    func adminInviteRequestsDeny(_ input: Operations.AdminInviteRequestsDeny.Input) async throws -> Operations.AdminInviteRequestsDeny
-        .Output {
+    func adminInviteRequestsDeny(_ input: Operations.AdminInviteRequestsDeny.Input) async throws -> Operations.AdminInviteRequestsDeny.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminInviteRequestsDeny.id,
@@ -3858,8 +3814,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.inviteRequests.list`.
     /// - Remark: Generated from `#/paths//admin.inviteRequests.list/post(adminInviteRequestsList)`.
-    func adminInviteRequestsList(_ input: Operations.AdminInviteRequestsList.Input) async throws -> Operations.AdminInviteRequestsList
-        .Output {
+    func adminInviteRequestsList(_ input: Operations.AdminInviteRequestsList.Input) async throws -> Operations.AdminInviteRequestsList.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminInviteRequestsList.id,
@@ -3928,8 +3883,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.roles.addAssignments`.
     /// - Remark: Generated from `#/paths//admin.roles.addAssignments/post(adminRolesAddAssignments)`.
-    func adminRolesAddAssignments(_ input: Operations.AdminRolesAddAssignments.Input) async throws -> Operations.AdminRolesAddAssignments
-        .Output {
+    func adminRolesAddAssignments(_ input: Operations.AdminRolesAddAssignments.Input) async throws -> Operations.AdminRolesAddAssignments.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminRolesAddAssignments.id,
@@ -3998,8 +3952,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.roles.listAssignments`.
     /// - Remark: Generated from `#/paths//admin.roles.listAssignments/post(adminRolesListAssignments)`.
-    func adminRolesListAssignments(_ input: Operations.AdminRolesListAssignments.Input) async throws -> Operations.AdminRolesListAssignments
-        .Output {
+    func adminRolesListAssignments(_ input: Operations.AdminRolesListAssignments.Input) async throws -> Operations.AdminRolesListAssignments.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminRolesListAssignments.id,
@@ -4068,8 +4021,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.roles.removeAssignments`.
     /// - Remark: Generated from `#/paths//admin.roles.removeAssignments/post(adminRolesRemoveAssignments)`.
-    func adminRolesRemoveAssignments(_ input: Operations.AdminRolesRemoveAssignments.Input) async throws -> Operations
-        .AdminRolesRemoveAssignments.Output {
+    func adminRolesRemoveAssignments(_ input: Operations.AdminRolesRemoveAssignments.Input) async throws -> Operations.AdminRolesRemoveAssignments.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminRolesRemoveAssignments.id,
@@ -4483,8 +4435,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setDefaultChannels`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDefaultChannels/post(adminTeamsSettingsSetDefaultChannels)`.
-    func adminTeamsSettingsSetDefaultChannels(_ input: Operations.AdminTeamsSettingsSetDefaultChannels.Input) async throws -> Operations
-        .AdminTeamsSettingsSetDefaultChannels.Output {
+    func adminTeamsSettingsSetDefaultChannels(_ input: Operations.AdminTeamsSettingsSetDefaultChannels.Input) async throws -> Operations.AdminTeamsSettingsSetDefaultChannels.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsSettingsSetDefaultChannels.id,
@@ -4553,8 +4504,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setDescription`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDescription/post(adminTeamsSettingsSetDescription)`.
-    func adminTeamsSettingsSetDescription(_ input: Operations.AdminTeamsSettingsSetDescription.Input) async throws -> Operations
-        .AdminTeamsSettingsSetDescription.Output {
+    func adminTeamsSettingsSetDescription(_ input: Operations.AdminTeamsSettingsSetDescription.Input) async throws -> Operations.AdminTeamsSettingsSetDescription.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsSettingsSetDescription.id,
@@ -4623,8 +4573,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setDiscoverability`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDiscoverability/post(adminTeamsSettingsSetDiscoverability)`.
-    func adminTeamsSettingsSetDiscoverability(_ input: Operations.AdminTeamsSettingsSetDiscoverability.Input) async throws -> Operations
-        .AdminTeamsSettingsSetDiscoverability.Output {
+    func adminTeamsSettingsSetDiscoverability(_ input: Operations.AdminTeamsSettingsSetDiscoverability.Input) async throws -> Operations.AdminTeamsSettingsSetDiscoverability.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsSettingsSetDiscoverability.id,
@@ -4693,8 +4642,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setIcon`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setIcon/post(adminTeamsSettingsSetIcon)`.
-    func adminTeamsSettingsSetIcon(_ input: Operations.AdminTeamsSettingsSetIcon.Input) async throws -> Operations.AdminTeamsSettingsSetIcon
-        .Output {
+    func adminTeamsSettingsSetIcon(_ input: Operations.AdminTeamsSettingsSetIcon.Input) async throws -> Operations.AdminTeamsSettingsSetIcon.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsSettingsSetIcon.id,
@@ -4763,8 +4711,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.teams.settings.setName`.
     /// - Remark: Generated from `#/paths//admin.teams.settings.setName/post(adminTeamsSettingsSetName)`.
-    func adminTeamsSettingsSetName(_ input: Operations.AdminTeamsSettingsSetName.Input) async throws -> Operations.AdminTeamsSettingsSetName
-        .Output {
+    func adminTeamsSettingsSetName(_ input: Operations.AdminTeamsSettingsSetName.Input) async throws -> Operations.AdminTeamsSettingsSetName.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminTeamsSettingsSetName.id,
@@ -5109,8 +5056,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.users.session.clearSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.clearSettings/post(adminUsersSessionClearSettings)`.
-    func adminUsersSessionClearSettings(_ input: Operations.AdminUsersSessionClearSettings.Input) async throws -> Operations
-        .AdminUsersSessionClearSettings.Output {
+    func adminUsersSessionClearSettings(_ input: Operations.AdminUsersSessionClearSettings.Input) async throws -> Operations.AdminUsersSessionClearSettings.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSessionClearSettings.id,
@@ -5179,8 +5125,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.users.session.getSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.getSettings/post(adminUsersSessionGetSettings)`.
-    func adminUsersSessionGetSettings(_ input: Operations.AdminUsersSessionGetSettings.Input) async throws -> Operations
-        .AdminUsersSessionGetSettings.Output {
+    func adminUsersSessionGetSettings(_ input: Operations.AdminUsersSessionGetSettings.Input) async throws -> Operations.AdminUsersSessionGetSettings.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSessionGetSettings.id,
@@ -5249,8 +5194,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.users.session.invalidate`.
     /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)`.
-    func adminUsersSessionInvalidate(_ input: Operations.AdminUsersSessionInvalidate.Input) async throws -> Operations
-        .AdminUsersSessionInvalidate.Output {
+    func adminUsersSessionInvalidate(_ input: Operations.AdminUsersSessionInvalidate.Input) async throws -> Operations.AdminUsersSessionInvalidate.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSessionInvalidate.id,
@@ -5457,8 +5401,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.users.session.resetBulk`.
     /// - Remark: Generated from `#/paths//admin.users.session.resetBulk/post(adminUsersSessionResetBulk)`.
-    func adminUsersSessionResetBulk(_ input: Operations.AdminUsersSessionResetBulk.Input) async throws -> Operations
-        .AdminUsersSessionResetBulk.Output {
+    func adminUsersSessionResetBulk(_ input: Operations.AdminUsersSessionResetBulk.Input) async throws -> Operations.AdminUsersSessionResetBulk.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSessionResetBulk.id,
@@ -5527,8 +5470,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.users.session.setSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.setSettings/post(adminUsersSessionSetSettings)`.
-    func adminUsersSessionSetSettings(_ input: Operations.AdminUsersSessionSetSettings.Input) async throws -> Operations
-        .AdminUsersSessionSetSettings.Output {
+    func adminUsersSessionSetSettings(_ input: Operations.AdminUsersSessionSetSettings.Input) async throws -> Operations.AdminUsersSessionSetSettings.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSessionSetSettings.id,
@@ -5666,8 +5608,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.users.setExpiration`.
     /// - Remark: Generated from `#/paths//admin.users.setExpiration/post(adminUsersSetExpiration)`.
-    func adminUsersSetExpiration(_ input: Operations.AdminUsersSetExpiration.Input) async throws -> Operations.AdminUsersSetExpiration
-        .Output {
+    func adminUsersSetExpiration(_ input: Operations.AdminUsersSetExpiration.Input) async throws -> Operations.AdminUsersSetExpiration.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersSetExpiration.id,
@@ -5874,8 +5815,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /admin.users.unsupportedVersions.export`.
     /// - Remark: Generated from `#/paths//admin.users.unsupportedVersions.export/post(adminUsersUnsupportedVersionsExport)`.
-    func adminUsersUnsupportedVersionsExport(_ input: Operations.AdminUsersUnsupportedVersionsExport.Input) async throws -> Operations
-        .AdminUsersUnsupportedVersionsExport.Output {
+    func adminUsersUnsupportedVersionsExport(_ input: Operations.AdminUsersUnsupportedVersionsExport.Input) async throws -> Operations.AdminUsersUnsupportedVersionsExport.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AdminUsersUnsupportedVersionsExport.id,

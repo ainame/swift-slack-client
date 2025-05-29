@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.RemindersAdd.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.RemindersAdd.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -39,14 +37,12 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/text`.
                     public var text: Swift.String
-                    /// Can also take a type of integer. When this reminder should happen: the Unix timestamp (up to five years from now),
-                    /// the number of seconds until the reminder (if within 24 hours), or a natural language description (Ex. "in 15
-                    /// minutes," or "every Thursday").
+                    /// Can also take a type of integer. When this reminder should happen: the Unix timestamp (up to five years from now), the number of seconds until the reminder (if within 24
+                    /// hours), or a natural language description (Ex. "in 15 minutes," or "every Thursday").
                     ///
                     /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/time`.
                     public var time: Swift.String
-                    /// Specify the repeating behavior of a reminder. Available options: daily, weekly, monthly, or yearly. If weekly, may
-                    /// further specify the days of the week.
+                    /// Specify the repeating behavior of a reminder. Available options: daily, weekly, monthly, or yearly. If weekly, may further specify the days of the week.
                     ///
                     /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/recurrence`.
                     public var recurrence: OpenAPIRuntime.OpenAPIObjectContainer?
@@ -54,8 +50,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
-                    /// No longer supported - reminders cannot be set for other users. Previously, was the user who would receive the
-                    /// reminder.
+                    /// No longer supported - reminders cannot be set for other users. Previously, was the user who would receive the reminder.
                     ///
                     /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/user`.
                     public var user: Swift.String?
@@ -63,14 +58,11 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - text: The content of the reminder.
-                    ///   - time: Can also take a type of integer. When this reminder should happen: the Unix timestamp (up to five years
-                    /// from now), the number of seconds until the reminder (if within 24 hours), or a natural language description (Ex. "in
-                    /// 15 minutes," or "every Thursday").
-                    ///   - recurrence: Specify the repeating behavior of a reminder. Available options: daily, weekly, monthly, or yearly.
-                    /// If weekly, may further specify the days of the week.
+                    ///   - time: Can also take a type of integer. When this reminder should happen: the Unix timestamp (up to five years from now), the number of seconds until the reminder (if within
+                    /// 24 hours), or a natural language description (Ex. "in 15 minutes," or "every Thursday").
+                    ///   - recurrence: Specify the repeating behavior of a reminder. Available options: daily, weekly, monthly, or yearly. If weekly, may further specify the days of the week.
                     ///   - teamId: Encoded team id, required if org token is used.
-                    ///   - user: No longer supported - reminders cannot be set for other users. Previously, was the user who would receive
-                    /// the reminder.
+                    ///   - user: No longer supported - reminders cannot be set for other users. Previously, was the user who would receive the reminder.
                     public init(
                         text: Swift.String,
                         time: Swift.String,
@@ -213,9 +205,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.RemindersComplete.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.RemindersComplete.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -371,9 +361,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.RemindersDelete.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.RemindersDelete.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -529,9 +517,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.RemindersInfo.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.RemindersInfo.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -687,9 +673,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.RemindersList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.RemindersList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }

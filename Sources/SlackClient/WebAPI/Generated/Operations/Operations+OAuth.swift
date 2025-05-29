@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.OauthV2Access.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.OauthV2Access.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -35,13 +33,13 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/oauth.v2.access/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Issued when you created your application. If possible, avoid sending client_id and client_secret as parameters in
-                    /// your request and instead supply the Client ID and Client Secret using the HTTP Basic authentication scheme.
+                    /// Issued when you created your application. If possible, avoid sending client_id and client_secret as parameters in your request and instead supply the Client ID and Client
+                    /// Secret using the HTTP Basic authentication scheme.
                     ///
                     /// - Remark: Generated from `#/paths/oauth.v2.access/POST/requestBody/json/client_id`.
                     public var clientId: Swift.String?
-                    /// Issued when you created your application. If possible, avoid sending client_id and client_secret as parameters in
-                    /// your request and instead supply the Client ID and Client Secret using the HTTP Basic authentication scheme.
+                    /// Issued when you created your application. If possible, avoid sending client_id and client_secret as parameters in your request and instead supply the Client ID and Client
+                    /// Secret using the HTTP Basic authentication scheme.
                     ///
                     /// - Remark: Generated from `#/paths/oauth.v2.access/POST/requestBody/json/client_secret`.
                     public var clientSecret: Swift.String?
@@ -64,12 +62,10 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - clientId: Issued when you created your application. If possible, avoid sending client_id and client_secret as
-                    /// parameters in your request and instead supply the Client ID and Client Secret using the HTTP Basic authentication
-                    /// scheme.
-                    ///   - clientSecret: Issued when you created your application. If possible, avoid sending client_id and client_secret
-                    /// as parameters in your request and instead supply the Client ID and Client Secret using the HTTP Basic authentication
-                    /// scheme.
+                    ///   - clientId: Issued when you created your application. If possible, avoid sending client_id and client_secret as parameters in your request and instead supply the Client ID
+                    /// and Client Secret using the HTTP Basic authentication scheme.
+                    ///   - clientSecret: Issued when you created your application. If possible, avoid sending client_id and client_secret as parameters in your request and instead supply the Client
+                    /// ID and Client Secret using the HTTP Basic authentication scheme.
                     ///   - code: The code param returned via the OAuth callback.
                     ///   - grantType: The grant_type param as described in the OAuth spec.
                     ///   - redirectUri: This must match the originally submitted URI (if one was sent).
@@ -219,9 +215,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.OauthV2Exchange.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.OauthV2Exchange.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }

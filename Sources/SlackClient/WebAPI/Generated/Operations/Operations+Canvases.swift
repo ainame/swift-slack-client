@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.CanvasesAccessDelete.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.CanvasesAccessDelete.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -189,9 +187,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.CanvasesAccessSet.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.CanvasesAccessSet.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -363,9 +359,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.CanvasesCreate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.CanvasesCreate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -529,9 +523,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.CanvasesDelete.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.CanvasesDelete.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -677,9 +669,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.CanvasesEdit.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.CanvasesEdit.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -835,9 +825,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.CanvasesSectionsLookup.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.CanvasesSectionsLookup.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }

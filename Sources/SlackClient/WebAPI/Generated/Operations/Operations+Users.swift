@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersConversations.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersConversations.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -35,9 +33,8 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/users.conversations/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a
-                    /// previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination for
-                    /// more detail.
+                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value fetches the
+                    /// first "page" of the collection. See pagination for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/users.conversations/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
@@ -45,8 +42,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/users.conversations/POST/requestBody/json/exclude_archived`.
                     public var excludeArchived: Swift.Bool?
-                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of
-                    /// the list hasn't been reached. Must be an integer with a max value of 999.
+                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. Must be an integer with a max
+                    /// value of 999.
                     ///
                     /// - Remark: Generated from `#/paths/users.conversations/POST/requestBody/json/limit`.
                     public var limit: Swift.Double?
@@ -54,30 +51,25 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/users.conversations/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
-                    /// Mix and match channel types by providing a comma-separated list of any combination of public_channel,
-                    /// private_channel, mpim, im.
+                    /// Mix and match channel types by providing a comma-separated list of any combination of public_channel, private_channel, mpim, im.
                     ///
                     /// - Remark: Generated from `#/paths/users.conversations/POST/requestBody/json/types`.
                     public var types: Swift.String?
-                    /// Browse conversations by a specific user ID's membership. Non-public channels are restricted to those where the
-                    /// calling user shares membership.
+                    /// Browse conversations by a specific user ID's membership. Non-public channels are restricted to those where the calling user shares membership.
                     ///
                     /// - Remark: Generated from `#/paths/users.conversations/POST/requestBody/json/user`.
                     public var user: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned
-                    /// by a previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination
-                    /// for more detail.
+                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value
+                    /// fetches the first "page" of the collection. See pagination for more detail.
                     ///   - excludeArchived: Set to true to exclude archived channels from the list.
-                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if
-                    /// the end of the list hasn't been reached. Must be an integer with a max value of 999.
+                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. Must be an integer
+                    /// with a max value of 999.
                     ///   - teamId: encoded team id to list conversations in, required if org token is used.
-                    ///   - types: Mix and match channel types by providing a comma-separated list of any combination of public_channel,
-                    /// private_channel, mpim, im.
-                    ///   - user: Browse conversations by a specific user ID's membership. Non-public channels are restricted to those where
-                    /// the calling user shares membership.
+                    ///   - types: Mix and match channel types by providing a comma-separated list of any combination of public_channel, private_channel, mpim, im.
+                    ///   - user: Browse conversations by a specific user ID's membership. Non-public channels are restricted to those where the calling user shares membership.
                     public init(
                         cursor: Swift.String? = nil,
                         excludeArchived: Swift.Bool? = nil,
@@ -223,9 +215,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersDeletePhoto.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersDeletePhoto.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -356,17 +346,12 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/users.discoverableContacts.lookup/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.UsersDiscoverableContactsLookup.AcceptableContentType>
-                ]
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersDiscoverableContactsLookup.AcceptableContentType>]
                 /// Creates a new `Headers`.
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [
-                    OpenAPIRuntime
-                        .AcceptHeaderContentType<Operations.UsersDiscoverableContactsLookup.AcceptableContentType>,
-                ] = .defaultValues()) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersDiscoverableContactsLookup.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -512,9 +497,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersGetPresence.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersGetPresence.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -660,9 +643,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersIdentity.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersIdentity.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -798,9 +779,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersInfo.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersInfo.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -956,9 +935,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -968,9 +945,8 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/users.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a
-                    /// previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination for
-                    /// more detail.
+                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value fetches the
+                    /// first "page" of the collection. See pagination for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/users.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
@@ -978,9 +954,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/users.list/POST/requestBody/json/include_locale`.
                     public var includeLocale: Swift.Bool?
-                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of
-                    /// the users list hasn't been reached. Providing no limit value will result in Slack attempting to deliver you the
-                    /// entire result set. If the collection is too large you may experience limit_required or HTTP 500 errors.
+                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached. Providing no limit value
+                    /// will result in Slack attempting to deliver you the entire result set. If the collection is too large you may experience limit_required or HTTP 500 errors.
                     ///
                     /// - Remark: Generated from `#/paths/users.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Double?
@@ -991,13 +966,11 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned
-                    /// by a previous request's response_metadata. Default value fetches the first "page" of the collection. See pagination
-                    /// for more detail.
+                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value
+                    /// fetches the first "page" of the collection. See pagination for more detail.
                     ///   - includeLocale: Set this to true to receive the locale for users. Defaults to false.
-                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if
-                    /// the end of the users list hasn't been reached. Providing no limit value will result in Slack attempting to deliver
-                    /// you the entire result set. If the collection is too large you may experience limit_required or HTTP 500 errors.
+                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached. Providing no
+                    /// limit value will result in Slack attempting to deliver you the entire result set. If the collection is too large you may experience limit_required or HTTP 500 errors.
                     ///   - teamId: encoded team id to list users in, required if org token is used.
                     public init(
                         cursor: Swift.String? = nil,
@@ -1138,9 +1111,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersLookupByEmail.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersLookupByEmail.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1286,9 +1257,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersProfileGet.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersProfileGet.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1298,8 +1267,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/users.profile.get/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Include labels for each ID in custom profile fields. Using this parameter will heavily rate-limit your requests and
-                    /// is not recommended.
+                    /// Include labels for each ID in custom profile fields. Using this parameter will heavily rate-limit your requests and is not recommended.
                     ///
                     /// - Remark: Generated from `#/paths/users.profile.get/POST/requestBody/json/include_labels`.
                     public var includeLabels: Swift.Bool?
@@ -1310,8 +1278,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - includeLabels: Include labels for each ID in custom profile fields. Using this parameter will heavily rate-limit
-                    /// your requests and is not recommended.
+                    ///   - includeLabels: Include labels for each ID in custom profile fields. Using this parameter will heavily rate-limit your requests and is not recommended.
                     ///   - user: User to retrieve profile info for.
                     public init(
                         includeLabels: Swift.Bool? = nil,
@@ -1446,9 +1413,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersProfileSet.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersProfileSet.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1462,8 +1427,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/users.profile.set/POST/requestBody/json/name`.
                     public var name: Swift.String?
-                    /// Collection of key:value pairs presented as a URL-encoded JSON hash. At most 50 fields may be set. Each field name is
-                    /// limited to 255 characters.
+                    /// Collection of key:value pairs presented as a URL-encoded JSON hash. At most 50 fields may be set. Each field name is limited to 255 characters.
                     ///
                     /// - Remark: Generated from `#/paths/users.profile.set/POST/requestBody/json/profile`.
                     public var profile: Swift.String?
@@ -1479,8 +1443,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - name: Name of a single key to set. Usable only if profile is not passed.
-                    ///   - profile: Collection of key:value pairs presented as a URL-encoded JSON hash. At most 50 fields may be set. Each
-                    /// field name is limited to 255 characters.
+                    ///   - profile: Collection of key:value pairs presented as a URL-encoded JSON hash. At most 50 fields may be set. Each field name is limited to 255 characters.
                     ///   - user: ID of user to change. This argument may only be specified by admins on paid teams.
                     ///   - value: Value to set a single key to. Usable only if profile is not passed.
                     public init(
@@ -1622,9 +1585,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersSetActive.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersSetActive.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1760,9 +1721,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersSetPhoto.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersSetPhoto.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1934,9 +1893,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersSetPresence.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.UsersSetPresence.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }

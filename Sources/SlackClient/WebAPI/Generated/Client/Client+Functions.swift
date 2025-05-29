@@ -86,8 +86,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /functions.completeSuccess`.
     /// - Remark: Generated from `#/paths//functions.completeSuccess/post(functionsCompleteSuccess)`.
-    func functionsCompleteSuccess(_ input: Operations.FunctionsCompleteSuccess.Input) async throws -> Operations.FunctionsCompleteSuccess
-        .Output {
+    func functionsCompleteSuccess(_ input: Operations.FunctionsCompleteSuccess.Input) async throws -> Operations.FunctionsCompleteSuccess.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FunctionsCompleteSuccess.id,

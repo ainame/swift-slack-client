@@ -17,8 +17,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /assistant.threads.setStatus`.
     /// - Remark: Generated from `#/paths//assistant.threads.setStatus/post(assistantThreadsSetStatus)`.
-    func assistantThreadsSetStatus(_ input: Operations.AssistantThreadsSetStatus.Input) async throws -> Operations.AssistantThreadsSetStatus
-        .Output {
+    func assistantThreadsSetStatus(_ input: Operations.AssistantThreadsSetStatus.Input) async throws -> Operations.AssistantThreadsSetStatus.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AssistantThreadsSetStatus.id,
@@ -87,8 +86,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /assistant.threads.setSuggestedPrompts`.
     /// - Remark: Generated from `#/paths//assistant.threads.setSuggestedPrompts/post(assistantThreadsSetSuggestedPrompts)`.
-    func assistantThreadsSetSuggestedPrompts(_ input: Operations.AssistantThreadsSetSuggestedPrompts.Input) async throws -> Operations
-        .AssistantThreadsSetSuggestedPrompts.Output {
+    func assistantThreadsSetSuggestedPrompts(_ input: Operations.AssistantThreadsSetSuggestedPrompts.Input) async throws -> Operations.AssistantThreadsSetSuggestedPrompts.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AssistantThreadsSetSuggestedPrompts.id,
@@ -157,8 +155,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /assistant.threads.setTitle`.
     /// - Remark: Generated from `#/paths//assistant.threads.setTitle/post(assistantThreadsSetTitle)`.
-    func assistantThreadsSetTitle(_ input: Operations.AssistantThreadsSetTitle.Input) async throws -> Operations.AssistantThreadsSetTitle
-        .Output {
+    func assistantThreadsSetTitle(_ input: Operations.AssistantThreadsSetTitle.Input) async throws -> Operations.AssistantThreadsSetTitle.Output {
         try await client.send(
             input: input,
             forOperation: Operations.AssistantThreadsSetTitle.id,

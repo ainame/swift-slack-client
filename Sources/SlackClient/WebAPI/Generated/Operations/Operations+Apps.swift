@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsConnectionsOpen.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsConnectionsOpen.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -171,9 +169,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsEventAuthorizationsList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsEventAuthorizationsList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -337,9 +333,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestCreate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestCreate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -349,16 +343,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/apps.manifest.create/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to
-                    /// creating one.
+                    /// A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to creating one.
                     ///
                     /// - Remark: Generated from `#/paths/apps.manifest.create/POST/requestBody/json/manifest`.
                     public var manifest: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - manifest: A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our
-                    /// guide to creating one.
+                    ///   - manifest: A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to creating one.
                     public init(manifest: Swift.String) {
                         self.manifest = manifest
                     }
@@ -487,9 +479,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestDelete.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestDelete.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -635,9 +625,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestExport.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestExport.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -783,9 +771,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestUpdate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestUpdate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -799,9 +785,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/apps.manifest.update/POST/requestBody/json/app_id`.
                     public var appId: Swift.String
-                    /// A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to
-                    /// creating one. As this method entirely replaces any previous configuration, manifest must contain both unmodified and
-                    /// modified fields.
+                    /// A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to creating one. As this method entirely replaces any previous
+                    /// configuration, manifest must contain both unmodified and modified fields.
                     ///
                     /// - Remark: Generated from `#/paths/apps.manifest.update/POST/requestBody/json/manifest`.
                     public var manifest: Swift.String
@@ -809,9 +794,8 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - appId: The ID of the app whose configuration you want to update.
-                    ///   - manifest: A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our
-                    /// guide to creating one. As this method entirely replaces any previous configuration, manifest must contain both
-                    /// unmodified and modified fields.
+                    ///   - manifest: A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to creating one. As this method entirely replaces any
+                    /// previous configuration, manifest must contain both unmodified and modified fields.
                     public init(
                         appId: Swift.String,
                         manifest: Swift.String
@@ -945,9 +929,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestValidate.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestValidate.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -1103,9 +1085,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsUninstall.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsUninstall.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }

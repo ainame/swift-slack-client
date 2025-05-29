@@ -17,8 +17,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /files.completeUploadExternal`.
     /// - Remark: Generated from `#/paths//files.completeUploadExternal/post(filesCompleteUploadExternal)`.
-    func filesCompleteUploadExternal(_ input: Operations.FilesCompleteUploadExternal.Input) async throws -> Operations
-        .FilesCompleteUploadExternal.Output {
+    func filesCompleteUploadExternal(_ input: Operations.FilesCompleteUploadExternal.Input) async throws -> Operations.FilesCompleteUploadExternal.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesCompleteUploadExternal.id,
@@ -156,8 +155,7 @@ extension Client {
     ///
     /// - Remark: HTTP `POST /files.getUploadURLExternal`.
     /// - Remark: Generated from `#/paths//files.getUploadURLExternal/post(filesGetUploadURLExternal)`.
-    func filesGetUploadURLExternal(_ input: Operations.FilesGetUploadURLExternal.Input) async throws -> Operations.FilesGetUploadURLExternal
-        .Output {
+    func filesGetUploadURLExternal(_ input: Operations.FilesGetUploadURLExternal.Input) async throws -> Operations.FilesGetUploadURLExternal.Output {
         try await client.send(
             input: input,
             forOperation: Operations.FilesGetUploadURLExternal.id,

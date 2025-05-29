@@ -23,9 +23,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ReactionsAdd.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ReactionsAdd.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -189,9 +187,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ReactionsGet.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ReactionsGet.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -371,9 +367,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ReactionsList.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ReactionsList.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
@@ -383,9 +377,8 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Parameter for pagination. Set cursor equal to the next_cursor attribute returned by the previous request's
-                    /// response_metadata. This parameter is optional, but pagination is mandatory: the default value simply fetches the
-                    /// first "page" of the collection. See pagination for more details.
+                    /// Parameter for pagination. Set cursor equal to the next_cursor attribute returned by the previous request's response_metadata. This parameter is optional, but pagination is
+                    /// mandatory: the default value simply fetches the first "page" of the collection. See pagination for more details.
                     ///
                     /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
@@ -393,8 +386,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json/full`.
                     public var full: Swift.Bool?
-                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of
-                    /// the list hasn't been reached.
+                    /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
                     ///
                     /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
@@ -409,12 +401,10 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - cursor: Parameter for pagination. Set cursor equal to the next_cursor attribute returned by the previous
-                    /// request's response_metadata. This parameter is optional, but pagination is mandatory: the default value simply
-                    /// fetches the first "page" of the collection. See pagination for more details.
+                    ///   - cursor: Parameter for pagination. Set cursor equal to the next_cursor attribute returned by the previous request's response_metadata. This parameter is optional, but
+                    /// pagination is mandatory: the default value simply fetches the first "page" of the collection. See pagination for more details.
                     ///   - full: If true always return the complete reaction list.
-                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if
-                    /// the end of the list hasn't been reached.
+                    ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
                     ///   - teamId: encoded team id to list reactions in, required if org token is used.
                     ///   - user: Show reactions made by this user. Defaults to the authed user.
                     public init(
@@ -559,9 +549,7 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ReactionsRemove.AcceptableContentType>] =
-                    .defaultValues()
-                ) {
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ReactionsRemove.AcceptableContentType>] = .defaultValues()) {
                     self.accept = accept
                 }
             }
