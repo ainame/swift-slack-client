@@ -12,6 +12,7 @@ clean:
 	@if [ -e ".dependencies/slack-api-ref/.git" ]; then \
 		cd .dependencies/slack-api-ref && git reset --hard HEAD && git clean -fd; \
 	fi
+	git submodule update --init --recursive
 	@echo "Clean complete"
 
 format:
