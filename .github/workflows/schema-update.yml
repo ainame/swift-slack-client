@@ -26,12 +26,12 @@ jobs:
         uses: actions/cache@v4
         with:
           path: /usr/local/bin/swiftformat
-          key: ${{ runner.os }}-swiftformat-0.54.0
+          key: ${{ runner.os }}-swiftformat-0.56.2
 
       - name: Install SwiftFormat
         if: steps.cache-swiftformat.outputs.cache-hit != 'true'
         run: |
-          git clone --depth 1 --branch 0.54.0 https://github.com/nicklockwood/SwiftFormat.git
+          git clone --depth 1 --branch 0.56.2 https://github.com/nicklockwood/SwiftFormat.git
           cd SwiftFormat
           swift build -c release
           sudo cp .build/release/swiftformat /usr/local/bin/
@@ -52,8 +52,8 @@ jobs:
           # Generate code
           make generate
 
-          # Check if there are any changes
-          if [[ -n $(git status --porcelain) ]]; then
+          # Check if there are any changes in relevant directories only
+          if [[ -n $(git status --porcelain Sources/ .dependencies/) ]]; then
             echo "changes=true" >> $GITHUB_OUTPUT
           else
             echo "changes=false" >> $GITHUB_OUTPUT
@@ -64,6 +64,9 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: |
+            Sources/
+            .dependencies/
           commit-message: |
             Update Slack API schemas
 
