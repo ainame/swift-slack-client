@@ -7,7 +7,7 @@ public struct ImageBlock: Codable, Hashable, Sendable {
     public let slackFile: SlackFileObject?
     public let title: TextObject?
     public let blockId: String?
-    
+
     public init(
         altText: String,
         imageUrl: URL? = nil,
@@ -15,14 +15,14 @@ public struct ImageBlock: Codable, Hashable, Sendable {
         title: TextObject? = nil,
         blockId: String? = nil
     ) {
-        self.type = "image"
+        type = "image"
         self.altText = altText
         self.imageUrl = imageUrl
         self.slackFile = slackFile
         self.title = title
         self.blockId = blockId
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case altText = "alt_text"

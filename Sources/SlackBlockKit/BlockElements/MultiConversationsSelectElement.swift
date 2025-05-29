@@ -10,7 +10,7 @@ public struct MultiConversationsSelectElement: Codable, Hashable, Sendable {
     public let confirm: ConfirmationDialogObject?
     public let focusOnLoad: Bool?
     public let placeholder: TextObject?
-    
+
     public init(
         actionId: String? = nil,
         initialConversations: [String]? = nil,
@@ -21,7 +21,7 @@ public struct MultiConversationsSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "multi_conversations_select"
+        type = "multi_conversations_select"
         self.actionId = actionId
         self.initialConversations = initialConversations
         self.defaultToCurrentConversation = defaultToCurrentConversation
@@ -31,7 +31,7 @@ public struct MultiConversationsSelectElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case actionId = "action_id"

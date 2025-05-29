@@ -11,7 +11,7 @@ public protocol BlockComponent {
 public protocol BlockElement {
     /// The concrete element type this component renders to
     associatedtype Output: Codable
-    
+
     /// Renders this element to its BlockKit representation
     func render() -> Output
 }
@@ -20,8 +20,7 @@ public protocol BlockElement {
 public protocol CompositionObject {
     /// The concrete object type this component renders to
     associatedtype Output: Codable
-    
+
     /// Renders this object to its BlockKit representation
     func render() -> Output
 }
-

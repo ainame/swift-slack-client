@@ -8,7 +8,7 @@ public struct ExternalSelectElement: Codable, Hashable, Sendable {
     public let confirm: ConfirmationDialogObject?
     public let focusOnLoad: Bool?
     public let placeholder: TextObject?
-    
+
     public init(
         actionId: String? = nil,
         initialOption: OptionObject? = nil,
@@ -17,7 +17,7 @@ public struct ExternalSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "external_select"
+        type = "external_select"
         self.actionId = actionId
         self.initialOption = initialOption
         self.minQueryLength = minQueryLength
@@ -25,7 +25,7 @@ public struct ExternalSelectElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case actionId = "action_id"

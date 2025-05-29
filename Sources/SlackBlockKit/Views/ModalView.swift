@@ -12,7 +12,7 @@ public struct ModalView: Codable, Hashable, Sendable {
     public let notifyOnClose: Bool?
     public let externalId: String?
     public let submitDisabled: Bool?
-    
+
     public init(
         title: TextObject,
         blocks: [BlockType],
@@ -25,7 +25,7 @@ public struct ModalView: Codable, Hashable, Sendable {
         externalId: String? = nil,
         submitDisabled: Bool? = nil
     ) {
-        self.type = "modal"
+        type = "modal"
         self.title = title
         self.blocks = blocks
         self.close = close
@@ -37,7 +37,7 @@ public struct ModalView: Codable, Hashable, Sendable {
         self.externalId = externalId
         self.submitDisabled = submitDisabled
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case title

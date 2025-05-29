@@ -21,7 +21,7 @@ public struct MessageRoot: Codable, Hashable, Sendable {
     public var lastRead: Swift.String?
     public var unreadCount: Swift.Int?
     public var noNotifications: Swift.Bool?
-    
+
     private enum CodingKeys: String, CodingKey {
         case text
         case user

@@ -102,195 +102,195 @@ public enum EventType: Decodable, Hashable, Sendable {
 
         switch type {
         case "app_home_opened":
-            self = .appHomeOpened(try AppHomeOpenedEvent(from: decoder))
+            self = try .appHomeOpened(AppHomeOpenedEvent(from: decoder))
         case "app_mention":
-            self = .appMention(try AppMentionEvent(from: decoder))
+            self = try .appMention(AppMentionEvent(from: decoder))
         case "app_rate_limited":
-            self = .appRateLimited(try AppRateLimitedEvent(from: decoder))
+            self = try .appRateLimited(AppRateLimitedEvent(from: decoder))
         case "app_requested":
-            self = .appRequested(try AppRequestedEvent(from: decoder))
+            self = try .appRequested(AppRequestedEvent(from: decoder))
         case "app_uninstalled":
-            self = .appUninstalled(try AppUninstalledEvent(from: decoder))
+            self = try .appUninstalled(AppUninstalledEvent(from: decoder))
         case "call_rejected":
-            self = .callRejected(try CallRejectedEvent(from: decoder))
+            self = try .callRejected(CallRejectedEvent(from: decoder))
         case "channel_archive":
-            self = .channelArchive(try ChannelArchiveEvent(from: decoder))
+            self = try .channelArchive(ChannelArchiveEvent(from: decoder))
         case "channel_created":
-            self = .channelCreated(try ChannelCreatedEvent(from: decoder))
+            self = try .channelCreated(ChannelCreatedEvent(from: decoder))
         case "channel_deleted":
-            self = .channelDeleted(try ChannelDeletedEvent(from: decoder))
+            self = try .channelDeleted(ChannelDeletedEvent(from: decoder))
         case "channel_history_changed":
-            self = .channelHistoryChanged(try ChannelHistoryChangedEvent(from: decoder))
+            self = try .channelHistoryChanged(ChannelHistoryChangedEvent(from: decoder))
         case "channel_id_changed":
-            self = .channelIdChanged(try ChannelIDChangedEvent(from: decoder))
+            self = try .channelIdChanged(ChannelIDChangedEvent(from: decoder))
         case "channel_left":
-            self = .channelLeft(try ChannelLeftEvent(from: decoder))
+            self = try .channelLeft(ChannelLeftEvent(from: decoder))
         case "channel_rename":
-            self = .channelRename(try ChannelRenameEvent(from: decoder))
+            self = try .channelRename(ChannelRenameEvent(from: decoder))
         case "channel_shared":
-            self = .channelShared(try ChannelSharedEvent(from: decoder))
+            self = try .channelShared(ChannelSharedEvent(from: decoder))
         case "channel_unarchive":
-            self = .channelUnarchive(try ChannelUnarchiveEvent(from: decoder))
+            self = try .channelUnarchive(ChannelUnarchiveEvent(from: decoder))
         case "channel_unshared":
-            self = .channelUnshared(try ChannelUnsharedEvent(from: decoder))
+            self = try .channelUnshared(ChannelUnsharedEvent(from: decoder))
         case "dnd_updated":
-            self = .dndUpdated(try DndUpdatedEvent(from: decoder))
+            self = try .dndUpdated(DndUpdatedEvent(from: decoder))
         case "dnd_updated_user":
-            self = .dndUpdatedUser(try DndUpdatedUserEvent(from: decoder))
+            self = try .dndUpdatedUser(DndUpdatedUserEvent(from: decoder))
         case "email_domain_changed":
-            self = .emailDomainChanged(try EmailDomainChangedEvent(from: decoder))
+            self = try .emailDomainChanged(EmailDomainChangedEvent(from: decoder))
         case "emoji_changed":
-            self = .emojiChanged(try EmojiChangedEvent(from: decoder))
+            self = try .emojiChanged(EmojiChangedEvent(from: decoder))
         case "file_change":
-            self = .fileChange(try FileChangeEvent(from: decoder))
+            self = try .fileChange(FileChangeEvent(from: decoder))
         case "file_created":
-            self = .fileCreated(try FileCreatedEvent(from: decoder))
+            self = try .fileCreated(FileCreatedEvent(from: decoder))
         case "file_deleted":
-            self = .fileDeleted(try FileDeletedEvent(from: decoder))
+            self = try .fileDeleted(FileDeletedEvent(from: decoder))
         case "file_public":
-            self = .filePublic(try FilePublicEvent(from: decoder))
+            self = try .filePublic(FilePublicEvent(from: decoder))
         case "file_shared":
-            self = .fileShared(try FileSharedEvent(from: decoder))
+            self = try .fileShared(FileSharedEvent(from: decoder))
         case "file_unshared":
-            self = .fileUnshared(try FileUnsharedEvent(from: decoder))
+            self = try .fileUnshared(FileUnsharedEvent(from: decoder))
         case "goodbye":
-            self = .goodbye(try GoodbyeEvent(from: decoder))
+            self = try .goodbye(GoodbyeEvent(from: decoder))
         case "grid_migration_finished":
-            self = .gridMigrationFinished(try GridMigrationFinishedEvent(from: decoder))
+            self = try .gridMigrationFinished(GridMigrationFinishedEvent(from: decoder))
         case "grid_migration_started":
-            self = .gridMigrationStarted(try GridMigrationStartedEvent(from: decoder))
+            self = try .gridMigrationStarted(GridMigrationStartedEvent(from: decoder))
         case "group_archive":
-            self = .groupArchive(try GroupArchiveEvent(from: decoder))
+            self = try .groupArchive(GroupArchiveEvent(from: decoder))
         case "group_close":
-            self = .groupClose(try GroupCloseEvent(from: decoder))
+            self = try .groupClose(GroupCloseEvent(from: decoder))
         case "group_deleted":
-            self = .groupDeleted(try GroupDeletedEvent(from: decoder))
+            self = try .groupDeleted(GroupDeletedEvent(from: decoder))
         case "group_history_changed":
-            self = .groupHistoryChanged(try GroupHistoryChangedEvent(from: decoder))
+            self = try .groupHistoryChanged(GroupHistoryChangedEvent(from: decoder))
         case "group_left":
-            self = .groupLeft(try GroupLeftEvent(from: decoder))
+            self = try .groupLeft(GroupLeftEvent(from: decoder))
         case "group_open":
-            self = .groupOpen(try GroupOpenEvent(from: decoder))
+            self = try .groupOpen(GroupOpenEvent(from: decoder))
         case "group_rename":
-            self = .groupRename(try GroupRenameEvent(from: decoder))
+            self = try .groupRename(GroupRenameEvent(from: decoder))
         case "group_unarchive":
-            self = .groupUnarchive(try GroupUnarchiveEvent(from: decoder))
+            self = try .groupUnarchive(GroupUnarchiveEvent(from: decoder))
         case "im_close":
-            self = .imClose(try IMCloseEvent(from: decoder))
+            self = try .imClose(IMCloseEvent(from: decoder))
         case "im_created":
-            self = .imCreated(try IMCreatedEvent(from: decoder))
+            self = try .imCreated(IMCreatedEvent(from: decoder))
         case "im_history_changed":
-            self = .imHistoryChanged(try IMHistoryChangedEvent(from: decoder))
+            self = try .imHistoryChanged(IMHistoryChangedEvent(from: decoder))
         case "im_open":
-            self = .imOpen(try IMOpenEvent(from: decoder))
+            self = try .imOpen(IMOpenEvent(from: decoder))
         case "invite_requested":
-            self = .inviteRequested(try InviteRequestedEvent(from: decoder))
+            self = try .inviteRequested(InviteRequestedEvent(from: decoder))
         case "link_shared":
-            self = .linkShared(try LinkSharedEvent(from: decoder))
+            self = try .linkShared(LinkSharedEvent(from: decoder))
         case "member_joined_channel":
-            self = .memberJoinedChannel(try MemberJoinedChannelEvent(from: decoder))
+            self = try .memberJoinedChannel(MemberJoinedChannelEvent(from: decoder))
         case "member_left_channel":
-            self = .memberLeftChannel(try MemberLeftChannelEvent(from: decoder))
+            self = try .memberLeftChannel(MemberLeftChannelEvent(from: decoder))
         case "pin_added":
-            self = .pinAdded(try PinAddedEvent(from: decoder))
+            self = try .pinAdded(PinAddedEvent(from: decoder))
         case "pin_removed":
-            self = .pinRemoved(try PinRemovedEvent(from: decoder))
+            self = try .pinRemoved(PinRemovedEvent(from: decoder))
         case "reaction_added":
-            self = .reactionAdded(try ReactionAddedEvent(from: decoder))
+            self = try .reactionAdded(ReactionAddedEvent(from: decoder))
         case "reaction_removed":
-            self = .reactionRemoved(try ReactionRemovedEvent(from: decoder))
+            self = try .reactionRemoved(ReactionRemovedEvent(from: decoder))
         case "scope_denied":
-            self = .scopeDenied(try ScopeDeniedEvent(from: decoder))
+            self = try .scopeDenied(ScopeDeniedEvent(from: decoder))
         case "scope_granted":
-            self = .scopeGranted(try ScopeGrantedEvent(from: decoder))
+            self = try .scopeGranted(ScopeGrantedEvent(from: decoder))
         case "star_added":
-            self = .starAdded(try StarAddedEvent(from: decoder))
+            self = try .starAdded(StarAddedEvent(from: decoder))
         case "star_removed":
-            self = .starRemoved(try StarRemovedEvent(from: decoder))
+            self = try .starRemoved(StarRemovedEvent(from: decoder))
         case "subteam_created":
-            self = .subteamCreated(try SubteamCreatedEvent(from: decoder))
+            self = try .subteamCreated(SubteamCreatedEvent(from: decoder))
         case "subteam_members_changed":
-            self = .subteamMembersChanged(try SubteamMembersChangedEvent(from: decoder))
+            self = try .subteamMembersChanged(SubteamMembersChangedEvent(from: decoder))
         case "subteam_self_added":
-            self = .subteamSelfAdded(try SubteamSelfAddedEvent(from: decoder))
+            self = try .subteamSelfAdded(SubteamSelfAddedEvent(from: decoder))
         case "subteam_self_removed":
-            self = .subteamSelfRemoved(try SubteamSelfRemovedEvent(from: decoder))
+            self = try .subteamSelfRemoved(SubteamSelfRemovedEvent(from: decoder))
         case "subteam_updated":
-            self = .subteamUpdated(try SubteamUpdatedEvent(from: decoder))
+            self = try .subteamUpdated(SubteamUpdatedEvent(from: decoder))
         case "team_access_granted":
-            self = .teamAccessGranted(try TeamAccessGrantedEvent(from: decoder))
+            self = try .teamAccessGranted(TeamAccessGrantedEvent(from: decoder))
         case "team_access_revoked":
-            self = .teamAccessRevoked(try TeamAccessRevokedEvent(from: decoder))
+            self = try .teamAccessRevoked(TeamAccessRevokedEvent(from: decoder))
         case "team_domain_change":
-            self = .teamDomainChange(try TeamDomainChangeEvent(from: decoder))
+            self = try .teamDomainChange(TeamDomainChangeEvent(from: decoder))
         case "team_join":
-            self = .teamJoin(try TeamJoinEvent(from: decoder))
+            self = try .teamJoin(TeamJoinEvent(from: decoder))
         case "team_rename":
-            self = .teamRename(try TeamRenameEvent(from: decoder))
+            self = try .teamRename(TeamRenameEvent(from: decoder))
         case "tokens_revoked":
-            self = .tokensRevoked(try TokensRevokedEvent(from: decoder))
+            self = try .tokensRevoked(TokensRevokedEvent(from: decoder))
         case "user_change":
-            self = .userChange(try UserChangeEvent(from: decoder))
+            self = try .userChange(UserChangeEvent(from: decoder))
         case "user_huddle_changed":
-            self = .userHuddleChanged(try UserHuddleChangedEvent(from: decoder))
+            self = try .userHuddleChanged(UserHuddleChangedEvent(from: decoder))
         case "user_profile_changed":
-            self = .userProfileChanged(try UserProfileChangedEvent(from: decoder))
+            self = try .userProfileChanged(UserProfileChangedEvent(from: decoder))
         case "user_status_changed":
-            self = .userStatusChanged(try UserStatusChangedEvent(from: decoder))
+            self = try .userStatusChanged(UserStatusChangedEvent(from: decoder))
         case "workflow_deleted":
-            self = .workflowDeleted(try WorkflowDeletedEvent(from: decoder))
+            self = try .workflowDeleted(WorkflowDeletedEvent(from: decoder))
         case "workflow_published":
-            self = .workflowPublished(try WorkflowPublishedEvent(from: decoder))
+            self = try .workflowPublished(WorkflowPublishedEvent(from: decoder))
         case "workflow_step_deleted":
-            self = .workflowStepDeleted(try WorkflowStepDeletedEvent(from: decoder))
+            self = try .workflowStepDeleted(WorkflowStepDeletedEvent(from: decoder))
         case "workflow_step_execute":
-            self = .workflowStepExecute(try WorkflowStepExecuteEvent(from: decoder))
+            self = try .workflowStepExecute(WorkflowStepExecuteEvent(from: decoder))
         case "workflow_unpublished":
-            self = .workflowUnpublished(try WorkflowUnpublishedEvent(from: decoder))
+            self = try .workflowUnpublished(WorkflowUnpublishedEvent(from: decoder))
         case "message":
             // Message events require checking the subtype field
             let subtypeContainer = try decoder.container(keyedBy: MessageSubtypeCodingKeys.self)
             let subtype = try subtypeContainer.decodeIfPresent(String.self, forKey: .subtype)
-            
+
             switch subtype {
             case "bot_message":
-                self = .messageBot(try MessageBotEvent(from: decoder))
+                self = try .messageBot(MessageBotEvent(from: decoder))
             case "message_changed":
-                self = .messageChanged(try MessageChangedEvent(from: decoder))
+                self = try .messageChanged(MessageChangedEvent(from: decoder))
             case "channel_archive":
-                self = .messageChannelArchive(try MessageChannelArchiveEvent(from: decoder))
+                self = try .messageChannelArchive(MessageChannelArchiveEvent(from: decoder))
             case "channel_join":
-                self = .messageChannelJoin(try MessageChannelJoinEvent(from: decoder))
+                self = try .messageChannelJoin(MessageChannelJoinEvent(from: decoder))
             case "channel_leave":
-                self = .messageChannelLeave(try MessageChannelLeaveEvent(from: decoder))
+                self = try .messageChannelLeave(MessageChannelLeaveEvent(from: decoder))
             case "channel_name":
-                self = .messageChannelName(try MessageChannelNameEvent(from: decoder))
+                self = try .messageChannelName(MessageChannelNameEvent(from: decoder))
             case "channel_posting_permissions":
-                self = .messageChannelPostingPermissions(try MessageChannelPostingPermissionsEvent(from: decoder))
+                self = try .messageChannelPostingPermissions(MessageChannelPostingPermissionsEvent(from: decoder))
             case "channel_purpose":
-                self = .messageChannelPurpose(try MessageChannelPurposeEvent(from: decoder))
+                self = try .messageChannelPurpose(MessageChannelPurposeEvent(from: decoder))
             case "channel_topic":
-                self = .messageChannelTopic(try MessageChannelTopicEvent(from: decoder))
+                self = try .messageChannelTopic(MessageChannelTopicEvent(from: decoder))
             case "channel_unarchive":
-                self = .messageChannelUnarchive(try MessageChannelUnarchiveEvent(from: decoder))
+                self = try .messageChannelUnarchive(MessageChannelUnarchiveEvent(from: decoder))
             case "message_deleted":
-                self = .messageDeleted(try MessageDeletedEvent(from: decoder))
+                self = try .messageDeleted(MessageDeletedEvent(from: decoder))
             case "ekm_access_denied":
-                self = .messageEkmAccessDenied(try MessageEkmAccessDeniedEvent(from: decoder))
+                self = try .messageEkmAccessDenied(MessageEkmAccessDeniedEvent(from: decoder))
             case "file_share":
-                self = .messageFileShare(try MessageFileShareEvent(from: decoder))
+                self = try .messageFileShare(MessageFileShareEvent(from: decoder))
             case "group_topic":
-                self = .messageGroupTopic(try MessageGroupTopicEvent(from: decoder))
+                self = try .messageGroupTopic(MessageGroupTopicEvent(from: decoder))
             case "me_message":
-                self = .messageMe(try MessageMeEvent(from: decoder))
+                self = try .messageMe(MessageMeEvent(from: decoder))
             case "message_replied":
-                self = .messageReplied(try MessageRepliedEvent(from: decoder))
+                self = try .messageReplied(MessageRepliedEvent(from: decoder))
             case "thread_broadcast":
-                self = .messageThreadBroadcast(try MessageThreadBroadcastEvent(from: decoder))
+                self = try .messageThreadBroadcast(MessageThreadBroadcastEvent(from: decoder))
             case nil:
                 // No subtype - regular message
-                self = .message(try MessageEvent(from: decoder))
-            case .some(let unknownSubtype):
+                self = try .message(MessageEvent(from: decoder))
+            case let .some(unknownSubtype):
                 // Unknown subtype - mark as unsupported
                 self = .unsupported("message - \(unknownSubtype)")
             }
@@ -302,197 +302,197 @@ public enum EventType: Decodable, Hashable, Sendable {
     /// Returns the contained event as a SlackEvent
     public var payload: (any SlackEvent)? {
         switch self {
-        case .appHomeOpened(let event):
-            return event
-        case .appMention(let event):
-            return event
-        case .appRateLimited(let event):
-            return event
-        case .appRequested(let event):
-            return event
-        case .appUninstalled(let event):
-            return event
-        case .callRejected(let event):
-            return event
-        case .channelArchive(let event):
-            return event
-        case .channelCreated(let event):
-            return event
-        case .channelDeleted(let event):
-            return event
-        case .channelHistoryChanged(let event):
-            return event
-        case .channelIdChanged(let event):
-            return event
-        case .channelLeft(let event):
-            return event
-        case .channelRename(let event):
-            return event
-        case .channelShared(let event):
-            return event
-        case .channelUnarchive(let event):
-            return event
-        case .channelUnshared(let event):
-            return event
-        case .dndUpdated(let event):
-            return event
-        case .dndUpdatedUser(let event):
-            return event
-        case .emailDomainChanged(let event):
-            return event
-        case .emojiChanged(let event):
-            return event
-        case .fileChange(let event):
-            return event
-        case .fileCreated(let event):
-            return event
-        case .fileDeleted(let event):
-            return event
-        case .filePublic(let event):
-            return event
-        case .fileShared(let event):
-            return event
-        case .fileUnshared(let event):
-            return event
-        case .goodbye(let event):
-            return event
-        case .gridMigrationFinished(let event):
-            return event
-        case .gridMigrationStarted(let event):
-            return event
-        case .groupArchive(let event):
-            return event
-        case .groupClose(let event):
-            return event
-        case .groupDeleted(let event):
-            return event
-        case .groupHistoryChanged(let event):
-            return event
-        case .groupLeft(let event):
-            return event
-        case .groupOpen(let event):
-            return event
-        case .groupRename(let event):
-            return event
-        case .groupUnarchive(let event):
-            return event
-        case .imClose(let event):
-            return event
-        case .imCreated(let event):
-            return event
-        case .imHistoryChanged(let event):
-            return event
-        case .imOpen(let event):
-            return event
-        case .inviteRequested(let event):
-            return event
-        case .linkShared(let event):
-            return event
-        case .memberJoinedChannel(let event):
-            return event
-        case .memberLeftChannel(let event):
-            return event
-        case .messageBot(let event):
-            return event
-        case .messageChanged(let event):
-            return event
-        case .messageChannelArchive(let event):
-            return event
-        case .messageChannelJoin(let event):
-            return event
-        case .messageChannelLeave(let event):
-            return event
-        case .messageChannelName(let event):
-            return event
-        case .messageChannelPostingPermissions(let event):
-            return event
-        case .messageChannelPurpose(let event):
-            return event
-        case .messageChannelTopic(let event):
-            return event
-        case .messageChannelUnarchive(let event):
-            return event
-        case .messageDeleted(let event):
-            return event
-        case .messageEkmAccessDenied(let event):
-            return event
-        case .message(let event):
-            return event
-        case .messageFileShare(let event):
-            return event
-        case .messageGroupTopic(let event):
-            return event
-        case .messageMe(let event):
-            return event
-        case .messageReplied(let event):
-            return event
-        case .messageThreadBroadcast(let event):
-            return event
-        case .pinAdded(let event):
-            return event
-        case .pinRemoved(let event):
-            return event
-        case .reactionAdded(let event):
-            return event
-        case .reactionRemoved(let event):
-            return event
-        case .scopeDenied(let event):
-            return event
-        case .scopeGranted(let event):
-            return event
-        case .starAdded(let event):
-            return event
-        case .starRemoved(let event):
-            return event
-        case .subteamCreated(let event):
-            return event
-        case .subteamMembersChanged(let event):
-            return event
-        case .subteamSelfAdded(let event):
-            return event
-        case .subteamSelfRemoved(let event):
-            return event
-        case .subteamUpdated(let event):
-            return event
-        case .teamAccessGranted(let event):
-            return event
-        case .teamAccessRevoked(let event):
-            return event
-        case .teamDomainChange(let event):
-            return event
-        case .teamJoin(let event):
-            return event
-        case .teamRename(let event):
-            return event
-        case .tokensRevoked(let event):
-            return event
-        case .userChange(let event):
-            return event
-        case .userHuddleChanged(let event):
-            return event
-        case .userProfileChanged(let event):
-            return event
-        case .userStatusChanged(let event):
-            return event
-        case .workflowDeleted(let event):
-            return event
-        case .workflowPublished(let event):
-            return event
-        case .workflowStepDeleted(let event):
-            return event
-        case .workflowStepExecute(let event):
-            return event
-        case .workflowUnpublished(let event):
-            return event
+        case let .appHomeOpened(event):
+            event
+        case let .appMention(event):
+            event
+        case let .appRateLimited(event):
+            event
+        case let .appRequested(event):
+            event
+        case let .appUninstalled(event):
+            event
+        case let .callRejected(event):
+            event
+        case let .channelArchive(event):
+            event
+        case let .channelCreated(event):
+            event
+        case let .channelDeleted(event):
+            event
+        case let .channelHistoryChanged(event):
+            event
+        case let .channelIdChanged(event):
+            event
+        case let .channelLeft(event):
+            event
+        case let .channelRename(event):
+            event
+        case let .channelShared(event):
+            event
+        case let .channelUnarchive(event):
+            event
+        case let .channelUnshared(event):
+            event
+        case let .dndUpdated(event):
+            event
+        case let .dndUpdatedUser(event):
+            event
+        case let .emailDomainChanged(event):
+            event
+        case let .emojiChanged(event):
+            event
+        case let .fileChange(event):
+            event
+        case let .fileCreated(event):
+            event
+        case let .fileDeleted(event):
+            event
+        case let .filePublic(event):
+            event
+        case let .fileShared(event):
+            event
+        case let .fileUnshared(event):
+            event
+        case let .goodbye(event):
+            event
+        case let .gridMigrationFinished(event):
+            event
+        case let .gridMigrationStarted(event):
+            event
+        case let .groupArchive(event):
+            event
+        case let .groupClose(event):
+            event
+        case let .groupDeleted(event):
+            event
+        case let .groupHistoryChanged(event):
+            event
+        case let .groupLeft(event):
+            event
+        case let .groupOpen(event):
+            event
+        case let .groupRename(event):
+            event
+        case let .groupUnarchive(event):
+            event
+        case let .imClose(event):
+            event
+        case let .imCreated(event):
+            event
+        case let .imHistoryChanged(event):
+            event
+        case let .imOpen(event):
+            event
+        case let .inviteRequested(event):
+            event
+        case let .linkShared(event):
+            event
+        case let .memberJoinedChannel(event):
+            event
+        case let .memberLeftChannel(event):
+            event
+        case let .messageBot(event):
+            event
+        case let .messageChanged(event):
+            event
+        case let .messageChannelArchive(event):
+            event
+        case let .messageChannelJoin(event):
+            event
+        case let .messageChannelLeave(event):
+            event
+        case let .messageChannelName(event):
+            event
+        case let .messageChannelPostingPermissions(event):
+            event
+        case let .messageChannelPurpose(event):
+            event
+        case let .messageChannelTopic(event):
+            event
+        case let .messageChannelUnarchive(event):
+            event
+        case let .messageDeleted(event):
+            event
+        case let .messageEkmAccessDenied(event):
+            event
+        case let .message(event):
+            event
+        case let .messageFileShare(event):
+            event
+        case let .messageGroupTopic(event):
+            event
+        case let .messageMe(event):
+            event
+        case let .messageReplied(event):
+            event
+        case let .messageThreadBroadcast(event):
+            event
+        case let .pinAdded(event):
+            event
+        case let .pinRemoved(event):
+            event
+        case let .reactionAdded(event):
+            event
+        case let .reactionRemoved(event):
+            event
+        case let .scopeDenied(event):
+            event
+        case let .scopeGranted(event):
+            event
+        case let .starAdded(event):
+            event
+        case let .starRemoved(event):
+            event
+        case let .subteamCreated(event):
+            event
+        case let .subteamMembersChanged(event):
+            event
+        case let .subteamSelfAdded(event):
+            event
+        case let .subteamSelfRemoved(event):
+            event
+        case let .subteamUpdated(event):
+            event
+        case let .teamAccessGranted(event):
+            event
+        case let .teamAccessRevoked(event):
+            event
+        case let .teamDomainChange(event):
+            event
+        case let .teamJoin(event):
+            event
+        case let .teamRename(event):
+            event
+        case let .tokensRevoked(event):
+            event
+        case let .userChange(event):
+            event
+        case let .userHuddleChanged(event):
+            event
+        case let .userProfileChanged(event):
+            event
+        case let .userStatusChanged(event):
+            event
+        case let .workflowDeleted(event):
+            event
+        case let .workflowPublished(event):
+            event
+        case let .workflowStepDeleted(event):
+            event
+        case let .workflowStepExecute(event):
+            event
+        case let .workflowUnpublished(event):
+            event
         case .unsupported:
-            return nil
+            nil
         }
     }
 
     private enum CodingKeys: String, CodingKey {
         case type
     }
-    
+
     private enum MessageSubtypeCodingKeys: String, CodingKey {
         case subtype
     }

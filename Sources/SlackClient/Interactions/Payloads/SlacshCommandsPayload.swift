@@ -19,30 +19,30 @@ public struct SlashCommandsPayload: Decodable, Hashable, Sendable {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.command = try container.decode(String.self, forKey: .command)
-        self.text = try container.decode(String.self, forKey: .text)
-        self.responseUrl = try container.decode(URL.self, forKey: .responseUrl)
-        self.triggerId = try container.decode(String.self, forKey: .triggerId)
-        self.userId = try container.decode(String.self, forKey: .userId)
-        self.userName = try container.decode(String.self, forKey: .userName)
-        self.channelId = try container.decode(String.self, forKey: .channelId)
-        self.channelName = try container.decode(String.self, forKey: .channelName)
-        self.teamDomain = try container.decode(String.self, forKey: .teamDomain)
-        self.teamId = try container.decode(String.self, forKey: .teamId)
-        self.enterpriseId = try container.decodeIfPresent(String.self, forKey: .enterpriseId)
-        self.enterpriseName = try container.decodeIfPresent(String.self, forKey: .enterpriseName)
+        command = try container.decode(String.self, forKey: .command)
+        text = try container.decode(String.self, forKey: .text)
+        responseUrl = try container.decode(URL.self, forKey: .responseUrl)
+        triggerId = try container.decode(String.self, forKey: .triggerId)
+        userId = try container.decode(String.self, forKey: .userId)
+        userName = try container.decode(String.self, forKey: .userName)
+        channelId = try container.decode(String.self, forKey: .channelId)
+        channelName = try container.decode(String.self, forKey: .channelName)
+        teamDomain = try container.decode(String.self, forKey: .teamDomain)
+        teamId = try container.decode(String.self, forKey: .teamId)
+        enterpriseId = try container.decodeIfPresent(String.self, forKey: .enterpriseId)
+        enterpriseName = try container.decodeIfPresent(String.self, forKey: .enterpriseName)
         // I found this is being boolean in string :)
         do {
-            self.isEnterpriseInstall = try container.decode(Bool.self, forKey: .isEnterpriseInstall)
+            isEnterpriseInstall = try container.decode(Bool.self, forKey: .isEnterpriseInstall)
         } catch {
             let isEnterpriseInstall = try container.decodeIfPresent(String.self, forKey: .isEnterpriseInstall)
             self.isEnterpriseInstall = switch isEnterpriseInstall {
             case "true": true
             case "false": false
-            default: self.enterpriseId != nil // If enterpriseId is found, it'd be true
+            default: enterpriseId != nil // If enterpriseId is found, it'd be true
             }
         }
-        self.apiAppId = try container.decode(String.self, forKey: .apiAppId)
+        apiAppId = try container.decode(String.self, forKey: .apiAppId)
     }
 
     private enum CodingKeys: String, CodingKey {

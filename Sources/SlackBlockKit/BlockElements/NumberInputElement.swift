@@ -10,7 +10,7 @@ public struct NumberInputElement: Codable, Hashable, Sendable {
     public let dispatchActionConfig: DispatchActionConfigurationObject?
     public let focusOnLoad: Bool?
     public let placeholder: TextObject?
-    
+
     public init(
         isDecimalAllowed: Bool,
         actionId: String? = nil,
@@ -21,7 +21,7 @@ public struct NumberInputElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "number_input"
+        type = "number_input"
         self.isDecimalAllowed = isDecimalAllowed
         self.actionId = actionId
         self.initialValue = initialValue
@@ -31,7 +31,7 @@ public struct NumberInputElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case isDecimalAllowed = "is_decimal_allowed"

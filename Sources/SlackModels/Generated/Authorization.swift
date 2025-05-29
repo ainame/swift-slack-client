@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Authorization`.
@@ -42,6 +42,7 @@ public struct Authorization: Codable, Hashable, Sendable {
         self.teamId = teamId
         self.userId = userId
     }
+
     public enum CodingKeys: String, CodingKey {
         case enterpriseId = "enterprise_id"
         case isBot = "is_bot"

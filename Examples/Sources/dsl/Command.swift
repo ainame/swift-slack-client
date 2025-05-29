@@ -1,7 +1,7 @@
 import Foundation
 import OpenAPIAsyncHTTPClient
-import SlackClient
 import SlackBlockKitDSL
+import SlackClient
 
 @main
 struct Command {
@@ -17,8 +17,8 @@ struct Command {
             configuration: .init(
                 userAgent: "SwiftBot",
                 appLevelToken: appLevelToken,
-                accessToken: accessToken
-            )
+                accessToken: accessToken,
+            ),
         )
 
         let router = SocketModeMessageRouter()
@@ -26,10 +26,10 @@ struct Command {
         // Handle global shortcuts
         router.onGlboalShortcut("run-something") {
             context,
-            payload in
+                payload in
             // Create a modal using the new SwiftUI-like DSL
             let view = Modal(
-                title: Text("Welcome!")
+                title: Text("Welcome!"),
             ) {
                 Header {
                     Text("Quick Form")
@@ -50,7 +50,7 @@ struct Command {
                 }
 
                 Input {
-                    StaticSelect() {
+                    StaticSelect {
                         Option("Red").value("red")
                         Option("Green").value("green")
                         Option("Blue").value("blue")
@@ -105,7 +105,7 @@ struct Command {
                     Button("Cancel")
                         .actionId("cancel")
                         .style(.danger)
-                    
+
                     Button("Submit")
                         .actionId("submit")
                         .style(.primary)
@@ -119,15 +119,15 @@ struct Command {
             let response = try await context.client.viewsOpen(
                 .init(body: .json(.init(
                     view: view,
-                    triggerId: payload.triggerId
-                )))
+                    triggerId: payload.triggerId,
+                ))),
             )
 
             print("Modal opened: \(response)")
         }
 
         // Handle app home opened events
-        router.onEvent(AppHomeOpenedEvent.self) { context, envelope, event in
+        router.onEvent(AppHomeOpenedEvent.self) { context, _, event in
             // Create a home tab view using the new DSL
             let view = HomeTab {
                 Header {
@@ -140,7 +140,7 @@ struct Command {
                 .accessory(
                     Button("Get Started")
                         .actionId("get_started")
-                        .style(.primary)
+                        .style(.primary),
                 )
 
                 Divider()
@@ -156,10 +156,10 @@ struct Command {
                     Button("View Analytics")
                         .actionId("view_analytics")
                         .style(.primary)
-                    
+
                     Button("Create Report")
                         .actionId("create_report")
-                    
+
                     Button("Settings")
                         .actionId("settings")
                 }
@@ -168,7 +168,7 @@ struct Command {
                     Text("Last updated: just now")
                     ContextImage(
                         imageUrl: URL(string: "https://api.slack.com/img/blocks/bkb_template_images/appHomeNewUser.png")!,
-                        altText: "App Home"
+                        altText: "App Home",
                     )
                 }
             }
@@ -178,8 +178,8 @@ struct Command {
             let response = try await context.client.viewsPublish(
                 .init(body: .json(.init(
                     userId: event.user ?? "",
-                    view: view
-                )))
+                    view: view,
+                ))),
             )
 
             print("Home tab published: \(response)")
@@ -189,25 +189,25 @@ struct Command {
         router.onBlockAction("quick_form_modal") { context, payload in
             // Create a success message modal
             let view = Modal(
-                title: Text("Complete ✅")
+                title: Text("Complete ✅"),
             ) {
                 Header {
                     Text("Success! 🎉")
                 }
-                
+
                 Section {
                     Text("Your form has been submitted successfully.").style(.plainText)
                 }
-                
+
                 Divider()
-                
+
                 Section {
                     Text("*What happens next?*").style(.mrkdwn)
                     Text("• Your data has been saved").style(.mrkdwn)
                     Text("• You'll receive a confirmation email").style(.mrkdwn)
                     Text("• Our team will review your submission").style(.mrkdwn)
                 }
-                
+
                 Actions {
                     Button("Done")
                         .actionId("done")
@@ -217,8 +217,8 @@ struct Command {
                                 title: Text("Are you sure?"),
                                 text: Text("This will close the form."),
                                 confirm: Text("Yes, close it"),
-                                deny: Text("Cancel")
-                            )
+                                deny: Text("Cancel"),
+                            ),
                         )
                 }
             }
@@ -229,15 +229,15 @@ struct Command {
             let response = try await context.client.viewsUpdate(
                 .init(body: .json(.init(
                     view: view,
-                    viewId: payload.container.viewId
-                )))
+                    viewId: payload.container.viewId,
+                ))),
             )
 
             print("View updated: \(response)")
         }
 
         // Handle button actions
-        router.onBlockAction("done") { context, payload in
+        router.onBlockAction("done") { _, _ in
             // Close the modal
             print("Done button clicked, closing modal")
         }
@@ -246,7 +246,7 @@ struct Command {
         router.onBlockAction("get_started") { context, payload in
             // Create an advanced form modal showcasing option groups
             let view = Modal(
-                title: Text("Advanced Settings")
+                title: Text("Advanced Settings"),
             ) {
                 Header {
                     Text("Configure Your Preferences")
@@ -303,7 +303,7 @@ struct Command {
                 Actions {
                     Button("Cancel")
                         .actionId("cancel_advanced")
-                    
+
                     Button("Save Settings")
                         .actionId("save_advanced")
                         .style(.primary)
@@ -316,8 +316,8 @@ struct Command {
             let response = try await context.client.viewsOpen(
                 .init(body: .json(.init(
                     view: view,
-                    triggerId: payload.triggerId
-                )))
+                    triggerId: payload.triggerId,
+                ))),
             )
 
             print("Advanced modal opened: \(response)")

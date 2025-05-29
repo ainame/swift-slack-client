@@ -8,7 +8,7 @@ public struct ViewSubmissionPayload: InteractivePayloadProtocol, Decodable, Send
     public let user: User
     public let view: ViewType
     public let apiAppId: String
-    
+
     private enum CodingKeys: String, CodingKey {
         case _type = "type"
         case team

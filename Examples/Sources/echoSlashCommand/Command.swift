@@ -14,18 +14,18 @@ struct EchoSlashCommand {
         }
 
         print("🚀 Starting Echo Slash Command Server...")
-        
+
         let slack = Slack(
             transport: AsyncHTTPClientTransport(),
             configuration: .init(
                 userAgent: "EchoSlashCommand/1.0",
                 appLevelToken: appLevelToken,
-                accessToken: accessToken
-            )
+                accessToken: accessToken,
+            ),
         )
 
         let router = SocketModeMessageRouter()
-        
+
         // Handle /echo slash command
         router.onSlashCommand("/echo") { context, payload in
             print("📨 Received /echo command:")
@@ -34,20 +34,20 @@ struct EchoSlashCommand {
             print("   Channel: #\(payload.channelName)")
             print("   User ID: \(payload.userId)")
             print("   Channel ID: \(payload.channelId)")
-            
+
             let text = payload.text.trimmingCharacters(in: .whitespacesAndNewlines)
-            
+
             let responseText: String
             let responseType: String
-            
+
             if text.isEmpty {
                 responseText = """
                 👋 Hello <@\(payload.userId)>! I'm an echo bot.
-                
+
                 **Usage:** `/echo <message>`
-                
+
                 I'll echo your message back to the channel for everyone to see!
-                
+
                 **Examples:**
                 • `/echo Hello, World!`
                 • `/echo Testing 123`
@@ -57,7 +57,7 @@ struct EchoSlashCommand {
                 responseText = "🔊 <@\(payload.userId)> says: \(text)"
                 responseType = "in_channel" // Visible to everyone
             }
-            
+
             // Send response
             do {
                 if responseType == "in_channel" {
@@ -67,10 +67,10 @@ struct EchoSlashCommand {
                             channel: payload.channelId,
                             text: responseText,
                             unfurlLinks: false,
-                            unfurlMedia: false
-                        ))
+                            unfurlMedia: false,
+                        )),
                     )
-                    
+
                     let result = try response.ok.body.json
                     print("✅ Echo sent to channel: \(result.ts ?? "unknown timestamp")")
                 } else {
@@ -79,24 +79,24 @@ struct EchoSlashCommand {
                         body: .json(.init(
                             channel: payload.channelId,
                             user: payload.userId,
-                            text: responseText
-                        ))
+                            text: responseText,
+                        )),
                     )
-                    
+
                     _ = try response.ok.body.json
                     print("✅ Help message sent privately to user")
                 }
             } catch {
                 print("❌ Error sending response: \(error)")
-                
+
                 // Try to send an error message to the user
                 do {
                     _ = try await context.client.chatPostEphemeral(
                         body: .json(.init(
                             channel: payload.channelId,
                             user: payload.userId,
-                            text: "❌ Sorry, I encountered an error processing your command. Please try again."
-                        ))
+                            text: "❌ Sorry, I encountered an error processing your command. Please try again.",
+                        )),
                     )
                     print("✅ Error message sent to user")
                 } catch {
@@ -104,60 +104,59 @@ struct EchoSlashCommand {
                 }
             }
         }
-        
+
         // Handle /echo-private slash command (always responds privately)
         router.onSlashCommand("/echo-private") { context, payload in
             print("📨 Received /echo-private command:")
             print("   Text: '\(payload.text)'")
             print("   User: @\(payload.userName)")
-            
+
             let text = payload.text.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            let responseText: String
-            if text.isEmpty {
-                responseText = """
+
+            let responseText = if text.isEmpty {
+                """
                 🤫 This is the private echo command!
-                
+
                 **Usage:** `/echo-private <message>`
-                
+
                 I'll echo your message back, but only you can see it.
                 """
             } else {
-                responseText = "🤫 Your private echo: \(text)"
+                "🤫 Your private echo: \(text)"
             }
-            
+
             // Always send ephemeral response
             do {
                 let response = try await context.client.chatPostEphemeral(
                     body: .json(.init(
                         channel: payload.channelId,
                         user: payload.userId,
-                        text: responseText
-                    ))
+                        text: responseText,
+                    )),
                 )
-                
+
                 _ = try response.ok.body.json
                 print("✅ Private echo sent to user")
             } catch {
                 print("❌ Error sending private echo: \(error)")
             }
         }
-        
+
         // Debug: Log all socket mode messages
-        router.onSocketModeMessage { context, envelope in
+        router.onSocketModeMessage { _, envelope in
             print("🔍 Socket Mode message:")
             print("   Type: \(envelope._type)")
             print("   Request ID: \(envelope.envelopeId)")
-            
+
             // Log slash command details
             if case let .slashCommands(payload) = envelope.payload {
                 print("   Slash Command: \(payload.command)")
                 print("   Text: '\(payload.text)'")
             }
-            
+
             // Note: Socket Mode acknowledgment is handled automatically by the framework
         }
-        
+
         await slack.addSocketModeMessageRouter(router)
 
         print("🔌 Connecting to Slack via Socket Mode...")
@@ -166,7 +165,7 @@ struct EchoSlashCommand {
         print("   • Private echo: /echo-private Secret message")
         print("   • Get help: /echo (without text)")
         print("   Press Ctrl+C to stop the server")
-        
+
         try await slack.runInSocketMode()
     }
 }

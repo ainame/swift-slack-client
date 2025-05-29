@@ -1,13 +1,13 @@
 #if Events
-import Testing
-@testable import SlackClient
 import Foundation
+@testable import SlackClient
+import Testing
 
 struct EventTypeTests {
     // MARK: - Regular Message Tests
 
     @Test
-    func testRegularMessageWithoutSubtype() throws {
+    func regularMessageWithoutSubtype() throws {
         let json = """
         {
             "type": "message",
@@ -22,7 +22,7 @@ struct EventTypeTests {
         let eventType = try decoder.decode(EventType.self, from: json)
 
         // Should decode as regular message
-        if case .message(let event) = eventType {
+        if case let .message(event) = eventType {
             #expect(event.text == "Hello, world!")
             #expect(event.channel == "C1234567890")
             #expect(event.user == "U1234567890")
@@ -34,7 +34,7 @@ struct EventTypeTests {
     // MARK: - Known Subtype Tests
 
     @Test
-    func testBotMessage() throws {
+    func botMessage() throws {
         let json = """
         {
             "type": "message",
@@ -50,7 +50,7 @@ struct EventTypeTests {
         let eventType = try decoder.decode(EventType.self, from: json)
 
         // Should decode as bot message
-        if case .messageBot(let event) = eventType {
+        if case let .messageBot(event) = eventType {
             #expect(event.text == "Bot says hello")
             #expect(event.botId == "B1234567890")
         } else {
@@ -87,7 +87,7 @@ struct EventTypeTests {
     }
 
     @Test
-    func testChannelJoinMessage() throws {
+    func channelJoinMessage() throws {
         let json = """
         {
             "type": "message",
@@ -113,7 +113,7 @@ struct EventTypeTests {
     // MARK: - Unknown Subtype Tests
 
     @Test
-    func testUnknownSubtype() throws {
+    func unknownSubtype() throws {
         let json = """
         {
             "type": "message",
@@ -128,7 +128,7 @@ struct EventTypeTests {
         let eventType = try decoder.decode(EventType.self, from: json)
 
         // Should decode as unsupported with type and subtype
-        if case .unsupported(let typeInfo) = eventType {
+        if case let .unsupported(typeInfo) = eventType {
             #expect(typeInfo == "message - new_experimental_subtype")
         } else {
             Issue.record("Expected .unsupported case with 'message - new_experimental_subtype', got \(eventType)")
@@ -136,7 +136,7 @@ struct EventTypeTests {
     }
 
     @Test
-    func testEmptySubtype() throws {
+    func emptySubtype() throws {
         let json = """
         {
             "type": "message",
@@ -151,7 +151,7 @@ struct EventTypeTests {
         let eventType = try decoder.decode(EventType.self, from: json)
 
         // Empty subtype should be treated as unknown
-        if case .unsupported(let typeInfo) = eventType {
+        if case let .unsupported(typeInfo) = eventType {
             #expect(typeInfo == "message - ")
         } else {
             Issue.record("Expected .unsupported case with 'message - ', got \(eventType)")
@@ -161,7 +161,7 @@ struct EventTypeTests {
     // MARK: - Edge Case Tests
 
     @Test
-    func testMessageWithNullSubtype() throws {
+    func messageWithNullSubtype() throws {
         let json = """
         {
             "type": "message",
@@ -176,7 +176,7 @@ struct EventTypeTests {
         let eventType = try decoder.decode(EventType.self, from: json)
 
         // null subtype should be treated as no subtype
-        if case .message(let event) = eventType {
+        if case let .message(event) = eventType {
             #expect(event.text == "Message with null subtype")
         } else {
             Issue.record("Expected .message case for null subtype, got \(eventType)")
@@ -184,7 +184,7 @@ struct EventTypeTests {
     }
 
     @Test
-    func testMessageWithInvalidSubtypeType() throws {
+    func messageWithInvalidSubtypeType() throws {
         let json = """
         {
             "type": "message",
@@ -206,7 +206,7 @@ struct EventTypeTests {
     // MARK: - Multiple Subtype Tests
 
     @Test
-    func testAllMessageSubtypes() throws {
+    func allMessageSubtypes() throws {
         let subtypeTests: [(subtype: String, expectedCase: String)] = [
             ("bot_message", "messageBot"),
             ("message_changed", "messageChanged"),
@@ -224,7 +224,7 @@ struct EventTypeTests {
             ("message_replied", "messageReplied"),
             ("thread_broadcast", "messageThreadBroadcast"),
             ("ekm_access_denied", "messageEkmAccessDenied"),
-            ("group_topic", "messageGroupTopic")
+            ("group_topic", "messageGroupTopic"),
         ]
 
         for (subtype, expectedCase) in subtypeTests {
@@ -253,7 +253,7 @@ struct EventTypeTests {
     // MARK: - Payload Extraction Tests
 
     @Test
-    func testMessagePayloadExtraction() throws {
+    func messagePayloadExtraction() throws {
         let json = """
         {
             "type": "message",
@@ -278,7 +278,7 @@ struct EventTypeTests {
     }
 
     @Test
-    func testUnsupportedPayloadExtraction() throws {
+    func unsupportedPayloadExtraction() throws {
         let json = """
         {
             "type": "message",

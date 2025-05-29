@@ -9,7 +9,7 @@ public struct ButtonElement: Codable, Hashable, Sendable {
     public let style: ButtonStyle?
     public let confirm: ConfirmationDialogObject?
     public let accessibilityLabel: String?
-    
+
     public init(
         text: TextObject,
         actionId: String? = nil,
@@ -19,7 +19,7 @@ public struct ButtonElement: Codable, Hashable, Sendable {
         confirm: ConfirmationDialogObject? = nil,
         accessibilityLabel: String? = nil
     ) {
-        self.type = "button"
+        type = "button"
         self.text = text
         self.actionId = actionId
         self.url = url
@@ -28,7 +28,7 @@ public struct ButtonElement: Codable, Hashable, Sendable {
         self.confirm = confirm
         self.accessibilityLabel = accessibilityLabel
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case text
@@ -42,6 +42,6 @@ public struct ButtonElement: Codable, Hashable, Sendable {
 }
 
 public enum ButtonStyle: String, Codable, Hashable, Sendable {
-    case primary = "primary"
-    case danger = "danger"
+    case primary
+    case danger
 }

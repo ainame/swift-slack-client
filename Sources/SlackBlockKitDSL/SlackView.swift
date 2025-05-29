@@ -55,19 +55,19 @@ public protocol SlackHomeTabView: SlackView {
 
 // MARK: - Default Implementations
 
-public extension SlackModalView {
+extension SlackModalView {
     // Provide defaults for all optional properties
-    var submit: TextObject? { nil }
-    var close: TextObject? { nil }
-    var callbackId: String? { nil }
-    var clearOnClose: Bool? { nil }
-    var notifyOnClose: Bool? { nil }
-    var externalId: String? { nil }
-    var submitDisabled: Bool? { nil }
-    var privateMetadata: String? { nil }
+    public var submit: TextObject? { nil }
+    public var close: TextObject? { nil }
+    public var callbackId: String? { nil }
+    public var clearOnClose: Bool? { nil }
+    public var notifyOnClose: Bool? { nil }
+    public var externalId: String? { nil }
+    public var submitDisabled: Bool? { nil }
+    public var privateMetadata: String? { nil }
 
     /// Builds this modal view into a ModalView
-    func build() -> ModalView {
+    public func build() -> ModalView {
         ModalView(
             title: title,
             blocks: blocks,
@@ -78,23 +78,23 @@ public extension SlackModalView {
             clearOnClose: clearOnClose,
             notifyOnClose: notifyOnClose,
             externalId: externalId,
-            submitDisabled: submitDisabled
+            submitDisabled: submitDisabled,
         )
     }
 }
 
-public extension SlackHomeTabView {
+extension SlackHomeTabView {
     // Provide defaults for all optional properties
-    var externalId: String? { nil }
-    var privateMetadata: String? { nil }
+    public var externalId: String? { nil }
+    public var privateMetadata: String? { nil }
 
     /// Builds this home tab view into a HomeTabView
-    func build() -> HomeTabView {
+    public func build() -> HomeTabView {
         HomeTabView(
             blocks: blocks,
             privateMetadata: privateMetadata,
             callbackId: nil,
-            externalId: externalId
+            externalId: externalId,
         )
     }
 }
@@ -103,7 +103,7 @@ public extension SlackHomeTabView {
 
 /// Extension to allow embedding SlackViews within other views
 extension BlockBuilder {
-    public static func buildExpression<V: SlackView>(_ expression: V) -> [BlockType] {
+    public static func buildExpression(_ expression: some SlackView) -> [BlockType] {
         expression.blocks
     }
 }

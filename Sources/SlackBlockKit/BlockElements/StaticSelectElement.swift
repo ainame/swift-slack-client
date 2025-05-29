@@ -9,7 +9,7 @@ public struct StaticSelectElement: Codable, Hashable, Sendable {
     public let confirm: ConfirmationDialogObject?
     public let focusOnLoad: Bool?
     public let placeholder: TextObject?
-    
+
     public init(
         options: [OptionObject]? = nil,
         optionGroups: [OptionGroupObject]? = nil,
@@ -19,7 +19,7 @@ public struct StaticSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "static_select"
+        type = "static_select"
         self.options = options
         self.optionGroups = optionGroups
         self.actionId = actionId
@@ -28,7 +28,7 @@ public struct StaticSelectElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case options

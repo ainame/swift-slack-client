@@ -18,9 +18,9 @@ struct SocketModeDisconnectMessage: Decodable {
 
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self._type = try container.decode(String.self, forKey: ._type)
-        self.reason = try container.decode(String.self, forKey: .reason)
-        self.debugInfo = try container.decode(SocketModeDisconnectMessage.DebugInfo.self, forKey: .debugInfo)
+        _type = try container.decode(String.self, forKey: ._type)
+        reason = try container.decode(String.self, forKey: .reason)
+        debugInfo = try container.decode(SocketModeDisconnectMessage.DebugInfo.self, forKey: .debugInfo)
     }
 }
 #endif

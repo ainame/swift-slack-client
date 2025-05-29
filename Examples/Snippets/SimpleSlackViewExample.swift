@@ -5,7 +5,7 @@ struct SimpleGreetingModal: SlackModalView {
     var title: TextObject {
         "Hello World".asTextObject()
     }
-    
+
     var body: [BlockType] {
         Section {
             Text("Welcome to Slack!")
@@ -16,33 +16,33 @@ struct SimpleGreetingModal: SlackModalView {
 // More complex modal with all the bells and whistles
 struct FeedbackModal: SlackModalView {
     let userName: String
-    
+
     var title: TextObject {
         "Feedback Form".asTextObject()
     }
-    
+
     var submit: TextObject? {
         "Submit Feedback".asTextObject()
     }
-    
+
     var close: TextObject? {
         "Cancel".asTextObject()
     }
-    
+
     var callbackId: String? {
         "feedback_form"
     }
-    
+
     var notifyOnClose: Bool? {
         true
     }
-    
+
     var body: [BlockType] {
         Section {
             Text("Hi \(userName), we'd love to hear your feedback!")
                 .style(.mrkdwn)
         }
-        
+
         Input(
             element: {
                 PlainTextInput()
@@ -52,9 +52,9 @@ struct FeedbackModal: SlackModalView {
             },
             label: {
                 Text("Your Feedback")
-            }
+            },
         )
-        
+
         Input(
             element: {
                 StaticSelect {
@@ -69,7 +69,7 @@ struct FeedbackModal: SlackModalView {
             },
             label: {
                 Text("How satisfied are you?")
-            }
+            },
         )
     }
 }
@@ -77,29 +77,29 @@ struct FeedbackModal: SlackModalView {
 // Simple home tab
 struct WelcomeHomeTab: SlackHomeTabView {
     let userName: String
-    
+
     var body: [BlockType] {
         Header {
             Text("Welcome, \(userName)!")
         }
-        
+
         Section {
             Text("Here's what's happening today:")
         }
-        
+
         Divider()
-        
+
         Section {
             Text("📅 3 meetings scheduled")
             Text("📧 12 new messages")
             Text("✅ 5 tasks completed")
         }
-        
+
         Actions {
             Button("View Calendar")
                 .actionId("view_calendar")
                 .style(.primary)
-            
+
             Button("Check Messages")
                 .actionId("check_messages")
         }
@@ -112,12 +112,12 @@ func demonstrateSimpleUsage() {
     let greeting = SimpleGreetingModal()
     let greetingModal = greeting.build()
     print("Modal title: \(greetingModal.title.text)")
-    
+
     // Complex modal
     let feedback = FeedbackModal(userName: "Alice")
     let feedbackModal = feedback.build()
     print("Modal has submit button: \(feedbackModal.submit != nil)")
-    
+
     // Home tab
     let home = WelcomeHomeTab(userName: "Bob")
     let homeTab = home.build()

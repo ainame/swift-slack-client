@@ -1,10 +1,9 @@
 import Foundation
-import Testing
-@testable import SlackBlockKitDSL
 import SlackBlockKit
+@testable import SlackBlockKitDSL
+import Testing
 
 struct SlackViewTests {
-
     // Test native for-in loop
     @Test func nativeForInLoop() {
         struct TestView: SlackView {
@@ -28,7 +27,7 @@ struct SlackViewTests {
         #expect(blocks.count == 4) // 1 header + 3 sections
 
         // Check header
-        if case .header(let header) = blocks[0] {
+        if case let .header(header) = blocks[0] {
             #expect(header.text.text == "Fruit List")
         } else {
             Issue.record("First block should be header")
@@ -37,7 +36,7 @@ struct SlackViewTests {
         // Check sections
         let expectedFruits = ["Apple", "Banana", "Orange"]
         for (index, fruit) in expectedFruits.enumerated() {
-            if case .section(let section) = blocks[index + 1] {
+            if case let .section(section) = blocks[index + 1] {
                 #expect(section.text?.text == fruit)
             } else {
                 Issue.record("Block at index \(index + 1) should be section")
@@ -70,7 +69,7 @@ struct SlackViewTests {
         // Check sections have correct numbering
         let expectedTexts = ["1. First", "2. Second", "3. Third"]
         for (index, expectedText) in expectedTexts.enumerated() {
-            if case .section(let section) = blocks[index + 1] {
+            if case let .section(section) = blocks[index + 1] {
                 #expect(section.text?.text == expectedText)
             } else {
                 Issue.record("Block at index \(index + 1) should be section")
@@ -102,13 +101,13 @@ struct SlackViewTests {
         #expect(blocks.count == 3) // 1 header + 2 even number sections
 
         // Check we only have even numbers
-        if case .section(let section1) = blocks[1] {
+        if case let .section(section1) = blocks[1] {
             #expect(section1.text?.text == "Even: 2")
         } else {
             Issue.record("Second block should be section for 2")
         }
 
-        if case .section(let section2) = blocks[2] {
+        if case let .section(section2) = blocks[2] {
             #expect(section2.text?.text == "Even: 4")
         } else {
             Issue.record("Third block should be section for 4")
@@ -120,7 +119,7 @@ struct SlackViewTests {
         struct TestView: SlackView {
             let categories = [
                 ("Fruits", ["Apple", "Banana"]),
-                ("Vegetables", ["Carrot", "Broccoli"])
+                ("Vegetables", ["Carrot", "Broccoli"]),
             ]
 
             var blocks: [BlockType] {
@@ -215,14 +214,15 @@ struct SlackViewTests {
 
         #expect(blocks.count == 3) // Header + sections for 2 and 4
 
-        if case .section(let section1) = blocks[1] {
+        if case let .section(section1) = blocks[1] {
             #expect(section1.text?.text == "Number: 2")
         }
 
-        if case .section(let section2) = blocks[2] {
+        if case let .section(section2) = blocks[2] {
             #expect(section2.text?.text == "Number: 4")
         }
     }
+
     // Test SlackModalView protocol
     @Test func modalViewProtocol() {
         struct TestModal: SlackModalView {
@@ -261,13 +261,13 @@ struct SlackViewTests {
         #expect(modalView.blocks.count == 2)
 
         // Verify blocks
-        if case .section(let section) = modalView.blocks[0] {
+        if case let .section(section) = modalView.blocks[0] {
             #expect(section.text?.text == "Welcome message for Alice")
         } else {
             Issue.record("First block should be section")
         }
 
-        if case .actions(let actions) = modalView.blocks[1] {
+        if case let .actions(actions) = modalView.blocks[1] {
             #expect(actions.elements.count == 2)
         } else {
             Issue.record("Second block should be actions")
@@ -302,7 +302,7 @@ struct SlackViewTests {
         #expect(homeTabView.externalId == "test_home_tab")
         #expect(homeTabView.blocks.count == 3) // 1 header + 2 sections
 
-        if case .header(let header) = homeTabView.blocks[0] {
+        if case let .header(header) = homeTabView.blocks[0] {
             #expect(header.text.text == "Home Tab")
         } else {
             Issue.record("First block should be header")

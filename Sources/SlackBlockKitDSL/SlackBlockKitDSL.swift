@@ -4,16 +4,16 @@ import SlackBlockKit
 // MARK: - Text DSL
 
 public struct Text: CompositionObject {
-    internal var text: String
+    var text: String
     private var style: TextStyle
     private var verbatim: Bool
     private var emoji: Bool
 
     public init(_ text: String) {
         self.text = text
-        self.style = .plainText
-        self.verbatim = false
-        self.emoji = true
+        style = .plainText
+        verbatim = false
+        emoji = true
     }
 
     public func style(_ style: TextStyle) -> Text {
@@ -37,9 +37,9 @@ public struct Text: CompositionObject {
     public func render() -> TextObject {
         switch style {
         case .plainText:
-            return TextObject(type: .plainText, text: text, emoji: emoji, verbatim: nil)
+            TextObject(type: .plainText, text: text, emoji: emoji, verbatim: nil)
         case .mrkdwn:
-            return TextObject(type: .mrkdwn, text: text, emoji: nil, verbatim: verbatim)
+            TextObject(type: .mrkdwn, text: text, emoji: nil, verbatim: verbatim)
         }
     }
 }
@@ -94,7 +94,7 @@ public struct Option: CompositionObject {
             text: text.render(),
             value: value ?? text.text,
             description: description?.render(),
-            url: url
+            url: url,
         )
     }
 }
@@ -111,12 +111,12 @@ public struct Section: BlockComponent {
         let texts = content()
         if texts.count == 1 {
             // If only one text, use it as the main text
-            self.text = texts.first
-            self.fields = nil
+            text = texts.first
+            fields = nil
         } else {
             // If multiple texts, use them as fields
-            self.text = nil
-            self.fields = texts
+            text = nil
+            fields = texts
         }
     }
 
@@ -124,7 +124,7 @@ public struct Section: BlockComponent {
         // Empty section for accessory-only use
     }
 
-    public func accessory<T: SectionAccessoryConvertible>(_ accessory: @autoclosure () -> T) -> Section {
+    public func accessory(_ accessory: @autoclosure () -> some SectionAccessoryConvertible) -> Section {
         var copy = self
         copy.accessory = accessory().asSectionAccessory()
         return copy
@@ -141,7 +141,7 @@ public struct Section: BlockComponent {
             text: text?.render(),
             fields: fields?.map { $0.render() },
             accessory: accessory,
-            blockId: blockId
+            blockId: blockId,
         ))
     }
 }
@@ -201,7 +201,7 @@ public struct Input<Element: InputElementConvertible>: BlockComponent {
             blockId: blockId,
             dispatchAction: dispatchAction,
             hint: hint?.render(),
-            optional: optional
+            optional: optional,
         ))
     }
 }
@@ -255,7 +255,7 @@ public struct Checkboxes: InputElementConvertible, ActionElementConvertible {
             actionId: actionId,
             initialOptions: initialOptions?.map { $0.render() },
             confirm: confirm?.render(),
-            focusOnLoad: focusOnLoad
+            focusOnLoad: focusOnLoad,
         ))
     }
 
@@ -265,7 +265,7 @@ public struct Checkboxes: InputElementConvertible, ActionElementConvertible {
             actionId: actionId,
             initialOptions: initialOptions?.map { $0.render() },
             confirm: confirm?.render(),
-            focusOnLoad: focusOnLoad
+            focusOnLoad: focusOnLoad,
         ))
     }
 }
@@ -347,7 +347,7 @@ public struct PlainTextInput: InputElementConvertible {
             maxLength: maxLength,
             dispatchActionConfig: dispatchActionConfig?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 }
@@ -415,7 +415,7 @@ public struct Button: ActionElementConvertible, SectionAccessoryConvertible {
             value: value,
             style: style,
             confirm: confirm?.render(),
-            accessibilityLabel: accessibilityLabel
+            accessibilityLabel: accessibilityLabel,
         ))
     }
 
@@ -427,7 +427,7 @@ public struct Button: ActionElementConvertible, SectionAccessoryConvertible {
             value: value,
             style: style,
             confirm: confirm?.render(),
-            accessibilityLabel: accessibilityLabel
+            accessibilityLabel: accessibilityLabel,
         ))
     }
 }
@@ -465,7 +465,7 @@ public struct ConfirmationDialog: CompositionObject {
             text: text.render(),
             confirm: confirm.render(),
             deny: deny.render(),
-            style: style
+            style: style,
         )
     }
 }
@@ -481,7 +481,7 @@ public struct DispatchActionConfig: CompositionObject {
 
     public func render() -> DispatchActionConfigurationObject {
         DispatchActionConfigurationObject(
-            triggerActionsOn: triggerActionsOn
+            triggerActionsOn: triggerActionsOn,
         )
     }
 }
@@ -505,7 +505,7 @@ public struct Actions: BlockComponent {
     public func render() -> BlockType {
         .actions(ActionsBlock(
             elements: elements,
-            blockId: blockId
+            blockId: blockId,
         ))
     }
 }
@@ -517,7 +517,7 @@ public struct Header: BlockComponent {
     private var blockId: String?
 
     public init(@TextBuilder content: () -> Text) {
-        self.text = content()
+        text = content()
     }
 
     public func blockId(_ id: String) -> Header {
@@ -529,7 +529,7 @@ public struct Header: BlockComponent {
     public func render() -> BlockType {
         .header(HeaderBlock(
             text: text.render(),
-            blockId: blockId
+            blockId: blockId,
         ))
     }
 }
@@ -559,7 +559,7 @@ public struct Context: BlockComponent {
     private var blockId: String?
 
     public init(@ContextElementBuilder content: () -> [ContextElementType]) {
-        self.elements = content()
+        elements = content()
     }
 
     public func blockId(_ id: String) -> Context {
@@ -571,7 +571,7 @@ public struct Context: BlockComponent {
     public func render() -> BlockType {
         .context(ContextBlock(
             elements: elements,
-            blockId: blockId
+            blockId: blockId,
         ))
     }
 }
@@ -590,7 +590,7 @@ public struct ContextImage {
     public func asContextElement() -> ContextElementType {
         .image(ImageElement(
             altText: altText,
-            imageUrl: imageUrl
+            imageUrl: imageUrl,
         ))
     }
 }
@@ -668,7 +668,7 @@ public struct Modal: ViewConvertible {
             callbackId: callbackId,
             clearOnClose: clearOnClose,
             notifyOnClose: notifyOnClose,
-            externalId: externalId
+            externalId: externalId,
         ))
     }
 }
@@ -776,7 +776,7 @@ public struct StaticSelect: InputElementConvertible, ActionElementConvertible, S
             initialOption: initialOption?.render(),
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -788,7 +788,7 @@ public struct StaticSelect: InputElementConvertible, ActionElementConvertible, S
             initialOption: initialOption?.render(),
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -800,7 +800,7 @@ public struct StaticSelect: InputElementConvertible, ActionElementConvertible, S
             initialOption: initialOption?.render(),
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 }
@@ -825,7 +825,7 @@ public struct OptionGroup {
     public func render() -> OptionGroupObject {
         OptionGroupObject(
             label: label.render(),
-            options: options.map { $0.render() }
+            options: options.map { $0.render() },
         )
     }
 }
@@ -866,7 +866,7 @@ public struct HomeTab: ViewConvertible {
             blocks: blocks,
             privateMetadata: privateMetadata,
             callbackId: callbackId,
-            externalId: externalId
+            externalId: externalId,
         ))
     }
 }
@@ -933,7 +933,7 @@ public struct ChannelsSelect: InputElementConvertible, ActionElementConvertible,
             responseUrlEnabled: responseUrlEnabled,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -944,7 +944,7 @@ public struct ChannelsSelect: InputElementConvertible, ActionElementConvertible,
             responseUrlEnabled: responseUrlEnabled,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -955,7 +955,7 @@ public struct ChannelsSelect: InputElementConvertible, ActionElementConvertible,
             responseUrlEnabled: responseUrlEnabled,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 }
@@ -1022,7 +1022,7 @@ public struct ExternalSelect: InputElementConvertible, ActionElementConvertible,
             minQueryLength: minQueryLength,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -1033,7 +1033,7 @@ public struct ExternalSelect: InputElementConvertible, ActionElementConvertible,
             minQueryLength: minQueryLength,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -1044,7 +1044,7 @@ public struct ExternalSelect: InputElementConvertible, ActionElementConvertible,
             minQueryLength: minQueryLength,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 }
@@ -1103,7 +1103,7 @@ public struct UsersSelect: InputElementConvertible, ActionElementConvertible, Se
             initialUser: initialUser,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -1113,7 +1113,7 @@ public struct UsersSelect: InputElementConvertible, ActionElementConvertible, Se
             initialUser: initialUser,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -1123,7 +1123,7 @@ public struct UsersSelect: InputElementConvertible, ActionElementConvertible, Se
             initialUser: initialUser,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 }
@@ -1206,7 +1206,7 @@ public struct ConversationsSelect: InputElementConvertible, ActionElementConvert
             filter: filter,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -1219,7 +1219,7 @@ public struct ConversationsSelect: InputElementConvertible, ActionElementConvert
             filter: filter,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -1232,7 +1232,7 @@ public struct ConversationsSelect: InputElementConvertible, ActionElementConvert
             filter: filter,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 }
@@ -1291,7 +1291,7 @@ public struct DatePicker: InputElementConvertible, ActionElementConvertible, Sec
             initialDate: initialDate,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -1301,7 +1301,7 @@ public struct DatePicker: InputElementConvertible, ActionElementConvertible, Sec
             initialDate: initialDate,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -1311,7 +1311,7 @@ public struct DatePicker: InputElementConvertible, ActionElementConvertible, Sec
             initialDate: initialDate,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 }
@@ -1370,7 +1370,7 @@ public struct TimePicker: InputElementConvertible, ActionElementConvertible, Sec
             initialTime: initialTime,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -1380,7 +1380,7 @@ public struct TimePicker: InputElementConvertible, ActionElementConvertible, Sec
             initialTime: initialTime,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 
@@ -1390,7 +1390,7 @@ public struct TimePicker: InputElementConvertible, ActionElementConvertible, Sec
             initialTime: initialTime,
             confirm: confirm?.render(),
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 }
@@ -1453,7 +1453,7 @@ public struct RadioButtons: InputElementConvertible, ActionElementConvertible, S
             actionId: actionId,
             initialOption: initialOption?.render(),
             confirm: confirm?.render(),
-            focusOnLoad: focusOnLoad
+            focusOnLoad: focusOnLoad,
         ))
     }
 
@@ -1463,7 +1463,7 @@ public struct RadioButtons: InputElementConvertible, ActionElementConvertible, S
             actionId: actionId,
             initialOption: initialOption?.render(),
             confirm: confirm?.render(),
-            focusOnLoad: focusOnLoad
+            focusOnLoad: focusOnLoad,
         ))
     }
 
@@ -1473,7 +1473,7 @@ public struct RadioButtons: InputElementConvertible, ActionElementConvertible, S
             actionId: actionId,
             initialOption: initialOption?.render(),
             confirm: confirm?.render(),
-            focusOnLoad: focusOnLoad
+            focusOnLoad: focusOnLoad,
         ))
     }
 }
@@ -1515,7 +1515,7 @@ public struct Image: BlockConvertible {
             altText: altText,
             imageUrl: imageUrl,
             title: title?.render(),
-            blockId: blockId
+            blockId: blockId,
         ))
     }
 }
@@ -1607,7 +1607,7 @@ public struct Video: BlockConvertible {
             providerName: providerName,
             providerIconUrl: providerIconUrl,
             authorName: authorName,
-            blockId: blockId
+            blockId: blockId,
         ))
     }
 }
@@ -1690,7 +1690,7 @@ public struct NumberInput: InputElementConvertible {
             maxValue: maxValue,
             dispatchActionConfig: dispatchActionConfig,
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 }
@@ -1749,7 +1749,7 @@ public struct EmailInput: InputElementConvertible {
             initialValue: initialValue,
             dispatchActionConfig: dispatchActionConfig,
             focusOnLoad: focusOnLoad,
-            placeholder: placeholder?.render()
+            placeholder: placeholder?.render(),
         ))
     }
 }

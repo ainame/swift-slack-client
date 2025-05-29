@@ -5,7 +5,7 @@ public struct TextObject: Codable, Hashable, Sendable {
     public let text: String
     public let emoji: Bool?
     public let verbatim: Bool?
-    
+
     public init(type: TextType, text: String, emoji: Bool? = nil, verbatim: Bool? = nil) {
         self.type = type
         self.text = text
@@ -25,5 +25,5 @@ extension TextObject: ExpressibleByStringLiteral {
 
 public enum TextType: String, Codable, Hashable, Sendable {
     case plainText = "plain_text"
-    case mrkdwn = "mrkdwn"
+    case mrkdwn
 }

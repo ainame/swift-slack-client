@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 #if canImport(SlackBlockKit)
@@ -161,6 +161,7 @@ public struct Message: Codable, Hashable, Sendable {
         self.user = user
         self.username = username
     }
+
     public enum CodingKeys: String, CodingKey {
         case attachments
         case blocks

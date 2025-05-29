@@ -11,13 +11,13 @@ actor RequestMiddlware: ClientMiddleware {
     private var additionalHeaderFields: HTTPFields = .init()
     private var configuration: RequestConfiguration {
         didSet {
-            self.additionalHeaderFields = Self.updateAdditionalHeaders(configuration)
+            additionalHeaderFields = Self.updateAdditionalHeaders(configuration)
         }
     }
 
     init(configuration: RequestConfiguration) {
         self.configuration = configuration
-        self.additionalHeaderFields = Self.updateAdditionalHeaders(configuration)
+        additionalHeaderFields = Self.updateAdditionalHeaders(configuration)
     }
 
     static func updateAdditionalHeaders(_ configuration: RequestConfiguration) -> HTTPFields {
@@ -37,7 +37,7 @@ actor RequestMiddlware: ClientMiddleware {
         _ request: HTTPRequest,
         body: HTTPBody?,
         baseURL: URL,
-        operationID: String,
+        operationID _: String,
         next: (HTTPRequest, HTTPBody?, URL) async throws -> (HTTPResponse, HTTPBody?)
     ) async throws -> (
         HTTPResponse,

@@ -1,7 +1,7 @@
 import Foundation
 import OpenAPIAsyncHTTPClient
-import SlackClient
 import SlackBlockKitDSL
+import SlackClient
 
 @main
 struct Command {
@@ -17,17 +17,17 @@ struct Command {
             configuration: .init(
                 userAgent: "SwiftBot",
                 appLevelToken: appLevelToken,
-                accessToken: accessToken
-            )
+                accessToken: accessToken,
+            ),
         )
 
         let router = SocketModeMessageRouter()
 
-        router.onSocketModeMessage { context, envelope in
+        router.onSocketModeMessage { _, _ in
             print("onMessage")
         }
 
-        router.onEvent { context, envelope in
+        router.onEvent { _, envelope in
             switch envelope.event {
             case .appMention:
                 print("onEvent: appMention")
@@ -38,11 +38,11 @@ struct Command {
             }
         }
 
-        router.onEvent(AppMentionEvent.self) { context, envelope, payload in
+        router.onEvent(AppMentionEvent.self) { _, _, _ in
             print("onEvent: AppMentionEvent")
         }
 
-        router.onInteractive { context, envelope in
+        router.onInteractive { _, envelope in
             switch envelope.body {
             case .shortcut:
                 print("onInteractive: .shortcut")
@@ -61,15 +61,15 @@ struct Command {
             }
         }
 
-        router.onGlboalShortcut("run-something") { context, payload in
+        router.onGlboalShortcut("run-something") { _, payload in
             print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
         }
 
-        router.onBlockAction("run-something") { context, payload in
+        router.onBlockAction("run-something") { _, payload in
             print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
         }
 
-        router.onSlackMessageMatched(with: "Hello", "World") { context, envelope, payload in
+        router.onSlackMessageMatched(with: "Hello", "World") { _, _, payload in
             print("onSlackMessageMatched: \(payload.text!)")
         }
 

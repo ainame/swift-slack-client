@@ -5,14 +5,14 @@ public struct FileBlock: Codable, Hashable, Sendable {
     public let externalId: String
     public let source: String // "remote"
     public let blockId: String?
-    
+
     public init(externalId: String, blockId: String? = nil) {
-        self.type = "file"
+        type = "file"
         self.externalId = externalId
-        self.source = "remote"
+        source = "remote"
         self.blockId = blockId
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case externalId = "external_id"

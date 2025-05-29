@@ -8,7 +8,7 @@ public struct GlobalShortcutPayload: InteractivePayloadProtocol, Decodable, Send
     public let triggerId: String
     public let user: User
     public let team: Team
-    
+
     private enum CodingKeys: String, CodingKey {
         case _type = "type"
         case callbackId = "callback_id"

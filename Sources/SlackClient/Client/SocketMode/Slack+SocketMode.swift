@@ -12,7 +12,7 @@ extension Slack {
         options: SocketModeOptions = [
             .autoReconnectWhenDisconnected,
             .recoverFromAppError,
-        ]
+        ],
     ) async throws {
         while true {
             if Task.isCancelled { break }
@@ -20,7 +20,7 @@ extension Slack {
             let url = try await openConnection()
             try await doStartSocketMode(with: url, options: options)
 
-            if !options.contains(.autoReconnectWhenDisconnected){ break }
+            if !options.contains(.autoReconnectWhenDisconnected) { break }
         }
     }
 
@@ -48,7 +48,7 @@ extension Slack {
                 guard frame.opcode == .text else { continue }
 
                 let message = try await self.onMessageRecieved(frame.data)
-                if case .message(let envelope) = message.body {
+                if case let .message(envelope) = message.body {
                     do {
                         for router in await self.routers {
                             try await router.dispatch(context: routerContext, messageEnvelope: envelope)
@@ -71,11 +71,11 @@ extension Slack {
         do {
             let messageType = try jsonDecoder.decode(SocketModeMessageType.self, from: buffer)
             switch messageType.body {
-            case .message(let message):
+            case let .message(message):
                 try await ack(message)
-            case .hello(let message):
+            case let .hello(message):
                 logger.info("\(message)")
-            case .disconnect(let message):
+            case let .disconnect(message):
                 logger.info("\(message)")
             }
             return messageType

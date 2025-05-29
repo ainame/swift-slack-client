@@ -7,7 +7,7 @@ public struct CheckboxesElement: Codable, Hashable, Sendable {
     public let initialOptions: [OptionObject]?
     public let confirm: ConfirmationDialogObject?
     public let focusOnLoad: Bool?
-    
+
     public init(
         options: [OptionObject],
         actionId: String? = nil,
@@ -15,14 +15,14 @@ public struct CheckboxesElement: Codable, Hashable, Sendable {
         confirm: ConfirmationDialogObject? = nil,
         focusOnLoad: Bool? = nil
     ) {
-        self.type = "checkboxes"
+        type = "checkboxes"
         self.options = options
         self.actionId = actionId
         self.initialOptions = initialOptions
         self.confirm = confirm
         self.focusOnLoad = focusOnLoad
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case actionId = "action_id"

@@ -10,11 +10,11 @@ public struct BlockBuilder {
 
     // Handle arrays of BlockType (which is what gets passed from buildExpression)
     public static func buildBlock(_ components: [BlockType]...) -> [BlockType] {
-        components.flatMap { $0 }
+        components.flatMap(\.self)
     }
 
     // Handle single BlockComponent
-    public static func buildBlock<C: BlockComponent>(_ component: C) -> [BlockType] {
+    public static func buildBlock(_ component: some BlockComponent) -> [BlockType] {
         [component.render()]
     }
 
@@ -28,7 +28,7 @@ public struct BlockBuilder {
     }
 
     public static func buildArray(_ components: [[BlockType]]) -> [BlockType] {
-        components.flatMap { $0 }
+        components.flatMap(\.self)
     }
 
     public static func buildOptional(_ component: [BlockType]?) -> [BlockType] {
@@ -43,7 +43,7 @@ public struct BlockBuilder {
         component
     }
 
-    public static func buildExpression<C: BlockComponent>(_ expression: C) -> [BlockType] {
+    public static func buildExpression(_ expression: some BlockComponent) -> [BlockType] {
         [expression.render()]
     }
 
@@ -65,15 +65,15 @@ public struct ActionElementBuilder {
     }
 
     public static func buildBlock(_ components: [ActionElementType]...) -> [ActionElementType] {
-        components.flatMap { $0 }
+        components.flatMap(\.self)
     }
 
-    public static func buildExpression<T: ActionElementConvertible>(_ expression: T) -> ActionElementType {
+    public static func buildExpression(_ expression: some ActionElementConvertible) -> ActionElementType {
         expression.asActionElement()
     }
 
     public static func buildArray(_ components: [[ActionElementType]]) -> [ActionElementType] {
-        components.flatMap { $0 }
+        components.flatMap(\.self)
     }
 
     public static func buildOptional(_ component: [ActionElementType]?) -> [ActionElementType] {
@@ -110,7 +110,7 @@ public struct ContextElementBuilder {
     }
 
     public static func buildArray(_ components: [[ContextElementType]]) -> [ContextElementType] {
-        components.flatMap { $0 }
+        components.flatMap(\.self)
     }
 
     public static func buildOptional(_ component: [ContextElementType]?) -> [ContextElementType] {
@@ -150,7 +150,7 @@ public struct OptionBuilder {
     }
 
     public static func buildArray(_ components: [[Option]]) -> [Option] {
-        components.flatMap { $0 }
+        components.flatMap(\.self)
     }
 
     public static func buildOptional(_ component: [Option]?) -> [Option] {
@@ -174,7 +174,7 @@ public struct OptionGroupBuilder {
     }
 
     public static func buildArray(_ components: [[OptionGroup]]) -> [OptionGroup] {
-        components.flatMap { $0 }
+        components.flatMap(\.self)
     }
 
     public static func buildOptional(_ component: [OptionGroup]?) -> [OptionGroup] {

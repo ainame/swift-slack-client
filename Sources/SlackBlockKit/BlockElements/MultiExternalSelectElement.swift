@@ -9,7 +9,7 @@ public struct MultiExternalSelectElement: Codable, Hashable, Sendable {
     public let confirm: ConfirmationDialogObject?
     public let focusOnLoad: Bool?
     public let placeholder: TextObject?
-    
+
     public init(
         actionId: String? = nil,
         minQueryLength: Int? = nil,
@@ -19,7 +19,7 @@ public struct MultiExternalSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "multi_external_select"
+        type = "multi_external_select"
         self.actionId = actionId
         self.minQueryLength = minQueryLength
         self.initialOptions = initialOptions
@@ -28,7 +28,7 @@ public struct MultiExternalSelectElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case actionId = "action_id"

@@ -32,7 +32,7 @@ public struct UserProfile: Codable, Hashable, Sendable {
         self.avatarHash = avatarHash
         self.image72 = image72
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case name
         case team

@@ -4,53 +4,55 @@ import SlackBlockKitDSL
 
 struct WelcomeModal: SlackModalView {
     let userName: String
-    
+
     var title: TextObject {
         "Welcome \(userName)!".asTextObject()
     }
-    
+
     var submit: TextObject? {
         "Get Started".asTextObject()
     }
-    
+
     var close: TextObject? {
         "Maybe Later".asTextObject()
     }
-    
+
     var callbackId: String? {
         "welcome_modal_\(userName.lowercased())"
     }
-    
+
     var body: [BlockType] {
         Header {
             Text("Welcome to our workspace!")
         }
-        
+
         Section {
             Text("We're excited to have you here, \(userName)! 🎉")
                 .style(.mrkdwn)
         }
-        
+
         Divider()
-        
+
         Section {
             Text("*Here are some things you can do:*")
                 .style(.mrkdwn)
         }
-        
-        for (icon, feature) in [("💬", "Chat with your team"), 
-                                ("📁", "Share files and documents"),
-                                ("📹", "Start video calls")] {
+
+        for (icon, feature) in [
+            ("💬", "Chat with your team"),
+            ("📁", "Share files and documents"),
+            ("📹", "Start video calls"),
+        ] {
             Section {
                 Text("\(icon) \(feature)")
             }
         }
-        
+
         Actions {
             Button("View Tutorial")
                 .actionId("view_tutorial")
                 .style(.primary)
-            
+
             Button("Skip for Now")
                 .actionId("skip_tutorial")
         }
@@ -59,26 +61,26 @@ struct WelcomeModal: SlackModalView {
 
 struct SettingsModal: SlackModalView {
     let currentSettings: UserSettings
-    
+
     struct UserSettings {
         let notifications: Bool
         let emailDigest: Bool
         let theme: String
     }
-    
+
     var title: TextObject {
         "Settings".asTextObject()
     }
-    
+
     var submit: TextObject? {
         "Save Changes".asTextObject()
     }
-    
+
     var body: [BlockType] {
         Header {
             Text("Notification Preferences")
         }
-        
+
         Input(
             element: {
                 Checkboxes {
@@ -99,11 +101,11 @@ struct SettingsModal: SlackModalView {
             },
             label: {
                 Text("Choose your notification methods")
-            }
+            },
         )
-        
+
         Divider()
-        
+
         Input(
             element: {
                 StaticSelect {
@@ -116,7 +118,7 @@ struct SettingsModal: SlackModalView {
             },
             label: {
                 Text("Theme")
-            }
+            },
         )
     }
 }
@@ -127,28 +129,28 @@ struct TeamHomeTab: SlackHomeTabView {
     let teamName: String
     let announcements: [Announcement]
     let upcomingEvents: [Event]
-    
+
     struct Announcement {
         let title: String
         let message: String
         let date: String
     }
-    
+
     struct Event {
         let name: String
         let time: String
     }
-    
+
     var body: [BlockType] {
         Header {
             Text("Welcome to \(teamName)")
         }
-        
+
         Section {
             Text("*📢 Recent Announcements*")
                 .style(.mrkdwn)
         }
-        
+
         for announcement in announcements {
             Section {
                 Text("*\(announcement.title)*\n\(announcement.message)")
@@ -158,15 +160,15 @@ struct TeamHomeTab: SlackHomeTabView {
                 Text(announcement.date)
                     .style(.mrkdwn)
             }
-            
+
             Divider()
         }
-        
+
         if !upcomingEvents.isEmpty {
             Header {
                 Text("📅 Upcoming Events")
             }
-            
+
             for event in upcomingEvents {
                 Section {
                     Text(event.name)
@@ -177,12 +179,12 @@ struct TeamHomeTab: SlackHomeTabView {
                 }
             }
         }
-        
+
         Actions {
             Button("Create Announcement")
                 .actionId("create_announcement")
                 .style(.primary)
-            
+
             Button("Schedule Event")
                 .actionId("schedule_event")
         }
@@ -193,28 +195,28 @@ struct PersonalHomeTab: SlackHomeTabView {
     let userName: String
     let tasks: [Task]
     let stats: Stats
-    
+
     struct Task {
         let id: String
         let title: String
         let completed: Bool
     }
-    
+
     struct Stats {
         let messagesCount: Int
         let filesShared: Int
         let meetingsToday: Int
     }
-    
+
     var externalId: String? {
         "personal_home_\(userName)"
     }
-    
+
     var body: [BlockType] {
         Header {
             Text("Hey \(userName)! 👋")
         }
-        
+
         Section {
             Text("Messages Sent")
                 .style(.mrkdwn)
@@ -229,14 +231,14 @@ struct PersonalHomeTab: SlackHomeTabView {
             Text("*\(stats.meetingsToday)*")
                 .style(.mrkdwn)
         }
-        
+
         Divider()
-        
+
         if !tasks.isEmpty {
             Header {
                 Text("Your Tasks")
             }
-            
+
             for task in tasks {
                 Section {
                     Text(task.completed ? "~\(task.title)~" : task.title)
@@ -266,49 +268,49 @@ struct PersonalHomeTab: SlackHomeTabView {
 func demonstrateUsage() {
     // Modal usage
     let welcomeModal = WelcomeModal(userName: "Alice")
-    let modalView = welcomeModal.build()  // Returns ModalView
-    
+    let modalView = welcomeModal.build() // Returns ModalView
+
     let settings = SettingsModal.UserSettings(
         notifications: true,
         emailDigest: false,
-        theme: "dark"
+        theme: "dark",
     )
     let settingsModal = SettingsModal(currentSettings: settings)
-    let settingsView = settingsModal.build()  // Returns ModalView
-    
+    let settingsView = settingsModal.build() // Returns ModalView
+
     // Home tab usage
     let announcements = [
         TeamHomeTab.Announcement(
             title: "Office Closure",
             message: "The office will be closed on Friday",
-            date: "Dec 15"
-        )
+            date: "Dec 15",
+        ),
     ]
     let events = [
         TeamHomeTab.Event(name: "Team Standup", time: "9:00 AM"),
-        TeamHomeTab.Event(name: "Design Review", time: "2:00 PM")
+        TeamHomeTab.Event(name: "Design Review", time: "2:00 PM"),
     ]
     let teamHome = TeamHomeTab(
         teamName: "Engineering",
         announcements: announcements,
-        upcomingEvents: events
+        upcomingEvents: events,
     )
-    let homeView = teamHome.build()  // Returns HomeTabView
-    
+    let homeView = teamHome.build() // Returns HomeTabView
+
     // Personal home tab
     let tasks = [
         PersonalHomeTab.Task(id: "1", title: "Review PRs", completed: true),
-        PersonalHomeTab.Task(id: "2", title: "Update documentation", completed: false)
+        PersonalHomeTab.Task(id: "2", title: "Update documentation", completed: false),
     ]
     let stats = PersonalHomeTab.Stats(
         messagesCount: 42,
         filesShared: 5,
-        meetingsToday: 3
+        meetingsToday: 3,
     )
     let personalHome = PersonalHomeTab(
         userName: "Bob",
         tasks: tasks,
-        stats: stats
+        stats: stats,
     )
-    let personalView = personalHome.build()  // Returns HomeTabView
+    let personalView = personalHome.build() // Returns HomeTabView
 }

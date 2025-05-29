@@ -1,7 +1,7 @@
 import Foundation
 import HTTPTypes
-import OpenAPIRuntime
 import Logging
+import OpenAPIRuntime
 
 public actor Slack {
     public let client: APIProtocol
@@ -19,12 +19,12 @@ public actor Slack {
         clientConfiguration = configuration
         requestMiddleware = RequestMiddlware(configuration: .init(
             accessToken: configuration.accessToken,
-            userAgent: configuration.userAgent
+            userAgent: configuration.userAgent,
         ))
-        self.client = Client(
+        client = Client(
             serverURL: serverURL,
             transport: transport,
-            middlewares: middlewares + [requestMiddleware]
+            middlewares: middlewares + [requestMiddleware],
         )
         self.logger = logger ?? Logger(label: "Slack")
     }
@@ -34,11 +34,11 @@ public actor Slack {
         await requestMiddleware.setAccessToken(value)
     }
 
-#if SocketMode
+    #if SocketMode
     var socketModeState: SocketModeState = .notReady
     var routers: [SocketModeMessageRouter.FixedRouter] = []
 
     let jsonEncoder = JSONEncoder()
     let jsonDecoder = JSONDecoder()
-#endif
+    #endif
 }

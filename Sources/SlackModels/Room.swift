@@ -23,7 +23,7 @@ public struct Room: Codable, Hashable, Sendable {
     public var appId: Swift.String?
     public var callFamily: Swift.String?
     public var huddleLink: Swift.String?
-    
+
     private enum CodingKeys: String, CodingKey {
         case id
         case name

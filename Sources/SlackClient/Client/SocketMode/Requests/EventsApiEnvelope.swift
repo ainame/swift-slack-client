@@ -9,7 +9,7 @@ public struct EventsApiEnvelope<Event: Decodable & Hashable & Sendable>: Decodab
     public let type: String
     public let eventId: String
     public let eventTime: Int
-    
+
     private enum CodingKeys: String, CodingKey {
         case teamId = "team_id"
         case apiAppId = "api_app_id"

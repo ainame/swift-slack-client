@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/AcceptScInvites`.
@@ -57,6 +57,7 @@ public struct AcceptScInvites: Codable, Hashable, Sendable {
         self._type = _type
         self.useAllowedWorkspaces = useAllowedWorkspaces
     }
+
     public enum CodingKeys: String, CodingKey {
         case acceptInWorkspaceIds = "accept_in_workspace_ids"
         case acceptPrivate = "accept_private"

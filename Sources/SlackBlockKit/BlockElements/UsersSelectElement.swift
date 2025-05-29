@@ -7,7 +7,7 @@ public struct UsersSelectElement: Codable, Hashable, Sendable {
     public let confirm: ConfirmationDialogObject?
     public let focusOnLoad: Bool?
     public let placeholder: TextObject?
-    
+
     public init(
         actionId: String? = nil,
         initialUser: String? = nil,
@@ -15,14 +15,14 @@ public struct UsersSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "users_select"
+        type = "users_select"
         self.actionId = actionId
         self.initialUser = initialUser
         self.confirm = confirm
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case actionId = "action_id"

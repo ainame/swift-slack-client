@@ -8,7 +8,7 @@ public struct ViewClosedPayload: InteractivePayloadProtocol, Decodable, Sendable
     public let user: User
     public let view: ViewType
     public let isCleared: Bool
-    
+
     private enum CodingKeys: String, CodingKey {
         case _type = "type"
         case team

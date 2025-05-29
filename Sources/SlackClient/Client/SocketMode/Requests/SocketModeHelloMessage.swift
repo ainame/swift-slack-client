@@ -4,7 +4,7 @@ import Foundation
 struct SocketModeHelloMessage: Decodable {
     struct ConnectionInfo: Decodable {
         let appId: String
-        
+
         private enum CodingKeys: String, CodingKey {
             case appId = "app_id"
         }
@@ -14,7 +14,7 @@ struct SocketModeHelloMessage: Decodable {
         let approximateConnectionTime: Int
         let buildNumber: Int
         let host: String
-        
+
         private enum CodingKeys: String, CodingKey {
             case approximateConnectionTime = "approximate_connection_time"
             case buildNumber = "build_number"
@@ -36,10 +36,10 @@ struct SocketModeHelloMessage: Decodable {
 
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self._type = try container.decode(String.self, forKey: ._type)
-        self.connectionInfo = try container.decode(SocketModeHelloMessage.ConnectionInfo.self, forKey: .connectionInfo)
-        self.debugInfo = try container.decode(SocketModeHelloMessage.DebugInfo.self, forKey: .debugInfo)
-        self.numConnections = try container.decode(Int.self, forKey: .numConnections)
+        _type = try container.decode(String.self, forKey: ._type)
+        connectionInfo = try container.decode(SocketModeHelloMessage.ConnectionInfo.self, forKey: .connectionInfo)
+        debugInfo = try container.decode(SocketModeHelloMessage.DebugInfo.self, forKey: .debugInfo)
+        numConnections = try container.decode(Int.self, forKey: .numConnections)
     }
 }
 #endif

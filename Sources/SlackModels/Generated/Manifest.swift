@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Manifest`.
@@ -47,6 +47,7 @@ public struct Manifest: Codable, Hashable, Sendable {
         self.oauthConfig = oauthConfig
         self.settings = settings
     }
+
     public enum CodingKeys: String, CodingKey {
         case _metadata
         case displayInformation = "display_information"

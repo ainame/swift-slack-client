@@ -8,7 +8,7 @@ public struct MultiChannelsSelectElement: Codable, Hashable, Sendable {
     public let confirm: ConfirmationDialogObject?
     public let focusOnLoad: Bool?
     public let placeholder: TextObject?
-    
+
     public init(
         actionId: String? = nil,
         initialChannels: [String]? = nil,
@@ -17,7 +17,7 @@ public struct MultiChannelsSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "multi_channels_select"
+        type = "multi_channels_select"
         self.actionId = actionId
         self.initialChannels = initialChannels
         self.maxSelectedItems = maxSelectedItems
@@ -25,7 +25,7 @@ public struct MultiChannelsSelectElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case actionId = "action_id"

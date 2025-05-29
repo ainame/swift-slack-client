@@ -5,7 +5,7 @@ public struct OptionObject: Codable, Hashable, Sendable {
     public let value: String
     public let description: TextObject?
     public let url: URL?
-    
+
     public init(text: TextObject, value: String, description: TextObject? = nil, url: URL? = nil) {
         self.text = text
         self.value = value

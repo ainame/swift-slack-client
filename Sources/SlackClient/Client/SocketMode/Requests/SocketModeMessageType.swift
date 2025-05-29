@@ -10,6 +10,7 @@ struct SocketModeMessageType: Decodable {
         case disconnect(SocketModeDisconnectMessage)
         case message(SocketModeMessageEnvelope)
     }
+
     let _type: String
     let body: Body
 
@@ -26,15 +27,15 @@ struct SocketModeMessageType: Decodable {
         case "hello":
             let newContainer = try decoder.singleValueContainer()
             let payload = try newContainer.decode(SocketModeHelloMessage.self)
-            self.body = .hello(payload)
+            body = .hello(payload)
         case "disconnect":
             let newContainer = try decoder.singleValueContainer()
             let payload = try newContainer.decode(SocketModeDisconnectMessage.self)
-            self.body = .disconnect(payload)
+            body = .disconnect(payload)
         default:
             let newContainer = try decoder.singleValueContainer()
             let payload = try newContainer.decode(SocketModeMessageEnvelope.self)
-            self.body = .message(payload)
+            body = .message(payload)
         }
     }
 }

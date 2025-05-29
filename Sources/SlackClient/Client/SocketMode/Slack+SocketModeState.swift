@@ -8,10 +8,10 @@ extension Slack {
 
         var writer: WebSocketOutboundWriter? {
             switch self {
-            case .ready(let writer):
-                return writer
+            case let .ready(writer):
+                writer
             case .notReady:
-                return nil
+                nil
             }
         }
     }

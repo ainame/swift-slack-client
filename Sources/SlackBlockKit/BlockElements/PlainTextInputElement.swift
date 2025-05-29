@@ -10,7 +10,7 @@ public struct PlainTextInputElement: Codable, Hashable, Sendable {
     public let dispatchActionConfig: DispatchActionConfigurationObject?
     public let focusOnLoad: Bool?
     public let placeholder: TextObject?
-    
+
     public init(
         actionId: String? = nil,
         initialValue: String? = nil,
@@ -21,7 +21,7 @@ public struct PlainTextInputElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "plain_text_input"
+        type = "plain_text_input"
         self.actionId = actionId
         self.initialValue = initialValue
         self.multiline = multiline
@@ -31,7 +31,7 @@ public struct PlainTextInputElement: Codable, Hashable, Sendable {
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case actionId = "action_id"

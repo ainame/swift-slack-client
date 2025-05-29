@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/ListLimits`.
@@ -67,6 +67,7 @@ public struct ListLimits: Codable, Hashable, Sendable {
         self.viewCount = viewCount
         self.viewCountLimit = viewCountLimit
     }
+
     public enum CodingKeys: String, CodingKey {
         case columnCount = "column_count"
         case columnCountLimit = "column_count_limit"

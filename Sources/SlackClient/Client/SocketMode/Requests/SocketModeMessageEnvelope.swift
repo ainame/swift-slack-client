@@ -5,9 +5,9 @@ public struct SocketModeMessageEnvelope: Decodable, Hashable, Sendable {
     public enum Payload: Decodable, Hashable, Sendable {
         case interactive(InteractiveEnvelope)
         case slashCommands(SlashCommandsPayload)
-#if Events
+        #if Events
         case eventsApi(EventsApiEnvelope<EventType>)
-#endif
+        #endif
         case unsupported(String)
     }
 
@@ -25,24 +25,24 @@ public struct SocketModeMessageEnvelope: Decodable, Hashable, Sendable {
 
     public init(from decoder: any Decoder) throws {
         let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
-        self._type = try container.decode(String.self, forKey: CodingKeys._type)
-        self.envelopeId = try container.decode(String.self, forKey: CodingKeys.envelopeId)
-        self.acceptsResponsePayload = try container.decode(Bool.self, forKey: CodingKeys.acceptsResponsePayload)
+        _type = try container.decode(String.self, forKey: CodingKeys._type)
+        envelopeId = try container.decode(String.self, forKey: CodingKeys.envelopeId)
+        acceptsResponsePayload = try container.decode(Bool.self, forKey: CodingKeys.acceptsResponsePayload)
 
         switch _type {
         case "interactive":
             let interaction = try container.decode(InteractiveEnvelope.self, forKey: CodingKeys.payload)
-            self.payload = .interactive(interaction)
-        case "slash_commands":           
+            payload = .interactive(interaction)
+        case "slash_commands":
             let payload = try container.decode(SlashCommandsPayload.self, forKey: CodingKeys.payload)
             self.payload = .slashCommands(payload)
-#if Events
+        #if Events
         case "events_api":
             let event = try container.decode(EventsApiEnvelope<EventType>.self, forKey: CodingKeys.payload)
-            self.payload = .eventsApi(event)
-#endif
+            payload = .eventsApi(event)
+        #endif
         default:
-            self.payload = .unsupported(_type)
+            payload = .unsupported(_type)
         }
     }
 }

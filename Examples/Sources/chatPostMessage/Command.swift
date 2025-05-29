@@ -1,6 +1,6 @@
 import Foundation
-import SlackClient
 import OpenAPIAsyncHTTPClient
+import SlackClient
 
 @main
 struct Command {
@@ -19,17 +19,17 @@ struct Command {
             transport: AsyncHTTPClientTransport(),
             configuration: .init(
                 userAgent: "SwiftBot",
-                accessToken: accessToken
-            )
+                accessToken: accessToken,
+            ),
         )
 
         let channel = CommandLine.arguments[1]
         let message = CommandLine.arguments[2]
         let result = try await slack.client.chatPostMessage(
             body: .json(
-                .init(channel: channel, text: message)
-            )
+                .init(channel: channel, text: message),
+            ),
         )
-        debugPrint(try result.ok.body.json)
+        try debugPrint(result.ok.body.json)
     }
 }

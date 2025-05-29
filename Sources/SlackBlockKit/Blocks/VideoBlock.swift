@@ -12,7 +12,7 @@ public struct VideoBlock: Codable, Hashable, Sendable {
     public let providerIconUrl: URL?
     public let authorName: String?
     public let blockId: String?
-    
+
     public init(
         altText: String,
         videoUrl: URL,
@@ -25,7 +25,7 @@ public struct VideoBlock: Codable, Hashable, Sendable {
         authorName: String? = nil,
         blockId: String? = nil
     ) {
-        self.type = "video"
+        type = "video"
         self.altText = altText
         self.videoUrl = videoUrl
         self.thumbnailUrl = thumbnailUrl
@@ -37,7 +37,7 @@ public struct VideoBlock: Codable, Hashable, Sendable {
         self.authorName = authorName
         self.blockId = blockId
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case altText = "alt_text"

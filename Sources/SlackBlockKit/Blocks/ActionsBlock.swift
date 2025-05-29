@@ -4,13 +4,13 @@ public struct ActionsBlock: Codable, Hashable, Sendable {
     public let type: String // "actions"
     public let elements: [ActionElementType]
     public let blockId: String?
-    
+
     public init(elements: [ActionElementType], blockId: String? = nil) {
-        self.type = "actions"
+        type = "actions"
         self.elements = elements
         self.blockId = blockId
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case elements
@@ -37,99 +37,98 @@ public enum ActionElementType: Codable, Hashable, Sendable {
     case conversationsSelect(ConversationsSelectElement)
     case channelsSelect(ChannelsSelectElement)
     case timePicker(TimePickerElement)
-    
+
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let typeContainer = try decoder.container(keyedBy: CodingKeys.self)
         let type = try typeContainer.decode(String.self, forKey: .type)
-        
+
         switch type {
         case "button":
-            self = .button(try container.decode(ButtonElement.self))
+            self = try .button(container.decode(ButtonElement.self))
         case "checkboxes":
-            self = .checkboxes(try container.decode(CheckboxesElement.self))
+            self = try .checkboxes(container.decode(CheckboxesElement.self))
         case "datepicker":
-            self = .datePicker(try container.decode(DatePickerElement.self))
+            self = try .datePicker(container.decode(DatePickerElement.self))
         case "datetimepicker":
-            self = .datetimePicker(try container.decode(DatetimePickerElement.self))
+            self = try .datetimePicker(container.decode(DatetimePickerElement.self))
         case "multi_static_select":
-            self = .multiStaticSelect(try container.decode(MultiStaticSelectElement.self))
+            self = try .multiStaticSelect(container.decode(MultiStaticSelectElement.self))
         case "multi_external_select":
-            self = .multiExternalSelect(try container.decode(MultiExternalSelectElement.self))
+            self = try .multiExternalSelect(container.decode(MultiExternalSelectElement.self))
         case "multi_users_select":
-            self = .multiUsersSelect(try container.decode(MultiUsersSelectElement.self))
+            self = try .multiUsersSelect(container.decode(MultiUsersSelectElement.self))
         case "multi_conversations_select":
-            self = .multiConversationsSelect(try container.decode(MultiConversationsSelectElement.self))
+            self = try .multiConversationsSelect(container.decode(MultiConversationsSelectElement.self))
         case "multi_channels_select":
-            self = .multiChannelsSelect(try container.decode(MultiChannelsSelectElement.self))
+            self = try .multiChannelsSelect(container.decode(MultiChannelsSelectElement.self))
         case "overflow":
-            self = .overflow(try container.decode(OverflowMenuElement.self))
+            self = try .overflow(container.decode(OverflowMenuElement.self))
         case "radio_buttons":
-            self = .radioButtons(try container.decode(RadioButtonsElement.self))
+            self = try .radioButtons(container.decode(RadioButtonsElement.self))
         case "rich_text_input":
-            self = .richTextInput(try container.decode(RichTextInputElement.self))
+            self = try .richTextInput(container.decode(RichTextInputElement.self))
         case "static_select":
-            self = .staticSelect(try container.decode(StaticSelectElement.self))
+            self = try .staticSelect(container.decode(StaticSelectElement.self))
         case "external_select":
-            self = .externalSelect(try container.decode(ExternalSelectElement.self))
+            self = try .externalSelect(container.decode(ExternalSelectElement.self))
         case "users_select":
-            self = .usersSelect(try container.decode(UsersSelectElement.self))
+            self = try .usersSelect(container.decode(UsersSelectElement.self))
         case "conversations_select":
-            self = .conversationsSelect(try container.decode(ConversationsSelectElement.self))
+            self = try .conversationsSelect(container.decode(ConversationsSelectElement.self))
         case "channels_select":
-            self = .channelsSelect(try container.decode(ChannelsSelectElement.self))
+            self = try .channelsSelect(container.decode(ChannelsSelectElement.self))
         case "timepicker":
-            self = .timePicker(try container.decode(TimePickerElement.self))
+            self = try .timePicker(container.decode(TimePickerElement.self))
         default:
             throw DecodingError.dataCorruptedError(in: container, debugDescription: "Unknown action element type: \(type)")
         }
     }
-    
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
-        
+
         switch self {
-        case .button(let element):
+        case let .button(element):
             try container.encode(element)
-        case .checkboxes(let element):
+        case let .checkboxes(element):
             try container.encode(element)
-        case .datePicker(let element):
+        case let .datePicker(element):
             try container.encode(element)
-        case .datetimePicker(let element):
+        case let .datetimePicker(element):
             try container.encode(element)
-        case .multiStaticSelect(let element):
+        case let .multiStaticSelect(element):
             try container.encode(element)
-        case .multiExternalSelect(let element):
+        case let .multiExternalSelect(element):
             try container.encode(element)
-        case .multiUsersSelect(let element):
+        case let .multiUsersSelect(element):
             try container.encode(element)
-        case .multiConversationsSelect(let element):
+        case let .multiConversationsSelect(element):
             try container.encode(element)
-        case .multiChannelsSelect(let element):
+        case let .multiChannelsSelect(element):
             try container.encode(element)
-        case .overflow(let element):
+        case let .overflow(element):
             try container.encode(element)
-        case .radioButtons(let element):
+        case let .radioButtons(element):
             try container.encode(element)
-        case .richTextInput(let element):
+        case let .richTextInput(element):
             try container.encode(element)
-        case .staticSelect(let element):
+        case let .staticSelect(element):
             try container.encode(element)
-        case .externalSelect(let element):
+        case let .externalSelect(element):
             try container.encode(element)
-        case .usersSelect(let element):
+        case let .usersSelect(element):
             try container.encode(element)
-        case .conversationsSelect(let element):
+        case let .conversationsSelect(element):
             try container.encode(element)
-        case .channelsSelect(let element):
+        case let .channelsSelect(element):
             try container.encode(element)
-        case .timePicker(let element):
+        case let .timePicker(element):
             try container.encode(element)
         }
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
     }
 }
-

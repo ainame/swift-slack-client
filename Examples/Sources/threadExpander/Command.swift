@@ -15,8 +15,8 @@ struct ThreadExpander {
             transport: AsyncHTTPClientTransport(),
             configuration: .init(
                 appLevelToken: appLevelToken,
-                accessToken: accessToken
-            )
+                accessToken: accessToken,
+            ),
         )
 
         let authResponse = try await slack.client.authTest()
@@ -31,7 +31,7 @@ struct ThreadExpander {
 
         let router = SocketModeMessageRouter()
 
-        router.onEvent(MessageEvent.self) { context, envelope, messageEvent in
+        router.onEvent(MessageEvent.self) { context, _, messageEvent in
             guard let threadTs = messageEvent.threadTs,
                   let messageTs = messageEvent.ts,
                   threadTs != messageTs,
@@ -44,8 +44,8 @@ struct ThreadExpander {
             _ = try await context.client.chatPostMessage(
                 body: .json(.init(
                     channel: channel,
-                    text: threadLink
-                ))
+                    text: threadLink,
+                )),
             )
         }
 

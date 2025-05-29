@@ -18,16 +18,15 @@ public final class SocketModeMessageRouter {
     private var handlers: [SocketModeMessageHandler] = []
     private var errorHandler: SocketModeErrorHandler?
 
-    public init() {
-    }
+    public init() {}
 
     struct FixedRouter {
         private let handlers: [SocketModeMessageHandler]
         private let errorHandler: SocketModeErrorHandler?
 
         init(from router: SocketModeMessageRouter) {
-            self.handlers = router.handlers
-            self.errorHandler = router.errorHandler
+            handlers = router.handlers
+            errorHandler = router.errorHandler
         }
 
         func dispatch(context: SocketModeMessageRouter.Context, messageEnvelope: SocketModeMessageEnvelope) async throws {
@@ -91,7 +90,7 @@ public final class SocketModeMessageRouter {
 
     public func onSlashCommand(
         _ command: String,
-        handler: @escaping SocketModeMessagePayloadHandler<SlashCommandsPayload>
+        handler: @escaping SocketModeMessagePayloadHandler<SlashCommandsPayload>,
     ) {
         precondition(command.hasPrefix("/"), "A command should be registered with `/` prefix; e.g. `/command`")
 
@@ -124,7 +123,7 @@ public final class SocketModeMessageRouter {
                payload.callbackId == callbackId {
                 try await handler(context, interactiveEnvelope.body)
             } else if case let .viewClosed(payload) = interactiveEnvelope.body,
-               payload.callbackId == callbackId {
+                      payload.callbackId == callbackId {
                 try await handler(context, interactiveEnvelope.body)
             }
         }
@@ -164,7 +163,7 @@ public final class SocketModeMessageRouter {
         errorHandler = handler
     }
 
-#if Events
+    #if Events
     public func onEvent(_ handler: @escaping SocketModeMessagePayloadHandler<EventsApiEnvelope<EventType>>) {
         let filterHandler: SocketModeMessageHandler = { context, envelope in
             if case let .eventsApi(eventsApiEnvelope) = envelope.payload {
@@ -175,7 +174,7 @@ public final class SocketModeMessageRouter {
     }
 
     public func onEvent<Event: SlackEvent>(
-        _ eventType: Event.Type,
+        _: Event.Type,
         handler: @escaping SocketModeMessageEnvelopePayloadHandler<EventsApiEnvelope<EventType>, Event>
     ) {
         let filterHandler: SocketModeMessageHandler = { context, envelope in
@@ -191,7 +190,7 @@ public final class SocketModeMessageRouter {
     // Regex isn't Sendable at this moment. Compile string pattern in Sendable closure.
     public func onSlackMessageMatched(
         with regexPatterns: String...,
-        handler: @escaping SocketModeMessageEnvelopePayloadHandler<EventsApiEnvelope<EventType>, MessageEvent>
+        handler: @escaping SocketModeMessageEnvelopePayloadHandler<EventsApiEnvelope<EventType>, MessageEvent>,
     ) {
         let filterHandler: SocketModeMessageHandler = { context, envelope in
             guard case let .eventsApi(eventsApiEnvelope) = envelope.payload,
@@ -200,7 +199,7 @@ public final class SocketModeMessageRouter {
                 return
             }
 
-            let patterns = regexPatterns.compactMap({ try? Regex($0) })
+            let patterns = regexPatterns.compactMap { try? Regex($0) }
             guard patterns.contains(where: { text.contains($0) }) else {
                 return
             }
@@ -209,7 +208,7 @@ public final class SocketModeMessageRouter {
         }
         handlers.append(filterHandler)
     }
-#endif
+    #endif
 }
 
 #endif

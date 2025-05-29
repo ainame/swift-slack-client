@@ -7,7 +7,7 @@ public struct RichTextInputElement: Codable, Hashable, Sendable {
     public let dispatchActionConfig: DispatchActionConfigurationObject?
     public let focusOnLoad: Bool?
     public let placeholder: TextObject?
-    
+
     public init(
         actionId: String,
         initialValue: RichTextObject? = nil,
@@ -15,14 +15,14 @@ public struct RichTextInputElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "rich_text_input"
+        type = "rich_text_input"
         self.actionId = actionId
         self.initialValue = initialValue
         self.dispatchActionConfig = dispatchActionConfig
         self.focusOnLoad = focusOnLoad
         self.placeholder = placeholder
     }
-    
+
     private enum CodingKeys: String, CodingKey {
         case type
         case actionId = "action_id"
@@ -37,9 +37,9 @@ public struct RichTextInputElement: Codable, Hashable, Sendable {
 public struct RichTextObject: Codable, Hashable, Sendable {
     public let type: String // "rich_text"
     public let elements: [RichTextElementType]
-    
+
     public init(elements: [RichTextElementType]) {
-        self.type = "rich_text"
+        type = "rich_text"
         self.elements = elements
     }
 }

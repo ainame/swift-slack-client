@@ -14,7 +14,7 @@ public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendab
     public let actions: [ActionElementType]?
     public let channel: Channel?
     public let view: ViewType
-    
+
     private enum CodingKeys: String, CodingKey {
         case _type = "type"
         case triggerId = "trigger_id"

@@ -6,7 +6,7 @@ public struct ConfirmationDialogObject: Codable, Hashable, Sendable {
     public let confirm: TextObject
     public let deny: TextObject
     public let style: ConfirmationStyle?
-    
+
     public init(title: TextObject, text: TextObject, confirm: TextObject, deny: TextObject, style: ConfirmationStyle? = nil) {
         self.title = title
         self.text = text
@@ -17,6 +17,6 @@ public struct ConfirmationDialogObject: Codable, Hashable, Sendable {
 }
 
 public enum ConfirmationStyle: String, Codable, Hashable, Sendable {
-    case danger = "danger"
-    case primary = "primary"
+    case danger
+    case primary
 }
