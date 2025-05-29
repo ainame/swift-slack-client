@@ -5,7 +5,8 @@ import SlackModels
 
 // https://docs.slack.dev/reference/interaction-payloads/block_actions-payload#fields
 public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendable {
-    public let _type = "block_actions"
+    /// "block_actions"
+    public let _type: String
     public let triggerId: String?
     public let user: User
     public let team: Team

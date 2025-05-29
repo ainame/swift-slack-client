@@ -3,7 +3,8 @@ import SlackModels
 
 // https://docs.slack.dev/reference/interaction-payloads/shortcuts-interaction-payload
 public struct MessageShortcutPayload: InteractivePayloadProtocol, Decodable, Sendable {
-    public let _type = "shortcut"
+    /// "shortcut"
+    public let _type: String
     public let callbackId: String?
     public let triggerId: String
     public let user: User
