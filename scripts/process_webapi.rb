@@ -987,26 +987,13 @@ public enum Components {
     # Generate complete file content for each group
     result = {}
     groups.each do |group, schemas|
-      # Adjust indentation - remove 4 spaces from each line since we're moving from nested to extension
-      adjusted_schemas = schemas.map { |schema|
-        schema.lines.map { |line|
-          # Remove 4 spaces of indentation if the line has enough leading spaces
-          if line.start_with?('        ')  # 8 spaces originally
-            '    ' + line[8..-1]  # Keep 4 spaces
-          else
-            line
-          end
-        }.join
-      }
-
       if group == 'Common'
-        content = header + "\nextension Components.Schemas {\n" + adjusted_schemas.join + "}\n"
+        content = header + "\nextension Components.Schemas {\n" + schemas.join + "}\n"
       else
         content = header + "\n#if WebAPI_#{group}\nextension Components.Schemas {\n" +
-                 adjusted_schemas.join + "}\n#endif\n"
+                 schemas.join + "}\n#endif\n"
       end
 
-      # Apply transformations to remove CodingKeys and fix _type -> type
       content = CodeTransformer.transform_components_content(content)
 
       result[group] = content
@@ -1152,20 +1139,8 @@ class OperationsSplitter
     groups.each do |group, operations|
       trait = "WebAPI_#{GroupNameFormatter.capitalize_group_name(group)}"
 
-      # Adjust indentation - remove 4 spaces from each line since we're moving from nested to extension
-      adjusted_operations = operations.map { |operation|
-        operation.lines.map { |line|
-          # Remove 4 spaces of indentation if the line has enough leading spaces
-          if line.start_with?('    ')  # 4 spaces originally
-            line[4..-1]  # Remove 4 spaces completely for top-level in extension
-          else
-            line
-          end
-        }.join
-      }
-
       content = header + "\n#if #{trait}\nextension Operations {\n" +
-               adjusted_operations.join + "}\n#endif\n"
+               operations.join + "}\n#endif\n"
 
       # Apply transformations to operations content
       content = CodeTransformer.transform_operations_content(content)
@@ -1327,27 +1302,14 @@ class CommonModelsSplitter
       # Keep CodingKeys enum - it's essential for proper key encoding/decoding
       if stripped.match(/^public enum CodingKeys:/)
         in_coding_keys = true
-        # Fix indentation for CodingKeys if needed
-        if line.start_with?('        ')  # 8 spaces from nested enum
-          line = line[8..-1]  # Remove 8 spaces for top-level
-        elsif line.start_with?('    ')  # 4 spaces for some content
-          line = line[4..-1]  # Remove 4 spaces for top-level
-        end
         transformed_lines << line
         next
       end
 
       # Handle CodingKeys content
       if in_coding_keys
-        # Fix indentation for all CodingKeys content
-        if line.start_with?('        ')  # 8 spaces from nested enum
-          line = line[8..-1]  # Remove 8 spaces for top-level
-        elsif line.start_with?('    ')  # 4 spaces for some content
-          line = line[4..-1]  # Remove 4 spaces for top-level
-        end
-        
         transformed_lines << line
-        
+
         # Check if we're at the end of CodingKeys enum
         if stripped == '}' && line.strip == '}'
           in_coding_keys = false
@@ -1376,14 +1338,7 @@ class CommonModelsSplitter
         line = line.gsub(/\bComponents\.Schemas\.(\w+)\b/, '\1')
       end
 
-      # Fix indentation: convert from enum nesting (8 spaces) to top-level (no extra indentation)
-      if !in_coding_keys  # Don't apply this to CodingKeys content
-        if line.start_with?('        ')  # 8 spaces from nested enum
-          line = line[8..-1]  # Remove 8 spaces for top-level
-        elsif line.start_with?('    ')  # 4 spaces for some content
-          line = line[4..-1]  # Remove 4 spaces for top-level
-        end
-      end
+      # SwiftFormat will handle indentation automatically
 
       transformed_lines << line
     end

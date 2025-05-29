@@ -391,24 +391,15 @@ public enum EventType: Decodable, Hashable, Sendable {
         break
       end
 
-      # Handle CodingKeys enum - KEEP IT but fix indentation
+      # Handle CodingKeys enum - KEEP IT
       if stripped.match(/^public enum CodingKeys:/)
         in_coding_keys = true
-        # Fix indentation for CodingKeys enum declaration
-        if line.start_with?('            ')  # 12 spaces from deeply nested structure
-          line = '    ' + line[12..-1]      # Replace with 4 spaces for top-level struct
-        end
         transformed_lines << line
         next
       end
 
       # Handle CodingKeys content
       if in_coding_keys
-        # Fix indentation for CodingKeys content
-        if line.start_with?('            ')  # 12 spaces from deeply nested structure
-          line = '    ' + line[12..-1]      # Replace with 4 spaces for top-level struct
-        end
-        
         transformed_lines << line
         
         # Check if we're at the end of CodingKeys enum
@@ -461,10 +452,6 @@ public enum EventType: Decodable, Hashable, Sendable {
 
       # Keep property declarations, remark comments, and empty lines
       if stripped.start_with?('/// - Remark:') || stripped.start_with?('public var') || stripped.empty?
-        # Fix indentation: convert from nested (12 spaces) to top-level (4 spaces)
-        if line.start_with?('            ')  # 12 spaces from deeply nested structure
-          line = '    ' + line[12..-1]      # Replace with 4 spaces for top-level struct
-        end
         transformed_lines << line
       end
     end
