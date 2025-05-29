@@ -21,7 +21,7 @@ public struct MultiConversationsSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "multi_conversations_select"
+        type = "multi_conversations_select"
         self.actionId = actionId
         self.initialConversations = initialConversations
         self.defaultToCurrentConversation = defaultToCurrentConversation

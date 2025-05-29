@@ -11,7 +11,7 @@ public struct FileInputElement: Codable, Hashable, Sendable {
         filetypes: [String]? = nil,
         maxFiles: Int? = nil
     ) {
-        self.type = "file_input"
+        type = "file_input"
         self.actionId = actionId
         self.filetypes = filetypes
         self.maxFiles = maxFiles

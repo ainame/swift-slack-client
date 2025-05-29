@@ -15,7 +15,7 @@ public struct CheckboxesElement: Codable, Hashable, Sendable {
         confirm: ConfirmationDialogObject? = nil,
         focusOnLoad: Bool? = nil
     ) {
-        self.type = "checkboxes"
+        type = "checkboxes"
         self.options = options
         self.actionId = actionId
         self.initialOptions = initialOptions

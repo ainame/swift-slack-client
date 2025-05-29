@@ -5,7 +5,7 @@ public struct DividerBlock: Codable, Hashable, Sendable {
     public let blockId: String?
 
     public init(blockId: String? = nil) {
-        self.type = "divider"
+        type = "divider"
         self.blockId = blockId
     }
 

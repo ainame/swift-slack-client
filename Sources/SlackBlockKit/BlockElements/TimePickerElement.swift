@@ -15,7 +15,7 @@ public struct TimePickerElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "timepicker"
+        type = "timepicker"
         self.actionId = actionId
         self.initialTime = initialTime
         self.confirm = confirm

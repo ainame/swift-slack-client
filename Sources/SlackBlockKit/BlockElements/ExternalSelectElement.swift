@@ -17,7 +17,7 @@ public struct ExternalSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "external_select"
+        type = "external_select"
         self.actionId = actionId
         self.initialOption = initialOption
         self.minQueryLength = minQueryLength

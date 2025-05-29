@@ -7,7 +7,7 @@ public struct ImageElement: Codable, Hashable, Sendable {
     public let slackFile: SlackFileObject?
 
     public init(altText: String, imageUrl: URL? = nil, slackFile: SlackFileObject? = nil) {
-        self.type = "image"
+        type = "image"
         self.altText = altText
         self.imageUrl = imageUrl
         self.slackFile = slackFile

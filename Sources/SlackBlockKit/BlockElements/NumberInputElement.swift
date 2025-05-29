@@ -21,7 +21,7 @@ public struct NumberInputElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "number_input"
+        type = "number_input"
         self.isDecimalAllowed = isDecimalAllowed
         self.actionId = actionId
         self.initialValue = initialValue

@@ -15,7 +15,7 @@ public struct EmailInputElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "email_text_input"
+        type = "email_text_input"
         self.actionId = actionId
         self.initialValue = initialValue
         self.dispatchActionConfig = dispatchActionConfig

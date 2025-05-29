@@ -15,7 +15,7 @@ public struct DatePickerElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "datepicker"
+        type = "datepicker"
         self.actionId = actionId
         self.initialDate = initialDate
         self.confirm = confirm

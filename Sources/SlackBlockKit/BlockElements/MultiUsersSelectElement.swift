@@ -17,7 +17,7 @@ public struct MultiUsersSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "multi_users_select"
+        type = "multi_users_select"
         self.actionId = actionId
         self.initialUsers = initialUsers
         self.maxSelectedItems = maxSelectedItems

@@ -15,7 +15,7 @@ public struct UsersSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "users_select"
+        type = "users_select"
         self.actionId = actionId
         self.initialUser = initialUser
         self.confirm = confirm

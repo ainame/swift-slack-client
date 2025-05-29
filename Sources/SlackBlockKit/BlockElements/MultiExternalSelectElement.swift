@@ -19,7 +19,7 @@ public struct MultiExternalSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "multi_external_select"
+        type = "multi_external_select"
         self.actionId = actionId
         self.minQueryLength = minQueryLength
         self.initialOptions = initialOptions

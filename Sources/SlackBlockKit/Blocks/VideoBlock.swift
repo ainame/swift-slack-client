@@ -25,7 +25,7 @@ public struct VideoBlock: Codable, Hashable, Sendable {
         authorName: String? = nil,
         blockId: String? = nil
     ) {
-        self.type = "video"
+        type = "video"
         self.altText = altText
         self.videoUrl = videoUrl
         self.thumbnailUrl = thumbnailUrl

@@ -13,7 +13,7 @@ public struct HomeTabView: Codable, Hashable, Sendable {
         callbackId: String? = nil,
         externalId: String? = nil
     ) {
-        self.type = "home"
+        type = "home"
         self.blocks = blocks
         self.privateMetadata = privateMetadata
         self.callbackId = callbackId

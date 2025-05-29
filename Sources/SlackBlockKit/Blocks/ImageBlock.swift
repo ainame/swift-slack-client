@@ -15,7 +15,7 @@ public struct ImageBlock: Codable, Hashable, Sendable {
         title: TextObject? = nil,
         blockId: String? = nil
     ) {
-        self.type = "image"
+        type = "image"
         self.altText = altText
         self.imageUrl = imageUrl
         self.slackFile = slackFile

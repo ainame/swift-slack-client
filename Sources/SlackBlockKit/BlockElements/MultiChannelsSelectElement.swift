@@ -17,7 +17,7 @@ public struct MultiChannelsSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "multi_channels_select"
+        type = "multi_channels_select"
         self.actionId = actionId
         self.initialChannels = initialChannels
         self.maxSelectedItems = maxSelectedItems

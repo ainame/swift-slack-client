@@ -19,7 +19,7 @@ public struct MultiStaticSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "multi_static_select"
+        type = "multi_static_select"
         self.options = options
         self.actionId = actionId
         self.initialOptions = initialOptions

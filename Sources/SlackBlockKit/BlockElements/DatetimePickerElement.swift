@@ -13,7 +13,7 @@ public struct DatetimePickerElement: Codable, Hashable, Sendable {
         confirm: ConfirmationDialogObject? = nil,
         focusOnLoad: Bool? = nil
     ) {
-        self.type = "datetimepicker"
+        type = "datetimepicker"
         self.actionId = actionId
         self.initialDateTime = initialDateTime
         self.confirm = confirm

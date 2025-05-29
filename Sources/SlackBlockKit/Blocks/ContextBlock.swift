@@ -6,7 +6,7 @@ public struct ContextBlock: Codable, Hashable, Sendable {
     public let blockId: String?
 
     public init(elements: [ContextElementType], blockId: String? = nil) {
-        self.type = "context"
+        type = "context"
         self.elements = elements
         self.blockId = blockId
     }

@@ -6,7 +6,7 @@ public struct ActionsBlock: Codable, Hashable, Sendable {
     public let blockId: String?
 
     public init(elements: [ActionElementType], blockId: String? = nil) {
-        self.type = "actions"
+        type = "actions"
         self.elements = elements
         self.blockId = blockId
     }

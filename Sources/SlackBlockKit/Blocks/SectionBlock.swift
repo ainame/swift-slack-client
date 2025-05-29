@@ -15,7 +15,7 @@ public struct SectionBlock: Codable, Hashable, Sendable {
         blockId: String? = nil,
         expand: Bool? = nil
     ) {
-        self.type = "section"
+        type = "section"
         self.text = text
         self.fields = fields
         self.accessory = accessory

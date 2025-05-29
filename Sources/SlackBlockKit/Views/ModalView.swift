@@ -25,7 +25,7 @@ public struct ModalView: Codable, Hashable, Sendable {
         externalId: String? = nil,
         submitDisabled: Bool? = nil
     ) {
-        self.type = "modal"
+        type = "modal"
         self.title = title
         self.blocks = blocks
         self.close = close

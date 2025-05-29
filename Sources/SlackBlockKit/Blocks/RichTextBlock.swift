@@ -6,7 +6,7 @@ public struct RichTextBlock: Codable, Hashable, Sendable {
     public let blockId: String?
 
     public init(elements: [RichTextElementType], blockId: String? = nil) {
-        self.type = "rich_text"
+        type = "rich_text"
         self.elements = elements
         self.blockId = blockId
     }
@@ -69,7 +69,7 @@ public struct RichTextSection: Codable, Hashable, Sendable {
     public let elements: [RichTextContentElement]
 
     public init(elements: [RichTextContentElement]) {
-        self.type = "rich_text_section"
+        type = "rich_text_section"
         self.elements = elements
     }
 
@@ -94,7 +94,7 @@ public struct RichTextList: Codable, Hashable, Sendable {
         offset: Int? = nil,
         border: Int? = nil
     ) {
-        self.type = "rich_text_list"
+        type = "rich_text_list"
         self.style = style
         self.elements = elements
         self.indent = indent
@@ -118,7 +118,7 @@ public struct RichTextPreformatted: Codable, Hashable, Sendable {
     public let border: Int?
 
     public init(elements: [RichTextContentElement], border: Int? = nil) {
-        self.type = "rich_text_preformatted"
+        type = "rich_text_preformatted"
         self.elements = elements
         self.border = border
     }
@@ -136,7 +136,7 @@ public struct RichTextQuote: Codable, Hashable, Sendable {
     public let border: Int?
 
     public init(elements: [RichTextContentElement], border: Int? = nil) {
-        self.type = "rich_text_quote"
+        type = "rich_text_quote"
         self.elements = elements
         self.border = border
     }
@@ -220,7 +220,7 @@ public struct RichTextTextElement: Codable, Hashable, Sendable {
     public let style: RichTextTextStyle?
 
     public init(text: String, style: RichTextTextStyle? = nil) {
-        self.type = "text"
+        type = "text"
         self.text = text
         self.style = style
     }
@@ -254,7 +254,7 @@ public struct RichTextLinkElement: Codable, Hashable, Sendable {
     public let style: RichTextTextStyle?
 
     public init(url: String, text: String? = nil, unsafe: Bool? = nil, style: RichTextTextStyle? = nil) {
-        self.type = "link"
+        type = "link"
         self.url = url
         self.text = text
         self.unsafe = unsafe
@@ -276,7 +276,7 @@ public struct RichTextEmojiElement: Codable, Hashable, Sendable {
     public let unicode: String?
 
     public init(name: String, unicode: String? = nil) {
-        self.type = "emoji"
+        type = "emoji"
         self.name = name
         self.unicode = unicode
     }
@@ -294,7 +294,7 @@ public struct RichTextUserElement: Codable, Hashable, Sendable {
     public let style: RichTextUserStyle?
 
     public init(userId: String, style: RichTextUserStyle? = nil) {
-        self.type = "user"
+        type = "user"
         self.userId = userId
         self.style = style
     }
@@ -346,7 +346,7 @@ public struct RichTextChannelElement: Codable, Hashable, Sendable {
     public let style: RichTextUserStyle?
 
     public init(channelId: String, style: RichTextUserStyle? = nil) {
-        self.type = "channel"
+        type = "channel"
         self.channelId = channelId
         self.style = style
     }
@@ -366,7 +366,7 @@ public struct RichTextDateElement: Codable, Hashable, Sendable {
     public let fallback: String?
 
     public init(timestamp: Int, format: String, url: String? = nil, fallback: String? = nil) {
-        self.type = "date"
+        type = "date"
         self.timestamp = timestamp
         self.format = format
         self.url = url
@@ -387,7 +387,7 @@ public struct RichTextBroadcastElement: Codable, Hashable, Sendable {
     public let range: String
 
     public init(range: String) {
-        self.type = "broadcast"
+        type = "broadcast"
         self.range = range
     }
 

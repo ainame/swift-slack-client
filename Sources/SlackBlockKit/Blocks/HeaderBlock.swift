@@ -6,7 +6,7 @@ public struct HeaderBlock: Codable, Hashable, Sendable {
     public let blockId: String?
 
     public init(text: TextObject, blockId: String? = nil) {
-        self.type = "header"
+        type = "header"
         self.text = text
         self.blockId = blockId
     }

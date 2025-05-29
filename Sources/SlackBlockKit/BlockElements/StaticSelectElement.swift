@@ -19,7 +19,7 @@ public struct StaticSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "static_select"
+        type = "static_select"
         self.options = options
         self.optionGroups = optionGroups
         self.actionId = actionId

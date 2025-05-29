@@ -19,7 +19,7 @@ public struct ButtonElement: Codable, Hashable, Sendable {
         confirm: ConfirmationDialogObject? = nil,
         accessibilityLabel: String? = nil
     ) {
-        self.type = "button"
+        type = "button"
         self.text = text
         self.actionId = actionId
         self.url = url

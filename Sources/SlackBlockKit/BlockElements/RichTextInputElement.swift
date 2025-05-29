@@ -15,7 +15,7 @@ public struct RichTextInputElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "rich_text_input"
+        type = "rich_text_input"
         self.actionId = actionId
         self.initialValue = initialValue
         self.dispatchActionConfig = dispatchActionConfig
@@ -39,7 +39,7 @@ public struct RichTextObject: Codable, Hashable, Sendable {
     public let elements: [RichTextElementType]
 
     public init(elements: [RichTextElementType]) {
-        self.type = "rich_text"
+        type = "rich_text"
         self.elements = elements
     }
 

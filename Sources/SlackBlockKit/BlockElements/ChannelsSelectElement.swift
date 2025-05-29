@@ -17,7 +17,7 @@ public struct ChannelsSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "channels_select"
+        type = "channels_select"
         self.actionId = actionId
         self.initialChannel = initialChannel
         self.responseUrlEnabled = responseUrlEnabled

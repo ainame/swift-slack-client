@@ -7,7 +7,7 @@ public struct FileBlock: Codable, Hashable, Sendable {
     public let blockId: String?
 
     public init(externalId: String, blockId: String? = nil) {
-        self.type = "file"
+        type = "file"
         self.externalId = externalId
         self.blockId = blockId
     }

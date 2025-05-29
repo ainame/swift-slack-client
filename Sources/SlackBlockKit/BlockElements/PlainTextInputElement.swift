@@ -21,7 +21,7 @@ public struct PlainTextInputElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
-        self.type = "plain_text_input"
+        type = "plain_text_input"
         self.actionId = actionId
         self.initialValue = initialValue
         self.multiline = multiline
