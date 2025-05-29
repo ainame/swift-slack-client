@@ -65,10 +65,11 @@ end
 
 # Update JSON schemas
 visitors = [
-  OptionalityFixer.new,
+  InvalidKeysRemover.new,
   ReferenceFixer.new,
   AcronymsFixer.new('DND' => 'Dnd'),
   TypeFixer.new,
+  OptionalityFixer.new,
 ]
 
 event_schemas = Dir.glob("#{event_schemas_dir}/*.json")

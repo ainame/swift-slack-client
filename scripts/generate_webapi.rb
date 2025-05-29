@@ -93,10 +93,11 @@ def generate_openapi_component(path, output_dir)
   # fix json
   json = JSON.parse(File.read(output_path))
   visitors = [
+    InvalidKeysRemover.new,
     ReferenceFixer.new,
-    OptionalityFixer.new,
     AcronymsFixer.new('DND' => 'Dnd'),
     TypeFixer.new,
+    OptionalityFixer.new,
   ]
   visitors.each do |visitor|
     visitor.walk(json)

@@ -22,6 +22,29 @@ class ReferenceFixer
   end
 end
 
+class InvalidKeysRemover
+  def walk(root)
+    visit(root)
+  end
+
+  private
+
+  def visit(data)
+    case data
+    when Array
+      data.each { visit(_1) }
+    when Hash
+      # AllowScFileUploads is an exception that doesn't need to have `type` but the source data has it...
+      # https://github.com/slackapi/java-slack-sdk/blob/6f67d62486cd4b7a4d17e9a7de54db462a263e7a/slack-api-client/src/main/java/com/slack/api/methods/response/team/external_teams/TeamExternalTeamsListResponse.java#L84-L89
+      data['AllowScFileUploads']['properties'].delete('type') if data.key?('AllowScFileUploads')
+
+      data.each_value { visit(_1) }
+    else
+      data
+    end
+  end
+end
+
 # In common Slack response, `ok` always exists
 class OptionalityFixer
   def walk(root)
@@ -149,8 +172,6 @@ class TypeFixer
             properties: {},
             additionalProperties: true
           }
-        when 'AllowScFileUploads'
-          data[key]['properties']['type'] = { type: 'string' }
         when 'Subteam'
           # Subteam is Usergroup
           data['Usergroup'] = data['Subteam']
