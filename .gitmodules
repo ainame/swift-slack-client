@@ -1,0 +1,6 @@
+[submodule ".dependencies/java-slack-sdk"]
+	path = .dependencies/java-slack-sdk
+	url = https://github.com/slackapi/java-slack-sdk.git
+[submodule ".dependencies/slack-api-ref"]
+	path = .dependencies/slack-api-ref
+	url = https://github.com/slack-ruby/slack-api-ref.git
