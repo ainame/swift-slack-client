@@ -23,8 +23,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndEndDnd.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndEndDnd.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -110,7 +111,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -161,8 +162,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndEndSnooze.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndEndSnooze.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -248,7 +250,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -406,7 +408,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -457,8 +459,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndSetSnooze.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndSetSnooze.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -554,7 +557,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -605,8 +608,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndTeamInfo.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.DndTeamInfo.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -712,7 +716,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }

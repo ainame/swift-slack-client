@@ -23,8 +23,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.OauthV2Access.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.OauthV2Access.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -168,7 +169,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -219,8 +220,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.OauthV2Exchange.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.OauthV2Exchange.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -326,7 +328,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }

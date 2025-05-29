@@ -25,23 +25,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.completeUploadExternal",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -55,7 +55,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -64,7 +64,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -75,11 +75,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -94,23 +94,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.delete",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -124,7 +124,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -133,7 +133,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -144,11 +144,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -164,23 +164,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.getUploadURLExternal",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -194,7 +194,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -203,7 +203,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -214,11 +214,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -233,23 +233,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.info",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -263,7 +263,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -272,7 +272,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -283,11 +283,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -302,23 +302,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.list",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -332,7 +332,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -341,7 +341,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -352,11 +352,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -371,23 +371,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.remote.add",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -401,7 +401,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -410,7 +410,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -421,11 +421,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -440,23 +440,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.remote.info",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -470,7 +470,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -479,7 +479,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -490,11 +490,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -509,23 +509,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.remote.list",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -539,7 +539,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -548,7 +548,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -559,11 +559,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -578,23 +578,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.remote.remove",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -608,7 +608,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -617,7 +617,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -628,11 +628,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -647,23 +647,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.remote.share",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -677,7 +677,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -686,7 +686,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -697,11 +697,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -716,23 +716,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.remote.update",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -746,7 +746,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -755,7 +755,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -766,11 +766,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -785,23 +785,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.revokePublicURL",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -815,7 +815,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -824,7 +824,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -835,11 +835,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -854,23 +854,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.sharedPublicURL",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -884,7 +884,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -893,7 +893,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -904,11 +904,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 
@@ -923,23 +923,23 @@ extension Client {
             serializer: { input in
                 let path = try converter.renderedPath(
                     template: "/files.upload",
-                    parameters: [],
+                    parameters: []
                 )
                 var request: HTTPTypes.HTTPRequest = .init(
                     soar_path: path,
-                    method: .post,
+                    method: .post
                 )
                 suppressMutabilityWarning(&request)
                 converter.setAcceptHeader(
                     in: &request.headerFields,
-                    contentTypes: input.headers.accept,
+                    contentTypes: input.headers.accept
                 )
                 let body: OpenAPIRuntime.HTTPBody? = switch input.body {
                 case let .json(value):
                     try converter.setRequiredRequestBodyAsJSON(
                         value,
                         headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json; charset=utf-8"
                     )
                 }
                 return (request, body)
@@ -953,7 +953,7 @@ extension Client {
                         received: contentType,
                         options: [
                             "application/json",
-                        ],
+                        ]
                     )
                     switch chosenContentType {
                     case "application/json":
@@ -962,7 +962,7 @@ extension Client {
                             from: responseBody,
                             transforming: { value in
                                 .json(value)
-                            },
+                            }
                         )
                     default:
                         preconditionFailure("bestContentType chose an invalid content type.")
@@ -973,11 +973,11 @@ extension Client {
                         statusCode: response.status.code,
                         .init(
                             headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
+                            body: responseBody
+                        )
                     )
                 }
-            },
+            }
         )
     }
 }

@@ -23,8 +23,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsConnectionsOpen.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsConnectionsOpen.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -120,7 +121,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -171,8 +172,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsEventAuthorizationsList.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsEventAuthorizationsList.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -286,7 +288,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -337,8 +339,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestCreate.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestCreate.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -436,7 +439,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -487,8 +490,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestDelete.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestDelete.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -584,7 +588,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -635,8 +639,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestExport.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestExport.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -732,7 +737,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -783,8 +788,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestUpdate.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestUpdate.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -894,7 +900,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -945,8 +951,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestValidate.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsManifestValidate.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -1052,7 +1059,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -1103,8 +1110,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsUninstall.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AppsUninstall.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -1210,7 +1218,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }

@@ -23,8 +23,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.StarsAdd.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.StarsAdd.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -146,7 +147,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -197,8 +198,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.StarsList.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.StarsList.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -318,7 +320,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -369,8 +371,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.StarsRemove.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.StarsRemove.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -493,7 +496,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }

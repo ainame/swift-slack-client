@@ -23,8 +23,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.EmojiList.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.EmojiList.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -120,7 +121,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }

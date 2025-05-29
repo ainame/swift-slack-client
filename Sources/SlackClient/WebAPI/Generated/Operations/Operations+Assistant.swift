@@ -23,8 +23,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AssistantThreadsSetStatus.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AssistantThreadsSetStatus.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -138,7 +139,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -184,8 +185,9 @@ extension Operations {
         public struct Input: Sendable, Hashable {
             /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/header`.
             public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime
-                    .AcceptHeaderContentType<Operations.AssistantThreadsSetSuggestedPrompts.AcceptableContentType>
+                public var accept: [
+                    OpenAPIRuntime
+                        .AcceptHeaderContentType<Operations.AssistantThreadsSetSuggestedPrompts.AcceptableContentType>
                 ]
                 /// Creates a new `Headers`.
                 ///
@@ -317,7 +319,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }
@@ -368,8 +370,9 @@ extension Operations {
                 ///
                 /// - Parameters:
                 ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AssistantThreadsSetTitle.AcceptableContentType>] =
-                    .defaultValues()
+                public init(
+                    accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AssistantThreadsSetTitle.AcceptableContentType>] =
+                        .defaultValues()
                 ) {
                     self.accept = accept
                 }
@@ -483,7 +486,7 @@ extension Operations {
                     default:
                         try throwUnexpectedResponseStatus(
                             expectedStatus: "ok",
-                            response: self,
+                            response: self
                         )
                     }
                 }

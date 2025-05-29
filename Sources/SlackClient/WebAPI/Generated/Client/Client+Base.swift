@@ -32,7 +32,7 @@ struct Client: APIProtocol {
             serverURL: serverURL,
             configuration: configuration,
             transport: transport,
-            middlewares: middlewares,
+            middlewares: middlewares
         )
     }
 
