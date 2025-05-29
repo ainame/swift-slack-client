@@ -11,12 +11,8 @@ import struct Foundation.URL
 
 /// - Remark: Generated from `#/components/schemas/Tab`.
 public struct Tab: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Tab/data`.
-    public var data: Data?
     /// - Remark: Generated from `#/components/schemas/Tab/id`.
     public var id: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Tab/is_disabled`.
-    public var isDisabled: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Tab/label`.
     public var label: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Tab/type`.
@@ -24,29 +20,21 @@ public struct Tab: Codable, Hashable, Sendable {
     /// Creates a new `Tab`.
     ///
     /// - Parameters:
-    ///   - data:
     ///   - id:
-    ///   - isDisabled:
     ///   - label:
     ///   - _type:
     public init(
-        data: Data? = nil,
         id: Swift.String? = nil,
-        isDisabled: Swift.Bool? = nil,
         label: Swift.String? = nil,
         _type: Swift.String
     ) {
-        self.data = data
         self.id = id
-        self.isDisabled = isDisabled
         self.label = label
         self._type = _type
     }
 
     public enum CodingKeys: String, CodingKey {
-        case data
         case id
-        case isDisabled = "is_disabled"
         case label
         case _type = "type"
     }
