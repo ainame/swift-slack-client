@@ -1,0 +1,25 @@
+# SwiftFormat configuration
+--indent 4
+--maxwidth 140
+--wraparguments before-first
+--wrapcollections before-first
+--closingparen balanced
+--guardelse same-line
+--elseposition same-line
+--ifdef no-indent
+--extensionacl on-declarations
+--enable isEmpty
+--enable redundantNilInit
+--enable redundantLet
+--enable redundantParens
+--enable redundantReturn
+--enable redundantSelf
+--enable strongOutlets
+--enable trailingCommas
+--enable typeSugar
+--enable wrap
+--enable wrapArguments
+--enable wrapAttributes
+--enable sortImports
+--disable andOperator
+--disable wrapMultilineStatementBraces
