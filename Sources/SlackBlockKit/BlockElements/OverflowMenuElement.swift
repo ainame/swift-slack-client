@@ -1,7 +1,7 @@
 import Foundation
 
 public struct OverflowMenuElement: Codable, Hashable, Sendable {
-    public let type = "overflow"
+    public let type: String
     public let actionId: String?
     public let options: [OptionObject]
     public let confirm: ConfirmationDialogObject?
@@ -11,6 +11,7 @@ public struct OverflowMenuElement: Codable, Hashable, Sendable {
         actionId: String? = nil,
         confirm: ConfirmationDialogObject? = nil
     ) {
+        self.type = "overflow"
         self.options = options
         self.actionId = actionId
         self.confirm = confirm

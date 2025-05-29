@@ -1,7 +1,7 @@
 import Foundation
 
 public struct ModalView: Codable, Hashable, Sendable {
-    public let type = "modal"
+    public let type: String
     public let title: TextObject
     public let blocks: [BlockType]
     public let close: TextObject?
@@ -25,6 +25,7 @@ public struct ModalView: Codable, Hashable, Sendable {
         externalId: String? = nil,
         submitDisabled: Bool? = nil
     ) {
+        self.type = "modal"
         self.title = title
         self.blocks = blocks
         self.close = close

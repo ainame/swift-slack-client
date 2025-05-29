@@ -1,11 +1,12 @@
 import Foundation
 
 public struct ActionsBlock: Codable, Hashable, Sendable {
-    public let type = "actions"
+    public let type: String
     public let elements: [ActionElementType]
     public let blockId: String?
 
     public init(elements: [ActionElementType], blockId: String? = nil) {
+        self.type = "actions"
         self.elements = elements
         self.blockId = blockId
     }

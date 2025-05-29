@@ -1,7 +1,7 @@
 import Foundation
 
 public struct VideoBlock: Codable, Hashable, Sendable {
-    public let type = "video"
+    public let type: String
     public let altText: String
     public let videoUrl: URL
     public let thumbnailUrl: URL
@@ -25,6 +25,7 @@ public struct VideoBlock: Codable, Hashable, Sendable {
         authorName: String? = nil,
         blockId: String? = nil
     ) {
+        self.type = "video"
         self.altText = altText
         self.videoUrl = videoUrl
         self.thumbnailUrl = thumbnailUrl

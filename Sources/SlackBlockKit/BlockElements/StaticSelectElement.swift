@@ -1,7 +1,7 @@
 import Foundation
 
 public struct StaticSelectElement: Codable, Hashable, Sendable {
-    public let type = "static_select"
+    public let type: String
     public let options: [OptionObject]?
     public let optionGroups: [OptionGroupObject]?
     public let actionId: String?
@@ -19,6 +19,7 @@ public struct StaticSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
+        self.type = "static_select"
         self.options = options
         self.optionGroups = optionGroups
         self.actionId = actionId

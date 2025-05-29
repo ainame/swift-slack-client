@@ -1,7 +1,7 @@
 import Foundation
 
 public struct ExternalSelectElement: Codable, Hashable, Sendable {
-    public let type = "external_select"
+    public let type: String
     public let actionId: String?
     public let initialOption: OptionObject?
     public let minQueryLength: Int?
@@ -17,6 +17,7 @@ public struct ExternalSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
+        self.type = "external_select"
         self.actionId = actionId
         self.initialOption = initialOption
         self.minQueryLength = minQueryLength

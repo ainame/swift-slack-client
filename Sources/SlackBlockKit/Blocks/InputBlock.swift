@@ -1,7 +1,7 @@
 import Foundation
 
 public struct InputBlock: Codable, Hashable, Sendable {
-    public let type = "input"
+    public let type: String
     public let label: TextObject
     public let element: InputElementType
     public let blockId: String?
@@ -17,6 +17,7 @@ public struct InputBlock: Codable, Hashable, Sendable {
         hint: TextObject? = nil,
         optional: Bool? = nil
     ) {
+        self.type = "input"
         self.label = label
         self.element = element
         self.blockId = blockId

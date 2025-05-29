@@ -1,7 +1,7 @@
 import Foundation
 
 public struct ChannelsSelectElement: Codable, Hashable, Sendable {
-    public let type = "channels_select"
+    public let type: String
     public let actionId: String?
     public let initialChannel: String?
     public let responseUrlEnabled: Bool?
@@ -17,6 +17,7 @@ public struct ChannelsSelectElement: Codable, Hashable, Sendable {
         focusOnLoad: Bool? = nil,
         placeholder: TextObject? = nil
     ) {
+        self.type = "channels_select"
         self.actionId = actionId
         self.initialChannel = initialChannel
         self.responseUrlEnabled = responseUrlEnabled

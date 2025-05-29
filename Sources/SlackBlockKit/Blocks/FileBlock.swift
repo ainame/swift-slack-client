@@ -1,12 +1,13 @@
 import Foundation
 
 public struct FileBlock: Codable, Hashable, Sendable {
-    public let type = "file"
+    public let type: String
     public let externalId: String
     public let source = "remote"
     public let blockId: String?
 
     public init(externalId: String, blockId: String? = nil) {
+        self.type = "file"
         self.externalId = externalId
         self.blockId = blockId
     }
