@@ -19,7 +19,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Setup Swiftly
-        uses: vapor/swiftly-action@v0.1
+        uses: vapor/swiftly-action@v0.2
         with:
           toolchain: 6.1-RELEASE
       
