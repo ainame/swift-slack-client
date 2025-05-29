@@ -3,21 +3,22 @@
 set -xe
 
 TMP_DIR="./.tmp"
+DEPS_DIR="./.dependencies"
+
+# Ensure submodules are initialized and updated
+if [ ! -f ".gitmodules" ]; then
+    echo "Error: .gitmodules file not found. Please run 'make update' first."
+    exit 1
+fi
+
+# Check if submodules are initialized (note: .git can be a file or directory)
+if [ ! -e "${DEPS_DIR}/java-slack-sdk/.git" ] || [ ! -e "${DEPS_DIR}/slack-api-ref/.git" ]; then
+    echo "Error: Submodules not initialized. Please run 'make update' first."
+    exit 1
+fi
 
 mkdir -p "${TMP_DIR}/WebAPI"
 mkdir -p "${TMP_DIR}/Events"
-
-if [ ! -d "${TMP_DIR}/java-slack-sdk/.git" ]; then
-    git clone --depth 1 https://github.com/slackapi/java-slack-sdk.git "${TMP_DIR}/java-slack-sdk"
-else
-    echo "java-slack-sdk repository already exists at ./tmp/java-slack-sdk. Skipping clone."
-fi
-
-if [ ! -d "${TMP_DIR}/slack-api-ref/.git" ]; then
-    git clone --depth 1 https://github.com/slack-ruby/slack-api-ref.git "${TMP_DIR}/slack-api-ref"
-else
-    echo "slack-api-ref repository already exists at ./tmp/slack-api-ref. Skipping clone."
-fi
 
 ruby scripts/generate_webapi.rb
 
