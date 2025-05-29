@@ -38,6 +38,12 @@ jobs:
           cd ..
           rm -rf SwiftFormat
 
+      - name: Cache Swift build
+        uses: actions/cache@v4
+        with:
+          path: .build
+          key: ${{ runner.os }}-swift-build-${{ hashFiles('Package.swift', 'Package.resolved') }}
+
       - name: Install quicktype
         run: |
           # Node.js is pre-installed on Ubuntu runners
