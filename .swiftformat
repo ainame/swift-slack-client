@@ -1,6 +1,6 @@
 # SwiftFormat configuration
 --indent 4
---maxwidth 140
+--maxwidth 200
 --wraparguments before-first
 --wrapcollections before-first
 --closingparen balanced
