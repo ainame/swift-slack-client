@@ -52,11 +52,13 @@ jobs:
           # Generate code
           make generate
 
-          # Check if there are any changes in relevant directories only
-          if [[ -n $(git status --porcelain Sources/ .dependencies/) ]]; then
+          # Check if there are any changes in generated source code (not just submodules)
+          if [[ -n $(git status --porcelain Sources/) ]]; then
             echo "changes=true" >> $GITHUB_OUTPUT
+            echo "Generated code changes detected"
           else
             echo "changes=false" >> $GITHUB_OUTPUT
+            echo "No generated code changes - only submodule updates"
           fi
 
       - name: Create Pull Request
