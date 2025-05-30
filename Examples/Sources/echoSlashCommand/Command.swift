@@ -5,8 +5,8 @@ import SlackClient
 @main
 struct EchoSlashCommand {
     static func main() async throws {
-        guard let accessToken = ProcessInfo.processInfo.environment["SLACK_OAUTH_TOKEN"],
-              let appLevelToken = ProcessInfo.processInfo.environment["SLACK_APP_LEVEL_TOKEN"] else {
+        guard let token = ProcessInfo.processInfo.environment["SLACK_OAUTH_TOKEN"],
+              let appToken = ProcessInfo.processInfo.environment["SLACK_APP_LEVEL_TOKEN"] else {
             print("❌ Please set SLACK_OAUTH_TOKEN and SLACK_APP_LEVEL_TOKEN environment variables")
             print("   SLACK_OAUTH_TOKEN: Bot token (starts with xoxb-)")
             print("   SLACK_APP_LEVEL_TOKEN: App-level token (starts with xapp-)")
@@ -19,8 +19,8 @@ struct EchoSlashCommand {
             transport: AsyncHTTPClientTransport(),
             configuration: .init(
                 userAgent: "EchoSlashCommand/1.0",
-                appLevelToken: appLevelToken,
-                accessToken: accessToken,
+                appToken: appToken,
+                token: token,
             ),
         )
 

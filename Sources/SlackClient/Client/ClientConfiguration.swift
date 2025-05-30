@@ -1,15 +1,15 @@
 public struct ClientConfiguration: Sendable {
     public var userAgent: String?
-    public var appLevelToken: String?
-    public var accessToken: String?
+    public var appToken: String?
+    public var token: String?
 
     public init(
         userAgent: String? = nil,
-        appLevelToken: String? = nil,
-        accessToken: String? = nil
+        appToken: String? = nil,
+        token: String? = nil
     ) {
         self.userAgent = userAgent
-        self.appLevelToken = appLevelToken
-        self.accessToken = accessToken
+        self.appToken = appToken
+        self.token = token
     }
 }

@@ -7,7 +7,6 @@ var targets: [Target] = []
 targets.append(executable("chatPostMessage"))
 targets.append(executable("router"))
 targets.append(executable("dsl"))
-targets.append(executable("slackview-demo"))
 targets.append(executable("echoSlashCommand"))
 targets.append(executable("threadExpander"))
 

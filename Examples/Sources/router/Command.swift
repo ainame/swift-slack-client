@@ -6,8 +6,8 @@ import SlackClient
 @main
 struct Command {
     static func main() async throws {
-        guard let accessToken = ProcessInfo.processInfo.environment["SLACK_OAUTH_TOKEN"],
-              let appLevelToken = ProcessInfo.processInfo.environment["SLACK_APP_LEVEL_TOKEN"] else {
+        guard let token = ProcessInfo.processInfo.environment["SLACK_OAUTH_TOKEN"],
+              let appToken = ProcessInfo.processInfo.environment["SLACK_APP_LEVEL_TOKEN"] else {
             print("Prepare SLACK_OAUTH_TOKEN to run this script")
             exit(1)
         }
@@ -16,8 +16,8 @@ struct Command {
             transport: AsyncHTTPClientTransport(),
             configuration: .init(
                 userAgent: "SwiftBot",
-                appLevelToken: appLevelToken,
-                accessToken: accessToken,
+                appToken: appToken,
+                token: token,
             ),
         )
 

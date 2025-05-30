@@ -18,7 +18,7 @@ public actor Slack {
     ) {
         clientConfiguration = configuration
         requestMiddleware = RequestMiddlware(configuration: .init(
-            accessToken: configuration.accessToken,
+            accessToken: configuration.token,
             userAgent: configuration.userAgent,
         ))
         client = Client(

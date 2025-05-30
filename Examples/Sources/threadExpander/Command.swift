@@ -5,8 +5,8 @@ import SlackClient
 @main
 struct ThreadExpander {
     static func main() async throws {
-        guard let accessToken = ProcessInfo.processInfo.environment["SLACK_OAUTH_TOKEN"],
-              let appLevelToken = ProcessInfo.processInfo.environment["SLACK_APP_LEVEL_TOKEN"] else {
+        guard let token = ProcessInfo.processInfo.environment["SLACK_OAUTH_TOKEN"],
+              let appToken = ProcessInfo.processInfo.environment["SLACK_APP_LEVEL_TOKEN"] else {
             print("❌ Please set SLACK_OAUTH_TOKEN and SLACK_APP_LEVEL_TOKEN")
             exit(1)
         }
@@ -14,8 +14,8 @@ struct ThreadExpander {
         let slack = Slack(
             transport: AsyncHTTPClientTransport(),
             configuration: .init(
-                appLevelToken: appLevelToken,
-                accessToken: accessToken,
+                appToken: appToken,
+                token: token,
             ),
         )
 
