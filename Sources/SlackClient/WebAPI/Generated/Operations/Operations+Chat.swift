@@ -9,6 +9,14 @@ import struct Foundation.Data
 import struct Foundation.Date
 import struct Foundation.URL
 #endif
+
+#if canImport(SlackBlockKit)
+import SlackBlockKit
+#endif
+
+#if canImport(SlackModels)
+import SlackModels
+#endif
 /// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_Chat
@@ -685,14 +693,10 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/user`.
                     public var user: Swift.String
-                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///
                     /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/attachments`.
-                    public var attachments: Swift.String?
-                    /// A JSON-based array of structured blocks, presented as a URL-encoded string.
-                    ///
+                    public var attachments: [SlackModels.Attachment]?
                     /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/blocks`.
-                    public var blocks: Swift.String?
+                    public var blocks: [SlackBlockKit.BlockType]?
                     /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/text`.
@@ -735,8 +739,8 @@ extension Operations {
                     /// - Parameters:
                     ///   - channel: Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name.
                     ///   - user: id of the user who will receive the ephemeral message. The user should be in the channel specified by the channel argument.
-                    ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
+                    ///   - attachments:
+                    ///   - blocks:
                     ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
                     ///   - asUser: (Legacy) Pass true to post the message as the authed user. Defaults to true if the chat:write:bot scope is not included. Otherwise, defaults to false.
                     ///   - iconEmoji: Emoji to use as the icon for this message. Overrides icon_url.
@@ -750,8 +754,8 @@ extension Operations {
                     public init(
                         channel: Swift.String,
                         user: Swift.String,
-                        attachments: Swift.String? = nil,
-                        blocks: Swift.String? = nil,
+                        attachments: [SlackModels.Attachment]? = nil,
+                        blocks: [SlackBlockKit.BlockType]? = nil,
                         text: Swift.String? = nil,
                         asUser: Swift.Bool? = nil,
                         iconEmoji: Swift.String? = nil,
@@ -927,14 +931,10 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/channel`.
                     public var channel: Swift.String
-                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///
                     /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/attachments`.
-                    public var attachments: Swift.String?
-                    /// A JSON-based array of structured blocks, presented as a URL-encoded string.
-                    ///
+                    public var attachments: [SlackModels.Attachment]?
                     /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/blocks`.
-                    public var blocks: Swift.String?
+                    public var blocks: [SlackBlockKit.BlockType]?
                     /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/text`.
@@ -1000,8 +1000,8 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channel: An encoded ID or channel name that represents a channel, private group, or IM channel to send the message to. See below for more details.
-                    ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
+                    ///   - attachments:
+                    ///   - blocks:
                     ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
                     ///   - agentMessageSourceType: Identify how the message was posted for agentforce BE logging.
                     ///   - asUser: (Legacy) Pass true to post the message as the authed user instead of as a bot. Defaults to false. Can only be used by classic apps. See legacy as_user parameter
@@ -1021,8 +1021,8 @@ extension Operations {
                     ///   - username: Set your bot's user name.
                     public init(
                         channel: Swift.String,
-                        attachments: Swift.String? = nil,
-                        blocks: Swift.String? = nil,
+                        attachments: [SlackModels.Attachment]? = nil,
+                        blocks: [SlackBlockKit.BlockType]? = nil,
                         text: Swift.String? = nil,
                         agentMessageSourceType: Swift.String? = nil,
                         asUser: Swift.Bool? = nil,
@@ -1218,14 +1218,10 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/post_at`.
                     public var postAt: Swift.Int
-                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///
                     /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/attachments`.
-                    public var attachments: Swift.String?
-                    /// A JSON-based array of structured blocks, presented as a URL-encoded string.
-                    ///
+                    public var attachments: [SlackModels.Attachment]?
                     /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/blocks`.
-                    public var blocks: Swift.String?
+                    public var blocks: [SlackBlockKit.BlockType]?
                     /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/text`.
@@ -1272,8 +1268,8 @@ extension Operations {
                     /// - Parameters:
                     ///   - channel: Channel, private group, or DM channel to send message to. Can be an encoded ID, or a name. See below for more details.
                     ///   - postAt: Unix timestamp representing the future time the message should post to Slack.
-                    ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
+                    ///   - attachments:
+                    ///   - blocks:
                     ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
                     ///   - asUser: Set to true to post the message as the authed user, instead of as a bot. Defaults to false. Cannot be used by new Slack apps. See chat.postMessage.
                     ///   - linkNames: Find and link user groups. No longer supports linking individual users; use syntax shown in Mentioning Users instead.
@@ -1288,8 +1284,8 @@ extension Operations {
                     public init(
                         channel: Swift.String,
                         postAt: Swift.Int,
-                        attachments: Swift.String? = nil,
-                        blocks: Swift.String? = nil,
+                        attachments: [SlackModels.Attachment]? = nil,
+                        blocks: [SlackBlockKit.BlockType]? = nil,
                         text: Swift.String? = nil,
                         asUser: Swift.Bool? = nil,
                         linkNames: Swift.Bool? = nil,
@@ -1878,14 +1874,10 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/ts`.
                     public var ts: Swift.String
-                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///
                     /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/attachments`.
-                    public var attachments: Swift.String?
-                    /// A JSON-based array of structured blocks, presented as a URL-encoded string.
-                    ///
+                    public var attachments: [SlackModels.Attachment]?
                     /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/blocks`.
-                    public var blocks: Swift.String?
+                    public var blocks: [SlackBlockKit.BlockType]?
                     /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/text`.
@@ -1927,8 +1919,8 @@ extension Operations {
                     ///   - channel: Channel containing the message to be updated. For direct messages, ensure that this value is a DM ID (starts with D) instead of a User ID (starts with either U or
                     /// W).
                     ///   - ts: Timestamp of the message to be updated.
-                    ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
+                    ///   - attachments:
+                    ///   - blocks:
                     ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
                     ///   - asUser: Pass true to update the message as the authed user. Bot users in this context are considered authed users.
                     ///   - fileIds: Array of new file ids that will be sent with this message.
@@ -1943,8 +1935,8 @@ extension Operations {
                     public init(
                         channel: Swift.String,
                         ts: Swift.String,
-                        attachments: Swift.String? = nil,
-                        blocks: Swift.String? = nil,
+                        attachments: [SlackModels.Attachment]? = nil,
+                        blocks: [SlackBlockKit.BlockType]? = nil,
                         text: Swift.String? = nil,
                         asUser: Swift.Bool? = nil,
                         fileIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,

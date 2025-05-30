@@ -9,6 +9,10 @@ import struct Foundation.Data
 import struct Foundation.Date
 import struct Foundation.URL
 #endif
+
+#if canImport(SlackBlockKit)
+import SlackBlockKit
+#endif
 /// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_Files
@@ -37,10 +41,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/files`.
                     public var files: OpenAPIRuntime.OpenAPIArrayContainer
-                    /// A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the initial_comment field is provided, the blocks field is ignored.
-                    ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/blocks`.
-                    public var blocks: Swift.String?
+                    public var blocks: [SlackBlockKit.BlockType]?
                     /// Channel ID where the file will be shared. If not specified the file will be private.
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/channel_id`.
@@ -62,7 +64,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - files: Array of file ids and their corresponding (optional) titles.
-                    ///   - blocks: A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the initial_comment field is provided, the blocks field is ignored.
+                    ///   - blocks:
                     ///   - channelId: Channel ID where the file will be shared. If not specified the file will be private.
                     ///   - channels: Comma-separated string of channel IDs where the file will be shared.
                     ///   - initialComment: The message text introducing the file in specified channels.
@@ -70,7 +72,7 @@ extension Operations {
                     /// channel when using 'thread_ts'.
                     public init(
                         files: OpenAPIRuntime.OpenAPIArrayContainer,
-                        blocks: Swift.String? = nil,
+                        blocks: [SlackBlockKit.BlockType]? = nil,
                         channelId: Swift.String? = nil,
                         channels: Swift.String? = nil,
                         initialComment: Swift.String? = nil,

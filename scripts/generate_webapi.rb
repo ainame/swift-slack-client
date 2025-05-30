@@ -147,8 +147,25 @@ def generate_openapi_path(path)
   request_body_props = json['args'].each_with_object({}) do |(name, attributes), props|
     required.append(name) if attributes['required']
 
-    if name == 'view'
+    case name
+    when 'view'
       props['view'] = { '$ref': '#/components/schemas/View' }
+    when 'block'
+      props['block'] = { '$ref': '#/components/schemas/Block' }
+    when 'blocks'
+      props['blocks'] = {
+        'type': 'array',
+        'items': {
+          '$ref': '#/components/schemas/Block'
+        }
+      }
+    when 'attachments'
+      props['attachments'] = {
+        'type': 'array',
+        'items': {
+          '$ref': '#/components/schemas/Attachment'
+        }
+      }
     else
       normalized_type = normalize_type(name, attributes)
       props[name] = {
