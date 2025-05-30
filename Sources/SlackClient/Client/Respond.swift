@@ -53,7 +53,7 @@ public struct Respond: Sendable {
     @discardableResult
     public func callAsFunction(to url: URL, payload: Payload) async throws -> Bool {
         let data = try jsonEncoder.encode(payload)
-        let (response, body) = try await transport.send(
+        let (response, _) = try await transport.send(
             HTTPRequest(
                 method: .post,
                 scheme: "https",
