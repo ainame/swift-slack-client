@@ -44,7 +44,7 @@ extension Slack {
             client: client,
             logger: logger,
             respond: Respond(transport: transport, logger: logger),
-            say: Say(client: client, logger: logger)
+            say: Say(client: client, logger: logger),
         )
         // Fix the set of routers to be routed before starting
         let routers = routers

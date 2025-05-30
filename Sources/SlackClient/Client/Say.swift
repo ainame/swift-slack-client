@@ -1,8 +1,8 @@
 import Foundation
+import Logging
 import OpenAPIRuntime
 import SlackBlockKit
 import SlackModels
-import Logging
 
 public struct Say: Sendable {
     private let client: any APIProtocol
@@ -16,12 +16,20 @@ public struct Say: Sendable {
     @discardableResult
     public func callAsFunction(
         text: String = "",
-        blocks: [BlockType]? = nil,
         channel: String,
+        blocks: [BlockType]? = nil,
         attachments: [Attachment]? = nil,
+        replyBroadcast: Bool? = nil,
+        threadTs: String? = nil,
+        markdownText: String? = nil,
+        mrkdwn: Bool? = nil,
+        parse: Payload.Parse? = nil,
+        linkNames: Bool? = nil,
+        username: String? = nil,
+        iconEmoji: String? = nil,
+        iconUrl: String? = nil,
         unfurlLinks: Bool? = nil,
         unfurlMedia: Bool? = nil,
-        threadTs: String? = nil,
         metadata: OpenAPIObjectContainer? = nil
     ) async throws -> Bool {
         try await callAsFunction(
@@ -30,11 +38,19 @@ public struct Say: Sendable {
                 text: text,
                 blocks: blocks,
                 attachments: attachments,
+                threadTs: threadTs,
+                replyBroadcast: replyBroadcast,
+                markdownText: markdownText,
+                mrkdwn: mrkdwn,
+                parse: parse,
+                linkNames: linkNames,
+                username: username,
+                iconEmoji: iconEmoji,
+                iconUrl: iconUrl,
                 unfurlLinks: unfurlLinks,
                 unfurlMedia: unfurlMedia,
-                threadTs: threadTs,
-                metadata: metadata
-            )
+                metadata: metadata,
+            ),
         )
     }
 
@@ -42,15 +58,15 @@ public struct Say: Sendable {
     public func callAsFunction(
         _ payload: Payload
     ) async throws -> Bool {
-#if WebAPI_Chat
+        #if WebAPI_Chat
         let result = try await client.chatPostMessage(
-            body: .json(payload.asInput())
+            body: .json(payload.asInput()),
         )
         return try result.ok.body.json.ok
-#else
+        #else
         logger.error("say() method failed. WebAPI_Chat trait is not enabled.")
         return false
-#endif
+        #endif
     }
 }
 
@@ -65,6 +81,7 @@ extension Say {
         public var text: String
         public var blocks: [BlockType]?
         public var attachments: [Attachment]?
+        public var threadTs: String?
         public var username: String?
         public var iconEmoji: String?
         public var iconUrl: String?
@@ -75,7 +92,6 @@ extension Say {
         public var replyBroadcast: Bool?
         public var unfurlLinks: Bool?
         public var unfurlMedia: Bool?
-        public var threadTs: String?
         public var metadata: OpenAPIObjectContainer?
 
         public init(
@@ -83,6 +99,8 @@ extension Say {
             text: String = "",
             blocks: [BlockType]? = nil,
             attachments: [Attachment]? = nil,
+            threadTs: String? = nil,
+            replyBroadcast: Bool? = nil,
             markdownText: String? = nil,
             mrkdwn: Bool? = nil,
             parse: Parse? = nil,
@@ -90,16 +108,16 @@ extension Say {
             username: String? = nil,
             iconEmoji: String? = nil,
             iconUrl: String? = nil,
-            replyBroadcast: Bool? = nil,
             unfurlLinks: Bool? = nil,
             unfurlMedia: Bool? = nil,
-            threadTs: String? = nil,
             metadata: OpenAPIObjectContainer? = nil
         ) {
             self.channel = channel
             self.text = text
             self.blocks = blocks
             self.attachments = attachments
+            self.threadTs = threadTs
+            self.replyBroadcast = replyBroadcast
             self.markdownText = markdownText
             self.mrkdwn = mrkdwn
             self.parse = parse
@@ -107,10 +125,8 @@ extension Say {
             self.username = username
             self.iconUrl = iconUrl
             self.iconEmoji = iconEmoji
-            self.replyBroadcast = replyBroadcast
             self.unfurlLinks = unfurlLinks
             self.unfurlMedia = unfurlMedia
-            self.threadTs = threadTs
             self.metadata = metadata
         }
 
@@ -119,6 +135,8 @@ extension Say {
             case text
             case blocks
             case attachments
+            case threadTs = "thread_ts"
+            case replyBroadcast = "reply_broadcast"
             case markdownText = "mrkdwn_text"
             case mrkdwn
             case parse
@@ -126,22 +144,23 @@ extension Say {
             case iconUrl = "icon_url"
             case linkNames = "link_names"
             case username
-            case replyBroadcast = "reply_broadcast"
             case unfurlLinks = "unfurl_links"
             case unfurlMedia = "unfurl_media"
-            case threadTs = "thread_ts"
             case metadata
         }
 
-#if WebAPI_Chat
+        #if WebAPI_Chat
         fileprivate func asInput() -> Operations.ChatPostMessage.Input.Body.JsonPayload {
             var payload = Operations.ChatPostMessage.Input.Body.JsonPayload(
                 channel: channel,
                 text: text,
                 agentMessageSourceType: nil,
                 asUser: nil,
+                iconEmoji: iconEmoji,
+                iconUrl: iconUrl,
+                linkNames: linkNames,
                 markdownText: markdownText,
-                metadata: nil,
+                metadata: metadata,
                 mrkdwn: mrkdwn,
                 parse: parse.flatMap { $0 == .none ? "none" : "full" },
                 replyBroadcast: replyBroadcast,
@@ -152,6 +171,6 @@ extension Say {
             )
             return payload
         }
-#endif
+        #endif
     }
 }

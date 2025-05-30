@@ -26,21 +26,23 @@ struct EchoSlashCommand {
 
         let router = SocketModeMessageRouter()
 
-        router.onSlashCommand("/echo") {
-            context,
-            payload in
+        router.onSlashCommand("/echo") { context, payload in
             // `respond` uses response_url
-            try await context.respond(to: payload.responseUrl, text: payload.text, responseType: .inChannel)
+            try await context.respond(to: payload.responseUrl, text: payload.text)
+
             // `say` uses chat.postMessage
-            try await context.say(text: "Echoed: \(payload.text)", channel: "#\(payload.channelName)")
-            
-            // respond can replace the original message easily
-            try await Task.sleep(for: .seconds(3))
+            try await context.say(
+                text: "Echoing via chat.postMessage: \(payload.text)",
+                channel: "#\(payload.channelName)",
+                username: "Echo bot",
+                iconEmoji: ":speaker:",
+            )
+
+            try await Task.sleep(for: .seconds(5))
+
             try await context.respond(
                 to: payload.responseUrl,
-                text: "Replaced: \(payload.text)",
-                responseType: .inChannel,
-                replaceOriginal: true
+                text: "2nd post: \(payload.text)",
             )
         }
 

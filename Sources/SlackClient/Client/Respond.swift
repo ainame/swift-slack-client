@@ -1,9 +1,9 @@
 import Foundation
+import HTTPTypes
+import Logging
 import OpenAPIRuntime
 import SlackBlockKit
 import SlackModels
-import HTTPTypes
-import Logging
 
 public struct Respond: Sendable {
     private let transport: any ClientTransport
@@ -45,7 +45,7 @@ public struct Respond: Sendable {
             unfurlLinks: unfurlLinks,
             unfurlMedia: unfurlMedia,
             threadTs: threadTs,
-            metadata: metadata
+            metadata: metadata,
         )
         return try await callAsFunction(to: url, payload: payload)
     }
@@ -62,7 +62,7 @@ public struct Respond: Sendable {
                 headerFields: HTTPFields([HTTPField(name: .contentType, value: "application/json")]),
             ),
             body: HTTPBody(data),
-            baseURL: url.host.flatMap({ URL(string: "https://\($0)")}) ?? URL(string: "https://hooks.slack.com")!,
+            baseURL: url.host.flatMap { URL(string: "https://\($0)") } ?? URL(string: "https://hooks.slack.com")!,
             operationID: "response_url",
         )
         return response.status.code == 200
