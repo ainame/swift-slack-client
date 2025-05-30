@@ -151,7 +151,7 @@ extension Say {
 
         #if WebAPI_Chat
         fileprivate func asInput() -> Operations.ChatPostMessage.Input.Body.JsonPayload {
-            var payload = Operations.ChatPostMessage.Input.Body.JsonPayload(
+            Operations.ChatPostMessage.Input.Body.JsonPayload(
                 channel: channel,
                 text: text,
                 agentMessageSourceType: nil,
@@ -169,7 +169,6 @@ extension Say {
                 unfurlMedia: unfurlMedia,
                 username: username,
             )
-            return payload
         }
         #endif
     }
