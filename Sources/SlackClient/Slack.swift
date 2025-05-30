@@ -19,7 +19,7 @@ public actor Slack {
     ) {
         clientConfiguration = configuration
         requestMiddleware = RequestMiddlware(configuration: .init(
-            accessToken: configuration.token,
+            token: configuration.token,
             userAgent: configuration.userAgent,
         ))
         client = Client(
@@ -31,9 +31,9 @@ public actor Slack {
         self.logger = logger ?? Logger(label: "Slack")
     }
 
-    public func setAccessToken(_ value: String?) async {
+    public func setToken(_ value: String?) async {
         guard let value else { return }
-        await requestMiddleware.setAccessToken(value)
+        await requestMiddleware.setToken(value)
     }
 
     #if SocketMode

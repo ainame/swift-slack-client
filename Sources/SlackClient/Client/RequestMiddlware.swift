@@ -4,7 +4,7 @@ import OpenAPIRuntime
 
 actor RequestMiddlware: ClientMiddleware {
     struct RequestConfiguration: Equatable {
-        var accessToken: String?
+        var token: String?
         var userAgent: String?
     }
 
@@ -23,14 +23,14 @@ actor RequestMiddlware: ClientMiddleware {
     static func updateAdditionalHeaders(_ configuration: RequestConfiguration) -> HTTPFields {
         var additionalHeaderFields = HTTPFields()
         additionalHeaderFields[.userAgent] = configuration.userAgent
-        if let accessToken = configuration.accessToken {
-            additionalHeaderFields[.authorization] = "Bearer \(accessToken)"
+        if let token = configuration.token {
+            additionalHeaderFields[.authorization] = "Bearer \(token)"
         }
         return additionalHeaderFields
     }
 
-    func setAccessToken(_ value: String) {
-        configuration.accessToken = value
+    func setToken(_ value: String) {
+        configuration.token = value
     }
 
     func intercept(
