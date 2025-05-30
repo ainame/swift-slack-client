@@ -9,17 +9,24 @@ import OpenAPIRuntime
 import WSClient
 
 extension Slack {
+    /// Start SocketMode subscription. By default this will re-connect to Slack when the connection ends.
+    ///
+    /// - Parameters:
+    ///   - options: Options to control behaviors
+    ///   - appLogger: App specific logger that will be accessible from context param in router.
+    ///   If not specified, the system logger will be available.
     public func runInSocketMode(
         options: SocketModeOptions = [
             .autoReconnectWhenDisconnected,
             .recoverFromAppError,
         ],
+        logger appLogger: Logger? = nil,
     ) async throws {
         while true {
             if Task.isCancelled { break }
 
             let url = try await openConnection()
-            try await doStartSocketMode(with: url, options: options)
+            try await doStartSocketMode(with: url, options: options, appLogger: appLogger)
 
             if !options.contains(.autoReconnectWhenDisconnected) { break }
         }
@@ -39,10 +46,10 @@ extension Slack {
         return url
     }
 
-    func doStartSocketMode(with url: String, options: SocketModeOptions) async throws {
+    func doStartSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws {
         let routerContext = SocketModeMessageRouter.Context(
             client: client,
-            logger: logger,
+            logger: appLogger ?? self.logger,
             respond: Respond(transport: transport, logger: logger),
             say: Say(client: client, logger: logger),
         )
