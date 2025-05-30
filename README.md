@@ -1,25 +1,25 @@
 # swift-slack-client
 
-swift-slack-client is _unofficial_ library that aims to provide Swift equivalent of the official Slack bolt framework and SDK of Python, TypeScript, Java, etc.
-Enjoy coding in the language you like.
+swift-slack-client is an _unofficial_ library that aims to provide a Swift equivalent of the official Slack Bolt framework and SDK available for Python, TypeScript, Java, etc.
+Build Slack apps using the language you love.
 
-**WebAPI client works but is not tested for all the methods. Please give us feedback. It's in experimental phase and the library's API may change from time to time.**
+**Note: The WebAPI client works but is not tested for all methods. Please provide feedback. The library is experimental and its API may change.**
 
-## Is this a good library and well-maintained?
+## Key Features
 
-swift-slack-client has following benefits to offer.
+swift-slack-client offers the following benefits:
 
-* **Type-safe Slack Web API/Block Kit support** to build a rich Slack app
-* **SocketMode support is built-in** and no ngrok is required to develop Slack app
-* **OpenAPI spec generated automatically** makes it easy to catch up official Web API changes
-* **Designed for modern Swift on Server stack** - structured concurrency, swift-openapi-generator, Swift Package traits, etc...
+* **Type-safe Slack Web API/Block Kit support** to build rich Slack apps
+* **Built-in Socket Mode support** - no ngrok required for local development
+* **Automatically generated from OpenAPI specs** to stay current with official Web API changes
+* **Designed for modern Swift on Server** - structured concurrency, swift-openapi-generator, Swift Package traits, etc.
 
 ## Get started
 
 ### Installation
 
-Add this to your `Package.swift`. Since this package uses swift-openapi-generator ecosystem,
-you have to install and use one of transport layer packages additionally.
+Add this to your `Package.swift`. Since this package uses the swift-openapi-generator ecosystem,
+you'll need to include a transport layer package as well.
 
 ```swift
     dependencies: [
@@ -31,12 +31,12 @@ you have to install and use one of transport layer packages additionally.
     ]
 ```
 
-swift-slack-client supports Swift Package traits so that you can opt-in/out features and Web API.
-By default all traits are enabled, which assumes you're going to try out Slack app with Socket Mode and it may take longer time to compile.
+swift-slack-client supports Swift Package traits, allowing you to opt in or out of features and Web API groups.
+By default, all traits are enabled, which is great for trying out Socket Mode but may increase compile time.
 
-Especially, if you want just a WebAPI client with URLSession to write some scripts, opting-out "SocketMode" is worth it.
-It will reduce build time siginiicantly. "SocketMode" relies on ![hummingbird-project/swift-websocket](https://github.com/hummingbird-project/swift-websocket) and SwiftNIO.
-Those won't be compiled if traits are minimised.
+If you only need a WebAPI client with URLSession for scripts, disabling "SocketMode" will significantly reduce build time.
+Socket Mode depends on [hummingbird-project/swift-websocket](https://github.com/hummingbird-project/swift-websocket) and SwiftNIO,
+which won't be compiled when traits are minimized.
 
 ```swift
     dependencies: [
@@ -44,22 +44,22 @@ Those won't be compiled if traits are minimised.
             url: "https://github.com/ainame/swift-slack-client.git",
             from: "0.0.1",
             traits: [
-                "SocketMode",   // To use socket mode. If this is specified, swift-websocket package will be installed
-                "Events",       // To subscribe decode event payloads via Events API (not RTM)
-                "WebAPI_Chat",  // Each WebAPI is in a group and enabled/disabled by trait; chat.postMessage -> WebAPI_Chat
-                "WebAPI_Views", // Unless you enable corresponding trait, API won't be available.
+                "SocketMode",   // To use Socket Mode. If specified, swift-websocket package will be included
+                "Events",       // To decode event payloads via Events API (not RTM)
+                "WebAPI_Chat",  // Each Web API is grouped by trait; chat.postMessage -> WebAPI_Chat
+                "WebAPI_Views", // APIs won't be available unless the corresponding trait is enabled
             ]
         )
     ]
 ```
 
-### Web API client
+### Web API Client
 
-For example, you can start a script to post a message to a Slack channel like below.
+Here's how to post a message to a Slack channel:
 
-1. Install swift-slack-client and a transport library via Swift Package Manager and enable `WebAPI_Chat`
-2. Initialize Slack instance with transport and token (you have to create one on Slack's console)
-3. `slack.client` is the API client instance that only exposes a set of APIs enabled by traits
+1. Install swift-slack-client and a transport library via Swift Package Manager with the `WebAPI_Chat` trait enabled
+2. Initialize a Slack instance with transport and token (create a token in Slack's console)
+3. Use `slack.client` to access APIs enabled by your chosen traits
 
 ```swift
 import Foundation
@@ -78,11 +78,11 @@ let response = try await slack.client.chatPostMessage(
     ),
 )
 
-// This is true if the request is succeeded
+// This is true if the request succeeded
 print(try response.ok.body.json.ok)
 ```
 
-You can use SlackBlockKitDSL/SlackBlockKit to compose a rich message.
+You can use SlackBlockKitDSL/SlackBlockKit to compose rich messages:
 
 ```swift
 import Foundation
@@ -109,14 +109,14 @@ let result = try await slack.client.chatPostMessage(
 )
 try debugPrint(result.ok.body.json)
 
-// This is true if the request is succeeded
+// This is true if the request succeeded
 print(try response.ok.body.json.ok)
 ```
 
 ### Socket Mode
 
-For Socket Mode's use, you can use `SocketModeMessageRouter` to register callbacks and
-route events, slash commands, global shortcuts, message shortctus, and so on.
+For Socket Mode, use `SocketModeMessageRouter` to register callbacks and
+route events, slash commands, global shortcuts, message shortcuts, and more.
 
 <details>
 
@@ -133,10 +133,10 @@ let slack = Slack(
 // Create a router
 let router = SocketModeMessageRouter()
 
-// onSocketModeMessage provides routing to messages for all the events.
+// onSocketModeMessage handles routing for all events
 //
-// context - provides access to API client, logger and some helpers
-// envelope - (wrapper structure of payloads)
+// context - provides access to API client, logger and helpers
+// envelope - wrapper structure containing payloads
 router.onSocketModeMessage { context, envelope in
     print("onMessage")
 }
@@ -147,13 +147,13 @@ router.onEvent { context, envelope in
     case .appMention:
         print("onEvent: appMention")
     case .message:
-        print("onEvent: meessage")
+        print("onEvent: message")
     default:
         break
     }
 }
 
-// A bit fine grained
+// More fine-grained routing
 router.onEvent(AppMentionEvent.self) { _, _, _ in
     print("onEvent: AppMentionEvent")
 }
@@ -178,8 +178,8 @@ router.onInteractive { context, envelope in
     }
 }
 
-// Can focus on specific callback id
-router.onGlboalShortcut("run-something") { context, payload in
+// Handle specific callback IDs
+router.onGlobalShortcut("run-something") { context, payload in
     print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
 }
 
@@ -192,8 +192,8 @@ router.slashCommands("/echo") { context, envelope, event in
     context.respond(to: context.responseUrl, text: event.text, responseType: .inChannel)
 }
 
-// A simple text match routing on message event
-// You can give Regex patterns in String
+// Simple text matching for message events
+// Supports regex patterns as strings
 router.onSlackMessageMatched(with: "Hello", "World") { context, envelope, payload in
     print("onSlackMessageMatched: \(payload.text!)")
 }
@@ -205,21 +205,21 @@ try await slack.runInSocketMode()
 
 </details>
 
-More examples are available in ![Examples](https://github.com/ainame/swift-slack-client/tree/main/Examples).
+More examples are available in [Examples](https://github.com/ainame/swift-slack-client/tree/main/Examples).
 
-## Under the hood
+## Code Generation
 
-We relies on these two _reliable_ sources to generate OpenAPI schema.
+We rely on these two _reliable_ sources to generate OpenAPI schemas:
 
-* For WebAPI request and params https://github.com/slack-ruby/slack-api-ref
-* For WebAPI response and event's schemas https://github.com/slackapi/java-slack-sdk
+* For Web API requests and parameters: https://github.com/slack-ruby/slack-api-ref
+* For Web API responses and event schemas: https://github.com/slackapi/java-slack-sdk
 
-slackapi/java-slack-sdk is the official Java SDK. slack-ruby/slack-api-ref is created for community library
-![slack-ruby/slack-ruby-client](https://github.com/slack-ruby/slack-ruby-client). It's built on top of ![the former official API schemas repos](https://github.com/slackhq/slack-api-docs) (which is already archived) and has their own automatation to pull the latest specs from the official document.
+slackapi/java-slack-sdk is the official Java SDK. slack-ruby/slack-api-ref was created for the community library
+[slack-ruby/slack-ruby-client](https://github.com/slack-ruby/slack-ruby-client). It's built on top of [the former official API schemas repository](https://github.com/slackhq/slack-api-docs) (now archived) and has automation to pull the latest specs from the official documentation.
 
-We generate JSON schemas for each endpoints, response and events using ![quicktype](https://github.com/glideapps/quicktype) and then combine all together to use swift-openapi-generator. This apparoch was inspired by another official TypeScript SDK ![slack-edge/slack-web-api-client](https://github.com/slack-edge/slack-web-api-client).
+We generate JSON schemas for each endpoint, response, and event using [quicktype](https://github.com/glideapps/quicktype), then combine them for swift-openapi-generator. This approach was inspired by the official TypeScript SDK [slack-edge/slack-web-api-client](https://github.com/slack-edge/slack-web-api-client).
 
-slackapi/java-slack-sdk has tons of sample JSON for each response and events which quicktype can generate good schema. Though it is good and usable, it doesn't guarantee optionality of each parameters/fields in schemas. That's why you see many properties in generated code being optional.
+slackapi/java-slack-sdk provides sample JSON for each response and event, which quicktype uses to generate schemas. While the schemas are usable, they don't guarantee the optionality of parameters/fields. This is why many properties in the generated code are optional.
 
 ## Contribution
 
@@ -228,7 +228,7 @@ Feedback and PRs are welcome.
 ### Requirements
 
 * Swift 6.1+
-* SwiftFormat (install outside Swift Package Manager)
+* SwiftFormat (install separately from Swift Package Manager)
 * Node.js & quicktype (for schema generation)
 
 ### Setup
@@ -237,7 +237,7 @@ Feedback and PRs are welcome.
 # Clone with submodules
 git clone --recursive https://github.com/ainame/swift-slack-client.git
 
-# Update source repositiories
+# Update source repositories
 make update
 
 # Generate code
@@ -246,5 +246,5 @@ make generate
 
 ## Notes
 
-This is unofficial and community based project.
-It isn't affiliated with the company makes Slack.
+This is an unofficial, community-based project.
+It is not affiliated with Slack Technologies, LLC.
