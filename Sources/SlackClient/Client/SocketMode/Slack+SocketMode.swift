@@ -53,19 +53,26 @@ extension Slack {
             context.logger.info("SocketMode client connected")
             await self?.setWebSocketOutboundWriter(outbound)
 
-            for try await frame in inbound {
-                guard frame.opcode == .text else { continue }
+            // Process each message as a structured task so that a long running handler won't block subsequent messages
+            try await withThrowingDiscardingTaskGroup { group in
+                for try await frame in inbound {
+                    guard frame.opcode == .text,
+                          let message = try await self?.onMessageRecieved(frame.data),
+                          case let .message(envelope) = message.body else {
+                        // Only handle meaningful messages
+                        continue
+                    }
 
-                if let message = try await self?.onMessageRecieved(frame.data),
-                   case let .message(envelope) = message.body {
-                    do {
-                        for router in routers {
-                            try await router.dispatch(context: routerContext, messageEnvelope: envelope)
-                        }
-                    } catch {
-                        context.logger.error("App Level Error: \(error)")
-                        if !options.contains(.recoverFromAppError) {
-                            throw error
+                    group.addTask {
+                        do {
+                            for router in routers {
+                                try await router.dispatch(context: routerContext, messageEnvelope: envelope)
+                            }
+                        } catch {
+                            context.logger.error("App Level Error: \(error)")
+                            if !options.contains(.recoverFromAppError) {
+                                throw error
+                            }
                         }
                     }
                 }
