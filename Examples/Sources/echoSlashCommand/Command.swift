@@ -38,11 +38,12 @@ struct EchoSlashCommand {
                 iconEmoji: ":speaker:",
             )
 
-            try await Task.sleep(for: .seconds(5))
+            try await Task.sleep(for: .seconds(1))
 
+            // response_url can be re-used up-to 5 times
             try await context.respond(
                 to: payload.responseUrl,
-                text: "2nd post: \(payload.text)",
+                text: "2nd post: \(payload.text)"
             )
         }
 
