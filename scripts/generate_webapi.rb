@@ -111,11 +111,11 @@ end
 # They need to be filled in
 def normalize_type(name, attributes)
   return 'string' if attributes['type'] == 'enum'
-  return 'string' if name == 'ts' || (attributes['type'] == 'timestamp' && attributes['example'].is_a?(String))
-  return 'string' if name == 'image'
+  return 'object' if attributes['format'] == 'json'
+  return 'string' if attributes['type'] == 'timestamp' && attributes['example'].is_a?(String)
 
   # apps.manifest.create requires 'manifest' property as json but the slack-api-ref describes it wrong type
-  return 'string' if attributes['format'] == 'json' || attributes['type'] == 'manifest object as string'
+  return 'string' if attributes['type'] == 'manifest object as string'
   # bots.info requires `bot` property but wrong type is set
   return 'string' if attributes['type'] == 'user'
   # chat.delete describes 'channel' prop wrong
@@ -153,57 +153,34 @@ def generate_openapi_path(path)
     when 'block'
       props['block'] = { '$ref': '#/components/schemas/Block' }
     when 'blocks'
-      props['blocks'] = {
-        'type': 'array',
-        'items': {
-          '$ref': '#/components/schemas/Block'
-        }
-      }
+      props['blocks'] = { 'type': 'array', 'items': { '$ref': '#/components/schemas/Block' } }
     when 'attachments'
-      props['attachments'] = {
-        'type': 'array',
-        'items': {
-          '$ref': '#/components/schemas/Attachment'
-        }
-      }
+      props['attachments'] = { 'type': 'array', 'items': { '$ref': '#/components/schemas/Attachment' } }
+    when 'ts'
+      props['ts'] = { 'type': 'string' }
+    when 'image'
+      props['image'] = { 'type': 'string', 'format': 'binary' }
     else
       normalized_type = normalize_type(name, attributes)
-      props[name] = {
-        type: normalized_type,
-        example: attributes['example'],
-        description: attributes['desc'],
-      }
-      props[name][:format] = 'binary' if name == 'image' && attributes['type'] == 'string'
+      props[name] = { 'type': normalized_type }
     end
+
+    props[name]['example'] = attributes['example']
+    props[name]['description'] = attributes['desc']
   end
 
   response_model_name = "#{method_name.split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
-  content_type = request_body_props.any? { |k,v| v[:type] == 'binary' } ? 'multipart/form-data' : 'application/json'
+  content_type = request_body_props.any? { |_, v| v['format'] == 'binary' } ? 'multipart/form-data' : 'application/json'
   content_schema = if request_body_props.empty?
-                     { type: 'object', additionalProperties: false }
+                     { 'type': 'object', 'additionalProperties': false }
                    else
-                     { type: 'object', properties: request_body_props, required: required }
+                     { 'type': 'object', 'properties': request_body_props, 'required': required }
                    end
-
-  # Only 'apps.connections.open' wants to use token param in request body
-  # to avoid normal OAuth token on Authorization header.
-  if method_name == 'apps.connections.open'
-    content_schema = {
-        type: 'object',
-        properties: {
-          token: {
-            type: 'string',
-            description: 'App level token'
-          }
-        }
-      }
-  end
-
   request_body = {
-    required: !request_body_props.empty?,
-    content: {
+    'required': !request_body_props.empty?,
+    'content': {
       "#{content_type}": {
-        schema: content_schema
+        'schema': content_schema
       }
     }
   }
@@ -211,17 +188,17 @@ def generate_openapi_path(path)
   base = {
     "#{method_name}": {
       # Slack seems accapt POST always
-      post: {
-        tags: [method_name.split('.').first.capitalize],
-        operationId: operation_id,
-        summary: json['desc'],
-        requestBody: request_body,
-        responses: {
+      'post': {
+        'tags': [method_name.split('.').first.capitalize],
+        'operationId': operation_id,
+        'summary': json['desc'],
+        'requestBody': request_body,
+        'responses': {
           '200': {
-            description: 'OK',
-            content: {
+            'description': 'OK',
+            'content': {
               'application/json': {
-                schema: {
+                'schema': {
                   '$ref': "#/components/schemas/#{response_model_name}"
                 }
               }

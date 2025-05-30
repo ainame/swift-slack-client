@@ -33,20 +33,10 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/apps.connections.open/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// App level token
-                    ///
-                    /// - Remark: Generated from `#/paths/apps.connections.open/POST/requestBody/json/token`.
-                    public var token: Swift.String?
                     /// Creates a new `JsonPayload`.
-                    ///
-                    /// - Parameters:
-                    ///   - token: App level token
-                    public init(token: Swift.String? = nil) {
-                        self.token = token
-                    }
-
-                    public enum CodingKeys: String, CodingKey {
-                        case token
+                    public init() {}
+                    public init(from decoder: any Decoder) throws {
+                        try decoder.ensureNoAdditionalProperties(knownKeys: [])
                     }
                 }
 
@@ -346,12 +336,12 @@ extension Operations {
                     /// A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to creating one.
                     ///
                     /// - Remark: Generated from `#/paths/apps.manifest.create/POST/requestBody/json/manifest`.
-                    public var manifest: Swift.String
+                    public var manifest: OpenAPIRuntime.OpenAPIObjectContainer
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - manifest: A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to creating one.
-                    public init(manifest: Swift.String) {
+                    public init(manifest: OpenAPIRuntime.OpenAPIObjectContainer) {
                         self.manifest = manifest
                     }
 
@@ -789,7 +779,7 @@ extension Operations {
                     /// configuration, manifest must contain both unmodified and modified fields.
                     ///
                     /// - Remark: Generated from `#/paths/apps.manifest.update/POST/requestBody/json/manifest`.
-                    public var manifest: Swift.String
+                    public var manifest: OpenAPIRuntime.OpenAPIObjectContainer
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
@@ -798,7 +788,7 @@ extension Operations {
                     /// previous configuration, manifest must contain both unmodified and modified fields.
                     public init(
                         appId: Swift.String,
-                        manifest: Swift.String
+                        manifest: OpenAPIRuntime.OpenAPIObjectContainer
                     ) {
                         self.appId = appId
                         self.manifest = manifest

@@ -196,7 +196,7 @@ extension Operations {
                     /// A JSON-based object that conforms to the output parameters schema for the custom function defined in the manifest.
                     ///
                     /// - Remark: Generated from `#/paths/functions.completeSuccess/POST/requestBody/json/outputs`.
-                    public var outputs: Swift.String
+                    public var outputs: OpenAPIRuntime.OpenAPIObjectContainer
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
@@ -204,7 +204,7 @@ extension Operations {
                     ///   - outputs: A JSON-based object that conforms to the output parameters schema for the custom function defined in the manifest.
                     public init(
                         functionExecutionId: Swift.String,
-                        outputs: Swift.String
+                        outputs: OpenAPIRuntime.OpenAPIObjectContainer
                     ) {
                         self.functionExecutionId = functionExecutionId
                         self.outputs = outputs

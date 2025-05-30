@@ -41,6 +41,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/files`.
                     public var files: OpenAPIRuntime.OpenAPIArrayContainer
+                    /// A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the initial_comment field is provided, the blocks field is ignored.
+                    ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/blocks`.
                     public var blocks: [SlackBlockKit.BlockType]?
                     /// Channel ID where the file will be shared. If not specified the file will be private.
@@ -64,7 +66,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - files: Array of file ids and their corresponding (optional) titles.
-                    ///   - blocks:
+                    ///   - blocks: A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the initial_comment field is provided, the blocks field is ignored.
                     ///   - channelId: Channel ID where the file will be shared. If not specified the file will be private.
                     ///   - channels: Comma-separated string of channel IDs where the file will be shared.
                     ///   - initialComment: The message text introducing the file in specified channels.

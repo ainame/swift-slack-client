@@ -37,6 +37,8 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// A view payload. This must be a JSON-encoded string.
+                    ///
                     /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/view`.
                     public var view: SlackBlockKit.ViewType
                     /// Exchange a trigger to post to the user.
@@ -50,7 +52,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - view:
+                    ///   - view: A view payload. This must be a JSON-encoded string.
                     ///   - triggerId: Exchange a trigger to post to the user.
                     ///   - interactivityPointer: Exchange an interactivity pointer to post to the user.
                     public init(
@@ -203,6 +205,8 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/user_id`.
                     public var userId: Swift.String
+                    /// A view payload. This must be a JSON-encoded string.
+                    ///
                     /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/view`.
                     public var view: SlackBlockKit.ViewType
                     /// A string that represents view state to protect against possible race conditions.
@@ -213,7 +217,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - userId: id of the user you want publish a view to.
-                    ///   - view:
+                    ///   - view: A view payload. This must be a JSON-encoded string.
                     ///   - hash: A string that represents view state to protect against possible race conditions.
                     public init(
                         userId: Swift.String,
@@ -361,6 +365,8 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// A view payload. This must be a JSON-encoded string.
+                    ///
                     /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/view`.
                     public var view: SlackBlockKit.ViewType
                     /// Exchange a trigger to post to the user.
@@ -374,7 +380,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - view:
+                    ///   - view: A view payload. This must be a JSON-encoded string.
                     ///   - triggerId: Exchange a trigger to post to the user.
                     ///   - interactivityPointer: Exchange an interactivity pointer to post to the user.
                     public init(
@@ -523,6 +529,8 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// A view object. This must be a JSON-encoded string.
+                    ///
                     /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/view`.
                     public var view: SlackBlockKit.ViewType
                     /// A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is required.
@@ -540,7 +548,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - view:
+                    ///   - view: A view object. This must be a JSON-encoded string.
                     ///   - externalId: A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is
                     /// required.
                     ///   - viewId: A unique identifier of the view to be updated. Either view_id or external_id is required.

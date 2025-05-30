@@ -6461,7 +6461,7 @@ extension Operations {
                     /// The prefs for this channel in a stringified JSON format.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.setConversationPrefs/POST/requestBody/json/prefs`.
-                    public var prefs: Swift.String
+                    public var prefs: OpenAPIRuntime.OpenAPIObjectContainer
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
@@ -6469,7 +6469,7 @@ extension Operations {
                     ///   - prefs: The prefs for this channel in a stringified JSON format.
                     public init(
                         channelId: Swift.String,
-                        prefs: Swift.String
+                        prefs: OpenAPIRuntime.OpenAPIObjectContainer
                     ) {
                         self.channelId = channelId
                         self.prefs = prefs

@@ -1430,7 +1430,7 @@ extension Operations {
                     /// Collection of key:value pairs presented as a URL-encoded JSON hash. At most 50 fields may be set. Each field name is limited to 255 characters.
                     ///
                     /// - Remark: Generated from `#/paths/users.profile.set/POST/requestBody/json/profile`.
-                    public var profile: Swift.String?
+                    public var profile: OpenAPIRuntime.OpenAPIObjectContainer?
                     /// ID of user to change. This argument may only be specified by admins on paid teams.
                     ///
                     /// - Remark: Generated from `#/paths/users.profile.set/POST/requestBody/json/user`.
@@ -1448,7 +1448,7 @@ extension Operations {
                     ///   - value: Value to set a single key to. Usable only if profile is not passed.
                     public init(
                         name: Swift.String? = nil,
-                        profile: Swift.String? = nil,
+                        profile: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
                         user: Swift.String? = nil,
                         value: Swift.String? = nil
                     ) {
@@ -1743,34 +1743,26 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/users.setPhoto/POST/requestBody/json/crop_y`.
                     public var cropY: Swift.String?
-                    /// File contents via multipart/form-data.
-                    ///
-                    /// - Remark: Generated from `#/paths/users.setPhoto/POST/requestBody/json/image`.
-                    public var image: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - cropW: Width/height of crop box (always square).
                     ///   - cropX: X coordinate of top-left corner of crop box.
                     ///   - cropY: Y coordinate of top-left corner of crop box.
-                    ///   - image: File contents via multipart/form-data.
                     public init(
                         cropW: Swift.String? = nil,
                         cropX: Swift.String? = nil,
-                        cropY: Swift.String? = nil,
-                        image: Swift.String? = nil
+                        cropY: Swift.String? = nil
                     ) {
                         self.cropW = cropW
                         self.cropX = cropX
                         self.cropY = cropY
-                        self.image = image
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case cropW = "crop_w"
                         case cropX = "crop_x"
                         case cropY = "crop_y"
-                        case image
                     }
                 }
 
