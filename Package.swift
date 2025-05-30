@@ -54,6 +54,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.7.2"),
         .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.8.2"),
+        .package(url: "https://github.com/apple/swift-log.git", from: "1.6.3"),
         .package(url: "https://github.com/hummingbird-project/swift-websocket", from: "1.3.1"),
     ],
     targets: [
@@ -61,6 +62,7 @@ let package = Package(
             name: "SlackClient",
             dependencies: [
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "Logging", package: "swift-log"),
                 .product(
                     name: "WSClient", package: "swift-websocket",
                     condition: .when(traits: ["SocketMode"])
