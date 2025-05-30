@@ -1,4 +1,5 @@
 #if SocketMode
+import Foundation
 import Logging
 
 public typealias SocketModeMessageHandler = @Sendable (SocketModeMessageRouter.Context, SocketModeMessageEnvelope) async throws -> Void
@@ -13,6 +14,8 @@ public final class SocketModeMessageRouter {
     public struct Context: Sendable {
         public let client: APIProtocol
         public let logger: Logger
+        public let respond: Respond
+        public let say: Say
     }
 
     private var handlers: [SocketModeMessageHandler] = []

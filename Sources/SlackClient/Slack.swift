@@ -5,6 +5,7 @@ import OpenAPIRuntime
 
 public actor Slack {
     public let client: APIProtocol
+    let transport: any ClientTransport
     let clientConfiguration: ClientConfiguration
     var requestMiddleware: RequestMiddlware
     let logger: Logger
@@ -26,6 +27,7 @@ public actor Slack {
             transport: transport,
             middlewares: middlewares + [requestMiddleware],
         )
+        self.transport = transport
         self.logger = logger ?? Logger(label: "Slack")
     }
 

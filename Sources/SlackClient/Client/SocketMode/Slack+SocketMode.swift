@@ -40,18 +40,26 @@ extension Slack {
     }
 
     func doStartSocketMode(with url: String, options: SocketModeOptions) async throws {
-        let routerContext = SocketModeMessageRouter.Context(client: client, logger: logger)
-        let ws = WebSocketClient(url: url, logger: logger) { inbound, outbound, context in
+        let routerContext = SocketModeMessageRouter.Context(
+            client: client,
+            logger: logger,
+            respond: Respond(transport: transport, logger: logger),
+            say: Say(client: client, logger: logger)
+        )
+        // Fix the set of routers to be routed before starting
+        let routers = routers
+
+        let ws = WebSocketClient(url: url, logger: logger) { [weak self] inbound, outbound, context in
             context.logger.info("SocketMode client connected")
-            await self.setWebSocketOutboundWriter(outbound)
+            await self?.setWebSocketOutboundWriter(outbound)
 
             for try await frame in inbound {
                 guard frame.opcode == .text else { continue }
 
-                let message = try await self.onMessageRecieved(frame.data)
-                if case let .message(envelope) = message.body {
+                if let message = try await self?.onMessageRecieved(frame.data),
+                   case let .message(envelope) = message.body {
                     do {
-                        for router in await self.routers {
+                        for router in routers {
                             try await router.dispatch(context: routerContext, messageEnvelope: envelope)
                         }
                     } catch {
