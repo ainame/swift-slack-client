@@ -120,8 +120,8 @@ class SlackModelsExtractor
     transformed_content = transform_content(content, schema_name)
     
     # Check if we need SlackBlockKit import
-    needs_slackblockkit_import = transformed_content.include?('ViewType') || 
-                                transformed_content.include?('BlockType')
+    needs_slackblockkit_import = transformed_content.include?('View') || 
+                                transformed_content.include?('Block')
     
     # Generate file content
     file_content = generate_file_content(transformed_content, needs_slackblockkit_import)
@@ -167,14 +167,14 @@ class SlackModelsExtractor
         line = line.gsub(/\b_type\b/, 'type')
       end
       
-      # Replace Components.Schemas.View with ViewType
+      # Replace Components.Schemas.View with View
       if line.match(/\bComponents\.Schemas\.View\b/)
-        line = line.gsub(/\bComponents\.Schemas\.View\b/, 'ViewType')
+        line = line.gsub(/\bComponents\.Schemas\.View\b/, 'View')
       end
       
-      # Replace Components.Schemas.Block with BlockType  
+      # Replace Components.Schemas.Block with Block  
       if line.match(/\bComponents\.Schemas\.Block\b/)
-        line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'BlockType')
+        line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'Block')
       end
       
       # Replace other Components.Schemas.XXX with just XXX

@@ -40,11 +40,11 @@ class EventsProcessor
       generate_event_file(event_name, event_content)
     end
 
-    # Generate polymorphic EventType enum
+    # Generate polymorphic Event enum
     generate_event_type_enum(event_structs.keys)
 
-    Output.summary "Processing complete! Generated #{event_structs.size} event files + EventType.swift:",
-                   event_structs.keys.map { |name| "#{name}.swift" } + ["EventType.swift"]
+    Output.summary "Processing complete! Generated #{event_structs.size} event files + Event.swift:",
+                   event_structs.keys.map { |name| "#{name}.swift" } + ["Event.swift"]
   end
 
   private
@@ -131,8 +131,8 @@ class EventsProcessor
 
 
     # Check if we need imports
-    needs_slackblockkit_import = transformed_content.include?('BlockType') ||
-                                transformed_content.include?('ViewType')
+    needs_slackblockkit_import = transformed_content.include?('Block') ||
+                                transformed_content.include?('View')
     needs_slackmodels_import = transformed_content.include?('SlackModels.')
 
     # Generate the complete file content
@@ -145,7 +145,7 @@ class EventsProcessor
     Output.created filename
   end
 
-  # Generates the polymorphic EventType enum for handling all event types
+  # Generates the polymorphic Event enum for handling all event types
   def generate_event_type_enum(event_names)
     # Sort event names for consistent output
     sorted_events = event_names.sort
@@ -201,7 +201,7 @@ class EventsProcessor
 import Foundation
 
 /// Polymorphic event type that can decode any Slack event based on the type field
-public enum EventType: Decodable, Hashable, Sendable {
+public enum Event: Decodable, Hashable, Sendable {
 #{enum_cases.join("\n")}
     case unsupported(String)
 
@@ -236,8 +236,8 @@ public enum EventType: Decodable, Hashable, Sendable {
 #endif
     SWIFT
 
-    # Write the EventType.swift file
-    filename = "EventType.swift"
+    # Write the Event.swift file
+    filename = "Event.swift"
     filepath = File.join(@output_directory, filename)
     File.write(filepath, file_content)
     Output.created filename

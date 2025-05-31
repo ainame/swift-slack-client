@@ -41,8 +41,8 @@ class CodeTransformer
 
   # Transforms client function content by replacing schema references
   def self.transform_client_functions(content)
-    content.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.ViewType')
-           .gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.BlockType')
+    content.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.View')
+           .gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.Block')
            .gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
              type_name = $1
              if slackmodels_types.include?(type_name)
@@ -70,8 +70,8 @@ class CodeTransformer
     end
 
     # Apply transformations
-    transformed_content = content.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.ViewType')
-                                .gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.BlockType')
+    transformed_content = content.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.View')
+                                .gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.Block')
                                 .gsub(/\bComponents\.Schemas\.(\w+)\b/) do |match|
                                   type_name = $1
                                   if CodeTransformer.slackmodels_types.include?(type_name)
@@ -113,15 +113,15 @@ class CodeTransformer
       end
 
 
-      # Replace Components.Schemas.View with SlackBlockKit.ViewType (exact match only)
+      # Replace Components.Schemas.View with SlackBlockKit.View (exact match only)
       if line.match(/\bComponents\.Schemas\.View\b/)
-        line = line.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.ViewType')
+        line = line.gsub(/\bComponents\.Schemas\.View\b/, 'SlackBlockKit.View')
         needs_slackblockkit_import = true
       end
 
-      # Replace Components.Schemas.Block with SlackBlockKit.BlockType (exact match only)
+      # Replace Components.Schemas.Block with SlackBlockKit.Block (exact match only)
       if line.match(/\bComponents\.Schemas\.Block\b/)
-        line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.BlockType')
+        line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'SlackBlockKit.Block')
         needs_slackblockkit_import = true
       end
 
@@ -401,8 +401,8 @@ class CodeGenerationProcessor
 
     # Check if we need imports
     content_string = final_content.join
-    needs_slackblockkit_import = content_string.include?('SlackBlockKit.ViewType') ||
-                                content_string.include?('SlackBlockKit.BlockType')
+    needs_slackblockkit_import = content_string.include?('SlackBlockKit.View') ||
+                                content_string.include?('SlackBlockKit.Block')
     needs_slackmodels_import = content_string.include?('SlackModels.')
 
     if needs_slackmodels_import
@@ -1275,8 +1275,8 @@ class CommonModelsSplitter
     transformed_content = transform_model_content(content, schema_name)
 
     # Check if we need SlackBlockKit import (don't need SlackModels import since we're within SlackModels)
-    needs_slackblockkit_import = transformed_content.include?('ViewType') ||
-                                transformed_content.include?('BlockType')
+    needs_slackblockkit_import = transformed_content.include?('View') ||
+                                transformed_content.include?('Block')
 
     # Generate file content
     file_content = generate_model_file_content(header, transformed_content, needs_slackblockkit_import)
@@ -1323,14 +1323,14 @@ class CommonModelsSplitter
       end
 
 
-      # Replace Components.Schemas.View with ViewType from SlackBlockKit
+      # Replace Components.Schemas.View with View from SlackBlockKit
       if line.match(/\bComponents\.Schemas\.View\b/)
-        line = line.gsub(/\bComponents\.Schemas\.View\b/, 'ViewType')
+        line = line.gsub(/\bComponents\.Schemas\.View\b/, 'View')
       end
 
-      # Replace Components.Schemas.Block with BlockType from SlackBlockKit
+      # Replace Components.Schemas.Block with Block from SlackBlockKit
       if line.match(/\bComponents\.Schemas\.Block\b/)
-        line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'BlockType')
+        line = line.gsub(/\bComponents\.Schemas\.Block\b/, 'Block')
       end
 
       # Replace other Components.Schemas.XXX with just XXX (since we're inside SlackModels module)
