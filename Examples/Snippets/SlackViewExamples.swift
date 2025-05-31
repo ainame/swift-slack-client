@@ -19,8 +19,8 @@ struct UserProfileCard: SlackView {
         .accessory(
             ImageAccessory(
                 altText: "\(name)'s avatar",
-                imageUrl: URL(string: avatarUrl ?? "https://via.placeholder.com/150")!
-            )
+                imageUrl: URL(string: avatarUrl ?? "https://via.placeholder.com/150")!,
+            ),
         )
     }
 }
@@ -60,7 +60,7 @@ struct UserSettingsForm: SlackView {
                 Checkboxes {
                     Option("Email notifications")
                         .value("email")
-                        // Note: Option doesn't have initiallySelected
+                    // Note: Option doesn't have initiallySelected
                     Option("Push notifications")
                         .value("push")
                     Option("SMS notifications")
@@ -77,13 +77,13 @@ struct UserSettingsForm: SlackView {
         Input(
             element: {
                 StaticSelect {
-                        Option("Pacific Time (PT)").value("PT")
-                        Option("Mountain Time (MT)").value("MT")
-                        Option("Central Time (CT)").value("CT")
-                        Option("Eastern Time (ET)").value("ET")
-                    }
-                    .actionId("timezone")
-                    .placeholder("Select timezone...")
+                    Option("Pacific Time (PT)").value("PT")
+                    Option("Mountain Time (MT)").value("MT")
+                    Option("Central Time (CT)").value("CT")
+                    Option("Eastern Time (ET)").value("ET")
+                }
+                .actionId("timezone")
+                .placeholder("Select timezone...")
             },
             label: {
                 Text("*Timezone*").type(.mrkdwn)
@@ -206,20 +206,19 @@ enum SlackViewUsageExamples {
         // Since we use SlackView, we need a modal wrapper
         struct SettingsModal: SlackModalView {
             let settingsView: UserSettingsForm
-            
+
             var title: TextObject { "User Settings" }
             var submit: TextObject? { "Save" }
             var close: TextObject? { "Cancel" }
             var callbackId: String? { "user_settings_modal" }
-            
-            @BlockBuilder
+
             var blocks: [Block] {
                 for block in settingsView.blocks {
                     block
                 }
             }
         }
-        
+
         return View.modal(SettingsModal(settingsView: settingsView).render())
     }
 
@@ -240,17 +239,16 @@ enum SlackViewUsageExamples {
         // Since we use SlackView, we need a home tab wrapper
         struct DashboardHomeTabWrapper: SlackHomeTabView {
             let dashboard: ProjectDashboard
-            
+
             var callbackId: String? { "dashboard_home_tab" }
-            
-            @BlockBuilder
+
             var blocks: [Block] {
                 for block in dashboard.blocks {
                     block
                 }
             }
         }
-        
+
         return View.homeTab(DashboardHomeTabWrapper(dashboard: dashboard).render())
     }
 
@@ -265,18 +263,17 @@ enum SlackViewUsageExamples {
         // Since we use SlackView, we need a modal wrapper
         struct ProfileModal: SlackModalView {
             let profileCard: UserProfileCard
-            
+
             var title: TextObject { "User Profile" }
             var close: TextObject? { "Close" }
-            
-            @BlockBuilder
+
             var blocks: [Block] {
                 for block in profileCard.blocks {
                     block
                 }
             }
         }
-        
+
         return View.modal(ProfileModal(profileCard: profileCard).render())
     }
 }

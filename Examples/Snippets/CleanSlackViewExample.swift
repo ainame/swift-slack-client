@@ -215,7 +215,7 @@ struct TaskItemView: SlackView {
             .accessory(
                 Button("Complete")
                     .actionId("complete_\(task.id)")
-                    .style(.primary)
+                    .style(.primary),
             )
         }
     }

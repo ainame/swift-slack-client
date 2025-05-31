@@ -84,10 +84,9 @@ struct CompactDashboard: SlackView {
 // Usage - Create modal/home tab wrappers
 struct SimpleGreetingModal: SlackModalView {
     let greeting: SimpleGreeting
-    
+
     var title: TextObject { "Welcome" }
-    
-    @BlockBuilder
+
     var blocks: [Block] {
         for block in greeting.blocks {
             block
@@ -97,11 +96,10 @@ struct SimpleGreetingModal: SlackModalView {
 
 struct TeamUpdateModal: SlackModalView {
     let update: TeamUpdate
-    
+
     var title: TextObject { "Team Updates" }
     var close: TextObject? { "Dismiss" }
-    
-    @BlockBuilder
+
     var blocks: [Block] {
         for block in update.blocks {
             block
@@ -111,8 +109,7 @@ struct TeamUpdateModal: SlackModalView {
 
 struct CompactDashboardHomeTab: SlackHomeTabView {
     let dashboard: CompactDashboard
-    
-    @BlockBuilder
+
     var blocks: [Block] {
         for block in dashboard.blocks {
             block
@@ -136,8 +133,8 @@ extension TeamUpdate {
                     "New hire starting Monday",
                     "Code freeze begins Friday",
                 ],
-                urgent: true
-            )
+                urgent: true,
+            ),
         ).render())
     }
 }
@@ -146,8 +143,8 @@ extension CompactDashboard {
     static func example() -> View {
         View.homeTab(CompactDashboardHomeTab(
             dashboard: CompactDashboard(
-                metrics: Metrics(users: 1250, revenue: 45678.90, growth: -2.5)
-            )
+                metrics: Metrics(users: 1250, revenue: 45678.90, growth: -2.5),
+            ),
         ).render())
     }
 }

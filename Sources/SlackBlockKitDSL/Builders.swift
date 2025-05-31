@@ -136,23 +136,23 @@ public struct TextListBuilder {
     public static func buildBlock(_ components: [Text]...) -> [Text] {
         components.flatMap(\.self)
     }
-    
+
     public static func buildExpression(_ expression: Text) -> [Text] {
         [expression]
     }
-    
+
     public static func buildArray(_ components: [[Text]]) -> [Text] {
         components.flatMap(\.self)
     }
-    
+
     public static func buildOptional(_ component: [Text]?) -> [Text] {
         component ?? []
     }
-    
+
     public static func buildEither(first component: [Text]) -> [Text] {
         component
     }
-    
+
     public static func buildEither(second component: [Text]) -> [Text] {
         component
     }
@@ -164,7 +164,7 @@ public struct OptionBuilder {
     public static func buildBlock(_ components: [Option]...) -> [Option] {
         components.flatMap(\.self)
     }
-    
+
     public static func buildExpression(_ expression: Option) -> [Option] {
         [expression]
     }

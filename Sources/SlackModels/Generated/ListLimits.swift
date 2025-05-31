@@ -9,6 +9,10 @@ import struct Foundation.Date
 import struct Foundation.URL
 #endif
 
+#if canImport(SlackBlockKit)
+import SlackBlockKit
+#endif
+
 /// - Remark: Generated from `#/components/schemas/ListLimits`.
 public struct ListLimits: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ListLimits/column_count`.

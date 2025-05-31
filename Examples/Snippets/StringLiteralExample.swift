@@ -158,7 +158,6 @@ struct TeamDashboard: SlackHomeTabView {
     }
 }
 
-
 // MARK: - Usage Demonstration
 
 func demonstrateStringLiterals() {

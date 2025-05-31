@@ -49,7 +49,7 @@ extension Slack {
     func doStartSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws {
         let routerContext = SocketModeMessageRouter.Context(
             client: client,
-            logger: appLogger ?? self.logger,
+            logger: appLogger ?? logger,
             respond: Respond(transport: transport, logger: logger),
             say: Say(client: client, logger: logger),
         )

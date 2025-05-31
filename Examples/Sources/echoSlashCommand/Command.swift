@@ -43,7 +43,7 @@ struct EchoSlashCommand {
             // response_url can be re-used up-to 5 times
             try await context.respond(
                 to: payload.responseUrl,
-                text: "2nd post: \(payload.text)"
+                text: "2nd post: \(payload.text)",
             )
         }
 

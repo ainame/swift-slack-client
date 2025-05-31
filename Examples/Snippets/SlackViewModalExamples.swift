@@ -167,7 +167,7 @@ struct TeamHomeTab: SlackHomeTabView {
                 }
                 .accessory(
                     Button(event.time)
-                        .actionId("event_\(event.name)")
+                        .actionId("event_\(event.name)"),
                 )
             }
         }
@@ -245,7 +245,7 @@ struct PersonalHomeTab: SlackHomeTabView {
                     .accessory(
                         Button("Complete")
                             .actionId("complete_\(task.id)")
-                            .style(.primary)
+                            .style(.primary),
                     )
                 }
             }
@@ -263,7 +263,7 @@ struct PersonalHomeTab: SlackHomeTabView {
 func demonstrateUsage() {
     // Modal usage
     let welcomeModal = WelcomeModal(userName: "Alice")
-    _ = welcomeModal.render()  // Returns ModalView
+    _ = welcomeModal.render() // Returns ModalView
 
     let settings = SettingsModal.UserSettings(
         notifications: true,
@@ -271,7 +271,7 @@ func demonstrateUsage() {
         theme: "dark",
     )
     let settingsModal = SettingsModal(currentSettings: settings)
-    _ = settingsModal.render()  // Returns ModalView
+    _ = settingsModal.render() // Returns ModalView
 
     // Home tab usage
     let announcements = [
@@ -279,7 +279,7 @@ func demonstrateUsage() {
             title: "Office Closure",
             message: "The office will be closed on Friday",
             date: "Dec 15",
-        )
+        ),
     ]
     let events = [
         TeamHomeTab.Event(name: "Team Standup", time: "9:00 AM"),
@@ -290,7 +290,7 @@ func demonstrateUsage() {
         announcements: announcements,
         upcomingEvents: events,
     )
-    _ = teamHome.render()  // Returns HomeTabView
+    _ = teamHome.render() // Returns HomeTabView
 
     // Personal home tab
     let tasks = [
@@ -307,5 +307,5 @@ func demonstrateUsage() {
         tasks: tasks,
         stats: stats,
     )
-    _ = personalHome.render()  // Returns HomeTabView
+    _ = personalHome.render() // Returns HomeTabView
 }
