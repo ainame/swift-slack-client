@@ -67,7 +67,7 @@ extension SlackModalView {
     public var privateMetadata: String? { nil }
 
     /// Builds this modal view into a ModalView
-    public func build() -> ModalView {
+    public func render() -> ModalView {
         ModalView(
             title: title,
             blocks: blocks,
@@ -89,7 +89,7 @@ extension SlackHomeTabView {
     public var privateMetadata: String? { nil }
 
     /// Builds this home tab view into a HomeTabView
-    public func build() -> HomeTabView {
+    public func render() -> HomeTabView {
         HomeTabView(
             blocks: blocks,
             privateMetadata: privateMetadata,
