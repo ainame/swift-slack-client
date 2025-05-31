@@ -4,6 +4,8 @@ import Logging
 @testable import SlackClient
 import SlackModels
 import Testing
+import OpenAPIRuntime
+import HTTPTypes
 
 // Test the core functionality of SocketModeMessageRouter without requiring full mocking
 // These tests verify that handlers are registered correctly and filtering logic works
@@ -317,6 +319,168 @@ struct SocketModeMessageRouterTests {
         }
     }
 
+    // REGRESSION TEST: Verify that the onEvent method with specific event types compiles correctly
+    // This test would fail to compile if commit 7882fc2 is reverted due to type parameter conflicts
+    @Test func onEventTypeParameterRegression() async throws {
+        let router = SocketModeMessageRouter()
+        
+        // This specific usage pattern would fail to compile with the original bug
+        // because the type parameter T would conflict with the Event enum type
+        router.onEvent(MessageEvent.self) { context, envelope, event in
+            // The bug was in the type casting: `let payload = eventsApiEnvelope.event.payload as? T`
+            // With the fix, this compiles and the type casting works correctly
+            #expect(event._type == "message")
+        }
+        
+        // Verify the handler was registered successfully
+        #expect(router.handlers.count == 1)
+        
+        // Also test that multiple specific event handlers can be registered
+        router.onEvent(AppMentionEvent.self) { context, envelope, event in
+            #expect(event._type == "app_mention")
+        }
+        
+        #expect(router.handlers.count == 2)
+    }
+
+    // REGRESSION TEST: Actual dispatch test that would fail if commit 7882fc2 is reverted
+    // This test verifies that events are properly cast and handlers are actually executed
+    @Test func onEventActualDispatchRegression() async throws {
+        let router = SocketModeMessageRouter()
+        
+        // Use actor to safely track handler execution in concurrent context
+        actor HandlerTracker {
+            private(set) var messageHandlerCalled = false
+            private(set) var appMentionHandlerCalled = false
+            private(set) var receivedMessageEvent: MessageEvent?
+            private(set) var receivedAppMentionEvent: AppMentionEvent?
+            
+            func markMessageHandlerCalled(with event: MessageEvent) {
+                messageHandlerCalled = true
+                receivedMessageEvent = event
+            }
+            
+            func markAppMentionHandlerCalled(with event: AppMentionEvent) {
+                appMentionHandlerCalled = true
+                receivedAppMentionEvent = event
+            }
+        }
+        
+        let tracker = HandlerTracker()
+        
+        // Register handler for MessageEvent
+        router.onEvent(MessageEvent.self) { context, envelope, event in
+            await tracker.markMessageHandlerCalled(with: event)
+        }
+        
+        // Register handler for AppMentionEvent  
+        router.onEvent(AppMentionEvent.self) { context, envelope, event in
+            await tracker.markAppMentionHandlerCalled(with: event)
+        }
+        
+        // Create events
+        let messageEvent = MessageEvent(
+            attachments: nil,
+            blocks: nil,
+            botId: nil,
+            botProfile: nil,
+            channel: "C123456",
+            channelType: "channel",
+            clientMsgId: "test-client-msg-id",
+            edited: nil,
+            eventTs: "1234567890.123456",
+            metadata: nil,
+            parentUserId: nil,
+            team: "T123456",
+            text: "Hello, regression test!",
+            threadTs: nil,
+            ts: "1234567890.123456",
+            _type: "message",
+            user: "U123456"
+        )
+        
+        let appMentionEvent = AppMentionEvent(
+            blocks: nil,
+            channel: "C123456",
+            clientMsgId: "app-mention-msg-id",
+            edited: nil,
+            eventTs: "1234567890.789012",
+            team: "T123456",
+            text: "<@U123456> hello app mention test",
+            threadTs: nil,
+            ts: "1234567890.789012",
+            _type: "app_mention",
+            user: "U789012"
+        )
+        
+        // Create EventsApiEnvelopes
+        let messageEventsEnvelope = EventsApiEnvelope(
+            teamId: "T123456",
+            apiAppId: "A123456",
+            event: Event.message(messageEvent),
+            type: "event_callback",
+            eventId: "Ev123456",
+            eventTime: 1234567890
+        )
+        
+        let appMentionEventsEnvelope = EventsApiEnvelope(
+            teamId: "T123456",
+            apiAppId: "A123456", 
+            event: Event.appMention(appMentionEvent),
+            type: "event_callback",
+            eventId: "Ev789012",
+            eventTime: 1234567890
+        )
+        
+        // Create SocketModeMessageEnvelopes
+        let messageSocketEnvelope = SocketModeMessageEnvelope(
+            envelopeId: "envelope-123",
+            _type: "events_api",
+            payload: .eventsApi(messageEventsEnvelope),
+            acceptsResponsePayload: false
+        )
+        
+        let appMentionSocketEnvelope = SocketModeMessageEnvelope(
+            envelopeId: "envelope-456",
+            _type: "events_api",
+            payload: .eventsApi(appMentionEventsEnvelope),
+            acceptsResponsePayload: false
+        )
+        
+        // Create a simple mock context - we'll create minimal implementations
+        // that don't actually implement the full APIProtocol since we're only testing dispatch
+        let logger = Logger(label: "test")
+        let transport = MockTransport()
+        
+        // Create context with actual Slack instance for simplicity
+        let slack = Slack(transport: transport)
+        let client = await slack.client
+        let mockContext = SocketModeMessageRouter.Context(
+            client: client,
+            logger: logger,
+            respond: Respond(transport: transport, logger: logger),
+            say: Say(client: client, logger: logger)
+        )
+        
+        // Create FixedRouter and dispatch events
+        let fixedRouter = SocketModeMessageRouter.FixedRouter(from: router)
+        
+        try await fixedRouter.dispatch(context: mockContext, messageEnvelope: messageSocketEnvelope)
+        try await fixedRouter.dispatch(context: mockContext, messageEnvelope: appMentionSocketEnvelope)
+        
+        // Verify handlers were actually called
+        let messageHandlerCalled = await tracker.messageHandlerCalled
+        let appMentionHandlerCalled = await tracker.appMentionHandlerCalled
+        let receivedMessage = await tracker.receivedMessageEvent
+        let receivedAppMention = await tracker.receivedAppMentionEvent
+        
+        #expect(messageHandlerCalled)
+        #expect(appMentionHandlerCalled)
+        #expect(receivedMessage?.text == "Hello, regression test!")
+        #expect(receivedMessage?._type == "message")
+        #expect(receivedAppMention?.text == "<@U123456> hello app mention test")
+        #expect(receivedAppMention?._type == "app_mention")
+    }
 }
 
 // Helper to access private properties for testing
@@ -327,6 +491,20 @@ private extension SocketModeMessageRouter {
 
     var errorHandler: SocketModeErrorHandler? {
         Mirror(reflecting: self).children.first(where: { $0.label == "errorHandler" })?.value as? SocketModeErrorHandler
+    }
+}
+
+// Mock implementations for testing
+
+private struct MockTransport: ClientTransport, Sendable {
+    func send(
+        _ request: HTTPRequest,
+        body: HTTPBody?,
+        baseURL: URL,
+        operationID: String
+    ) async throws -> (HTTPResponse, HTTPBody?) {
+        // Return a simple 200 response for testing
+        return (HTTPResponse(status: .ok), nil)
     }
 }
 

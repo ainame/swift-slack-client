@@ -18,4 +18,13 @@ public struct EventsApiEnvelope<Event: Decodable & Hashable & Sendable>: Decodab
         case eventId = "event_id"
         case eventTime = "event_time"
     }
+
+    init(teamId: String, apiAppId: String, event: Event, type: String, eventId: String, eventTime: Int) {
+        self.teamId = teamId
+        self.apiAppId = apiAppId
+        self.event = event
+        self.type = type
+        self.eventId = eventId
+        self.eventTime = eventTime
+    }
 }
