@@ -23,6 +23,13 @@ public struct SocketModeMessageEnvelope: Decodable, Hashable, Sendable {
         case acceptsResponsePayload = "accepts_response_payload"
     }
 
+    init(envelopeId: String, _type: String, payload: Payload, acceptsResponsePayload: Bool) {
+        self.envelopeId = envelopeId
+        self._type = _type
+        self.payload = payload
+        self.acceptsResponsePayload = acceptsResponsePayload
+    }
+
     public init(from decoder: any Decoder) throws {
         let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
         _type = try container.decode(String.self, forKey: CodingKeys._type)
