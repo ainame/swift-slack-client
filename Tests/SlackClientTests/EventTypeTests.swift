@@ -3,7 +3,7 @@ import Foundation
 @testable import SlackClient
 import Testing
 
-struct EventTypeTests {
+struct EventTests {
     // MARK: - Regular Message Tests
 
     @Test
@@ -19,7 +19,7 @@ struct EventTypeTests {
         """.data(using: .utf8)!
 
         let decoder = JSONDecoder()
-        let eventType = try decoder.decode(EventType.self, from: json)
+        let eventType = try decoder.decode(Event.self, from: json)
 
         // Should decode as regular message
         if case let .message(event) = eventType {
@@ -47,7 +47,7 @@ struct EventTypeTests {
         """.data(using: .utf8)!
 
         let decoder = JSONDecoder()
-        let eventType = try decoder.decode(EventType.self, from: json)
+        let eventType = try decoder.decode(Event.self, from: json)
 
         // Should decode as bot message
         if case let .messageBot(event) = eventType {
@@ -76,7 +76,7 @@ struct EventTypeTests {
         """.data(using: .utf8)!
 
         let decoder = JSONDecoder()
-        let eventType = try decoder.decode(EventType.self, from: json)
+        let eventType = try decoder.decode(Event.self, from: json)
 
         // Should decode as message changed
         if case .messageChanged = eventType {
@@ -100,7 +100,7 @@ struct EventTypeTests {
         """.data(using: .utf8)!
 
         let decoder = JSONDecoder()
-        let eventType = try decoder.decode(EventType.self, from: json)
+        let eventType = try decoder.decode(Event.self, from: json)
 
         // Should decode as channel join message
         if case .messageChannelJoin = eventType {
@@ -125,7 +125,7 @@ struct EventTypeTests {
         """.data(using: .utf8)!
 
         let decoder = JSONDecoder()
-        let eventType = try decoder.decode(EventType.self, from: json)
+        let eventType = try decoder.decode(Event.self, from: json)
 
         // Should decode as unsupported with type and subtype
         if case let .unsupported(typeInfo) = eventType {
@@ -148,7 +148,7 @@ struct EventTypeTests {
         """.data(using: .utf8)!
 
         let decoder = JSONDecoder()
-        let eventType = try decoder.decode(EventType.self, from: json)
+        let eventType = try decoder.decode(Event.self, from: json)
 
         // Empty subtype should be treated as unknown
         if case let .unsupported(typeInfo) = eventType {
@@ -173,7 +173,7 @@ struct EventTypeTests {
         """.data(using: .utf8)!
 
         let decoder = JSONDecoder()
-        let eventType = try decoder.decode(EventType.self, from: json)
+        let eventType = try decoder.decode(Event.self, from: json)
 
         // null subtype should be treated as no subtype
         if case let .message(event) = eventType {
@@ -199,7 +199,7 @@ struct EventTypeTests {
 
         // Should throw an error because subtype is not a string
         #expect(throws: Error.self) {
-            _ = try decoder.decode(EventType.self, from: json)
+            _ = try decoder.decode(Event.self, from: json)
         }
     }
 
@@ -238,7 +238,7 @@ struct EventTypeTests {
             """.data(using: .utf8)!
 
             let decoder = JSONDecoder()
-            let eventType = try decoder.decode(EventType.self, from: json)
+            let eventType = try decoder.decode(Event.self, from: json)
 
             // Verify it's not unsupported
             if case .unsupported = eventType {
@@ -265,7 +265,7 @@ struct EventTypeTests {
         """.data(using: .utf8)!
 
         let decoder = JSONDecoder()
-        let eventType = try decoder.decode(EventType.self, from: json)
+        let eventType = try decoder.decode(Event.self, from: json)
 
         let payload = eventType.payload
         #expect(payload != nil)
@@ -289,7 +289,7 @@ struct EventTypeTests {
         """.data(using: .utf8)!
 
         let decoder = JSONDecoder()
-        let eventType = try decoder.decode(EventType.self, from: json)
+        let eventType = try decoder.decode(Event.self, from: json)
 
         let payload = eventType.payload
         #expect(payload == nil)

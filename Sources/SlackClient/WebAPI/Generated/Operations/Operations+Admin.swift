@@ -57,7 +57,7 @@ extension Operations {
                     /// The event type of log events to be returned.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/log_event_type`.
-                    public var logEventType: Swift.String?
+                    public var logEvent: Swift.String?
                     /// The latest timestamp of the log to retrieve (epoch microseconds).
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/max_date_created`.
@@ -96,7 +96,7 @@ extension Operations {
                     ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. See pagination
                     /// for more detail.
                     ///   - limit: The maximum number of items to return.
-                    ///   - logEventType: The event type of log events to be returned.
+                    ///   - logEvent: The event type of log events to be returned.
                     ///   - maxDateCreated: The latest timestamp of the log to retrieve (epoch microseconds).
                     ///   - minDateCreated: The earliest timestamp of the log to retrieve (epoch microseconds).
                     ///   - minLogLevel: The minimum log level of the log events to be returned. Defaults to info. Acceptable values (in order of relative importance from smallest to largest) are
@@ -111,7 +111,7 @@ extension Operations {
                         componentType: Swift.String? = nil,
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        logEventType: Swift.String? = nil,
+                        logEvent: Swift.String? = nil,
                         maxDateCreated: Swift.Int? = nil,
                         minDateCreated: Swift.Int? = nil,
                         minLogLevel: Swift.String? = nil,
@@ -125,7 +125,7 @@ extension Operations {
                         self.componentType = componentType
                         self.cursor = cursor
                         self.limit = limit
-                        self.logEventType = logEventType
+                        self.logEvent = logEvent
                         self.maxDateCreated = maxDateCreated
                         self.minDateCreated = minDateCreated
                         self.minLogLevel = minLogLevel
@@ -141,7 +141,7 @@ extension Operations {
                         case componentType = "component_type"
                         case cursor
                         case limit
-                        case logEventType = "log_event_type"
+                        case logEvent = "log_event_type"
                         case maxDateCreated = "max_date_created"
                         case minDateCreated = "min_date_created"
                         case minLogLevel = "min_log_level"
