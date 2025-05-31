@@ -25,7 +25,7 @@ public struct Respond: Sendable {
     public func callAsFunction(
         to url: URL,
         text: String = "",
-        blocks: [BlockType]? = nil,
+        blocks: [Block]? = nil,
         attachments: [Attachment]? = nil,
         responseType: Payload.ResponseType? = nil,
         replaceOriginal: Bool? = nil,
@@ -78,7 +78,7 @@ extension Respond {
 
         public var text: String
         public var channel: String?
-        public var blocks: [BlockType]?
+        public var blocks: [Block]?
         public var attachments: [Attachment]?
         public var responseType: ResponseType?
         public var replaceOriginal: Bool?
@@ -90,7 +90,7 @@ extension Respond {
 
         public init(
             text: String = "",
-            blocks: [BlockType]? = nil,
+            blocks: [Block]? = nil,
             attachments: [Attachment]? = nil,
             responseType: ResponseType? = nil,
             replaceOriginal: Bool? = nil,

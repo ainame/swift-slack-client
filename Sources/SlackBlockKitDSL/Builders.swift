@@ -4,50 +4,50 @@ import SlackBlockKit
 /// Result builder for constructing arrays of blocks
 @resultBuilder
 public struct BlockBuilder {
-    public static func buildBlock() -> [BlockType] {
+    public static func buildBlock() -> [Block] {
         []
     }
 
-    // Handle arrays of BlockType (which is what gets passed from buildExpression)
-    public static func buildBlock(_ components: [BlockType]...) -> [BlockType] {
+    // Handle arrays of Block (which is what gets passed from buildExpression)
+    public static func buildBlock(_ components: [Block]...) -> [Block] {
         components.flatMap(\.self)
     }
 
     // Handle single BlockComponent
-    public static func buildBlock(_ component: some BlockComponent) -> [BlockType] {
+    public static func buildBlock(_ component: some BlockComponent) -> [Block] {
         [component.render()]
     }
 
     // Handle multiple BlockComponents
-    public static func buildBlock(_ first: any BlockComponent, _ rest: any BlockComponent...) -> [BlockType] {
-        var result: [BlockType] = [first.render()]
+    public static func buildBlock(_ first: any BlockComponent, _ rest: any BlockComponent...) -> [Block] {
+        var result: [Block] = [first.render()]
         for component in rest {
             result.append(component.render())
         }
         return result
     }
 
-    public static func buildArray(_ components: [[BlockType]]) -> [BlockType] {
+    public static func buildArray(_ components: [[Block]]) -> [Block] {
         components.flatMap(\.self)
     }
 
-    public static func buildOptional(_ component: [BlockType]?) -> [BlockType] {
+    public static func buildOptional(_ component: [Block]?) -> [Block] {
         component ?? []
     }
 
-    public static func buildEither(first component: [BlockType]) -> [BlockType] {
+    public static func buildEither(first component: [Block]) -> [Block] {
         component
     }
 
-    public static func buildEither(second component: [BlockType]) -> [BlockType] {
+    public static func buildEither(second component: [Block]) -> [Block] {
         component
     }
 
-    public static func buildExpression(_ expression: some BlockComponent) -> [BlockType] {
+    public static func buildExpression(_ expression: some BlockComponent) -> [Block] {
         [expression.render()]
     }
 
-    public static func buildExpression(_ expression: BlockType) -> [BlockType] {
+    public static func buildExpression(_ expression: Block) -> [Block] {
         [expression]
     }
 }
@@ -59,17 +59,13 @@ public struct ActionElementBuilder {
         []
     }
 
-    // Handle arrays of ActionElementType (from buildExpression)
-    public static func buildBlock(_ components: ActionElementType...) -> [ActionElementType] {
-        components
-    }
-
+    // Handle arrays of ActionElementType (the primary method)
     public static func buildBlock(_ components: [ActionElementType]...) -> [ActionElementType] {
         components.flatMap(\.self)
     }
 
-    public static func buildExpression(_ expression: some ActionElementConvertible) -> ActionElementType {
-        expression.asActionElement()
+    public static func buildExpression(_ expression: some ActionElementConvertible) -> [ActionElementType] {
+        [expression.asActionElement()]
     }
 
     public static func buildArray(_ components: [[ActionElementType]]) -> [ActionElementType] {
@@ -137,16 +133,40 @@ public struct TextBuilder {
 /// Result builder for lists of Text components
 @resultBuilder
 public struct TextListBuilder {
-    public static func buildBlock(_ components: Text...) -> [Text] {
-        components
+    public static func buildBlock(_ components: [Text]...) -> [Text] {
+        components.flatMap(\.self)
+    }
+
+    public static func buildExpression(_ expression: Text) -> [Text] {
+        [expression]
+    }
+
+    public static func buildArray(_ components: [[Text]]) -> [Text] {
+        components.flatMap(\.self)
+    }
+
+    public static func buildOptional(_ component: [Text]?) -> [Text] {
+        component ?? []
+    }
+
+    public static func buildEither(first component: [Text]) -> [Text] {
+        component
+    }
+
+    public static func buildEither(second component: [Text]) -> [Text] {
+        component
     }
 }
 
 /// Result builder for Option components
 @resultBuilder
 public struct OptionBuilder {
-    public static func buildBlock(_ components: Option...) -> [Option] {
-        components
+    public static func buildBlock(_ components: [Option]...) -> [Option] {
+        components.flatMap(\.self)
+    }
+
+    public static func buildExpression(_ expression: Option) -> [Option] {
+        [expression]
     }
 
     public static func buildArray(_ components: [[Option]]) -> [Option] {

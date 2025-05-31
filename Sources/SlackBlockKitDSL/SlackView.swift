@@ -7,7 +7,7 @@ import SlackBlockKit
 public protocol SlackView {
     /// The blocks that make up this view
     @BlockBuilder
-    var blocks: [BlockType] { get }
+    var blocks: [Block] { get }
 }
 
 // MARK: - Modal View Protocol
@@ -67,7 +67,7 @@ extension SlackModalView {
     public var privateMetadata: String? { nil }
 
     /// Builds this modal view into a ModalView
-    public func build() -> ModalView {
+    public func render() -> ModalView {
         ModalView(
             title: title,
             blocks: blocks,
@@ -89,7 +89,7 @@ extension SlackHomeTabView {
     public var privateMetadata: String? { nil }
 
     /// Builds this home tab view into a HomeTabView
-    public func build() -> HomeTabView {
+    public func render() -> HomeTabView {
         HomeTabView(
             blocks: blocks,
             privateMetadata: privateMetadata,
@@ -103,7 +103,7 @@ extension SlackHomeTabView {
 
 /// Extension to allow embedding SlackViews within other views
 extension BlockBuilder {
-    public static func buildExpression(_ expression: some SlackView) -> [BlockType] {
+    public static func buildExpression(_ expression: some SlackView) -> [Block] {
         expression.blocks
     }
 }

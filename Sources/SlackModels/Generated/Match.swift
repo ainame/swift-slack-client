@@ -18,7 +18,7 @@ public struct Match: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Match/attachments`.
     public var attachments: [Attachment]?
     /// - Remark: Generated from `#/components/schemas/Match/blocks`.
-    public var blocks: [BlockType]?
+    public var blocks: [Block]?
     /// - Remark: Generated from `#/components/schemas/Match/channel`.
     public var channel: Channel?
     /// - Remark: Generated from `#/components/schemas/Match/files`.
@@ -71,7 +71,7 @@ public struct Match: Codable, Hashable, Sendable {
     ///   - username:
     public init(
         attachments: [Attachment]? = nil,
-        blocks: [BlockType]? = nil,
+        blocks: [Block]? = nil,
         channel: Channel? = nil,
         files: [FileElement]? = nil,
         iid: Swift.String? = nil,

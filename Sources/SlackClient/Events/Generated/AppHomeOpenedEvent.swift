@@ -10,7 +10,7 @@ public struct AppHomeOpenedEvent: SlackEvent {
     public var tab: Swift.String?
     public var _type: Swift.String
     public var user: Swift.String?
-    public var view: ViewType?
+    public var view: View?
     public enum CodingKeys: String, CodingKey {
         case channel
         case eventTs = "event_ts"

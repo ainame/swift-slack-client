@@ -5,20 +5,18 @@ import SlackBlockKit
 
 public struct Text: CompositionObject {
     var text: String
-    private var style: TextStyle
-    private var verbatim: Bool
-    private var emoji: Bool
+    private var type: TextType
+    private var verbatim: Bool?
+    private var emoji: Bool?
 
     public init(_ text: String) {
         self.text = text
-        style = .plainText
-        verbatim = false
-        emoji = true
+        type = .plainText
     }
 
-    public func style(_ style: TextStyle) -> Text {
+    public func type(_ type: TextType) -> Text {
         var copy = self
-        copy.style = style
+        copy.type = type
         return copy
     }
 
@@ -35,18 +33,8 @@ public struct Text: CompositionObject {
     }
 
     public func render() -> TextObject {
-        switch style {
-        case .plainText:
-            TextObject(type: .plainText, text: text, emoji: emoji, verbatim: nil)
-        case .mrkdwn:
-            TextObject(type: .mrkdwn, text: text, emoji: nil, verbatim: verbatim)
-        }
+        TextObject(type: type, text: text, emoji: emoji, verbatim: verbatim)
     }
-}
-
-public enum TextStyle {
-    case plainText
-    case mrkdwn
 }
 
 // MARK: - Option DSL
@@ -136,7 +124,7 @@ public struct Section: BlockComponent {
         return copy
     }
 
-    public func render() -> BlockType {
+    public func render() -> Block {
         .section(SectionBlock(
             text: text?.render(),
             fields: fields?.map { $0.render() },
@@ -194,7 +182,7 @@ public struct Input<Element: InputElementConvertible>: BlockComponent {
         return copy
     }
 
-    public func render() -> BlockType {
+    public func render() -> Block {
         .input(InputBlock(
             label: label.render(),
             element: element.asInputElement(),
@@ -217,6 +205,10 @@ public struct Checkboxes: InputElementConvertible, ActionElementConvertible {
 
     public init(@OptionBuilder options: () -> [Option]) {
         self.options = options()
+    }
+
+    public init(options: [Option]) {
+        self.options = options
     }
 
     public func initialOptions(@OptionBuilder options: () -> [Option]) -> Checkboxes {
@@ -502,7 +494,7 @@ public struct Actions: BlockComponent {
         return copy
     }
 
-    public func render() -> BlockType {
+    public func render() -> Block {
         .actions(ActionsBlock(
             elements: elements,
             blockId: blockId,
@@ -526,7 +518,7 @@ public struct Header: BlockComponent {
         return copy
     }
 
-    public func render() -> BlockType {
+    public func render() -> Block {
         .header(HeaderBlock(
             text: text.render(),
             blockId: blockId,
@@ -547,7 +539,7 @@ public struct Divider: BlockComponent {
         return copy
     }
 
-    public func render() -> BlockType {
+    public func render() -> Block {
         .divider(DividerBlock(blockId: blockId))
     }
 }
@@ -568,7 +560,7 @@ public struct Context: BlockComponent {
         return copy
     }
 
-    public func render() -> BlockType {
+    public func render() -> Block {
         .context(ContextBlock(
             elements: elements,
             blockId: blockId,
@@ -599,7 +591,7 @@ public struct ContextImage {
 
 public struct Modal: ViewConvertible {
     private var title: Text
-    private var blocks: [BlockType]
+    private var blocks: [Block]
     private var close: Text?
     private var submit: Text?
     private var privateMetadata: String?
@@ -610,7 +602,7 @@ public struct Modal: ViewConvertible {
 
     public init(
         title: Text,
-        @BlockBuilder blocks: () -> [BlockType]
+        @BlockBuilder blocks: () -> [Block]
     ) {
         self.title = title
         self.blocks = blocks()
@@ -658,7 +650,7 @@ public struct Modal: ViewConvertible {
         return copy
     }
 
-    public func asView() -> ViewType {
+    public func asView() -> View {
         .modal(ModalView(
             title: title.render(),
             blocks: blocks,
@@ -696,16 +688,16 @@ public protocol SectionAccessoryConvertible {
     func asSectionAccessory() -> SectionAccessory
 }
 
-/// Protocol for types that can be converted to ViewType.
+/// Protocol for types that can be converted to View.
 public protocol ViewConvertible {
-    /// Converts to ViewType. Use this method to get the final view representation.
-    func asView() -> ViewType
+    /// Converts to View. Use this method to get the final view representation.
+    func asView() -> View
 }
 
-/// Protocol for types that can be converted to BlockType.
+/// Protocol for types that can be converted to Block.
 public protocol BlockConvertible {
-    /// Converts to BlockType. Use this method to get the final block representation.
-    func asBlock() -> BlockType
+    /// Converts to Block. Use this method to get the final block representation.
+    func asBlock() -> Block
 }
 
 // MARK: - StaticSelect DSL
@@ -834,12 +826,12 @@ public struct OptionGroup {
 
 /// A DSL component for creating home tab views.
 public struct HomeTab: ViewConvertible {
-    private var blocks: [BlockType]
+    private var blocks: [Block]
     private var privateMetadata: String?
     private var callbackId: String?
     private var externalId: String?
 
-    public init(@BlockBuilder blocks: () -> [BlockType]) {
+    public init(@BlockBuilder blocks: () -> [Block]) {
         self.blocks = blocks()
     }
 
@@ -861,7 +853,7 @@ public struct HomeTab: ViewConvertible {
         return copy
     }
 
-    public func asView() -> ViewType {
+    public func asView() -> View {
         .homeTab(HomeTabView(
             blocks: blocks,
             privateMetadata: privateMetadata,
@@ -1510,7 +1502,7 @@ public struct Image: BlockConvertible {
         return copy
     }
 
-    public func asBlock() -> BlockType {
+    public func asBlock() -> Block {
         .image(ImageBlock(
             altText: altText,
             imageUrl: imageUrl,
@@ -1596,7 +1588,7 @@ public struct Video: BlockConvertible {
         return copy
     }
 
-    public func asBlock() -> BlockType {
+    public func asBlock() -> Block {
         .video(VideoBlock(
             altText: altText,
             videoUrl: videoUrl,
@@ -1750,6 +1742,25 @@ public struct EmailInput: InputElementConvertible {
             dispatchActionConfig: dispatchActionConfig,
             focusOnLoad: focusOnLoad,
             placeholder: placeholder?.render(),
+        ))
+    }
+}
+
+// MARK: - ImageAccessory DSL
+
+public struct ImageAccessory: SectionAccessoryConvertible {
+    private var altText: String
+    private var imageUrl: URL
+
+    public init(altText: String, imageUrl: URL) {
+        self.altText = altText
+        self.imageUrl = imageUrl
+    }
+
+    public func asSectionAccessory() -> SectionAccessory {
+        .image(ImageElement(
+            altText: altText,
+            imageUrl: imageUrl,
         ))
     }
 }

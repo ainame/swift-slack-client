@@ -40,7 +40,7 @@ extension Operations {
                     /// A view payload. This must be a JSON-encoded string.
                     ///
                     /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/view`.
-                    public var view: SlackBlockKit.ViewType
+                    public var view: SlackBlockKit.View
                     /// Exchange a trigger to post to the user.
                     ///
                     /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/trigger_id`.
@@ -56,7 +56,7 @@ extension Operations {
                     ///   - triggerId: Exchange a trigger to post to the user.
                     ///   - interactivityPointer: Exchange an interactivity pointer to post to the user.
                     public init(
-                        view: SlackBlockKit.ViewType,
+                        view: SlackBlockKit.View,
                         triggerId: Swift.String? = nil,
                         interactivityPointer: Swift.String? = nil
                     ) {
@@ -208,7 +208,7 @@ extension Operations {
                     /// A view payload. This must be a JSON-encoded string.
                     ///
                     /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/view`.
-                    public var view: SlackBlockKit.ViewType
+                    public var view: SlackBlockKit.View
                     /// A string that represents view state to protect against possible race conditions.
                     ///
                     /// - Remark: Generated from `#/paths/views.publish/POST/requestBody/json/hash`.
@@ -221,7 +221,7 @@ extension Operations {
                     ///   - hash: A string that represents view state to protect against possible race conditions.
                     public init(
                         userId: Swift.String,
-                        view: SlackBlockKit.ViewType,
+                        view: SlackBlockKit.View,
                         hash: Swift.String? = nil
                     ) {
                         self.userId = userId
@@ -368,7 +368,7 @@ extension Operations {
                     /// A view payload. This must be a JSON-encoded string.
                     ///
                     /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/view`.
-                    public var view: SlackBlockKit.ViewType
+                    public var view: SlackBlockKit.View
                     /// Exchange a trigger to post to the user.
                     ///
                     /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/trigger_id`.
@@ -384,7 +384,7 @@ extension Operations {
                     ///   - triggerId: Exchange a trigger to post to the user.
                     ///   - interactivityPointer: Exchange an interactivity pointer to post to the user.
                     public init(
-                        view: SlackBlockKit.ViewType,
+                        view: SlackBlockKit.View,
                         triggerId: Swift.String? = nil,
                         interactivityPointer: Swift.String? = nil
                     ) {
@@ -532,7 +532,7 @@ extension Operations {
                     /// A view object. This must be a JSON-encoded string.
                     ///
                     /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/view`.
-                    public var view: SlackBlockKit.ViewType
+                    public var view: SlackBlockKit.View
                     /// A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is required.
                     ///
                     /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/external_id`.
@@ -554,7 +554,7 @@ extension Operations {
                     ///   - viewId: A unique identifier of the view to be updated. Either view_id or external_id is required.
                     ///   - hash: A string that represents view state to protect against possible race conditions.
                     public init(
-                        view: SlackBlockKit.ViewType,
+                        view: SlackBlockKit.View,
                         externalId: Swift.String? = nil,
                         viewId: Swift.String? = nil,
                         hash: Swift.String? = nil

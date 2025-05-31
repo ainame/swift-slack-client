@@ -48,8 +48,6 @@ struct Command {
                 print("onInteractive: .shortcut")
             case .messageAction:
                 print("onInteractive: .messageAction")
-            case .slashCommands:
-                print("onInteractive: .slashCommands")
             case .blockActions:
                 print("onInteractive: .blockActions")
             case .viewSubmission:

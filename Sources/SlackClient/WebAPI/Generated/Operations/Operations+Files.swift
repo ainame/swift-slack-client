@@ -44,7 +44,7 @@ extension Operations {
                     /// A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the initial_comment field is provided, the blocks field is ignored.
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/blocks`.
-                    public var blocks: [SlackBlockKit.BlockType]?
+                    public var blocks: [SlackBlockKit.Block]?
                     /// Channel ID where the file will be shared. If not specified the file will be private.
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/channel_id`.
@@ -74,7 +74,7 @@ extension Operations {
                     /// channel when using 'thread_ts'.
                     public init(
                         files: OpenAPIRuntime.OpenAPIArrayContainer,
-                        blocks: [SlackBlockKit.BlockType]? = nil,
+                        blocks: [SlackBlockKit.Block]? = nil,
                         channelId: Swift.String? = nil,
                         channels: Swift.String? = nil,
                         initialComment: Swift.String? = nil,

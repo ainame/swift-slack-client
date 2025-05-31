@@ -8,8 +8,8 @@ module ContentTransformer
   # Transforms Block Kit references (used in multiple files)
   def self.transform_blockkit_references(content)
     content
-      .gsub(/\bComponents\.Schemas\.View\b/, 'ViewType')
-      .gsub(/\bComponents\.Schemas\.Block\b/, 'BlockType')
+      .gsub(/\bComponents\.Schemas\.View\b/, 'View')
+      .gsub(/\bComponents\.Schemas\.Block\b/, 'Block')
   end
 
   # Transforms schema references to SlackModels for moved types only

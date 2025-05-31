@@ -133,8 +133,8 @@ class SlackModelsExtractor
     transformed_content = transform_content(content, schema_name)
 
     # Check if we need SlackBlockKit import
-    needs_slackblockkit_import = transformed_content.include?('ViewType') ||
-                                transformed_content.include?('BlockType')
+    needs_slackblockkit_import = transformed_content.include?('View') ||
+                                transformed_content.include?('Block')
 
     # Generate file content
     file_content = ImportManager.generate_slackmodels_imports(needs_slackblockkit: needs_slackblockkit_import) + 

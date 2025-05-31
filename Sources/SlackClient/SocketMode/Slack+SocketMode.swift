@@ -49,7 +49,7 @@ extension Slack {
     func doStartSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws {
         let routerContext = SocketModeMessageRouter.Context(
             client: client,
-            logger: appLogger ?? self.logger,
+            logger: appLogger ?? logger,
             respond: Respond(transport: transport, logger: logger),
             say: Say(client: client, logger: logger),
         )
@@ -90,9 +90,9 @@ extension Slack {
         try await ws.run()
     }
 
-    private func onMessageRecieved(_ buffer: ByteBuffer) async throws -> SocketModeMessageType {
+    private func onMessageRecieved(_ buffer: ByteBuffer) async throws -> SocketModeMessage {
         do {
-            let messageType = try jsonDecoder.decode(SocketModeMessageType.self, from: buffer)
+            let messageType = try jsonDecoder.decode(SocketModeMessage.self, from: buffer)
             switch messageType.body {
             case let .message(message):
                 try await ack(message)

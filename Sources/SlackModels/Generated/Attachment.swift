@@ -32,7 +32,7 @@ public struct Attachment: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Attachment/author_subname`.
     public var authorSubname: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Attachment/blocks`.
-    public var blocks: [BlockType]?
+    public var blocks: [Block]?
     /// - Remark: Generated from `#/components/schemas/Attachment/bot_id`.
     public var botId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Attachment/callback_id`.
@@ -192,7 +192,7 @@ public struct Attachment: Codable, Hashable, Sendable {
         authorLink: Swift.String? = nil,
         authorName: Swift.String? = nil,
         authorSubname: Swift.String? = nil,
-        blocks: [BlockType]? = nil,
+        blocks: [Block]? = nil,
         botId: Swift.String? = nil,
         callbackId: Swift.String? = nil,
         channelId: Swift.String? = nil,

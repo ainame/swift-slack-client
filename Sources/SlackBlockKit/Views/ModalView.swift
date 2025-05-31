@@ -3,7 +3,7 @@ import Foundation
 public struct ModalView: Codable, Hashable, Sendable {
     public let type: String
     public let title: TextObject
-    public let blocks: [BlockType]
+    public let blocks: [Block]
     public let close: TextObject?
     public let submit: TextObject?
     public let privateMetadata: String?
@@ -15,7 +15,7 @@ public struct ModalView: Codable, Hashable, Sendable {
 
     public init(
         title: TextObject,
-        blocks: [BlockType],
+        blocks: [Block],
         close: TextObject? = nil,
         submit: TextObject? = nil,
         privateMetadata: String? = nil,

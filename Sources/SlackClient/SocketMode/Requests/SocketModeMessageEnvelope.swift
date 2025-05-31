@@ -6,7 +6,7 @@ public struct SocketModeMessageEnvelope: Decodable, Hashable, Sendable {
         case interactive(InteractiveEnvelope)
         case slashCommands(SlashCommandsPayload)
         #if Events
-        case eventsApi(EventsApiEnvelope<EventType>)
+        case eventsApi(EventsApiEnvelope<Event>)
         #endif
         case unsupported(String)
     }
@@ -38,7 +38,7 @@ public struct SocketModeMessageEnvelope: Decodable, Hashable, Sendable {
             self.payload = .slashCommands(payload)
         #if Events
         case "events_api":
-            let event = try container.decode(EventsApiEnvelope<EventType>.self, forKey: CodingKeys.payload)
+            let event = try container.decode(EventsApiEnvelope<Event>.self, forKey: CodingKeys.payload)
             payload = .eventsApi(event)
         #endif
         default:

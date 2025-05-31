@@ -18,7 +18,7 @@ public struct Message: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Message/attachments`.
     public var attachments: [Attachment]?
     /// - Remark: Generated from `#/components/schemas/Message/blocks`.
-    public var blocks: [BlockType]?
+    public var blocks: [Block]?
     /// - Remark: Generated from `#/components/schemas/Message/bot_id`.
     public var botId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Message/bot_profile`.
@@ -104,7 +104,7 @@ public struct Message: Codable, Hashable, Sendable {
     ///   - username:
     public init(
         attachments: [Attachment]? = nil,
-        blocks: [BlockType]? = nil,
+        blocks: [Block]? = nil,
         botId: Swift.String? = nil,
         botProfile: BotProfile? = nil,
         clientMsgId: Swift.String? = nil,

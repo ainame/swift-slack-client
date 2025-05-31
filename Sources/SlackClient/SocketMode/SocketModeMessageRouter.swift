@@ -167,7 +167,7 @@ public final class SocketModeMessageRouter {
     }
 
     #if Events
-    public func onEvent(_ handler: @escaping SocketModeMessagePayloadHandler<EventsApiEnvelope<EventType>>) {
+    public func onEvent(_ handler: @escaping SocketModeMessagePayloadHandler<EventsApiEnvelope<Event>>) {
         let filterHandler: SocketModeMessageHandler = { context, envelope in
             if case let .eventsApi(eventsApiEnvelope) = envelope.payload {
                 try await handler(context, eventsApiEnvelope)
@@ -176,16 +176,17 @@ public final class SocketModeMessageRouter {
         handlers.append(filterHandler)
     }
 
-    public func onEvent<Event: SlackEvent>(
-        _: Event.Type,
-        handler: @escaping SocketModeMessageEnvelopePayloadHandler<EventsApiEnvelope<EventType>, Event>
+    public func onEvent<EventType: SlackEvent>(
+        _: EventType.Type,
+        handler: @escaping SocketModeMessageEnvelopePayloadHandler<EventsApiEnvelope<EventType>, EventType>
     ) {
         let filterHandler: SocketModeMessageHandler = { context, envelope in
             guard case let .eventsApi(eventsApiEnvelope) = envelope.payload,
-                  let payload = eventsApiEnvelope.event.payload as? Event else {
+                  let payload = eventsApiEnvelope.event.payload as? EventType,
+                  let typedEnvelope = eventsApiEnvelope as? EventsApiEnvelope<EventType> else {
                 return
             }
-            try await handler(context, eventsApiEnvelope, payload)
+            try await handler(context, typedEnvelope, payload)
         }
         handlers.append(filterHandler)
     }
@@ -193,7 +194,7 @@ public final class SocketModeMessageRouter {
     // Regex isn't Sendable at this moment. Compile string pattern in Sendable closure.
     public func onSlackMessageMatched(
         with regexPatterns: String...,
-        handler: @escaping SocketModeMessageEnvelopePayloadHandler<EventsApiEnvelope<EventType>, MessageEvent>,
+        handler: @escaping SocketModeMessageEnvelopePayloadHandler<EventsApiEnvelope<Event>, MessageEvent>,
     ) {
         let filterHandler: SocketModeMessageHandler = { context, envelope in
             guard case let .eventsApi(eventsApiEnvelope) = envelope.payload,

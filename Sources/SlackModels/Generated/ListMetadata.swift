@@ -20,7 +20,7 @@ public struct ListMetadata: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ListMetadata/description`.
     public var description: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/description_blocks`.
-    public var descriptionBlocks: [BlockType]?
+    public var descriptionBlocks: [Block]?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/icon`.
     public var icon: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/icon_team_id`.
@@ -34,7 +34,7 @@ public struct ListMetadata: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ListMetadata/schema`.
     public var schema: [Schema]?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/views`.
-    public var views: [ViewType]?
+    public var views: [View]?
     /// Creates a new `ListMetadata`.
     ///
     /// - Parameters:
@@ -51,14 +51,14 @@ public struct ListMetadata: Codable, Hashable, Sendable {
     public init(
         creationSource: CreationSource? = nil,
         description: Swift.String? = nil,
-        descriptionBlocks: [BlockType]? = nil,
+        descriptionBlocks: [Block]? = nil,
         icon: Swift.String? = nil,
         iconTeamId: Swift.String? = nil,
         iconUrl: Swift.String? = nil,
         integrations: [Swift.String]? = nil,
         isTrial: Swift.Bool? = nil,
         schema: [Schema]? = nil,
-        views: [ViewType]? = nil
+        views: [View]? = nil
     ) {
         self.creationSource = creationSource
         self.description = description

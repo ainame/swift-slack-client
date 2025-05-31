@@ -4,7 +4,7 @@ import SlackBlockKit
 /// Protocol for components that can render to BlockKit blocks
 public protocol BlockComponent {
     /// Renders this component to its BlockKit representation
-    func render() -> BlockType
+    func render() -> Block
 }
 
 /// Protocol for components that can be used inside blocks (elements)

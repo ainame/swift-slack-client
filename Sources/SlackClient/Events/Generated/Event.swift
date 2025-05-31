@@ -2,7 +2,7 @@
 import Foundation
 
 /// Polymorphic event type that can decode any Slack event based on the type field
-public enum EventType: Decodable, Hashable, Sendable {
+public enum Event: Decodable, Hashable, Sendable {
     case appHomeOpened(AppHomeOpenedEvent)
     case appMention(AppMentionEvent)
     case appRateLimited(AppRateLimitedEvent)

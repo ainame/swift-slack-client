@@ -26,7 +26,7 @@ public struct File: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/File/attachments`.
     public var attachments: [OpenAPIRuntime.OpenAPIValueContainer]?
     /// - Remark: Generated from `#/components/schemas/File/blocks`.
-    public var blocks: [BlockType]?
+    public var blocks: [Block]?
     /// - Remark: Generated from `#/components/schemas/File/bot_id`.
     public var botId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/File/can_toggle_canvas_lock`.
@@ -312,7 +312,7 @@ public struct File: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/File/title`.
     public var title: Swift.String?
     /// - Remark: Generated from `#/components/schemas/File/title_blocks`.
-    public var titleBlocks: [BlockType]?
+    public var titleBlocks: [Block]?
     /// - Remark: Generated from `#/components/schemas/File/to`.
     public var to: [Cc]?
     /// - Remark: Generated from `#/components/schemas/File/transcription`.
@@ -504,7 +504,7 @@ public struct File: Codable, Hashable, Sendable {
         appId: Swift.String? = nil,
         appName: Swift.String? = nil,
         attachments: [OpenAPIRuntime.OpenAPIValueContainer]? = nil,
-        blocks: [BlockType]? = nil,
+        blocks: [Block]? = nil,
         botId: Swift.String? = nil,
         canToggleCanvasLock: Swift.Bool? = nil,
         canvasPrintingEnabled: Swift.Bool? = nil,
@@ -647,7 +647,7 @@ public struct File: Codable, Hashable, Sendable {
         thumbVideoW: Swift.Int? = nil,
         timestamp: Swift.Int? = nil,
         title: Swift.String? = nil,
-        titleBlocks: [BlockType]? = nil,
+        titleBlocks: [Block]? = nil,
         to: [Cc]? = nil,
         transcription: Transcription? = nil,
         updateNotification: Swift.Int? = nil,
