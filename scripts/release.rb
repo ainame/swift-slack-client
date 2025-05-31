@@ -5,11 +5,15 @@ require 'time'
 def main
   check_prerequisites
 
-  new_tag, latest_tag = get_version
+  # Accept version as argument
+  version = ARGV[0]
+  new_tag, latest_tag = get_version(version)
 
-  # Confirm
-  print "Create release #{new_tag}? (y/N): "
-  exit unless gets.strip.downcase == 'y'
+  # Confirm (skip if --yes provided)
+  unless ARGV[1] == '--yes'
+    print "Create release #{new_tag}? (y/N): "
+    exit unless gets.strip.downcase == 'y'
+  end
 
   # Test and build
   puts "Running tests..."
