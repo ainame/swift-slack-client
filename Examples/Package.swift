@@ -35,8 +35,8 @@ let package = Package(
             dependencies: [
                 .product(name: "SlackBlockKit", package: "swift-slack-client"),
                 .product(name: "SlackBlockKitDSL", package: "swift-slack-client"),
-            ]
-        )
+            ],
+        ),
     ],
 )
 

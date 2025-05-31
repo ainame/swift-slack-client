@@ -1,124 +1,126 @@
 import SlackBlockKit
 import SlackBlockKitDSL
 
-// Simple modal with minimal configuration
-struct SimpleGreetingModal: SlackModalView {
-    var title: TextObject = "Hello World"
+enum SimpleExamples {
+    // Simple modal with minimal configuration
+    struct SimpleGreetingModal: SlackModalView {
+        var title: TextObject = "Hello World"
 
-    var blocks: [Block] {
-        Section {
-            Text("Welcome to Slack!")
+        var blocks: [Block] {
+            Section {
+                Text("Welcome to Slack!")
+            }
         }
     }
-}
 
-// More complex modal with all the bells and whistles
-struct FeedbackModal: SlackModalView {
-    let userName: String
+    // More complex modal with all the bells and whistles
+    struct FeedbackModal: SlackModalView {
+        let userName: String
 
-    var title: TextObject {
-        "Feedback Form"
-    }
-
-    var submit: TextObject? {
-        "Submit Feedback"
-    }
-
-    var close: TextObject? {
-        "Cancel"
-    }
-
-    var callbackId: String? {
-        "feedback_form"
-    }
-
-    var notifyOnClose: Bool? {
-        true
-    }
-
-    var blocks: [Block] {
-        Section {
-            Text("Hi \(userName), we'd love to hear your feedback!")
-                .type(.mrkdwn)
+        var title: TextObject {
+            "Feedback Form"
         }
 
-        Input(
-            element: {
-                PlainTextInput()
-                    .actionId("feedback_text")
-                    .multiline(true)
-                    .placeholder(Text("Type your feedback here..."))
-            },
-            label: {
-                Text("Your Feedback")
-            },
-        )
-
-        Input(
-            element: {
-                StaticSelect {
-                    Option("Very Satisfied").value("5")
-                    Option("Satisfied").value("4")
-                    Option("Neutral").value("3")
-                    Option("Dissatisfied").value("2")
-                    Option("Very Dissatisfied").value("1")
-                }
-                .actionId("satisfaction_rating")
-                .placeholder(Text("Select rating"))
-            },
-            label: {
-                Text("How satisfied are you?")
-            },
-        )
-    }
-}
-
-// Simple home tab
-struct WelcomeHomeTab: SlackHomeTabView {
-    let userName: String
-
-    var blocks: [Block] {
-        Header {
-            Text("Welcome, \(userName)!")
+        var submit: TextObject? {
+            "Submit Feedback"
         }
 
-        Section {
-            Text("Here's what's happening today:")
+        var close: TextObject? {
+            "Cancel"
         }
 
-        Divider()
-
-        Section {
-            Text("📅 3 meetings scheduled")
-            Text("📧 12 new messages")
-            Text("✅ 5 tasks completed")
+        var callbackId: String? {
+            "feedback_form"
         }
 
-        Actions {
-            Button("View Calendar")
-                .actionId("view_calendar")
-                .style(.primary)
+        var notifyOnClose: Bool? {
+            true
+        }
 
-            Button("Check Messages")
-                .actionId("check_messages")
+        var blocks: [Block] {
+            Section {
+                Text("Hi \(userName), we'd love to hear your feedback!")
+                    .type(.mrkdwn)
+            }
+
+            Input(
+                element: {
+                    PlainTextInput()
+                        .actionId("feedback_text")
+                        .multiline(true)
+                        .placeholder(Text("Type your feedback here..."))
+                },
+                label: {
+                    Text("Your Feedback")
+                },
+            )
+
+            Input(
+                element: {
+                    StaticSelect {
+                        Option("Very Satisfied").value("5")
+                        Option("Satisfied").value("4")
+                        Option("Neutral").value("3")
+                        Option("Dissatisfied").value("2")
+                        Option("Very Dissatisfied").value("1")
+                    }
+                    .actionId("satisfaction_rating")
+                    .placeholder(Text("Select rating"))
+                },
+                label: {
+                    Text("How satisfied are you?")
+                },
+            )
         }
     }
-}
 
-// Usage
-func demonstrateSimpleUsage() {
-    // Simple modal
-    let greeting = SimpleGreetingModal()
-    let greetingModal = greeting.render()
-    print("Modal title: \(greetingModal.title.text)")
+    // Simple home tab
+    struct WelcomeHomeTab: SlackHomeTabView {
+        let userName: String
 
-    // Complex modal
-    let feedback = FeedbackModal(userName: "Alice")
-    let feedbackModal = feedback.render()
-    print("Modal has submit button: \(feedbackModal.submit != nil)")
+        var blocks: [Block] {
+            Header {
+                Text("Welcome, \(userName)!")
+            }
 
-    // Home tab
-    let home = WelcomeHomeTab(userName: "Bob")
-    let homeTab = home.render()
-    print("Home tab has \(homeTab.blocks.count) blocks")
+            Section {
+                Text("Here's what's happening today:")
+            }
+
+            Divider()
+
+            Section {
+                Text("📅 3 meetings scheduled")
+                Text("📧 12 new messages")
+                Text("✅ 5 tasks completed")
+            }
+
+            Actions {
+                Button("View Calendar")
+                    .actionId("view_calendar")
+                    .style(.primary)
+
+                Button("Check Messages")
+                    .actionId("check_messages")
+            }
+        }
+    }
+
+    // Usage
+    static func demonstrateSimpleUsage() {
+        // Simple modal
+        let greeting = SimpleGreetingModal()
+        let greetingModal = greeting.render()
+        print("Modal title: \(greetingModal.title.text)")
+
+        // Complex modal
+        let feedback = FeedbackModal(userName: "Alice")
+        let feedbackModal = feedback.render()
+        print("Modal has submit button: \(feedbackModal.submit != nil)")
+
+        // Home tab
+        let home = WelcomeHomeTab(userName: "Bob")
+        let homeTab = home.render()
+        print("Home tab has \(homeTab.blocks.count) blocks")
+    }
 }
