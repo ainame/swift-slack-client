@@ -193,7 +193,7 @@ struct ProjectDashboard: SlackView {
 /// Example of how to use SlackViews
 enum SlackViewUsageExamples {
     /// Create a user settings modal
-    static func createUserSettingsModal() -> ViewType {
+    static func createUserSettingsModal() -> View {
         let user = UserSettingsForm.User(
             name: "John Doe",
             email: "john.doe@example.com",
@@ -220,11 +220,11 @@ enum SlackViewUsageExamples {
             }
         }
         
-        return ViewType.modal(SettingsModal(settingsView: settingsView).render())
+        return View.modal(SettingsModal(settingsView: settingsView).render())
     }
 
     /// Create a dashboard home tab
-    static func createDashboardHomeTab() -> ViewType {
+    static func createDashboardHomeTab() -> View {
         let dashboard = ProjectDashboard(
             projectName: "Swift Slack Client",
             tasks: [
@@ -251,11 +251,11 @@ enum SlackViewUsageExamples {
             }
         }
         
-        return ViewType.homeTab(DashboardHomeTabWrapper(dashboard: dashboard).render())
+        return View.homeTab(DashboardHomeTabWrapper(dashboard: dashboard).render())
     }
 
     /// Create a simple profile card modal
-    static func createProfileModal() -> ViewType {
+    static func createProfileModal() -> View {
         let profileCard = UserProfileCard(
             name: "Jane Smith",
             email: "jane.smith@company.com",
@@ -277,7 +277,7 @@ enum SlackViewUsageExamples {
             }
         }
         
-        return ViewType.modal(ProfileModal(profileCard: profileCard).render())
+        return View.modal(ProfileModal(profileCard: profileCard).render())
     }
 }
 

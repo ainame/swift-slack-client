@@ -7,7 +7,7 @@ public struct ViewClosedPayload: InteractivePayloadProtocol, Decodable, Sendable
     public let _type: String
     public let team: Team
     public let user: User
-    public let view: ViewType
+    public let view: View
     public let isCleared: Bool
 
     private enum CodingKeys: String, CodingKey {

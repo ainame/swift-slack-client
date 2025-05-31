@@ -652,7 +652,7 @@ public struct Modal: ViewConvertible {
         return copy
     }
 
-    public func asView() -> ViewType {
+    public func asView() -> View {
         .modal(ModalView(
             title: title.render(),
             blocks: blocks,
@@ -690,10 +690,10 @@ public protocol SectionAccessoryConvertible {
     func asSectionAccessory() -> SectionAccessory
 }
 
-/// Protocol for types that can be converted to ViewType.
+/// Protocol for types that can be converted to View.
 public protocol ViewConvertible {
-    /// Converts to ViewType. Use this method to get the final view representation.
-    func asView() -> ViewType
+    /// Converts to View. Use this method to get the final view representation.
+    func asView() -> View
 }
 
 /// Protocol for types that can be converted to BlockType.
@@ -855,7 +855,7 @@ public struct HomeTab: ViewConvertible {
         return copy
     }
 
-    public func asView() -> ViewType {
+    public func asView() -> View {
         .homeTab(HomeTabView(
             blocks: blocks,
             privateMetadata: privateMetadata,

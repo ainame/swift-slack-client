@@ -98,7 +98,7 @@ private let jsonDecoder = JSONDecoder()
     .asView()
 
     let json = try jsonEncoder.encode(view)
-    let decodedView = try jsonDecoder.decode(ViewType.self, from: json)
+    let decodedView = try jsonDecoder.decode(View.self, from: json)
     #expect(decodedView == view)
 }
 
@@ -156,7 +156,7 @@ private let jsonDecoder = JSONDecoder()
     .asView()
 
     let json = try jsonEncoder.encode(view)
-    let decodedView = try jsonDecoder.decode(ViewType.self, from: json)
+    let decodedView = try jsonDecoder.decode(View.self, from: json)
     #expect(decodedView == view)
 }
 
@@ -198,7 +198,7 @@ private let jsonDecoder = JSONDecoder()
     .asView()
 
     let json = try jsonEncoder.encode(view)
-    let decodedView = try jsonDecoder.decode(ViewType.self, from: json)
+    let decodedView = try jsonDecoder.decode(View.self, from: json)
     #expect(decodedView == view)
 }
 
@@ -222,7 +222,7 @@ private let jsonDecoder = JSONDecoder()
     .asView()
 
     let json = try jsonEncoder.encode(view)
-    let decodedView = try jsonDecoder.decode(ViewType.self, from: json)
+    let decodedView = try jsonDecoder.decode(View.self, from: json)
     #expect(decodedView == view)
 }
 
@@ -265,7 +265,7 @@ private let jsonDecoder = JSONDecoder()
     .asView()
 
     let json = try jsonEncoder.encode(view)
-    let decodedView = try jsonDecoder.decode(ViewType.self, from: json)
+    let decodedView = try jsonDecoder.decode(View.self, from: json)
     #expect(decodedView == view)
 }
 

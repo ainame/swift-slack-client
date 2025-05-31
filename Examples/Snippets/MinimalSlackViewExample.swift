@@ -122,14 +122,14 @@ struct CompactDashboardHomeTab: SlackHomeTabView {
 
 // Usage
 extension SimpleGreeting {
-    static func example() -> ViewType {
-        ViewType.modal(SimpleGreetingModal(greeting: SimpleGreeting(name: "Alice")).render())
+    static func example() -> View {
+        View.modal(SimpleGreetingModal(greeting: SimpleGreeting(name: "Alice")).render())
     }
 }
 
 extension TeamUpdate {
-    static func example() -> ViewType {
-        ViewType.modal(TeamUpdateModal(
+    static func example() -> View {
+        View.modal(TeamUpdateModal(
             update: TeamUpdate(
                 updates: [
                     "Sprint planning moved to 2 PM",
@@ -143,8 +143,8 @@ extension TeamUpdate {
 }
 
 extension CompactDashboard {
-    static func example() -> ViewType {
-        ViewType.homeTab(CompactDashboardHomeTab(
+    static func example() -> View {
+        View.homeTab(CompactDashboardHomeTab(
             dashboard: CompactDashboard(
                 metrics: Metrics(users: 1250, revenue: 45678.90, growth: -2.5)
             )

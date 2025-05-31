@@ -34,7 +34,7 @@ public struct ListMetadata: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ListMetadata/schema`.
     public var schema: [Schema]?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/views`.
-    public var views: [ViewType]?
+    public var views: [View]?
     /// Creates a new `ListMetadata`.
     ///
     /// - Parameters:
@@ -58,7 +58,7 @@ public struct ListMetadata: Codable, Hashable, Sendable {
         integrations: [Swift.String]? = nil,
         isTrial: Swift.Bool? = nil,
         schema: [Schema]? = nil,
-        views: [ViewType]? = nil
+        views: [View]? = nil
     ) {
         self.creationSource = creationSource
         self.description = description

@@ -34,7 +34,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ViewsOpenResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// - Remark: Generated from `#/components/schemas/ViewsOpenResponse/view`.
-        public var view: SlackBlockKit.ViewType?
+        public var view: SlackBlockKit.View?
         /// - Remark: Generated from `#/components/schemas/ViewsOpenResponse/warning`.
         public var warning: Swift.String?
         /// Creates a new `ViewsOpenResponse`.
@@ -53,7 +53,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
-            view: SlackBlockKit.ViewType? = nil,
+            view: SlackBlockKit.View? = nil,
             warning: Swift.String? = nil
         ) {
             self.error = error
@@ -89,7 +89,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ViewsPublishResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// - Remark: Generated from `#/components/schemas/ViewsPublishResponse/view`.
-        public var view: SlackBlockKit.ViewType?
+        public var view: SlackBlockKit.View?
         /// - Remark: Generated from `#/components/schemas/ViewsPublishResponse/warning`.
         public var warning: Swift.String?
         /// Creates a new `ViewsPublishResponse`.
@@ -108,7 +108,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
-            view: SlackBlockKit.ViewType? = nil,
+            view: SlackBlockKit.View? = nil,
             warning: Swift.String? = nil
         ) {
             self.error = error
@@ -144,7 +144,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ViewsPushResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// - Remark: Generated from `#/components/schemas/ViewsPushResponse/view`.
-        public var view: SlackBlockKit.ViewType?
+        public var view: SlackBlockKit.View?
         /// - Remark: Generated from `#/components/schemas/ViewsPushResponse/warning`.
         public var warning: Swift.String?
         /// Creates a new `ViewsPushResponse`.
@@ -163,7 +163,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
-            view: SlackBlockKit.ViewType? = nil,
+            view: SlackBlockKit.View? = nil,
             warning: Swift.String? = nil
         ) {
             self.error = error
@@ -199,7 +199,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/ViewsUpdateResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// - Remark: Generated from `#/components/schemas/ViewsUpdateResponse/view`.
-        public var view: SlackBlockKit.ViewType?
+        public var view: SlackBlockKit.View?
         /// - Remark: Generated from `#/components/schemas/ViewsUpdateResponse/warning`.
         public var warning: Swift.String?
         /// Creates a new `ViewsUpdateResponse`.
@@ -218,7 +218,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
-            view: SlackBlockKit.ViewType? = nil,
+            view: SlackBlockKit.View? = nil,
             warning: Swift.String? = nil
         ) {
             self.error = error
