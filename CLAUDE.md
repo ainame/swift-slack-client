@@ -164,6 +164,7 @@ ruby scripts/release.rb [version] [--yes]
 
 ## Memories
 
+- Never push main branch directly. You can use git push for other branches to create PRs
 - CodingKeys required for all types (no keyEncoding/DecodingStrategy)
 - `_type` property consistency across codebase
 - SlackView uses `blocks` not `body` property
