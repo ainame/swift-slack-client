@@ -7,7 +7,7 @@ import SlackBlockKit
 
 public struct MessageEvent: SlackEvent {
     public var attachments: [SlackModels.Attachment]?
-    public var blocks: [BlockType]?
+    public var blocks: [Block]?
     public var botId: Swift.String?
     public var botProfile: SlackModels.BotProfile?
     public var channel: Swift.String?

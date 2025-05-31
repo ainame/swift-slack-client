@@ -13,7 +13,7 @@ struct OldStyleModal: SlackModalView {
         TextObject(type: .plainText, text: "Submit")
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text("This was the old verbose way")
         }
@@ -30,7 +30,7 @@ struct NewStyleModal: SlackModalView {
         "Submit" // ✨ So much cleaner!
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text("This is the new clean way!")
         }
@@ -65,7 +65,7 @@ struct UserProfileModal: SlackModalView {
         "user_profile_modal"
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Header {
             Text("👤 \(user.name)")
         }
@@ -119,7 +119,7 @@ struct TeamDashboard: SlackHomeTabView {
         "team_dashboard_\(teamName.lowercased())"
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Header {
             Text("🏢 \(teamName) Dashboard")
         }

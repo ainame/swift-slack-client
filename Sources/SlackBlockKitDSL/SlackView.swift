@@ -7,7 +7,7 @@ import SlackBlockKit
 public protocol SlackView {
     /// The blocks that make up this view
     @BlockBuilder
-    var blocks: [BlockType] { get }
+    var blocks: [Block] { get }
 }
 
 // MARK: - Modal View Protocol
@@ -103,7 +103,7 @@ extension SlackHomeTabView {
 
 /// Extension to allow embedding SlackViews within other views
 extension BlockBuilder {
-    public static func buildExpression(_ expression: some SlackView) -> [BlockType] {
+    public static func buildExpression(_ expression: some SlackView) -> [Block] {
         expression.blocks
     }
 }

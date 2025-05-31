@@ -9,7 +9,7 @@ struct WelcomeModal: SlackModalView {
 
     var submit: TextObject? = "Get Started"
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text("Hi \(userName), welcome to our workspace!")
         }
@@ -32,7 +32,7 @@ struct DashboardHomeTab: SlackHomeTabView {
         let meetings: Int
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Header {
             Text("📊 Your Dashboard")
         }

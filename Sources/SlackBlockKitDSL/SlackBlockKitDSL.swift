@@ -126,7 +126,7 @@ public struct Section: BlockComponent {
         return copy
     }
 
-    public func render() -> BlockType {
+    public func render() -> Block {
         .section(SectionBlock(
             text: text?.render(),
             fields: fields?.map { $0.render() },
@@ -184,7 +184,7 @@ public struct Input<Element: InputElementConvertible>: BlockComponent {
         return copy
     }
 
-    public func render() -> BlockType {
+    public func render() -> Block {
         .input(InputBlock(
             label: label.render(),
             element: element.asInputElement(),
@@ -496,7 +496,7 @@ public struct Actions: BlockComponent {
         return copy
     }
 
-    public func render() -> BlockType {
+    public func render() -> Block {
         .actions(ActionsBlock(
             elements: elements,
             blockId: blockId,
@@ -520,7 +520,7 @@ public struct Header: BlockComponent {
         return copy
     }
 
-    public func render() -> BlockType {
+    public func render() -> Block {
         .header(HeaderBlock(
             text: text.render(),
             blockId: blockId,
@@ -541,7 +541,7 @@ public struct Divider: BlockComponent {
         return copy
     }
 
-    public func render() -> BlockType {
+    public func render() -> Block {
         .divider(DividerBlock(blockId: blockId))
     }
 }
@@ -562,7 +562,7 @@ public struct Context: BlockComponent {
         return copy
     }
 
-    public func render() -> BlockType {
+    public func render() -> Block {
         .context(ContextBlock(
             elements: elements,
             blockId: blockId,
@@ -593,7 +593,7 @@ public struct ContextImage {
 
 public struct Modal: ViewConvertible {
     private var title: Text
-    private var blocks: [BlockType]
+    private var blocks: [Block]
     private var close: Text?
     private var submit: Text?
     private var privateMetadata: String?
@@ -604,7 +604,7 @@ public struct Modal: ViewConvertible {
 
     public init(
         title: Text,
-        @BlockBuilder blocks: () -> [BlockType]
+        @BlockBuilder blocks: () -> [Block]
     ) {
         self.title = title
         self.blocks = blocks()
@@ -696,10 +696,10 @@ public protocol ViewConvertible {
     func asView() -> View
 }
 
-/// Protocol for types that can be converted to BlockType.
+/// Protocol for types that can be converted to Block.
 public protocol BlockConvertible {
-    /// Converts to BlockType. Use this method to get the final block representation.
-    func asBlock() -> BlockType
+    /// Converts to Block. Use this method to get the final block representation.
+    func asBlock() -> Block
 }
 
 // MARK: - StaticSelect DSL
@@ -828,12 +828,12 @@ public struct OptionGroup {
 
 /// A DSL component for creating home tab views.
 public struct HomeTab: ViewConvertible {
-    private var blocks: [BlockType]
+    private var blocks: [Block]
     private var privateMetadata: String?
     private var callbackId: String?
     private var externalId: String?
 
-    public init(@BlockBuilder blocks: () -> [BlockType]) {
+    public init(@BlockBuilder blocks: () -> [Block]) {
         self.blocks = blocks()
     }
 
@@ -1504,7 +1504,7 @@ public struct Image: BlockConvertible {
         return copy
     }
 
-    public func asBlock() -> BlockType {
+    public func asBlock() -> Block {
         .image(ImageBlock(
             altText: altText,
             imageUrl: imageUrl,
@@ -1590,7 +1590,7 @@ public struct Video: BlockConvertible {
         return copy
     }
 
-    public func asBlock() -> BlockType {
+    public func asBlock() -> Block {
         .video(VideoBlock(
             altText: altText,
             videoUrl: videoUrl,

@@ -700,7 +700,7 @@ extension Operations {
                     /// A JSON-based array of structured blocks, presented as a URL-encoded string.
                     ///
                     /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/blocks`.
-                    public var blocks: [SlackBlockKit.BlockType]?
+                    public var blocks: [SlackBlockKit.Block]?
                     /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/text`.
@@ -759,7 +759,7 @@ extension Operations {
                         channel: Swift.String,
                         user: Swift.String,
                         attachments: [SlackModels.Attachment]? = nil,
-                        blocks: [SlackBlockKit.BlockType]? = nil,
+                        blocks: [SlackBlockKit.Block]? = nil,
                         text: Swift.String? = nil,
                         asUser: Swift.Bool? = nil,
                         iconEmoji: Swift.String? = nil,
@@ -942,7 +942,7 @@ extension Operations {
                     /// A JSON-based array of structured blocks, presented as a URL-encoded string.
                     ///
                     /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/blocks`.
-                    public var blocks: [SlackBlockKit.BlockType]?
+                    public var blocks: [SlackBlockKit.Block]?
                     /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/text`.
@@ -1030,7 +1030,7 @@ extension Operations {
                     public init(
                         channel: Swift.String,
                         attachments: [SlackModels.Attachment]? = nil,
-                        blocks: [SlackBlockKit.BlockType]? = nil,
+                        blocks: [SlackBlockKit.Block]? = nil,
                         text: Swift.String? = nil,
                         agentMessageSourceType: Swift.String? = nil,
                         asUser: Swift.Bool? = nil,
@@ -1233,7 +1233,7 @@ extension Operations {
                     /// A JSON-based array of structured blocks, presented as a URL-encoded string.
                     ///
                     /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/blocks`.
-                    public var blocks: [SlackBlockKit.BlockType]?
+                    public var blocks: [SlackBlockKit.Block]?
                     /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/text`.
@@ -1297,7 +1297,7 @@ extension Operations {
                         channel: Swift.String,
                         postAt: Swift.Int,
                         attachments: [SlackModels.Attachment]? = nil,
-                        blocks: [SlackBlockKit.BlockType]? = nil,
+                        blocks: [SlackBlockKit.Block]? = nil,
                         text: Swift.String? = nil,
                         asUser: Swift.Bool? = nil,
                         linkNames: Swift.Bool? = nil,
@@ -1893,7 +1893,7 @@ extension Operations {
                     /// A JSON-based array of structured blocks, presented as a URL-encoded string.
                     ///
                     /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/blocks`.
-                    public var blocks: [SlackBlockKit.BlockType]?
+                    public var blocks: [SlackBlockKit.Block]?
                     /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/text`.
@@ -1952,7 +1952,7 @@ extension Operations {
                         channel: Swift.String,
                         ts: Swift.String,
                         attachments: [SlackModels.Attachment]? = nil,
-                        blocks: [SlackBlockKit.BlockType]? = nil,
+                        blocks: [SlackBlockKit.Block]? = nil,
                         text: Swift.String? = nil,
                         asUser: Swift.Bool? = nil,
                         fileIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,

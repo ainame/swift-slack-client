@@ -7,7 +7,7 @@ import SlackBlockKitDSL
 struct SimpleGreeting: SlackView {
     let name: String
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text("Hello, *\(name)*! 👋").type(.mrkdwn)
         }
@@ -18,7 +18,7 @@ struct TeamUpdate: SlackView {
     let updates: [String]
     let urgent: Bool
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Header {
             Text(urgent ? "🚨 Urgent Team Update" : "📢 Team Update")
         }
@@ -64,7 +64,7 @@ struct CompactDashboard: SlackView {
         let growth: Double
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text("*Daily Metrics*").type(.mrkdwn)
             Text("Active Users: \(metrics.users)")
@@ -88,7 +88,7 @@ struct SimpleGreetingModal: SlackModalView {
     var title: TextObject { "Welcome" }
     
     @BlockBuilder
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         for block in greeting.blocks {
             block
         }
@@ -102,7 +102,7 @@ struct TeamUpdateModal: SlackModalView {
     var close: TextObject? { "Dismiss" }
     
     @BlockBuilder
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         for block in update.blocks {
             block
         }
@@ -113,7 +113,7 @@ struct CompactDashboardHomeTab: SlackHomeTabView {
     let dashboard: CompactDashboard
     
     @BlockBuilder
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         for block in dashboard.blocks {
             block
         }

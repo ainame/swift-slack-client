@@ -22,7 +22,7 @@ struct WelcomeModal: SlackModalView {
         "welcome_modal_\(userName.lowercased())"
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Header {
             Text("Welcome to our workspace!")
         }
@@ -77,7 +77,7 @@ struct SettingsModal: SlackModalView {
         "Save Changes"
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Header {
             Text("Notification Preferences")
         }
@@ -137,7 +137,7 @@ struct TeamHomeTab: SlackHomeTabView {
         let time: String
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Header {
             Text("Welcome to \(teamName)")
         }
@@ -204,7 +204,7 @@ struct PersonalHomeTab: SlackHomeTabView {
         "personal_home_\(userName)"
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Header {
             Text("Hey \(userName)! 👋")
         }

@@ -20,7 +20,7 @@ public struct ListMetadata: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ListMetadata/description`.
     public var description: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/description_blocks`.
-    public var descriptionBlocks: [BlockType]?
+    public var descriptionBlocks: [Block]?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/icon`.
     public var icon: Swift.String?
     /// - Remark: Generated from `#/components/schemas/ListMetadata/icon_team_id`.
@@ -51,7 +51,7 @@ public struct ListMetadata: Codable, Hashable, Sendable {
     public init(
         creationSource: CreationSource? = nil,
         description: Swift.String? = nil,
-        descriptionBlocks: [BlockType]? = nil,
+        descriptionBlocks: [Block]? = nil,
         icon: Swift.String? = nil,
         iconTeamId: Swift.String? = nil,
         iconUrl: Swift.String? = nil,

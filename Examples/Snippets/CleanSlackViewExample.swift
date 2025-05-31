@@ -22,7 +22,7 @@ struct WelcomeModal: SlackModalView {
         "welcome_modal"
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Header {
             Text("👋 Hello \(userName)!")
         }
@@ -77,7 +77,7 @@ struct FeedbackModal: SlackModalView {
         true
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text("Help us improve by sharing your thoughts!")
         }
@@ -149,7 +149,7 @@ struct DashboardHomeTab: SlackHomeTabView {
         "dashboard_\(userName)"
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Header {
             Text("👋 Welcome back, \(userName)!")
         }
@@ -196,7 +196,7 @@ struct DashboardHomeTab: SlackHomeTabView {
 struct TaskItemView: SlackView {
     let task: DashboardHomeTab.Task
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         let statusEmoji = task.completed ? "✅" : "⏳"
         let taskText = task.completed ?
             "~\(task.title)~" : // Strikethrough for completed
@@ -225,7 +225,7 @@ struct UserStatsCard: SlackView {
     let title: String
     let stats: [(String, String)]
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text("*\(title)*")
                 .type(.mrkdwn)

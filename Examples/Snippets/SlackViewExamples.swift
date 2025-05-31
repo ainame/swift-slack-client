@@ -10,7 +10,7 @@ struct UserProfileCard: SlackView {
     let email: String
     let avatarUrl: String?
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text("*\(name)*").type(.mrkdwn)
             Text(email)
@@ -36,7 +36,7 @@ struct UserSettingsForm: SlackView {
         let timezone: String
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         // Header
         Section {
             Text("*User Settings*").type(.mrkdwn)
@@ -133,7 +133,7 @@ struct ProjectDashboard: SlackView {
         let assignee: String
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         // Header
         Header {
             Text("📊 \(projectName) Dashboard")
@@ -213,7 +213,7 @@ enum SlackViewUsageExamples {
             var callbackId: String? { "user_settings_modal" }
             
             @BlockBuilder
-            var blocks: [BlockType] {
+            var blocks: [Block] {
                 for block in settingsView.blocks {
                     block
                 }
@@ -244,7 +244,7 @@ enum SlackViewUsageExamples {
             var callbackId: String? { "dashboard_home_tab" }
             
             @BlockBuilder
-            var blocks: [BlockType] {
+            var blocks: [Block] {
                 for block in dashboard.blocks {
                     block
                 }
@@ -270,7 +270,7 @@ enum SlackViewUsageExamples {
             var close: TextObject? { "Close" }
             
             @BlockBuilder
-            var blocks: [BlockType] {
+            var blocks: [Block] {
                 for block in profileCard.blocks {
                     block
                 }
@@ -295,7 +295,7 @@ struct InfoRow: SlackView {
         self.emphasized = emphasized
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text(emphasized ? "*\(label):* \(value)" : "\(label): \(value)")
                 .type(emphasized ? .mrkdwn : .plainText)
@@ -307,7 +307,7 @@ struct InfoRow: SlackView {
 struct StatusBadge: SlackView {
     let status: String
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         let (emoji, text) = statusDisplay(for: status)
 
         Section {
@@ -335,7 +335,7 @@ struct StatusBadge: SlackView {
 struct TaskDetailView: SlackView {
     let task: ProjectDashboard.Task
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text("*Task Details*").type(.mrkdwn)
         }
@@ -376,7 +376,7 @@ struct NotificationSettings: SlackView {
     let emailEnabled: Bool
     let pushEnabled: Bool
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text("*Notification Settings*").type(.mrkdwn)
         }
@@ -430,7 +430,7 @@ struct TeamMembersList: SlackView {
 
     let members: [Member]
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Header {
             Text("Team Members")
         }

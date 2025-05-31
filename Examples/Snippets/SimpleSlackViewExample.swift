@@ -5,7 +5,7 @@ import SlackBlockKitDSL
 struct SimpleGreetingModal: SlackModalView {
     var title: TextObject = "Hello World"
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text("Welcome to Slack!")
         }
@@ -36,7 +36,7 @@ struct FeedbackModal: SlackModalView {
         true
     }
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Section {
             Text("Hi \(userName), we'd love to hear your feedback!")
                 .type(.mrkdwn)
@@ -77,7 +77,7 @@ struct FeedbackModal: SlackModalView {
 struct WelcomeHomeTab: SlackHomeTabView {
     let userName: String
 
-    var blocks: [BlockType] {
+    var blocks: [Block] {
         Header {
             Text("Welcome, \(userName)!")
         }

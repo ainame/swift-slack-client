@@ -18,7 +18,7 @@ public struct Previous: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Previous/attachments`.
     public var attachments: [Attachment]?
     /// - Remark: Generated from `#/components/schemas/Previous/blocks`.
-    public var blocks: [BlockType]?
+    public var blocks: [Block]?
     /// - Remark: Generated from `#/components/schemas/Previous/iid`.
     public var iid: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Previous/permalink`.
@@ -47,7 +47,7 @@ public struct Previous: Codable, Hashable, Sendable {
     ///   - username:
     public init(
         attachments: [Attachment]? = nil,
-        blocks: [BlockType]? = nil,
+        blocks: [Block]? = nil,
         iid: Swift.String? = nil,
         permalink: Swift.String? = nil,
         text: Swift.String? = nil,

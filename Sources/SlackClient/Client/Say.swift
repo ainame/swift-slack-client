@@ -17,7 +17,7 @@ public struct Say: Sendable {
     public func callAsFunction(
         text: String = "",
         channel: String,
-        blocks: [BlockType]? = nil,
+        blocks: [Block]? = nil,
         attachments: [Attachment]? = nil,
         replyBroadcast: Bool? = nil,
         threadTs: String? = nil,
@@ -79,7 +79,7 @@ extension Say {
 
         public var channel: String
         public var text: String
-        public var blocks: [BlockType]?
+        public var blocks: [Block]?
         public var attachments: [Attachment]?
         public var threadTs: String?
         public var username: String?
@@ -97,7 +97,7 @@ extension Say {
         public init(
             channel: String,
             text: String = "",
-            blocks: [BlockType]? = nil,
+            blocks: [Block]? = nil,
             attachments: [Attachment]? = nil,
             threadTs: String? = nil,
             replyBroadcast: Bool? = nil,

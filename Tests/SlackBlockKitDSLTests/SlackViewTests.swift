@@ -9,7 +9,7 @@ struct SlackViewTests {
         struct TestView: SlackView {
             let items = ["Apple", "Banana", "Orange"]
 
-            var blocks: [BlockType] {
+            var blocks: [Block] {
                 Header { Text("Fruit List") }
 
                 // Using native for-in loop
@@ -49,7 +49,7 @@ struct SlackViewTests {
         struct TestView: SlackView {
             let items = ["First", "Second", "Third"]
 
-            var blocks: [BlockType] {
+            var blocks: [Block] {
                 Header { Text("Numbered List") }
 
                 // Using enumerated
@@ -82,7 +82,7 @@ struct SlackViewTests {
         struct TestView: SlackView {
             let numbers = [1, 2, 3, 4, 5]
 
-            var blocks: [BlockType] {
+            var blocks: [Block] {
                 Header { Text("Even Numbers") }
 
                 for number in numbers {
@@ -122,7 +122,7 @@ struct SlackViewTests {
                 ("Vegetables", ["Carrot", "Broccoli"]),
             ]
 
-            var blocks: [BlockType] {
+            var blocks: [Block] {
                 for (category, items) in categories {
                     Header { Text(category) }
 
@@ -160,7 +160,7 @@ struct SlackViewTests {
             let showContent: Bool
             let items: [String]
 
-            var blocks: [BlockType] {
+            var blocks: [Block] {
                 if showContent {
                     Header { Text("Items") }
 
@@ -197,7 +197,7 @@ struct SlackViewTests {
         struct TestView: SlackView {
             let numbers = [1, 2, 3, 4, 5, 6]
 
-            var blocks: [BlockType] {
+            var blocks: [Block] {
                 Header { Text("Even Numbers") }
 
                 // Use filter and map instead of break/continue
@@ -240,7 +240,7 @@ struct SlackViewTests {
                 "test_modal"
             }
 
-            var blocks: [BlockType] {
+            var blocks: [Block] {
                 Section {
                     Text("Welcome message for \(userName)")
                 }
@@ -283,7 +283,7 @@ struct SlackViewTests {
                 "test_home_tab"
             }
 
-            var blocks: [BlockType] {
+            var blocks: [Block] {
                 Header {
                     Text("Home Tab")
                 }
@@ -316,7 +316,7 @@ struct SlackViewTests {
                 TextObject(type: .plainText, text: "Minimal Modal")
             }
 
-            var blocks: [BlockType] {
+            var blocks: [Block] {
                 Section {
                     Text("Just a title and content")
                 }
@@ -335,7 +335,7 @@ struct SlackViewTests {
 }
 
 // Helper extensions for cleaner assertions
-extension BlockType {
+extension Block {
     var isHeader: Bool {
         if case .header = self { return true }
         return false
