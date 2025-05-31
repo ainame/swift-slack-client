@@ -1,4 +1,4 @@
-# swift-slack-client
+![swift-slack-client](/docs/logo.png)
 
 swift-slack-client is an _unofficial_ library that aims to provide a Swift equivalent of the official Slack Bolt framework and SDK available for Python, TypeScript, Java, etc.
 Build Slack apps using the language you love.
