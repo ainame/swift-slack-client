@@ -176,17 +176,16 @@ public final class SocketModeMessageRouter {
         handlers.append(filterHandler)
     }
 
-    public func onEvent<EventType: SlackEvent>(
-        _: EventType.Type,
-        handler: @escaping SocketModeMessageEnvelopePayloadHandler<EventsApiEnvelope<EventType>, EventType>
+    public func onEvent<T: SlackEvent>(
+        _: T.Type,
+        handler: @escaping SocketModeMessageEnvelopePayloadHandler<EventsApiEnvelope<Event>, T>
     ) {
         let filterHandler: SocketModeMessageHandler = { context, envelope in
             guard case let .eventsApi(eventsApiEnvelope) = envelope.payload,
-                  let payload = eventsApiEnvelope.event.payload as? EventType,
-                  let typedEnvelope = eventsApiEnvelope as? EventsApiEnvelope<EventType> else {
+                  let payload = eventsApiEnvelope.event.payload as? T else {
                 return
             }
-            try await handler(context, typedEnvelope, payload)
+            try await handler(context, eventsApiEnvelope, payload)
         }
         handlers.append(filterHandler)
     }
