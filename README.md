@@ -67,7 +67,7 @@ import OpenAPIAsyncHTTPClient
 import SlackClient
 
 let slack = Slack(
-    transport: URLSessionTransport(),
+    transport: AsyncHTTPClientTransport(),
     configuration: .init(token: token),
 )
 
@@ -92,14 +92,14 @@ import SlackBlockKit
 import SlackBlockKitDSL
 
 let slack = Slack(
-    transport: URLSessionTransport(),
+    transport: AsyncHTTPClientTransport(),
     configuration: .init(token: token),
 )
 
 // DSL
 let block = Section {
     Text("A message *with some bold text* and _some italicized text_.")
-        .style(.mrkdwn)
+        .type(.mrkdwn)
 }
 
 let result = try await slack.client.chatPostMessage(
@@ -117,8 +117,6 @@ print(try response.ok.body.json.ok)
 
 For Socket Mode, use `SocketModeMessageRouter` to register callbacks and
 route events, slash commands, global shortcuts, message shortcuts, and more.
-
-<details>
 
 ```swift
 // You need app level token (`appToken`) to open a connection
@@ -198,12 +196,15 @@ router.onSlackMessageMatched(with: "Hello", "World") { context, envelope, payloa
     print("onSlackMessageMatched: \(payload.text!)")
 }
 
+// You can hook errors that occured while handling payloads
+router.onError { context, envelope, error in
+    print("\(error)")
+}
+
 await slack.addSocketModeMessageRouter(router)
 
 try await slack.runInSocketMode()
 ```
-
-</details>
 
 More examples are available in [Examples](https://github.com/ainame/swift-slack-client/tree/main/Examples).
 
