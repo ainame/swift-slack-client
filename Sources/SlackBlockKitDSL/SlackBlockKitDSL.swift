@@ -5,20 +5,20 @@ import SlackBlockKit
 
 public struct Text: CompositionObject {
     var text: String
-    private var style: TextStyle
+    private var type: TextType
     private var verbatim: Bool
     private var emoji: Bool
 
     public init(_ text: String) {
         self.text = text
-        style = .plainText
+        type = .plainText
         verbatim = false
         emoji = true
     }
 
-    public func style(_ style: TextStyle) -> Text {
+    public func type(_ type: TextType) -> Text {
         var copy = self
-        copy.style = style
+        copy.type = type
         return copy
     }
 
@@ -35,18 +35,8 @@ public struct Text: CompositionObject {
     }
 
     public func render() -> TextObject {
-        switch style {
-        case .plainText:
-            TextObject(type: .plainText, text: text, emoji: emoji, verbatim: nil)
-        case .mrkdwn:
-            TextObject(type: .mrkdwn, text: text, emoji: nil, verbatim: verbatim)
-        }
+        TextObject(type: type, text: text, emoji: emoji, verbatim: nil)
     }
-}
-
-public enum TextStyle {
-    case plainText
-    case mrkdwn
 }
 
 // MARK: - Option DSL
