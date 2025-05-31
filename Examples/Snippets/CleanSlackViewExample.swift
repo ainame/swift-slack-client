@@ -1,3 +1,4 @@
+import SlackBlockKit
 import SlackBlockKitDSL
 
 // MARK: - Clean Modal Examples with String Literals
@@ -34,7 +35,7 @@ struct WelcomeModal: SlackModalView {
 
         Section {
             Text("*Here's what you can do:*")
-                .style(.mrkdwn)
+                .type(.mrkdwn)
         }
 
         for (emoji, feature) in [
@@ -156,7 +157,7 @@ struct DashboardHomeTab: SlackHomeTabView {
         // Stats section
         Section {
             Text("*📊 Today's Activity*")
-                .style(.mrkdwn)
+                .type(.mrkdwn)
         }
 
         Section {
@@ -201,18 +202,21 @@ struct TaskItemView: SlackView {
             "~\(task.title)~" : // Strikethrough for completed
             task.title
 
-        Section {
-            Text("\(statusEmoji) \(task.priority.emoji) \(taskText)")
-                .style(.mrkdwn)
-        }
-        .accessory {
-            if !task.completed {
+        if task.completed {
+            Section {
+                Text("\(statusEmoji) \(task.priority.emoji) \(taskText)")
+                    .type(.mrkdwn)
+            }
+        } else {
+            Section {
+                Text("\(statusEmoji) \(task.priority.emoji) \(taskText)")
+                    .type(.mrkdwn)
+            }
+            .accessory(
                 Button("Complete")
                     .actionId("complete_\(task.id)")
                     .style(.primary)
-            } else {
-                Text("Done")
-            }
+            )
         }
     }
 }
@@ -224,12 +228,13 @@ struct UserStatsCard: SlackView {
     var blocks: [BlockType] {
         Section {
             Text("*\(title)*")
-                .style(.mrkdwn)
+                .type(.mrkdwn)
         }
 
-        Section {
-            for (label, value) in stats {
-                Text("\(label): \(value)")
+        // Create a section with fields for the stats
+        if !stats.isEmpty {
+            Section {
+                Text(stats.map { "\($0.0): \($0.1)" }.joined(separator: "\n"))
             }
         }
     }
@@ -240,7 +245,7 @@ struct UserStatsCard: SlackView {
 func demonstrateCleanAPI() {
     // ✨ Clean modal creation
     let modal = WelcomeModal(userName: "Alice")
-    let modalView = modal.build() // Returns ModalView
+    let modalView = modal.render() // Returns ModalView
 
     // ✨ Clean home tab creation
     let stats = DashboardHomeTab.UserStats(
@@ -269,7 +274,7 @@ func demonstrateCleanAPI() {
         stats: stats,
         tasks: tasks,
     )
-    let homeTabView = homeTab.build() // Returns HomeTabView
+    let homeTabView = homeTab.render() // Returns HomeTabView
 
     // ✨ Showcase the clean syntax
     print("Modal title: \(modalView.title.text)")

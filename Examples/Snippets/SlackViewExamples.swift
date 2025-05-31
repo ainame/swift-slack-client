@@ -1,4 +1,5 @@
 import Foundation
+import SlackBlockKit
 import SlackBlockKitDSL
 
 // MARK: - Example SlackViews
@@ -9,16 +10,17 @@ struct UserProfileCard: SlackView {
     let email: String
     let avatarUrl: String?
 
-    var body: [BlockType] {
+    var blocks: [BlockType] {
         Section {
-            Text("*\(name)*").style(.mrkdwn)
+            Text("*\(name)*").type(.mrkdwn)
             Text(email)
         }
+        // Note: Image elements need to use ImageAccessory for section accessories
         .accessory(
-            ImageElement(
-                imageUrl: avatarUrl ?? "https://via.placeholder.com/150",
+            ImageAccessory(
                 altText: "\(name)'s avatar",
-            ),
+                imageUrl: URL(string: avatarUrl ?? "https://via.placeholder.com/150")!
+            )
         )
     }
 }
@@ -34,10 +36,10 @@ struct UserSettingsForm: SlackView {
         let timezone: String
     }
 
-    var body: [BlockType] {
+    var blocks: [BlockType] {
         // Header
         Section {
-            Text("*User Settings*").style(.mrkdwn)
+            Text("*User Settings*").type(.mrkdwn)
             Text("Configure your preferences below")
         }
 
@@ -58,7 +60,7 @@ struct UserSettingsForm: SlackView {
                 Checkboxes {
                     Option("Email notifications")
                         .value("email")
-                        .selected(user.notifications)
+                        // Note: Option doesn't have initiallySelected
                     Option("Push notifications")
                         .value("push")
                     Option("SMS notifications")
@@ -67,15 +69,14 @@ struct UserSettingsForm: SlackView {
                 .actionId("notification_settings")
             },
             label: {
-                Text("*Notification Preferences*").style(.mrkdwn)
+                Text("*Notification Preferences*").type(.mrkdwn)
             },
         )
         .optional(true)
 
         Input(
             element: {
-                StaticSelect()
-                    .options {
+                StaticSelect {
                         Option("Pacific Time (PT)").value("PT")
                         Option("Mountain Time (MT)").value("MT")
                         Option("Central Time (CT)").value("CT")
@@ -85,7 +86,7 @@ struct UserSettingsForm: SlackView {
                     .placeholder("Select timezone...")
             },
             label: {
-                Text("*Timezone*").style(.mrkdwn)
+                Text("*Timezone*").type(.mrkdwn)
             },
         )
 
@@ -132,15 +133,17 @@ struct ProjectDashboard: SlackView {
         let assignee: String
     }
 
-    var body: [BlockType] {
+    var blocks: [BlockType] {
         // Header
-        Header(text: Text("📊 \(projectName) Dashboard"))
+        Header {
+            Text("📊 \(projectName) Dashboard")
+        }
 
         Divider()
 
         // Project overview
         Section {
-            Text("*Project Overview*").style(.mrkdwn)
+            Text("*Project Overview*").type(.mrkdwn)
             Text("Total tasks: \(tasks.count)")
             Text("Team members: \(teamMembers.count)")
             Text("Completed: \(tasks.count(where: { $0.status == "completed" }))")
@@ -149,18 +152,18 @@ struct ProjectDashboard: SlackView {
         // Conditional content based on task count
         if tasks.isEmpty {
             Section {
-                Text("*No tasks yet*").style(.mrkdwn)
+                Text("*No tasks yet*").type(.mrkdwn)
                 Text("Create your first task to get started!")
             }
         } else {
             Section {
-                Text("*Recent Tasks*").style(.mrkdwn)
+                Text("*Recent Tasks*").type(.mrkdwn)
             }
 
             // Using native for-in loop to generate task sections
             for task in tasks.prefix(5) {
                 Section {
-                    Text("*\(task.title)*").style(.mrkdwn)
+                    Text("*\(task.title)*").type(.mrkdwn)
                     Text("👤 \(task.assignee)  •  📋 \(task.status)")
                 }
                 .accessory(
@@ -200,12 +203,24 @@ enum SlackViewUsageExamples {
 
         let settingsView = UserSettingsForm(user: user)
 
-        return settingsView.asModal(
-            title: Text("User Settings"),
-            submit: Text("Save"),
-            close: Text("Cancel"),
-            callbackId: "user_settings_modal",
-        )
+        // Since we use SlackView, we need a modal wrapper
+        struct SettingsModal: SlackModalView {
+            let settingsView: UserSettingsForm
+            
+            var title: TextObject { "User Settings" }
+            var submit: TextObject? { "Save" }
+            var close: TextObject? { "Cancel" }
+            var callbackId: String? { "user_settings_modal" }
+            
+            @BlockBuilder
+            var blocks: [BlockType] {
+                for block in settingsView.blocks {
+                    block
+                }
+            }
+        }
+        
+        return ViewType.modal(SettingsModal(settingsView: settingsView).render())
     }
 
     /// Create a dashboard home tab
@@ -222,9 +237,21 @@ enum SlackViewUsageExamples {
             teamMembers: ["Alice", "Bob", "Charlie", "Diana"],
         )
 
-        return dashboard.asHomeTab(
-            callbackId: "dashboard_home_tab",
-        )
+        // Since we use SlackView, we need a home tab wrapper
+        struct DashboardHomeTabWrapper: SlackHomeTabView {
+            let dashboard: ProjectDashboard
+            
+            var callbackId: String? { "dashboard_home_tab" }
+            
+            @BlockBuilder
+            var blocks: [BlockType] {
+                for block in dashboard.blocks {
+                    block
+                }
+            }
+        }
+        
+        return ViewType.homeTab(DashboardHomeTabWrapper(dashboard: dashboard).render())
     }
 
     /// Create a simple profile card modal
@@ -235,10 +262,22 @@ enum SlackViewUsageExamples {
             avatarUrl: "https://example.com/avatars/jane.jpg",
         )
 
-        return profileCard.asModal(
-            title: Text("User Profile"),
-            close: Text("Close"),
-        )
+        // Since we use SlackView, we need a modal wrapper
+        struct ProfileModal: SlackModalView {
+            let profileCard: UserProfileCard
+            
+            var title: TextObject { "User Profile" }
+            var close: TextObject? { "Close" }
+            
+            @BlockBuilder
+            var blocks: [BlockType] {
+                for block in profileCard.blocks {
+                    block
+                }
+            }
+        }
+        
+        return ViewType.modal(ProfileModal(profileCard: profileCard).render())
     }
 }
 
@@ -256,13 +295,10 @@ struct InfoRow: SlackView {
         self.emphasized = emphasized
     }
 
-    var body: [BlockType] {
+    var blocks: [BlockType] {
         Section {
-            if emphasized {
-                Text("*\(label):* \(value)").style(.mrkdwn)
-            } else {
-                Text("\(label): \(value)")
-            }
+            Text(emphasized ? "*\(label):* \(value)" : "\(label): \(value)")
+                .type(emphasized ? .mrkdwn : .plainText)
         }
     }
 }
@@ -271,11 +307,11 @@ struct InfoRow: SlackView {
 struct StatusBadge: SlackView {
     let status: String
 
-    var body: [BlockType] {
+    var blocks: [BlockType] {
         let (emoji, text) = statusDisplay(for: status)
 
         Section {
-            Text("\(emoji) \(text)").style(.mrkdwn)
+            Text("\(emoji) \(text)").type(.mrkdwn)
         }
     }
 
@@ -299,9 +335,9 @@ struct StatusBadge: SlackView {
 struct TaskDetailView: SlackView {
     let task: ProjectDashboard.Task
 
-    var body: [BlockType] {
+    var blocks: [BlockType] {
         Section {
-            Text("*Task Details*").style(.mrkdwn)
+            Text("*Task Details*").type(.mrkdwn)
         }
 
         InfoRow("Title", value: task.title, emphasized: true)
@@ -340,15 +376,15 @@ struct NotificationSettings: SlackView {
     let emailEnabled: Bool
     let pushEnabled: Bool
 
-    var body: [BlockType] {
+    var blocks: [BlockType] {
         Section {
-            Text("*Notification Settings*").style(.mrkdwn)
+            Text("*Notification Settings*").type(.mrkdwn)
         }
 
         // Using native if expression
         if isAdmin {
             Section {
-                Text("*Admin Options*").style(.mrkdwn)
+                Text("*Admin Options*").type(.mrkdwn)
                 Text("You have access to additional notification controls")
             }
 
@@ -371,8 +407,8 @@ struct NotificationSettings: SlackView {
         Input(
             element: {
                 Checkboxes {
-                    Option("Email").value("email").selected(emailEnabled)
-                    Option("Push").value("push").selected(pushEnabled)
+                    Option("Email").value("email")
+                    Option("Push").value("push")
                 }
                 .actionId("user_notifications")
             },
@@ -394,12 +430,14 @@ struct TeamMembersList: SlackView {
 
     let members: [Member]
 
-    var body: [BlockType] {
-        Header(text: Text("Team Members"))
+    var blocks: [BlockType] {
+        Header {
+            Text("Team Members")
+        }
 
         for member in members {
             Section {
-                Text("*\(member.name)*").style(.mrkdwn)
+                Text("*\(member.name)*").type(.mrkdwn)
                 Text("\(member.isOnline ? "🟢" : "⚫") \(member.role)")
             }
             .accessory(

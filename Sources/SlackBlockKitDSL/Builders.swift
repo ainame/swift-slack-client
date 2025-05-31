@@ -59,17 +59,13 @@ public struct ActionElementBuilder {
         []
     }
 
-    // Handle arrays of ActionElementType (from buildExpression)
-    public static func buildBlock(_ components: ActionElementType...) -> [ActionElementType] {
-        components
-    }
-
+    // Handle arrays of ActionElementType (the primary method)
     public static func buildBlock(_ components: [ActionElementType]...) -> [ActionElementType] {
         components.flatMap(\.self)
     }
 
-    public static func buildExpression(_ expression: some ActionElementConvertible) -> ActionElementType {
-        expression.asActionElement()
+    public static func buildExpression(_ expression: some ActionElementConvertible) -> [ActionElementType] {
+        [expression.asActionElement()]
     }
 
     public static func buildArray(_ components: [[ActionElementType]]) -> [ActionElementType] {
@@ -137,16 +133,40 @@ public struct TextBuilder {
 /// Result builder for lists of Text components
 @resultBuilder
 public struct TextListBuilder {
-    public static func buildBlock(_ components: Text...) -> [Text] {
-        components
+    public static func buildBlock(_ components: [Text]...) -> [Text] {
+        components.flatMap(\.self)
+    }
+    
+    public static func buildExpression(_ expression: Text) -> [Text] {
+        [expression]
+    }
+    
+    public static func buildArray(_ components: [[Text]]) -> [Text] {
+        components.flatMap(\.self)
+    }
+    
+    public static func buildOptional(_ component: [Text]?) -> [Text] {
+        component ?? []
+    }
+    
+    public static func buildEither(first component: [Text]) -> [Text] {
+        component
+    }
+    
+    public static func buildEither(second component: [Text]) -> [Text] {
+        component
     }
 }
 
 /// Result builder for Option components
 @resultBuilder
 public struct OptionBuilder {
-    public static func buildBlock(_ components: Option...) -> [Option] {
-        components
+    public static func buildBlock(_ components: [Option]...) -> [Option] {
+        components.flatMap(\.self)
+    }
+    
+    public static func buildExpression(_ expression: Option) -> [Option] {
+        [expression]
     }
 
     public static func buildArray(_ components: [[Option]]) -> [Option] {

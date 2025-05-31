@@ -4,6 +4,7 @@
 import PackageDescription
 
 var targets: [Target] = []
+// Only include actual executables, not snippet files
 targets.append(executable("chatPostMessage"))
 targets.append(executable("router"))
 targets.append(executable("dsl"))
@@ -36,12 +37,13 @@ func products(from targets: [Target]) -> [Product] {
 }
 
 func executable(_ name: String) -> Target {
-    .executableTarget(
+    return .executableTarget(
         name: name,
         dependencies: [
             .product(name: "SlackClient", package: "swift-slack-client"),
+            .product(name: "SlackBlockKit", package: "swift-slack-client"),
             .product(name: "SlackBlockKitDSL", package: "swift-slack-client"),
             .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
-        ],
+        ]
     )
 }

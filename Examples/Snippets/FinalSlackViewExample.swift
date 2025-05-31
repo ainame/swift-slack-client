@@ -1,16 +1,13 @@
+import SlackBlockKit
 import SlackBlockKitDSL
 
 // Simple modal example
 struct WelcomeModal: SlackModalView {
     let userName: String
 
-    var title: TextObject {
-        "Welcome!".asTextObject()
-    }
+    var title: TextObject = "Welcome!"
 
-    var submit: TextObject? {
-        "Get Started".asTextObject()
-    }
+    var submit: TextObject? = "Get Started"
 
     var blocks: [BlockType] {
         Section {
@@ -42,7 +39,7 @@ struct DashboardHomeTab: SlackHomeTabView {
 
         Section {
             Text("*Today's Activity*")
-                .style(.mrkdwn)
+                .type(.mrkdwn)
             Text("Messages: \(stats.messages)")
             Text("Files shared: \(stats.files)")
             Text("Meetings: \(stats.meetings)")
@@ -54,7 +51,7 @@ struct DashboardHomeTab: SlackHomeTabView {
 func demonstrateAPI() {
     // Modal usage
     let modal = WelcomeModal(userName: "Alice")
-    let modalView = modal.build() // Clean API
+    let modalView = modal.render() // Clean API
     print("Modal title: \(modalView.title.text)")
 
     // Home tab usage
@@ -64,6 +61,6 @@ func demonstrateAPI() {
         meetings: 3,
     )
     let homeTab = DashboardHomeTab(stats: stats)
-    let homeTabView = homeTab.build() // Clean API
+    let homeTabView = homeTab.render() // Clean API
     print("Home tab has \(homeTabView.blocks.count) blocks")
 }

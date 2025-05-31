@@ -146,10 +146,10 @@ struct Command {
                 Divider()
 
                 Section {
-                    Text("*📊 View Analytics*\nCheck your team's performance").style(.mrkdwn)
-                    Text("*📝 Create Reports*\nGenerate custom reports").style(.mrkdwn)
-                    Text("*👥 Team Management*\nManage your team members").style(.mrkdwn)
-                    Text("*⚙️ Settings*\nConfigure your preferences").style(.mrkdwn)
+                    Text("*📊 View Analytics*\nCheck your team's performance").type(.mrkdwn)
+                    Text("*📝 Create Reports*\nGenerate custom reports").type(.mrkdwn)
+                    Text("*👥 Team Management*\nManage your team members").type(.mrkdwn)
+                    Text("*⚙️ Settings*\nConfigure your preferences").type(.mrkdwn)
                 }
 
                 Actions {
@@ -196,16 +196,16 @@ struct Command {
                 }
 
                 Section {
-                    Text("Your form has been submitted successfully.").style(.plainText)
+                    Text("Your form has been submitted successfully.").type(.plainText)
                 }
 
                 Divider()
 
                 Section {
-                    Text("*What happens next?*").style(.mrkdwn)
-                    Text("• Your data has been saved").style(.mrkdwn)
-                    Text("• You'll receive a confirmation email").style(.mrkdwn)
-                    Text("• Our team will review your submission").style(.mrkdwn)
+                    Text("*What happens next?*").type(.mrkdwn)
+                    Text("• Your data has been saved").type(.mrkdwn)
+                    Text("• You'll receive a confirmation email").type(.mrkdwn)
+                    Text("• Our team will review your submission").type(.mrkdwn)
                 }
 
                 Actions {
@@ -253,7 +253,7 @@ struct Command {
                 }
 
                 Section {
-                    Text("*Choose your preferred settings from the organized categories below.*").style(.mrkdwn)
+                    Text("*Choose your preferred settings from the organized categories below.*").type(.mrkdwn)
                 }
 
                 Input {

@@ -1,12 +1,11 @@
+import SlackBlockKit
 import SlackBlockKitDSL
 
 // Simple modal with minimal configuration
 struct SimpleGreetingModal: SlackModalView {
-    var title: TextObject {
-        "Hello World".asTextObject()
-    }
+    var title: TextObject = "Hello World"
 
-    var body: [BlockType] {
+    var blocks: [BlockType] {
         Section {
             Text("Welcome to Slack!")
         }
@@ -18,15 +17,15 @@ struct FeedbackModal: SlackModalView {
     let userName: String
 
     var title: TextObject {
-        "Feedback Form".asTextObject()
+        "Feedback Form"
     }
 
     var submit: TextObject? {
-        "Submit Feedback".asTextObject()
+        "Submit Feedback"
     }
 
     var close: TextObject? {
-        "Cancel".asTextObject()
+        "Cancel"
     }
 
     var callbackId: String? {
@@ -37,10 +36,10 @@ struct FeedbackModal: SlackModalView {
         true
     }
 
-    var body: [BlockType] {
+    var blocks: [BlockType] {
         Section {
             Text("Hi \(userName), we'd love to hear your feedback!")
-                .style(.mrkdwn)
+                .type(.mrkdwn)
         }
 
         Input(
@@ -78,7 +77,7 @@ struct FeedbackModal: SlackModalView {
 struct WelcomeHomeTab: SlackHomeTabView {
     let userName: String
 
-    var body: [BlockType] {
+    var blocks: [BlockType] {
         Header {
             Text("Welcome, \(userName)!")
         }
@@ -110,16 +109,16 @@ struct WelcomeHomeTab: SlackHomeTabView {
 func demonstrateSimpleUsage() {
     // Simple modal
     let greeting = SimpleGreetingModal()
-    let greetingModal = greeting.build()
+    let greetingModal = greeting.render()
     print("Modal title: \(greetingModal.title.text)")
 
     // Complex modal
     let feedback = FeedbackModal(userName: "Alice")
-    let feedbackModal = feedback.build()
+    let feedbackModal = feedback.render()
     print("Modal has submit button: \(feedbackModal.submit != nil)")
 
     // Home tab
     let home = WelcomeHomeTab(userName: "Bob")
-    let homeTab = home.build()
+    let homeTab = home.render()
     print("Home tab has \(homeTab.blocks.count) blocks")
 }

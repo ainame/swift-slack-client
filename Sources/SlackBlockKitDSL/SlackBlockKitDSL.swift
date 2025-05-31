@@ -208,6 +208,10 @@ public struct Checkboxes: InputElementConvertible, ActionElementConvertible {
     public init(@OptionBuilder options: () -> [Option]) {
         self.options = options()
     }
+    
+    public init(options: [Option]) {
+        self.options = options
+    }
 
     public func initialOptions(@OptionBuilder options: () -> [Option]) -> Checkboxes {
         var copy = self
@@ -1740,6 +1744,25 @@ public struct EmailInput: InputElementConvertible {
             dispatchActionConfig: dispatchActionConfig,
             focusOnLoad: focusOnLoad,
             placeholder: placeholder?.render(),
+        ))
+    }
+}
+
+// MARK: - ImageAccessory DSL
+
+public struct ImageAccessory: SectionAccessoryConvertible {
+    private var altText: String
+    private var imageUrl: URL
+    
+    public init(altText: String, imageUrl: URL) {
+        self.altText = altText
+        self.imageUrl = imageUrl
+    }
+    
+    public func asSectionAccessory() -> SectionAccessory {
+        .image(ImageElement(
+            altText: altText,
+            imageUrl: imageUrl
         ))
     }
 }

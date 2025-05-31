@@ -1,3 +1,4 @@
+import SlackBlockKit
 import SlackBlockKitDSL
 
 // MARK: - Clean String Literal Syntax Examples
@@ -49,7 +50,7 @@ struct UserProfileModal: SlackModalView {
     }
 
     var title: TextObject {
-        "User Profile: \(user.name)" // ✨ String interpolation works!
+        TextObject(type: .plainText, text: "User Profile: \(user.name)") // ✨ String interpolation works!
     }
 
     var submit: TextObject? {
@@ -71,11 +72,11 @@ struct UserProfileModal: SlackModalView {
 
         Section {
             Text("**Email:** \(user.email)")
-                .style(.mrkdwn)
+                .type(.mrkdwn)
             Text("**Role:** \(user.role)")
-                .style(.mrkdwn)
+                .type(.mrkdwn)
             Text("**Status:** \(user.isActive ? "Active" : "Inactive")")
-                .style(.mrkdwn)
+                .type(.mrkdwn)
         }
 
         Divider()
@@ -125,7 +126,7 @@ struct TeamDashboard: SlackHomeTabView {
 
         Section {
             Text("*📊 Team Metrics*")
-                .style(.mrkdwn)
+                .type(.mrkdwn)
         }
 
         Section {
@@ -157,49 +158,6 @@ struct TeamDashboard: SlackHomeTabView {
     }
 }
 
-// MARK: - Advanced Usage with Conditionals
-
-struct NotificationModal: SlackModalView {
-    let userName: String
-    let hasUnreadMessages: Bool
-    let unreadCount: Int
-
-    var title: TextObject {
-        hasUnreadMessages ?
-            "You have \(unreadCount) new messages!" : // ✨ Conditional string literals
-            "All caught up!"
-    }
-
-    var submit: TextObject? {
-        hasUnreadMessages ? "Mark All Read" : "Close"
-    }
-
-    var blocks: [BlockType] {
-        Header {
-            Text(hasUnreadMessages ? "📬 New Messages" : "✅ All Clear")
-        }
-
-        if hasUnreadMessages {
-            Section {
-                Text("Hey \(userName), you have **\(unreadCount)** unread messages!")
-                    .style(.mrkdwn)
-            }
-
-            Actions {
-                Button("View Messages")
-                    .actionId("view_messages")
-                    .style(.primary)
-
-                Button("Mark All Read")
-                    .actionId("mark_read")
-            }
-        } else {
-            Section {
-                Text("Great job staying on top of your messages, \(userName)! 🎉")
-            }
-        }
-    }
-}
 
 // MARK: - Usage Demonstration
 
@@ -220,7 +178,7 @@ func demonstrateStringLiterals() {
     )
 
     let profileModal = UserProfileModal(user: user)
-    let profileView = profileModal.build()
+    let profileView = profileModal.render()
 
     print("Profile modal title: '\(profileView.title.text)'")
 
@@ -237,16 +195,9 @@ func demonstrateStringLiterals() {
         metrics: metrics,
     )
 
-    let dashboardView = dashboard.build()
+    let dashboardView = dashboard.render()
     print("Dashboard has \(dashboardView.blocks.count) blocks")
 
-    // ✨ Conditional examples
-    let notificationModal = NotificationModal(
-        userName: "Alice",
-        hasUnreadMessages: true,
-        unreadCount: 5,
-    )
-
-    let notificationView = notificationModal.build()
-    print("Notification title: '\(notificationView.title.text)'")
+    // ✨ String literals work everywhere
+    print("String literals make the API much cleaner!")
 }

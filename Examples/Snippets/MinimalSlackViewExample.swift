@@ -1,4 +1,5 @@
 import Foundation
+import SlackBlockKit
 import SlackBlockKitDSL
 
 // A minimal example showing the clean SlackView syntax without buildBlocks
@@ -6,9 +7,9 @@ import SlackBlockKitDSL
 struct SimpleGreeting: SlackView {
     let name: String
 
-    var body: [BlockType] {
+    var blocks: [BlockType] {
         Section {
-            Text("Hello, *\(name)*! 👋").style(.mrkdwn)
+            Text("Hello, *\(name)*! 👋").type(.mrkdwn)
         }
     }
 }
@@ -17,8 +18,10 @@ struct TeamUpdate: SlackView {
     let updates: [String]
     let urgent: Bool
 
-    var body: [BlockType] {
-        Header(text: Text(urgent ? "🚨 Urgent Team Update" : "📢 Team Update"))
+    var blocks: [BlockType] {
+        Header {
+            Text(urgent ? "🚨 Urgent Team Update" : "📢 Team Update")
+        }
 
         Divider()
 
@@ -28,7 +31,7 @@ struct TeamUpdate: SlackView {
             }
         } else {
             Section {
-                Text("*Today's Updates:*").style(.mrkdwn)
+                Text("*Today's Updates:*").type(.mrkdwn)
             }
 
             for update in updates {
@@ -61,9 +64,9 @@ struct CompactDashboard: SlackView {
         let growth: Double
     }
 
-    var body: [BlockType] {
+    var blocks: [BlockType] {
         Section {
-            Text("*Daily Metrics*").style(.mrkdwn)
+            Text("*Daily Metrics*").type(.mrkdwn)
             Text("Active Users: \(metrics.users)")
             Text("Revenue: $\(String(format: "%.2f", metrics.revenue))")
             Text("Growth: \(metrics.growth > 0 ? "📈" : "📉") \(abs(metrics.growth))%")
@@ -71,9 +74,48 @@ struct CompactDashboard: SlackView {
 
         if metrics.growth < 0 {
             Section {
-                Text("⚠️ *Action Required*").style(.mrkdwn)
+                Text("⚠️ *Action Required*").type(.mrkdwn)
                 Text("Growth is negative. Review strategy.")
             }
+        }
+    }
+}
+
+// Usage - Create modal/home tab wrappers
+struct SimpleGreetingModal: SlackModalView {
+    let greeting: SimpleGreeting
+    
+    var title: TextObject { "Welcome" }
+    
+    @BlockBuilder
+    var blocks: [BlockType] {
+        for block in greeting.blocks {
+            block
+        }
+    }
+}
+
+struct TeamUpdateModal: SlackModalView {
+    let update: TeamUpdate
+    
+    var title: TextObject { "Team Updates" }
+    var close: TextObject? { "Dismiss" }
+    
+    @BlockBuilder
+    var blocks: [BlockType] {
+        for block in update.blocks {
+            block
+        }
+    }
+}
+
+struct CompactDashboardHomeTab: SlackHomeTabView {
+    let dashboard: CompactDashboard
+    
+    @BlockBuilder
+    var blocks: [BlockType] {
+        for block in dashboard.blocks {
+            block
         }
     }
 }
@@ -81,31 +123,31 @@ struct CompactDashboard: SlackView {
 // Usage
 extension SimpleGreeting {
     static func example() -> ViewType {
-        SimpleGreeting(name: "Alice")
-            .asModal(title: Text("Welcome"))
+        ViewType.modal(SimpleGreetingModal(greeting: SimpleGreeting(name: "Alice")).render())
     }
 }
 
 extension TeamUpdate {
     static func example() -> ViewType {
-        TeamUpdate(
-            updates: [
-                "Sprint planning moved to 2 PM",
-                "New hire starting Monday",
-                "Code freeze begins Friday",
-            ],
-            urgent: true,
-        ).asModal(
-            title: Text("Team Updates"),
-            close: Text("Dismiss"),
-        )
+        ViewType.modal(TeamUpdateModal(
+            update: TeamUpdate(
+                updates: [
+                    "Sprint planning moved to 2 PM",
+                    "New hire starting Monday",
+                    "Code freeze begins Friday",
+                ],
+                urgent: true
+            )
+        ).render())
     }
 }
 
 extension CompactDashboard {
     static func example() -> ViewType {
-        CompactDashboard(
-            metrics: Metrics(users: 1250, revenue: 45678.90, growth: -2.5),
-        ).asHomeTab()
+        ViewType.homeTab(CompactDashboardHomeTab(
+            dashboard: CompactDashboard(
+                metrics: Metrics(users: 1250, revenue: 45678.90, growth: -2.5)
+            )
+        ).render())
     }
 }
