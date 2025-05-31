@@ -90,9 +90,9 @@ extension Slack {
         try await ws.run()
     }
 
-    private func onMessageRecieved(_ buffer: ByteBuffer) async throws -> SocketModeMessageType {
+    private func onMessageRecieved(_ buffer: ByteBuffer) async throws -> SocketModeMessage {
         do {
-            let messageType = try jsonDecoder.decode(SocketModeMessageType.self, from: buffer)
+            let messageType = try jsonDecoder.decode(SocketModeMessage.self, from: buffer)
             switch messageType.body {
             case let .message(message):
                 try await ack(message)
