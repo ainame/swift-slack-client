@@ -159,7 +159,7 @@ swift run chatPostMessage
 swift run echoSlashCommand
 
 # Release
-ruby scripts/release.rb [version] [--yes]
+ruby scripts/release.rb [version] [--yes]  # Creates tags without "v" prefix (e.g., 0.0.4, not v0.0.4)
 ```
 
 ## Memories

@@ -56,7 +56,7 @@ def get_version(version = nil)
   
   abort "Invalid version format" unless version =~ /^\d+\.\d+\.\d+$/
 
-  ["v#{version}", latest_tag]
+  [version, latest_tag]
 end
 
 # Generate changelog
