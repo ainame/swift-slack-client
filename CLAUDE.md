@@ -57,6 +57,7 @@ The `process_generated_code.rb` script automatically:
 - **Test**: `swift test`
 - **Run examples**: `swift run chatPostMessage` or `swift run views`
 - **Format code**: `make format` (runs SwiftFormat)
+- **Create release**: `ruby scripts/release.rb` (see Release Process section)
 
 ## Package Configuration
 
@@ -582,3 +583,26 @@ router.onSlashCommand("/echo") { context, payload in
 - Tests use swift-testing framework (not XCTest) for modern Swift testing patterns.
 - Message events use special subtype field handling - regular messages have no subtype, while specialized messages like bot_message have specific subtypes.
 - EventType enum provides polymorphic decoding with proper error handling for unknown types and subtypes.
+
+## Release Process
+
+To create a new release, use the release script:
+
+```bash
+ruby scripts/release.rb
+```
+
+The script will:
+1. Check prerequisites (gh CLI authentication, clean git state)
+2. Display the latest tag and prompt for new version
+3. Run tests and build verification
+4. Create and push a git tag
+5. Generate changelog from merged PRs since last tag
+6. Create a draft GitHub release
+
+Prerequisites:
+- GitHub CLI (`gh`) must be installed and authenticated
+- Working directory must be clean (no uncommitted changes)
+- Tests must pass
+
+The release is created as a draft, allowing you to review and edit before publishing.
