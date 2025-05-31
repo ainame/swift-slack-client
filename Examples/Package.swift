@@ -29,7 +29,15 @@ let package = Package(
         ),
         .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
     ],
-    targets: targets,
+    targets: targets + [
+        .target(
+            name: "Snippets",
+            dependencies: [
+                .product(name: "SlackBlockKit", package: "swift-slack-client"),
+                .product(name: "SlackBlockKitDSL", package: "swift-slack-client"),
+            ]
+        )
+    ],
 )
 
 func products(from targets: [Target]) -> [Product] {
