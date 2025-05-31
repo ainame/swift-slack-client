@@ -253,7 +253,7 @@ struct SlackViewTests {
         }
 
         let modal = TestModal(userName: "Alice")
-        let modalView = modal.build()
+        let modalView = modal.render()
 
         #expect(modalView.title.text == "Hello Alice")
         #expect(modalView.submit?.text == "Submit")
@@ -297,7 +297,7 @@ struct SlackViewTests {
         }
 
         let homeTab = TestHomeTab(items: ["Item 1", "Item 2"])
-        let homeTabView = homeTab.build()
+        let homeTabView = homeTab.render()
 
         #expect(homeTabView.externalId == "test_home_tab")
         #expect(homeTabView.blocks.count == 3) // 1 header + 2 sections
@@ -324,7 +324,7 @@ struct SlackViewTests {
         }
 
         let modal = MinimalModal()
-        let modalView = modal.build()
+        let modalView = modal.render()
 
         #expect(modalView.title.text == "Minimal Modal")
         #expect(modalView.submit == nil)

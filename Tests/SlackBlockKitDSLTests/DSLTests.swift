@@ -33,13 +33,13 @@ private let jsonDecoder = JSONDecoder()
         Divider()
 
         Section {
-            Text("*Communication Preferences*").style(.mrkdwn)
+            Text("*Communication Preferences*").type(.mrkdwn)
         }
 
         Input(
             element: {
                 Checkboxes {
-                    Option(Text("**Email digests**").style(.mrkdwn))
+                    Option(Text("**Email digests**").type(.mrkdwn))
                         .value("email_digest")
                         .description("Get daily summaries of activity")
                     Option(Text("Desktop notifications"))
@@ -83,7 +83,7 @@ private let jsonDecoder = JSONDecoder()
         .blockId("action_buttons")
 
         Context {
-            Text("Last updated: *3 hours ago*").style(.mrkdwn)
+            Text("Last updated: *3 hours ago*").type(.mrkdwn)
             ContextImage(
                 imageUrl: URL(string: "https://example.com/icon.png")!,
                 altText: "Settings icon",
@@ -107,7 +107,7 @@ private let jsonDecoder = JSONDecoder()
         title: Text("Employee Survey"),
     ) {
         Section {
-            Text("Please complete this *quarterly survey* to help us improve.").style(.mrkdwn)
+            Text("Please complete this *quarterly survey* to help us improve.").type(.mrkdwn)
         }
 
         Input(
@@ -142,13 +142,13 @@ private let jsonDecoder = JSONDecoder()
 
         Section()
             .accessory(
-                Button(Text("Rate: 5 ⭐️").style(.mrkdwn))
+                Button(Text("Rate: 5 ⭐️").type(.mrkdwn))
                     .actionId("rate_5")
                     .value("5"),
             )
 
         Context {
-            Text("Your feedback is *anonymous* and helps us improve").style(.mrkdwn)
+            Text("Your feedback is *anonymous* and helps us improve").type(.mrkdwn)
         }
     }
     .submit(Text("Submit Survey"))
@@ -163,13 +163,13 @@ private let jsonDecoder = JSONDecoder()
 @Test func simpleModal() throws {
     let view = Modal(title: Text("Settings")) {
         Section {
-            Text("Configure your *notification preferences*").style(.mrkdwn)
+            Text("Configure your *notification preferences*").type(.mrkdwn)
         }
 
         Input(
             element: {
                 Checkboxes {
-                    Option(Text("Email notifications").style(.plainText))
+                    Option(Text("Email notifications"))
                         .value("email")
                     Option(Text("Push notifications"))
                         .value("push")
@@ -205,17 +205,17 @@ private let jsonDecoder = JSONDecoder()
 @Test func textStyling() throws {
     let view = Modal(title: Text("Text Styling Demo")) {
         Section {
-            Text("This is *bold* text with _italics_").style(.mrkdwn)
+            Text("This is *bold* text with _italics_").type(.mrkdwn)
         }
 
         Section {
-            Text("**Field 1**").style(.mrkdwn)
-            Text("Plain text field").style(.plainText)
-            Text("~Strikethrough~ text").style(.mrkdwn)
+            Text("**Field 1**").type(.mrkdwn)
+            Text("Plain text field")
+            Text("~Strikethrough~ text").type(.mrkdwn)
         }
 
         Context {
-            Text("Context with *markdown*").style(.mrkdwn)
+            Text("Context with *markdown*").type(.mrkdwn)
             Text("Plain context text")
         }
     }
@@ -230,16 +230,16 @@ private let jsonDecoder = JSONDecoder()
     let view = Modal(title: Text("Section Examples")) {
         // Single text becomes section.text
         Section {
-            Text("This single text becomes the section's main text").style(.mrkdwn)
+            Text("This single text becomes the section's main text").type(.mrkdwn)
         }
 
         Divider()
 
         // Multiple texts become section.fields
         Section {
-            Text("**Name:** John Doe").style(.mrkdwn)
-            Text("**Role:** Developer").style(.mrkdwn)
-            Text("**Team:** Platform").style(.mrkdwn)
+            Text("**Name:** John Doe").type(.mrkdwn)
+            Text("**Role:** Developer").type(.mrkdwn)
+            Text("**Team:** Platform").type(.mrkdwn)
         }
 
         Divider()
@@ -254,7 +254,7 @@ private let jsonDecoder = JSONDecoder()
 
         // Section with text and accessory
         Section {
-            Text("Click the button to learn more →").style(.mrkdwn)
+            Text("Click the button to learn more →").type(.mrkdwn)
         }
         .accessory(
             Button("Learn More")
@@ -272,7 +272,6 @@ private let jsonDecoder = JSONDecoder()
 @Test func textModifiers() throws {
     // Test plain text with emoji
     let plainText = Text("Hello 👋")
-        .style(.plainText)
         .emoji(true)
 
     let plainTextObject = plainText.render()
@@ -283,7 +282,7 @@ private let jsonDecoder = JSONDecoder()
 
     // Test markdown with verbatim
     let markdownText = Text("*Bold* and _italic_")
-        .style(.mrkdwn)
+        .type(.mrkdwn)
         .verbatim(true)
 
     let markdownTextObject = markdownText.render()
@@ -294,7 +293,7 @@ private let jsonDecoder = JSONDecoder()
 }
 
 @Test func optionBuilding() throws {
-    let option = Option(Text("Email notifications").style(.mrkdwn))
+    let option = Option(Text("Email notifications").type(.mrkdwn))
         .value("email")
         .description("Get daily email summaries")
         .url(URL(string: "https://example.com/settings")!)
@@ -414,7 +413,7 @@ private let jsonDecoder = JSONDecoder()
 
     // Test Section with autoclosure accessory
     let section = Section {
-        Text("Click to continue →").style(.mrkdwn)
+        Text("Click to continue →").type(.mrkdwn)
     }
     .accessory(
         Button("Continue")

@@ -6,14 +6,12 @@ import SlackBlockKit
 public struct Text: CompositionObject {
     var text: String
     private var type: TextType
-    private var verbatim: Bool
-    private var emoji: Bool
+    private var verbatim: Bool?
+    private var emoji: Bool?
 
     public init(_ text: String) {
         self.text = text
         type = .plainText
-        verbatim = false
-        emoji = true
     }
 
     public func type(_ type: TextType) -> Text {
@@ -35,7 +33,7 @@ public struct Text: CompositionObject {
     }
 
     public func render() -> TextObject {
-        TextObject(type: type, text: text, emoji: emoji, verbatim: nil)
+        TextObject(type: type, text: text, emoji: emoji, verbatim: verbatim)
     }
 }
 
