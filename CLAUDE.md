@@ -63,14 +63,14 @@ make clean     # Clean temp files
 ```swift
 struct WelcomeModal: SlackModalView {
     let userName: String
-    
+
     var title: TextObject { "Welcome \(userName)!" }
-    
+
     var blocks: [BlockType] {
         Section {
             Text("*Welcome!*").style(.mrkdwn)
         }
-        
+
         Actions {
             Button("Get Started")
                 .style(.primary)
@@ -170,3 +170,4 @@ ruby scripts/release.rb [version] [--yes]
 - TextObject supports string literals
 - Message events use subtype field for differentiation
 - DSL result builders need proper array handling for conditionals/loops
+- Use swift-testing (bundled with Swift's toolchain) when writing unit test. Each file should group test cases with struct as test suite
