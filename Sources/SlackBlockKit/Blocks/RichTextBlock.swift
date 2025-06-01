@@ -161,6 +161,8 @@ public enum RichTextContentElement: Codable, Hashable, Sendable {
     case channel(RichTextChannelElement)
     case date(RichTextDateElement)
     case broadcast(RichTextBroadcastElement)
+    case color(RichTextColorElement)
+    case usergroup(RichTextUsergroupElement)
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
@@ -182,6 +184,10 @@ public enum RichTextContentElement: Codable, Hashable, Sendable {
             self = try .date(container.decode(RichTextDateElement.self))
         case "broadcast":
             self = try .broadcast(container.decode(RichTextBroadcastElement.self))
+        case "color":
+            self = try .color(container.decode(RichTextColorElement.self))
+        case "usergroup":
+            self = try .usergroup(container.decode(RichTextUsergroupElement.self))
         default:
             throw DecodingError.dataCorruptedError(in: container, debugDescription: "Unknown rich text content element type: \(type)")
         }
@@ -204,6 +210,10 @@ public enum RichTextContentElement: Codable, Hashable, Sendable {
         case let .date(element):
             try container.encode(element)
         case let .broadcast(element):
+            try container.encode(element)
+        case let .color(element):
+            try container.encode(element)
+        case let .usergroup(element):
             try container.encode(element)
         }
     }
@@ -394,5 +404,38 @@ public struct RichTextBroadcastElement: Codable, Hashable, Sendable {
     private enum CodingKeys: String, CodingKey {
         case type
         case range
+    }
+}
+
+public struct RichTextColorElement: Codable, Hashable, Sendable {
+    public let type: String
+    public let value: String
+
+    public init(value: String) {
+        type = "color"
+        self.value = value
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case value
+    }
+}
+
+public struct RichTextUsergroupElement: Codable, Hashable, Sendable {
+    public let type: String
+    public let usergroupId: String
+    public let style: RichTextUserStyle?
+
+    public init(usergroupId: String, style: RichTextUserStyle? = nil) {
+        type = "usergroup"
+        self.usergroupId = usergroupId
+        self.style = style
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+        case usergroupId = "usergroup_id"
+        case style
     }
 }
