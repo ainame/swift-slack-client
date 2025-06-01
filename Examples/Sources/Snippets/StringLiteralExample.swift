@@ -178,9 +178,14 @@ enum StringLiteralExamples {
         )
 
         let profileModal = UserProfileModal(user: user)
-        let profileView = profileModal.render()
+        let view = profileModal.render()
 
-        print("Profile modal title: '\(profileView.title.text)'")
+        switch view {
+        case .modal(let profileView):
+            print("Profile modal title: '\(profileView.title.text)'")
+        case .homeTab:
+            break
+        }
 
         // ✨ Home tab example
         let metrics = TeamDashboard.Metrics(
@@ -195,8 +200,13 @@ enum StringLiteralExamples {
             metrics: metrics,
         )
 
-        let dashboardView = dashboard.render()
-        print("Dashboard has \(dashboardView.blocks.count) blocks")
+        let view2 = dashboard.render()
+        switch view2 {
+        case .modal:
+            break
+        case .homeTab(let dashboardView):
+            print("Dashboard has \(dashboardView.blocks.count) blocks")
+        }
 
         // ✨ String literals work everywhere
         print("String literals make the API much cleaner!")

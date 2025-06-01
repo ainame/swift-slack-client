@@ -67,18 +67,20 @@ extension SlackModalView {
     public var privateMetadata: String? { nil }
 
     /// Builds this modal view into a ModalView
-    public func render() -> ModalView {
-        ModalView(
-            title: title,
-            blocks: blocks,
-            close: close,
-            submit: submit,
-            privateMetadata: privateMetadata,
-            callbackId: callbackId,
-            clearOnClose: clearOnClose,
-            notifyOnClose: notifyOnClose,
-            externalId: externalId,
-            submitDisabled: submitDisabled,
+    public func render() -> View {
+        .modal(
+            ModalView(
+                title: title,
+                blocks: blocks,
+                close: close,
+                submit: submit,
+                privateMetadata: privateMetadata,
+                callbackId: callbackId,
+                clearOnClose: clearOnClose,
+                notifyOnClose: notifyOnClose,
+                externalId: externalId,
+                submitDisabled: submitDisabled,
+            )
         )
     }
 }
@@ -88,13 +90,15 @@ extension SlackHomeTabView {
     public var externalId: String? { nil }
     public var privateMetadata: String? { nil }
 
-    /// Builds this home tab view into a HomeTabView
-    public func render() -> HomeTabView {
-        HomeTabView(
-            blocks: blocks,
-            privateMetadata: privateMetadata,
-            callbackId: nil,
-            externalId: externalId,
+    /// Builds this home tab view into a View
+    public func render() -> View {
+        .homeTab(
+            HomeTabView(
+                blocks: blocks,
+                privateMetadata: privateMetadata,
+                callbackId: nil,
+                externalId: externalId,
+            )
         )
     }
 }

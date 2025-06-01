@@ -220,7 +220,7 @@ enum SlackViewExamples {
                 }
             }
 
-            return View.modal(SettingsModal(settingsView: settingsView).render())
+            return SettingsModal(settingsView: settingsView).render()
         }
 
         /// Create a dashboard home tab
@@ -250,7 +250,7 @@ enum SlackViewExamples {
                 }
             }
 
-            return View.homeTab(DashboardHomeTabWrapper(dashboard: dashboard).render())
+            return DashboardHomeTabWrapper(dashboard: dashboard).render()
         }
 
         /// Create a simple profile card modal
@@ -275,7 +275,7 @@ enum SlackViewExamples {
                 }
             }
 
-            return View.modal(ProfileModal(profileCard: profileCard).render())
+            return ProfileModal(profileCard: profileCard).render()
         }
     }
 
