@@ -151,6 +151,11 @@ public struct Input<Element: InputElementConvertible>: BlockComponent {
         self.element = element()
         self.label = label()
     }
+    
+    public init(_ label: String, @InputElementBuilder element: () -> Element) {
+        self.element = element()
+        self.label = Text(label)
+    }
 
     public func hint(_ hint: @autoclosure () -> Text) -> Input {
         var copy = self
@@ -275,6 +280,10 @@ public struct PlainTextInput: InputElementConvertible {
     private var dispatchActionConfig: DispatchActionConfig?
 
     public init() {}
+    
+    public init(_ actionId: String) {
+        self.actionId = actionId
+    }
 
     public func placeholder(_ placeholder: @autoclosure () -> Text) -> PlainTextInput {
         var copy = self
@@ -1119,8 +1128,19 @@ public struct StaticSelect: InputElementConvertible, ActionElementConvertible, S
 
     public init() {}
 
+    /// Initialize with actionId
+    public init(_ actionId: String) {
+        self.actionId = actionId
+    }
+
     /// Initialize with options using a result builder
     public init(@OptionBuilder options: () -> [Option]) {
+        self.options = options()
+    }
+    
+    /// Initialize with actionId and options using a result builder
+    public init(_ actionId: String, @OptionBuilder options: () -> [Option]) {
+        self.actionId = actionId
         self.options = options()
     }
 
@@ -1280,6 +1300,11 @@ public struct ChannelsSelect: InputElementConvertible, ActionElementConvertible,
     private var placeholder: Text?
 
     public init() {}
+    
+    /// Initialize with actionId
+    public init(_ actionId: String) {
+        self.actionId = actionId
+    }
 
     public func actionId(_ id: String) -> ChannelsSelect {
         var copy = self
@@ -1457,6 +1482,11 @@ public struct UsersSelect: InputElementConvertible, ActionElementConvertible, Se
     private var placeholder: Text?
 
     public init() {}
+    
+    /// Initialize with actionId
+    public init(_ actionId: String) {
+        self.actionId = actionId
+    }
 
     public func actionId(_ id: String) -> UsersSelect {
         var copy = self
@@ -1645,6 +1675,11 @@ public struct DatePicker: InputElementConvertible, ActionElementConvertible, Sec
     private var placeholder: Text?
 
     public init() {}
+    
+    /// Initialize with actionId
+    public init(_ actionId: String) {
+        self.actionId = actionId
+    }
 
     public func actionId(_ id: String) -> DatePicker {
         var copy = self
