@@ -110,17 +110,35 @@ enum SimpleExamples {
     static func demonstrateSimpleUsage() {
         // Simple modal
         let greeting = SimpleGreetingModal()
-        let greetingModal = greeting.render()
-        print("Modal title: \(greetingModal.title.text)")
+        let view = greeting.render()
+        switch view {
+        case .modal(let greetingModal):
+            print("Modal title: \(greetingModal.title.text)")
+        case .homeTab:
+            break
+        }
+
 
         // Complex modal
         let feedback = FeedbackModal(userName: "Alice")
-        let feedbackModal = feedback.render()
-        print("Modal has submit button: \(feedbackModal.submit != nil)")
+        let view2 = feedback.render()
+
+        switch view2 {
+        case .modal(let feedbackModal):
+            print("Modal has submit button: \(feedbackModal.submit != nil)")
+        case .homeTab:
+            break
+        }
 
         // Home tab
         let home = WelcomeHomeTab(userName: "Bob")
-        let homeTab = home.render()
-        print("Home tab has \(homeTab.blocks.count) blocks")
+        let view3 = home.render()
+
+        switch view3 {
+        case .modal:
+            break
+        case .homeTab(let homeTab):
+            print("Home tab has \(homeTab.blocks.count) blocks")
+        }
     }
 }

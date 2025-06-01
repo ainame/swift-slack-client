@@ -123,13 +123,15 @@ enum MinimalExamples {
 
 extension MinimalExamples.SimpleGreeting {
     static func example() -> View {
-        View.modal(MinimalExamples.SimpleGreetingModal(greeting: MinimalExamples.SimpleGreeting(name: "Alice")).render())
+        MinimalExamples.SimpleGreetingModal(
+            greeting: MinimalExamples.SimpleGreeting(name: "Alice")
+        ).render()
     }
 }
 
 extension MinimalExamples.TeamUpdate {
     static func example() -> View {
-        View.modal(MinimalExamples.TeamUpdateModal(
+        MinimalExamples.TeamUpdateModal(
             update: MinimalExamples.TeamUpdate(
                 updates: [
                     "Sprint planning moved to 2 PM",
@@ -138,16 +140,16 @@ extension MinimalExamples.TeamUpdate {
                 ],
                 urgent: true,
             ),
-        ).render())
+        ).render()
     }
 }
 
 extension MinimalExamples.CompactDashboard {
     static func example() -> View {
-        View.homeTab(MinimalExamples.CompactDashboardHomeTab(
+        MinimalExamples.CompactDashboardHomeTab(
             dashboard: MinimalExamples.CompactDashboard(
                 metrics: MinimalExamples.CompactDashboard.Metrics(users: 1250, revenue: 45678.90, growth: -2.5),
             ),
-        ).render())
+        ).render()
     }
 }

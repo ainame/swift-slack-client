@@ -246,7 +246,7 @@ enum CleanExamples {
     static func demonstrateCleanAPI() {
         // ✨ Clean modal creation
         let modal = WelcomeModal(userName: "Alice")
-        let modalView = modal.render() // Returns ModalView
+        let view = modal.render() // Returns ModalView
 
         // ✨ Clean home tab creation
         let stats = DashboardHomeTab.UserStats(
@@ -275,11 +275,16 @@ enum CleanExamples {
             stats: stats,
             tasks: tasks,
         )
-        let homeTabView = homeTab.render() // Returns HomeTabView
+        _ = homeTab.render() // Returns HomeTabView
 
-        // ✨ Showcase the clean syntax
-        print("Modal title: \(modalView.title.text)")
-        print("Home tab blocks: \(homeTabView.blocks.count)")
+        switch view {
+        case .modal(let modalView):
+            // ✨ Showcase the clean syntax
+            print("Modal title: \(modalView.title.text)")
+            print("Home tab blocks: \(modalView.blocks.count)")
+        case .homeTab:
+            break
+        }
 
         // ✨ Demonstrate reusable subviews
         let taskView = TaskItemView(task: tasks[0])

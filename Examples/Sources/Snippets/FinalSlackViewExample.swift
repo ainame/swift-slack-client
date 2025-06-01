@@ -52,8 +52,13 @@ enum FinalExamples {
     static func demonstrateAPI() {
         // Modal usage
         let modal = WelcomeModal(userName: "Alice")
-        let modalView = modal.render() // Clean API
-        print("Modal title: \(modalView.title.text)")
+        let view = modal.render() // Clean API
+        switch view {
+        case .modal(let modalView):
+            print("Modal title: \(modalView.title.text)")
+        case .homeTab:
+            break
+        }
 
         // Home tab usage
         let stats = DashboardHomeTab.DashboardStats(
@@ -62,7 +67,13 @@ enum FinalExamples {
             meetings: 3,
         )
         let homeTab = DashboardHomeTab(stats: stats)
-        let homeTabView = homeTab.render() // Clean API
-        print("Home tab has \(homeTabView.blocks.count) blocks")
+        let view2 = homeTab.render() // Clean API
+
+        switch view2 {
+        case .modal:
+            break
+        case .homeTab(let homeTabView):
+            print("Home tab has \(homeTabView.blocks.count) blocks")
+        }
     }
 }
