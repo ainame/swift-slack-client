@@ -1,5 +1,12 @@
 ![swift-slack-client](/docs/logo.png)
 
+[![Swift Version](https://img.shields.io/badge/Swift-6.1+-blue.svg)](https://swift.org)
+[![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ainame/swift-slack-client/blob/main/LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/ainame/swift-slack-client)](https://github.com/ainame/swift-slack-client/releases)
+[![Documentation](https://img.shields.io/badge/Documentation-DocC-blue.svg)](https://swiftpackageindex.com/ainame/swift-slack-client/documentation)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ainame/swift-slack-client/ci.yml?branch=main)](https://github.com/ainame/swift-slack-client/actions)
+
 swift-slack-client is an _unofficial_ library that aims to provide a Swift equivalent of the official Slack Bolt framework and SDK available for Python, TypeScript, Java, etc.
 Build Slack apps using the language you love.
 
