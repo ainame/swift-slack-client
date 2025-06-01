@@ -544,6 +544,411 @@ public struct Divider: BlockComponent {
     }
 }
 
+// MARK: - Markdown DSL
+
+public struct Markdown: BlockComponent {
+    private var text: String
+    private var blockId: String?
+
+    public init(_ text: String) {
+        self.text = text
+    }
+
+    public init(@MarkdownBuilder content: () -> String) {
+        self.text = content()
+    }
+
+    public func blockId(_ id: String) -> Markdown {
+        var copy = self
+        copy.blockId = id
+        return copy
+    }
+
+    public func render() -> Block {
+        .markdown(MarkdownBlock(text: text, blockId: blockId))
+    }
+}
+
+// MARK: - RichText DSL
+
+/// A rich text block component that supports lists, formatting, and rich content
+public struct RichText: BlockComponent {
+    private var elements: [RichTextElementType]
+    private var blockId: String?
+    
+    public init(blockId: String? = nil, @RichTextElementBuilder _ content: () -> [RichTextElementType]) {
+        self.blockId = blockId
+        self.elements = content()
+    }
+    
+    public func blockId(_ id: String) -> RichText {
+        var copy = self
+        copy.blockId = id
+        return copy
+    }
+    
+    public func render() -> Block {
+        .richText(RichTextBlock(elements: elements, blockId: blockId))
+    }
+}
+
+/// A rich text list component for bullet and ordered lists
+public struct RichList {
+    private let style: RichTextListStyle
+    private let elements: [RichTextSection]
+    private let indent: Int?
+    
+    public init(style: RichTextListStyle = .bullet, indent: Int? = nil, @RichTextSectionBuilder _ content: () -> [RichTextSection]) {
+        self.style = style
+        self.indent = indent
+        self.elements = content()
+    }
+    
+    public func asRichTextElement() -> RichTextElementType {
+        .list(RichTextList(style: style, elements: elements, indent: indent))
+    }
+}
+
+/// A rich text section component for grouping content elements
+public struct RichSection {
+    private let elements: [RichTextContentElement]
+    
+    public init(@RichTextContentBuilder _ content: () -> [RichTextContentElement]) {
+        self.elements = content()
+    }
+    
+    public func asRichTextElement() -> RichTextElementType {
+        .section(RichTextSection(elements: elements))
+    }
+    
+    public func asRichTextSection() -> RichTextSection {
+        RichTextSection(elements: elements)
+    }
+}
+
+/// A rich text content element for plain text with optional styling
+public struct RichTextContent {
+    private let text: String
+    private let style: RichTextTextStyle?
+    
+    public init(_ text: String, bold: Bool? = nil, italic: Bool? = nil, strike: Bool? = nil, code: Bool? = nil) {
+        self.text = text
+        if bold != nil || italic != nil || strike != nil || code != nil {
+            self.style = RichTextTextStyle(bold: bold, italic: italic, strike: strike, code: code)
+        } else {
+            self.style = nil
+        }
+    }
+    
+    public func asRichTextContent() -> RichTextContentElement {
+        .text(RichTextTextElement(text: text, style: style))
+    }
+}
+
+/// A rich text emoji element
+public struct RichEmoji {
+    private let name: String
+    private let unicode: String?
+    
+    public init(_ name: String, unicode: String? = nil) {
+        self.name = name
+        self.unicode = unicode
+    }
+    
+    public func asRichTextContent() -> RichTextContentElement {
+        .emoji(RichTextEmojiElement(name: name, unicode: unicode))
+    }
+}
+
+/// A rich text link element
+public struct RichLink {
+    private let url: String
+    private let text: String?
+    private let style: RichTextTextStyle?
+    private let unsafe: Bool?
+    
+    public init(_ url: String, text: String? = nil, unsafe: Bool? = nil, bold: Bool? = nil, italic: Bool? = nil, strike: Bool? = nil, code: Bool? = nil) {
+        self.url = url
+        self.text = text
+        self.unsafe = unsafe
+        if bold != nil || italic != nil || strike != nil || code != nil {
+            self.style = RichTextTextStyle(bold: bold, italic: italic, strike: strike, code: code)
+        } else {
+            self.style = nil
+        }
+    }
+    
+    public func asRichTextContent() -> RichTextContentElement {
+        .link(RichTextLinkElement(url: url, text: text, unsafe: unsafe, style: style))
+    }
+}
+
+/// A rich text user mention element
+public struct RichUser {
+    private let userId: String
+    private let style: RichTextUserStyle?
+    
+    public init(_ userId: String, bold: Bool? = nil, italic: Bool? = nil, strike: Bool? = nil, highlight: Bool? = nil, clientHighlight: Bool? = nil, unlink: Bool? = nil) {
+        self.userId = userId
+        if bold != nil || italic != nil || strike != nil || highlight != nil || clientHighlight != nil || unlink != nil {
+            self.style = RichTextUserStyle(bold: bold, italic: italic, strike: strike, highlight: highlight, clientHighlight: clientHighlight, unlink: unlink)
+        } else {
+            self.style = nil
+        }
+    }
+    
+    public func asRichTextContent() -> RichTextContentElement {
+        .user(RichTextUserElement(userId: userId, style: style))
+    }
+}
+
+/// A rich text channel mention element
+public struct RichChannel {
+    private let channelId: String
+    private let style: RichTextUserStyle?
+    
+    public init(_ channelId: String, bold: Bool? = nil, italic: Bool? = nil, strike: Bool? = nil, highlight: Bool? = nil, clientHighlight: Bool? = nil, unlink: Bool? = nil) {
+        self.channelId = channelId
+        if bold != nil || italic != nil || strike != nil || highlight != nil || clientHighlight != nil || unlink != nil {
+            self.style = RichTextUserStyle(bold: bold, italic: italic, strike: strike, highlight: highlight, clientHighlight: clientHighlight, unlink: unlink)
+        } else {
+            self.style = nil
+        }
+    }
+    
+    public func asRichTextContent() -> RichTextContentElement {
+        .channel(RichTextChannelElement(channelId: channelId, style: style))
+    }
+}
+
+/// A rich text date element
+public struct RichDate {
+    private let timestamp: Int
+    private let format: String
+    private let url: String?
+    private let fallback: String?
+    
+    public init(timestamp: Int, format: String, url: String? = nil, fallback: String? = nil) {
+        self.timestamp = timestamp
+        self.format = format
+        self.url = url
+        self.fallback = fallback
+    }
+    
+    public func asRichTextContent() -> RichTextContentElement {
+        .date(RichTextDateElement(timestamp: timestamp, format: format, url: url, fallback: fallback))
+    }
+}
+
+/// A rich text broadcast element (@here, @channel, @everyone)
+public struct RichBroadcast {
+    private let range: String
+    
+    public init(_ range: String) {
+        self.range = range
+    }
+    
+    public static var here: RichBroadcast { RichBroadcast("here") }
+    public static var channel: RichBroadcast { RichBroadcast("channel") }
+    public static var everyone: RichBroadcast { RichBroadcast("everyone") }
+    
+    public func asRichTextContent() -> RichTextContentElement {
+        .broadcast(RichTextBroadcastElement(range: range))
+    }
+}
+
+/// A rich text color element
+public struct RichColor {
+    private let value: String
+    
+    public init(_ hexColor: String) {
+        self.value = hexColor
+    }
+    
+    public func asRichTextContent() -> RichTextContentElement {
+        .color(RichTextColorElement(value: value))
+    }
+}
+
+/// A rich text usergroup mention element
+public struct RichUsergroup {
+    private let usergroupId: String
+    private let style: RichTextUserStyle?
+    
+    public init(_ usergroupId: String, bold: Bool? = nil, italic: Bool? = nil, strike: Bool? = nil, highlight: Bool? = nil, clientHighlight: Bool? = nil, unlink: Bool? = nil) {
+        self.usergroupId = usergroupId
+        if bold != nil || italic != nil || strike != nil || highlight != nil || clientHighlight != nil || unlink != nil {
+            self.style = RichTextUserStyle(bold: bold, italic: italic, strike: strike, highlight: highlight, clientHighlight: clientHighlight, unlink: unlink)
+        } else {
+            self.style = nil
+        }
+    }
+    
+    public func asRichTextContent() -> RichTextContentElement {
+        .usergroup(RichTextUsergroupElement(usergroupId: usergroupId, style: style))
+    }
+}
+
+/// A rich text preformatted block (code block)
+public struct RichPreformatted {
+    private let elements: [RichTextContentElement]
+    private let border: Int?
+    
+    public init(border: Int? = nil, @RichTextContentBuilder _ content: () -> [RichTextContentElement]) {
+        self.elements = content()
+        self.border = border
+    }
+    
+    public func asRichTextElement() -> RichTextElementType {
+        .preformatted(RichTextPreformatted(elements: elements, border: border))
+    }
+}
+
+/// A rich text quote block
+public struct RichQuote {
+    private let elements: [RichTextContentElement]
+    private let border: Int?
+    
+    public init(border: Int? = nil, @RichTextContentBuilder _ content: () -> [RichTextContentElement]) {
+        self.elements = content()
+        self.border = border
+    }
+    
+    public func asRichTextElement() -> RichTextElementType {
+        .quote(RichTextQuote(elements: elements, border: border))
+    }
+}
+
+// MARK: - RichText Result Builders
+
+/// Result builder for rich text elements
+@resultBuilder
+public struct RichTextElementBuilder {
+    public static func buildBlock(_ components: RichTextElementType...) -> [RichTextElementType] {
+        components
+    }
+    
+    public static func buildExpression(_ expression: RichList) -> RichTextElementType {
+        expression.asRichTextElement()
+    }
+    
+    public static func buildExpression(_ expression: RichSection) -> RichTextElementType {
+        expression.asRichTextElement()
+    }
+    
+    public static func buildExpression(_ expression: RichPreformatted) -> RichTextElementType {
+        expression.asRichTextElement()
+    }
+    
+    public static func buildExpression(_ expression: RichQuote) -> RichTextElementType {
+        expression.asRichTextElement()
+    }
+    
+    public static func buildArray(_ components: [[RichTextElementType]]) -> [RichTextElementType] {
+        components.flatMap { $0 }
+    }
+    
+    public static func buildOptional(_ component: [RichTextElementType]?) -> [RichTextElementType] {
+        component ?? []
+    }
+    
+    public static func buildEither(first component: [RichTextElementType]) -> [RichTextElementType] {
+        component
+    }
+    
+    public static func buildEither(second component: [RichTextElementType]) -> [RichTextElementType] {
+        component
+    }
+}
+
+/// Result builder for rich text sections
+@resultBuilder
+public struct RichTextSectionBuilder {
+    public static func buildBlock(_ components: RichTextSection...) -> [RichTextSection] {
+        components
+    }
+    
+    public static func buildExpression(_ expression: RichSection) -> RichTextSection {
+        expression.asRichTextSection()
+    }
+    
+    public static func buildArray(_ components: [[RichTextSection]]) -> [RichTextSection] {
+        components.flatMap { $0 }
+    }
+    
+    public static func buildOptional(_ component: [RichTextSection]?) -> [RichTextSection] {
+        component ?? []
+    }
+    
+    public static func buildEither(first component: [RichTextSection]) -> [RichTextSection] {
+        component
+    }
+    
+    public static func buildEither(second component: [RichTextSection]) -> [RichTextSection] {
+        component
+    }
+}
+
+/// Result builder for rich text content elements
+@resultBuilder
+public struct RichTextContentBuilder {
+    public static func buildBlock(_ components: RichTextContentElement...) -> [RichTextContentElement] {
+        components
+    }
+    
+    public static func buildExpression(_ expression: RichTextContent) -> RichTextContentElement {
+        expression.asRichTextContent()
+    }
+    
+    public static func buildExpression(_ expression: RichEmoji) -> RichTextContentElement {
+        expression.asRichTextContent()
+    }
+    
+    public static func buildExpression(_ expression: RichLink) -> RichTextContentElement {
+        expression.asRichTextContent()
+    }
+    
+    public static func buildExpression(_ expression: RichUser) -> RichTextContentElement {
+        expression.asRichTextContent()
+    }
+    
+    public static func buildExpression(_ expression: RichChannel) -> RichTextContentElement {
+        expression.asRichTextContent()
+    }
+    
+    public static func buildExpression(_ expression: RichDate) -> RichTextContentElement {
+        expression.asRichTextContent()
+    }
+    
+    public static func buildExpression(_ expression: RichBroadcast) -> RichTextContentElement {
+        expression.asRichTextContent()
+    }
+    
+    public static func buildExpression(_ expression: RichColor) -> RichTextContentElement {
+        expression.asRichTextContent()
+    }
+    
+    public static func buildExpression(_ expression: RichUsergroup) -> RichTextContentElement {
+        expression.asRichTextContent()
+    }
+    
+    public static func buildArray(_ components: [[RichTextContentElement]]) -> [RichTextContentElement] {
+        components.flatMap { $0 }
+    }
+    
+    public static func buildOptional(_ component: [RichTextContentElement]?) -> [RichTextContentElement] {
+        component ?? []
+    }
+    
+    public static func buildEither(first component: [RichTextContentElement]) -> [RichTextContentElement] {
+        component
+    }
+    
+    public static func buildEither(second component: [RichTextContentElement]) -> [RichTextContentElement] {
+        component
+    }
+}
+
 // MARK: - Context DSL
 
 public struct Context: BlockComponent {
