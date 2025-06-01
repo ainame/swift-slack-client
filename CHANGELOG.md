@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.4] - 2025-06-01
+
+### Added
+- **MarkdownBlock Support**: Full implementation of MarkdownBlock with DSL integration and result builder patterns
+- **Enhanced RichText API**: Complete coverage of all 9 Slack RichText element types (text, emoji, link, user, channel, date, broadcast, color, usergroup)
+- **DSL Convenience Patterns**: Ergonomic initializers and patterns for common input elements and usage scenarios
+- **Comprehensive Examples**: New snippet examples demonstrating MarkdownBlock, RichText features, and DSL convenience patterns
+- **Shields.io Badges**: Professional badges in README for Swift version, SPM compatibility, license, releases, documentation, and build status
+
+### Enhanced
+- **SlackBlockKitDSL**: Added comprehensive convenience initializers for PlainTextInput, StaticSelect, ChannelsSelect, UsersSelect, and other common elements
+- **RichText Elements**: Complete implementation of RichTextColorElement and RichTextUsergroupElement with full encoding/decoding support
+- **Result Builders**: Enhanced @RichTextElementBuilder and @RichTextContentBuilder to support all element types
+- **Code Examples**: Extensive practical examples showing real-world usage patterns across all new features
+
+### Technical
+- **Example Organization**: Better organization of code examples with comprehensive DSL and RichText demonstrations
+
 ## [0.0.3] - 2025-05-31
 
 ### Added
