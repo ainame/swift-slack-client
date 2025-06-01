@@ -253,24 +253,29 @@ struct SlackViewTests {
         }
 
         let modal = TestModal(userName: "Alice")
-        let modalView = modal.render()
+        let view = modal.render()
 
-        #expect(modalView.title.text == "Hello Alice")
-        #expect(modalView.submit?.text == "Submit")
-        #expect(modalView.callbackId == "test_modal")
-        #expect(modalView.blocks.count == 2)
+        switch view {
+        case .modal(let modalView):
+            #expect(modalView.title.text == "Hello Alice")
+            #expect(modalView.submit?.text == "Submit")
+            #expect(modalView.callbackId == "test_modal")
+            #expect(modalView.blocks.count == 2)
 
-        // Verify blocks
-        if case let .section(section) = modalView.blocks[0] {
-            #expect(section.text?.text == "Welcome message for Alice")
-        } else {
-            Issue.record("First block should be section")
-        }
+            // Verify blocks
+            if case let .section(section) = modalView.blocks[0] {
+                #expect(section.text?.text == "Welcome message for Alice")
+            } else {
+                Issue.record("First block should be section")
+            }
 
-        if case let .actions(actions) = modalView.blocks[1] {
-            #expect(actions.elements.count == 2)
-        } else {
-            Issue.record("Second block should be actions")
+            if case let .actions(actions) = modalView.blocks[1] {
+                #expect(actions.elements.count == 2)
+            } else {
+                Issue.record("Second block should be actions")
+            }
+        case .homeTab:
+            Issue.record("ModalView.render returns homeTab. This is a bug.")
         }
     }
 
@@ -297,15 +302,19 @@ struct SlackViewTests {
         }
 
         let homeTab = TestHomeTab(items: ["Item 1", "Item 2"])
-        let homeTabView = homeTab.render()
+        let view = homeTab.render()
+        switch view {
+        case .homeTab(let homeTabView):
+            #expect(homeTabView.externalId == "test_home_tab")
+            #expect(homeTabView.blocks.count == 3)  // 1 header + 2 sections
 
-        #expect(homeTabView.externalId == "test_home_tab")
-        #expect(homeTabView.blocks.count == 3) // 1 header + 2 sections
-
-        if case let .header(header) = homeTabView.blocks[0] {
-            #expect(header.text.text == "Home Tab")
-        } else {
-            Issue.record("First block should be header")
+            if case let .header(header) = homeTabView.blocks[0] {
+                #expect(header.text.text == "Home Tab")
+            } else {
+                Issue.record("First block should be header")
+            }
+        case .modal:
+            Issue.record("HomeTabView.render() returns ModalView. This is a bug.")
         }
     }
 
@@ -324,13 +333,18 @@ struct SlackViewTests {
         }
 
         let modal = MinimalModal()
-        let modalView = modal.render()
+        let view = modal.render()
 
-        #expect(modalView.title.text == "Minimal Modal")
-        #expect(modalView.submit == nil)
-        #expect(modalView.close == nil)
-        #expect(modalView.callbackId == nil)
-        #expect(modalView.blocks.count == 1)
+        switch view {
+        case .modal(let modalView):
+            #expect(modalView.title.text == "Minimal Modal")
+            #expect(modalView.submit == nil)
+            #expect(modalView.close == nil)
+            #expect(modalView.callbackId == nil)
+            #expect(modalView.blocks.count == 1)
+        case .homeTab:
+            Issue.record("ModalView.render returns homeTab. This is a bug.")
+        }
     }
 }
 
