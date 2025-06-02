@@ -80,7 +80,7 @@ extension SlackModalView {
                 notifyOnClose: notifyOnClose,
                 externalId: externalId,
                 submitDisabled: submitDisabled,
-            )
+            ),
         )
     }
 }
@@ -98,7 +98,7 @@ extension SlackHomeTabView {
                 privateMetadata: privateMetadata,
                 callbackId: nil,
                 externalId: externalId,
-            )
+            ),
         )
     }
 }
