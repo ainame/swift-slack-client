@@ -24,7 +24,7 @@ struct EchoSlashCommand {
             ),
         )
 
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onSlashCommand("/echo") { context, payload in
             // `respond` uses response_url
@@ -51,7 +51,7 @@ struct EchoSlashCommand {
             try await context.respond(to: payload.responseUrl, text: payload.text, responseType: .ephemeral)
         }
 
-        await slack.addSocketModeMessageRouter(router)
+        await slack.addSocketModeRouter(router)
         try await slack.runInSocketMode()
     }
 }

@@ -21,7 +21,7 @@ struct Command {
             ),
         )
 
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         // Handle global shortcuts
         router.onGlboalShortcut("run-something") {
@@ -323,7 +323,7 @@ struct Command {
             print("Advanced modal opened: \(response)")
         }
 
-        await slack.addSocketModeMessageRouter(router)
+        await slack.addSocketModeRouter(router)
 
         // This is demo so this doesn't automatically reconnect to socket when disconnected
         print("Starting Socket Mode connection...")

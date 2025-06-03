@@ -2,15 +2,15 @@
 import Foundation
 import Logging
 
-public typealias SocketModeMessageHandler = @Sendable (SocketModeMessageRouter.Context, SocketModeMessageEnvelope) async throws -> Void
+public typealias SocketModeMessageHandler = @Sendable (SocketModeRouter.Context, SocketModeMessageEnvelope) async throws -> Void
 public typealias SocketModeMessagePayloadHandler<Payload: Sendable> =
-    @Sendable (SocketModeMessageRouter.Context, Payload) async throws -> Void
+    @Sendable (SocketModeRouter.Context, Payload) async throws -> Void
 public typealias SocketModeMessageEnvelopePayloadHandler<Envelope: Sendable, Payload: Sendable> =
-    @Sendable (SocketModeMessageRouter.Context, Envelope, Payload) async throws -> Void
+    @Sendable (SocketModeRouter.Context, Envelope, Payload) async throws -> Void
 public typealias SocketModeErrorHandler =
-    @Sendable (SocketModeMessageRouter.Context, SocketModeMessageEnvelope, Swift.Error) async throws -> Void
+    @Sendable (SocketModeRouter.Context, SocketModeMessageEnvelope, Swift.Error) async throws -> Void
 
-public final class SocketModeMessageRouter {
+public final class SocketModeRouter {
     public struct Context: Sendable {
         public let client: APIProtocol
         public let logger: Logger
@@ -27,12 +27,12 @@ public final class SocketModeMessageRouter {
         private let handlers: [SocketModeMessageHandler]
         private let errorHandler: SocketModeErrorHandler?
 
-        init(from router: SocketModeMessageRouter) {
+        init(from router: SocketModeRouter) {
             handlers = router.handlers
             errorHandler = router.errorHandler
         }
 
-        func dispatch(context: SocketModeMessageRouter.Context, messageEnvelope: SocketModeMessageEnvelope) async throws {
+        func dispatch(context: SocketModeRouter.Context, messageEnvelope: SocketModeMessageEnvelope) async throws {
             try await withThrowingDiscardingTaskGroup { group in
                 for handler in handlers {
                     group.addTask {

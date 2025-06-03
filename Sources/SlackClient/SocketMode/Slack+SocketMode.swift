@@ -32,8 +32,8 @@ extension Slack {
         }
     }
 
-    public func addSocketModeMessageRouter(_ router: SocketModeMessageRouter) {
-        routers.append(SocketModeMessageRouter.FixedRouter(from: router))
+    public func addSocketModeRouter(_ router: SocketModeRouter) {
+        routers.append(SocketModeRouter.FixedRouter(from: router))
     }
 
     func openConnection() async throws -> String {
@@ -47,7 +47,7 @@ extension Slack {
     }
 
     func doStartSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws {
-        let routerContext = SocketModeMessageRouter.Context(
+        let routerContext = SocketModeRouter.Context(
             client: client,
             logger: appLogger ?? logger,
             respond: Respond(transport: transport, logger: logger),

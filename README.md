@@ -122,7 +122,7 @@ print(try response.ok.body.json.ok)
 
 ### Socket Mode
 
-For Socket Mode, use `SocketModeMessageRouter` to register callbacks and
+For Socket Mode, use `SocketModeRouter` to register callbacks and
 route events, slash commands, global shortcuts, message shortcuts, and more.
 
 ```swift
@@ -136,7 +136,7 @@ let slack = Slack(
 )
 
 // Create a router
-let router = SocketModeMessageRouter()
+let router = SocketModeRouter()
 
 // onSocketModeMessage handles routing for all events
 //
@@ -208,7 +208,7 @@ router.onError { context, envelope, error in
     print("\(error)")
 }
 
-await slack.addSocketModeMessageRouter(router)
+await slack.addSocketModeRouter(router)
 
 try await slack.runInSocketMode()
 ```

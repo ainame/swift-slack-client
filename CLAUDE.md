@@ -112,7 +112,7 @@ case "message":
 
 ### Usage
 ```swift
-let router = SocketModeMessageRouter()
+let router = SocketModeRouter()
 
 router.onSlashCommand("/echo") { context, payload in
     try await context.client.chatPostMessage(
@@ -125,7 +125,7 @@ router.onEvent(AppMentionEvent.self) { context, envelope, event in
     // Handle app mentions
 }
 
-await slack.addSocketModeMessageRouter(router)
+await slack.addSocketModeRouter(router)
 try await slack.runInSocketMode()
 ```
 
