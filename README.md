@@ -213,6 +213,95 @@ await slack.addSocketModeRouter(router)
 try await slack.runInSocketMode()
 ```
 
+# BlockKit (+DSL)
+
+swift-slack-client provides two ways to build Slack Block Kit messages:
+
+1. **SlackBlockKit** - Direct, type-safe API matching Slack's Block Kit structure
+2. **SlackBlockKitDSL** - SwiftUI-inspired declarative syntax with result builders
+
+### SlackBlockKit (Direct API)
+
+Using SlackBlockKit directly gives you full control and matches Slack's JSON structure exactly:
+
+```swift
+import SlackBlockKit
+
+// Create a simple message with SlackBlockKit
+let headerBlock = HeaderBlock(
+    text: TextObject(text: "Welcome to our team! 🎉", type: .plainText)
+)
+
+let sectionBlock = SectionBlock(
+    text: TextObject(
+        text: "We're excited to have you here. Let's get you started!",
+        type: .mrkdwn
+    ),
+    accessory: ButtonElement(
+        text: TextObject(text: "Get Started", type: .plainText),
+        actionId: "get_started",
+        style: .primary
+    )
+)
+
+let dividerBlock = DividerBlock()
+
+let actionBlock = ActionsBlock(
+    elements: [
+        ButtonElement(
+            text: TextObject(text: "View Docs", type: .plainText),
+            actionId: "view_docs",
+            url: "https://docs.example.com"
+        ),
+        ButtonElement(
+            text: TextObject(text: "Join Slack", type: .plainText),
+            actionId: "join_slack",
+            style: .primary
+        )
+    ]
+)
+
+// Combine blocks for the message
+let blocks = [headerBlock, sectionBlock, dividerBlock, actionBlock]
+```
+
+### SlackBlockKitDSL (Declarative Syntax)
+
+SlackBlockKitDSL provides a more intuitive, SwiftUI-like syntax with less boilerplate:
+
+```swift
+import SlackBlockKitDSL
+
+// Create the same message with DSL
+let blocks = BlockKit {
+    Header {
+        Text("Welcome to our team! 🎉")
+    }
+
+    Section {
+        Text("We're excited to have you here. Let's get you started!")
+            .style(.mrkdwn)
+    }
+    .accessory(
+        Button("Get Started")
+            .actionId("get_started")
+            .style(.primary)
+    )
+
+    Divider()
+
+    Actions {
+        Button("View Docs")
+            .actionId("view_docs")
+            .url("https://docs.example.com")
+
+        Button("Join Slack")
+            .actionId("join_slack")
+            .style(.primary)
+    }
+}
+```
+
 More examples are available in [Examples](https://github.com/ainame/swift-slack-client/tree/main/Examples).
 
 ## Code Generation
