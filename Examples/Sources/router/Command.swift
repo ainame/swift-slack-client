@@ -21,7 +21,7 @@ struct Command {
             ),
         )
 
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onSocketModeMessage { _, _ in
             print("onMessage")
@@ -71,7 +71,7 @@ struct Command {
             print("onSlackMessageMatched: \(payload.text!)")
         }
 
-        await slack.addSocketModeMessageRouter(router)
+        await slack.addSocketModeRouter(router)
 
         try await slack.runInSocketMode()
     }

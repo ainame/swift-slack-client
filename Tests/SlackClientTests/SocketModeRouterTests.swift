@@ -7,12 +7,12 @@ import Testing
 import OpenAPIRuntime
 import HTTPTypes
 
-// Test the core functionality of SocketModeMessageRouter without requiring full mocking
+// Test the core functionality of SocketModeRouter without requiring full mocking
 // These tests verify that handlers are registered correctly and filtering logic works
 
-struct SocketModeMessageRouterTests {
+struct SocketModeRouterTests {
     @Test func onSocketModeMessageRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onSocketModeMessage { _, _ in
             // Handler body
@@ -23,7 +23,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onInteractiveRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onInteractive { _, _ in
             // Handler body
@@ -33,7 +33,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onGlobalShortcutRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onGlboalShortcut("test_shortcut") { _, _ in
             // Handler body
@@ -43,7 +43,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onMessageShortcutRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onMessageShortcut("test_message_shortcut") { _, _ in
             // Handler body
@@ -53,7 +53,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onSlashCommandRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onSlashCommand("/test") { _, _ in
             // Handler body
@@ -63,7 +63,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onSlashCommandRequiresSlashPrefix() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         // This should trigger a precondition failure since "test" doesn't start with "/"
         // In tests, precondition failures are hard to catch, so we'll test the valid case
@@ -78,7 +78,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onBlockActionRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onBlockAction("test_block_action") { _, _ in
             // Handler body
@@ -88,7 +88,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onViewRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onView("test_view") { _, _ in
             // Handler body
@@ -98,7 +98,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onViewSubmissionRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onViewSubmission("test_view_submission") { _, _ in
             // Handler body
@@ -108,7 +108,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onViewClosedRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onViewClosed("test_view_closed") { _, _ in
             // Handler body
@@ -118,7 +118,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onEventRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onEvent { _, _ in
             // Handler body
@@ -128,7 +128,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onSpecificEventRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onEvent(MessageEvent.self) { _, _, _ in
             // Handler body
@@ -138,7 +138,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onSlackMessageMatchedRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onSlackMessageMatched(with: "hello", "world") { _, _, _ in
             // Handler body
@@ -148,7 +148,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func onErrorRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onError { _, _, _ in
             // Handler body
@@ -160,7 +160,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func multipleHandlerRegistration() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onSocketModeMessage { _, _ in
             // Handler 1
@@ -178,7 +178,7 @@ struct SocketModeMessageRouterTests {
     }
 
     @Test func slashCommandValidation() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         // Valid slash command
         router.onSlashCommand("/valid") { _, _ in
@@ -322,7 +322,7 @@ struct SocketModeMessageRouterTests {
     // REGRESSION TEST: Verify that the onEvent method with specific event types compiles correctly
     // This test would fail to compile if commit 7882fc2 is reverted due to type parameter conflicts
     @Test func onEventTypeParameterRegression() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
         
         // This specific usage pattern would fail to compile with the original bug
         // because the type parameter T would conflict with the Event enum type
@@ -346,7 +346,7 @@ struct SocketModeMessageRouterTests {
     // REGRESSION TEST: Actual dispatch test that would fail if commit 7882fc2 is reverted
     // This test verifies that events are properly cast and handlers are actually executed
     @Test func onEventActualDispatchRegression() async throws {
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
         
         // Use actor to safely track handler execution in concurrent context
         actor HandlerTracker {
@@ -455,7 +455,7 @@ struct SocketModeMessageRouterTests {
         // Create context with actual Slack instance for simplicity
         let slack = Slack(transport: transport)
         let client = await slack.client
-        let mockContext = SocketModeMessageRouter.Context(
+        let mockContext = SocketModeRouter.Context(
             client: client,
             logger: logger,
             respond: Respond(transport: transport, logger: logger),
@@ -463,7 +463,7 @@ struct SocketModeMessageRouterTests {
         )
         
         // Create FixedRouter and dispatch events
-        let fixedRouter = SocketModeMessageRouter.FixedRouter(from: router)
+        let fixedRouter = SocketModeRouter.FixedRouter(from: router)
         
         try await fixedRouter.dispatch(context: mockContext, messageEnvelope: messageSocketEnvelope)
         try await fixedRouter.dispatch(context: mockContext, messageEnvelope: appMentionSocketEnvelope)
@@ -484,7 +484,7 @@ struct SocketModeMessageRouterTests {
 }
 
 // Helper to access private properties for testing
-private extension SocketModeMessageRouter {
+private extension SocketModeRouter {
     var handlers: [SocketModeMessageHandler] {
         Mirror(reflecting: self).children.first(where: { $0.label == "handlers" })?.value as? [SocketModeMessageHandler] ?? []
     }

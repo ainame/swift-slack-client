@@ -29,7 +29,7 @@ struct ThreadExpander {
             .replacingOccurrences(of: "https://", with: "")
             .replacingOccurrences(of: ".slack.com/", with: "")
 
-        let router = SocketModeMessageRouter()
+        let router = SocketModeRouter()
 
         router.onEvent(MessageEvent.self) { context, _, messageEvent in
             guard let threadTs = messageEvent.threadTs,
@@ -49,7 +49,7 @@ struct ThreadExpander {
             )
         }
 
-        await slack.addSocketModeMessageRouter(router)
+        await slack.addSocketModeRouter(router)
 
         print("🧵 Thread Expander started. Press Ctrl+C to stop.")
         try await slack.runInSocketMode()

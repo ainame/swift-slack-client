@@ -4,7 +4,7 @@ public struct SocketModeOptions: OptionSet, RawRepresentable, Sendable {
 
     /// If enabled, `Slack.runInSocketMode` will not propagte app-level error to call-site
     /// and continue waiting for next message automatically. You can still handle the error
-    /// with ``SocketModeMessageRouter.onError`` but the error will be thrown unless opt-out this.
+    /// with ``SocketModeRouter.onError`` but the error will be thrown unless opt-out this.
     ///
     /// Any errors occured at lower-layer like following categories are not impacted with this and un-handled.
     ///
