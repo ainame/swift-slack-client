@@ -181,7 +181,7 @@ enum StringLiteralExamples {
         let view = profileModal.render()
 
         switch view {
-        case .modal(let profileView):
+        case let .modal(profileView):
             print("Profile modal title: '\(profileView.title.text)'")
         case .homeTab:
             break
@@ -204,7 +204,7 @@ enum StringLiteralExamples {
         switch view2 {
         case .modal:
             break
-        case .homeTab(let dashboardView):
+        case let .homeTab(dashboardView):
             print("Dashboard has \(dashboardView.blocks.count) blocks")
         }
 

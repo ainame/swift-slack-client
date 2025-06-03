@@ -278,7 +278,7 @@ enum CleanExamples {
         _ = homeTab.render() // Returns HomeTabView
 
         switch view {
-        case .modal(let modalView):
+        case let .modal(modalView):
             // ✨ Showcase the clean syntax
             print("Modal title: \(modalView.title.text)")
             print("Home tab blocks: \(modalView.blocks.count)")

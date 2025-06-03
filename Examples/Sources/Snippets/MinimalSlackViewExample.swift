@@ -124,7 +124,7 @@ enum MinimalExamples {
 extension MinimalExamples.SimpleGreeting {
     static func example() -> View {
         MinimalExamples.SimpleGreetingModal(
-            greeting: MinimalExamples.SimpleGreeting(name: "Alice")
+            greeting: MinimalExamples.SimpleGreeting(name: "Alice"),
         ).render()
     }
 }

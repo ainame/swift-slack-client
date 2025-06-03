@@ -112,19 +112,18 @@ enum SimpleExamples {
         let greeting = SimpleGreetingModal()
         let view = greeting.render()
         switch view {
-        case .modal(let greetingModal):
+        case let .modal(greetingModal):
             print("Modal title: \(greetingModal.title.text)")
         case .homeTab:
             break
         }
-
 
         // Complex modal
         let feedback = FeedbackModal(userName: "Alice")
         let view2 = feedback.render()
 
         switch view2 {
-        case .modal(let feedbackModal):
+        case let .modal(feedbackModal):
             print("Modal has submit button: \(feedbackModal.submit != nil)")
         case .homeTab:
             break
@@ -137,7 +136,7 @@ enum SimpleExamples {
         switch view3 {
         case .modal:
             break
-        case .homeTab(let homeTab):
+        case let .homeTab(homeTab):
             print("Home tab has \(homeTab.blocks.count) blocks")
         }
     }

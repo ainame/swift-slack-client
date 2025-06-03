@@ -54,7 +54,7 @@ enum FinalExamples {
         let modal = WelcomeModal(userName: "Alice")
         let view = modal.render() // Clean API
         switch view {
-        case .modal(let modalView):
+        case let .modal(modalView):
             print("Modal title: \(modalView.title.text)")
         case .homeTab:
             break
@@ -72,7 +72,7 @@ enum FinalExamples {
         switch view2 {
         case .modal:
             break
-        case .homeTab(let homeTabView):
+        case let .homeTab(homeTabView):
             print("Home tab has \(homeTabView.blocks.count) blocks")
         }
     }

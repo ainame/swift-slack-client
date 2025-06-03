@@ -256,7 +256,7 @@ struct SlackViewTests {
         let view = modal.render()
 
         switch view {
-        case .modal(let modalView):
+        case let .modal(modalView):
             #expect(modalView.title.text == "Hello Alice")
             #expect(modalView.submit?.text == "Submit")
             #expect(modalView.callbackId == "test_modal")
@@ -304,9 +304,9 @@ struct SlackViewTests {
         let homeTab = TestHomeTab(items: ["Item 1", "Item 2"])
         let view = homeTab.render()
         switch view {
-        case .homeTab(let homeTabView):
+        case let .homeTab(homeTabView):
             #expect(homeTabView.externalId == "test_home_tab")
-            #expect(homeTabView.blocks.count == 3)  // 1 header + 2 sections
+            #expect(homeTabView.blocks.count == 3) // 1 header + 2 sections
 
             if case let .header(header) = homeTabView.blocks[0] {
                 #expect(header.text.text == "Home Tab")
@@ -336,7 +336,7 @@ struct SlackViewTests {
         let view = modal.render()
 
         switch view {
-        case .modal(let modalView):
+        case let .modal(modalView):
             #expect(modalView.title.text == "Minimal Modal")
             #expect(modalView.submit == nil)
             #expect(modalView.close == nil)
