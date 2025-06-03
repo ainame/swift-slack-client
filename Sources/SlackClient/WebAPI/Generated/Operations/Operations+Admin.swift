@@ -800,17 +800,27 @@ extension Operations {
                     /// An array of app IDs to get app configs for.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.config.lookup/POST/requestBody/json/app_ids`.
-                    public var appIds: OpenAPIRuntime.OpenAPIArrayContainer
+                    public var appIds: OpenAPIRuntime.OpenAPIArrayContainer?
+                    /// return apps with the corresponding rich link preview layouts.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.config.lookup/POST/requestBody/json/rich_link_preview_types`.
+                    public var richLinkPreviewTypes: OpenAPIRuntime.OpenAPIArrayContainer?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - appIds: An array of app IDs to get app configs for.
-                    public init(appIds: OpenAPIRuntime.OpenAPIArrayContainer) {
+                    ///   - richLinkPreviewTypes: return apps with the corresponding rich link preview layouts.
+                    public init(
+                        appIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
+                        richLinkPreviewTypes: OpenAPIRuntime.OpenAPIArrayContainer? = nil
+                    ) {
                         self.appIds = appIds
+                        self.richLinkPreviewTypes = richLinkPreviewTypes
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case appIds = "app_ids"
+                        case richLinkPreviewTypes = "rich_link_preview_types"
                     }
                 }
 
