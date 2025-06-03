@@ -58,13 +58,17 @@ jobs:
           # Generate code
           make generate
 
-          # Check if there are any changes in generated source code (not just submodules)
-          if [[ -n $(git status --porcelain Sources/) ]]; then
+          # Check if there are any changes in generated source code (not just submodules or formatting)
+          # Only look for changes in Generated directories
+          GENERATED_CHANGES=$(git status --porcelain | grep -E "Sources/.*/Generated/.*\.swift$" || true)
+          
+          if [[ -n "$GENERATED_CHANGES" ]]; then
             echo "changes=true" >> $GITHUB_OUTPUT
-            echo "Generated code changes detected"
+            echo "Generated code changes detected:"
+            echo "$GENERATED_CHANGES"
           else
             echo "changes=false" >> $GITHUB_OUTPUT
-            echo "No generated code changes - only submodule updates"
+            echo "No generated code changes - only submodule updates or formatting changes"
           fi
 
       - name: Run tests
