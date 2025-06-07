@@ -272,8 +272,8 @@ SlackBlockKitDSL provides a more intuitive, SwiftUI-like syntax with less boiler
 ```swift
 import SlackBlockKitDSL
 
-// Create the same message with DSL
-let blocks = BlockKit {
+// Create the same message with inline DSL
+let blocks = Modal("Modal demo") {
     Header {
         Text("Welcome to our team! 🎉")
     }
@@ -298,6 +298,39 @@ let blocks = BlockKit {
         Button("Join Slack")
             .actionId("join_slack")
             .style(.primary)
+    }
+}
+
+// Or define view with struct like SwiftUI
+struct DemoMessageModal: SlackModalView {
+    let title: Text = "SlackModalView"
+
+    var blocks: [Block] {
+        Header {
+            Text("Welcome to our team! 🎉")
+        }
+
+        Section {
+            Text("We're excited to have you here. Let's get you started!")
+                .style(.mrkdwn)
+        }
+        .accessory(
+            Button("Get Started")
+                .actionId("get_started")
+                .style(.primary)
+        )
+
+        Divider()
+
+        Actions {
+            Button("View Docs")
+                .actionId("view_docs")
+                .url("https://docs.example.com")
+
+            Button("Join Slack")
+                .actionId("join_slack")
+                .style(.primary)
+        }
     }
 }
 ```
