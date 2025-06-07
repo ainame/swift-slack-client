@@ -7,11 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.5] - 2025-01-06
+
 ### Changed
 - **BREAKING**: Renamed `SocketModeMessageRouter` to `SocketModeRouter` for brevity and consistency
   - Class renamed from `SocketModeMessageRouter` to `SocketModeRouter`
   - Method renamed from `addSocketModeMessageRouter(_:)` to `addSocketModeRouter(_:)`
   - All related type references updated accordingly
+- Updated Slack API schemas to latest version
+- Improved schema update workflow to only detect changes in Generated directories
+
+### Documentation
+- Added BlockKit examples section to README
+- Fixed various README formatting issues
 
 ## [0.0.4] - 2025-06-01
 
