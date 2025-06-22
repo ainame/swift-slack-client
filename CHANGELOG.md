@@ -7,6 +7,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2025-06-23
+
+### 🚨 Breaking Changes
+- **BREAKING**: Socket Mode interactive handlers now require explicit acknowledgment
+  - Removed auto-acknowledgment for interactive handlers (global shortcuts, view submissions, slash commands, block actions, message shortcuts)
+  - All interactive handlers must now call `try await context.ack()` 
+  - Event API handlers remain unchanged (no acknowledgment required)
+  - **Migration**: Add `try await context.ack()` at the start of your interactive handlers
+
+### ✨ Added
+- **Custom Ack Functionality**: New `Ack` struct with multiple acknowledgment methods
+  - `ack()` - Basic acknowledgment
+  - `ack(responseAction: .update, view:)` - Update views to keep modals open during processing
+  - `ack(errors: [String: String])` - Send validation errors back to forms
+  - Support for response actions: `.update`, `.push`, `.clear`
+- **StateValuesObject**: New form value extraction system for SlackBlockKit
+  - Subscript access: `payload.view.state?["blockId", "actionId"]?.value`
+  - Support for `selectedOption`, `selectedOptions`, `selectedDate`, etc.
+  - Computed `state` property on `View` enum for easy access
+  - Comprehensive unit tests for JSON decoding scenarios
+- **DeepL Translator Demo App**: Complete real-world Slack bot implementation
+  - Global shortcut and reaction-based translation features
+  - Modal UI with form handling and loading states  
+  - Demonstrates proper custom Ack usage patterns
+  - DeepL API integration with shared HTTPClient
+
+### 🐛 Fixed
+- Added missing `ts` field to `Item` struct for reaction events
+- Fixed reaction event handling for proper `conversations.replies` API usage
+
+### 📚 Documentation
+- **Enhanced README**: Comprehensive Socket Mode acknowledgment documentation
+- Added practical examples for form validation, loading states, and error handling
+- Updated all Socket Mode code examples to demonstrate proper `ack()` usage
+- Concrete type examples instead of generic placeholders
+
+### 🔧 Changed
+- Updated all examples to use explicit acknowledgment patterns
+- Enhanced `SlackModalView` to require non-optional `callbackId`
+- Improved error handling patterns throughout Socket Mode handlers
+
 ## [0.0.5] - 2025-01-06
 
 ### Changed
