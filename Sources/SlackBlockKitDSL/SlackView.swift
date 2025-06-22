@@ -24,7 +24,7 @@ public protocol SlackModalView: SlackView {
     var close: TextObject? { get }
 
     /// A string that acts as a unique identifier for a view
-    var callbackId: String? { get }
+    var callbackId: String { get }
 
     /// Whether to clear all views in the stack when this modal is closed
     var clearOnClose: Bool? { get }
@@ -59,7 +59,6 @@ extension SlackModalView {
     // Provide defaults for all optional properties
     public var submit: TextObject? { nil }
     public var close: TextObject? { nil }
-    public var callbackId: String? { nil }
     public var clearOnClose: Bool? { nil }
     public var notifyOnClose: Bool? { nil }
     public var externalId: String? { nil }

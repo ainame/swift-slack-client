@@ -12,6 +12,8 @@ public struct ModalView: Codable, Hashable, Sendable {
     public let notifyOnClose: Bool?
     public let externalId: String?
     public let submitDisabled: Bool?
+    public let state: StateValuesObject?
+    public let id: String?
 
     public init(
         title: TextObject,
@@ -23,7 +25,9 @@ public struct ModalView: Codable, Hashable, Sendable {
         clearOnClose: Bool? = nil,
         notifyOnClose: Bool? = nil,
         externalId: String? = nil,
-        submitDisabled: Bool? = nil
+        submitDisabled: Bool? = nil,
+        state: StateValuesObject? = nil,
+        id: String? = nil
     ) {
         type = "modal"
         self.title = title
@@ -36,6 +40,8 @@ public struct ModalView: Codable, Hashable, Sendable {
         self.notifyOnClose = notifyOnClose
         self.externalId = externalId
         self.submitDisabled = submitDisabled
+        self.state = state
+        self.id = id
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -50,5 +56,7 @@ public struct ModalView: Codable, Hashable, Sendable {
         case notifyOnClose = "notify_on_close"
         case externalId = "external_id"
         case submitDisabled = "submit_disabled"
+        case state
+        case id
     }
 }

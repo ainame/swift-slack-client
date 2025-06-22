@@ -40,4 +40,31 @@ public enum View: Codable, Hashable, Sendable {
             view.callbackId
         }
     }
+    
+    public var privateMetadata: String? {
+        switch self {
+        case let .modal(view):
+            view.privateMetadata
+        case let .homeTab(view):
+            view.privateMetadata
+        }
+    }
+    
+    public var id: String? {
+        switch self {
+        case let .modal(view):
+            view.id
+        case let .homeTab(view):
+            view.id
+        }
+    }
+    
+    public var state: StateValuesObject? {
+        switch self {
+        case let .modal(view):
+            view.state
+        case let .homeTab(view):
+            view.state
+        }
+    }
 }
