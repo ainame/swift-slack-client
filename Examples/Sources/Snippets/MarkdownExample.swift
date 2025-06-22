@@ -72,5 +72,5 @@ public struct MarkdownHomeTab: SlackHomeTabView {
         }
     }
 
-    public var callbackId: String? { "markdown_demo" }
+    public var callbackId: String { "markdown_demo" }
 }

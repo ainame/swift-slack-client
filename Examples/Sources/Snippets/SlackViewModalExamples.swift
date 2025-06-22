@@ -19,7 +19,7 @@ enum ModalExamples {
             TextObject(type: .plainText, text: "Maybe Later")
         }
 
-        var callbackId: String? {
+        var callbackId: String {
             "welcome_modal_\(userName.lowercased())"
         }
 

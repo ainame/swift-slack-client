@@ -27,6 +27,8 @@ struct EchoSlashCommand {
         let router = SocketModeRouter()
 
         router.onSlashCommand("/echo") { context, payload in
+            try await context.ack()
+            
             // `respond` uses response_url
             try await context.respond(to: payload.responseUrl, text: payload.text)
 
@@ -48,6 +50,8 @@ struct EchoSlashCommand {
         }
 
         router.onSlashCommand("/echo-private") { context, payload in
+            try await context.ack()
+            
             try await context.respond(to: payload.responseUrl, text: payload.text, responseType: .ephemeral)
         }
 

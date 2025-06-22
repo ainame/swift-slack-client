@@ -183,7 +183,7 @@ public struct ConvenientModal: SlackModalView {
 
     public var submit: TextObject? { Text("Complete Setup").render() }
     public var close: TextObject? { Text("Cancel").render() }
-    public var callbackId: String? { "convenient_setup_modal" }
+    public var callbackId: String { "convenient_setup_modal" }
 }
 
 /// Home tab showcasing all convenience patterns
@@ -199,6 +199,6 @@ public struct ConvenienceShowcaseHomeTab: SlackHomeTabView {
         return allBlocks
     }
 
-    public var callbackId: String? { "convenience_showcase" }
+    public var callbackId: String { "convenience_showcase" }
     public var externalId: String? { "dsl_patterns_demo" }
 }

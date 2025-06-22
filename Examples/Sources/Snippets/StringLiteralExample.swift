@@ -62,7 +62,7 @@ enum StringLiteralExamples {
             "Cancel"
         }
 
-        var callbackId: String? {
+        var callbackId: String {
             "user_profile_modal"
         }
 

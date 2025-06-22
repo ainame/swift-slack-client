@@ -27,7 +27,9 @@ struct Command {
             print("onMessage")
         }
 
-        router.onEvent { _, envelope in
+        router.onEvent { context, envelope in
+            try await context.ack()
+            
             switch envelope.event {
             case .appMention:
                 print("onEvent: appMention")
@@ -38,11 +40,14 @@ struct Command {
             }
         }
 
-        router.onEvent(AppMentionEvent.self) { _, _, _ in
+        router.onEvent(AppMentionEvent.self) { context, _, _ in
+            try await context.ack()
             print("onEvent: AppMentionEvent")
         }
 
-        router.onInteractive { _, envelope in
+        router.onInteractive { context, envelope in
+            try await context.ack()
+            
             switch envelope.body {
             case .shortcut:
                 print("onInteractive: .shortcut")
@@ -59,15 +64,18 @@ struct Command {
             }
         }
 
-        router.onGlboalShortcut("run-something") { _, payload in
+        router.onGlboalShortcut("run-something") { context, payload in
+            try await context.ack()
             print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
         }
 
-        router.onBlockAction("run-something") { _, payload in
+        router.onBlockAction("run-something") { context, payload in
+            try await context.ack()
             print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
         }
 
-        router.onSlackMessageMatched(with: "Hello", "World") { _, _, payload in
+        router.onSlackMessageMatched(with: "Hello", "World") { context, _, payload in
+            try await context.ack()
             print("onSlackMessageMatched: \(payload.text!)")
         }
 

@@ -19,7 +19,7 @@ enum CleanExamples {
             "Maybe Later"
         }
 
-        var callbackId: String? {
+        var callbackId: String {
             "welcome_modal"
         }
 

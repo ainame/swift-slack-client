@@ -32,6 +32,8 @@ struct ThreadExpander {
         let router = SocketModeRouter()
 
         router.onEvent(MessageEvent.self) { context, _, messageEvent in
+            try await context.ack()
+            
             guard let threadTs = messageEvent.threadTs,
                   let messageTs = messageEvent.ts,
                   threadTs != messageTs,

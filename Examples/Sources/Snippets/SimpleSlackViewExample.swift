@@ -29,7 +29,7 @@ enum SimpleExamples {
             "Cancel"
         }
 
-        var callbackId: String? {
+        var callbackId: String {
             "feedback_form"
         }
 

@@ -211,7 +211,7 @@ enum SlackViewExamples {
                 var title: TextObject { "User Settings" }
                 var submit: TextObject? { "Save" }
                 var close: TextObject? { "Cancel" }
-                var callbackId: String? { "user_settings_modal" }
+                var callbackId: String { "user_settings_modal" }
 
                 var blocks: [Block] {
                     for block in settingsView.blocks {
@@ -241,7 +241,7 @@ enum SlackViewExamples {
             struct DashboardHomeTabWrapper: SlackHomeTabView {
                 let dashboard: SlackViewExamples.ProjectDashboard
 
-                var callbackId: String? { "dashboard_home_tab" }
+                var callbackId: String { "dashboard_home_tab" }
 
                 var blocks: [Block] {
                     for block in dashboard.blocks {
