@@ -74,7 +74,7 @@ Set these environment variables:
 ```bash
 export SLACK_BOT_TOKEN="xoxb-..."
 export SLACK_APP_TOKEN="xapp-..."
-export DEEPL_AUTH_KEY="your-deepl-key"
+export DEEPL_API_KEY="your-deepl-key"
 export DEEPL_FREE_API_PLAN="1"  # Set to "1" for free plan, omit for pro plan
 export DEEPL_RUNNER_LANGUAGES="en,ja,de,fr,es"  # Optional: customize language order
 ```
