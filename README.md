@@ -185,16 +185,20 @@ router.onInteractive { context, envelope in
 
 // Handle specific callback IDs
 router.onGlobalShortcut("run-something") { context, payload in
+    // Interactive handlers must explicitly acknowledge
+    try await context.ack()
     print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
 }
 
 router.onBlockAction("run-something") { context, payload in
-    print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
+    try await context.ack()
+    print("onBlockAction: \(payload._type) \(payload.callbackId!)")
 }
 
 // Echo app with slash command
-router.slashCommands("/echo") { context, envelope, event in
-    context.respond(to: context.responseUrl, text: event.text, responseType: .inChannel)
+router.onSlashCommand("/echo") { context, payload in
+    try await context.ack()
+    try await context.say(channel: payload.channelId, text: "Echo: \(payload.text)")
 }
 
 // Simple text matching for message events
@@ -212,6 +216,51 @@ await slack.addSocketModeRouter(router)
 
 try await slack.runInSocketMode()
 ```
+
+### Socket Mode Acknowledgments
+
+Interactive handlers (global shortcuts, view submissions, slash commands, block actions, message shortcuts) must explicitly call `context.ack()` to acknowledge receipt. Event API handlers (message events, app mentions, etc.) do not require acknowledgment.
+
+```swift
+// Basic acknowledgment - most common case
+router.onGlobalShortcut("my-shortcut") { context, payload in
+    try await context.ack()
+    // Handle shortcut...
+}
+
+// View submission with custom response
+router.onViewSubmission("my-modal") { context, payload in
+    // Update view with loading state (keeps modal open)
+    let loadingView = MyLoadingView()
+    try await context.ack(responseAction: .update, view: loadingView)
+    
+    // Process form data...
+    let result = processSubmission(payload.view.state)
+    
+    // Update with final result
+    let resultView = MyResultView(result: result)
+    try await context.client.viewsUpdate(
+        body: .json(.init(view: resultView, viewId: payload.view.id))
+    )
+}
+
+// Acknowledgment with validation errors
+router.onViewSubmission("form-modal") { context, payload in
+    let errors = validateForm(payload.view.state)
+    if !errors.isEmpty {
+        try await context.ack(errors: errors)
+        return
+    }
+    
+    // Success - continue processing
+    try await context.ack()
+}
+```
+
+Available response actions:
+- `.update` - Update the current view (keeps modals open)
+- `.push` - Push a new view onto the stack  
+- `.clear` - Clear all views in the stack
 
 # BlockKit (+DSL)
 
