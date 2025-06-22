@@ -228,32 +228,61 @@ router.onGlobalShortcut("my-shortcut") { context, payload in
     // Handle shortcut...
 }
 
-// View submission with custom response
-router.onViewSubmission("my-modal") { context, payload in
+// View submission with custom response (e.g., translation modal)
+router.onViewSubmission("translation-form") { context, payload in
+    // Extract form values
+    guard let textInput = payload.view.state?["text_block", "text_input"]?.value,
+          let targetLang = payload.view.state?["lang_block", "lang_select"]?.selectedOption?.value else {
+        try await context.ack(errors: [
+            "text_block": "Please enter text to translate",
+            "lang_block": "Please select a target language"
+        ])
+        return
+    }
+    
     // Update view with loading state (keeps modal open)
-    let loadingView = MyLoadingView()
+    let loadingView = TranslationModal.buildLoadingView(text: textInput, lang: targetLang)
     try await context.ack(responseAction: .update, view: loadingView)
     
-    // Process form data...
-    let result = processSubmission(payload.view.state)
+    // Process translation...
+    let translatedText = try await translateText(textInput, to: targetLang)
     
     // Update with final result
-    let resultView = MyResultView(result: result)
+    let resultView = TranslationModal.buildResultView(
+        originalText: textInput,
+        translatedText: translatedText,
+        language: targetLang
+    )
     try await context.client.viewsUpdate(
         body: .json(.init(view: resultView, viewId: payload.view.id))
     )
 }
 
 // Acknowledgment with validation errors
-router.onViewSubmission("form-modal") { context, payload in
-    let errors = validateForm(payload.view.state)
-    if !errors.isEmpty {
-        try await context.ack(errors: errors)
+router.onViewSubmission("user-registration") { context, payload in
+    // Extract and validate form data
+    let email = payload.view.state?["email_block", "email_input"]?.value ?? ""
+    let name = payload.view.state?["name_block", "name_input"]?.value ?? ""
+    
+    var validationErrors: [String: String] = [:]
+    
+    if email.isEmpty || !email.contains("@") {
+        validationErrors["email_block"] = "Please enter a valid email address"
+    }
+    if name.count < 2 {
+        validationErrors["name_block"] = "Name must be at least 2 characters"
+    }
+    
+    if !validationErrors.isEmpty {
+        try await context.ack(errors: validationErrors)
         return
     }
     
     // Success - continue processing
     try await context.ack()
+    
+    // Save user registration...
+    try await saveUser(email: email, name: name)
 }
 ```
 
