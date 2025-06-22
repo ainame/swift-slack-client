@@ -38,11 +38,6 @@ public struct DeepLClient: Sendable {
         let bodyData = try JSONEncoder().encode(requestBody)
         request.body = .bytes(ByteBuffer(data: bodyData))
         
-        logger.debug("DeepL API Request", metadata: [
-            "url": "\(url)",
-            "targetLang": "\(targetLanguage)",
-            "textLength": "\(text.count)"
-        ])
         
         // Execute request
         let response = try await httpClient.execute(request, timeout: .seconds(30))
@@ -67,10 +62,6 @@ public struct DeepLClient: Sendable {
             return nil
         }
         
-        logger.debug("Translation successful", metadata: [
-            "detectedLang": "\(translation.detectedSourceLanguage)",
-            "translatedLength": "\(translation.text.count)"
-        ])
         
         return postprocessSlackMarkup(translation.text)
     }

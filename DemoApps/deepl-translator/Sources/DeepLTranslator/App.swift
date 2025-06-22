@@ -9,7 +9,7 @@ import AsyncHTTPClient
 struct DeepLTranslatorApp {
     static let logger: Logger = {
         var logger = Logger(label: "deepl-translator")
-        logger.logLevel = .debug
+        logger.logLevel = .info
         return logger
     }()
 
@@ -60,17 +60,10 @@ struct DeepLTranslatorApp {
         router.onGlboalShortcut("deepl-translation") { context, payload in
             // Acknowledge the shortcut immediately
             try await context.ack()
-            logger.debug("Global shortcut 'deepl-translation' triggered", metadata: [
-                "user": "\(payload.user.name ?? "unknown")",
-                "triggerId": "\(payload.triggerId)",
-                "team": "\(payload.team.name ?? "unknown")"
-            ])
 
             let defaultLang = Languages.getOrderedLanguages(from: ProcessInfo.processInfo.environment["DEEPL_RUNNER_LANGUAGES"]).first ?? "en"
-            logger.debug("Using default language", metadata: ["lang": "\(defaultLang)"])
 
             let modal = TranslationModal.buildNewModal(defaultLang: defaultLang)
-            logger.debug("Built modal", metadata: ["callbackId": "\(modal.callbackId ?? "none")"])
 
             do {
                 _ = try await context.client.viewsOpen(
@@ -79,7 +72,6 @@ struct DeepLTranslatorApp {
                         triggerId: payload.triggerId
                     ))
                 )
-                logger.debug("Modal opened successfully")
             } catch {
                 logger.error("Failed to open modal", metadata: ["error": "\(error)"])
             }
@@ -87,11 +79,6 @@ struct DeepLTranslatorApp {
 
         // Handle view submissions
         router.onViewSubmission("run-translation") { context, payload in
-            logger.debug("View submission 'run-translation' received", metadata: [
-                "user": "\(payload.user.name ?? "unknown")",
-                "viewId": "\(payload.view.id ?? "none")",
-                "callbackId": "\(payload.view.callbackId ?? "none")"
-            ])
 
             do {
                 try await handleTranslationSubmission(
@@ -110,21 +97,6 @@ struct DeepLTranslatorApp {
 
         // Handle reaction events
         router.onEvent(ReactionAddedEvent.self) { context, envelope, event in
-            var metadata: Logger.Metadata = [
-                "reaction": "\(event.reaction ?? "unknown")",
-                "user": "\(event.user ?? "unknown")",
-                "itemType": "\(event.item?._type ?? "unknown")"
-            ]
-
-            if let item = event.item, item._type == "message" {
-                metadata["channel"] = "\(item.channel ?? "unknown")"
-                if let message = item.message {
-                    metadata["timestamp"] = "\(message.ts ?? "unknown")"
-                }
-            }
-
-            logger.debug("Reaction added event received", metadata: metadata)
-
             do {
                 try await reactionHandler.handleReactionAdded(
                     client: context.client,
@@ -139,10 +111,8 @@ struct DeepLTranslatorApp {
         }
 
         // Add router and run
-        logger.debug("Adding socket mode router...")
         await slack.addSocketModeRouter(router)
 
-        logger.debug("Starting socket mode connection...")
         logger.info("DeepL Translator bot is running!")
 
         do {
@@ -166,7 +136,6 @@ private func handleTranslationSubmission(
     deepL: DeepLClient,
     logger: Logger
 ) async throws {
-    logger.debug("Processing translation submission...")
 
     // Extract form values from view state
     guard let state = payload.view.state else {
@@ -174,7 +143,6 @@ private func handleTranslationSubmission(
         return
     }
 
-    logger.debug("View state found, extracting form values...")
 
     // Extract text input value (block_id="text", action_id="a")
     guard let textValue = state["text", "a"]?.value else {
@@ -199,18 +167,15 @@ private func handleTranslationSubmission(
     ])
 
     // Ack with loading view update (prevents modal from closing)
-    logger.debug("Acknowledging with loading state...")
     let loadingView = TranslationModal.buildLoadingView(lang: langValue, text: textValue)
     do {
         try await context.ack(responseAction: .update, view: loadingView)
-        logger.debug("Loading view ack sent successfully")
     } catch {
         logger.error("Failed to ack with loading view", metadata: ["error": "\(error)"])
         return
     }
 
     // Perform actual translation
-    logger.debug("Starting translation...")
     guard let translatedText = try await deepL.translate(
         text: textValue,
         targetLanguage: langValue
@@ -220,12 +185,8 @@ private func handleTranslationSubmission(
         return
     }
 
-    logger.debug("Translation completed successfully", metadata: [
-        "translatedText": "\(translatedText)"
-    ])
 
     // Update view to show result using views.update API
-    logger.debug("Updating view to show result...")
     let resultView = TranslationModal.buildResultView(
         lang: langValue,
         originalText: textValue,
@@ -239,7 +200,6 @@ private func handleTranslationSubmission(
                 viewId: payload.view.id
             ))
         )
-        logger.debug("Result view updated successfully")
     } catch {
         logger.error("Failed to update result view", metadata: ["error": "\(error)"])
     }
