@@ -172,3 +172,7 @@ ruby scripts/release.rb [version] [--yes]  # Creates tags without "v" prefix (e.
 - Message events use subtype field for differentiation
 - DSL result builders need proper array handling for conditionals/loops
 - Use swift-testing (bundled with Swift's toolchain) when writing unit test. Each file should group test cases with struct as test suite
+- Use this pipeline technique to build a Swift Package project and drop progress message to save tokens. Though you may need to change directory accordingly:
+  ```
+  swift build 2>&1 | awk '/error:|warning:|fatal error:/{flag=1} flag && /^$/{flag=0} flag'
+  ```
