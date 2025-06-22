@@ -21,6 +21,8 @@ public struct Item: Codable, Hashable, Sendable {
     public var file: ItemFile?
     /// - Remark: Generated from `#/components/schemas/Item/message`.
     public var message: Message?
+    /// - Remark: Generated from `#/components/schemas/Item/ts`.
+    public var ts: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Item/type`.
     public var _type: Swift.String
     /// Creates a new `Item`.
@@ -31,6 +33,7 @@ public struct Item: Codable, Hashable, Sendable {
     ///   - dateCreate:
     ///   - file:
     ///   - message:
+    ///   - ts:
     ///   - _type:
     public init(
         channel: Swift.String? = nil,
@@ -38,6 +41,7 @@ public struct Item: Codable, Hashable, Sendable {
         dateCreate: Swift.Int? = nil,
         file: ItemFile? = nil,
         message: Message? = nil,
+        ts: Swift.String? = nil,
         _type: Swift.String
     ) {
         self.channel = channel
@@ -45,6 +49,7 @@ public struct Item: Codable, Hashable, Sendable {
         self.dateCreate = dateCreate
         self.file = file
         self.message = message
+        self.ts = ts
         self._type = _type
     }
 
@@ -54,6 +59,7 @@ public struct Item: Codable, Hashable, Sendable {
         case dateCreate = "date_create"
         case file
         case message
+        case ts
         case _type = "type"
     }
 }
