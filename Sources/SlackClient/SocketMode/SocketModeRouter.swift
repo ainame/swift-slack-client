@@ -16,6 +16,7 @@ public final class SocketModeRouter {
         public let logger: Logger
         public let respond: Respond
         public let say: Say
+        public let ack: Ack
     }
 
     private var handlers: [SocketModeMessageHandler] = []

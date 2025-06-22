@@ -47,16 +47,14 @@ extension Slack {
     }
 
     func doStartSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws {
-        let routerContext = SocketModeRouter.Context(
-            client: client,
-            logger: appLogger ?? logger,
-            respond: Respond(transport: transport, logger: logger),
-            say: Say(client: client, logger: logger),
-        )
+        // Context creation will be moved inside message handling to pass envelope-specific ack
         // Fix the set of routers to be routed before starting
         let routers = routers
 
-        let ws = WebSocketClient(url: url, logger: logger) { [weak self] inbound, outbound, context in
+        let ws = WebSocketClient(url: url, logger: logger) {
+            [weak self] inbound,
+            outbound,
+            context in
             context.logger.info("SocketMode client connected")
             await self?.setWebSocketOutboundWriter(outbound)
 
@@ -70,7 +68,22 @@ extension Slack {
                         continue
                     }
 
-                    group.addTask {
+                    group.addTask { [weak self] in
+                        guard let self = self else { return }
+                        
+                        // Create context with envelope-specific ack
+                        let routerContext = SocketModeRouter.Context(
+                            client: self.client,
+                            logger: appLogger ?? self.logger,
+                            respond: Respond(transport: self.transport, logger: self.logger),
+                            say: Say(client: self.client, logger: self.logger),
+                            ack: Ack(
+                                envelopeId: envelope.envelopeId,
+                                writer: outbound,
+                                logger: self.logger
+                            )
+                        )
+                        
                         do {
                             for router in routers {
                                 try await router.dispatch(context: routerContext, messageEnvelope: envelope)
@@ -94,8 +107,9 @@ extension Slack {
         do {
             let messageType = try jsonDecoder.decode(SocketModeMessage.self, from: buffer)
             switch messageType.body {
-            case let .message(message):
-                try await ack(message)
+            case .message(_):
+                // Ack is now handled per message in the router dispatch
+                break
             case let .hello(message):
                 logger.info("\(message)")
             case let .disconnect(message):
@@ -113,7 +127,7 @@ extension Slack {
         try await send(SocketModeAcknowledgementlMessage(envelopeId: messageEnvelope.envelopeId))
     }
 
-    private func send(_ payload: Encodable) async throws {
+    internal func send(_ payload: Encodable) async throws {
         let data = try jsonEncoder.encode(payload)
         try await socketModeState.writer?.write(.text(String(decoding: data, as: UTF8.self)))
     }
