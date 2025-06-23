@@ -73,14 +73,14 @@ extension Slack {
 
                         // Create context with envelope-specific ack
                         let routerContext = SocketModeRouter.Context(
-                            client: client,
-                            logger: appLogger ?? logger,
-                            respond: Respond(transport: transport, logger: logger),
-                            say: Say(client: client, logger: logger),
+                            client: self.client,
+                            logger: appLogger ?? self.logger,
+                            respond: Respond(transport: self.transport, logger: self.logger),
+                            say: Say(client: self.client, logger: self.logger),
                             ack: Ack(
                                 envelopeId: envelope.envelopeId,
                                 writer: outbound,
-                                logger: logger,
+                                logger: self.logger,
                             ),
                         )
 
