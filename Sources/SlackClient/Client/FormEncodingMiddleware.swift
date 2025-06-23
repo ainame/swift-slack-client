@@ -2,16 +2,16 @@ import Foundation
 import HTTPTypes
 import OpenAPIRuntime
 
-public struct SlackAPITransport: ClientTransport {
-    private let underlying: ClientTransport
-    
-    public init(wrapping underlying: ClientTransport) {
-        self.underlying = underlying
-    }
-    
-    public func send(_ request: HTTPRequest, body: HTTPBody?, baseURL: URL, operationID: String) async throws -> (HTTPResponse, HTTPBody?) {
+struct FormEncodingMiddleware: ClientMiddleware, Sendable {
+    func intercept(
+        _ request: HTTPRequest,
+        body: HTTPBody?,
+        baseURL: URL,
+        operationID: String,
+        next: (HTTPRequest, HTTPBody?, URL) async throws -> (HTTPResponse, HTTPBody?)
+    ) async throws -> (HTTPResponse, HTTPBody?) {
         let transformedRequest = try await transformToFormEncoded(request, body: body)
-        return try await underlying.send(transformedRequest.request, body: transformedRequest.body, baseURL: baseURL, operationID: operationID)
+        return try await next(transformedRequest.request, transformedRequest.body, baseURL)
     }
     
     private func transformToFormEncoded(_ request: HTTPRequest, body: HTTPBody?) async throws -> (request: HTTPRequest, body: HTTPBody?) {

@@ -8,6 +8,7 @@ public actor Slack {
     let transport: any ClientTransport
     let clientConfiguration: ClientConfiguration
     var requestMiddleware: RequestMiddlware
+    let formEncodingMiddleware: FormEncodingMiddleware
     let logger: Logger
 
     public init(
@@ -22,10 +23,11 @@ public actor Slack {
             token: configuration.token,
             userAgent: configuration.userAgent,
         ))
+        formEncodingMiddleware = FormEncodingMiddleware()
         client = Client(
             serverURL: serverURL,
             transport: transport,
-            middlewares: middlewares + [requestMiddleware],
+            middlewares: middlewares + [formEncodingMiddleware, requestMiddleware],
         )
         self.transport = transport
         self.logger = logger ?? Logger(label: "Slack")
