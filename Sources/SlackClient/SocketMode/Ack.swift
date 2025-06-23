@@ -6,6 +6,7 @@ import WSClient
 
 /// Provides acknowledgment functionality for Socket Mode interactions with custom payloads
 public struct Ack: Sendable {
+    private static let encoder = JSONEncoder()
     private let envelopeId: String
     private let writer: WebSocketOutboundWriter
     private let logger: Logger
@@ -25,9 +26,8 @@ public struct Ack: Sendable {
                 case envelopeId = "envelope_id"
             }
         }
-
         let ack = BasicAck(envelopeId: envelopeId)
-        let data = try JSONEncoder().encode(ack)
+        let data = try Self.encoder.encode(ack)
         try await writer.write(.text(String(decoding: data, as: UTF8.self)))
         logger.debug("Sent basic acknowledgment", metadata: ["envelopeId": "\(envelopeId)"])
     }
@@ -62,7 +62,7 @@ public struct Ack: Sendable {
             ),
         )
 
-        let data = try JSONEncoder().encode(ack)
+        let data = try Self.encoder.encode(ack)
         try await writer.write(.text(String(decoding: data, as: UTF8.self)))
         logger.debug("Sent view update acknowledgment", metadata: [
             "envelopeId": "\(envelopeId)",
@@ -100,7 +100,7 @@ public struct Ack: Sendable {
             ),
         )
 
-        let data = try JSONEncoder().encode(ack)
+        let data = try Self.encoder.encode(ack)
         try await writer.write(.text(String(decoding: data, as: UTF8.self)))
         logger.debug("Sent error acknowledgment", metadata: [
             "envelopeId": "\(envelopeId)",

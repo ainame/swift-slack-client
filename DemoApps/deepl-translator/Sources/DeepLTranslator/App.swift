@@ -39,7 +39,7 @@ struct DeepLTranslatorApp {
 
         // Initialize shared HTTP client
         let httpClient = HTTPClient()
-        
+
         // Initialize clients with shared HTTP client
         let transport = AsyncHTTPClientTransport(
             configuration: .init(client: httpClient)
@@ -120,9 +120,8 @@ struct DeepLTranslatorApp {
             try await httpClient.shutdown()
             throw error
         }
-        
+
         // Clean up HTTP client on normal exit
         try await httpClient.shutdown()
     }
 }
-

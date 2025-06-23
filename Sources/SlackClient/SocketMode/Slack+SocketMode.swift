@@ -51,10 +51,7 @@ extension Slack {
         // Fix the set of routers to be routed before starting
         let routers = routers
 
-        let ws = WebSocketClient(url: url, logger: logger) {
-            [weak self] inbound,
-                outbound,
-                context in
+        let ws = WebSocketClient(url: url, logger: logger) { [weak self] inbound, outbound, context in
             context.logger.info("SocketMode client connected")
             await self?.setWebSocketOutboundWriter(outbound)
 
@@ -107,9 +104,11 @@ extension Slack {
         do {
             let messageType = try jsonDecoder.decode(SocketModeMessage.self, from: buffer)
             switch messageType.body {
-            case .message:
-                // Ack is now handled per message in the router dispatch
-                break
+            case .message(let message):
+                if case .eventsApi = message.payload {
+                    // Events APIs should be acked right away
+                    try await ack(message.envelopeId)
+                }
             case let .hello(message):
                 logger.info("\(message)")
             case let .disconnect(message):
@@ -123,11 +122,11 @@ extension Slack {
         }
     }
 
-    private func ack(_ messageEnvelope: SocketModeMessageEnvelope) async throws {
-        try await send(SocketModeAcknowledgementlMessage(envelopeId: messageEnvelope.envelopeId))
+    private func ack(_ envelopeId: String) async throws {
+        try await send(SocketModeAcknowledgementlMessage(envelopeId: envelopeId))
     }
 
-    func send(_ payload: Encodable) async throws {
+    private func send(_ payload: Encodable) async throws {
         let data = try jsonEncoder.encode(payload)
         try await socketModeState.writer?.write(.text(String(decoding: data, as: UTF8.self)))
     }
