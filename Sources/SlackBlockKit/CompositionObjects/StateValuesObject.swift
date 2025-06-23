@@ -8,7 +8,7 @@ public struct StateValuesObject: Codable, Hashable, Sendable {
 
     // Helper subscript to access nested values by block_id and action_id
     public subscript(blockId: String) -> [String: Value]? {
-        guard let values = values,
+        guard let values,
               let blockValue = values.value[blockId] as? [String: Any],
               let blockData = try? JSONSerialization.data(withJSONObject: blockValue),
               let blockContainer = try? JSONDecoder().decode([String: Value].self, from: blockData) else {
@@ -18,9 +18,8 @@ public struct StateValuesObject: Codable, Hashable, Sendable {
     }
 
     public subscript(blockId: String, actionId: String) -> Value? {
-        return self[blockId]?[actionId]
+        self[blockId]?[actionId]
     }
-
 
     public struct Value: Codable, Hashable, Sendable {
         public let type: String

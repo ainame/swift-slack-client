@@ -29,7 +29,7 @@ struct Command {
 
         router.onEvent { context, envelope in
             try await context.ack()
-            
+
             switch envelope.event {
             case .appMention:
                 print("onEvent: appMention")
@@ -47,7 +47,7 @@ struct Command {
 
         router.onInteractive { context, envelope in
             try await context.ack()
-            
+
             switch envelope.body {
             case .shortcut:
                 print("onInteractive: .shortcut")

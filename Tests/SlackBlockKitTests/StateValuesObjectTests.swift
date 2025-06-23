@@ -1,10 +1,10 @@
 import Foundation
-import Testing
-@testable import SlackBlockKit
 import OpenAPIRuntime
+@testable import SlackBlockKit
+import Testing
 
-@Test("Decode plain text input state values") 
-func testDecodePlainTextInput() throws {
+@Test("Decode plain text input state values")
+func decodePlainTextInput() throws {
     let json = """
     {
         "values": {
@@ -17,24 +17,24 @@ func testDecodePlainTextInput() throws {
         }
     }
     """
-    
+
     let data = json.data(using: .utf8)!
     let decoder = JSONDecoder()
-    
+
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
-    
+
     // Test subscript access
     let textValue = stateValues["text_block", "text_action"]
     #expect(textValue?.type == "plain_text_input")
     #expect(textValue?.value == "Hello, world!")
-    
+
     // Test block-level subscript
     let blockValues = stateValues["text_block"]
     #expect(blockValues?["text_action"]?.value == "Hello, world!")
 }
 
 @Test("Decode static select state values")
-func testDecodeStaticSelect() throws {
+func decodeStaticSelect() throws {
     let json = """
     {
         "values": {
@@ -53,12 +53,12 @@ func testDecodeStaticSelect() throws {
         }
     }
     """
-    
+
     let data = json.data(using: .utf8)!
     let decoder = JSONDecoder()
-    
+
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
-    
+
     let selectValue = stateValues["language_block", "language_select"]
     #expect(selectValue?.type == "static_select")
     #expect(selectValue?.selectedOption?.value == "es")
@@ -66,7 +66,7 @@ func testDecodeStaticSelect() throws {
 }
 
 @Test("Decode multi-select state values")
-func testDecodeMultiSelect() throws {
+func decodeMultiSelect() throws {
     let json = """
     {
         "values": {
@@ -79,19 +79,19 @@ func testDecodeMultiSelect() throws {
         }
     }
     """
-    
+
     let data = json.data(using: .utf8)!
     let decoder = JSONDecoder()
-    
+
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
-    
+
     let usersValue = stateValues["users_block", "users_select"]
     #expect(usersValue?.type == "multi_users_select")
     #expect(usersValue?.selectedUsers == ["U123ABC", "U456DEF"])
 }
 
 @Test("Decode date picker state values")
-func testDecodeDatePicker() throws {
+func decodeDatePicker() throws {
     let json = """
     {
         "values": {
@@ -104,41 +104,41 @@ func testDecodeDatePicker() throws {
         }
     }
     """
-    
+
     let data = json.data(using: .utf8)!
     let decoder = JSONDecoder()
-    
+
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
-    
+
     let dateValue = stateValues["date_block", "date_action"]
     #expect(dateValue?.type == "datepicker")
     #expect(dateValue?.selectedDate == "2024-01-15")
 }
 
 @Test("Handle missing values gracefully")
-func testMissingValues() throws {
+func missingValues() throws {
     let json = """
     {
         "values": {}
     }
     """
-    
+
     let data = json.data(using: .utf8)!
     let decoder = JSONDecoder()
-    
+
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
-    
+
     // Test accessing non-existent block
     let missingValue = stateValues["non_existent", "action"]
     #expect(missingValue == nil)
-    
+
     // Test accessing non-existent action in existing block
     let missingBlock = stateValues["missing_block"]
     #expect(missingBlock == nil)
 }
 
 @Test("Decode complex form with multiple inputs")
-func testDecodeComplexForm() throws {
+func decodeComplexForm() throws {
     let json = """
     {
         "values": {
@@ -163,17 +163,17 @@ func testDecodeComplexForm() throws {
         }
     }
     """
-    
+
     let data = json.data(using: .utf8)!
     let decoder = JSONDecoder()
-    
+
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
-    
+
     // Test text input
     let textValue = stateValues["text", "a"]
     #expect(textValue?.type == "plain_text_input")
     #expect(textValue?.value == "Sample text to translate")
-    
+
     // Test language select
     let langValue = stateValues["lang", "a"]
     #expect(langValue?.type == "static_select")
@@ -182,21 +182,21 @@ func testDecodeComplexForm() throws {
 }
 
 @Test("Decode completely empty JSON")
-func testDecodeEmptyJSON() throws {
+func decodeEmptyJSON() throws {
     let json = "{}"
-    
+
     let data = json.data(using: .utf8)!
     let decoder = JSONDecoder()
-    
+
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
-    
+
     // Should decode successfully with nil values
     #expect(stateValues.values == nil)
-    
+
     // Accessing any values should return nil
     let anyValue = stateValues["any_block", "any_action"]
     #expect(anyValue == nil)
-    
+
     let anyBlock = stateValues["any_block"]
     #expect(anyBlock == nil)
 }

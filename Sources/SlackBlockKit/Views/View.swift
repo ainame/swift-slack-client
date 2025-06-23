@@ -40,7 +40,7 @@ public enum View: Codable, Hashable, Sendable {
             view.callbackId
         }
     }
-    
+
     public var privateMetadata: String? {
         switch self {
         case let .modal(view):
@@ -49,7 +49,7 @@ public enum View: Codable, Hashable, Sendable {
             view.privateMetadata
         }
     }
-    
+
     public var id: String? {
         switch self {
         case let .modal(view):
@@ -58,7 +58,7 @@ public enum View: Codable, Hashable, Sendable {
             view.id
         }
     }
-    
+
     public var state: StateValuesObject? {
         switch self {
         case let .modal(view):

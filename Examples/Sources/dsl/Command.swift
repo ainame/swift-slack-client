@@ -28,7 +28,7 @@ struct Command {
             context,
                 payload in
             try await context.ack()
-            
+
             // Create a modal using the new SwiftUI-like DSL
             let view = Modal(
                 title: Text("Welcome!"),
@@ -131,7 +131,7 @@ struct Command {
         // Handle app home opened events
         router.onEvent(AppHomeOpenedEvent.self) { context, _, event in
             try await context.ack()
-            
+
             // Create a home tab view using the new DSL
             let view = HomeTab {
                 Header {
@@ -192,7 +192,7 @@ struct Command {
         // Handle interactive components
         router.onBlockAction("quick_form_modal") { context, payload in
             try await context.ack()
-            
+
             // Create a success message modal
             let view = Modal(
                 title: Text("Complete ✅"),
@@ -245,7 +245,7 @@ struct Command {
         // Handle button actions
         router.onBlockAction("done") { context, _ in
             try await context.ack()
-            
+
             // Close the modal
             print("Done button clicked, closing modal")
         }
@@ -253,7 +253,7 @@ struct Command {
         // Handle additional interactive actions
         router.onBlockAction("get_started") { context, payload in
             try await context.ack()
-            
+
             // Create an advanced form modal showcasing option groups
             let view = Modal(
                 title: Text("Advanced Settings"),
