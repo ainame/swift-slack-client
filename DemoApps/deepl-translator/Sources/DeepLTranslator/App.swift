@@ -1,9 +1,9 @@
+import AsyncHTTPClient
 import Foundation
 import Logging
 import OpenAPIAsyncHTTPClient
 import SlackClient
 import SlackModels
-import AsyncHTTPClient
 
 @main
 struct DeepLTranslatorApp {
@@ -33,6 +33,8 @@ struct DeepLTranslatorApp {
         }
 
         let isFreePlan = ProcessInfo.processInfo.environment["DEEPL_FREE_API_PLAN"] == "1"
+        let defaultLang = Languages.getOrderedLanguages(from: ProcessInfo.processInfo.environment["DEEPL_RUNNER_LANGUAGES"]).first ?? "en"
+
         logger.info("Using DeepL \(isFreePlan ? "Free" : "Pro") plan")
 
         // Initialize shared HTTP client
@@ -58,56 +60,52 @@ struct DeepLTranslatorApp {
 
         // Handle global shortcut
         router.onGlboalShortcut("deepl-translation") { context, payload in
-            // Acknowledge the shortcut immediately
             try await context.ack()
-
-            let defaultLang = Languages.getOrderedLanguages(from: ProcessInfo.processInfo.environment["DEEPL_RUNNER_LANGUAGES"]).first ?? "en"
-
             let modal = TranslationModal.buildNewModal(defaultLang: defaultLang)
-
-            do {
-                _ = try await context.client.viewsOpen(
-                    body: .json(.init(
-                        view: modal,
-                        triggerId: payload.triggerId
-                    ))
-                )
-            } catch {
-                logger.error("Failed to open modal", metadata: ["error": "\(error)"])
-            }
+            _ = try await context.client.viewsOpen(
+                body: .json(.init(
+                    view: modal,
+                    triggerId: payload.triggerId
+                ))
+            )
         }
 
         // Handle view submissions
         router.onViewSubmission("run-translation") { context, payload in
-
-            do {
-                try await handleTranslationSubmission(
-                    context: context,
-                    payload: payload,
-                    deepL: deepL,
-                    logger: logger
-                )
-            } catch {
-                logger.error("Translation submission failed", metadata: ["error": "\(error)"])
-                // Ack with error to prevent hanging
-                try? await context.ack()
+            guard let state = payload.view.state,
+                  let textValue = state["text", "a"]?.value,
+                  let langValue = state["lang", "a"]?.selectedOption?.value else {
+                try await context.ack()
+                return
             }
-        }
 
+            let loadingView = TranslationModal.buildLoadingView(lang: langValue, text: textValue)
+            try await context.ack(responseAction: .update, view: loadingView)
+
+            guard let translatedText = try await deepL.translate(text: textValue, targetLanguage: langValue) else {
+                return
+            }
+
+            let resultView = TranslationModal.buildResultView(
+                lang: langValue,
+                originalText: textValue,
+                translatedText: translatedText
+            )
+
+            _ = try await context.client.viewsUpdate(
+                body: .json(.init(
+                    view: resultView,
+                    viewId: payload.view.id
+                ))
+            )
+        }
 
         // Handle reaction events
         router.onEvent(ReactionAddedEvent.self) { context, envelope, event in
-            do {
-                try await reactionHandler.handleReactionAdded(
-                    client: context.client,
-                    event: event
-                )
-            } catch {
-                logger.error("Reaction handling failed", metadata: [
-                    "error": "\(error)",
-                    "errorType": "\(type(of: error))"
-                ])
-            }
+            try await reactionHandler.handleReactionAdded(
+                client: context.client,
+                event: event
+            )
         }
 
         // Add router and run
@@ -128,79 +126,3 @@ struct DeepLTranslatorApp {
     }
 }
 
-// MARK: - Helper Functions
-
-private func handleTranslationSubmission(
-    context: SocketModeRouter.Context,
-    payload: ViewSubmissionPayload,
-    deepL: DeepLClient,
-    logger: Logger
-) async throws {
-
-    // Extract form values from view state
-    guard let state = payload.view.state else {
-        logger.error("No state found in view")
-        return
-    }
-
-
-    // Extract text input value (block_id="text", action_id="a")
-    guard let textValue = state["text", "a"]?.value else {
-        logger.error("No text input found in state", metadata: [
-            "availableBlocks": "\(state.values?.value.keys.sorted() ?? [])"
-        ])
-        return
-    }
-
-    // Extract language selection (block_id="lang", action_id="a")
-    guard let langValue = state["lang", "a"]?.selectedOption?.value else {
-        logger.error("No language selected", metadata: [
-            "langBlockContent": "\(state["lang"]?.keys.sorted() ?? [])"
-        ])
-        return
-    }
-
-    logger.info("Translation submission received", metadata: [
-        "user": "\(payload.user.name ?? "unknown")",
-        "text": "\(textValue)",
-        "targetLang": "\(langValue)"
-    ])
-
-    // Ack with loading view update (prevents modal from closing)
-    let loadingView = TranslationModal.buildLoadingView(lang: langValue, text: textValue)
-    do {
-        try await context.ack(responseAction: .update, view: loadingView)
-    } catch {
-        logger.error("Failed to ack with loading view", metadata: ["error": "\(error)"])
-        return
-    }
-
-    // Perform actual translation
-    guard let translatedText = try await deepL.translate(
-        text: textValue,
-        targetLanguage: langValue
-    ) else {
-        // Handle translation error
-        logger.error("Translation failed - DeepL returned nil")
-        return
-    }
-
-
-    // Update view to show result using views.update API
-    let resultView = TranslationModal.buildResultView(
-        lang: langValue,
-        originalText: textValue,
-        translatedText: translatedText
-    )
-
-    do {
-        _ = try await context.client.viewsUpdate(
-            body: .json(.init(
-                view: resultView,
-                viewId: payload.view.id
-            ))
-        )
-    } catch {
-        logger.error("Failed to update result view", metadata: ["error": "\(error)"])
-    }
-}

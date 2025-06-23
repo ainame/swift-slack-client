@@ -62,7 +62,6 @@ public struct DeepLClient: Sendable {
             return nil
         }
         
-        
         return postprocessSlackMarkup(translation.text)
     }
 }
