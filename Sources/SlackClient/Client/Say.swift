@@ -30,7 +30,7 @@ public struct Say: Sendable {
         iconUrl: String? = nil,
         unfurlLinks: Bool? = nil,
         unfurlMedia: Bool? = nil,
-        metadata: OpenAPIObjectContainer? = nil
+        metadata: OpenAPIObjectContainer? = nil,
     ) async throws -> Bool {
         try await callAsFunction(
             Payload(
@@ -56,7 +56,7 @@ public struct Say: Sendable {
 
     @discardableResult
     public func callAsFunction(
-        _ payload: Payload
+        _ payload: Payload,
     ) async throws -> Bool {
         #if WebAPI_Chat
         let result = try await client.chatPostMessage(

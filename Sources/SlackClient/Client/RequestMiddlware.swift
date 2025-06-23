@@ -38,7 +38,7 @@ actor RequestMiddlware: ClientMiddleware {
         body: HTTPBody?,
         baseURL: URL,
         operationID _: String,
-        next: (HTTPRequest, HTTPBody?, URL) async throws -> (HTTPResponse, HTTPBody?)
+        next: (HTTPRequest, HTTPBody?, URL) async throws -> (HTTPResponse, HTTPBody?),
     ) async throws -> (
         HTTPResponse,
         HTTPBody?

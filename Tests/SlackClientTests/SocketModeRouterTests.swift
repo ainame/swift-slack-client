@@ -457,41 +457,41 @@ struct SocketModeRouterTests {
         // Create context with actual Slack instance for simplicity
         let slack = Slack(transport: transport)
         let client = await slack.client
-        
+
         // NOTE: Context creation commented out because it requires Ack with WebSocketOutboundWriter
         // which is not easily mockable in tests
         /*
-        let mockContext = SocketModeRouter.Context(
-            client: client,
-            logger: logger,
-            respond: Respond(transport: transport, logger: logger),
-            say: Say(client: client, logger: logger),
-            ack: ack // Would need WebSocketOutboundWriter
-        )
-        */
+         let mockContext = SocketModeRouter.Context(
+             client: client,
+             logger: logger,
+             respond: Respond(transport: transport, logger: logger),
+             say: Say(client: client, logger: logger),
+             ack: ack // Would need WebSocketOutboundWriter
+         )
+         */
 
         // Create FixedRouter and dispatch events
         let fixedRouter = SocketModeRouter.FixedRouter(from: router)
 
         // NOTE: Dispatch testing commented out because it requires mockContext
         /*
-        try await fixedRouter.dispatch(context: mockContext, messageEnvelope: messageSocketEnvelope)
-        try await fixedRouter.dispatch(context: mockContext, messageEnvelope: appMentionSocketEnvelope)
+         try await fixedRouter.dispatch(context: mockContext, messageEnvelope: messageSocketEnvelope)
+         try await fixedRouter.dispatch(context: mockContext, messageEnvelope: appMentionSocketEnvelope)
 
-        // Verify handlers were actually called
-        let messageHandlerCalled = await tracker.messageHandlerCalled
-        let appMentionHandlerCalled = await tracker.appMentionHandlerCalled
-        let receivedMessage = await tracker.receivedMessageEvent
-        let receivedAppMention = await tracker.receivedAppMentionEvent
+         // Verify handlers were actually called
+         let messageHandlerCalled = await tracker.messageHandlerCalled
+         let appMentionHandlerCalled = await tracker.appMentionHandlerCalled
+         let receivedMessage = await tracker.receivedMessageEvent
+         let receivedAppMention = await tracker.receivedAppMentionEvent
 
-        #expect(messageHandlerCalled)
-        #expect(appMentionHandlerCalled)
-        #expect(receivedMessage?.text == "Hello, regression test!")
-        #expect(receivedMessage?._type == "message")
-        #expect(receivedAppMention?.text == "<@U123456> hello app mention test")
-        #expect(receivedAppMention?._type == "app_mention")
-        */
-        
+         #expect(messageHandlerCalled)
+         #expect(appMentionHandlerCalled)
+         #expect(receivedMessage?.text == "Hello, regression test!")
+         #expect(receivedMessage?._type == "message")
+         #expect(receivedAppMention?.text == "<@U123456> hello app mention test")
+         #expect(receivedAppMention?._type == "app_mention")
+         */
+
         // For now, just verify the handlers were registered
         #expect(router.handlers.count == 2)
     }
@@ -515,12 +515,11 @@ private struct MockTransport: ClientTransport, Sendable {
         _: HTTPRequest,
         body _: HTTPBody?,
         baseURL _: URL,
-        operationID _: String
+        operationID _: String,
     ) async throws -> (HTTPResponse, HTTPBody?) {
         // Return a simple 200 response for testing
         (HTTPResponse(status: .ok), nil)
     }
 }
-
 
 #endif

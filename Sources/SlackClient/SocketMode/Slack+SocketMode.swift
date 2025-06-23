@@ -70,14 +70,14 @@ extension Slack {
 
                         // Create context with envelope-specific ack
                         let routerContext = SocketModeRouter.Context(
-                            client: self.client,
-                            logger: appLogger ?? self.logger,
-                            respond: Respond(transport: self.transport, logger: self.logger),
-                            say: Say(client: self.client, logger: self.logger),
+                            client: client,
+                            logger: appLogger ?? logger,
+                            respond: Respond(transport: transport, logger: logger),
+                            say: Say(client: client, logger: logger),
                             ack: Ack(
                                 envelopeId: envelope.envelopeId,
                                 writer: outbound,
-                                logger: self.logger,
+                                logger: logger,
                             ),
                         )
 
@@ -104,7 +104,7 @@ extension Slack {
         do {
             let messageType = try jsonDecoder.decode(SocketModeMessage.self, from: buffer)
             switch messageType.body {
-            case .message(let message):
+            case let .message(message):
                 if case .eventsApi = message.payload {
                     // Events APIs should be acked right away
                     try await ack(message.envelopeId)

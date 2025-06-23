@@ -33,7 +33,7 @@ public struct Respond: Sendable {
         unfurlLinks: Bool? = nil,
         unfurlMedia: Bool? = nil,
         threadTs: String? = nil,
-        metadata: OpenAPIObjectContainer? = nil
+        metadata: OpenAPIObjectContainer? = nil,
     ) async throws -> Bool {
         let payload = Payload(
             text: text,
