@@ -82,7 +82,12 @@ let package = Package(
                 .target(name: "SlackBlockKit"),
             ]
         ),
-        .target(name: "SlackBlockKit"),
+        .target(
+            name: "SlackBlockKit",
+            dependencies: [
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+            ]
+        ),
         .testTarget(
             name: "SlackBlockKitTests",
             dependencies: ["SlackBlockKit"]
