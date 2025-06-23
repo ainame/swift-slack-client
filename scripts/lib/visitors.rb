@@ -221,3 +221,41 @@ class TypeFixer
     end
   end
 end
+
+# Fix Item schema to add ts property as required for Slack event handling
+class ItemTsRequiredFixer
+  def walk(root)
+    visit(root)
+  end
+
+  private
+
+  def visit(data)
+    case data
+    when Array
+      data.each { visit(_1) }
+    when Hash
+      # Target the Item schema specifically
+      if data.key?('Item') && data['Item'].is_a?(Hash)
+        item_schema = data['Item']
+        if item_schema.key?('properties')
+          # Add ts property if it doesn't exist
+          unless item_schema['properties'].key?('ts')
+            item_schema['properties']['ts'] = { 'type' => 'string' }
+          end
+          
+          # Ensure required array exists
+          item_schema['required'] ||= []
+          # Add ts to required fields if not already present
+          unless item_schema['required'].include?('ts')
+            item_schema['required'] << 'ts'
+          end
+        end
+      end
+
+      data.each_value { visit(_1) }
+    else
+      data
+    end
+  end
+end

@@ -98,6 +98,7 @@ def generate_openapi_component(path, output_dir)
     AcronymsFixer.new('DND' => 'Dnd'),
     TypeFixer.new,
     OptionalityFixer.new,
+    ItemTsRequiredFixer.new,
   ]
   visitors.each do |visitor|
     visitor.walk(json)

@@ -21,10 +21,10 @@ public struct Item: Codable, Hashable, Sendable {
     public var file: ItemFile?
     /// - Remark: Generated from `#/components/schemas/Item/message`.
     public var message: Message?
-    /// - Remark: Generated from `#/components/schemas/Item/ts`.
-    public var ts: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Item/type`.
     public var _type: Swift.String
+    /// - Remark: Generated from `#/components/schemas/Item/ts`.
+    public var ts: Swift.String
     /// Creates a new `Item`.
     ///
     /// - Parameters:
@@ -33,24 +33,24 @@ public struct Item: Codable, Hashable, Sendable {
     ///   - dateCreate:
     ///   - file:
     ///   - message:
-    ///   - ts:
     ///   - _type:
+    ///   - ts:
     public init(
         channel: Swift.String? = nil,
         comment: Comment? = nil,
         dateCreate: Swift.Int? = nil,
         file: ItemFile? = nil,
         message: Message? = nil,
-        ts: Swift.String? = nil,
-        _type: Swift.String
+        _type: Swift.String,
+        ts: Swift.String
     ) {
         self.channel = channel
         self.comment = comment
         self.dateCreate = dateCreate
         self.file = file
         self.message = message
-        self.ts = ts
         self._type = _type
+        self.ts = ts
     }
 
     public enum CodingKeys: String, CodingKey {
@@ -59,7 +59,7 @@ public struct Item: Codable, Hashable, Sendable {
         case dateCreate = "date_create"
         case file
         case message
-        case ts
         case _type = "type"
+        case ts
     }
 }
