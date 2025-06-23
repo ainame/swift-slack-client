@@ -69,14 +69,35 @@ settings:
 
 ### 3. Configure Environment
 
-Set these environment variables:
+The app uses [swift-dotenv](https://github.com/thebarndog/swift-dotenv) to manage environment variables.
+
+1. Copy the example environment file:
+```bash
+cp .env.example .env
+```
+
+2. Edit `.env` with your credentials:
+```bash
+# Slack Configuration
+SLACK_BOT_TOKEN=xoxb-your-bot-token-here
+SLACK_APP_TOKEN=xapp-your-app-token-here
+
+# DeepL Configuration
+DEEPL_API_KEY=your-deepl-api-key-here
+DEEPL_FREE_API_PLAN=1  # Set to "1" for free plan, "0" for pro plan
+
+# Optional: Comma-separated list of supported languages
+DEEPL_RUNNER_LANGUAGES=en,ja,de,fr,es
+```
+
+Alternatively, you can still use traditional environment variables:
 
 ```bash
 export SLACK_BOT_TOKEN="xoxb-..."
 export SLACK_APP_TOKEN="xapp-..."
 export DEEPL_API_KEY="your-deepl-key"
-export DEEPL_FREE_API_PLAN="1"  # Set to "1" for free plan, omit for pro plan
-export DEEPL_RUNNER_LANGUAGES="en,ja,de,fr,es"  # Optional: customize language order
+export DEEPL_FREE_API_PLAN="1"
+export DEEPL_RUNNER_LANGUAGES="en,ja,de,fr,es"
 ```
 
 ### 4. Build and Run

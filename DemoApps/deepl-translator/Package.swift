@@ -19,7 +19,8 @@ let package = Package(
             ]
         ),
         .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
-        .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0")
+        .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
+        .package(url: "https://github.com/thebarndog/swift-dotenv.git", from: "2.0.0")
     ],
     targets: [
         .executableTarget(
@@ -30,7 +31,8 @@ let package = Package(
                 .product(name: "SlackBlockKit", package: "swift-slack-client"),
                 .product(name: "SlackBlockKitDSL", package: "swift-slack-client"),
                 .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
-                .product(name: "Logging", package: "swift-log")
+                .product(name: "Logging", package: "swift-log"),
+                .product(name: "SwiftDotenv", package: "swift-dotenv")
             ]
         )
     ]

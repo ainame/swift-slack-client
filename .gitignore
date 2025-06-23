@@ -10,3 +10,8 @@ DerivedData/
 .tmp
 openapi.json
 .vscode
+
+# Environment variables
+.env
+.env.local
+.env.*.local

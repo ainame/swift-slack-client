@@ -4,6 +4,7 @@ import Logging
 import OpenAPIAsyncHTTPClient
 import SlackClient
 import SlackModels
+import SwiftDotenv
 
 @main
 struct DeepLTranslatorApp {
@@ -16,24 +17,28 @@ struct DeepLTranslatorApp {
     static func main() async throws {
         logger.info("Starting DeepL Translator bot...")
 
+        // Load environment variables from .env file if it exists
+        do {
+            let root = URL(fileURLWithPath: #filePath)
+                .deletingLastPathComponent()
+                .deletingLastPathComponent()
+                .deletingLastPathComponent()
+                .path()
+            try Dotenv.configure(atPath: "\(root).env")
+            logger.info("Loaded .env file")
+        } catch {
+            logger.info("No .env file found, using environment variables")
+        }
+
         // Check required environment variables
-        guard let slackToken = ProcessInfo.processInfo.environment["SLACK_BOT_TOKEN"] else {
-            logger.critical("SLACK_BOT_TOKEN is missing!")
-            fatalError("SLACK_BOT_TOKEN is missing!")
+        guard let slackToken = Dotenv.slackBotToken?.stringValue,
+              let appToken = Dotenv.slackAppToken?.stringValue,
+              let deepLAPIKey = Dotenv.deeplApiKey?.stringValue else {
+            logger.error("Required environment variables not set")
+            return
         }
-
-        guard let appToken = ProcessInfo.processInfo.environment["SLACK_APP_TOKEN"] else {
-            logger.critical("SLACK_APP_TOKEN is missing!")
-            fatalError("SLACK_APP_TOKEN is missing!")
-        }
-
-        guard let deepLAPIKey = ProcessInfo.processInfo.environment["DEEPL_API_KEY"] else {
-            logger.critical("DEEPL_API_KEY is missing!")
-            fatalError("DEEPL_API_KEY is missing!")
-        }
-
-        let isFreePlan = ProcessInfo.processInfo.environment["DEEPL_FREE_API_PLAN"] == "1"
-        let defaultLang = Languages.getOrderedLanguages(from: ProcessInfo.processInfo.environment["DEEPL_RUNNER_LANGUAGES"]).first ?? "en"
+        let isFreePlan = Dotenv.deeplFreeApiPlan?.stringValue == "1"
+        let defaultLang = Languages.getOrderedLanguages(from: Dotenv.deeplRunnerLanguages?.stringValue).first ?? "en"
 
         logger.info("Using DeepL \(isFreePlan ? "Free" : "Pro") plan")
 
