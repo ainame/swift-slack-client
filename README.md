@@ -415,6 +415,30 @@ struct DemoMessageModal: SlackModalView {
 
 More examples are available in [Examples](https://github.com/ainame/swift-slack-client/tree/main/Examples).
 
+## Technical Notes
+
+### Request Format Workaround
+
+Due to limitations in swift-openapi-generator's handling of form-encoded requests with nested structures, swift-slack-client currently employs a workaround:
+
+- The generated API accepts JSON request bodies
+- A middleware automatically converts these to `application/x-www-form-urlencoded` format that Slack expects
+- Nested objects are serialized as JSON strings within form fields
+
+```swift
+// You write JSON-style requests
+try await slack.client.chatPostMessage(
+    body: .json(.init(
+        channel: "#general", 
+        blocks: [myBlock]  // Gets converted to JSON string in form data
+    ))
+)
+
+// Middleware transforms to: channel=%23general&blocks=%5B%7B%22type%22%3A...
+```
+
+This workaround may be removed once swift-openapi-generator properly supports Slack's API requirements.
+
 ## Code Generation
 
 We rely on these two _reliable_ sources to generate OpenAPI schemas:
