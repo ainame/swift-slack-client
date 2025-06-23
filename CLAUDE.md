@@ -176,3 +176,43 @@ ruby scripts/release.rb [version] [--yes]  # Creates tags without "v" prefix (e.
   ```
   swift build 2>&1 | awk '/error:|warning:|fatal error:/{flag=1} flag && /^$/{flag=0} flag'
   ```
+
+## DeepL Translator Demo App Status
+
+### Current Implementation State
+- **Location**: `DemoApps/deepl-translator/`
+- **Status**: Functional but has API compatibility issues
+- **Main Issue**: `conversations.replies` API fails with "invalid_arguments" for non-threaded messages
+
+### Key Problems Identified
+1. **conversations.replies API Limitation**:
+   - Fails with "invalid_arguments" when called on regular (non-threaded) messages
+   - Reference TypeScript implementation relies on this API working
+   - Our Swift implementation needs fallback to `conversations.history`
+
+2. **Complex Duplicate Prevention**:
+   - Current implementation has complex logic to handle both threaded and non-threaded messages
+   - Reference implementation assumes `conversations.replies` always works
+   - Added fallback creates duplicate checking complexity
+
+3. **WebAPI Schema Generation**:
+   - May need to investigate if the issue is in our generated WebAPI client
+   - Possible schema generation problems affecting API parameter validation
+   - Consider reviewing `process_webapi.rb` and OpenAPI generation
+
+### Current Implementation Details
+- **ReactionHandler**: Tries `conversations.replies`, falls back to `conversations.history`
+- **Duplicate Checking**: Complex logic to handle both API paths
+- **Translation Cache**: Initially implemented actor-based cache, later removed to match reference
+- **Error Handling**: Returns early on API failures (matches reference behavior)
+
+### Files Modified
+- `DemoApps/deepl-translator/Sources/DeepLTranslator/ReactionHandler.swift`
+- `DemoApps/deepl-translator/Sources/DeepLTranslator/App.swift`
+
+### Next Steps for Resolution
+1. **Investigate WebAPI Generation**: Check if `conversations.replies` parameters are correctly generated
+2. **Review OpenAPI Schema**: Verify the API spec matches Slack's actual requirements
+3. **Test with Different Message Types**: Determine when `conversations.replies` works vs fails
+4. **Consider API Version**: Check if we're using the correct Slack API version
+5. **Simplify Implementation**: Once API issues are resolved, simplify back to reference implementation logic
