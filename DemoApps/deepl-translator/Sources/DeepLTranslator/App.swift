@@ -41,9 +41,10 @@ struct DeepLTranslatorApp {
         let httpClient = HTTPClient()
 
         // Initialize clients with shared HTTP client
-        let transport = AsyncHTTPClientTransport(
+        let baseTransport = AsyncHTTPClientTransport(
             configuration: .init(client: httpClient)
         )
+        let transport = SlackAPITransport(wrapping: baseTransport)
         let slack = Slack(
             transport: transport,
             configuration: .init(
