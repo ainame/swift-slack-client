@@ -56,6 +56,7 @@ extension Slack {
             await self?.setWebSocketOutboundWriter(outbound)
 
             // Process each message as a structured task so that a long running handler won't block subsequent messages
+            // swiftformat:disable redundantSelf
             try await withThrowingDiscardingTaskGroup { group in
                 for try await frame in inbound {
                     guard frame.opcode == .text,
@@ -94,6 +95,7 @@ extension Slack {
                     }
                 }
             }
+            // swiftformat:enable redundantSelf
             context.logger.info("SocketMode client disconnected")
         }
 
