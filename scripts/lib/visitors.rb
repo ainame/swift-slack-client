@@ -222,8 +222,10 @@ class TypeFixer
   end
 end
 
-# Fix Item schema to add ts property as required for Slack event handling
-class ItemTsRequiredFixer
+
+
+# Add optional ts property to Item schema for reaction events compatibility
+class ItemTsOptionalAdder
   def walk(root)
     visit(root)
   end
@@ -236,19 +238,16 @@ class ItemTsRequiredFixer
       data.each { visit(_1) }
     when Hash
       # Target the Item schema specifically
-      if data.key?('Item') && data['Item'].is_a?(Hash)
-        item_schema = data['Item']
-        if item_schema.key?('properties')
-          # Add ts property if it doesn't exist
-          unless item_schema['properties'].key?('ts')
-            item_schema['properties']['ts'] = { 'type' => 'string' }
+      if data.key?("Item") && data["Item"].is_a?(Hash)
+        item_schema = data["Item"]
+        if item_schema.key?("properties")
+          # Add ts property as optional if it does not exist
+          unless item_schema["properties"].key?("ts")
+            item_schema["properties"]["ts"] = { "type" => "string" }
           end
-          
-          # Ensure required array exists
-          item_schema['required'] ||= []
-          # Add ts to required fields if not already present
-          unless item_schema['required'].include?('ts')
-            item_schema['required'] << 'ts'
+          # Ensure ts is NOT in required fields (keep it optional)
+          if item_schema["required"]&.include?("ts")
+            item_schema["required"].delete("ts")
           end
         end
       end

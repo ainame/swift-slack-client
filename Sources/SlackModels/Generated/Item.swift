@@ -24,7 +24,7 @@ public struct Item: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Item/type`.
     public var _type: Swift.String
     /// - Remark: Generated from `#/components/schemas/Item/ts`.
-    public var ts: Swift.String
+    public var ts: Swift.String?
     /// Creates a new `Item`.
     ///
     /// - Parameters:
@@ -42,7 +42,7 @@ public struct Item: Codable, Hashable, Sendable {
         file: ItemFile? = nil,
         message: Message? = nil,
         _type: Swift.String,
-        ts: Swift.String
+        ts: Swift.String? = nil
     ) {
         self.channel = channel
         self.comment = comment
