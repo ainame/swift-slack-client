@@ -55,7 +55,7 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.9.0"),
         .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.8.2"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.6.3"),
-        .package(url: "https://github.com/hummingbird-project/swift-websocket", from: "1.3.1"),
+        .package(url: "https://github.com/hummingbird-project/swift-websocket", from: "1.3.2"),
     ],
     targets: [
         .target(
