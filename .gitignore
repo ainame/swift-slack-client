@@ -15,3 +15,5 @@ openapi.json
 .env
 .env.local
 .env.*.local
+
+.swiftpm
