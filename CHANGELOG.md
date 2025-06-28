@@ -7,6 +7,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2025-06-28
+
+### 🐛 Fixed
+- **Item.ts Property**: Added optional `ts` property to `Item` model for reaction event compatibility
+  - Fixed DeepL translator demo app where `item.ts` was accessed but didn't exist
+  - `Item` now has `public var ts: Swift.String?` to support both reaction events and other APIs
+  - Maintains type safety by keeping `ts` optional since it's not present in all contexts
+
+### ✨ Added  
+- **Form-Encoding Middleware**: Automatic JSON to form-urlencoded conversion for Slack API compatibility
+  - `FormEncodingMiddleware` installed by default in `SlackClient`
+  - Transparent handling of Slack's POST + `application/x-www-form-urlencoded` requirement
+  - Nested objects automatically serialized as JSON strings in form data
+- **swift-dotenv Integration**: Environment variable management for DeepL translator demo
+  - Added swift-dotenv dependency for cleaner configuration management
+  - Removed ProcessInfo fallbacks in favor of explicit environment variable loading
+
+### 🔧 Enhanced
+- **Code Generation Pipeline**: Improved schema generation with `ItemTsOptionalAdder` visitor
+  - Automatically adds optional `ts` property to Item schema during generation
+  - Ensures consistency across WebAPI and Events API usage
+- **Documentation**: Updated README with form-encoding workaround explanation
+  - Honest documentation of temporary workaround nature
+  - Technical notes section explaining design decisions
+
+### 📋 Technical Notes
+- Form-encoding middleware addresses swift-openapi-generator limitation with nested form data
+- This is a workaround solution that may be updated in future versions
+- All tests passing with new middleware and model changes
+
+## [0.1.1] - 2025-06-28
+
+### 🐛 Fixed
+- **Slack API Compatibility**: Resolved `conversations.replies` "invalid_arguments" errors
+  - Root cause: Slack APIs expect POST + `application/x-www-form-urlencoded`, not `application/json`
+  - swift-openapi-generator doesn't support nested containers with form-urlencoded
+- **Modal View Protocol**: Fixed `callbackId` optionality mismatch between protocol and implementation
+- **Test Suite**: Disabled WebSocket-dependent test that required mocking infrastructure
+
+### ✨ Added
+- **FormEncodingMiddleware**: Automatic request transformation for Slack API compatibility
+  - Converts POST + JSON requests to POST + form-urlencoded automatically
+  - Handles nested objects by serializing them as JSON strings in form fields
+  - Installed by default in SlackClient for transparent operation
+
+### 🔧 Enhanced  
+- **DeepL Translator Demo**: Improved error handling and API compatibility
+  - Fixed reaction event handling with proper `conversations.replies` usage
+  - Enhanced duplicate translation detection logic
+  - Better fallback handling for non-threaded messages
+
 ## [0.1.0] - 2025-06-23
 
 ### 🚨 Breaking Changes
