@@ -56,12 +56,12 @@ jobs:
           make update
 
           # Generate code
-          make generate
+          make generate format
 
           # Check if there are any changes in generated source code (not just submodules or formatting)
           # Only look for changes in Generated directories
           GENERATED_CHANGES=$(git status --porcelain | grep -E "Sources/.*/Generated/.*\.swift$" || true)
-          
+
           if [[ -n "$GENERATED_CHANGES" ]]; then
             echo "changes=true" >> $GITHUB_OUTPUT
             echo "Generated code changes detected:"
