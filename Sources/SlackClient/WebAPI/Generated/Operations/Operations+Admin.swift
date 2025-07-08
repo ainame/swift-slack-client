@@ -962,6 +962,10 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.config.set/POST/requestBody/json/domain_restrictions`.
                     public var domainRestrictions: OpenAPIRuntime.OpenAPIObjectContainer?
+                    /// Indicates the app-level override for rich link preview. Unsupported for free teams.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.config.set/POST/requestBody/json/rich_link_preview_type`.
+                    public var richLinkPreviewType: Swift.String?
                     /// The workflow auth permission. Can be one of builder_choice or end_user_only.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.config.set/POST/requestBody/json/workflow_auth_strategy`.
@@ -972,20 +976,24 @@ extension Operations {
                     ///   - appId: The encoded app ID to set the app config for.
                     ///   - domainRestrictions: Domain restrictions for the app. Should be an object with two properties: urls and emails. Each is an array of strings, and each sets the allowed URLs
                     /// and emails for connector authorization, respectively.
+                    ///   - richLinkPreviewType: Indicates the app-level override for rich link preview. Unsupported for free teams.
                     ///   - workflowAuthStrategy: The workflow auth permission. Can be one of builder_choice or end_user_only.
                     public init(
                         appId: Swift.String,
                         domainRestrictions: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
+                        richLinkPreviewType: Swift.String? = nil,
                         workflowAuthStrategy: Swift.String? = nil
                     ) {
                         self.appId = appId
                         self.domainRestrictions = domainRestrictions
+                        self.richLinkPreviewType = richLinkPreviewType
                         self.workflowAuthStrategy = workflowAuthStrategy
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case appId = "app_id"
                         case domainRestrictions = "domain_restrictions"
+                        case richLinkPreviewType = "rich_link_preview_type"
                         case workflowAuthStrategy = "workflow_auth_strategy"
                     }
                 }
