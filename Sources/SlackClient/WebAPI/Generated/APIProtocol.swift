@@ -1174,7 +1174,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
     public func adminAppsActivitiesList(
         headers: Operations.AdminAppsActivitiesList.Input.Headers = .init(),
-        body: Operations.AdminAppsActivitiesList.Input.Body,
+        body: Operations.AdminAppsActivitiesList.Input.Body
     ) async throws -> Operations.AdminAppsActivitiesList.Output {
         try await adminAppsActivitiesList(Operations.AdminAppsActivitiesList.Input(
             headers: headers,
@@ -1188,7 +1188,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.apps.approve/post(adminAppsApprove)`.
     public func adminAppsApprove(
         headers: Operations.AdminAppsApprove.Input.Headers = .init(),
-        body: Operations.AdminAppsApprove.Input.Body,
+        body: Operations.AdminAppsApprove.Input.Body
     ) async throws -> Operations.AdminAppsApprove.Output {
         try await adminAppsApprove(Operations.AdminAppsApprove.Input(
             headers: headers,
@@ -1202,7 +1202,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.apps.approved.list/post(adminAppsApprovedList)`.
     public func adminAppsApprovedList(
         headers: Operations.AdminAppsApprovedList.Input.Headers = .init(),
-        body: Operations.AdminAppsApprovedList.Input.Body,
+        body: Operations.AdminAppsApprovedList.Input.Body
     ) async throws -> Operations.AdminAppsApprovedList.Output {
         try await adminAppsApprovedList(Operations.AdminAppsApprovedList.Input(
             headers: headers,
@@ -1216,7 +1216,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.apps.clearResolution/post(adminAppsClearResolution)`.
     public func adminAppsClearResolution(
         headers: Operations.AdminAppsClearResolution.Input.Headers = .init(),
-        body: Operations.AdminAppsClearResolution.Input.Body,
+        body: Operations.AdminAppsClearResolution.Input.Body
     ) async throws -> Operations.AdminAppsClearResolution.Output {
         try await adminAppsClearResolution(Operations.AdminAppsClearResolution.Input(
             headers: headers,
@@ -1230,7 +1230,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.apps.config.lookup/post(adminAppsConfigLookup)`.
     public func adminAppsConfigLookup(
         headers: Operations.AdminAppsConfigLookup.Input.Headers = .init(),
-        body: Operations.AdminAppsConfigLookup.Input.Body,
+        body: Operations.AdminAppsConfigLookup.Input.Body
     ) async throws -> Operations.AdminAppsConfigLookup.Output {
         try await adminAppsConfigLookup(Operations.AdminAppsConfigLookup.Input(
             headers: headers,
@@ -1244,7 +1244,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.apps.config.set/post(adminAppsConfigSet)`.
     public func adminAppsConfigSet(
         headers: Operations.AdminAppsConfigSet.Input.Headers = .init(),
-        body: Operations.AdminAppsConfigSet.Input.Body,
+        body: Operations.AdminAppsConfigSet.Input.Body
     ) async throws -> Operations.AdminAppsConfigSet.Output {
         try await adminAppsConfigSet(Operations.AdminAppsConfigSet.Input(
             headers: headers,
@@ -1258,7 +1258,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.apps.requests.cancel/post(adminAppsRequestsCancel)`.
     public func adminAppsRequestsCancel(
         headers: Operations.AdminAppsRequestsCancel.Input.Headers = .init(),
-        body: Operations.AdminAppsRequestsCancel.Input.Body,
+        body: Operations.AdminAppsRequestsCancel.Input.Body
     ) async throws -> Operations.AdminAppsRequestsCancel.Output {
         try await adminAppsRequestsCancel(Operations.AdminAppsRequestsCancel.Input(
             headers: headers,
@@ -1272,7 +1272,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.apps.requests.list/post(adminAppsRequestsList)`.
     public func adminAppsRequestsList(
         headers: Operations.AdminAppsRequestsList.Input.Headers = .init(),
-        body: Operations.AdminAppsRequestsList.Input.Body,
+        body: Operations.AdminAppsRequestsList.Input.Body
     ) async throws -> Operations.AdminAppsRequestsList.Output {
         try await adminAppsRequestsList(Operations.AdminAppsRequestsList.Input(
             headers: headers,
@@ -1286,7 +1286,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.apps.restrict/post(adminAppsRestrict)`.
     public func adminAppsRestrict(
         headers: Operations.AdminAppsRestrict.Input.Headers = .init(),
-        body: Operations.AdminAppsRestrict.Input.Body,
+        body: Operations.AdminAppsRestrict.Input.Body
     ) async throws -> Operations.AdminAppsRestrict.Output {
         try await adminAppsRestrict(Operations.AdminAppsRestrict.Input(
             headers: headers,
@@ -1300,7 +1300,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.apps.restricted.list/post(adminAppsRestrictedList)`.
     public func adminAppsRestrictedList(
         headers: Operations.AdminAppsRestrictedList.Input.Headers = .init(),
-        body: Operations.AdminAppsRestrictedList.Input.Body,
+        body: Operations.AdminAppsRestrictedList.Input.Body
     ) async throws -> Operations.AdminAppsRestrictedList.Output {
         try await adminAppsRestrictedList(Operations.AdminAppsRestrictedList.Input(
             headers: headers,
@@ -1314,7 +1314,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.apps.uninstall/post(adminAppsUninstall)`.
     public func adminAppsUninstall(
         headers: Operations.AdminAppsUninstall.Input.Headers = .init(),
-        body: Operations.AdminAppsUninstall.Input.Body,
+        body: Operations.AdminAppsUninstall.Input.Body
     ) async throws -> Operations.AdminAppsUninstall.Output {
         try await adminAppsUninstall(Operations.AdminAppsUninstall.Input(
             headers: headers,
@@ -1328,7 +1328,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.auth.policy.assignEntities/post(adminAuthPolicyAssignEntities)`.
     public func adminAuthPolicyAssignEntities(
         headers: Operations.AdminAuthPolicyAssignEntities.Input.Headers = .init(),
-        body: Operations.AdminAuthPolicyAssignEntities.Input.Body,
+        body: Operations.AdminAuthPolicyAssignEntities.Input.Body
     ) async throws -> Operations.AdminAuthPolicyAssignEntities.Output {
         try await adminAuthPolicyAssignEntities(Operations.AdminAuthPolicyAssignEntities.Input(
             headers: headers,
@@ -1342,7 +1342,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.auth.policy.getEntities/post(adminAuthPolicyGetEntities)`.
     public func adminAuthPolicyGetEntities(
         headers: Operations.AdminAuthPolicyGetEntities.Input.Headers = .init(),
-        body: Operations.AdminAuthPolicyGetEntities.Input.Body,
+        body: Operations.AdminAuthPolicyGetEntities.Input.Body
     ) async throws -> Operations.AdminAuthPolicyGetEntities.Output {
         try await adminAuthPolicyGetEntities(Operations.AdminAuthPolicyGetEntities.Input(
             headers: headers,
@@ -1356,7 +1356,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.auth.policy.removeEntities/post(adminAuthPolicyRemoveEntities)`.
     public func adminAuthPolicyRemoveEntities(
         headers: Operations.AdminAuthPolicyRemoveEntities.Input.Headers = .init(),
-        body: Operations.AdminAuthPolicyRemoveEntities.Input.Body,
+        body: Operations.AdminAuthPolicyRemoveEntities.Input.Body
     ) async throws -> Operations.AdminAuthPolicyRemoveEntities.Output {
         try await adminAuthPolicyRemoveEntities(Operations.AdminAuthPolicyRemoveEntities.Input(
             headers: headers,
@@ -1370,7 +1370,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.barriers.create/post(adminBarriersCreate)`.
     public func adminBarriersCreate(
         headers: Operations.AdminBarriersCreate.Input.Headers = .init(),
-        body: Operations.AdminBarriersCreate.Input.Body,
+        body: Operations.AdminBarriersCreate.Input.Body
     ) async throws -> Operations.AdminBarriersCreate.Output {
         try await adminBarriersCreate(Operations.AdminBarriersCreate.Input(
             headers: headers,
@@ -1384,7 +1384,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.barriers.delete/post(adminBarriersDelete)`.
     public func adminBarriersDelete(
         headers: Operations.AdminBarriersDelete.Input.Headers = .init(),
-        body: Operations.AdminBarriersDelete.Input.Body,
+        body: Operations.AdminBarriersDelete.Input.Body
     ) async throws -> Operations.AdminBarriersDelete.Output {
         try await adminBarriersDelete(Operations.AdminBarriersDelete.Input(
             headers: headers,
@@ -1398,7 +1398,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.barriers.list/post(adminBarriersList)`.
     public func adminBarriersList(
         headers: Operations.AdminBarriersList.Input.Headers = .init(),
-        body: Operations.AdminBarriersList.Input.Body,
+        body: Operations.AdminBarriersList.Input.Body
     ) async throws -> Operations.AdminBarriersList.Output {
         try await adminBarriersList(Operations.AdminBarriersList.Input(
             headers: headers,
@@ -1412,7 +1412,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.barriers.update/post(adminBarriersUpdate)`.
     public func adminBarriersUpdate(
         headers: Operations.AdminBarriersUpdate.Input.Headers = .init(),
-        body: Operations.AdminBarriersUpdate.Input.Body,
+        body: Operations.AdminBarriersUpdate.Input.Body
     ) async throws -> Operations.AdminBarriersUpdate.Output {
         try await adminBarriersUpdate(Operations.AdminBarriersUpdate.Input(
             headers: headers,
@@ -1426,7 +1426,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.archive/post(adminConversationsArchive)`.
     public func adminConversationsArchive(
         headers: Operations.AdminConversationsArchive.Input.Headers = .init(),
-        body: Operations.AdminConversationsArchive.Input.Body,
+        body: Operations.AdminConversationsArchive.Input.Body
     ) async throws -> Operations.AdminConversationsArchive.Output {
         try await adminConversationsArchive(Operations.AdminConversationsArchive.Input(
             headers: headers,
@@ -1440,7 +1440,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.bulkArchive/post(adminConversationsBulkArchive)`.
     public func adminConversationsBulkArchive(
         headers: Operations.AdminConversationsBulkArchive.Input.Headers = .init(),
-        body: Operations.AdminConversationsBulkArchive.Input.Body,
+        body: Operations.AdminConversationsBulkArchive.Input.Body
     ) async throws -> Operations.AdminConversationsBulkArchive.Output {
         try await adminConversationsBulkArchive(Operations.AdminConversationsBulkArchive.Input(
             headers: headers,
@@ -1454,7 +1454,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.bulkDelete/post(adminConversationsBulkDelete)`.
     public func adminConversationsBulkDelete(
         headers: Operations.AdminConversationsBulkDelete.Input.Headers = .init(),
-        body: Operations.AdminConversationsBulkDelete.Input.Body,
+        body: Operations.AdminConversationsBulkDelete.Input.Body
     ) async throws -> Operations.AdminConversationsBulkDelete.Output {
         try await adminConversationsBulkDelete(Operations.AdminConversationsBulkDelete.Input(
             headers: headers,
@@ -1468,7 +1468,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.bulkMove/post(adminConversationsBulkMove)`.
     public func adminConversationsBulkMove(
         headers: Operations.AdminConversationsBulkMove.Input.Headers = .init(),
-        body: Operations.AdminConversationsBulkMove.Input.Body,
+        body: Operations.AdminConversationsBulkMove.Input.Body
     ) async throws -> Operations.AdminConversationsBulkMove.Output {
         try await adminConversationsBulkMove(Operations.AdminConversationsBulkMove.Input(
             headers: headers,
@@ -1482,7 +1482,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.convertToPrivate/post(adminConversationsConvertToPrivate)`.
     public func adminConversationsConvertToPrivate(
         headers: Operations.AdminConversationsConvertToPrivate.Input.Headers = .init(),
-        body: Operations.AdminConversationsConvertToPrivate.Input.Body,
+        body: Operations.AdminConversationsConvertToPrivate.Input.Body
     ) async throws -> Operations.AdminConversationsConvertToPrivate.Output {
         try await adminConversationsConvertToPrivate(Operations.AdminConversationsConvertToPrivate.Input(
             headers: headers,
@@ -1496,7 +1496,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.convertToPublic/post(adminConversationsConvertToPublic)`.
     public func adminConversationsConvertToPublic(
         headers: Operations.AdminConversationsConvertToPublic.Input.Headers = .init(),
-        body: Operations.AdminConversationsConvertToPublic.Input.Body,
+        body: Operations.AdminConversationsConvertToPublic.Input.Body
     ) async throws -> Operations.AdminConversationsConvertToPublic.Output {
         try await adminConversationsConvertToPublic(Operations.AdminConversationsConvertToPublic.Input(
             headers: headers,
@@ -1510,7 +1510,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.create/post(adminConversationsCreate)`.
     public func adminConversationsCreate(
         headers: Operations.AdminConversationsCreate.Input.Headers = .init(),
-        body: Operations.AdminConversationsCreate.Input.Body,
+        body: Operations.AdminConversationsCreate.Input.Body
     ) async throws -> Operations.AdminConversationsCreate.Output {
         try await adminConversationsCreate(Operations.AdminConversationsCreate.Input(
             headers: headers,
@@ -1524,7 +1524,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.delete/post(adminConversationsDelete)`.
     public func adminConversationsDelete(
         headers: Operations.AdminConversationsDelete.Input.Headers = .init(),
-        body: Operations.AdminConversationsDelete.Input.Body,
+        body: Operations.AdminConversationsDelete.Input.Body
     ) async throws -> Operations.AdminConversationsDelete.Output {
         try await adminConversationsDelete(Operations.AdminConversationsDelete.Input(
             headers: headers,
@@ -1538,7 +1538,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.disconnectShared/post(adminConversationsDisconnectShared)`.
     public func adminConversationsDisconnectShared(
         headers: Operations.AdminConversationsDisconnectShared.Input.Headers = .init(),
-        body: Operations.AdminConversationsDisconnectShared.Input.Body,
+        body: Operations.AdminConversationsDisconnectShared.Input.Body
     ) async throws -> Operations.AdminConversationsDisconnectShared.Output {
         try await adminConversationsDisconnectShared(Operations.AdminConversationsDisconnectShared.Input(
             headers: headers,
@@ -1552,7 +1552,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.ekm.listOriginalConnectedChannelInfo/post(adminConversationsEkmListOriginalConnectedChannelInfo)`.
     public func adminConversationsEkmListOriginalConnectedChannelInfo(
         headers: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input.Headers = .init(),
-        body: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input.Body,
+        body: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input.Body
     ) async throws -> Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Output {
         try await adminConversationsEkmListOriginalConnectedChannelInfo(Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input(
             headers: headers,
@@ -1566,7 +1566,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.getConversationPrefs/post(adminConversationsGetConversationPrefs)`.
     public func adminConversationsGetConversationPrefs(
         headers: Operations.AdminConversationsGetConversationPrefs.Input.Headers = .init(),
-        body: Operations.AdminConversationsGetConversationPrefs.Input.Body,
+        body: Operations.AdminConversationsGetConversationPrefs.Input.Body
     ) async throws -> Operations.AdminConversationsGetConversationPrefs.Output {
         try await adminConversationsGetConversationPrefs(Operations.AdminConversationsGetConversationPrefs.Input(
             headers: headers,
@@ -1580,7 +1580,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.getCustomRetention/post(adminConversationsGetCustomRetention)`.
     public func adminConversationsGetCustomRetention(
         headers: Operations.AdminConversationsGetCustomRetention.Input.Headers = .init(),
-        body: Operations.AdminConversationsGetCustomRetention.Input.Body,
+        body: Operations.AdminConversationsGetCustomRetention.Input.Body
     ) async throws -> Operations.AdminConversationsGetCustomRetention.Output {
         try await adminConversationsGetCustomRetention(Operations.AdminConversationsGetCustomRetention.Input(
             headers: headers,
@@ -1594,7 +1594,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.getTeams/post(adminConversationsGetTeams)`.
     public func adminConversationsGetTeams(
         headers: Operations.AdminConversationsGetTeams.Input.Headers = .init(),
-        body: Operations.AdminConversationsGetTeams.Input.Body,
+        body: Operations.AdminConversationsGetTeams.Input.Body
     ) async throws -> Operations.AdminConversationsGetTeams.Output {
         try await adminConversationsGetTeams(Operations.AdminConversationsGetTeams.Input(
             headers: headers,
@@ -1608,7 +1608,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.invite/post(adminConversationsInvite)`.
     public func adminConversationsInvite(
         headers: Operations.AdminConversationsInvite.Input.Headers = .init(),
-        body: Operations.AdminConversationsInvite.Input.Body,
+        body: Operations.AdminConversationsInvite.Input.Body
     ) async throws -> Operations.AdminConversationsInvite.Output {
         try await adminConversationsInvite(Operations.AdminConversationsInvite.Input(
             headers: headers,
@@ -1622,7 +1622,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.lookup/post(adminConversationsLookup)`.
     public func adminConversationsLookup(
         headers: Operations.AdminConversationsLookup.Input.Headers = .init(),
-        body: Operations.AdminConversationsLookup.Input.Body,
+        body: Operations.AdminConversationsLookup.Input.Body
     ) async throws -> Operations.AdminConversationsLookup.Output {
         try await adminConversationsLookup(Operations.AdminConversationsLookup.Input(
             headers: headers,
@@ -1636,7 +1636,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.removeCustomRetention/post(adminConversationsRemoveCustomRetention)`.
     public func adminConversationsRemoveCustomRetention(
         headers: Operations.AdminConversationsRemoveCustomRetention.Input.Headers = .init(),
-        body: Operations.AdminConversationsRemoveCustomRetention.Input.Body,
+        body: Operations.AdminConversationsRemoveCustomRetention.Input.Body
     ) async throws -> Operations.AdminConversationsRemoveCustomRetention.Output {
         try await adminConversationsRemoveCustomRetention(Operations.AdminConversationsRemoveCustomRetention.Input(
             headers: headers,
@@ -1650,7 +1650,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.rename/post(adminConversationsRename)`.
     public func adminConversationsRename(
         headers: Operations.AdminConversationsRename.Input.Headers = .init(),
-        body: Operations.AdminConversationsRename.Input.Body,
+        body: Operations.AdminConversationsRename.Input.Body
     ) async throws -> Operations.AdminConversationsRename.Output {
         try await adminConversationsRename(Operations.AdminConversationsRename.Input(
             headers: headers,
@@ -1664,7 +1664,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.addGroup/post(adminConversationsRestrictAccessAddGroup)`.
     public func adminConversationsRestrictAccessAddGroup(
         headers: Operations.AdminConversationsRestrictAccessAddGroup.Input.Headers = .init(),
-        body: Operations.AdminConversationsRestrictAccessAddGroup.Input.Body,
+        body: Operations.AdminConversationsRestrictAccessAddGroup.Input.Body
     ) async throws -> Operations.AdminConversationsRestrictAccessAddGroup.Output {
         try await adminConversationsRestrictAccessAddGroup(Operations.AdminConversationsRestrictAccessAddGroup.Input(
             headers: headers,
@@ -1678,7 +1678,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.listGroups/post(adminConversationsRestrictAccessListGroups)`.
     public func adminConversationsRestrictAccessListGroups(
         headers: Operations.AdminConversationsRestrictAccessListGroups.Input.Headers = .init(),
-        body: Operations.AdminConversationsRestrictAccessListGroups.Input.Body,
+        body: Operations.AdminConversationsRestrictAccessListGroups.Input.Body
     ) async throws -> Operations.AdminConversationsRestrictAccessListGroups.Output {
         try await adminConversationsRestrictAccessListGroups(Operations.AdminConversationsRestrictAccessListGroups.Input(
             headers: headers,
@@ -1692,7 +1692,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.restrictAccess.removeGroup/post(adminConversationsRestrictAccessRemoveGroup)`.
     public func adminConversationsRestrictAccessRemoveGroup(
         headers: Operations.AdminConversationsRestrictAccessRemoveGroup.Input.Headers = .init(),
-        body: Operations.AdminConversationsRestrictAccessRemoveGroup.Input.Body,
+        body: Operations.AdminConversationsRestrictAccessRemoveGroup.Input.Body
     ) async throws -> Operations.AdminConversationsRestrictAccessRemoveGroup.Output {
         try await adminConversationsRestrictAccessRemoveGroup(Operations.AdminConversationsRestrictAccessRemoveGroup.Input(
             headers: headers,
@@ -1706,7 +1706,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.search/post(adminConversationsSearch)`.
     public func adminConversationsSearch(
         headers: Operations.AdminConversationsSearch.Input.Headers = .init(),
-        body: Operations.AdminConversationsSearch.Input.Body,
+        body: Operations.AdminConversationsSearch.Input.Body
     ) async throws -> Operations.AdminConversationsSearch.Output {
         try await adminConversationsSearch(Operations.AdminConversationsSearch.Input(
             headers: headers,
@@ -1720,7 +1720,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.setConversationPrefs/post(adminConversationsSetConversationPrefs)`.
     public func adminConversationsSetConversationPrefs(
         headers: Operations.AdminConversationsSetConversationPrefs.Input.Headers = .init(),
-        body: Operations.AdminConversationsSetConversationPrefs.Input.Body,
+        body: Operations.AdminConversationsSetConversationPrefs.Input.Body
     ) async throws -> Operations.AdminConversationsSetConversationPrefs.Output {
         try await adminConversationsSetConversationPrefs(Operations.AdminConversationsSetConversationPrefs.Input(
             headers: headers,
@@ -1734,7 +1734,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.setCustomRetention/post(adminConversationsSetCustomRetention)`.
     public func adminConversationsSetCustomRetention(
         headers: Operations.AdminConversationsSetCustomRetention.Input.Headers = .init(),
-        body: Operations.AdminConversationsSetCustomRetention.Input.Body,
+        body: Operations.AdminConversationsSetCustomRetention.Input.Body
     ) async throws -> Operations.AdminConversationsSetCustomRetention.Output {
         try await adminConversationsSetCustomRetention(Operations.AdminConversationsSetCustomRetention.Input(
             headers: headers,
@@ -1748,7 +1748,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.setTeams/post(adminConversationsSetTeams)`.
     public func adminConversationsSetTeams(
         headers: Operations.AdminConversationsSetTeams.Input.Headers = .init(),
-        body: Operations.AdminConversationsSetTeams.Input.Body,
+        body: Operations.AdminConversationsSetTeams.Input.Body
     ) async throws -> Operations.AdminConversationsSetTeams.Output {
         try await adminConversationsSetTeams(Operations.AdminConversationsSetTeams.Input(
             headers: headers,
@@ -1762,7 +1762,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.conversations.unarchive/post(adminConversationsUnarchive)`.
     public func adminConversationsUnarchive(
         headers: Operations.AdminConversationsUnarchive.Input.Headers = .init(),
-        body: Operations.AdminConversationsUnarchive.Input.Body,
+        body: Operations.AdminConversationsUnarchive.Input.Body
     ) async throws -> Operations.AdminConversationsUnarchive.Output {
         try await adminConversationsUnarchive(Operations.AdminConversationsUnarchive.Input(
             headers: headers,
@@ -1776,7 +1776,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.emoji.add/post(adminEmojiAdd)`.
     public func adminEmojiAdd(
         headers: Operations.AdminEmojiAdd.Input.Headers = .init(),
-        body: Operations.AdminEmojiAdd.Input.Body,
+        body: Operations.AdminEmojiAdd.Input.Body
     ) async throws -> Operations.AdminEmojiAdd.Output {
         try await adminEmojiAdd(Operations.AdminEmojiAdd.Input(
             headers: headers,
@@ -1790,7 +1790,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.emoji.addAlias/post(adminEmojiAddAlias)`.
     public func adminEmojiAddAlias(
         headers: Operations.AdminEmojiAddAlias.Input.Headers = .init(),
-        body: Operations.AdminEmojiAddAlias.Input.Body,
+        body: Operations.AdminEmojiAddAlias.Input.Body
     ) async throws -> Operations.AdminEmojiAddAlias.Output {
         try await adminEmojiAddAlias(Operations.AdminEmojiAddAlias.Input(
             headers: headers,
@@ -1804,7 +1804,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.emoji.list/post(adminEmojiList)`.
     public func adminEmojiList(
         headers: Operations.AdminEmojiList.Input.Headers = .init(),
-        body: Operations.AdminEmojiList.Input.Body,
+        body: Operations.AdminEmojiList.Input.Body
     ) async throws -> Operations.AdminEmojiList.Output {
         try await adminEmojiList(Operations.AdminEmojiList.Input(
             headers: headers,
@@ -1818,7 +1818,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.emoji.remove/post(adminEmojiRemove)`.
     public func adminEmojiRemove(
         headers: Operations.AdminEmojiRemove.Input.Headers = .init(),
-        body: Operations.AdminEmojiRemove.Input.Body,
+        body: Operations.AdminEmojiRemove.Input.Body
     ) async throws -> Operations.AdminEmojiRemove.Output {
         try await adminEmojiRemove(Operations.AdminEmojiRemove.Input(
             headers: headers,
@@ -1832,7 +1832,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.emoji.rename/post(adminEmojiRename)`.
     public func adminEmojiRename(
         headers: Operations.AdminEmojiRename.Input.Headers = .init(),
-        body: Operations.AdminEmojiRename.Input.Body,
+        body: Operations.AdminEmojiRename.Input.Body
     ) async throws -> Operations.AdminEmojiRename.Output {
         try await adminEmojiRename(Operations.AdminEmojiRename.Input(
             headers: headers,
@@ -1846,7 +1846,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.functions.list/post(adminFunctionsList)`.
     public func adminFunctionsList(
         headers: Operations.AdminFunctionsList.Input.Headers = .init(),
-        body: Operations.AdminFunctionsList.Input.Body,
+        body: Operations.AdminFunctionsList.Input.Body
     ) async throws -> Operations.AdminFunctionsList.Output {
         try await adminFunctionsList(Operations.AdminFunctionsList.Input(
             headers: headers,
@@ -1860,7 +1860,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.functions.permissions.lookup/post(adminFunctionsPermissionsLookup)`.
     public func adminFunctionsPermissionsLookup(
         headers: Operations.AdminFunctionsPermissionsLookup.Input.Headers = .init(),
-        body: Operations.AdminFunctionsPermissionsLookup.Input.Body,
+        body: Operations.AdminFunctionsPermissionsLookup.Input.Body
     ) async throws -> Operations.AdminFunctionsPermissionsLookup.Output {
         try await adminFunctionsPermissionsLookup(Operations.AdminFunctionsPermissionsLookup.Input(
             headers: headers,
@@ -1874,7 +1874,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.functions.permissions.set/post(adminFunctionsPermissionsSet)`.
     public func adminFunctionsPermissionsSet(
         headers: Operations.AdminFunctionsPermissionsSet.Input.Headers = .init(),
-        body: Operations.AdminFunctionsPermissionsSet.Input.Body,
+        body: Operations.AdminFunctionsPermissionsSet.Input.Body
     ) async throws -> Operations.AdminFunctionsPermissionsSet.Output {
         try await adminFunctionsPermissionsSet(Operations.AdminFunctionsPermissionsSet.Input(
             headers: headers,
@@ -1888,7 +1888,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.inviteRequests.approve/post(adminInviteRequestsApprove)`.
     public func adminInviteRequestsApprove(
         headers: Operations.AdminInviteRequestsApprove.Input.Headers = .init(),
-        body: Operations.AdminInviteRequestsApprove.Input.Body,
+        body: Operations.AdminInviteRequestsApprove.Input.Body
     ) async throws -> Operations.AdminInviteRequestsApprove.Output {
         try await adminInviteRequestsApprove(Operations.AdminInviteRequestsApprove.Input(
             headers: headers,
@@ -1902,7 +1902,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.inviteRequests.approved.list/post(adminInviteRequestsApprovedList)`.
     public func adminInviteRequestsApprovedList(
         headers: Operations.AdminInviteRequestsApprovedList.Input.Headers = .init(),
-        body: Operations.AdminInviteRequestsApprovedList.Input.Body,
+        body: Operations.AdminInviteRequestsApprovedList.Input.Body
     ) async throws -> Operations.AdminInviteRequestsApprovedList.Output {
         try await adminInviteRequestsApprovedList(Operations.AdminInviteRequestsApprovedList.Input(
             headers: headers,
@@ -1916,7 +1916,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.inviteRequests.denied.list/post(adminInviteRequestsDeniedList)`.
     public func adminInviteRequestsDeniedList(
         headers: Operations.AdminInviteRequestsDeniedList.Input.Headers = .init(),
-        body: Operations.AdminInviteRequestsDeniedList.Input.Body,
+        body: Operations.AdminInviteRequestsDeniedList.Input.Body
     ) async throws -> Operations.AdminInviteRequestsDeniedList.Output {
         try await adminInviteRequestsDeniedList(Operations.AdminInviteRequestsDeniedList.Input(
             headers: headers,
@@ -1930,7 +1930,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.inviteRequests.deny/post(adminInviteRequestsDeny)`.
     public func adminInviteRequestsDeny(
         headers: Operations.AdminInviteRequestsDeny.Input.Headers = .init(),
-        body: Operations.AdminInviteRequestsDeny.Input.Body,
+        body: Operations.AdminInviteRequestsDeny.Input.Body
     ) async throws -> Operations.AdminInviteRequestsDeny.Output {
         try await adminInviteRequestsDeny(Operations.AdminInviteRequestsDeny.Input(
             headers: headers,
@@ -1944,7 +1944,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.inviteRequests.list/post(adminInviteRequestsList)`.
     public func adminInviteRequestsList(
         headers: Operations.AdminInviteRequestsList.Input.Headers = .init(),
-        body: Operations.AdminInviteRequestsList.Input.Body,
+        body: Operations.AdminInviteRequestsList.Input.Body
     ) async throws -> Operations.AdminInviteRequestsList.Output {
         try await adminInviteRequestsList(Operations.AdminInviteRequestsList.Input(
             headers: headers,
@@ -1958,7 +1958,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.roles.addAssignments/post(adminRolesAddAssignments)`.
     public func adminRolesAddAssignments(
         headers: Operations.AdminRolesAddAssignments.Input.Headers = .init(),
-        body: Operations.AdminRolesAddAssignments.Input.Body,
+        body: Operations.AdminRolesAddAssignments.Input.Body
     ) async throws -> Operations.AdminRolesAddAssignments.Output {
         try await adminRolesAddAssignments(Operations.AdminRolesAddAssignments.Input(
             headers: headers,
@@ -1972,7 +1972,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.roles.listAssignments/post(adminRolesListAssignments)`.
     public func adminRolesListAssignments(
         headers: Operations.AdminRolesListAssignments.Input.Headers = .init(),
-        body: Operations.AdminRolesListAssignments.Input.Body,
+        body: Operations.AdminRolesListAssignments.Input.Body
     ) async throws -> Operations.AdminRolesListAssignments.Output {
         try await adminRolesListAssignments(Operations.AdminRolesListAssignments.Input(
             headers: headers,
@@ -1986,7 +1986,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.roles.removeAssignments/post(adminRolesRemoveAssignments)`.
     public func adminRolesRemoveAssignments(
         headers: Operations.AdminRolesRemoveAssignments.Input.Headers = .init(),
-        body: Operations.AdminRolesRemoveAssignments.Input.Body,
+        body: Operations.AdminRolesRemoveAssignments.Input.Body
     ) async throws -> Operations.AdminRolesRemoveAssignments.Output {
         try await adminRolesRemoveAssignments(Operations.AdminRolesRemoveAssignments.Input(
             headers: headers,
@@ -2000,7 +2000,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.teams.admins.list/post(adminTeamsAdminsList)`.
     public func adminTeamsAdminsList(
         headers: Operations.AdminTeamsAdminsList.Input.Headers = .init(),
-        body: Operations.AdminTeamsAdminsList.Input.Body,
+        body: Operations.AdminTeamsAdminsList.Input.Body
     ) async throws -> Operations.AdminTeamsAdminsList.Output {
         try await adminTeamsAdminsList(Operations.AdminTeamsAdminsList.Input(
             headers: headers,
@@ -2014,7 +2014,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.teams.create/post(adminTeamsCreate)`.
     public func adminTeamsCreate(
         headers: Operations.AdminTeamsCreate.Input.Headers = .init(),
-        body: Operations.AdminTeamsCreate.Input.Body,
+        body: Operations.AdminTeamsCreate.Input.Body
     ) async throws -> Operations.AdminTeamsCreate.Output {
         try await adminTeamsCreate(Operations.AdminTeamsCreate.Input(
             headers: headers,
@@ -2028,7 +2028,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.teams.list/post(adminTeamsList)`.
     public func adminTeamsList(
         headers: Operations.AdminTeamsList.Input.Headers = .init(),
-        body: Operations.AdminTeamsList.Input.Body,
+        body: Operations.AdminTeamsList.Input.Body
     ) async throws -> Operations.AdminTeamsList.Output {
         try await adminTeamsList(Operations.AdminTeamsList.Input(
             headers: headers,
@@ -2042,7 +2042,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.teams.owners.list/post(adminTeamsOwnersList)`.
     public func adminTeamsOwnersList(
         headers: Operations.AdminTeamsOwnersList.Input.Headers = .init(),
-        body: Operations.AdminTeamsOwnersList.Input.Body,
+        body: Operations.AdminTeamsOwnersList.Input.Body
     ) async throws -> Operations.AdminTeamsOwnersList.Output {
         try await adminTeamsOwnersList(Operations.AdminTeamsOwnersList.Input(
             headers: headers,
@@ -2056,7 +2056,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.teams.settings.info/post(adminTeamsSettingsInfo)`.
     public func adminTeamsSettingsInfo(
         headers: Operations.AdminTeamsSettingsInfo.Input.Headers = .init(),
-        body: Operations.AdminTeamsSettingsInfo.Input.Body,
+        body: Operations.AdminTeamsSettingsInfo.Input.Body
     ) async throws -> Operations.AdminTeamsSettingsInfo.Output {
         try await adminTeamsSettingsInfo(Operations.AdminTeamsSettingsInfo.Input(
             headers: headers,
@@ -2070,7 +2070,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDefaultChannels/post(adminTeamsSettingsSetDefaultChannels)`.
     public func adminTeamsSettingsSetDefaultChannels(
         headers: Operations.AdminTeamsSettingsSetDefaultChannels.Input.Headers = .init(),
-        body: Operations.AdminTeamsSettingsSetDefaultChannels.Input.Body,
+        body: Operations.AdminTeamsSettingsSetDefaultChannels.Input.Body
     ) async throws -> Operations.AdminTeamsSettingsSetDefaultChannels.Output {
         try await adminTeamsSettingsSetDefaultChannels(Operations.AdminTeamsSettingsSetDefaultChannels.Input(
             headers: headers,
@@ -2084,7 +2084,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDescription/post(adminTeamsSettingsSetDescription)`.
     public func adminTeamsSettingsSetDescription(
         headers: Operations.AdminTeamsSettingsSetDescription.Input.Headers = .init(),
-        body: Operations.AdminTeamsSettingsSetDescription.Input.Body,
+        body: Operations.AdminTeamsSettingsSetDescription.Input.Body
     ) async throws -> Operations.AdminTeamsSettingsSetDescription.Output {
         try await adminTeamsSettingsSetDescription(Operations.AdminTeamsSettingsSetDescription.Input(
             headers: headers,
@@ -2098,7 +2098,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.teams.settings.setDiscoverability/post(adminTeamsSettingsSetDiscoverability)`.
     public func adminTeamsSettingsSetDiscoverability(
         headers: Operations.AdminTeamsSettingsSetDiscoverability.Input.Headers = .init(),
-        body: Operations.AdminTeamsSettingsSetDiscoverability.Input.Body,
+        body: Operations.AdminTeamsSettingsSetDiscoverability.Input.Body
     ) async throws -> Operations.AdminTeamsSettingsSetDiscoverability.Output {
         try await adminTeamsSettingsSetDiscoverability(Operations.AdminTeamsSettingsSetDiscoverability.Input(
             headers: headers,
@@ -2112,7 +2112,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.teams.settings.setIcon/post(adminTeamsSettingsSetIcon)`.
     public func adminTeamsSettingsSetIcon(
         headers: Operations.AdminTeamsSettingsSetIcon.Input.Headers = .init(),
-        body: Operations.AdminTeamsSettingsSetIcon.Input.Body,
+        body: Operations.AdminTeamsSettingsSetIcon.Input.Body
     ) async throws -> Operations.AdminTeamsSettingsSetIcon.Output {
         try await adminTeamsSettingsSetIcon(Operations.AdminTeamsSettingsSetIcon.Input(
             headers: headers,
@@ -2126,7 +2126,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.teams.settings.setName/post(adminTeamsSettingsSetName)`.
     public func adminTeamsSettingsSetName(
         headers: Operations.AdminTeamsSettingsSetName.Input.Headers = .init(),
-        body: Operations.AdminTeamsSettingsSetName.Input.Body,
+        body: Operations.AdminTeamsSettingsSetName.Input.Body
     ) async throws -> Operations.AdminTeamsSettingsSetName.Output {
         try await adminTeamsSettingsSetName(Operations.AdminTeamsSettingsSetName.Input(
             headers: headers,
@@ -2140,7 +2140,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.assign/post(adminUsersAssign)`.
     public func adminUsersAssign(
         headers: Operations.AdminUsersAssign.Input.Headers = .init(),
-        body: Operations.AdminUsersAssign.Input.Body,
+        body: Operations.AdminUsersAssign.Input.Body
     ) async throws -> Operations.AdminUsersAssign.Output {
         try await adminUsersAssign(Operations.AdminUsersAssign.Input(
             headers: headers,
@@ -2154,7 +2154,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.invite/post(adminUsersInvite)`.
     public func adminUsersInvite(
         headers: Operations.AdminUsersInvite.Input.Headers = .init(),
-        body: Operations.AdminUsersInvite.Input.Body,
+        body: Operations.AdminUsersInvite.Input.Body
     ) async throws -> Operations.AdminUsersInvite.Output {
         try await adminUsersInvite(Operations.AdminUsersInvite.Input(
             headers: headers,
@@ -2168,7 +2168,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.list/post(adminUsersList)`.
     public func adminUsersList(
         headers: Operations.AdminUsersList.Input.Headers = .init(),
-        body: Operations.AdminUsersList.Input.Body,
+        body: Operations.AdminUsersList.Input.Body
     ) async throws -> Operations.AdminUsersList.Output {
         try await adminUsersList(Operations.AdminUsersList.Input(
             headers: headers,
@@ -2182,7 +2182,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.remove/post(adminUsersRemove)`.
     public func adminUsersRemove(
         headers: Operations.AdminUsersRemove.Input.Headers = .init(),
-        body: Operations.AdminUsersRemove.Input.Body,
+        body: Operations.AdminUsersRemove.Input.Body
     ) async throws -> Operations.AdminUsersRemove.Output {
         try await adminUsersRemove(Operations.AdminUsersRemove.Input(
             headers: headers,
@@ -2196,7 +2196,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.session.clearSettings/post(adminUsersSessionClearSettings)`.
     public func adminUsersSessionClearSettings(
         headers: Operations.AdminUsersSessionClearSettings.Input.Headers = .init(),
-        body: Operations.AdminUsersSessionClearSettings.Input.Body,
+        body: Operations.AdminUsersSessionClearSettings.Input.Body
     ) async throws -> Operations.AdminUsersSessionClearSettings.Output {
         try await adminUsersSessionClearSettings(Operations.AdminUsersSessionClearSettings.Input(
             headers: headers,
@@ -2210,7 +2210,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.session.getSettings/post(adminUsersSessionGetSettings)`.
     public func adminUsersSessionGetSettings(
         headers: Operations.AdminUsersSessionGetSettings.Input.Headers = .init(),
-        body: Operations.AdminUsersSessionGetSettings.Input.Body,
+        body: Operations.AdminUsersSessionGetSettings.Input.Body
     ) async throws -> Operations.AdminUsersSessionGetSettings.Output {
         try await adminUsersSessionGetSettings(Operations.AdminUsersSessionGetSettings.Input(
             headers: headers,
@@ -2224,7 +2224,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)`.
     public func adminUsersSessionInvalidate(
         headers: Operations.AdminUsersSessionInvalidate.Input.Headers = .init(),
-        body: Operations.AdminUsersSessionInvalidate.Input.Body,
+        body: Operations.AdminUsersSessionInvalidate.Input.Body
     ) async throws -> Operations.AdminUsersSessionInvalidate.Output {
         try await adminUsersSessionInvalidate(Operations.AdminUsersSessionInvalidate.Input(
             headers: headers,
@@ -2238,7 +2238,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.session.list/post(adminUsersSessionList)`.
     public func adminUsersSessionList(
         headers: Operations.AdminUsersSessionList.Input.Headers = .init(),
-        body: Operations.AdminUsersSessionList.Input.Body,
+        body: Operations.AdminUsersSessionList.Input.Body
     ) async throws -> Operations.AdminUsersSessionList.Output {
         try await adminUsersSessionList(Operations.AdminUsersSessionList.Input(
             headers: headers,
@@ -2252,7 +2252,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.session.reset/post(adminUsersSessionReset)`.
     public func adminUsersSessionReset(
         headers: Operations.AdminUsersSessionReset.Input.Headers = .init(),
-        body: Operations.AdminUsersSessionReset.Input.Body,
+        body: Operations.AdminUsersSessionReset.Input.Body
     ) async throws -> Operations.AdminUsersSessionReset.Output {
         try await adminUsersSessionReset(Operations.AdminUsersSessionReset.Input(
             headers: headers,
@@ -2266,7 +2266,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.session.resetBulk/post(adminUsersSessionResetBulk)`.
     public func adminUsersSessionResetBulk(
         headers: Operations.AdminUsersSessionResetBulk.Input.Headers = .init(),
-        body: Operations.AdminUsersSessionResetBulk.Input.Body,
+        body: Operations.AdminUsersSessionResetBulk.Input.Body
     ) async throws -> Operations.AdminUsersSessionResetBulk.Output {
         try await adminUsersSessionResetBulk(Operations.AdminUsersSessionResetBulk.Input(
             headers: headers,
@@ -2280,7 +2280,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.session.setSettings/post(adminUsersSessionSetSettings)`.
     public func adminUsersSessionSetSettings(
         headers: Operations.AdminUsersSessionSetSettings.Input.Headers = .init(),
-        body: Operations.AdminUsersSessionSetSettings.Input.Body,
+        body: Operations.AdminUsersSessionSetSettings.Input.Body
     ) async throws -> Operations.AdminUsersSessionSetSettings.Output {
         try await adminUsersSessionSetSettings(Operations.AdminUsersSessionSetSettings.Input(
             headers: headers,
@@ -2294,7 +2294,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.setAdmin/post(adminUsersSetAdmin)`.
     public func adminUsersSetAdmin(
         headers: Operations.AdminUsersSetAdmin.Input.Headers = .init(),
-        body: Operations.AdminUsersSetAdmin.Input.Body,
+        body: Operations.AdminUsersSetAdmin.Input.Body
     ) async throws -> Operations.AdminUsersSetAdmin.Output {
         try await adminUsersSetAdmin(Operations.AdminUsersSetAdmin.Input(
             headers: headers,
@@ -2308,7 +2308,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.setExpiration/post(adminUsersSetExpiration)`.
     public func adminUsersSetExpiration(
         headers: Operations.AdminUsersSetExpiration.Input.Headers = .init(),
-        body: Operations.AdminUsersSetExpiration.Input.Body,
+        body: Operations.AdminUsersSetExpiration.Input.Body
     ) async throws -> Operations.AdminUsersSetExpiration.Output {
         try await adminUsersSetExpiration(Operations.AdminUsersSetExpiration.Input(
             headers: headers,
@@ -2322,7 +2322,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.setOwner/post(adminUsersSetOwner)`.
     public func adminUsersSetOwner(
         headers: Operations.AdminUsersSetOwner.Input.Headers = .init(),
-        body: Operations.AdminUsersSetOwner.Input.Body,
+        body: Operations.AdminUsersSetOwner.Input.Body
     ) async throws -> Operations.AdminUsersSetOwner.Output {
         try await adminUsersSetOwner(Operations.AdminUsersSetOwner.Input(
             headers: headers,
@@ -2336,7 +2336,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.setRegular/post(adminUsersSetRegular)`.
     public func adminUsersSetRegular(
         headers: Operations.AdminUsersSetRegular.Input.Headers = .init(),
-        body: Operations.AdminUsersSetRegular.Input.Body,
+        body: Operations.AdminUsersSetRegular.Input.Body
     ) async throws -> Operations.AdminUsersSetRegular.Output {
         try await adminUsersSetRegular(Operations.AdminUsersSetRegular.Input(
             headers: headers,
@@ -2350,7 +2350,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//admin.users.unsupportedVersions.export/post(adminUsersUnsupportedVersionsExport)`.
     public func adminUsersUnsupportedVersionsExport(
         headers: Operations.AdminUsersUnsupportedVersionsExport.Input.Headers = .init(),
-        body: Operations.AdminUsersUnsupportedVersionsExport.Input.Body,
+        body: Operations.AdminUsersUnsupportedVersionsExport.Input.Body
     ) async throws -> Operations.AdminUsersUnsupportedVersionsExport.Output {
         try await adminUsersUnsupportedVersionsExport(Operations.AdminUsersUnsupportedVersionsExport.Input(
             headers: headers,
@@ -2365,7 +2365,7 @@ extension APIProtocol {
     #if WebAPI_Apps
     public func appsConnectionsOpen(
         headers: Operations.AppsConnectionsOpen.Input.Headers = .init(),
-        body: Operations.AppsConnectionsOpen.Input.Body? = nil,
+        body: Operations.AppsConnectionsOpen.Input.Body? = nil
     ) async throws -> Operations.AppsConnectionsOpen.Output {
         try await appsConnectionsOpen(Operations.AppsConnectionsOpen.Input(
             headers: headers,
@@ -2379,7 +2379,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//apps.event.authorizations.list/post(appsEventAuthorizationsList)`.
     public func appsEventAuthorizationsList(
         headers: Operations.AppsEventAuthorizationsList.Input.Headers = .init(),
-        body: Operations.AppsEventAuthorizationsList.Input.Body,
+        body: Operations.AppsEventAuthorizationsList.Input.Body
     ) async throws -> Operations.AppsEventAuthorizationsList.Output {
         try await appsEventAuthorizationsList(Operations.AppsEventAuthorizationsList.Input(
             headers: headers,
@@ -2393,7 +2393,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//apps.manifest.create/post(appsManifestCreate)`.
     public func appsManifestCreate(
         headers: Operations.AppsManifestCreate.Input.Headers = .init(),
-        body: Operations.AppsManifestCreate.Input.Body,
+        body: Operations.AppsManifestCreate.Input.Body
     ) async throws -> Operations.AppsManifestCreate.Output {
         try await appsManifestCreate(Operations.AppsManifestCreate.Input(
             headers: headers,
@@ -2407,7 +2407,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//apps.manifest.delete/post(appsManifestDelete)`.
     public func appsManifestDelete(
         headers: Operations.AppsManifestDelete.Input.Headers = .init(),
-        body: Operations.AppsManifestDelete.Input.Body,
+        body: Operations.AppsManifestDelete.Input.Body
     ) async throws -> Operations.AppsManifestDelete.Output {
         try await appsManifestDelete(Operations.AppsManifestDelete.Input(
             headers: headers,
@@ -2421,7 +2421,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//apps.manifest.export/post(appsManifestExport)`.
     public func appsManifestExport(
         headers: Operations.AppsManifestExport.Input.Headers = .init(),
-        body: Operations.AppsManifestExport.Input.Body,
+        body: Operations.AppsManifestExport.Input.Body
     ) async throws -> Operations.AppsManifestExport.Output {
         try await appsManifestExport(Operations.AppsManifestExport.Input(
             headers: headers,
@@ -2435,7 +2435,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//apps.manifest.update/post(appsManifestUpdate)`.
     public func appsManifestUpdate(
         headers: Operations.AppsManifestUpdate.Input.Headers = .init(),
-        body: Operations.AppsManifestUpdate.Input.Body,
+        body: Operations.AppsManifestUpdate.Input.Body
     ) async throws -> Operations.AppsManifestUpdate.Output {
         try await appsManifestUpdate(Operations.AppsManifestUpdate.Input(
             headers: headers,
@@ -2449,7 +2449,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//apps.manifest.validate/post(appsManifestValidate)`.
     public func appsManifestValidate(
         headers: Operations.AppsManifestValidate.Input.Headers = .init(),
-        body: Operations.AppsManifestValidate.Input.Body,
+        body: Operations.AppsManifestValidate.Input.Body
     ) async throws -> Operations.AppsManifestValidate.Output {
         try await appsManifestValidate(Operations.AppsManifestValidate.Input(
             headers: headers,
@@ -2463,7 +2463,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//apps.uninstall/post(appsUninstall)`.
     public func appsUninstall(
         headers: Operations.AppsUninstall.Input.Headers = .init(),
-        body: Operations.AppsUninstall.Input.Body,
+        body: Operations.AppsUninstall.Input.Body
     ) async throws -> Operations.AppsUninstall.Output {
         try await appsUninstall(Operations.AppsUninstall.Input(
             headers: headers,
@@ -2478,7 +2478,7 @@ extension APIProtocol {
     #if WebAPI_Assistant
     public func assistantThreadsSetStatus(
         headers: Operations.AssistantThreadsSetStatus.Input.Headers = .init(),
-        body: Operations.AssistantThreadsSetStatus.Input.Body,
+        body: Operations.AssistantThreadsSetStatus.Input.Body
     ) async throws -> Operations.AssistantThreadsSetStatus.Output {
         try await assistantThreadsSetStatus(Operations.AssistantThreadsSetStatus.Input(
             headers: headers,
@@ -2492,7 +2492,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//assistant.threads.setSuggestedPrompts/post(assistantThreadsSetSuggestedPrompts)`.
     public func assistantThreadsSetSuggestedPrompts(
         headers: Operations.AssistantThreadsSetSuggestedPrompts.Input.Headers = .init(),
-        body: Operations.AssistantThreadsSetSuggestedPrompts.Input.Body,
+        body: Operations.AssistantThreadsSetSuggestedPrompts.Input.Body
     ) async throws -> Operations.AssistantThreadsSetSuggestedPrompts.Output {
         try await assistantThreadsSetSuggestedPrompts(Operations.AssistantThreadsSetSuggestedPrompts.Input(
             headers: headers,
@@ -2506,7 +2506,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//assistant.threads.setTitle/post(assistantThreadsSetTitle)`.
     public func assistantThreadsSetTitle(
         headers: Operations.AssistantThreadsSetTitle.Input.Headers = .init(),
-        body: Operations.AssistantThreadsSetTitle.Input.Body,
+        body: Operations.AssistantThreadsSetTitle.Input.Body
     ) async throws -> Operations.AssistantThreadsSetTitle.Output {
         try await assistantThreadsSetTitle(Operations.AssistantThreadsSetTitle.Input(
             headers: headers,
@@ -2521,7 +2521,7 @@ extension APIProtocol {
     #if WebAPI_Auth
     public func authRevoke(
         headers: Operations.AuthRevoke.Input.Headers = .init(),
-        body: Operations.AuthRevoke.Input.Body,
+        body: Operations.AuthRevoke.Input.Body
     ) async throws -> Operations.AuthRevoke.Output {
         try await authRevoke(Operations.AuthRevoke.Input(
             headers: headers,
@@ -2535,7 +2535,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//auth.teams.list/post(authTeamsList)`.
     public func authTeamsList(
         headers: Operations.AuthTeamsList.Input.Headers = .init(),
-        body: Operations.AuthTeamsList.Input.Body,
+        body: Operations.AuthTeamsList.Input.Body
     ) async throws -> Operations.AuthTeamsList.Output {
         try await authTeamsList(Operations.AuthTeamsList.Input(
             headers: headers,
@@ -2549,7 +2549,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//auth.test/post(authTest)`.
     public func authTest(
         headers: Operations.AuthTest.Input.Headers = .init(),
-        body: Operations.AuthTest.Input.Body? = nil,
+        body: Operations.AuthTest.Input.Body? = nil
     ) async throws -> Operations.AuthTest.Output {
         try await authTest(Operations.AuthTest.Input(
             headers: headers,
@@ -2564,7 +2564,7 @@ extension APIProtocol {
     #if WebAPI_Bookmarks
     public func bookmarksAdd(
         headers: Operations.BookmarksAdd.Input.Headers = .init(),
-        body: Operations.BookmarksAdd.Input.Body,
+        body: Operations.BookmarksAdd.Input.Body
     ) async throws -> Operations.BookmarksAdd.Output {
         try await bookmarksAdd(Operations.BookmarksAdd.Input(
             headers: headers,
@@ -2578,7 +2578,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//bookmarks.edit/post(bookmarksEdit)`.
     public func bookmarksEdit(
         headers: Operations.BookmarksEdit.Input.Headers = .init(),
-        body: Operations.BookmarksEdit.Input.Body,
+        body: Operations.BookmarksEdit.Input.Body
     ) async throws -> Operations.BookmarksEdit.Output {
         try await bookmarksEdit(Operations.BookmarksEdit.Input(
             headers: headers,
@@ -2592,7 +2592,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//bookmarks.list/post(bookmarksList)`.
     public func bookmarksList(
         headers: Operations.BookmarksList.Input.Headers = .init(),
-        body: Operations.BookmarksList.Input.Body,
+        body: Operations.BookmarksList.Input.Body
     ) async throws -> Operations.BookmarksList.Output {
         try await bookmarksList(Operations.BookmarksList.Input(
             headers: headers,
@@ -2606,7 +2606,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//bookmarks.remove/post(bookmarksRemove)`.
     public func bookmarksRemove(
         headers: Operations.BookmarksRemove.Input.Headers = .init(),
-        body: Operations.BookmarksRemove.Input.Body,
+        body: Operations.BookmarksRemove.Input.Body
     ) async throws -> Operations.BookmarksRemove.Output {
         try await bookmarksRemove(Operations.BookmarksRemove.Input(
             headers: headers,
@@ -2621,7 +2621,7 @@ extension APIProtocol {
     #if WebAPI_Bots
     public func botsInfo(
         headers: Operations.BotsInfo.Input.Headers = .init(),
-        body: Operations.BotsInfo.Input.Body,
+        body: Operations.BotsInfo.Input.Body
     ) async throws -> Operations.BotsInfo.Output {
         try await botsInfo(Operations.BotsInfo.Input(
             headers: headers,
@@ -2636,7 +2636,7 @@ extension APIProtocol {
     #if WebAPI_Canvases
     public func canvasesAccessDelete(
         headers: Operations.CanvasesAccessDelete.Input.Headers = .init(),
-        body: Operations.CanvasesAccessDelete.Input.Body,
+        body: Operations.CanvasesAccessDelete.Input.Body
     ) async throws -> Operations.CanvasesAccessDelete.Output {
         try await canvasesAccessDelete(Operations.CanvasesAccessDelete.Input(
             headers: headers,
@@ -2650,7 +2650,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//canvases.access.set/post(canvasesAccessSet)`.
     public func canvasesAccessSet(
         headers: Operations.CanvasesAccessSet.Input.Headers = .init(),
-        body: Operations.CanvasesAccessSet.Input.Body,
+        body: Operations.CanvasesAccessSet.Input.Body
     ) async throws -> Operations.CanvasesAccessSet.Output {
         try await canvasesAccessSet(Operations.CanvasesAccessSet.Input(
             headers: headers,
@@ -2664,7 +2664,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//canvases.create/post(canvasesCreate)`.
     public func canvasesCreate(
         headers: Operations.CanvasesCreate.Input.Headers = .init(),
-        body: Operations.CanvasesCreate.Input.Body,
+        body: Operations.CanvasesCreate.Input.Body
     ) async throws -> Operations.CanvasesCreate.Output {
         try await canvasesCreate(Operations.CanvasesCreate.Input(
             headers: headers,
@@ -2678,7 +2678,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//canvases.delete/post(canvasesDelete)`.
     public func canvasesDelete(
         headers: Operations.CanvasesDelete.Input.Headers = .init(),
-        body: Operations.CanvasesDelete.Input.Body,
+        body: Operations.CanvasesDelete.Input.Body
     ) async throws -> Operations.CanvasesDelete.Output {
         try await canvasesDelete(Operations.CanvasesDelete.Input(
             headers: headers,
@@ -2692,7 +2692,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//canvases.edit/post(canvasesEdit)`.
     public func canvasesEdit(
         headers: Operations.CanvasesEdit.Input.Headers = .init(),
-        body: Operations.CanvasesEdit.Input.Body,
+        body: Operations.CanvasesEdit.Input.Body
     ) async throws -> Operations.CanvasesEdit.Output {
         try await canvasesEdit(Operations.CanvasesEdit.Input(
             headers: headers,
@@ -2706,7 +2706,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//canvases.sections.lookup/post(canvasesSectionsLookup)`.
     public func canvasesSectionsLookup(
         headers: Operations.CanvasesSectionsLookup.Input.Headers = .init(),
-        body: Operations.CanvasesSectionsLookup.Input.Body,
+        body: Operations.CanvasesSectionsLookup.Input.Body
     ) async throws -> Operations.CanvasesSectionsLookup.Output {
         try await canvasesSectionsLookup(Operations.CanvasesSectionsLookup.Input(
             headers: headers,
@@ -2721,7 +2721,7 @@ extension APIProtocol {
     #if WebAPI_Chat
     public func chatDelete(
         headers: Operations.ChatDelete.Input.Headers = .init(),
-        body: Operations.ChatDelete.Input.Body,
+        body: Operations.ChatDelete.Input.Body
     ) async throws -> Operations.ChatDelete.Output {
         try await chatDelete(Operations.ChatDelete.Input(
             headers: headers,
@@ -2735,7 +2735,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//chat.deleteScheduledMessage/post(chatDeleteScheduledMessage)`.
     public func chatDeleteScheduledMessage(
         headers: Operations.ChatDeleteScheduledMessage.Input.Headers = .init(),
-        body: Operations.ChatDeleteScheduledMessage.Input.Body,
+        body: Operations.ChatDeleteScheduledMessage.Input.Body
     ) async throws -> Operations.ChatDeleteScheduledMessage.Output {
         try await chatDeleteScheduledMessage(Operations.ChatDeleteScheduledMessage.Input(
             headers: headers,
@@ -2749,7 +2749,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//chat.getPermalink/post(chatGetPermalink)`.
     public func chatGetPermalink(
         headers: Operations.ChatGetPermalink.Input.Headers = .init(),
-        body: Operations.ChatGetPermalink.Input.Body,
+        body: Operations.ChatGetPermalink.Input.Body
     ) async throws -> Operations.ChatGetPermalink.Output {
         try await chatGetPermalink(Operations.ChatGetPermalink.Input(
             headers: headers,
@@ -2763,7 +2763,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//chat.meMessage/post(chatMeMessage)`.
     public func chatMeMessage(
         headers: Operations.ChatMeMessage.Input.Headers = .init(),
-        body: Operations.ChatMeMessage.Input.Body,
+        body: Operations.ChatMeMessage.Input.Body
     ) async throws -> Operations.ChatMeMessage.Output {
         try await chatMeMessage(Operations.ChatMeMessage.Input(
             headers: headers,
@@ -2777,7 +2777,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
     public func chatPostEphemeral(
         headers: Operations.ChatPostEphemeral.Input.Headers = .init(),
-        body: Operations.ChatPostEphemeral.Input.Body,
+        body: Operations.ChatPostEphemeral.Input.Body
     ) async throws -> Operations.ChatPostEphemeral.Output {
         try await chatPostEphemeral(Operations.ChatPostEphemeral.Input(
             headers: headers,
@@ -2791,7 +2791,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//chat.postMessage/post(chatPostMessage)`.
     public func chatPostMessage(
         headers: Operations.ChatPostMessage.Input.Headers = .init(),
-        body: Operations.ChatPostMessage.Input.Body,
+        body: Operations.ChatPostMessage.Input.Body
     ) async throws -> Operations.ChatPostMessage.Output {
         try await chatPostMessage(Operations.ChatPostMessage.Input(
             headers: headers,
@@ -2805,7 +2805,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//chat.scheduleMessage/post(chatScheduleMessage)`.
     public func chatScheduleMessage(
         headers: Operations.ChatScheduleMessage.Input.Headers = .init(),
-        body: Operations.ChatScheduleMessage.Input.Body,
+        body: Operations.ChatScheduleMessage.Input.Body
     ) async throws -> Operations.ChatScheduleMessage.Output {
         try await chatScheduleMessage(Operations.ChatScheduleMessage.Input(
             headers: headers,
@@ -2819,7 +2819,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//chat.scheduledMessages.list/post(chatScheduledMessagesList)`.
     public func chatScheduledMessagesList(
         headers: Operations.ChatScheduledMessagesList.Input.Headers = .init(),
-        body: Operations.ChatScheduledMessagesList.Input.Body,
+        body: Operations.ChatScheduledMessagesList.Input.Body
     ) async throws -> Operations.ChatScheduledMessagesList.Output {
         try await chatScheduledMessagesList(Operations.ChatScheduledMessagesList.Input(
             headers: headers,
@@ -2833,7 +2833,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//chat.unfurl/post(chatUnfurl)`.
     public func chatUnfurl(
         headers: Operations.ChatUnfurl.Input.Headers = .init(),
-        body: Operations.ChatUnfurl.Input.Body,
+        body: Operations.ChatUnfurl.Input.Body
     ) async throws -> Operations.ChatUnfurl.Output {
         try await chatUnfurl(Operations.ChatUnfurl.Input(
             headers: headers,
@@ -2847,7 +2847,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//chat.update/post(chatUpdate)`.
     public func chatUpdate(
         headers: Operations.ChatUpdate.Input.Headers = .init(),
-        body: Operations.ChatUpdate.Input.Body,
+        body: Operations.ChatUpdate.Input.Body
     ) async throws -> Operations.ChatUpdate.Output {
         try await chatUpdate(Operations.ChatUpdate.Input(
             headers: headers,
@@ -2862,7 +2862,7 @@ extension APIProtocol {
     #if WebAPI_Conversations
     public func conversationsAcceptSharedInvite(
         headers: Operations.ConversationsAcceptSharedInvite.Input.Headers = .init(),
-        body: Operations.ConversationsAcceptSharedInvite.Input.Body,
+        body: Operations.ConversationsAcceptSharedInvite.Input.Body
     ) async throws -> Operations.ConversationsAcceptSharedInvite.Output {
         try await conversationsAcceptSharedInvite(Operations.ConversationsAcceptSharedInvite.Input(
             headers: headers,
@@ -2876,7 +2876,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.approveSharedInvite/post(conversationsApproveSharedInvite)`.
     public func conversationsApproveSharedInvite(
         headers: Operations.ConversationsApproveSharedInvite.Input.Headers = .init(),
-        body: Operations.ConversationsApproveSharedInvite.Input.Body,
+        body: Operations.ConversationsApproveSharedInvite.Input.Body
     ) async throws -> Operations.ConversationsApproveSharedInvite.Output {
         try await conversationsApproveSharedInvite(Operations.ConversationsApproveSharedInvite.Input(
             headers: headers,
@@ -2890,7 +2890,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.archive/post(conversationsArchive)`.
     public func conversationsArchive(
         headers: Operations.ConversationsArchive.Input.Headers = .init(),
-        body: Operations.ConversationsArchive.Input.Body,
+        body: Operations.ConversationsArchive.Input.Body
     ) async throws -> Operations.ConversationsArchive.Output {
         try await conversationsArchive(Operations.ConversationsArchive.Input(
             headers: headers,
@@ -2904,7 +2904,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.canvases.create/post(conversationsCanvasesCreate)`.
     public func conversationsCanvasesCreate(
         headers: Operations.ConversationsCanvasesCreate.Input.Headers = .init(),
-        body: Operations.ConversationsCanvasesCreate.Input.Body,
+        body: Operations.ConversationsCanvasesCreate.Input.Body
     ) async throws -> Operations.ConversationsCanvasesCreate.Output {
         try await conversationsCanvasesCreate(Operations.ConversationsCanvasesCreate.Input(
             headers: headers,
@@ -2918,7 +2918,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.close/post(conversationsClose)`.
     public func conversationsClose(
         headers: Operations.ConversationsClose.Input.Headers = .init(),
-        body: Operations.ConversationsClose.Input.Body,
+        body: Operations.ConversationsClose.Input.Body
     ) async throws -> Operations.ConversationsClose.Output {
         try await conversationsClose(Operations.ConversationsClose.Input(
             headers: headers,
@@ -2932,7 +2932,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.create/post(conversationsCreate)`.
     public func conversationsCreate(
         headers: Operations.ConversationsCreate.Input.Headers = .init(),
-        body: Operations.ConversationsCreate.Input.Body,
+        body: Operations.ConversationsCreate.Input.Body
     ) async throws -> Operations.ConversationsCreate.Output {
         try await conversationsCreate(Operations.ConversationsCreate.Input(
             headers: headers,
@@ -2946,7 +2946,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.declineSharedInvite/post(conversationsDeclineSharedInvite)`.
     public func conversationsDeclineSharedInvite(
         headers: Operations.ConversationsDeclineSharedInvite.Input.Headers = .init(),
-        body: Operations.ConversationsDeclineSharedInvite.Input.Body,
+        body: Operations.ConversationsDeclineSharedInvite.Input.Body
     ) async throws -> Operations.ConversationsDeclineSharedInvite.Output {
         try await conversationsDeclineSharedInvite(Operations.ConversationsDeclineSharedInvite.Input(
             headers: headers,
@@ -2960,7 +2960,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.externalInvitePermissions.set/post(conversationsExternalInvitePermissionsSet)`.
     public func conversationsExternalInvitePermissionsSet(
         headers: Operations.ConversationsExternalInvitePermissionsSet.Input.Headers = .init(),
-        body: Operations.ConversationsExternalInvitePermissionsSet.Input.Body,
+        body: Operations.ConversationsExternalInvitePermissionsSet.Input.Body
     ) async throws -> Operations.ConversationsExternalInvitePermissionsSet.Output {
         try await conversationsExternalInvitePermissionsSet(Operations.ConversationsExternalInvitePermissionsSet.Input(
             headers: headers,
@@ -2974,7 +2974,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.history/post(conversationsHistory)`.
     public func conversationsHistory(
         headers: Operations.ConversationsHistory.Input.Headers = .init(),
-        body: Operations.ConversationsHistory.Input.Body,
+        body: Operations.ConversationsHistory.Input.Body
     ) async throws -> Operations.ConversationsHistory.Output {
         try await conversationsHistory(Operations.ConversationsHistory.Input(
             headers: headers,
@@ -2988,7 +2988,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.info/post(conversationsInfo)`.
     public func conversationsInfo(
         headers: Operations.ConversationsInfo.Input.Headers = .init(),
-        body: Operations.ConversationsInfo.Input.Body,
+        body: Operations.ConversationsInfo.Input.Body
     ) async throws -> Operations.ConversationsInfo.Output {
         try await conversationsInfo(Operations.ConversationsInfo.Input(
             headers: headers,
@@ -3002,7 +3002,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.invite/post(conversationsInvite)`.
     public func conversationsInvite(
         headers: Operations.ConversationsInvite.Input.Headers = .init(),
-        body: Operations.ConversationsInvite.Input.Body,
+        body: Operations.ConversationsInvite.Input.Body
     ) async throws -> Operations.ConversationsInvite.Output {
         try await conversationsInvite(Operations.ConversationsInvite.Input(
             headers: headers,
@@ -3016,7 +3016,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.inviteShared/post(conversationsInviteShared)`.
     public func conversationsInviteShared(
         headers: Operations.ConversationsInviteShared.Input.Headers = .init(),
-        body: Operations.ConversationsInviteShared.Input.Body,
+        body: Operations.ConversationsInviteShared.Input.Body
     ) async throws -> Operations.ConversationsInviteShared.Output {
         try await conversationsInviteShared(Operations.ConversationsInviteShared.Input(
             headers: headers,
@@ -3030,7 +3030,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.join/post(conversationsJoin)`.
     public func conversationsJoin(
         headers: Operations.ConversationsJoin.Input.Headers = .init(),
-        body: Operations.ConversationsJoin.Input.Body,
+        body: Operations.ConversationsJoin.Input.Body
     ) async throws -> Operations.ConversationsJoin.Output {
         try await conversationsJoin(Operations.ConversationsJoin.Input(
             headers: headers,
@@ -3044,7 +3044,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.kick/post(conversationsKick)`.
     public func conversationsKick(
         headers: Operations.ConversationsKick.Input.Headers = .init(),
-        body: Operations.ConversationsKick.Input.Body,
+        body: Operations.ConversationsKick.Input.Body
     ) async throws -> Operations.ConversationsKick.Output {
         try await conversationsKick(Operations.ConversationsKick.Input(
             headers: headers,
@@ -3058,7 +3058,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.leave/post(conversationsLeave)`.
     public func conversationsLeave(
         headers: Operations.ConversationsLeave.Input.Headers = .init(),
-        body: Operations.ConversationsLeave.Input.Body,
+        body: Operations.ConversationsLeave.Input.Body
     ) async throws -> Operations.ConversationsLeave.Output {
         try await conversationsLeave(Operations.ConversationsLeave.Input(
             headers: headers,
@@ -3072,7 +3072,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.list/post(conversationsList)`.
     public func conversationsList(
         headers: Operations.ConversationsList.Input.Headers = .init(),
-        body: Operations.ConversationsList.Input.Body,
+        body: Operations.ConversationsList.Input.Body
     ) async throws -> Operations.ConversationsList.Output {
         try await conversationsList(Operations.ConversationsList.Input(
             headers: headers,
@@ -3086,7 +3086,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.listConnectInvites/post(conversationsListConnectInvites)`.
     public func conversationsListConnectInvites(
         headers: Operations.ConversationsListConnectInvites.Input.Headers = .init(),
-        body: Operations.ConversationsListConnectInvites.Input.Body,
+        body: Operations.ConversationsListConnectInvites.Input.Body
     ) async throws -> Operations.ConversationsListConnectInvites.Output {
         try await conversationsListConnectInvites(Operations.ConversationsListConnectInvites.Input(
             headers: headers,
@@ -3100,7 +3100,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.mark/post(conversationsMark)`.
     public func conversationsMark(
         headers: Operations.ConversationsMark.Input.Headers = .init(),
-        body: Operations.ConversationsMark.Input.Body,
+        body: Operations.ConversationsMark.Input.Body
     ) async throws -> Operations.ConversationsMark.Output {
         try await conversationsMark(Operations.ConversationsMark.Input(
             headers: headers,
@@ -3114,7 +3114,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.members/post(conversationsMembers)`.
     public func conversationsMembers(
         headers: Operations.ConversationsMembers.Input.Headers = .init(),
-        body: Operations.ConversationsMembers.Input.Body,
+        body: Operations.ConversationsMembers.Input.Body
     ) async throws -> Operations.ConversationsMembers.Output {
         try await conversationsMembers(Operations.ConversationsMembers.Input(
             headers: headers,
@@ -3128,7 +3128,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.open/post(conversationsOpen)`.
     public func conversationsOpen(
         headers: Operations.ConversationsOpen.Input.Headers = .init(),
-        body: Operations.ConversationsOpen.Input.Body,
+        body: Operations.ConversationsOpen.Input.Body
     ) async throws -> Operations.ConversationsOpen.Output {
         try await conversationsOpen(Operations.ConversationsOpen.Input(
             headers: headers,
@@ -3142,7 +3142,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.rename/post(conversationsRename)`.
     public func conversationsRename(
         headers: Operations.ConversationsRename.Input.Headers = .init(),
-        body: Operations.ConversationsRename.Input.Body,
+        body: Operations.ConversationsRename.Input.Body
     ) async throws -> Operations.ConversationsRename.Output {
         try await conversationsRename(Operations.ConversationsRename.Input(
             headers: headers,
@@ -3156,7 +3156,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.replies/post(conversationsReplies)`.
     public func conversationsReplies(
         headers: Operations.ConversationsReplies.Input.Headers = .init(),
-        body: Operations.ConversationsReplies.Input.Body,
+        body: Operations.ConversationsReplies.Input.Body
     ) async throws -> Operations.ConversationsReplies.Output {
         try await conversationsReplies(Operations.ConversationsReplies.Input(
             headers: headers,
@@ -3170,7 +3170,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.approve/post(conversationsRequestSharedInviteApprove)`.
     public func conversationsRequestSharedInviteApprove(
         headers: Operations.ConversationsRequestSharedInviteApprove.Input.Headers = .init(),
-        body: Operations.ConversationsRequestSharedInviteApprove.Input.Body,
+        body: Operations.ConversationsRequestSharedInviteApprove.Input.Body
     ) async throws -> Operations.ConversationsRequestSharedInviteApprove.Output {
         try await conversationsRequestSharedInviteApprove(Operations.ConversationsRequestSharedInviteApprove.Input(
             headers: headers,
@@ -3184,7 +3184,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.deny/post(conversationsRequestSharedInviteDeny)`.
     public func conversationsRequestSharedInviteDeny(
         headers: Operations.ConversationsRequestSharedInviteDeny.Input.Headers = .init(),
-        body: Operations.ConversationsRequestSharedInviteDeny.Input.Body,
+        body: Operations.ConversationsRequestSharedInviteDeny.Input.Body
     ) async throws -> Operations.ConversationsRequestSharedInviteDeny.Output {
         try await conversationsRequestSharedInviteDeny(Operations.ConversationsRequestSharedInviteDeny.Input(
             headers: headers,
@@ -3198,7 +3198,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.requestSharedInvite.list/post(conversationsRequestSharedInviteList)`.
     public func conversationsRequestSharedInviteList(
         headers: Operations.ConversationsRequestSharedInviteList.Input.Headers = .init(),
-        body: Operations.ConversationsRequestSharedInviteList.Input.Body,
+        body: Operations.ConversationsRequestSharedInviteList.Input.Body
     ) async throws -> Operations.ConversationsRequestSharedInviteList.Output {
         try await conversationsRequestSharedInviteList(Operations.ConversationsRequestSharedInviteList.Input(
             headers: headers,
@@ -3212,7 +3212,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.setPurpose/post(conversationsSetPurpose)`.
     public func conversationsSetPurpose(
         headers: Operations.ConversationsSetPurpose.Input.Headers = .init(),
-        body: Operations.ConversationsSetPurpose.Input.Body,
+        body: Operations.ConversationsSetPurpose.Input.Body
     ) async throws -> Operations.ConversationsSetPurpose.Output {
         try await conversationsSetPurpose(Operations.ConversationsSetPurpose.Input(
             headers: headers,
@@ -3226,7 +3226,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.setTopic/post(conversationsSetTopic)`.
     public func conversationsSetTopic(
         headers: Operations.ConversationsSetTopic.Input.Headers = .init(),
-        body: Operations.ConversationsSetTopic.Input.Body,
+        body: Operations.ConversationsSetTopic.Input.Body
     ) async throws -> Operations.ConversationsSetTopic.Output {
         try await conversationsSetTopic(Operations.ConversationsSetTopic.Input(
             headers: headers,
@@ -3240,7 +3240,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//conversations.unarchive/post(conversationsUnarchive)`.
     public func conversationsUnarchive(
         headers: Operations.ConversationsUnarchive.Input.Headers = .init(),
-        body: Operations.ConversationsUnarchive.Input.Body,
+        body: Operations.ConversationsUnarchive.Input.Body
     ) async throws -> Operations.ConversationsUnarchive.Output {
         try await conversationsUnarchive(Operations.ConversationsUnarchive.Input(
             headers: headers,
@@ -3255,7 +3255,7 @@ extension APIProtocol {
     #if WebAPI_DND
     public func dndEndDnd(
         headers: Operations.DndEndDnd.Input.Headers = .init(),
-        body: Operations.DndEndDnd.Input.Body? = nil,
+        body: Operations.DndEndDnd.Input.Body? = nil
     ) async throws -> Operations.DndEndDnd.Output {
         try await dndEndDnd(Operations.DndEndDnd.Input(
             headers: headers,
@@ -3269,7 +3269,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//dnd.endSnooze/post(dndEndSnooze)`.
     public func dndEndSnooze(
         headers: Operations.DndEndSnooze.Input.Headers = .init(),
-        body: Operations.DndEndSnooze.Input.Body? = nil,
+        body: Operations.DndEndSnooze.Input.Body? = nil
     ) async throws -> Operations.DndEndSnooze.Output {
         try await dndEndSnooze(Operations.DndEndSnooze.Input(
             headers: headers,
@@ -3283,7 +3283,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//dnd.info/post(dndInfo)`.
     public func dndInfo(
         headers: Operations.DndInfo.Input.Headers = .init(),
-        body: Operations.DndInfo.Input.Body,
+        body: Operations.DndInfo.Input.Body
     ) async throws -> Operations.DndInfo.Output {
         try await dndInfo(Operations.DndInfo.Input(
             headers: headers,
@@ -3297,7 +3297,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//dnd.setSnooze/post(dndSetSnooze)`.
     public func dndSetSnooze(
         headers: Operations.DndSetSnooze.Input.Headers = .init(),
-        body: Operations.DndSetSnooze.Input.Body,
+        body: Operations.DndSetSnooze.Input.Body
     ) async throws -> Operations.DndSetSnooze.Output {
         try await dndSetSnooze(Operations.DndSetSnooze.Input(
             headers: headers,
@@ -3311,7 +3311,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//dnd.teamInfo/post(dndTeamInfo)`.
     public func dndTeamInfo(
         headers: Operations.DndTeamInfo.Input.Headers = .init(),
-        body: Operations.DndTeamInfo.Input.Body,
+        body: Operations.DndTeamInfo.Input.Body
     ) async throws -> Operations.DndTeamInfo.Output {
         try await dndTeamInfo(Operations.DndTeamInfo.Input(
             headers: headers,
@@ -3326,7 +3326,7 @@ extension APIProtocol {
     #if WebAPI_Emoji
     public func emojiList(
         headers: Operations.EmojiList.Input.Headers = .init(),
-        body: Operations.EmojiList.Input.Body,
+        body: Operations.EmojiList.Input.Body
     ) async throws -> Operations.EmojiList.Output {
         try await emojiList(Operations.EmojiList.Input(
             headers: headers,
@@ -3341,7 +3341,7 @@ extension APIProtocol {
     #if WebAPI_Files
     public func filesCompleteUploadExternal(
         headers: Operations.FilesCompleteUploadExternal.Input.Headers = .init(),
-        body: Operations.FilesCompleteUploadExternal.Input.Body,
+        body: Operations.FilesCompleteUploadExternal.Input.Body
     ) async throws -> Operations.FilesCompleteUploadExternal.Output {
         try await filesCompleteUploadExternal(Operations.FilesCompleteUploadExternal.Input(
             headers: headers,
@@ -3355,7 +3355,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.delete/post(filesDelete)`.
     public func filesDelete(
         headers: Operations.FilesDelete.Input.Headers = .init(),
-        body: Operations.FilesDelete.Input.Body,
+        body: Operations.FilesDelete.Input.Body
     ) async throws -> Operations.FilesDelete.Output {
         try await filesDelete(Operations.FilesDelete.Input(
             headers: headers,
@@ -3369,7 +3369,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.getUploadURLExternal/post(filesGetUploadURLExternal)`.
     public func filesGetUploadURLExternal(
         headers: Operations.FilesGetUploadURLExternal.Input.Headers = .init(),
-        body: Operations.FilesGetUploadURLExternal.Input.Body,
+        body: Operations.FilesGetUploadURLExternal.Input.Body
     ) async throws -> Operations.FilesGetUploadURLExternal.Output {
         try await filesGetUploadURLExternal(Operations.FilesGetUploadURLExternal.Input(
             headers: headers,
@@ -3383,7 +3383,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.info/post(filesInfo)`.
     public func filesInfo(
         headers: Operations.FilesInfo.Input.Headers = .init(),
-        body: Operations.FilesInfo.Input.Body,
+        body: Operations.FilesInfo.Input.Body
     ) async throws -> Operations.FilesInfo.Output {
         try await filesInfo(Operations.FilesInfo.Input(
             headers: headers,
@@ -3397,7 +3397,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.list/post(filesList)`.
     public func filesList(
         headers: Operations.FilesList.Input.Headers = .init(),
-        body: Operations.FilesList.Input.Body,
+        body: Operations.FilesList.Input.Body
     ) async throws -> Operations.FilesList.Output {
         try await filesList(Operations.FilesList.Input(
             headers: headers,
@@ -3411,7 +3411,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.remote.add/post(filesRemoteAdd)`.
     public func filesRemoteAdd(
         headers: Operations.FilesRemoteAdd.Input.Headers = .init(),
-        body: Operations.FilesRemoteAdd.Input.Body,
+        body: Operations.FilesRemoteAdd.Input.Body
     ) async throws -> Operations.FilesRemoteAdd.Output {
         try await filesRemoteAdd(Operations.FilesRemoteAdd.Input(
             headers: headers,
@@ -3425,7 +3425,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.remote.info/post(filesRemoteInfo)`.
     public func filesRemoteInfo(
         headers: Operations.FilesRemoteInfo.Input.Headers = .init(),
-        body: Operations.FilesRemoteInfo.Input.Body,
+        body: Operations.FilesRemoteInfo.Input.Body
     ) async throws -> Operations.FilesRemoteInfo.Output {
         try await filesRemoteInfo(Operations.FilesRemoteInfo.Input(
             headers: headers,
@@ -3439,7 +3439,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.remote.list/post(filesRemoteList)`.
     public func filesRemoteList(
         headers: Operations.FilesRemoteList.Input.Headers = .init(),
-        body: Operations.FilesRemoteList.Input.Body,
+        body: Operations.FilesRemoteList.Input.Body
     ) async throws -> Operations.FilesRemoteList.Output {
         try await filesRemoteList(Operations.FilesRemoteList.Input(
             headers: headers,
@@ -3453,7 +3453,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.remote.remove/post(filesRemoteRemove)`.
     public func filesRemoteRemove(
         headers: Operations.FilesRemoteRemove.Input.Headers = .init(),
-        body: Operations.FilesRemoteRemove.Input.Body,
+        body: Operations.FilesRemoteRemove.Input.Body
     ) async throws -> Operations.FilesRemoteRemove.Output {
         try await filesRemoteRemove(Operations.FilesRemoteRemove.Input(
             headers: headers,
@@ -3467,7 +3467,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.remote.share/post(filesRemoteShare)`.
     public func filesRemoteShare(
         headers: Operations.FilesRemoteShare.Input.Headers = .init(),
-        body: Operations.FilesRemoteShare.Input.Body,
+        body: Operations.FilesRemoteShare.Input.Body
     ) async throws -> Operations.FilesRemoteShare.Output {
         try await filesRemoteShare(Operations.FilesRemoteShare.Input(
             headers: headers,
@@ -3481,7 +3481,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.remote.update/post(filesRemoteUpdate)`.
     public func filesRemoteUpdate(
         headers: Operations.FilesRemoteUpdate.Input.Headers = .init(),
-        body: Operations.FilesRemoteUpdate.Input.Body,
+        body: Operations.FilesRemoteUpdate.Input.Body
     ) async throws -> Operations.FilesRemoteUpdate.Output {
         try await filesRemoteUpdate(Operations.FilesRemoteUpdate.Input(
             headers: headers,
@@ -3495,7 +3495,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.revokePublicURL/post(filesRevokePublicURL)`.
     public func filesRevokePublicURL(
         headers: Operations.FilesRevokePublicURL.Input.Headers = .init(),
-        body: Operations.FilesRevokePublicURL.Input.Body,
+        body: Operations.FilesRevokePublicURL.Input.Body
     ) async throws -> Operations.FilesRevokePublicURL.Output {
         try await filesRevokePublicURL(Operations.FilesRevokePublicURL.Input(
             headers: headers,
@@ -3509,7 +3509,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.sharedPublicURL/post(filesSharedPublicURL)`.
     public func filesSharedPublicURL(
         headers: Operations.FilesSharedPublicURL.Input.Headers = .init(),
-        body: Operations.FilesSharedPublicURL.Input.Body,
+        body: Operations.FilesSharedPublicURL.Input.Body
     ) async throws -> Operations.FilesSharedPublicURL.Output {
         try await filesSharedPublicURL(Operations.FilesSharedPublicURL.Input(
             headers: headers,
@@ -3523,7 +3523,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//files.upload/post(filesUpload)`.
     public func filesUpload(
         headers: Operations.FilesUpload.Input.Headers = .init(),
-        body: Operations.FilesUpload.Input.Body,
+        body: Operations.FilesUpload.Input.Body
     ) async throws -> Operations.FilesUpload.Output {
         try await filesUpload(Operations.FilesUpload.Input(
             headers: headers,
@@ -3538,7 +3538,7 @@ extension APIProtocol {
     #if WebAPI_Functions
     public func functionsCompleteError(
         headers: Operations.FunctionsCompleteError.Input.Headers = .init(),
-        body: Operations.FunctionsCompleteError.Input.Body,
+        body: Operations.FunctionsCompleteError.Input.Body
     ) async throws -> Operations.FunctionsCompleteError.Output {
         try await functionsCompleteError(Operations.FunctionsCompleteError.Input(
             headers: headers,
@@ -3552,7 +3552,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//functions.completeSuccess/post(functionsCompleteSuccess)`.
     public func functionsCompleteSuccess(
         headers: Operations.FunctionsCompleteSuccess.Input.Headers = .init(),
-        body: Operations.FunctionsCompleteSuccess.Input.Body,
+        body: Operations.FunctionsCompleteSuccess.Input.Body
     ) async throws -> Operations.FunctionsCompleteSuccess.Output {
         try await functionsCompleteSuccess(Operations.FunctionsCompleteSuccess.Input(
             headers: headers,
@@ -3567,7 +3567,7 @@ extension APIProtocol {
     #if WebAPI_Migration
     public func migrationExchange(
         headers: Operations.MigrationExchange.Input.Headers = .init(),
-        body: Operations.MigrationExchange.Input.Body,
+        body: Operations.MigrationExchange.Input.Body
     ) async throws -> Operations.MigrationExchange.Output {
         try await migrationExchange(Operations.MigrationExchange.Input(
             headers: headers,
@@ -3582,7 +3582,7 @@ extension APIProtocol {
     #if WebAPI_OAuth
     public func oauthV2Access(
         headers: Operations.OauthV2Access.Input.Headers = .init(),
-        body: Operations.OauthV2Access.Input.Body,
+        body: Operations.OauthV2Access.Input.Body
     ) async throws -> Operations.OauthV2Access.Output {
         try await oauthV2Access(Operations.OauthV2Access.Input(
             headers: headers,
@@ -3596,7 +3596,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//oauth.v2.exchange/post(oauthV2Exchange)`.
     public func oauthV2Exchange(
         headers: Operations.OauthV2Exchange.Input.Headers = .init(),
-        body: Operations.OauthV2Exchange.Input.Body,
+        body: Operations.OauthV2Exchange.Input.Body
     ) async throws -> Operations.OauthV2Exchange.Output {
         try await oauthV2Exchange(Operations.OauthV2Exchange.Input(
             headers: headers,
@@ -3611,7 +3611,7 @@ extension APIProtocol {
     #if WebAPI_OpenID
     public func openidConnectToken(
         headers: Operations.OpenidConnectToken.Input.Headers = .init(),
-        body: Operations.OpenidConnectToken.Input.Body,
+        body: Operations.OpenidConnectToken.Input.Body
     ) async throws -> Operations.OpenidConnectToken.Output {
         try await openidConnectToken(Operations.OpenidConnectToken.Input(
             headers: headers,
@@ -3625,7 +3625,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//openid.connect.userInfo/post(openidConnectUserInfo)`.
     public func openidConnectUserInfo(
         headers: Operations.OpenidConnectUserInfo.Input.Headers = .init(),
-        body: Operations.OpenidConnectUserInfo.Input.Body? = nil,
+        body: Operations.OpenidConnectUserInfo.Input.Body? = nil
     ) async throws -> Operations.OpenidConnectUserInfo.Output {
         try await openidConnectUserInfo(Operations.OpenidConnectUserInfo.Input(
             headers: headers,
@@ -3640,7 +3640,7 @@ extension APIProtocol {
     #if WebAPI_Pins
     public func pinsAdd(
         headers: Operations.PinsAdd.Input.Headers = .init(),
-        body: Operations.PinsAdd.Input.Body,
+        body: Operations.PinsAdd.Input.Body
     ) async throws -> Operations.PinsAdd.Output {
         try await pinsAdd(Operations.PinsAdd.Input(
             headers: headers,
@@ -3654,7 +3654,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//pins.list/post(pinsList)`.
     public func pinsList(
         headers: Operations.PinsList.Input.Headers = .init(),
-        body: Operations.PinsList.Input.Body,
+        body: Operations.PinsList.Input.Body
     ) async throws -> Operations.PinsList.Output {
         try await pinsList(Operations.PinsList.Input(
             headers: headers,
@@ -3668,7 +3668,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//pins.remove/post(pinsRemove)`.
     public func pinsRemove(
         headers: Operations.PinsRemove.Input.Headers = .init(),
-        body: Operations.PinsRemove.Input.Body,
+        body: Operations.PinsRemove.Input.Body
     ) async throws -> Operations.PinsRemove.Output {
         try await pinsRemove(Operations.PinsRemove.Input(
             headers: headers,
@@ -3683,7 +3683,7 @@ extension APIProtocol {
     #if WebAPI_Reactions
     public func reactionsAdd(
         headers: Operations.ReactionsAdd.Input.Headers = .init(),
-        body: Operations.ReactionsAdd.Input.Body,
+        body: Operations.ReactionsAdd.Input.Body
     ) async throws -> Operations.ReactionsAdd.Output {
         try await reactionsAdd(Operations.ReactionsAdd.Input(
             headers: headers,
@@ -3697,7 +3697,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//reactions.get/post(reactionsGet)`.
     public func reactionsGet(
         headers: Operations.ReactionsGet.Input.Headers = .init(),
-        body: Operations.ReactionsGet.Input.Body,
+        body: Operations.ReactionsGet.Input.Body
     ) async throws -> Operations.ReactionsGet.Output {
         try await reactionsGet(Operations.ReactionsGet.Input(
             headers: headers,
@@ -3711,7 +3711,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//reactions.list/post(reactionsList)`.
     public func reactionsList(
         headers: Operations.ReactionsList.Input.Headers = .init(),
-        body: Operations.ReactionsList.Input.Body,
+        body: Operations.ReactionsList.Input.Body
     ) async throws -> Operations.ReactionsList.Output {
         try await reactionsList(Operations.ReactionsList.Input(
             headers: headers,
@@ -3725,7 +3725,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//reactions.remove/post(reactionsRemove)`.
     public func reactionsRemove(
         headers: Operations.ReactionsRemove.Input.Headers = .init(),
-        body: Operations.ReactionsRemove.Input.Body,
+        body: Operations.ReactionsRemove.Input.Body
     ) async throws -> Operations.ReactionsRemove.Output {
         try await reactionsRemove(Operations.ReactionsRemove.Input(
             headers: headers,
@@ -3740,7 +3740,7 @@ extension APIProtocol {
     #if WebAPI_Reminders
     public func remindersAdd(
         headers: Operations.RemindersAdd.Input.Headers = .init(),
-        body: Operations.RemindersAdd.Input.Body,
+        body: Operations.RemindersAdd.Input.Body
     ) async throws -> Operations.RemindersAdd.Output {
         try await remindersAdd(Operations.RemindersAdd.Input(
             headers: headers,
@@ -3754,7 +3754,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//reminders.complete/post(remindersComplete)`.
     public func remindersComplete(
         headers: Operations.RemindersComplete.Input.Headers = .init(),
-        body: Operations.RemindersComplete.Input.Body,
+        body: Operations.RemindersComplete.Input.Body
     ) async throws -> Operations.RemindersComplete.Output {
         try await remindersComplete(Operations.RemindersComplete.Input(
             headers: headers,
@@ -3768,7 +3768,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//reminders.delete/post(remindersDelete)`.
     public func remindersDelete(
         headers: Operations.RemindersDelete.Input.Headers = .init(),
-        body: Operations.RemindersDelete.Input.Body,
+        body: Operations.RemindersDelete.Input.Body
     ) async throws -> Operations.RemindersDelete.Output {
         try await remindersDelete(Operations.RemindersDelete.Input(
             headers: headers,
@@ -3782,7 +3782,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//reminders.info/post(remindersInfo)`.
     public func remindersInfo(
         headers: Operations.RemindersInfo.Input.Headers = .init(),
-        body: Operations.RemindersInfo.Input.Body,
+        body: Operations.RemindersInfo.Input.Body
     ) async throws -> Operations.RemindersInfo.Output {
         try await remindersInfo(Operations.RemindersInfo.Input(
             headers: headers,
@@ -3796,7 +3796,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//reminders.list/post(remindersList)`.
     public func remindersList(
         headers: Operations.RemindersList.Input.Headers = .init(),
-        body: Operations.RemindersList.Input.Body,
+        body: Operations.RemindersList.Input.Body
     ) async throws -> Operations.RemindersList.Output {
         try await remindersList(Operations.RemindersList.Input(
             headers: headers,
@@ -3811,7 +3811,7 @@ extension APIProtocol {
     #if WebAPI_Search
     public func searchAll(
         headers: Operations.SearchAll.Input.Headers = .init(),
-        body: Operations.SearchAll.Input.Body,
+        body: Operations.SearchAll.Input.Body
     ) async throws -> Operations.SearchAll.Output {
         try await searchAll(Operations.SearchAll.Input(
             headers: headers,
@@ -3825,7 +3825,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//search.files/post(searchFiles)`.
     public func searchFiles(
         headers: Operations.SearchFiles.Input.Headers = .init(),
-        body: Operations.SearchFiles.Input.Body,
+        body: Operations.SearchFiles.Input.Body
     ) async throws -> Operations.SearchFiles.Output {
         try await searchFiles(Operations.SearchFiles.Input(
             headers: headers,
@@ -3839,7 +3839,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//search.messages/post(searchMessages)`.
     public func searchMessages(
         headers: Operations.SearchMessages.Input.Headers = .init(),
-        body: Operations.SearchMessages.Input.Body,
+        body: Operations.SearchMessages.Input.Body
     ) async throws -> Operations.SearchMessages.Output {
         try await searchMessages(Operations.SearchMessages.Input(
             headers: headers,
@@ -3854,7 +3854,7 @@ extension APIProtocol {
     #if WebAPI_Stars
     public func starsAdd(
         headers: Operations.StarsAdd.Input.Headers = .init(),
-        body: Operations.StarsAdd.Input.Body,
+        body: Operations.StarsAdd.Input.Body
     ) async throws -> Operations.StarsAdd.Output {
         try await starsAdd(Operations.StarsAdd.Input(
             headers: headers,
@@ -3868,7 +3868,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//stars.list/post(starsList)`.
     public func starsList(
         headers: Operations.StarsList.Input.Headers = .init(),
-        body: Operations.StarsList.Input.Body,
+        body: Operations.StarsList.Input.Body
     ) async throws -> Operations.StarsList.Output {
         try await starsList(Operations.StarsList.Input(
             headers: headers,
@@ -3882,7 +3882,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//stars.remove/post(starsRemove)`.
     public func starsRemove(
         headers: Operations.StarsRemove.Input.Headers = .init(),
-        body: Operations.StarsRemove.Input.Body,
+        body: Operations.StarsRemove.Input.Body
     ) async throws -> Operations.StarsRemove.Output {
         try await starsRemove(Operations.StarsRemove.Input(
             headers: headers,
@@ -3897,7 +3897,7 @@ extension APIProtocol {
     #if WebAPI_Team
     public func teamAccessLogs(
         headers: Operations.TeamAccessLogs.Input.Headers = .init(),
-        body: Operations.TeamAccessLogs.Input.Body,
+        body: Operations.TeamAccessLogs.Input.Body
     ) async throws -> Operations.TeamAccessLogs.Output {
         try await teamAccessLogs(Operations.TeamAccessLogs.Input(
             headers: headers,
@@ -3911,7 +3911,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//team.billableInfo/post(teamBillableInfo)`.
     public func teamBillableInfo(
         headers: Operations.TeamBillableInfo.Input.Headers = .init(),
-        body: Operations.TeamBillableInfo.Input.Body,
+        body: Operations.TeamBillableInfo.Input.Body
     ) async throws -> Operations.TeamBillableInfo.Output {
         try await teamBillableInfo(Operations.TeamBillableInfo.Input(
             headers: headers,
@@ -3925,7 +3925,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//team.billing.info/post(teamBillingInfo)`.
     public func teamBillingInfo(
         headers: Operations.TeamBillingInfo.Input.Headers = .init(),
-        body: Operations.TeamBillingInfo.Input.Body? = nil,
+        body: Operations.TeamBillingInfo.Input.Body? = nil
     ) async throws -> Operations.TeamBillingInfo.Output {
         try await teamBillingInfo(Operations.TeamBillingInfo.Input(
             headers: headers,
@@ -3939,7 +3939,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//team.externalTeams.disconnect/post(teamExternalTeamsDisconnect)`.
     public func teamExternalTeamsDisconnect(
         headers: Operations.TeamExternalTeamsDisconnect.Input.Headers = .init(),
-        body: Operations.TeamExternalTeamsDisconnect.Input.Body,
+        body: Operations.TeamExternalTeamsDisconnect.Input.Body
     ) async throws -> Operations.TeamExternalTeamsDisconnect.Output {
         try await teamExternalTeamsDisconnect(Operations.TeamExternalTeamsDisconnect.Input(
             headers: headers,
@@ -3953,7 +3953,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//team.externalTeams.list/post(teamExternalTeamsList)`.
     public func teamExternalTeamsList(
         headers: Operations.TeamExternalTeamsList.Input.Headers = .init(),
-        body: Operations.TeamExternalTeamsList.Input.Body,
+        body: Operations.TeamExternalTeamsList.Input.Body
     ) async throws -> Operations.TeamExternalTeamsList.Output {
         try await teamExternalTeamsList(Operations.TeamExternalTeamsList.Input(
             headers: headers,
@@ -3967,7 +3967,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//team.info/post(teamInfo)`.
     public func teamInfo(
         headers: Operations.TeamInfo.Input.Headers = .init(),
-        body: Operations.TeamInfo.Input.Body,
+        body: Operations.TeamInfo.Input.Body
     ) async throws -> Operations.TeamInfo.Output {
         try await teamInfo(Operations.TeamInfo.Input(
             headers: headers,
@@ -3981,7 +3981,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//team.integrationLogs/post(teamIntegrationLogs)`.
     public func teamIntegrationLogs(
         headers: Operations.TeamIntegrationLogs.Input.Headers = .init(),
-        body: Operations.TeamIntegrationLogs.Input.Body,
+        body: Operations.TeamIntegrationLogs.Input.Body
     ) async throws -> Operations.TeamIntegrationLogs.Output {
         try await teamIntegrationLogs(Operations.TeamIntegrationLogs.Input(
             headers: headers,
@@ -3995,7 +3995,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//team.preferences.list/post(teamPreferencesList)`.
     public func teamPreferencesList(
         headers: Operations.TeamPreferencesList.Input.Headers = .init(),
-        body: Operations.TeamPreferencesList.Input.Body? = nil,
+        body: Operations.TeamPreferencesList.Input.Body? = nil
     ) async throws -> Operations.TeamPreferencesList.Output {
         try await teamPreferencesList(Operations.TeamPreferencesList.Input(
             headers: headers,
@@ -4009,7 +4009,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//team.profile.get/post(teamProfileGet)`.
     public func teamProfileGet(
         headers: Operations.TeamProfileGet.Input.Headers = .init(),
-        body: Operations.TeamProfileGet.Input.Body,
+        body: Operations.TeamProfileGet.Input.Body
     ) async throws -> Operations.TeamProfileGet.Output {
         try await teamProfileGet(Operations.TeamProfileGet.Input(
             headers: headers,
@@ -4024,7 +4024,7 @@ extension APIProtocol {
     #if WebAPI_Tooling
     public func toolingTokensRotate(
         headers: Operations.ToolingTokensRotate.Input.Headers = .init(),
-        body: Operations.ToolingTokensRotate.Input.Body,
+        body: Operations.ToolingTokensRotate.Input.Body
     ) async throws -> Operations.ToolingTokensRotate.Output {
         try await toolingTokensRotate(Operations.ToolingTokensRotate.Input(
             headers: headers,
@@ -4039,7 +4039,7 @@ extension APIProtocol {
     #if WebAPI_Users
     public func usersConversations(
         headers: Operations.UsersConversations.Input.Headers = .init(),
-        body: Operations.UsersConversations.Input.Body,
+        body: Operations.UsersConversations.Input.Body
     ) async throws -> Operations.UsersConversations.Output {
         try await usersConversations(Operations.UsersConversations.Input(
             headers: headers,
@@ -4053,7 +4053,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.deletePhoto/post(usersDeletePhoto)`.
     public func usersDeletePhoto(
         headers: Operations.UsersDeletePhoto.Input.Headers = .init(),
-        body: Operations.UsersDeletePhoto.Input.Body? = nil,
+        body: Operations.UsersDeletePhoto.Input.Body? = nil
     ) async throws -> Operations.UsersDeletePhoto.Output {
         try await usersDeletePhoto(Operations.UsersDeletePhoto.Input(
             headers: headers,
@@ -4067,7 +4067,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.discoverableContacts.lookup/post(usersDiscoverableContactsLookup)`.
     public func usersDiscoverableContactsLookup(
         headers: Operations.UsersDiscoverableContactsLookup.Input.Headers = .init(),
-        body: Operations.UsersDiscoverableContactsLookup.Input.Body,
+        body: Operations.UsersDiscoverableContactsLookup.Input.Body
     ) async throws -> Operations.UsersDiscoverableContactsLookup.Output {
         try await usersDiscoverableContactsLookup(Operations.UsersDiscoverableContactsLookup.Input(
             headers: headers,
@@ -4081,7 +4081,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.getPresence/post(usersGetPresence)`.
     public func usersGetPresence(
         headers: Operations.UsersGetPresence.Input.Headers = .init(),
-        body: Operations.UsersGetPresence.Input.Body,
+        body: Operations.UsersGetPresence.Input.Body
     ) async throws -> Operations.UsersGetPresence.Output {
         try await usersGetPresence(Operations.UsersGetPresence.Input(
             headers: headers,
@@ -4095,7 +4095,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.identity/post(usersIdentity)`.
     public func usersIdentity(
         headers: Operations.UsersIdentity.Input.Headers = .init(),
-        body: Operations.UsersIdentity.Input.Body? = nil,
+        body: Operations.UsersIdentity.Input.Body? = nil
     ) async throws -> Operations.UsersIdentity.Output {
         try await usersIdentity(Operations.UsersIdentity.Input(
             headers: headers,
@@ -4109,7 +4109,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.info/post(usersInfo)`.
     public func usersInfo(
         headers: Operations.UsersInfo.Input.Headers = .init(),
-        body: Operations.UsersInfo.Input.Body,
+        body: Operations.UsersInfo.Input.Body
     ) async throws -> Operations.UsersInfo.Output {
         try await usersInfo(Operations.UsersInfo.Input(
             headers: headers,
@@ -4123,7 +4123,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.list/post(usersList)`.
     public func usersList(
         headers: Operations.UsersList.Input.Headers = .init(),
-        body: Operations.UsersList.Input.Body,
+        body: Operations.UsersList.Input.Body
     ) async throws -> Operations.UsersList.Output {
         try await usersList(Operations.UsersList.Input(
             headers: headers,
@@ -4137,7 +4137,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.lookupByEmail/post(usersLookupByEmail)`.
     public func usersLookupByEmail(
         headers: Operations.UsersLookupByEmail.Input.Headers = .init(),
-        body: Operations.UsersLookupByEmail.Input.Body,
+        body: Operations.UsersLookupByEmail.Input.Body
     ) async throws -> Operations.UsersLookupByEmail.Output {
         try await usersLookupByEmail(Operations.UsersLookupByEmail.Input(
             headers: headers,
@@ -4151,7 +4151,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.profile.get/post(usersProfileGet)`.
     public func usersProfileGet(
         headers: Operations.UsersProfileGet.Input.Headers = .init(),
-        body: Operations.UsersProfileGet.Input.Body,
+        body: Operations.UsersProfileGet.Input.Body
     ) async throws -> Operations.UsersProfileGet.Output {
         try await usersProfileGet(Operations.UsersProfileGet.Input(
             headers: headers,
@@ -4165,7 +4165,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.profile.set/post(usersProfileSet)`.
     public func usersProfileSet(
         headers: Operations.UsersProfileSet.Input.Headers = .init(),
-        body: Operations.UsersProfileSet.Input.Body,
+        body: Operations.UsersProfileSet.Input.Body
     ) async throws -> Operations.UsersProfileSet.Output {
         try await usersProfileSet(Operations.UsersProfileSet.Input(
             headers: headers,
@@ -4179,7 +4179,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.setActive/post(usersSetActive)`.
     public func usersSetActive(
         headers: Operations.UsersSetActive.Input.Headers = .init(),
-        body: Operations.UsersSetActive.Input.Body? = nil,
+        body: Operations.UsersSetActive.Input.Body? = nil
     ) async throws -> Operations.UsersSetActive.Output {
         try await usersSetActive(Operations.UsersSetActive.Input(
             headers: headers,
@@ -4193,7 +4193,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.setPhoto/post(usersSetPhoto)`.
     public func usersSetPhoto(
         headers: Operations.UsersSetPhoto.Input.Headers = .init(),
-        body: Operations.UsersSetPhoto.Input.Body,
+        body: Operations.UsersSetPhoto.Input.Body
     ) async throws -> Operations.UsersSetPhoto.Output {
         try await usersSetPhoto(Operations.UsersSetPhoto.Input(
             headers: headers,
@@ -4207,7 +4207,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//users.setPresence/post(usersSetPresence)`.
     public func usersSetPresence(
         headers: Operations.UsersSetPresence.Input.Headers = .init(),
-        body: Operations.UsersSetPresence.Input.Body,
+        body: Operations.UsersSetPresence.Input.Body
     ) async throws -> Operations.UsersSetPresence.Output {
         try await usersSetPresence(Operations.UsersSetPresence.Input(
             headers: headers,
@@ -4222,7 +4222,7 @@ extension APIProtocol {
     #if WebAPI_Views
     public func viewsOpen(
         headers: Operations.ViewsOpen.Input.Headers = .init(),
-        body: Operations.ViewsOpen.Input.Body,
+        body: Operations.ViewsOpen.Input.Body
     ) async throws -> Operations.ViewsOpen.Output {
         try await viewsOpen(Operations.ViewsOpen.Input(
             headers: headers,
@@ -4236,7 +4236,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
     public func viewsPublish(
         headers: Operations.ViewsPublish.Input.Headers = .init(),
-        body: Operations.ViewsPublish.Input.Body,
+        body: Operations.ViewsPublish.Input.Body
     ) async throws -> Operations.ViewsPublish.Output {
         try await viewsPublish(Operations.ViewsPublish.Input(
             headers: headers,
@@ -4250,7 +4250,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//views.push/post(viewsPush)`.
     public func viewsPush(
         headers: Operations.ViewsPush.Input.Headers = .init(),
-        body: Operations.ViewsPush.Input.Body,
+        body: Operations.ViewsPush.Input.Body
     ) async throws -> Operations.ViewsPush.Output {
         try await viewsPush(Operations.ViewsPush.Input(
             headers: headers,
@@ -4264,7 +4264,7 @@ extension APIProtocol {
     /// - Remark: Generated from `#/paths//views.update/post(viewsUpdate)`.
     public func viewsUpdate(
         headers: Operations.ViewsUpdate.Input.Headers = .init(),
-        body: Operations.ViewsUpdate.Input.Body,
+        body: Operations.ViewsUpdate.Input.Body
     ) async throws -> Operations.ViewsUpdate.Output {
         try await viewsUpdate(Operations.ViewsUpdate.Input(
             headers: headers,
