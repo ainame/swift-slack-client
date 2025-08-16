@@ -69,6 +69,10 @@ let package = Package(
                 ),
                 .target(name: "SlackBlockKit"),
                 .target(name: "SlackModels"),
+            ],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency"),
+                .unsafeFlags(["-Xfrontend", "-disable-availability-checking"], .when(configuration: .debug))
             ]
         ),
         .testTarget(
