@@ -17,3 +17,5 @@ openapi.json
 .env.*.local
 
 .swiftpm
+.mise.toml
+.serena
