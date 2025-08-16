@@ -20,6 +20,8 @@ jobs:
 
       - name: Setup Swiftly
         uses: vapor/swiftly-action@v0.2
+        with:
+          toolchain: latest
 
       - name: Cache SwiftFormat
         id: cache-swiftformat
