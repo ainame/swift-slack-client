@@ -658,7 +658,7 @@ public struct File: Codable, Hashable, Sendable {
         user: Swift.String? = nil,
         userTeam: Swift.String? = nil,
         username: Swift.String? = nil,
-        vtt: Swift.String? = nil
+        vtt: Swift.String? = nil,
     ) {
         self.access = access
         self.altTxt = altTxt

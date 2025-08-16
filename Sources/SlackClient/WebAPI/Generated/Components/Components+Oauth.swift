@@ -90,7 +90,7 @@ extension Components.Schemas {
             scope: Swift.String? = nil,
             team: SlackModels.Enterprise? = nil,
             tokenType: Swift.String? = nil,
-            warning: Swift.String? = nil
+            warning: Swift.String? = nil,
         ) {
             self.accessToken = accessToken
             self.appId = appId
@@ -209,7 +209,7 @@ extension Components.Schemas {
             scope: Swift.String? = nil,
             team: SlackModels.Enterprise? = nil,
             tokenType: Swift.String? = nil,
-            warning: Swift.String? = nil
+            warning: Swift.String? = nil,
         ) {
             self.accessToken = accessToken
             self.appId = appId

@@ -16,7 +16,7 @@ public struct WorkflowStep: Codable, Hashable, Sendable {
         workflowInstanceId: String? = nil,
         stepId: String? = nil,
         inputs: OpenAPIObjectContainer? = nil,
-        outputs: [WorkflowStepOutput]? = nil
+        outputs: [WorkflowStepOutput]? = nil,
     ) {
         self.workflowStepExecuteId = workflowStepExecuteId
         self.workflowId = workflowId

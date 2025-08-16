@@ -26,7 +26,7 @@ public struct CreationSource: Codable, Hashable, Sendable {
     public init(
         referenceId: Swift.String? = nil,
         _type: Swift.String,
-        workflowFunctionId: Swift.String? = nil
+        workflowFunctionId: Swift.String? = nil,
     ) {
         self.referenceId = referenceId
         self._type = _type

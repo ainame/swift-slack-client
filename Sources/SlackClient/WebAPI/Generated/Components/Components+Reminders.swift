@@ -46,7 +46,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             reminder: SlackModels.Reminder? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -87,7 +87,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -124,7 +124,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -165,7 +165,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            reminder: SlackModels.Reminder? = nil
+            reminder: SlackModels.Reminder? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -208,7 +208,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            reminders: [SlackModels.Reminder]? = nil
+            reminders: [SlackModels.Reminder]? = nil,
         ) {
             self.error = error
             self.needed = needed

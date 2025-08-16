@@ -26,7 +26,7 @@ public struct OauthConfig: Codable, Hashable, Sendable {
     public init(
         redirectUrls: [Swift.String]? = nil,
         scopes: Scopes? = nil,
-        tokenManagementEnabled: Swift.Bool? = nil
+        tokenManagementEnabled: Swift.Bool? = nil,
     ) {
         self.redirectUrls = redirectUrls
         self.scopes = scopes

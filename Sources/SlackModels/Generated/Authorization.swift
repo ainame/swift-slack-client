@@ -34,7 +34,7 @@ public struct Authorization: Codable, Hashable, Sendable {
         isBot: Swift.Bool? = nil,
         isEnterpriseInstall: Swift.Bool? = nil,
         teamId: Swift.String? = nil,
-        userId: Swift.String? = nil
+        userId: Swift.String? = nil,
     ) {
         self.enterpriseId = enterpriseId
         self.isBot = isBot

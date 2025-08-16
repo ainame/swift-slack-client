@@ -54,7 +54,7 @@ extension Operations {
                     public init(
                         canvasId: Swift.String,
                         channelIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
-                        userIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil
+                        userIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                     ) {
                         self.canvasId = canvasId
                         self.channelIds = channelIds
@@ -80,7 +80,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.CanvasesAccessDelete.Input.Headers = .init(),
-                body: Operations.CanvasesAccessDelete.Input.Body
+                body: Operations.CanvasesAccessDelete.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -224,7 +224,7 @@ extension Operations {
                         accessLevel: Swift.String,
                         canvasId: Swift.String,
                         channelIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
-                        userIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil
+                        userIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                     ) {
                         self.accessLevel = accessLevel
                         self.canvasId = canvasId
@@ -252,7 +252,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.CanvasesAccessSet.Input.Headers = .init(),
-                body: Operations.CanvasesAccessSet.Input.Body
+                body: Operations.CanvasesAccessSet.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -390,7 +390,7 @@ extension Operations {
                     public init(
                         channelId: Swift.String? = nil,
                         documentContent: Swift.String? = nil,
-                        title: Swift.String? = nil
+                        title: Swift.String? = nil,
                     ) {
                         self.channelId = channelId
                         self.documentContent = documentContent
@@ -416,7 +416,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.CanvasesCreate.Input.Headers = .init(),
-                body: Operations.CanvasesCreate.Input.Body
+                body: Operations.CanvasesCreate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -562,7 +562,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.CanvasesDelete.Input.Headers = .init(),
-                body: Operations.CanvasesDelete.Input.Body
+                body: Operations.CanvasesDelete.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -694,7 +694,7 @@ extension Operations {
                     ///   - changes: List of changes to apply on the specified canvas.
                     public init(
                         canvasId: Swift.String,
-                        changes: OpenAPIRuntime.OpenAPIArrayContainer
+                        changes: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
                         self.canvasId = canvasId
                         self.changes = changes
@@ -718,7 +718,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.CanvasesEdit.Input.Headers = .init(),
-                body: Operations.CanvasesEdit.Input.Body
+                body: Operations.CanvasesEdit.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -850,7 +850,7 @@ extension Operations {
                     ///   - criteria: Filtering criteria.
                     public init(
                         canvasId: Swift.String,
-                        criteria: Swift.String
+                        criteria: Swift.String,
                     ) {
                         self.canvasId = canvasId
                         self.criteria = criteria
@@ -874,7 +874,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.CanvasesSectionsLookup.Input.Headers = .init(),
-                body: Operations.CanvasesSectionsLookup.Input.Body
+                body: Operations.CanvasesSectionsLookup.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

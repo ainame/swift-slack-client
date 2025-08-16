@@ -84,7 +84,7 @@ extension Operations {
                         emoji: Swift.String? = nil,
                         entityId: Swift.String? = nil,
                         link: Swift.String? = nil,
-                        parentId: Swift.String? = nil
+                        parentId: Swift.String? = nil,
                     ) {
                         self.channelId = channelId
                         self.title = title
@@ -120,7 +120,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.BookmarksAdd.Input.Headers = .init(),
-                body: Operations.BookmarksAdd.Input.Body
+                body: Operations.BookmarksAdd.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -270,7 +270,7 @@ extension Operations {
                         channelId: Swift.String,
                         emoji: Swift.String? = nil,
                         link: Swift.String? = nil,
-                        title: Swift.String? = nil
+                        title: Swift.String? = nil,
                     ) {
                         self.bookmarkId = bookmarkId
                         self.channelId = channelId
@@ -300,7 +300,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.BookmarksEdit.Input.Headers = .init(),
-                body: Operations.BookmarksEdit.Input.Body
+                body: Operations.BookmarksEdit.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -446,7 +446,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.BookmarksList.Input.Headers = .init(),
-                body: Operations.BookmarksList.Input.Body
+                body: Operations.BookmarksList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -584,7 +584,7 @@ extension Operations {
                     public init(
                         bookmarkId: Swift.String,
                         channelId: Swift.String,
-                        quipSectionId: Swift.String? = nil
+                        quipSectionId: Swift.String? = nil,
                     ) {
                         self.bookmarkId = bookmarkId
                         self.channelId = channelId
@@ -610,7 +610,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.BookmarksRemove.Input.Headers = .init(),
-                body: Operations.BookmarksRemove.Input.Body
+                body: Operations.BookmarksRemove.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

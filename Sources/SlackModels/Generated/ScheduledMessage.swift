@@ -34,7 +34,7 @@ public struct ScheduledMessage: Codable, Hashable, Sendable {
         dateCreated: Swift.Int? = nil,
         id: Swift.String? = nil,
         postAt: Swift.Int? = nil,
-        text: Swift.String? = nil
+        text: Swift.String? = nil,
     ) {
         self.channelId = channelId
         self.dateCreated = dateCreated

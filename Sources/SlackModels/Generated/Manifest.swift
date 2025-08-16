@@ -38,7 +38,7 @@ public struct Manifest: Codable, Hashable, Sendable {
         features: Features? = nil,
         functions: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
         oauthConfig: OauthConfig? = nil,
-        settings: Settings? = nil
+        settings: Settings? = nil,
     ) {
         self._metadata = _metadata
         self.displayInformation = displayInformation

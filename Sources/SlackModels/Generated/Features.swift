@@ -34,7 +34,7 @@ public struct Features: Codable, Hashable, Sendable {
         botUser: BotUser? = nil,
         shortcuts: [Shortcut]? = nil,
         slashCommands: [SlashCommand]? = nil,
-        unfurlDomains: [Swift.String]? = nil
+        unfurlDomains: [Swift.String]? = nil,
     ) {
         self.appHome = appHome
         self.botUser = botUser

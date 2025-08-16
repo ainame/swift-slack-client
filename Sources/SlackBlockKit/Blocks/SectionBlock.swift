@@ -13,7 +13,7 @@ public struct SectionBlock: Codable, Hashable, Sendable {
         fields: [TextObject]? = nil,
         accessory: SectionAccessory? = nil,
         blockId: String? = nil,
-        expand: Bool? = nil
+        expand: Bool? = nil,
     ) {
         type = "section"
         self.text = text

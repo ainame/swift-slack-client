@@ -54,7 +54,7 @@ extension Operations {
                     public init(
                         channelId: Swift.String,
                         status: Swift.String,
-                        threadTs: Swift.String
+                        threadTs: Swift.String,
                     ) {
                         self.channelId = channelId
                         self.status = status
@@ -80,7 +80,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AssistantThreadsSetStatus.Input.Headers = .init(),
-                body: Operations.AssistantThreadsSetStatus.Input.Body
+                body: Operations.AssistantThreadsSetStatus.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -224,7 +224,7 @@ extension Operations {
                         channelId: Swift.String,
                         prompts: Swift.String,
                         threadTs: Swift.String,
-                        title: Swift.String? = nil
+                        title: Swift.String? = nil,
                     ) {
                         self.channelId = channelId
                         self.prompts = prompts
@@ -252,7 +252,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AssistantThreadsSetSuggestedPrompts.Input.Headers = .init(),
-                body: Operations.AssistantThreadsSetSuggestedPrompts.Input.Body
+                body: Operations.AssistantThreadsSetSuggestedPrompts.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -390,7 +390,7 @@ extension Operations {
                     public init(
                         channelId: Swift.String,
                         threadTs: Swift.String,
-                        title: Swift.String
+                        title: Swift.String,
                     ) {
                         self.channelId = channelId
                         self.threadTs = threadTs
@@ -416,7 +416,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AssistantThreadsSetTitle.Input.Headers = .init(),
-                body: Operations.AssistantThreadsSetTitle.Input.Body
+                body: Operations.AssistantThreadsSetTitle.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

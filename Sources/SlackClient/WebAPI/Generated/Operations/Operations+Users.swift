@@ -76,7 +76,7 @@ extension Operations {
                         limit: Swift.Double? = nil,
                         teamId: Swift.String? = nil,
                         types: Swift.String? = nil,
-                        user: Swift.String? = nil
+                        user: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.excludeArchived = excludeArchived
@@ -108,7 +108,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersConversations.Input.Headers = .init(),
-                body: Operations.UsersConversations.Input.Body
+                body: Operations.UsersConversations.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -244,7 +244,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersDeletePhoto.Input.Headers = .init(),
-                body: Operations.UsersDeletePhoto.Input.Body? = nil
+                body: Operations.UsersDeletePhoto.Input.Body? = nil,
             ) {
                 self.headers = headers
                 self.body = body
@@ -390,7 +390,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersDiscoverableContactsLookup.Input.Headers = .init(),
-                body: Operations.UsersDiscoverableContactsLookup.Input.Body
+                body: Operations.UsersDiscoverableContactsLookup.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -536,7 +536,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersGetPresence.Input.Headers = .init(),
-                body: Operations.UsersGetPresence.Input.Body
+                body: Operations.UsersGetPresence.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -672,7 +672,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersIdentity.Input.Headers = .init(),
-                body: Operations.UsersIdentity.Input.Body? = nil
+                body: Operations.UsersIdentity.Input.Body? = nil,
             ) {
                 self.headers = headers
                 self.body = body
@@ -804,7 +804,7 @@ extension Operations {
                     ///   - includeLocale: Set this to true to receive the locale for this user. Defaults to false.
                     public init(
                         user: Swift.String,
-                        includeLocale: Swift.Bool? = nil
+                        includeLocale: Swift.Bool? = nil,
                     ) {
                         self.user = user
                         self.includeLocale = includeLocale
@@ -828,7 +828,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersInfo.Input.Headers = .init(),
-                body: Operations.UsersInfo.Input.Body
+                body: Operations.UsersInfo.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -976,7 +976,7 @@ extension Operations {
                         cursor: Swift.String? = nil,
                         includeLocale: Swift.Bool? = nil,
                         limit: Swift.Double? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.includeLocale = includeLocale
@@ -1004,7 +1004,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersList.Input.Headers = .init(),
-                body: Operations.UsersList.Input.Body
+                body: Operations.UsersList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1150,7 +1150,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersLookupByEmail.Input.Headers = .init(),
-                body: Operations.UsersLookupByEmail.Input.Body
+                body: Operations.UsersLookupByEmail.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1282,7 +1282,7 @@ extension Operations {
                     ///   - user: User to retrieve profile info for.
                     public init(
                         includeLabels: Swift.Bool? = nil,
-                        user: Swift.String? = nil
+                        user: Swift.String? = nil,
                     ) {
                         self.includeLabels = includeLabels
                         self.user = user
@@ -1306,7 +1306,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersProfileGet.Input.Headers = .init(),
-                body: Operations.UsersProfileGet.Input.Body
+                body: Operations.UsersProfileGet.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1450,7 +1450,7 @@ extension Operations {
                         name: Swift.String? = nil,
                         profile: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
                         user: Swift.String? = nil,
-                        value: Swift.String? = nil
+                        value: Swift.String? = nil,
                     ) {
                         self.name = name
                         self.profile = profile
@@ -1478,7 +1478,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersProfileSet.Input.Headers = .init(),
-                body: Operations.UsersProfileSet.Input.Body
+                body: Operations.UsersProfileSet.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1614,7 +1614,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersSetActive.Input.Headers = .init(),
-                body: Operations.UsersSetActive.Input.Body? = nil
+                body: Operations.UsersSetActive.Input.Body? = nil,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1752,7 +1752,7 @@ extension Operations {
                     public init(
                         cropW: Swift.String? = nil,
                         cropX: Swift.String? = nil,
-                        cropY: Swift.String? = nil
+                        cropY: Swift.String? = nil,
                     ) {
                         self.cropW = cropW
                         self.cropX = cropX
@@ -1778,7 +1778,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersSetPhoto.Input.Headers = .init(),
-                body: Operations.UsersSetPhoto.Input.Body
+                body: Operations.UsersSetPhoto.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1924,7 +1924,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.UsersSetPresence.Input.Headers = .init(),
-                body: Operations.UsersSetPresence.Input.Body
+                body: Operations.UsersSetPresence.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

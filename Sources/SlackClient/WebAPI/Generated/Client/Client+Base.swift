@@ -26,7 +26,7 @@ struct Client: APIProtocol {
         serverURL: Foundation.URL,
         configuration: Configuration = .init(),
         transport: any ClientTransport,
-        middlewares: [any ClientMiddleware] = []
+        middlewares: [any ClientMiddleware] = [],
     ) {
         client = .init(
             serverURL: serverURL,

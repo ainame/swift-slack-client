@@ -26,7 +26,7 @@ public struct Review: Codable, Hashable, Sendable {
     public init(
         dateReview: Swift.Int? = nil,
         reviewingTeam: IngTeam? = nil,
-        _type: Swift.String
+        _type: Swift.String,
     ) {
         self.dateReview = dateReview
         self.reviewingTeam = reviewingTeam

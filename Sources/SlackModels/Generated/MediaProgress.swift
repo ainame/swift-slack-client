@@ -26,7 +26,7 @@ public struct MediaProgress: Codable, Hashable, Sendable {
     public init(
         durationMs: Swift.Int? = nil,
         maxOffsetMs: Swift.Int? = nil,
-        offsetMs: Swift.Int? = nil
+        offsetMs: Swift.Int? = nil,
     ) {
         self.durationMs = durationMs
         self.maxOffsetMs = maxOffsetMs

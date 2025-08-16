@@ -92,7 +92,7 @@ public struct RichTextList: Codable, Hashable, Sendable {
         elements: [RichTextSection],
         indent: Int? = nil,
         offset: Int? = nil,
-        border: Int? = nil
+        border: Int? = nil,
     ) {
         type = "rich_text_list"
         self.style = style
@@ -330,7 +330,7 @@ public struct RichTextUserStyle: Codable, Hashable, Sendable {
         strike: Bool? = nil,
         highlight: Bool? = nil,
         clientHighlight: Bool? = nil,
-        unlink: Bool? = nil
+        unlink: Bool? = nil,
     ) {
         self.bold = bold
         self.italic = italic

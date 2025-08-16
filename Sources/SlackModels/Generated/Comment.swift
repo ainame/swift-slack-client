@@ -50,7 +50,7 @@ public struct Comment: Codable, Hashable, Sendable {
         isStarred: Swift.Bool? = nil,
         numStars: Swift.Int? = nil,
         timestamp: Swift.Int? = nil,
-        user: Swift.String? = nil
+        user: Swift.String? = nil,
     ) {
         self.channel = channel
         self.comment = comment

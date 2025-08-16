@@ -34,7 +34,7 @@ public struct Tab: Codable, Hashable, Sendable {
         id: Swift.String? = nil,
         isDisabled: Swift.Bool? = nil,
         label: Swift.String? = nil,
-        _type: Swift.String
+        _type: Swift.String,
     ) {
         self.data = data
         self.id = id

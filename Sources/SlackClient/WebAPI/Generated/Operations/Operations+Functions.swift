@@ -48,7 +48,7 @@ extension Operations {
                     ///   - functionExecutionId: Context identifier that maps to the executed function.
                     public init(
                         error: Swift.String,
-                        functionExecutionId: Swift.String
+                        functionExecutionId: Swift.String,
                     ) {
                         self.error = error
                         self.functionExecutionId = functionExecutionId
@@ -72,7 +72,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FunctionsCompleteError.Input.Headers = .init(),
-                body: Operations.FunctionsCompleteError.Input.Body
+                body: Operations.FunctionsCompleteError.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -204,7 +204,7 @@ extension Operations {
                     ///   - outputs: A JSON-based object that conforms to the output parameters schema for the custom function defined in the manifest.
                     public init(
                         functionExecutionId: Swift.String,
-                        outputs: OpenAPIRuntime.OpenAPIObjectContainer
+                        outputs: OpenAPIRuntime.OpenAPIObjectContainer,
                     ) {
                         self.functionExecutionId = functionExecutionId
                         self.outputs = outputs
@@ -228,7 +228,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FunctionsCompleteSuccess.Input.Headers = .init(),
-                body: Operations.FunctionsCompleteSuccess.Input.Body
+                body: Operations.FunctionsCompleteSuccess.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

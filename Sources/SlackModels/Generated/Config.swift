@@ -26,7 +26,7 @@ public struct Config: Codable, Hashable, Sendable {
     public init(
         appId: Swift.String? = nil,
         domainRestrictions: DomainRestrictions? = nil,
-        workflowAuthStrategy: Swift.String? = nil
+        workflowAuthStrategy: Swift.String? = nil,
     ) {
         self.appId = appId
         self.domainRestrictions = domainRestrictions

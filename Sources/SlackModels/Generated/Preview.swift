@@ -34,7 +34,7 @@ public struct Preview: Codable, Hashable, Sendable {
         iconUrl: Swift.String? = nil,
         subtitle: Description? = nil,
         title: Description? = nil,
-        _type: Swift.String
+        _type: Swift.String,
     ) {
         self.canRemove = canRemove
         self.iconUrl = iconUrl

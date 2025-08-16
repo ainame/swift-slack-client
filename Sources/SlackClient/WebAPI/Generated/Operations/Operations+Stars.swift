@@ -60,7 +60,7 @@ extension Operations {
                         channel: Swift.String? = nil,
                         file: Swift.String? = nil,
                         fileComment: Swift.String? = nil,
-                        timestamp: Swift.String? = nil
+                        timestamp: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.file = file
@@ -88,7 +88,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.StarsAdd.Input.Headers = .init(),
-                body: Operations.StarsAdd.Input.Body
+                body: Operations.StarsAdd.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -228,7 +228,7 @@ extension Operations {
                     public init(
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.limit = limit
@@ -254,7 +254,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.StarsList.Input.Headers = .init(),
-                body: Operations.StarsList.Input.Body
+                body: Operations.StarsList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -398,7 +398,7 @@ extension Operations {
                         channel: Swift.String? = nil,
                         file: Swift.String? = nil,
                         fileComment: Swift.String? = nil,
-                        timestamp: Swift.String? = nil
+                        timestamp: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.file = file
@@ -426,7 +426,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.StarsRemove.Input.Headers = .init(),
-                body: Operations.StarsRemove.Input.Body
+                body: Operations.StarsRemove.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

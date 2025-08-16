@@ -22,7 +22,7 @@ public struct DeniedRequest: Codable, Hashable, Sendable {
     ///   - inviteRequest:
     public init(
         deniedBy: DeniedBy? = nil,
-        inviteRequest: InviteRequest? = nil
+        inviteRequest: InviteRequest? = nil,
     ) {
         self.deniedBy = deniedBy
         self.inviteRequest = inviteRequest

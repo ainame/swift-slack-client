@@ -22,7 +22,7 @@ public struct SelectedOptionElement: Codable, Hashable, Sendable {
     ///   - value:
     public init(
         text: Swift.String? = nil,
-        value: Swift.String? = nil
+        value: Swift.String? = nil,
     ) {
         self.text = text
         self.value = value

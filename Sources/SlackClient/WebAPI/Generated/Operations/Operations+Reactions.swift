@@ -54,7 +54,7 @@ extension Operations {
                     public init(
                         channel: Swift.String,
                         name: Swift.String,
-                        timestamp: Swift.String
+                        timestamp: Swift.String,
                     ) {
                         self.channel = channel
                         self.name = name
@@ -80,7 +80,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ReactionsAdd.Input.Headers = .init(),
-                body: Operations.ReactionsAdd.Input.Body
+                body: Operations.ReactionsAdd.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -230,7 +230,7 @@ extension Operations {
                         file: Swift.String? = nil,
                         fileComment: Swift.String? = nil,
                         full: Swift.Bool? = nil,
-                        timestamp: Swift.String? = nil
+                        timestamp: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.file = file
@@ -260,7 +260,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ReactionsGet.Input.Headers = .init(),
-                body: Operations.ReactionsGet.Input.Body
+                body: Operations.ReactionsGet.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -412,7 +412,7 @@ extension Operations {
                         full: Swift.Bool? = nil,
                         limit: Swift.Int? = nil,
                         teamId: Swift.String? = nil,
-                        user: Swift.String? = nil
+                        user: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.full = full
@@ -442,7 +442,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ReactionsList.Input.Headers = .init(),
-                body: Operations.ReactionsList.Input.Body
+                body: Operations.ReactionsList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -592,7 +592,7 @@ extension Operations {
                         channel: Swift.String? = nil,
                         file: Swift.String? = nil,
                         fileComment: Swift.String? = nil,
-                        timestamp: Swift.String? = nil
+                        timestamp: Swift.String? = nil,
                     ) {
                         self.name = name
                         self.channel = channel
@@ -622,7 +622,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ReactionsRemove.Input.Headers = .init(),
-                body: Operations.ReactionsRemove.Input.Body
+                body: Operations.ReactionsRemove.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

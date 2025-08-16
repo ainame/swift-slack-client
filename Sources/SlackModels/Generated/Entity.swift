@@ -26,7 +26,7 @@ public struct Entity: Codable, Hashable, Sendable {
     public init(
         dateAdded: Swift.Int? = nil,
         entityId: Swift.String? = nil,
-        entityType: Swift.String? = nil
+        entityType: Swift.String? = nil,
     ) {
         self.dateAdded = dateAdded
         self.entityId = entityId

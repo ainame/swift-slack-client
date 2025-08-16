@@ -66,7 +66,7 @@ public struct Action: Codable, Hashable, Sendable {
         text: Swift.String? = nil,
         _type: Swift.String,
         url: Swift.String? = nil,
-        value: Swift.String? = nil
+        value: Swift.String? = nil,
     ) {
         self.confirm = confirm
         self.dataSource = dataSource

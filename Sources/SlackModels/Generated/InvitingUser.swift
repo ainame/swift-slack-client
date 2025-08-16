@@ -38,7 +38,7 @@ public struct InvitingUser: Codable, Hashable, Sendable {
         profile: Profile? = nil,
         teamId: Swift.String? = nil,
         updated: Swift.Int? = nil,
-        whoCanShareContactCard: Swift.String? = nil
+        whoCanShareContactCard: Swift.String? = nil,
     ) {
         self.id = id
         self.name = name

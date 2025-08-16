@@ -42,7 +42,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.bot = bot
             self.error = error

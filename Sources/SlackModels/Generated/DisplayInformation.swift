@@ -30,7 +30,7 @@ public struct DisplayInformation: Codable, Hashable, Sendable {
         backgroundColor: Swift.String? = nil,
         description: Swift.String? = nil,
         longDescription: Swift.String? = nil,
-        name: Swift.String? = nil
+        name: Swift.String? = nil,
     ) {
         self.backgroundColor = backgroundColor
         self.description = description

@@ -22,7 +22,7 @@ public struct PreviousResolution: Codable, Hashable, Sendable {
     ///   - status:
     public init(
         scopes: [OpenAPIRuntime.OpenAPIValueContainer]? = nil,
-        status: Swift.String? = nil
+        status: Swift.String? = nil,
     ) {
         self.scopes = scopes
         self.status = status

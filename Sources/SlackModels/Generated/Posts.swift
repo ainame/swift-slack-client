@@ -22,7 +22,7 @@ public struct Posts: Codable, Hashable, Sendable {
     ///   - total:
     public init(
         matches: [Swift.String]? = nil,
-        total: Swift.Int? = nil
+        total: Swift.Int? = nil,
     ) {
         self.matches = matches
         self.total = total

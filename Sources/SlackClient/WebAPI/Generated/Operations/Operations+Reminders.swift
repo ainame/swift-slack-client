@@ -68,7 +68,7 @@ extension Operations {
                         time: Swift.String,
                         recurrence: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
                         teamId: Swift.String? = nil,
-                        user: Swift.String? = nil
+                        user: Swift.String? = nil,
                     ) {
                         self.text = text
                         self.time = time
@@ -98,7 +98,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.RemindersAdd.Input.Headers = .init(),
-                body: Operations.RemindersAdd.Input.Body
+                body: Operations.RemindersAdd.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -230,7 +230,7 @@ extension Operations {
                     ///   - teamId: Encoded team id, required if org token is used.
                     public init(
                         reminder: Swift.String,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.reminder = reminder
                         self.teamId = teamId
@@ -254,7 +254,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.RemindersComplete.Input.Headers = .init(),
-                body: Operations.RemindersComplete.Input.Body
+                body: Operations.RemindersComplete.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -386,7 +386,7 @@ extension Operations {
                     ///   - teamId: Encoded team id, required if org token is used.
                     public init(
                         reminder: Swift.String,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.reminder = reminder
                         self.teamId = teamId
@@ -410,7 +410,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.RemindersDelete.Input.Headers = .init(),
-                body: Operations.RemindersDelete.Input.Body
+                body: Operations.RemindersDelete.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -542,7 +542,7 @@ extension Operations {
                     ///   - teamId: Encoded team id, required if org token is passed.
                     public init(
                         reminder: Swift.String,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.reminder = reminder
                         self.teamId = teamId
@@ -566,7 +566,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.RemindersInfo.Input.Headers = .init(),
-                body: Operations.RemindersInfo.Input.Body
+                body: Operations.RemindersInfo.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -712,7 +712,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.RemindersList.Input.Headers = .init(),
-                body: Operations.RemindersList.Input.Body
+                body: Operations.RemindersList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

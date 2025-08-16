@@ -90,7 +90,7 @@ public struct Usergroup: Codable, Hashable, Sendable {
         prefs: Prefs? = nil,
         teamId: Swift.String? = nil,
         updatedBy: Swift.String? = nil,
-        users: [Swift.String]? = nil
+        users: [Swift.String]? = nil,
     ) {
         self.autoProvision = autoProvision
         self.channelCount = channelCount

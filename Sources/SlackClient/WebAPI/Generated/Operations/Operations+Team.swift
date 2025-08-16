@@ -64,7 +64,7 @@ extension Operations {
                         before: Swift.String? = nil,
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.before = before
                         self.cursor = cursor
@@ -92,7 +92,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.TeamAccessLogs.Input.Headers = .init(),
-                body: Operations.TeamAccessLogs.Input.Body
+                body: Operations.TeamAccessLogs.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -236,7 +236,7 @@ extension Operations {
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
                         teamId: Swift.String? = nil,
-                        user: Swift.String? = nil
+                        user: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.limit = limit
@@ -264,7 +264,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.TeamBillableInfo.Input.Headers = .init(),
-                body: Operations.TeamBillableInfo.Input.Body
+                body: Operations.TeamBillableInfo.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -400,7 +400,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.TeamBillingInfo.Input.Headers = .init(),
-                body: Operations.TeamBillingInfo.Input.Body? = nil
+                body: Operations.TeamBillingInfo.Input.Body? = nil,
             ) {
                 self.headers = headers
                 self.body = body
@@ -546,7 +546,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.TeamExternalTeamsDisconnect.Input.Headers = .init(),
-                body: Operations.TeamExternalTeamsDisconnect.Input.Body
+                body: Operations.TeamExternalTeamsDisconnect.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -712,7 +712,7 @@ extension Operations {
                         slackConnectPrefFilter: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         sortDirection: Swift.String? = nil,
                         sortField: Swift.String? = nil,
-                        workspaceFilter: OpenAPIRuntime.OpenAPIArrayContainer? = nil
+                        workspaceFilter: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                     ) {
                         self.connectionStatusFilter = connectionStatusFilter
                         self.cursor = cursor
@@ -746,7 +746,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.TeamExternalTeamsList.Input.Headers = .init(),
-                body: Operations.TeamExternalTeamsList.Input.Body
+                body: Operations.TeamExternalTeamsList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -882,7 +882,7 @@ extension Operations {
                     ///   - team: Team to get info about; if omitted, will return information about the current team.
                     public init(
                         domain: Swift.String? = nil,
-                        team: Swift.String? = nil
+                        team: Swift.String? = nil,
                     ) {
                         self.domain = domain
                         self.team = team
@@ -906,7 +906,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.TeamInfo.Input.Headers = .init(),
-                body: Operations.TeamInfo.Input.Body
+                body: Operations.TeamInfo.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1056,7 +1056,7 @@ extension Operations {
                         changeType: Swift.String? = nil,
                         serviceId: Swift.String? = nil,
                         teamId: Swift.String? = nil,
-                        user: Swift.String? = nil
+                        user: Swift.String? = nil,
                     ) {
                         self.appId = appId
                         self.changeType = changeType
@@ -1086,7 +1086,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.TeamIntegrationLogs.Input.Headers = .init(),
-                body: Operations.TeamIntegrationLogs.Input.Body
+                body: Operations.TeamIntegrationLogs.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1222,7 +1222,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.TeamPreferencesList.Input.Headers = .init(),
-                body: Operations.TeamPreferencesList.Input.Body? = nil
+                body: Operations.TeamPreferencesList.Input.Body? = nil,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1368,7 +1368,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.TeamProfileGet.Input.Headers = .init(),
-                body: Operations.TeamProfileGet.Input.Body
+                body: Operations.TeamProfileGet.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

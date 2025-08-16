@@ -46,7 +46,7 @@ public struct AcceptScInvites: Codable, Hashable, Sendable {
         invalidWorkspaceIds: [Swift.String]? = nil,
         source: Swift.String? = nil,
         _type: Swift.String,
-        useAllowedWorkspaces: Swift.Bool? = nil
+        useAllowedWorkspaces: Swift.Bool? = nil,
     ) {
         self.acceptInWorkspaceIds = acceptInWorkspaceIds
         self.acceptPrivate = acceptPrivate

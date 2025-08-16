@@ -22,7 +22,7 @@ public struct FailedUserIDS: Codable, Hashable, Sendable {
     ///   - u00000001:
     public init(
         u00000000: Swift.String? = nil,
-        u00000001: Swift.String? = nil
+        u00000001: Swift.String? = nil,
     ) {
         self.u00000000 = u00000000
         self.u00000001 = u00000001

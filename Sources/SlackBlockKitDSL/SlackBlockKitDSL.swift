@@ -146,7 +146,7 @@ public struct Input<Element: InputElementConvertible>: BlockComponent {
 
     public init(
         @InputElementBuilder element: () -> Element,
-        @TextBuilder label: () -> Text
+        @TextBuilder label: () -> Text,
     ) {
         self.element = element()
         self.label = label()
@@ -446,7 +446,7 @@ public struct ConfirmationDialog: CompositionObject {
         title: Text,
         text: Text,
         confirm: Text = Text("Confirm"),
-        deny: Text = Text("Cancel")
+        deny: Text = Text("Cancel"),
     ) {
         self.title = title
         self.text = text
@@ -1016,7 +1016,7 @@ public struct Modal: ViewConvertible {
 
     public init(
         title: Text,
-        @BlockBuilder blocks: () -> [Block]
+        @BlockBuilder blocks: () -> [Block],
     ) {
         self.title = title
         self.blocks = blocks()
@@ -1971,7 +1971,7 @@ public struct Video: BlockConvertible {
         videoUrl: URL,
         thumbnailUrl: URL,
         altText: String,
-        title: Text
+        title: Text,
     ) {
         self.videoUrl = videoUrl
         self.thumbnailUrl = thumbnailUrl
@@ -1983,7 +1983,7 @@ public struct Video: BlockConvertible {
         videoUrl: URL,
         thumbnailUrl: URL,
         altText: String,
-        title: String
+        title: String,
     ) {
         self.videoUrl = videoUrl
         self.thumbnailUrl = thumbnailUrl

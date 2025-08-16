@@ -42,7 +42,7 @@ public struct BotProfile: Codable, Hashable, Sendable {
         id: Swift.String? = nil,
         name: Swift.String? = nil,
         teamId: Swift.String? = nil,
-        updated: Swift.Int? = nil
+        updated: Swift.Int? = nil,
     ) {
         self.appId = appId
         self.deleted = deleted

@@ -23,7 +23,7 @@ public struct VideoBlock: Codable, Hashable, Sendable {
         providerName: String? = nil,
         providerIconUrl: URL? = nil,
         authorName: String? = nil,
-        blockId: String? = nil
+        blockId: String? = nil,
     ) {
         type = "video"
         self.altText = altText

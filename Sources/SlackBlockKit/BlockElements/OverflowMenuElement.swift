@@ -9,7 +9,7 @@ public struct OverflowMenuElement: Codable, Hashable, Sendable {
     public init(
         options: [OptionObject],
         actionId: String? = nil,
-        confirm: ConfirmationDialogObject? = nil
+        confirm: ConfirmationDialogObject? = nil,
     ) {
         type = "overflow"
         self.options = options

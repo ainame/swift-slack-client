@@ -46,7 +46,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.error = error
             self.files = files
@@ -87,7 +87,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -136,7 +136,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
-            uploadUrl: Swift.String? = nil
+            uploadUrl: Swift.String? = nil,
         ) {
             self.error = error
             self.fileId = fileId
@@ -211,7 +211,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             paging: SlackModels.Paging? = nil,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.comments = comments
             self.content = content
@@ -272,7 +272,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             paging: SlackModels.Paging? = nil,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.files = files
@@ -317,7 +317,7 @@ extension Components.Schemas {
             file: SlackModels.File? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.file = file
@@ -360,7 +360,7 @@ extension Components.Schemas {
             file: SlackModels.File? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.file = file
@@ -407,7 +407,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.error = error
             self.files = files
@@ -448,7 +448,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -489,7 +489,7 @@ extension Components.Schemas {
             file: SlackModels.File? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.file = file
@@ -532,7 +532,7 @@ extension Components.Schemas {
             file: SlackModels.File? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.file = file
@@ -575,7 +575,7 @@ extension Components.Schemas {
             file: SlackModels.File? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.file = file
@@ -618,7 +618,7 @@ extension Components.Schemas {
             file: SlackModels.File? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.file = file
@@ -661,7 +661,7 @@ extension Components.Schemas {
             file: SlackModels.File? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.file = file

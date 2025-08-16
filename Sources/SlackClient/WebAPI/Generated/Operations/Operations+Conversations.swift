@@ -74,7 +74,7 @@ extension Operations {
                         freeTrialAccepted: Swift.Bool? = nil,
                         inviteId: Swift.String? = nil,
                         isPrivate: Swift.Bool? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.channelName = channelName
                         self.channelId = channelId
@@ -106,7 +106,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsAcceptSharedInvite.Input.Headers = .init(),
-                body: Operations.ConversationsAcceptSharedInvite.Input.Body
+                body: Operations.ConversationsAcceptSharedInvite.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -238,7 +238,7 @@ extension Operations {
                     ///   - targetTeam: The team or enterprise id of the other party involved in the invitation you are approving.
                     public init(
                         inviteId: Swift.String,
-                        targetTeam: Swift.String? = nil
+                        targetTeam: Swift.String? = nil,
                     ) {
                         self.inviteId = inviteId
                         self.targetTeam = targetTeam
@@ -262,7 +262,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsApproveSharedInvite.Input.Headers = .init(),
-                body: Operations.ConversationsApproveSharedInvite.Input.Body
+                body: Operations.ConversationsApproveSharedInvite.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -408,7 +408,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsArchive.Input.Headers = .init(),
-                body: Operations.ConversationsArchive.Input.Body
+                body: Operations.ConversationsArchive.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -546,7 +546,7 @@ extension Operations {
                     public init(
                         channelId: Swift.String,
                         documentContent: Swift.String? = nil,
-                        title: Swift.String? = nil
+                        title: Swift.String? = nil,
                     ) {
                         self.channelId = channelId
                         self.documentContent = documentContent
@@ -572,7 +572,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsCanvasesCreate.Input.Headers = .init(),
-                body: Operations.ConversationsCanvasesCreate.Input.Body
+                body: Operations.ConversationsCanvasesCreate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -718,7 +718,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsClose.Input.Headers = .init(),
-                body: Operations.ConversationsClose.Input.Body
+                body: Operations.ConversationsClose.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -856,7 +856,7 @@ extension Operations {
                     public init(
                         name: Swift.String,
                         isPrivate: Swift.Bool? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.name = name
                         self.isPrivate = isPrivate
@@ -882,7 +882,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsCreate.Input.Headers = .init(),
-                body: Operations.ConversationsCreate.Input.Body
+                body: Operations.ConversationsCreate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1016,7 +1016,7 @@ extension Operations {
                     ///   - targetTeam: The team or enterprise id of the other party involved in the invitation you are declining.
                     public init(
                         inviteId: Swift.String,
-                        targetTeam: Swift.String? = nil
+                        targetTeam: Swift.String? = nil,
                     ) {
                         self.inviteId = inviteId
                         self.targetTeam = targetTeam
@@ -1040,7 +1040,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsDeclineSharedInvite.Input.Headers = .init(),
-                body: Operations.ConversationsDeclineSharedInvite.Input.Body
+                body: Operations.ConversationsDeclineSharedInvite.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1178,7 +1178,7 @@ extension Operations {
                     public init(
                         action: Swift.String,
                         channel: Swift.String,
-                        targetTeam: Swift.String
+                        targetTeam: Swift.String,
                     ) {
                         self.action = action
                         self.channel = channel
@@ -1204,7 +1204,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsExternalInvitePermissionsSet.Input.Headers = .init(),
-                body: Operations.ConversationsExternalInvitePermissionsSet.Input.Body
+                body: Operations.ConversationsExternalInvitePermissionsSet.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1370,7 +1370,7 @@ extension Operations {
                         inclusive: Swift.Bool? = nil,
                         latest: Swift.String? = nil,
                         limit: Swift.Double? = nil,
-                        oldest: Swift.String? = nil
+                        oldest: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.cursor = cursor
@@ -1404,7 +1404,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsHistory.Input.Headers = .init(),
-                body: Operations.ConversationsHistory.Input.Body
+                body: Operations.ConversationsHistory.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1542,7 +1542,7 @@ extension Operations {
                     public init(
                         channel: Swift.String,
                         includeLocale: Swift.Bool? = nil,
-                        includeNumMembers: Swift.Bool? = nil
+                        includeNumMembers: Swift.Bool? = nil,
                     ) {
                         self.channel = channel
                         self.includeLocale = includeLocale
@@ -1568,7 +1568,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsInfo.Input.Headers = .init(),
-                body: Operations.ConversationsInfo.Input.Body
+                body: Operations.ConversationsInfo.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1706,7 +1706,7 @@ extension Operations {
                     public init(
                         channel: Swift.String,
                         users: Swift.String,
-                        force: Swift.Bool? = nil
+                        force: Swift.Bool? = nil,
                     ) {
                         self.channel = channel
                         self.users = users
@@ -1732,7 +1732,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsInvite.Input.Headers = .init(),
-                body: Operations.ConversationsInvite.Input.Body
+                body: Operations.ConversationsInvite.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1876,7 +1876,7 @@ extension Operations {
                         channel: Swift.String,
                         emails: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         externalLimited: Swift.Bool? = nil,
-                        userIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil
+                        userIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                     ) {
                         self.channel = channel
                         self.emails = emails
@@ -1904,7 +1904,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsInviteShared.Input.Headers = .init(),
-                body: Operations.ConversationsInviteShared.Input.Body
+                body: Operations.ConversationsInviteShared.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2050,7 +2050,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsJoin.Input.Headers = .init(),
-                body: Operations.ConversationsJoin.Input.Body
+                body: Operations.ConversationsJoin.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2182,7 +2182,7 @@ extension Operations {
                     ///   - user: User ID to be removed.
                     public init(
                         channel: Swift.String,
-                        user: Swift.String? = nil
+                        user: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.user = user
@@ -2206,7 +2206,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsKick.Input.Headers = .init(),
-                body: Operations.ConversationsKick.Input.Body
+                body: Operations.ConversationsKick.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2352,7 +2352,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsLeave.Input.Headers = .init(),
-                body: Operations.ConversationsLeave.Input.Body
+                body: Operations.ConversationsLeave.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2505,7 +2505,7 @@ extension Operations {
                         excludeArchived: Swift.Bool? = nil,
                         limit: Swift.Double? = nil,
                         teamId: Swift.String? = nil,
-                        types: Swift.String? = nil
+                        types: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.excludeArchived = excludeArchived
@@ -2535,7 +2535,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsList.Input.Headers = .init(),
-                body: Operations.ConversationsList.Input.Body
+                body: Operations.ConversationsList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2667,7 +2667,7 @@ extension Operations {
                     ///   - teamId: Encoded team id for the workspace to retrieve invites for, required if org token is used.
                     public init(
                         cursor: Swift.String? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.teamId = teamId
@@ -2691,7 +2691,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsListConnectInvites.Input.Headers = .init(),
-                body: Operations.ConversationsListConnectInvites.Input.Body
+                body: Operations.ConversationsListConnectInvites.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2823,7 +2823,7 @@ extension Operations {
                     ///   - ts: Unique identifier of message you want marked as most recently seen in this conversation.
                     public init(
                         channel: Swift.String,
-                        ts: Swift.String
+                        ts: Swift.String,
                     ) {
                         self.channel = channel
                         self.ts = ts
@@ -2847,7 +2847,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsMark.Input.Headers = .init(),
-                body: Operations.ConversationsMark.Input.Body
+                body: Operations.ConversationsMark.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2987,7 +2987,7 @@ extension Operations {
                     public init(
                         channel: Swift.String,
                         cursor: Swift.String? = nil,
-                        limit: Swift.Double? = nil
+                        limit: Swift.Double? = nil,
                     ) {
                         self.channel = channel
                         self.cursor = cursor
@@ -3013,7 +3013,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsMembers.Input.Headers = .init(),
-                body: Operations.ConversationsMembers.Input.Body
+                body: Operations.ConversationsMembers.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -3159,7 +3159,7 @@ extension Operations {
                         channel: Swift.String? = nil,
                         preventCreation: Swift.Bool? = nil,
                         returnIm: Swift.Bool? = nil,
-                        users: Swift.String? = nil
+                        users: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.preventCreation = preventCreation
@@ -3187,7 +3187,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsOpen.Input.Headers = .init(),
-                body: Operations.ConversationsOpen.Input.Body
+                body: Operations.ConversationsOpen.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -3319,7 +3319,7 @@ extension Operations {
                     ///   - name: New name for conversation.
                     public init(
                         channel: Swift.String,
-                        name: Swift.String
+                        name: Swift.String,
                     ) {
                         self.channel = channel
                         self.name = name
@@ -3343,7 +3343,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsRename.Input.Headers = .init(),
-                body: Operations.ConversationsRename.Input.Body
+                body: Operations.ConversationsRename.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -3515,7 +3515,7 @@ extension Operations {
                         inclusive: Swift.Bool? = nil,
                         latest: Swift.String? = nil,
                         limit: Swift.Double? = nil,
-                        oldest: Swift.String? = nil
+                        oldest: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.ts = ts
@@ -3551,7 +3551,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsReplies.Input.Headers = .init(),
-                body: Operations.ConversationsReplies.Input.Body
+                body: Operations.ConversationsReplies.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -3699,7 +3699,7 @@ extension Operations {
                         inviteId: Swift.String,
                         channelId: Swift.String? = nil,
                         isExternalLimited: Swift.Bool? = nil,
-                        message: OpenAPIRuntime.OpenAPIObjectContainer? = nil
+                        message: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
                     ) {
                         self.inviteId = inviteId
                         self.channelId = channelId
@@ -3727,7 +3727,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsRequestSharedInviteApprove.Input.Headers = .init(),
-                body: Operations.ConversationsRequestSharedInviteApprove.Input.Body
+                body: Operations.ConversationsRequestSharedInviteApprove.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -3859,7 +3859,7 @@ extension Operations {
                     ///   - message: Optional message explaining why the request to invite was denied.
                     public init(
                         inviteId: Swift.String,
-                        message: Swift.String? = nil
+                        message: Swift.String? = nil,
                     ) {
                         self.inviteId = inviteId
                         self.message = message
@@ -3883,7 +3883,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsRequestSharedInviteDeny.Input.Headers = .init(),
-                body: Operations.ConversationsRequestSharedInviteDeny.Input.Body
+                body: Operations.ConversationsRequestSharedInviteDeny.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -4047,7 +4047,7 @@ extension Operations {
                         includeExpired: Swift.Bool? = nil,
                         inviteIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         limit: Swift.Int? = nil,
-                        userId: Swift.String? = nil
+                        userId: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.includeApproved = includeApproved
@@ -4081,7 +4081,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsRequestSharedInviteList.Input.Headers = .init(),
-                body: Operations.ConversationsRequestSharedInviteList.Input.Body
+                body: Operations.ConversationsRequestSharedInviteList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -4213,7 +4213,7 @@ extension Operations {
                     ///   - purpose: The description.
                     public init(
                         channel: Swift.String,
-                        purpose: Swift.String
+                        purpose: Swift.String,
                     ) {
                         self.channel = channel
                         self.purpose = purpose
@@ -4237,7 +4237,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsSetPurpose.Input.Headers = .init(),
-                body: Operations.ConversationsSetPurpose.Input.Body
+                body: Operations.ConversationsSetPurpose.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -4369,7 +4369,7 @@ extension Operations {
                     ///   - topic: The new topic string. Does not support formatting or linkification.
                     public init(
                         channel: Swift.String,
-                        topic: Swift.String
+                        topic: Swift.String,
                     ) {
                         self.channel = channel
                         self.topic = topic
@@ -4393,7 +4393,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsSetTopic.Input.Headers = .init(),
-                body: Operations.ConversationsSetTopic.Input.Body
+                body: Operations.ConversationsSetTopic.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -4539,7 +4539,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ConversationsUnarchive.Input.Headers = .init(),
-                body: Operations.ConversationsUnarchive.Input.Body
+                body: Operations.ConversationsUnarchive.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

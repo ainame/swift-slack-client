@@ -22,7 +22,7 @@ public struct OwnershipDetail: Codable, Hashable, Sendable {
     ///   - teamId:
     public init(
         count: Swift.Int? = nil,
-        teamId: Swift.String? = nil
+        teamId: Swift.String? = nil,
     ) {
         self.count = count
         self.teamId = teamId

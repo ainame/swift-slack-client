@@ -13,7 +13,7 @@ public struct TimePickerElement: Codable, Hashable, Sendable {
         initialTime: String? = nil,
         confirm: ConfirmationDialogObject? = nil,
         focusOnLoad: Bool? = nil,
-        placeholder: TextObject? = nil
+        placeholder: TextObject? = nil,
     ) {
         type = "timepicker"
         self.actionId = actionId

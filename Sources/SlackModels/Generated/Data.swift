@@ -22,7 +22,7 @@ public struct Data: Codable, Hashable, Sendable {
     ///   - sharedTs:
     public init(
         fileId: Swift.String? = nil,
-        sharedTs: Swift.String? = nil
+        sharedTs: Swift.String? = nil,
     ) {
         self.fileId = fileId
         self.sharedTs = sharedTs

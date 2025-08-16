@@ -17,7 +17,7 @@ public struct ButtonElement: Codable, Hashable, Sendable {
         value: String? = nil,
         style: ButtonStyle? = nil,
         confirm: ConfirmationDialogObject? = nil,
-        accessibilityLabel: String? = nil
+        accessibilityLabel: String? = nil,
     ) {
         type = "button"
         self.text = text

@@ -130,7 +130,7 @@ public struct Message: Codable, Hashable, Sendable {
         _type: Swift.String,
         upload: Swift.Bool? = nil,
         user: Swift.String? = nil,
-        username: Swift.String? = nil
+        username: Swift.String? = nil,
     ) {
         self.attachments = attachments
         self.blocks = blocks

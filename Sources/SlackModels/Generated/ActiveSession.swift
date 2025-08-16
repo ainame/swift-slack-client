@@ -34,7 +34,7 @@ public struct ActiveSession: Codable, Hashable, Sendable {
         recent: Created? = nil,
         sessionId: Swift.Int? = nil,
         teamId: Swift.String? = nil,
-        userId: Swift.String? = nil
+        userId: Swift.String? = nil,
     ) {
         self.created = created
         self.recent = recent

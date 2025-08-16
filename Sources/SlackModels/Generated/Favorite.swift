@@ -26,7 +26,7 @@ public struct Favorite: Codable, Hashable, Sendable {
     public init(
         collectionId: Swift.String? = nil,
         collectionName: Swift.String? = nil,
-        position: Swift.String? = nil
+        position: Swift.String? = nil,
     ) {
         self.collectionId = collectionId
         self.collectionName = collectionName

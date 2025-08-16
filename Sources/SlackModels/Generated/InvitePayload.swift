@@ -30,7 +30,7 @@ public struct InvitePayload: Codable, Hashable, Sendable {
         channel: Channel? = nil,
         inviteType: Swift.String? = nil,
         isExternalLimited: Swift.Bool? = nil,
-        isSponsored: Swift.Bool? = nil
+        isSponsored: Swift.Bool? = nil,
     ) {
         self.channel = channel
         self.inviteType = inviteType

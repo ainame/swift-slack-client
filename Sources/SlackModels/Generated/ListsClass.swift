@@ -22,7 +22,7 @@ public struct ListsClass: Codable, Hashable, Sendable {
     ///   - totalCount:
     public init(
         ownershipDetails: [OwnershipDetail]? = nil,
-        totalCount: Swift.Int? = nil
+        totalCount: Swift.Int? = nil,
     ) {
         self.ownershipDetails = ownershipDetails
         self.totalCount = totalCount

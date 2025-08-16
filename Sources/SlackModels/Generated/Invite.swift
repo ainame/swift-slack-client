@@ -38,7 +38,7 @@ public struct Invite: Codable, Hashable, Sendable {
         id: Swift.String? = nil,
         invitePreferences: InvitePreferences? = nil,
         inviterId: Swift.String? = nil,
-        isBouncing: Swift.Bool? = nil
+        isBouncing: Swift.Bool? = nil,
     ) {
         self.dateCreated = dateCreated
         self.email = email

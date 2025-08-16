@@ -54,7 +54,7 @@ extension Components.Schemas {
             inviteId: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.canOpenScdm = canOpenScdm
             self.channelId = channelId
@@ -99,7 +99,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -136,7 +136,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -185,7 +185,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.canvasId = canvasId
             self.detail = detail
@@ -236,7 +236,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             noOp: Swift.Bool? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.alreadyClosed = alreadyClosed
             self.error = error
@@ -285,7 +285,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.channel = channel
             self.detail = detail
@@ -326,7 +326,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -363,7 +363,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -432,7 +432,7 @@ extension Components.Schemas {
             oldest: Swift.String? = nil,
             pinCount: Swift.Int? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.channelActionsCount = channelActionsCount
             self.channelActionsTs = channelActionsTs
@@ -489,7 +489,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.channel = channel
             self.error = error
@@ -536,7 +536,7 @@ extension Components.Schemas {
             errors: [SlackModels._Error]? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.channel = channel
             self.error = error
@@ -593,7 +593,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            url: Swift.String? = nil
+            url: Swift.String? = nil,
         ) {
             self.confCode = confCode
             self.error = error
@@ -650,7 +650,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
-            warning: Swift.String? = nil
+            warning: Swift.String? = nil,
         ) {
             self.channel = channel
             self.error = error
@@ -697,7 +697,7 @@ extension Components.Schemas {
             errors: SlackModels.Errors? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.errors = errors
@@ -736,7 +736,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -781,7 +781,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.channels = channels
             self.error = error
@@ -834,7 +834,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.arg = arg
             self.error = error
@@ -877,7 +877,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -922,7 +922,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.error = error
             self.members = members
@@ -975,7 +975,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             noOp: Swift.Bool? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.alreadyOpen = alreadyOpen
             self.channel = channel
@@ -1022,7 +1022,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.channel = channel
             self.error = error
@@ -1073,7 +1073,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.error = error
             self.hasMore = hasMore
@@ -1120,7 +1120,7 @@ extension Components.Schemas {
             inviteId: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.inviteId = inviteId
@@ -1163,7 +1163,7 @@ extension Components.Schemas {
             inviteId: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.inviteId = inviteId
@@ -1206,7 +1206,7 @@ extension Components.Schemas {
             inviteRequests: [SlackModels.InviteRequest]? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.inviteRequests = inviteRequests
@@ -1249,7 +1249,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.channel = channel
             self.error = error
@@ -1292,7 +1292,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.channel = channel
             self.error = error
@@ -1331,7 +1331,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed

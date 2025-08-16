@@ -26,7 +26,7 @@ public struct Purpose: Codable, Hashable, Sendable {
     public init(
         creator: Swift.String? = nil,
         lastSet: Swift.Int? = nil,
-        value: Swift.String? = nil
+        value: Swift.String? = nil,
     ) {
         self.creator = creator
         self.lastSet = lastSet

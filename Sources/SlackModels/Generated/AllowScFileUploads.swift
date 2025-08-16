@@ -34,7 +34,7 @@ public struct AllowScFileUploads: Codable, Hashable, Sendable {
         approvalType: Swift.String? = nil,
         dateUpdate: Swift.Int? = nil,
         source: Swift.String? = nil,
-        value: Swift.Bool? = nil
+        value: Swift.Bool? = nil,
     ) {
         self.actor = actor
         self.approvalType = approvalType

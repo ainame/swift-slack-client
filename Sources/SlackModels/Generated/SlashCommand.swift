@@ -34,7 +34,7 @@ public struct SlashCommand: Codable, Hashable, Sendable {
         description: Swift.String? = nil,
         shouldEscape: Swift.Bool? = nil,
         url: Swift.String? = nil,
-        usageHint: Swift.String? = nil
+        usageHint: Swift.String? = nil,
     ) {
         self.command = command
         self.description = description

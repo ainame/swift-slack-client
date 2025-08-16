@@ -30,7 +30,7 @@ public struct Scope: Codable, Hashable, Sendable {
         description: Swift.String? = nil,
         isSensitive: Swift.Bool? = nil,
         name: Swift.String? = nil,
-        tokenType: Swift.String? = nil
+        tokenType: Swift.String? = nil,
     ) {
         self.description = description
         self.isSensitive = isSensitive

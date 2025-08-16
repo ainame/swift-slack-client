@@ -72,7 +72,7 @@ extension Operations {
                         code: Swift.String? = nil,
                         grantType: Swift.String? = nil,
                         redirectUri: Swift.String? = nil,
-                        refreshToken: Swift.String? = nil
+                        refreshToken: Swift.String? = nil,
                     ) {
                         self.clientId = clientId
                         self.clientSecret = clientSecret
@@ -104,7 +104,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.OpenidConnectToken.Input.Headers = .init(),
-                body: Operations.OpenidConnectToken.Input.Body
+                body: Operations.OpenidConnectToken.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -240,7 +240,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.OpenidConnectUserInfo.Input.Headers = .init(),
-                body: Operations.OpenidConnectUserInfo.Input.Body? = nil
+                body: Operations.OpenidConnectUserInfo.Input.Body? = nil,
             ) {
                 self.headers = headers
                 self.body = body

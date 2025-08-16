@@ -38,7 +38,7 @@ public struct Pagination: Codable, Hashable, Sendable {
         page: Swift.Int? = nil,
         pageCount: Swift.Int? = nil,
         perPage: Swift.Int? = nil,
-        totalCount: Swift.Int? = nil
+        totalCount: Swift.Int? = nil,
     ) {
         self.first = first
         self.last = last

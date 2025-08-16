@@ -58,7 +58,7 @@ extension Operations {
                     public init(
                         view: SlackBlockKit.View,
                         triggerId: Swift.String? = nil,
-                        interactivityPointer: Swift.String? = nil
+                        interactivityPointer: Swift.String? = nil,
                     ) {
                         self.view = view
                         self.triggerId = triggerId
@@ -84,7 +84,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ViewsOpen.Input.Headers = .init(),
-                body: Operations.ViewsOpen.Input.Body
+                body: Operations.ViewsOpen.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -222,7 +222,7 @@ extension Operations {
                     public init(
                         userId: Swift.String,
                         view: SlackBlockKit.View,
-                        hash: Swift.String? = nil
+                        hash: Swift.String? = nil,
                     ) {
                         self.userId = userId
                         self.view = view
@@ -248,7 +248,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ViewsPublish.Input.Headers = .init(),
-                body: Operations.ViewsPublish.Input.Body
+                body: Operations.ViewsPublish.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -386,7 +386,7 @@ extension Operations {
                     public init(
                         view: SlackBlockKit.View,
                         triggerId: Swift.String? = nil,
-                        interactivityPointer: Swift.String? = nil
+                        interactivityPointer: Swift.String? = nil,
                     ) {
                         self.view = view
                         self.triggerId = triggerId
@@ -412,7 +412,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ViewsPush.Input.Headers = .init(),
-                body: Operations.ViewsPush.Input.Body
+                body: Operations.ViewsPush.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -557,7 +557,7 @@ extension Operations {
                         view: SlackBlockKit.View,
                         externalId: Swift.String? = nil,
                         viewId: Swift.String? = nil,
-                        hash: Swift.String? = nil
+                        hash: Swift.String? = nil,
                     ) {
                         self.view = view
                         self.externalId = externalId
@@ -585,7 +585,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ViewsUpdate.Input.Headers = .init(),
-                body: Operations.ViewsUpdate.Input.Body
+                body: Operations.ViewsUpdate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

@@ -22,7 +22,7 @@ public struct Options: Codable, Hashable, Sendable {
     ///   - isScim:
     public init(
         isProtected: Swift.Bool? = nil,
-        isScim: Swift.Bool? = nil
+        isScim: Swift.Bool? = nil,
     ) {
         self.isProtected = isProtected
         self.isScim = isScim

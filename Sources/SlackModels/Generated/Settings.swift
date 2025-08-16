@@ -58,7 +58,7 @@ public struct Settings: Codable, Hashable, Sendable {
         longDescription: Swift.String? = nil,
         orgDeployEnabled: Swift.Bool? = nil,
         socketModeEnabled: Swift.Bool? = nil,
-        tokenRotationEnabled: Swift.Bool? = nil
+        tokenRotationEnabled: Swift.Bool? = nil,
     ) {
         self.allowedIpAddressRanges = allowedIpAddressRanges
         self.backgroundColor = backgroundColor

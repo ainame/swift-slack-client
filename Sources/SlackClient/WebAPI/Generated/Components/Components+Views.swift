@@ -54,7 +54,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
             view: SlackBlockKit.View? = nil,
-            warning: Swift.String? = nil
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -109,7 +109,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
             view: SlackBlockKit.View? = nil,
-            warning: Swift.String? = nil
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -164,7 +164,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
             view: SlackBlockKit.View? = nil,
-            warning: Swift.String? = nil
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -219,7 +219,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
             view: SlackBlockKit.View? = nil,
-            warning: Swift.String? = nil
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed

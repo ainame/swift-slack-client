@@ -20,7 +20,7 @@ public struct UserProfile: Codable, Hashable, Sendable {
         isRestricted: Swift.Bool? = nil,
         isUltraRestricted: Swift.Bool? = nil,
         avatarHash: Swift.String? = nil,
-        image72: Swift.String? = nil
+        image72: Swift.String? = nil,
     ) {
         self.name = name
         self.team = team

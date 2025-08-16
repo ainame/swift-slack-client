@@ -30,7 +30,7 @@ public struct InvitePreferences: Codable, Hashable, Sendable {
         channelIds: [Swift.String]? = nil,
         isDomainMatched: Swift.Bool? = nil,
         isRestricted: Swift.Bool? = nil,
-        isUltraRestricted: Swift.Bool? = nil
+        isUltraRestricted: Swift.Bool? = nil,
     ) {
         self.channelIds = channelIds
         self.isDomainMatched = isDomainMatched

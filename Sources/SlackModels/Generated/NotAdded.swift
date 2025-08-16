@@ -22,7 +22,7 @@ public struct NotAdded: Codable, Hashable, Sendable {
     ///   - errors:
     public init(
         channelId: Swift.String? = nil,
-        errors: [Swift.String]? = nil
+        errors: [Swift.String]? = nil,
     ) {
         self.channelId = channelId
         self.errors = errors

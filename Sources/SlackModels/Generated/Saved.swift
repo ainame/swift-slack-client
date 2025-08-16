@@ -30,7 +30,7 @@ public struct Saved: Codable, Hashable, Sendable {
         dateCompleted: Swift.Int? = nil,
         dateDue: Swift.Int? = nil,
         isArchived: Swift.Bool? = nil,
-        state: Swift.String? = nil
+        state: Swift.String? = nil,
     ) {
         self.dateCompleted = dateCompleted
         self.dateDue = dateDue

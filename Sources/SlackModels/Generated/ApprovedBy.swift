@@ -22,7 +22,7 @@ public struct ApprovedBy: Codable, Hashable, Sendable {
     ///   - actorType:
     public init(
         actorId: Swift.String? = nil,
-        actorType: Swift.String? = nil
+        actorType: Swift.String? = nil,
     ) {
         self.actorId = actorId
         self.actorType = actorType

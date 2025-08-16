@@ -50,7 +50,7 @@ public struct InviteRequest: Codable, Hashable, Sendable {
         invitingTeam: Team? = nil,
         invitingUser: InvitingUser? = nil,
         isExternalLimited: Swift.Bool? = nil,
-        targetUser: TargetUser? = nil
+        targetUser: TargetUser? = nil,
     ) {
         self.channel = channel
         self.dateCreated = dateCreated

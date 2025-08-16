@@ -86,7 +86,7 @@ public struct Match: Codable, Hashable, Sendable {
         ts: Swift.String? = nil,
         _type: Swift.String,
         user: Swift.String? = nil,
-        username: Swift.String? = nil
+        username: Swift.String? = nil,
     ) {
         self.attachments = attachments
         self.blocks = blocks

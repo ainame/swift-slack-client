@@ -50,7 +50,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.error = error
             self.failedToUpdateChannelIds = failedToUpdateChannelIds
@@ -105,7 +105,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.error = error
             self.failedToUpdateChannelIds = failedToUpdateChannelIds
@@ -160,7 +160,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.canvasId = canvasId
             self.detail = detail
@@ -207,7 +207,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -254,7 +254,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.detail = detail
             self.error = error
@@ -303,7 +303,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
-            sections: [SlackModels.Section]? = nil
+            sections: [SlackModels.Section]? = nil,
         ) {
             self.error = error
             self.needed = needed

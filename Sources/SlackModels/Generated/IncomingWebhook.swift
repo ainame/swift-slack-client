@@ -30,7 +30,7 @@ public struct IncomingWebhook: Codable, Hashable, Sendable {
         channel: Swift.String? = nil,
         channelId: Swift.String? = nil,
         configurationUrl: Swift.String? = nil,
-        url: Swift.String? = nil
+        url: Swift.String? = nil,
     ) {
         self.channel = channel
         self.channelId = channelId

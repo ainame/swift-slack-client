@@ -30,7 +30,7 @@ public struct Function: Codable, Hashable, Sendable {
         description: Swift.String? = nil,
         inputParameters: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
         outputParameters: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-        title: Swift.String? = nil
+        title: Swift.String? = nil,
     ) {
         self.description = description
         self.inputParameters = inputParameters

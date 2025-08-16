@@ -19,7 +19,7 @@ public struct PlainTextInputElement: Codable, Hashable, Sendable {
         maxLength: Int? = nil,
         dispatchActionConfig: DispatchActionConfigurationObject? = nil,
         focusOnLoad: Bool? = nil,
-        placeholder: TextObject? = nil
+        placeholder: TextObject? = nil,
     ) {
         type = "plain_text_input"
         self.actionId = actionId

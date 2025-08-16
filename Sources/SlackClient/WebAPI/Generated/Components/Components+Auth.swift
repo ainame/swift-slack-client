@@ -38,7 +38,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -83,7 +83,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
-            teams: [SlackModels.Team]? = nil
+            teams: [SlackModels.Team]? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -168,7 +168,7 @@ extension Components.Schemas {
             teamId: Swift.String? = nil,
             url: Swift.String? = nil,
             user: Swift.String? = nil,
-            userId: Swift.String? = nil
+            userId: Swift.String? = nil,
         ) {
             self.appId = appId
             self.appName = appName

@@ -50,7 +50,7 @@ public struct AppRequest: Codable, Hashable, Sendable {
         previousResolution: PreviousResolution? = nil,
         scopes: [OpenAPIRuntime.OpenAPIValueContainer]? = nil,
         team: Team? = nil,
-        user: User? = nil
+        user: User? = nil,
     ) {
         self.app = app
         self.dateCreated = dateCreated

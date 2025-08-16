@@ -69,7 +69,7 @@ public struct MessageRoot: Codable, Hashable, Sendable {
         latestReply: Swift.String? = nil,
         lastRead: Swift.String? = nil,
         unreadCount: Swift.Int? = nil,
-        noNotifications: Swift.Bool? = nil
+        noNotifications: Swift.Bool? = nil,
     ) {
         self.text = text
         self.user = user

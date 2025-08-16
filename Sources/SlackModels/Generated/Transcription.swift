@@ -22,7 +22,7 @@ public struct Transcription: Codable, Hashable, Sendable {
     ///   - status:
     public init(
         locale: Swift.String? = nil,
-        status: Swift.String? = nil
+        status: Swift.String? = nil,
     ) {
         self.locale = locale
         self.status = status

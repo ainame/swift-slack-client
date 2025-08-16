@@ -13,7 +13,7 @@ public struct RichTextInputElement: Codable, Hashable, Sendable {
         initialValue: RichTextObject? = nil,
         dispatchActionConfig: DispatchActionConfigurationObject? = nil,
         focusOnLoad: Bool? = nil,
-        placeholder: TextObject? = nil
+        placeholder: TextObject? = nil,
     ) {
         type = "rich_text_input"
         self.actionId = actionId

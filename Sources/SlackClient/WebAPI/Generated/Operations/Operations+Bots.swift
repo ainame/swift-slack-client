@@ -48,7 +48,7 @@ extension Operations {
                     ///   - teamId: encoded team id or enterprise id where the bot exists, required if org token is used.
                     public init(
                         bot: Swift.String? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.bot = bot
                         self.teamId = teamId
@@ -72,7 +72,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.BotsInfo.Input.Headers = .init(),
-                body: Operations.BotsInfo.Input.Body
+                body: Operations.BotsInfo.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

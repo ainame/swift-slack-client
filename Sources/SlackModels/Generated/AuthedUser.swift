@@ -38,7 +38,7 @@ public struct AuthedUser: Codable, Hashable, Sendable {
         id: Swift.String? = nil,
         refreshToken: Swift.String? = nil,
         scope: Swift.String? = nil,
-        tokenType: Swift.String? = nil
+        tokenType: Swift.String? = nil,
     ) {
         self.accessToken = accessToken
         self.expiresIn = expiresIn

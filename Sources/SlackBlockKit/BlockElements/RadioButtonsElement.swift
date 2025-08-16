@@ -13,7 +13,7 @@ public struct RadioButtonsElement: Codable, Hashable, Sendable {
         actionId: String? = nil,
         initialOption: OptionObject? = nil,
         confirm: ConfirmationDialogObject? = nil,
-        focusOnLoad: Bool? = nil
+        focusOnLoad: Bool? = nil,
     ) {
         type = "radio_buttons"
         self.options = options

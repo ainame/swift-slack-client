@@ -16,7 +16,7 @@ public actor Slack {
         transport: any ClientTransport,
         middlewares: [any ClientMiddleware] = [],
         logger: Logger? = nil,
-        configuration: ClientConfiguration = .init()
+        configuration: ClientConfiguration = .init(),
     ) {
         clientConfiguration = configuration
         requestMiddleware = RequestMiddlware(configuration: .init(

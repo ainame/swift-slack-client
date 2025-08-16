@@ -50,7 +50,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             paging: SlackModels.Paging? = nil,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.error = error
             self.logins = logins
@@ -101,7 +101,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.billableInfo = billableInfo
             self.error = error
@@ -146,7 +146,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             plan: Swift.String? = nil,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -189,7 +189,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            responseMetadata: SlackModels.ResponseMetadata? = nil
+            responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -240,7 +240,7 @@ extension Components.Schemas {
             organizations: [SlackModels.Organization]? = nil,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
-            totalCount: Swift.Int? = nil
+            totalCount: Swift.Int? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -287,7 +287,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            team: SlackModels.Team? = nil
+            team: SlackModels.Team? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -334,7 +334,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             paging: SlackModels.Paging? = nil,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.logs = logs
@@ -395,7 +395,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            whoCanPostGeneral: Swift.String? = nil
+            whoCanPostGeneral: Swift.String? = nil,
         ) {
             self.allowMessageDeletion = allowMessageDeletion
             self.disableFileUploads = disableFileUploads
@@ -446,7 +446,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             profile: SlackModels.Profile? = nil,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed

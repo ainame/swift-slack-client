@@ -22,7 +22,7 @@ public struct Team: Codable, Hashable, Sendable {
     ///   - name:
     public init(
         id: Swift.String? = nil,
-        name: Swift.String? = nil
+        name: Swift.String? = nil,
     ) {
         self.id = id
         self.name = name

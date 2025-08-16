@@ -26,7 +26,7 @@ public struct EventSubscriptions: Codable, Hashable, Sendable {
     public init(
         botEvents: [Swift.String]? = nil,
         requestUrl: Swift.String? = nil,
-        userEvents: [Swift.String]? = nil
+        userEvents: [Swift.String]? = nil,
     ) {
         self.botEvents = botEvents
         self.requestUrl = requestUrl

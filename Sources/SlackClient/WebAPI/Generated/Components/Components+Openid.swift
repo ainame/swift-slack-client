@@ -58,7 +58,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             refreshToken: Swift.String? = nil,
             tokenType: Swift.String? = nil,
-            warning: Swift.String? = nil
+            warning: Swift.String? = nil,
         ) {
             self.accessToken = accessToken
             self.error = error
@@ -231,7 +231,7 @@ extension Components.Schemas {
             picture: Swift.String? = nil,
             provided: Swift.String? = nil,
             sub: Swift.String? = nil,
-            warning: Swift.String? = nil
+            warning: Swift.String? = nil,
         ) {
             self.dateEmailVerified = dateEmailVerified
             self.email = email

@@ -30,7 +30,7 @@ public struct RoleAssignment: Codable, Hashable, Sendable {
         dateCreate: Swift.Int? = nil,
         entityId: Swift.String? = nil,
         roleId: Swift.String? = nil,
-        userId: Swift.String? = nil
+        userId: Swift.String? = nil,
     ) {
         self.dateCreate = dateCreate
         self.entityId = entityId

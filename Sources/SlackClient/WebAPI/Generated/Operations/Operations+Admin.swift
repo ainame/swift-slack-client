@@ -118,7 +118,7 @@ extension Operations {
                         sortDirection: Swift.String? = nil,
                         source: Swift.String? = nil,
                         teamId: Swift.String? = nil,
-                        traceId: Swift.String? = nil
+                        traceId: Swift.String? = nil,
                     ) {
                         self.appId = appId
                         self.componentId = componentId
@@ -164,7 +164,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAppsActivitiesList.Input.Headers = .init(),
-                body: Operations.AdminAppsActivitiesList.Input.Body
+                body: Operations.AdminAppsActivitiesList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -308,7 +308,7 @@ extension Operations {
                         appId: Swift.String? = nil,
                         enterpriseId: Swift.String? = nil,
                         requestId: Swift.String? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.appId = appId
                         self.enterpriseId = enterpriseId
@@ -336,7 +336,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAppsApprove.Input.Headers = .init(),
-                body: Operations.AdminAppsApprove.Input.Body
+                body: Operations.AdminAppsApprove.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -486,7 +486,7 @@ extension Operations {
                         cursor: Swift.String? = nil,
                         enterpriseId: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.certified = certified
                         self.cursor = cursor
@@ -516,7 +516,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAppsApprovedList.Input.Headers = .init(),
-                body: Operations.AdminAppsApprovedList.Input.Body
+                body: Operations.AdminAppsApprovedList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -654,7 +654,7 @@ extension Operations {
                     public init(
                         appId: Swift.String,
                         enterpriseId: Swift.String? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.appId = appId
                         self.enterpriseId = enterpriseId
@@ -680,7 +680,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAppsClearResolution.Input.Headers = .init(),
-                body: Operations.AdminAppsClearResolution.Input.Body
+                body: Operations.AdminAppsClearResolution.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -812,7 +812,7 @@ extension Operations {
                     ///   - richLinkPreviewTypes: return apps with the corresponding rich link preview layouts.
                     public init(
                         appIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
-                        richLinkPreviewTypes: OpenAPIRuntime.OpenAPIArrayContainer? = nil
+                        richLinkPreviewTypes: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                     ) {
                         self.appIds = appIds
                         self.richLinkPreviewTypes = richLinkPreviewTypes
@@ -836,7 +836,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAppsConfigLookup.Input.Headers = .init(),
-                body: Operations.AdminAppsConfigLookup.Input.Body
+                body: Operations.AdminAppsConfigLookup.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -982,7 +982,7 @@ extension Operations {
                         appId: Swift.String,
                         domainRestrictions: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
                         richLinkPreviewType: Swift.String? = nil,
-                        workflowAuthStrategy: Swift.String? = nil
+                        workflowAuthStrategy: Swift.String? = nil,
                     ) {
                         self.appId = appId
                         self.domainRestrictions = domainRestrictions
@@ -1010,7 +1010,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAppsConfigSet.Input.Headers = .init(),
-                body: Operations.AdminAppsConfigSet.Input.Body
+                body: Operations.AdminAppsConfigSet.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1148,7 +1148,7 @@ extension Operations {
                     public init(
                         requestId: Swift.String,
                         enterpriseId: Swift.String? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.requestId = requestId
                         self.enterpriseId = enterpriseId
@@ -1174,7 +1174,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAppsRequestsCancel.Input.Headers = .init(),
-                body: Operations.AdminAppsRequestsCancel.Input.Body
+                body: Operations.AdminAppsRequestsCancel.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1324,7 +1324,7 @@ extension Operations {
                         cursor: Swift.String? = nil,
                         enterpriseId: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.certified = certified
                         self.cursor = cursor
@@ -1354,7 +1354,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAppsRequestsList.Input.Headers = .init(),
-                body: Operations.AdminAppsRequestsList.Input.Body
+                body: Operations.AdminAppsRequestsList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1498,7 +1498,7 @@ extension Operations {
                         appId: Swift.String? = nil,
                         enterpriseId: Swift.String? = nil,
                         requestId: Swift.String? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.appId = appId
                         self.enterpriseId = enterpriseId
@@ -1526,7 +1526,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAppsRestrict.Input.Headers = .init(),
-                body: Operations.AdminAppsRestrict.Input.Body
+                body: Operations.AdminAppsRestrict.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1676,7 +1676,7 @@ extension Operations {
                         cursor: Swift.String? = nil,
                         enterpriseId: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.certified = certified
                         self.cursor = cursor
@@ -1706,7 +1706,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAppsRestrictedList.Input.Headers = .init(),
-                body: Operations.AdminAppsRestrictedList.Input.Body
+                body: Operations.AdminAppsRestrictedList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1844,7 +1844,7 @@ extension Operations {
                     public init(
                         appId: Swift.String,
                         enterpriseId: Swift.String? = nil,
-                        teamIds: Swift.String? = nil
+                        teamIds: Swift.String? = nil,
                     ) {
                         self.appId = appId
                         self.enterpriseId = enterpriseId
@@ -1870,7 +1870,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAppsUninstall.Input.Headers = .init(),
-                body: Operations.AdminAppsUninstall.Input.Body
+                body: Operations.AdminAppsUninstall.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2008,7 +2008,7 @@ extension Operations {
                     public init(
                         entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         entityType: Swift.String,
-                        policyName: Swift.String
+                        policyName: Swift.String,
                     ) {
                         self.entityIds = entityIds
                         self.entityType = entityType
@@ -2034,7 +2034,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAuthPolicyAssignEntities.Input.Headers = .init(),
-                body: Operations.AdminAuthPolicyAssignEntities.Input.Body
+                body: Operations.AdminAuthPolicyAssignEntities.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2178,7 +2178,7 @@ extension Operations {
                         policyName: Swift.String,
                         cursor: Swift.String? = nil,
                         entityType: Swift.String? = nil,
-                        limit: Swift.Int? = nil
+                        limit: Swift.Int? = nil,
                     ) {
                         self.policyName = policyName
                         self.cursor = cursor
@@ -2206,7 +2206,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAuthPolicyGetEntities.Input.Headers = .init(),
-                body: Operations.AdminAuthPolicyGetEntities.Input.Body
+                body: Operations.AdminAuthPolicyGetEntities.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2344,7 +2344,7 @@ extension Operations {
                     public init(
                         entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         entityType: Swift.String,
-                        policyName: Swift.String
+                        policyName: Swift.String,
                     ) {
                         self.entityIds = entityIds
                         self.entityType = entityType
@@ -2370,7 +2370,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminAuthPolicyRemoveEntities.Input.Headers = .init(),
-                body: Operations.AdminAuthPolicyRemoveEntities.Input.Body
+                body: Operations.AdminAuthPolicyRemoveEntities.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2508,7 +2508,7 @@ extension Operations {
                     public init(
                         barrieredFromUsergroupIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         primaryUsergroupId: Swift.String,
-                        restrictedSubjects: OpenAPIRuntime.OpenAPIArrayContainer
+                        restrictedSubjects: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
                         self.barrieredFromUsergroupIds = barrieredFromUsergroupIds
                         self.primaryUsergroupId = primaryUsergroupId
@@ -2534,7 +2534,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminBarriersCreate.Input.Headers = .init(),
-                body: Operations.AdminBarriersCreate.Input.Body
+                body: Operations.AdminBarriersCreate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2680,7 +2680,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminBarriersDelete.Input.Headers = .init(),
-                body: Operations.AdminBarriersDelete.Input.Body
+                body: Operations.AdminBarriersDelete.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2812,7 +2812,7 @@ extension Operations {
                     ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
                     public init(
                         cursor: Swift.String? = nil,
-                        limit: Swift.Int? = nil
+                        limit: Swift.Int? = nil,
                     ) {
                         self.cursor = cursor
                         self.limit = limit
@@ -2836,7 +2836,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminBarriersList.Input.Headers = .init(),
-                body: Operations.AdminBarriersList.Input.Body
+                body: Operations.AdminBarriersList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2980,7 +2980,7 @@ extension Operations {
                         barrierId: Swift.String,
                         barrieredFromUsergroupIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         primaryUsergroupId: Swift.String,
-                        restrictedSubjects: OpenAPIRuntime.OpenAPIArrayContainer
+                        restrictedSubjects: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
                         self.barrierId = barrierId
                         self.barrieredFromUsergroupIds = barrieredFromUsergroupIds
@@ -3008,7 +3008,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminBarriersUpdate.Input.Headers = .init(),
-                body: Operations.AdminBarriersUpdate.Input.Body
+                body: Operations.AdminBarriersUpdate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -3154,7 +3154,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsArchive.Input.Headers = .init(),
-                body: Operations.AdminConversationsArchive.Input.Body
+                body: Operations.AdminConversationsArchive.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -3300,7 +3300,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsBulkArchive.Input.Headers = .init(),
-                body: Operations.AdminConversationsBulkArchive.Input.Body
+                body: Operations.AdminConversationsBulkArchive.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -3446,7 +3446,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsBulkDelete.Input.Headers = .init(),
-                body: Operations.AdminConversationsBulkDelete.Input.Body
+                body: Operations.AdminConversationsBulkDelete.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -3578,7 +3578,7 @@ extension Operations {
                     ///   - targetTeamId: Target team ID.
                     public init(
                         channelIds: OpenAPIRuntime.OpenAPIArrayContainer,
-                        targetTeamId: Swift.String
+                        targetTeamId: Swift.String,
                     ) {
                         self.channelIds = channelIds
                         self.targetTeamId = targetTeamId
@@ -3602,7 +3602,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsBulkMove.Input.Headers = .init(),
-                body: Operations.AdminConversationsBulkMove.Input.Body
+                body: Operations.AdminConversationsBulkMove.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -3734,7 +3734,7 @@ extension Operations {
                     ///   - name: Name of private channel to create. Only respected when converting an MPIM.
                     public init(
                         channelId: Swift.String,
-                        name: Swift.String? = nil
+                        name: Swift.String? = nil,
                     ) {
                         self.channelId = channelId
                         self.name = name
@@ -3758,7 +3758,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsConvertToPrivate.Input.Headers = .init(),
-                body: Operations.AdminConversationsConvertToPrivate.Input.Body
+                body: Operations.AdminConversationsConvertToPrivate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -3904,7 +3904,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsConvertToPublic.Input.Headers = .init(),
-                body: Operations.AdminConversationsConvertToPublic.Input.Body
+                body: Operations.AdminConversationsConvertToPublic.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -4054,7 +4054,7 @@ extension Operations {
                         name: Swift.String,
                         description: Swift.String? = nil,
                         orgWide: Swift.Bool? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.isPrivate = isPrivate
                         self.name = name
@@ -4084,7 +4084,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsCreate.Input.Headers = .init(),
-                body: Operations.AdminConversationsCreate.Input.Body
+                body: Operations.AdminConversationsCreate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -4230,7 +4230,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsDelete.Input.Headers = .init(),
-                body: Operations.AdminConversationsDelete.Input.Body
+                body: Operations.AdminConversationsDelete.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -4362,7 +4362,7 @@ extension Operations {
                     ///   - leavingTeamIds: team IDs getting removed from the channel, optional if there are only two teams in the channel.
                     public init(
                         channelId: Swift.String,
-                        leavingTeamIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil
+                        leavingTeamIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                     ) {
                         self.channelId = channelId
                         self.leavingTeamIds = leavingTeamIds
@@ -4386,7 +4386,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsDisconnectShared.Input.Headers = .init(),
-                body: Operations.AdminConversationsDisconnectShared.Input.Body
+                body: Operations.AdminConversationsDisconnectShared.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -4530,7 +4530,7 @@ extension Operations {
                         channelIds: Swift.String? = nil,
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamIds: Swift.String? = nil
+                        teamIds: Swift.String? = nil,
                     ) {
                         self.channelIds = channelIds
                         self.cursor = cursor
@@ -4558,7 +4558,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input.Headers = .init(),
-                body: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input.Body
+                body: Operations.AdminConversationsEkmListOriginalConnectedChannelInfo.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -4704,7 +4704,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsGetConversationPrefs.Input.Headers = .init(),
-                body: Operations.AdminConversationsGetConversationPrefs.Input.Body
+                body: Operations.AdminConversationsGetConversationPrefs.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -4850,7 +4850,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsGetCustomRetention.Input.Headers = .init(),
-                body: Operations.AdminConversationsGetCustomRetention.Input.Body
+                body: Operations.AdminConversationsGetCustomRetention.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -4988,7 +4988,7 @@ extension Operations {
                     public init(
                         channelId: Swift.String,
                         cursor: Swift.String? = nil,
-                        limit: Swift.Int? = nil
+                        limit: Swift.Int? = nil,
                     ) {
                         self.channelId = channelId
                         self.cursor = cursor
@@ -5014,7 +5014,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsGetTeams.Input.Headers = .init(),
-                body: Operations.AdminConversationsGetTeams.Input.Body
+                body: Operations.AdminConversationsGetTeams.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -5146,7 +5146,7 @@ extension Operations {
                     ///   - userIds: The users to invite.
                     public init(
                         channelId: Swift.String,
-                        userIds: OpenAPIRuntime.OpenAPIArrayContainer
+                        userIds: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
                         self.channelId = channelId
                         self.userIds = userIds
@@ -5170,7 +5170,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsInvite.Input.Headers = .init(),
-                body: Operations.AdminConversationsInvite.Input.Body
+                body: Operations.AdminConversationsInvite.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -5320,7 +5320,7 @@ extension Operations {
                         teamIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        maxMemberCount: Swift.Int? = nil
+                        maxMemberCount: Swift.Int? = nil,
                     ) {
                         self.lastMessageActivityBefore = lastMessageActivityBefore
                         self.teamIds = teamIds
@@ -5350,7 +5350,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsLookup.Input.Headers = .init(),
-                body: Operations.AdminConversationsLookup.Input.Body
+                body: Operations.AdminConversationsLookup.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -5496,7 +5496,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsRemoveCustomRetention.Input.Headers = .init(),
-                body: Operations.AdminConversationsRemoveCustomRetention.Input.Body
+                body: Operations.AdminConversationsRemoveCustomRetention.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -5628,7 +5628,7 @@ extension Operations {
                     ///   - name: .
                     public init(
                         channelId: Swift.String,
-                        name: Swift.String
+                        name: Swift.String,
                     ) {
                         self.channelId = channelId
                         self.name = name
@@ -5652,7 +5652,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsRename.Input.Headers = .init(),
-                body: Operations.AdminConversationsRename.Input.Body
+                body: Operations.AdminConversationsRename.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -5791,7 +5791,7 @@ extension Operations {
                     public init(
                         channelId: Swift.String,
                         groupId: Swift.String,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.channelId = channelId
                         self.groupId = groupId
@@ -5817,7 +5817,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsRestrictAccessAddGroup.Input.Headers = .init(),
-                body: Operations.AdminConversationsRestrictAccessAddGroup.Input.Body
+                body: Operations.AdminConversationsRestrictAccessAddGroup.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -5950,7 +5950,7 @@ extension Operations {
                     /// organization.
                     public init(
                         channelId: Swift.String,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.channelId = channelId
                         self.teamId = teamId
@@ -5974,7 +5974,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsRestrictAccessListGroups.Input.Headers = .init(),
-                body: Operations.AdminConversationsRestrictAccessListGroups.Input.Body
+                body: Operations.AdminConversationsRestrictAccessListGroups.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -6113,7 +6113,7 @@ extension Operations {
                     public init(
                         channelId: Swift.String,
                         groupId: Swift.String,
-                        teamId: Swift.String
+                        teamId: Swift.String,
                     ) {
                         self.channelId = channelId
                         self.groupId = groupId
@@ -6139,7 +6139,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsRestrictAccessRemoveGroup.Input.Headers = .init(),
-                body: Operations.AdminConversationsRestrictAccessRemoveGroup.Input.Body
+                body: Operations.AdminConversationsRestrictAccessRemoveGroup.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -6317,7 +6317,7 @@ extension Operations {
                         sort: Swift.String? = nil,
                         sortDir: Swift.String? = nil,
                         teamIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
-                        totalCountOnly: Swift.Bool? = nil
+                        totalCountOnly: Swift.Bool? = nil,
                     ) {
                         self.connectedTeamIds = connectedTeamIds
                         self.cursor = cursor
@@ -6355,7 +6355,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsSearch.Input.Headers = .init(),
-                body: Operations.AdminConversationsSearch.Input.Body
+                body: Operations.AdminConversationsSearch.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -6487,7 +6487,7 @@ extension Operations {
                     ///   - prefs: The prefs for this channel in a stringified JSON format.
                     public init(
                         channelId: Swift.String,
-                        prefs: OpenAPIRuntime.OpenAPIObjectContainer
+                        prefs: OpenAPIRuntime.OpenAPIObjectContainer,
                     ) {
                         self.channelId = channelId
                         self.prefs = prefs
@@ -6511,7 +6511,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsSetConversationPrefs.Input.Headers = .init(),
-                body: Operations.AdminConversationsSetConversationPrefs.Input.Body
+                body: Operations.AdminConversationsSetConversationPrefs.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -6643,7 +6643,7 @@ extension Operations {
                     ///   - durationDays: The message retention duration in days to set for this conversation.
                     public init(
                         channelId: Swift.String,
-                        durationDays: Swift.Int
+                        durationDays: Swift.Int,
                     ) {
                         self.channelId = channelId
                         self.durationDays = durationDays
@@ -6667,7 +6667,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsSetCustomRetention.Input.Headers = .init(),
-                body: Operations.AdminConversationsSetCustomRetention.Input.Body
+                body: Operations.AdminConversationsSetCustomRetention.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -6812,7 +6812,7 @@ extension Operations {
                         channelId: Swift.String,
                         orgChannel: Swift.Bool? = nil,
                         targetTeamIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.channelId = channelId
                         self.orgChannel = orgChannel
@@ -6840,7 +6840,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsSetTeams.Input.Headers = .init(),
-                body: Operations.AdminConversationsSetTeams.Input.Body
+                body: Operations.AdminConversationsSetTeams.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -6986,7 +6986,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminConversationsUnarchive.Input.Headers = .init(),
-                body: Operations.AdminConversationsUnarchive.Input.Body
+                body: Operations.AdminConversationsUnarchive.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -7118,7 +7118,7 @@ extension Operations {
                     ///   - url: The URL of a file to use as an image for the emoji. Square images under 128KB and with transparent backgrounds work best.
                     public init(
                         name: Swift.String,
-                        url: Swift.String
+                        url: Swift.String,
                     ) {
                         self.name = name
                         self.url = url
@@ -7142,7 +7142,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminEmojiAdd.Input.Headers = .init(),
-                body: Operations.AdminEmojiAdd.Input.Body
+                body: Operations.AdminEmojiAdd.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -7274,7 +7274,7 @@ extension Operations {
                     ///   - name: The new alias for the specified emoji. Any wrapping whitespace or colons will be automatically trimmed.
                     public init(
                         aliasFor: Swift.String,
-                        name: Swift.String
+                        name: Swift.String,
                     ) {
                         self.aliasFor = aliasFor
                         self.name = name
@@ -7298,7 +7298,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminEmojiAddAlias.Input.Headers = .init(),
-                body: Operations.AdminEmojiAddAlias.Input.Body
+                body: Operations.AdminEmojiAddAlias.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -7430,7 +7430,7 @@ extension Operations {
                     ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
                     public init(
                         cursor: Swift.String? = nil,
-                        limit: Swift.Int? = nil
+                        limit: Swift.Int? = nil,
                     ) {
                         self.cursor = cursor
                         self.limit = limit
@@ -7454,7 +7454,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminEmojiList.Input.Headers = .init(),
-                body: Operations.AdminEmojiList.Input.Body
+                body: Operations.AdminEmojiList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -7600,7 +7600,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminEmojiRemove.Input.Headers = .init(),
-                body: Operations.AdminEmojiRemove.Input.Body
+                body: Operations.AdminEmojiRemove.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -7732,7 +7732,7 @@ extension Operations {
                     ///   - newName: The new name of the emoji.
                     public init(
                         name: Swift.String,
-                        newName: Swift.String
+                        newName: Swift.String,
                     ) {
                         self.name = name
                         self.newName = newName
@@ -7756,7 +7756,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminEmojiRename.Input.Headers = .init(),
-                body: Operations.AdminEmojiRename.Input.Body
+                body: Operations.AdminEmojiRename.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -7900,7 +7900,7 @@ extension Operations {
                         appIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.appIds = appIds
                         self.cursor = cursor
@@ -7928,7 +7928,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminFunctionsList.Input.Headers = .init(),
-                body: Operations.AdminFunctionsList.Input.Body
+                body: Operations.AdminFunctionsList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -8074,7 +8074,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminFunctionsPermissionsLookup.Input.Headers = .init(),
-                body: Operations.AdminFunctionsPermissionsLookup.Input.Body
+                body: Operations.AdminFunctionsPermissionsLookup.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -8212,7 +8212,7 @@ extension Operations {
                     public init(
                         functionId: Swift.String,
                         visibility: Swift.String,
-                        userIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil
+                        userIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                     ) {
                         self.functionId = functionId
                         self.visibility = visibility
@@ -8238,7 +8238,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminFunctionsPermissionsSet.Input.Headers = .init(),
-                body: Operations.AdminFunctionsPermissionsSet.Input.Body
+                body: Operations.AdminFunctionsPermissionsSet.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -8370,7 +8370,7 @@ extension Operations {
                     ///   - teamId: ID for the workspace where the invite request was made.
                     public init(
                         inviteRequestId: Swift.String,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.inviteRequestId = inviteRequestId
                         self.teamId = teamId
@@ -8394,7 +8394,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminInviteRequestsApprove.Input.Headers = .init(),
-                body: Operations.AdminInviteRequestsApprove.Input.Body
+                body: Operations.AdminInviteRequestsApprove.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -8532,7 +8532,7 @@ extension Operations {
                     public init(
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.limit = limit
@@ -8558,7 +8558,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminInviteRequestsApprovedList.Input.Headers = .init(),
-                body: Operations.AdminInviteRequestsApprovedList.Input.Body
+                body: Operations.AdminInviteRequestsApprovedList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -8696,7 +8696,7 @@ extension Operations {
                     public init(
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.limit = limit
@@ -8722,7 +8722,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminInviteRequestsDeniedList.Input.Headers = .init(),
-                body: Operations.AdminInviteRequestsDeniedList.Input.Body
+                body: Operations.AdminInviteRequestsDeniedList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -8854,7 +8854,7 @@ extension Operations {
                     ///   - teamId: ID for the workspace where the invite request was made.
                     public init(
                         inviteRequestId: Swift.String,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.inviteRequestId = inviteRequestId
                         self.teamId = teamId
@@ -8878,7 +8878,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminInviteRequestsDeny.Input.Headers = .init(),
-                body: Operations.AdminInviteRequestsDeny.Input.Body
+                body: Operations.AdminInviteRequestsDeny.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -9016,7 +9016,7 @@ extension Operations {
                     public init(
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.limit = limit
@@ -9042,7 +9042,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminInviteRequestsList.Input.Headers = .init(),
-                body: Operations.AdminInviteRequestsList.Input.Body
+                body: Operations.AdminInviteRequestsList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -9180,7 +9180,7 @@ extension Operations {
                     public init(
                         entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         roleId: Swift.String,
-                        userIds: OpenAPIRuntime.OpenAPIArrayContainer
+                        userIds: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
                         self.entityIds = entityIds
                         self.roleId = roleId
@@ -9206,7 +9206,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminRolesAddAssignments.Input.Headers = .init(),
-                body: Operations.AdminRolesAddAssignments.Input.Body
+                body: Operations.AdminRolesAddAssignments.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -9356,7 +9356,7 @@ extension Operations {
                         entityIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         limit: Swift.Int? = nil,
                         roleIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
-                        sortDir: Swift.String? = nil
+                        sortDir: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.entityIds = entityIds
@@ -9386,7 +9386,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminRolesListAssignments.Input.Headers = .init(),
-                body: Operations.AdminRolesListAssignments.Input.Body
+                body: Operations.AdminRolesListAssignments.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -9524,7 +9524,7 @@ extension Operations {
                     public init(
                         entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         roleId: Swift.String,
-                        userIds: OpenAPIRuntime.OpenAPIArrayContainer
+                        userIds: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
                         self.entityIds = entityIds
                         self.roleId = roleId
@@ -9550,7 +9550,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminRolesRemoveAssignments.Input.Headers = .init(),
-                body: Operations.AdminRolesRemoveAssignments.Input.Body
+                body: Operations.AdminRolesRemoveAssignments.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -9688,7 +9688,7 @@ extension Operations {
                     public init(
                         teamId: Swift.String,
                         cursor: Swift.String? = nil,
-                        limit: Swift.Int? = nil
+                        limit: Swift.Int? = nil,
                     ) {
                         self.teamId = teamId
                         self.cursor = cursor
@@ -9714,7 +9714,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminTeamsAdminsList.Input.Headers = .init(),
-                body: Operations.AdminTeamsAdminsList.Input.Body
+                body: Operations.AdminTeamsAdminsList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -9858,7 +9858,7 @@ extension Operations {
                         teamDomain: Swift.String,
                         teamName: Swift.String,
                         teamDescription: Swift.String? = nil,
-                        teamDiscoverability: Swift.String? = nil
+                        teamDiscoverability: Swift.String? = nil,
                     ) {
                         self.teamDomain = teamDomain
                         self.teamName = teamName
@@ -9886,7 +9886,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminTeamsCreate.Input.Headers = .init(),
-                body: Operations.AdminTeamsCreate.Input.Body
+                body: Operations.AdminTeamsCreate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -10018,7 +10018,7 @@ extension Operations {
                     ///   - limit: The maximum number of items to return. Must be a positive integer no larger than 1000.
                     public init(
                         cursor: Swift.String? = nil,
-                        limit: Swift.Int? = nil
+                        limit: Swift.Int? = nil,
                     ) {
                         self.cursor = cursor
                         self.limit = limit
@@ -10042,7 +10042,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminTeamsList.Input.Headers = .init(),
-                body: Operations.AdminTeamsList.Input.Body
+                body: Operations.AdminTeamsList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -10180,7 +10180,7 @@ extension Operations {
                     public init(
                         teamId: Swift.String,
                         cursor: Swift.String? = nil,
-                        limit: Swift.Int? = nil
+                        limit: Swift.Int? = nil,
                     ) {
                         self.teamId = teamId
                         self.cursor = cursor
@@ -10206,7 +10206,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminTeamsOwnersList.Input.Headers = .init(),
-                body: Operations.AdminTeamsOwnersList.Input.Body
+                body: Operations.AdminTeamsOwnersList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -10352,7 +10352,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminTeamsSettingsInfo.Input.Headers = .init(),
-                body: Operations.AdminTeamsSettingsInfo.Input.Body
+                body: Operations.AdminTeamsSettingsInfo.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -10484,7 +10484,7 @@ extension Operations {
                     ///   - teamId: ID for the workspace to set the default channel for.
                     public init(
                         channelIds: OpenAPIRuntime.OpenAPIArrayContainer,
-                        teamId: Swift.String
+                        teamId: Swift.String,
                     ) {
                         self.channelIds = channelIds
                         self.teamId = teamId
@@ -10508,7 +10508,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminTeamsSettingsSetDefaultChannels.Input.Headers = .init(),
-                body: Operations.AdminTeamsSettingsSetDefaultChannels.Input.Body
+                body: Operations.AdminTeamsSettingsSetDefaultChannels.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -10640,7 +10640,7 @@ extension Operations {
                     ///   - teamId: ID for the workspace to set the description for.
                     public init(
                         description: Swift.String,
-                        teamId: Swift.String
+                        teamId: Swift.String,
                     ) {
                         self.description = description
                         self.teamId = teamId
@@ -10664,7 +10664,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminTeamsSettingsSetDescription.Input.Headers = .init(),
-                body: Operations.AdminTeamsSettingsSetDescription.Input.Body
+                body: Operations.AdminTeamsSettingsSetDescription.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -10796,7 +10796,7 @@ extension Operations {
                     ///   - teamId: The ID of the workspace to set discoverability on.
                     public init(
                         discoverability: Swift.String,
-                        teamId: Swift.String
+                        teamId: Swift.String,
                     ) {
                         self.discoverability = discoverability
                         self.teamId = teamId
@@ -10820,7 +10820,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminTeamsSettingsSetDiscoverability.Input.Headers = .init(),
-                body: Operations.AdminTeamsSettingsSetDiscoverability.Input.Body
+                body: Operations.AdminTeamsSettingsSetDiscoverability.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -10952,7 +10952,7 @@ extension Operations {
                     ///   - teamId: ID for the workspace to set the icon for.
                     public init(
                         imageUrl: Swift.String,
-                        teamId: Swift.String
+                        teamId: Swift.String,
                     ) {
                         self.imageUrl = imageUrl
                         self.teamId = teamId
@@ -10976,7 +10976,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminTeamsSettingsSetIcon.Input.Headers = .init(),
-                body: Operations.AdminTeamsSettingsSetIcon.Input.Body
+                body: Operations.AdminTeamsSettingsSetIcon.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -11108,7 +11108,7 @@ extension Operations {
                     ///   - teamId: ID for the workspace to set the name for.
                     public init(
                         name: Swift.String,
-                        teamId: Swift.String
+                        teamId: Swift.String,
                     ) {
                         self.name = name
                         self.teamId = teamId
@@ -11132,7 +11132,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminTeamsSettingsSetName.Input.Headers = .init(),
-                body: Operations.AdminTeamsSettingsSetName.Input.Body
+                body: Operations.AdminTeamsSettingsSetName.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -11282,7 +11282,7 @@ extension Operations {
                         userId: Swift.String,
                         channelIds: Swift.String? = nil,
                         isRestricted: Swift.Bool? = nil,
-                        isUltraRestricted: Swift.Bool? = nil
+                        isUltraRestricted: Swift.Bool? = nil,
                     ) {
                         self.teamId = teamId
                         self.userId = userId
@@ -11312,7 +11312,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersAssign.Input.Headers = .init(),
-                body: Operations.AdminUsersAssign.Input.Body
+                body: Operations.AdminUsersAssign.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -11493,7 +11493,7 @@ extension Operations {
                         isRestricted: Swift.Bool? = nil,
                         isUltraRestricted: Swift.Bool? = nil,
                         realName: Swift.String? = nil,
-                        resend: Swift.Bool? = nil
+                        resend: Swift.Bool? = nil,
                     ) {
                         self.channelIds = channelIds
                         self.email = email
@@ -11533,7 +11533,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersInvite.Input.Headers = .init(),
-                body: Operations.AdminUsersInvite.Input.Body
+                body: Operations.AdminUsersInvite.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -11685,7 +11685,7 @@ extension Operations {
                         includeDeactivatedUserWorkspaces: Swift.Bool? = nil,
                         isActive: Swift.Bool? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.includeDeactivatedUserWorkspaces = includeDeactivatedUserWorkspaces
@@ -11715,7 +11715,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersList.Input.Headers = .init(),
-                body: Operations.AdminUsersList.Input.Body
+                body: Operations.AdminUsersList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -11847,7 +11847,7 @@ extension Operations {
                     ///   - userId: The ID of the user to remove.
                     public init(
                         teamId: Swift.String,
-                        userId: Swift.String
+                        userId: Swift.String,
                     ) {
                         self.teamId = teamId
                         self.userId = userId
@@ -11871,7 +11871,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersRemove.Input.Headers = .init(),
-                body: Operations.AdminUsersRemove.Input.Body
+                body: Operations.AdminUsersRemove.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -12017,7 +12017,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersSessionClearSettings.Input.Headers = .init(),
-                body: Operations.AdminUsersSessionClearSettings.Input.Body
+                body: Operations.AdminUsersSessionClearSettings.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -12163,7 +12163,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersSessionGetSettings.Input.Headers = .init(),
-                body: Operations.AdminUsersSessionGetSettings.Input.Body
+                body: Operations.AdminUsersSessionGetSettings.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -12295,7 +12295,7 @@ extension Operations {
                     ///   - userId: ID of the user that the session belongs to.
                     public init(
                         sessionId: Swift.Int,
-                        userId: Swift.String? = nil
+                        userId: Swift.String? = nil,
                     ) {
                         self.sessionId = sessionId
                         self.userId = userId
@@ -12319,7 +12319,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersSessionInvalidate.Input.Headers = .init(),
-                body: Operations.AdminUsersSessionInvalidate.Input.Body
+                body: Operations.AdminUsersSessionInvalidate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -12463,7 +12463,7 @@ extension Operations {
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
                         teamId: Swift.String? = nil,
-                        userId: Swift.String? = nil
+                        userId: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.limit = limit
@@ -12491,7 +12491,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersSessionList.Input.Headers = .init(),
-                body: Operations.AdminUsersSessionList.Input.Body
+                body: Operations.AdminUsersSessionList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -12629,7 +12629,7 @@ extension Operations {
                     public init(
                         userId: Swift.String,
                         mobileOnly: Swift.Bool? = nil,
-                        webOnly: Swift.Bool? = nil
+                        webOnly: Swift.Bool? = nil,
                     ) {
                         self.userId = userId
                         self.mobileOnly = mobileOnly
@@ -12655,7 +12655,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersSessionReset.Input.Headers = .init(),
-                body: Operations.AdminUsersSessionReset.Input.Body
+                body: Operations.AdminUsersSessionReset.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -12793,7 +12793,7 @@ extension Operations {
                     public init(
                         userIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         mobileOnly: Swift.Bool? = nil,
-                        webOnly: Swift.Bool? = nil
+                        webOnly: Swift.Bool? = nil,
                     ) {
                         self.userIds = userIds
                         self.mobileOnly = mobileOnly
@@ -12819,7 +12819,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersSessionResetBulk.Input.Headers = .init(),
-                body: Operations.AdminUsersSessionResetBulk.Input.Body
+                body: Operations.AdminUsersSessionResetBulk.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -12957,7 +12957,7 @@ extension Operations {
                     public init(
                         userIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         desktopAppBrowserQuit: Swift.Bool? = nil,
-                        duration: Swift.Int? = nil
+                        duration: Swift.Int? = nil,
                     ) {
                         self.userIds = userIds
                         self.desktopAppBrowserQuit = desktopAppBrowserQuit
@@ -12983,7 +12983,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersSessionSetSettings.Input.Headers = .init(),
-                body: Operations.AdminUsersSessionSetSettings.Input.Body
+                body: Operations.AdminUsersSessionSetSettings.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -13115,7 +13115,7 @@ extension Operations {
                     ///   - userId: The ID of the user to designate as an admin.
                     public init(
                         teamId: Swift.String,
-                        userId: Swift.String
+                        userId: Swift.String,
                     ) {
                         self.teamId = teamId
                         self.userId = userId
@@ -13139,7 +13139,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersSetAdmin.Input.Headers = .init(),
-                body: Operations.AdminUsersSetAdmin.Input.Body
+                body: Operations.AdminUsersSetAdmin.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -13277,7 +13277,7 @@ extension Operations {
                     public init(
                         expirationTs: Swift.Int,
                         userId: Swift.String,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.expirationTs = expirationTs
                         self.userId = userId
@@ -13303,7 +13303,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersSetExpiration.Input.Headers = .init(),
-                body: Operations.AdminUsersSetExpiration.Input.Body
+                body: Operations.AdminUsersSetExpiration.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -13435,7 +13435,7 @@ extension Operations {
                     ///   - userId: Id of the user to promote to owner.
                     public init(
                         teamId: Swift.String,
-                        userId: Swift.String
+                        userId: Swift.String,
                     ) {
                         self.teamId = teamId
                         self.userId = userId
@@ -13459,7 +13459,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersSetOwner.Input.Headers = .init(),
-                body: Operations.AdminUsersSetOwner.Input.Body
+                body: Operations.AdminUsersSetOwner.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -13591,7 +13591,7 @@ extension Operations {
                     ///   - userId: The ID of the user to designate as a regular user.
                     public init(
                         teamId: Swift.String,
-                        userId: Swift.String
+                        userId: Swift.String,
                     ) {
                         self.teamId = teamId
                         self.userId = userId
@@ -13615,7 +13615,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersSetRegular.Input.Headers = .init(),
-                body: Operations.AdminUsersSetRegular.Input.Body
+                body: Operations.AdminUsersSetRegular.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -13747,7 +13747,7 @@ extension Operations {
                     ///   - dateSessionsStarted: Unix timestamp of a date to start looking for user sessions. If not provided will start six months ago.
                     public init(
                         dateEndOfSupport: Swift.Int? = nil,
-                        dateSessionsStarted: Swift.Int? = nil
+                        dateSessionsStarted: Swift.Int? = nil,
                     ) {
                         self.dateEndOfSupport = dateEndOfSupport
                         self.dateSessionsStarted = dateSessionsStarted
@@ -13771,7 +13771,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AdminUsersUnsupportedVersionsExport.Input.Headers = .init(),
-                body: Operations.AdminUsersUnsupportedVersionsExport.Input.Body
+                body: Operations.AdminUsersUnsupportedVersionsExport.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

@@ -8,7 +8,7 @@ public struct PinnedInfo: Codable, Hashable, Sendable {
     public init(
         channel: Swift.String? = nil,
         pinnedBy: Swift.String? = nil,
-        pinnedTs: Swift.Int? = nil
+        pinnedTs: Swift.Int? = nil,
     ) {
         self.channel = channel
         self.pinnedBy = pinnedBy

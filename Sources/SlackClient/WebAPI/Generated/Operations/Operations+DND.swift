@@ -52,7 +52,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.DndEndDnd.Input.Headers = .init(),
-                body: Operations.DndEndDnd.Input.Body? = nil
+                body: Operations.DndEndDnd.Input.Body? = nil,
             ) {
                 self.headers = headers
                 self.body = body
@@ -188,7 +188,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.DndEndSnooze.Input.Headers = .init(),
-                body: Operations.DndEndSnooze.Input.Body? = nil
+                body: Operations.DndEndSnooze.Input.Body? = nil,
             ) {
                 self.headers = headers
                 self.body = body
@@ -321,7 +321,7 @@ extension Operations {
                     ///   - user: User to fetch status for (defaults to current user).
                     public init(
                         teamId: Swift.String? = nil,
-                        user: Swift.String? = nil
+                        user: Swift.String? = nil,
                     ) {
                         self.teamId = teamId
                         self.user = user
@@ -345,7 +345,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.DndInfo.Input.Headers = .init(),
-                body: Operations.DndInfo.Input.Body
+                body: Operations.DndInfo.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -491,7 +491,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.DndSetSnooze.Input.Headers = .init(),
-                body: Operations.DndSetSnooze.Input.Body
+                body: Operations.DndSetSnooze.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -623,7 +623,7 @@ extension Operations {
                     ///   - teamId: Encoded team id where passed in users belong, required if org token is used.
                     public init(
                         users: Swift.String,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.users = users
                         self.teamId = teamId
@@ -647,7 +647,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.DndTeamInfo.Input.Headers = .init(),
-                body: Operations.DndTeamInfo.Input.Body
+                body: Operations.DndTeamInfo.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

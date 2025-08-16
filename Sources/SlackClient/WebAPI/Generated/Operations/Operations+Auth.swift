@@ -62,7 +62,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AuthRevoke.Input.Headers = .init(),
-                body: Operations.AuthRevoke.Input.Body
+                body: Operations.AuthRevoke.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -200,7 +200,7 @@ extension Operations {
                     public init(
                         cursor: Swift.String? = nil,
                         includeIcon: Swift.Bool? = nil,
-                        limit: Swift.Int? = nil
+                        limit: Swift.Int? = nil,
                     ) {
                         self.cursor = cursor
                         self.includeIcon = includeIcon
@@ -226,7 +226,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AuthTeamsList.Input.Headers = .init(),
-                body: Operations.AuthTeamsList.Input.Body
+                body: Operations.AuthTeamsList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -362,7 +362,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AuthTest.Input.Headers = .init(),
-                body: Operations.AuthTest.Input.Body? = nil
+                body: Operations.AuthTest.Input.Body? = nil,
             ) {
                 self.headers = headers
                 self.body = body

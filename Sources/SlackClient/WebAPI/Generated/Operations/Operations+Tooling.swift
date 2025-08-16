@@ -62,7 +62,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ToolingTokensRotate.Input.Headers = .init(),
-                body: Operations.ToolingTokensRotate.Input.Body
+                body: Operations.ToolingTokensRotate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

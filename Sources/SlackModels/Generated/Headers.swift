@@ -30,7 +30,7 @@ public struct Headers: Codable, Hashable, Sendable {
         date: Swift.String? = nil,
         inReplyTo: Swift.String? = nil,
         messageId: Swift.String? = nil,
-        replyTo: Swift.String? = nil
+        replyTo: Swift.String? = nil,
     ) {
         self.date = date
         self.inReplyTo = inReplyTo

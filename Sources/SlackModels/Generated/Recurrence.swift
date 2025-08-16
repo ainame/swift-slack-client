@@ -22,7 +22,7 @@ public struct Recurrence: Codable, Hashable, Sendable {
     ///   - weekdays:
     public init(
         frequency: Swift.String? = nil,
-        weekdays: [Swift.String]? = nil
+        weekdays: [Swift.String]? = nil,
     ) {
         self.frequency = frequency
         self.weekdays = weekdays

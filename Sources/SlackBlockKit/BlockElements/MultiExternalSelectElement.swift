@@ -17,7 +17,7 @@ public struct MultiExternalSelectElement: Codable, Hashable, Sendable {
         maxSelectedItems: Int? = nil,
         confirm: ConfirmationDialogObject? = nil,
         focusOnLoad: Bool? = nil,
-        placeholder: TextObject? = nil
+        placeholder: TextObject? = nil,
     ) {
         type = "multi_external_select"
         self.actionId = actionId

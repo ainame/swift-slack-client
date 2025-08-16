@@ -38,7 +38,7 @@ public struct Barrier: Codable, Hashable, Sendable {
         enterpriseId: Swift.String? = nil,
         id: Swift.String? = nil,
         primaryUsergroup: Usergroup? = nil,
-        restrictedSubjects: [Swift.String]? = nil
+        restrictedSubjects: [Swift.String]? = nil,
     ) {
         self.barrieredFromUsergroups = barrieredFromUsergroups
         self.dateUpdate = dateUpdate

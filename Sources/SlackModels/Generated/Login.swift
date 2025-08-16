@@ -54,7 +54,7 @@ public struct Login: Codable, Hashable, Sendable {
         region: Swift.String? = nil,
         userAgent: Swift.String? = nil,
         userId: Swift.String? = nil,
-        username: Swift.String? = nil
+        username: Swift.String? = nil,
     ) {
         self.count = count
         self.country = country

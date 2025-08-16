@@ -50,7 +50,7 @@ public struct Profile: Codable, Hashable, Sendable {
         image48: Swift.String? = nil,
         image512: Swift.String? = nil,
         image72: Swift.String? = nil,
-        imageOriginal: Swift.String? = nil
+        imageOriginal: Swift.String? = nil,
     ) {
         self.avatarHash = avatarHash
         self.image1024 = image1024

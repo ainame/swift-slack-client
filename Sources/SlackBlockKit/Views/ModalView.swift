@@ -27,7 +27,7 @@ public struct ModalView: Codable, Hashable, Sendable {
         externalId: String? = nil,
         submitDisabled: Bool? = nil,
         state: StateValuesObject? = nil,
-        id: String? = nil
+        id: String? = nil,
     ) {
         type = "modal"
         self.title = title

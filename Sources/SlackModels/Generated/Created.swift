@@ -34,7 +34,7 @@ public struct Created: Codable, Hashable, Sendable {
         ip: Swift.String? = nil,
         os: Swift.String? = nil,
         osVersion: Swift.String? = nil,
-        slackClientVersion: Swift.String? = nil
+        slackClientVersion: Swift.String? = nil,
     ) {
         self.deviceHardware = deviceHardware
         self.ip = ip

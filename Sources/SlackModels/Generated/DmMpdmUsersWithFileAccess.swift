@@ -22,7 +22,7 @@ public struct DmMpdmUsersWithFileAccess: Codable, Hashable, Sendable {
     ///   - userId:
     public init(
         access: Swift.String? = nil,
-        userId: Swift.String? = nil
+        userId: Swift.String? = nil,
     ) {
         self.access = access
         self.userId = userId

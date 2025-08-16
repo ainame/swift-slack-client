@@ -62,7 +62,7 @@ public struct Activity: Codable, Hashable, Sendable {
         payload: Payload? = nil,
         source: Swift.String? = nil,
         teamId: Swift.String? = nil,
-        traceId: Swift.String? = nil
+        traceId: Swift.String? = nil,
     ) {
         self.appId = appId
         self.componentId = componentId

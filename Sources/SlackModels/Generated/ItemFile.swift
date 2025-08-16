@@ -526,7 +526,7 @@ public struct ItemFile: Codable, Hashable, Sendable {
         user: Swift.String? = nil,
         userTeam: Swift.String? = nil,
         username: Swift.String? = nil,
-        vtt: Swift.String? = nil
+        vtt: Swift.String? = nil,
     ) {
         self.altTxt = altTxt
         self.appId = appId

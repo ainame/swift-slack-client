@@ -42,7 +42,7 @@ public struct ChannelEmailAddress: Codable, Hashable, Sendable {
         icons: Icons? = nil,
         name: Swift.String? = nil,
         teamId: Swift.String? = nil,
-        userId: Swift.String? = nil
+        userId: Swift.String? = nil,
     ) {
         self.address = address
         self.conversationId = conversationId

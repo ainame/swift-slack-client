@@ -38,7 +38,7 @@ public struct Section: Codable, Hashable, Sendable {
         label: Swift.String? = nil,
         order: Swift.Int? = nil,
         sectionType: Swift.String? = nil,
-        teamId: Swift.String? = nil
+        teamId: Swift.String? = nil,
     ) {
         self.id = id
         self.isHidden = isHidden

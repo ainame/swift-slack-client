@@ -30,7 +30,7 @@ public struct Credentials: Codable, Hashable, Sendable {
         clientId: Swift.String? = nil,
         clientSecret: Swift.String? = nil,
         signingSecret: Swift.String? = nil,
-        verificationToken: Swift.String? = nil
+        verificationToken: Swift.String? = nil,
     ) {
         self.clientId = clientId
         self.clientSecret = clientSecret

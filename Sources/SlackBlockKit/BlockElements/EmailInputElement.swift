@@ -13,7 +13,7 @@ public struct EmailInputElement: Codable, Hashable, Sendable {
         initialValue: String? = nil,
         dispatchActionConfig: DispatchActionConfigurationObject? = nil,
         focusOnLoad: Bool? = nil,
-        placeholder: TextObject? = nil
+        placeholder: TextObject? = nil,
     ) {
         type = "email_text_input"
         self.actionId = actionId

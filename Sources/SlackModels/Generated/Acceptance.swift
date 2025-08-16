@@ -42,7 +42,7 @@ public struct Acceptance: Codable, Hashable, Sendable {
         dateAccepted: Swift.Int? = nil,
         dateInvalid: Swift.Int? = nil,
         dateLastUpdated: Swift.Int? = nil,
-        reviews: [Review]? = nil
+        reviews: [Review]? = nil,
     ) {
         self.acceptingTeam = acceptingTeam
         self.acceptingUser = acceptingUser

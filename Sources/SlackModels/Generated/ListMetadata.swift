@@ -58,7 +58,7 @@ public struct ListMetadata: Codable, Hashable, Sendable {
         integrations: [Swift.String]? = nil,
         isTrial: Swift.Bool? = nil,
         schema: [Schema]? = nil,
-        views: [View]? = nil
+        views: [View]? = nil,
     ) {
         self.creationSource = creationSource
         self.description = description

@@ -26,7 +26,7 @@ public struct Cc: Codable, Hashable, Sendable {
     public init(
         address: Swift.String? = nil,
         name: Swift.String? = nil,
-        original: Swift.String? = nil
+        original: Swift.String? = nil,
     ) {
         self.address = address
         self.name = name

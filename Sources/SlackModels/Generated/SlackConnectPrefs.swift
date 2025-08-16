@@ -70,7 +70,7 @@ public struct SlackConnectPrefs: Codable, Hashable, Sendable {
         requireScChannelForScDm: AllowScFileUploads? = nil,
         scChannelLimitedAccess: AllowScFileUploads? = nil,
         scMpdmToPrivate: ScMpdmToPrivate? = nil,
-        sharedChannelInviteRequested: SharedChannelInviteRequested? = nil
+        sharedChannelInviteRequested: SharedChannelInviteRequested? = nil,
     ) {
         self.acceptScInvites = acceptScInvites
         self.allowScFileUploads = allowScFileUploads

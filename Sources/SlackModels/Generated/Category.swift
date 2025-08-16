@@ -22,7 +22,7 @@ public struct Category: Codable, Hashable, Sendable {
     ///   - name:
     public init(
         emojiNames: [Swift.String]? = nil,
-        name: Swift.String? = nil
+        name: Swift.String? = nil,
     ) {
         self.emojiNames = emojiNames
         self.name = name

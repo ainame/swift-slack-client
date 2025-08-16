@@ -66,7 +66,7 @@ extension Operations {
                         highlight: Swift.Bool? = nil,
                         sort: Swift.String? = nil,
                         sortDir: Swift.String? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.query = query
                         self.highlight = highlight
@@ -96,7 +96,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.SearchAll.Input.Headers = .init(),
-                body: Operations.SearchAll.Input.Body
+                body: Operations.SearchAll.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -246,7 +246,7 @@ extension Operations {
                         highlight: Swift.Bool? = nil,
                         sort: Swift.String? = nil,
                         sortDir: Swift.String? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.query = query
                         self.highlight = highlight
@@ -276,7 +276,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.SearchFiles.Input.Headers = .init(),
-                body: Operations.SearchFiles.Input.Body
+                body: Operations.SearchFiles.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -433,7 +433,7 @@ extension Operations {
                         highlight: Swift.Bool? = nil,
                         sort: Swift.String? = nil,
                         sortDir: Swift.String? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.query = query
                         self.cursor = cursor
@@ -465,7 +465,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.SearchMessages.Input.Headers = .init(),
-                body: Operations.SearchMessages.Input.Body
+                body: Operations.SearchMessages.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

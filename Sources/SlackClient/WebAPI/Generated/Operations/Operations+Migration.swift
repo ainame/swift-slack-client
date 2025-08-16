@@ -54,7 +54,7 @@ extension Operations {
                     public init(
                         users: OpenAPIRuntime.OpenAPIArrayContainer,
                         teamId: Swift.String? = nil,
-                        toOld: Swift.Bool? = nil
+                        toOld: Swift.Bool? = nil,
                     ) {
                         self.users = users
                         self.teamId = teamId
@@ -80,7 +80,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.MigrationExchange.Input.Headers = .init(),
-                body: Operations.MigrationExchange.Input.Body
+                body: Operations.MigrationExchange.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

@@ -26,7 +26,7 @@ public struct _Error: Codable, Hashable, Sendable {
     public init(
         error: Swift.String? = nil,
         ok: Swift.Bool,
-        user: Swift.String? = nil
+        user: Swift.String? = nil,
     ) {
         self.error = error
         self.ok = ok

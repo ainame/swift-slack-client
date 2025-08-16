@@ -26,7 +26,7 @@ public struct BotIcons: Codable, Hashable, Sendable {
     public init(
         image36: Swift.String? = nil,
         image48: Swift.String? = nil,
-        image72: Swift.String? = nil
+        image72: Swift.String? = nil,
     ) {
         self.image36 = image36
         self.image48 = image48

@@ -22,7 +22,7 @@ public struct Trigger: Codable, Hashable, Sendable {
     ///   - url:
     public init(
         customizableInputParameters: [CustomizableInputParameter]? = nil,
-        url: Swift.String? = nil
+        url: Swift.String? = nil,
     ) {
         self.customizableInputParameters = customizableInputParameters
         self.url = url

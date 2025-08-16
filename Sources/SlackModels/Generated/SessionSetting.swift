@@ -26,7 +26,7 @@ public struct SessionSetting: Codable, Hashable, Sendable {
     public init(
         desktopAppBrowserQuit: Swift.Bool? = nil,
         duration: Swift.Int? = nil,
-        userId: Swift.String? = nil
+        userId: Swift.String? = nil,
     ) {
         self.desktopAppBrowserQuit = desktopAppBrowserQuit
         self.duration = duration

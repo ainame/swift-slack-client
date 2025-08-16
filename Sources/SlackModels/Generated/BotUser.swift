@@ -22,7 +22,7 @@ public struct BotUser: Codable, Hashable, Sendable {
     ///   - displayName:
     public init(
         alwaysOnline: Swift.Bool? = nil,
-        displayName: Swift.String? = nil
+        displayName: Swift.String? = nil,
     ) {
         self.alwaysOnline = alwaysOnline
         self.displayName = displayName

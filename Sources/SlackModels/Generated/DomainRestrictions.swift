@@ -22,7 +22,7 @@ public struct DomainRestrictions: Codable, Hashable, Sendable {
     ///   - urls:
     public init(
         emails: [Swift.String]? = nil,
-        urls: [Swift.String]? = nil
+        urls: [Swift.String]? = nil,
     ) {
         self.emails = emails
         self.urls = urls

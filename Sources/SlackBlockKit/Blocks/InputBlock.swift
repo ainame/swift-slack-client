@@ -15,7 +15,7 @@ public struct InputBlock: Codable, Hashable, Sendable {
         blockId: String? = nil,
         dispatchAction: Bool? = nil,
         hint: TextObject? = nil,
-        optional: Bool? = nil
+        optional: Bool? = nil,
     ) {
         type = "input"
         self.label = label

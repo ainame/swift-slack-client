@@ -30,7 +30,7 @@ public struct Reaction: Codable, Hashable, Sendable {
         count: Swift.Int? = nil,
         name: Swift.String? = nil,
         url: Swift.String? = nil,
-        users: [Swift.String]? = nil
+        users: [Swift.String]? = nil,
     ) {
         self.count = count
         self.name = name

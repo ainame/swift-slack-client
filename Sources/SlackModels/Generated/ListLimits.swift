@@ -58,7 +58,7 @@ public struct ListLimits: Codable, Hashable, Sendable {
         rowCount: Swift.Int? = nil,
         rowCountLimit: Swift.Int? = nil,
         viewCount: Swift.Int? = nil,
-        viewCountLimit: Swift.Int? = nil
+        viewCountLimit: Swift.Int? = nil,
     ) {
         self.columnCount = columnCount
         self.columnCountLimit = columnCountLimit

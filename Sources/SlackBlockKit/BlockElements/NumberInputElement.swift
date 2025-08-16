@@ -19,7 +19,7 @@ public struct NumberInputElement: Codable, Hashable, Sendable {
         maxValue: String? = nil,
         dispatchActionConfig: DispatchActionConfigurationObject? = nil,
         focusOnLoad: Bool? = nil,
-        placeholder: TextObject? = nil
+        placeholder: TextObject? = nil,
     ) {
         type = "number_input"
         self.isDecimalAllowed = isDecimalAllowed

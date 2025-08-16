@@ -22,7 +22,7 @@ public struct ActionOptionGroup: Codable, Hashable, Sendable {
     ///   - text:
     public init(
         options: [SelectedOptionElement]? = nil,
-        text: Swift.String? = nil
+        text: Swift.String? = nil,
     ) {
         self.options = options
         self.text = text

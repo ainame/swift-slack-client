@@ -30,7 +30,7 @@ public struct ActionConfirm: Codable, Hashable, Sendable {
         dismissText: Swift.String? = nil,
         okText: Swift.String? = nil,
         text: Swift.String? = nil,
-        title: Swift.String? = nil
+        title: Swift.String? = nil,
     ) {
         self.dismissText = dismissText
         self.okText = okText

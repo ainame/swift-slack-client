@@ -62,7 +62,7 @@ public struct App: Codable, Hashable, Sendable {
         isGranularBotApp: Swift.Bool? = nil,
         isInternal: Swift.Bool? = nil,
         name: Swift.String? = nil,
-        privacyPolicyUrl: Swift.String? = nil
+        privacyPolicyUrl: Swift.String? = nil,
     ) {
         self.additionalInfo = additionalInfo
         self.appDirectoryUrl = appDirectoryUrl

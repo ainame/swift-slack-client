@@ -15,7 +15,7 @@ public struct HomeTabView: Codable, Hashable, Sendable {
         callbackId: String? = nil,
         externalId: String? = nil,
         state: StateValuesObject? = nil,
-        id: String? = nil
+        id: String? = nil,
     ) {
         type = "home"
         self.blocks = blocks

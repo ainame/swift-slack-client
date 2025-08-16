@@ -38,7 +38,7 @@ public struct ScMpdmToPrivate: Codable, Hashable, Sendable {
         dateUpdate: Swift.Int? = nil,
         invalidWorkspaceIds: [Swift.String]? = nil,
         source: Swift.String? = nil,
-        _type: Swift.String
+        _type: Swift.String,
     ) {
         self.acceptInWorkspaceId = acceptInWorkspaceId
         self.actor = actor

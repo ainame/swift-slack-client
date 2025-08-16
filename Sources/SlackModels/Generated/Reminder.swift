@@ -50,7 +50,7 @@ public struct Reminder: Codable, Hashable, Sendable {
         recurring: Swift.Bool? = nil,
         text: Swift.String? = nil,
         time: Swift.Int? = nil,
-        user: Swift.String? = nil
+        user: Swift.String? = nil,
     ) {
         self.channel = channel
         self.completeTs = completeTs

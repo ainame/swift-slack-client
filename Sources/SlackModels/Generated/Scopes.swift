@@ -42,7 +42,7 @@ public struct Scopes: Codable, Hashable, Sendable {
         im: [Swift.String]? = nil,
         mpim: [Swift.String]? = nil,
         team: [Swift.String]? = nil,
-        user: [Swift.String]? = nil
+        user: [Swift.String]? = nil,
     ) {
         self.appHome = appHome
         self.channel = channel

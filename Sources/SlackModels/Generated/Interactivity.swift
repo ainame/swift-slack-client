@@ -26,7 +26,7 @@ public struct Interactivity: Codable, Hashable, Sendable {
     public init(
         isEnabled: Swift.Bool? = nil,
         messageMenuOptionsUrl: Swift.String? = nil,
-        requestUrl: Swift.String? = nil
+        requestUrl: Swift.String? = nil,
     ) {
         self.isEnabled = isEnabled
         self.messageMenuOptionsUrl = messageMenuOptionsUrl

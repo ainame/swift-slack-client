@@ -142,7 +142,7 @@ public struct Conversation: Codable, Hashable, Sendable {
         name: Swift.String? = nil,
         pendingConnectedTeamIds: [Swift.String]? = nil,
         properties: Properties? = nil,
-        purpose: Swift.String? = nil
+        purpose: Swift.String? = nil,
     ) {
         self.canvas = canvas
         self.channelEmailAddresses = channelEmailAddresses

@@ -58,7 +58,7 @@ public struct Metadata: Codable, Hashable, Sendable {
         thumb360W: Swift.Int? = nil,
         thumb64: Swift.Bool? = nil,
         thumb80: Swift.Bool? = nil,
-        thumbTiny: Swift.String? = nil
+        thumbTiny: Swift.String? = nil,
     ) {
         self._extension = _extension
         self.format = format

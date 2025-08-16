@@ -62,7 +62,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.EmojiList.Input.Headers = .init(),
-                body: Operations.EmojiList.Input.Body
+                body: Operations.EmojiList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

@@ -30,7 +30,7 @@ public struct Files: Codable, Hashable, Sendable {
         matches: [Match]? = nil,
         pagination: Pagination? = nil,
         paging: Paging? = nil,
-        total: Swift.Int? = nil
+        total: Swift.Int? = nil,
     ) {
         self.matches = matches
         self.pagination = pagination

@@ -8,7 +8,7 @@ public struct DndStatus: Codable, Hashable, Sendable {
     public init(
         dndEnabled: Swift.Bool? = nil,
         nextDndStartTs: Swift.Int? = nil,
-        nextDndEndTs: Swift.Int? = nil
+        nextDndEndTs: Swift.Int? = nil,
     ) {
         self.dndEnabled = dndEnabled
         self.nextDndStartTs = nextDndStartTs

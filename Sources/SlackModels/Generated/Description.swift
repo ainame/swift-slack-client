@@ -30,7 +30,7 @@ public struct Description: Codable, Hashable, Sendable {
         emoji: Swift.Bool? = nil,
         text: Swift.String? = nil,
         _type: Swift.String,
-        verbatim: Swift.Bool? = nil
+        verbatim: Swift.Bool? = nil,
     ) {
         self.emoji = emoji
         self.text = text

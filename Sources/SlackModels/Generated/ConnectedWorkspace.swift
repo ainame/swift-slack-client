@@ -22,7 +22,7 @@ public struct ConnectedWorkspace: Codable, Hashable, Sendable {
     ///   - workspaceName:
     public init(
         workspaceId: Swift.String? = nil,
-        workspaceName: Swift.String? = nil
+        workspaceName: Swift.String? = nil,
     ) {
         self.workspaceId = workspaceId
         self.workspaceName = workspaceName

@@ -54,7 +54,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             teamId: Swift.String? = nil,
             userIdMap: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-            warning: Swift.String? = nil
+            warning: Swift.String? = nil,
         ) {
             self.enterpriseId = enterpriseId
             self.error = error

@@ -42,7 +42,7 @@ public struct EnterpriseUser: Codable, Hashable, Sendable {
         isAdmin: Swift.Bool? = nil,
         isOwner: Swift.Bool? = nil,
         isPrimaryOwner: Swift.Bool? = nil,
-        teams: [Swift.String]? = nil
+        teams: [Swift.String]? = nil,
     ) {
         self.enterpriseId = enterpriseId
         self.enterpriseName = enterpriseName

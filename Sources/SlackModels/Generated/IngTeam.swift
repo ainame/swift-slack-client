@@ -46,7 +46,7 @@ public struct IngTeam: Codable, Hashable, Sendable {
         id: Swift.String? = nil,
         isVerified: Swift.Bool? = nil,
         name: Swift.String? = nil,
-        requiresSponsorship: Swift.Bool? = nil
+        requiresSponsorship: Swift.Bool? = nil,
     ) {
         self.avatarBaseUrl = avatarBaseUrl
         self.dateCreated = dateCreated

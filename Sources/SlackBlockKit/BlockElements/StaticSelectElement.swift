@@ -17,7 +17,7 @@ public struct StaticSelectElement: Codable, Hashable, Sendable {
         initialOption: OptionObject? = nil,
         confirm: ConfirmationDialogObject? = nil,
         focusOnLoad: Bool? = nil,
-        placeholder: TextObject? = nil
+        placeholder: TextObject? = nil,
     ) {
         type = "static_select"
         self.options = options

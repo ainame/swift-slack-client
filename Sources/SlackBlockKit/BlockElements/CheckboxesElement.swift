@@ -13,7 +13,7 @@ public struct CheckboxesElement: Codable, Hashable, Sendable {
         actionId: String? = nil,
         initialOptions: [OptionObject]? = nil,
         confirm: ConfirmationDialogObject? = nil,
-        focusOnLoad: Bool? = nil
+        focusOnLoad: Bool? = nil,
     ) {
         type = "checkboxes"
         self.options = options

@@ -78,7 +78,7 @@ public struct Log: Codable, Hashable, Sendable {
         serviceId: Swift.Int? = nil,
         serviceType: Swift.String? = nil,
         userId: Swift.String? = nil,
-        userName: Swift.String? = nil
+        userName: Swift.String? = nil,
     ) {
         self.appId = appId
         self.appType = appType

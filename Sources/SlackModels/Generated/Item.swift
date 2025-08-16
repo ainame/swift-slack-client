@@ -42,7 +42,7 @@ public struct Item: Codable, Hashable, Sendable {
         file: ItemFile? = nil,
         message: Message? = nil,
         _type: Swift.String,
-        ts: Swift.String? = nil
+        ts: Swift.String? = nil,
     ) {
         self.channel = channel
         self.comment = comment

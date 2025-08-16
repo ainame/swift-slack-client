@@ -52,7 +52,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AppsConnectionsOpen.Input.Headers = .init(),
-                body: Operations.AppsConnectionsOpen.Input.Body? = nil
+                body: Operations.AppsConnectionsOpen.Input.Body? = nil,
             ) {
                 self.headers = headers
                 self.body = body
@@ -190,7 +190,7 @@ extension Operations {
                     public init(
                         eventContext: Swift.String,
                         cursor: Swift.String? = nil,
-                        limit: Swift.Int? = nil
+                        limit: Swift.Int? = nil,
                     ) {
                         self.eventContext = eventContext
                         self.cursor = cursor
@@ -216,7 +216,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AppsEventAuthorizationsList.Input.Headers = .init(),
-                body: Operations.AppsEventAuthorizationsList.Input.Body
+                body: Operations.AppsEventAuthorizationsList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -362,7 +362,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AppsManifestCreate.Input.Headers = .init(),
-                body: Operations.AppsManifestCreate.Input.Body
+                body: Operations.AppsManifestCreate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -508,7 +508,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AppsManifestDelete.Input.Headers = .init(),
-                body: Operations.AppsManifestDelete.Input.Body
+                body: Operations.AppsManifestDelete.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -654,7 +654,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AppsManifestExport.Input.Headers = .init(),
-                body: Operations.AppsManifestExport.Input.Body
+                body: Operations.AppsManifestExport.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -788,7 +788,7 @@ extension Operations {
                     /// previous configuration, manifest must contain both unmodified and modified fields.
                     public init(
                         appId: Swift.String,
-                        manifest: OpenAPIRuntime.OpenAPIObjectContainer
+                        manifest: OpenAPIRuntime.OpenAPIObjectContainer,
                     ) {
                         self.appId = appId
                         self.manifest = manifest
@@ -812,7 +812,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AppsManifestUpdate.Input.Headers = .init(),
-                body: Operations.AppsManifestUpdate.Input.Body
+                body: Operations.AppsManifestUpdate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -944,7 +944,7 @@ extension Operations {
                     ///   - appId: The ID of the app whose configuration you want to validate.
                     public init(
                         manifest: Swift.String,
-                        appId: Swift.String? = nil
+                        appId: Swift.String? = nil,
                     ) {
                         self.manifest = manifest
                         self.appId = appId
@@ -968,7 +968,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AppsManifestValidate.Input.Headers = .init(),
-                body: Operations.AppsManifestValidate.Input.Body
+                body: Operations.AppsManifestValidate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1100,7 +1100,7 @@ extension Operations {
                     ///   - clientSecret: Issued when you created your application.
                     public init(
                         clientId: Swift.String,
-                        clientSecret: Swift.String
+                        clientSecret: Swift.String,
                     ) {
                         self.clientId = clientId
                         self.clientSecret = clientSecret
@@ -1124,7 +1124,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.AppsUninstall.Input.Headers = .init(),
-                body: Operations.AppsUninstall.Input.Body
+                body: Operations.AppsUninstall.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

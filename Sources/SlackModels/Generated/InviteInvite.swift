@@ -50,7 +50,7 @@ public struct InviteInvite: Codable, Hashable, Sendable {
         link: Swift.String? = nil,
         recipientEmail: Swift.String? = nil,
         recipientUserId: Swift.String? = nil,
-        sig: Swift.String? = nil
+        sig: Swift.String? = nil,
     ) {
         self.dateCreated = dateCreated
         self.dateInvalid = dateInvalid

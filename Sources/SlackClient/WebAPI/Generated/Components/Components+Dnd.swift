@@ -34,7 +34,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -87,7 +87,7 @@ extension Components.Schemas {
             nextDndStartTs: Swift.Int? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            snoozeEnabled: Swift.Bool? = nil
+            snoozeEnabled: Swift.Bool? = nil,
         ) {
             self.dndEnabled = dndEnabled
             self.error = error
@@ -144,7 +144,7 @@ extension Components.Schemas {
             nextDndEndTs: Swift.Int? = nil,
             nextDndStartTs: Swift.Int? = nil,
             ok: Swift.Bool,
-            provided: Swift.String? = nil
+            provided: Swift.String? = nil,
         ) {
             self.dndEnabled = dndEnabled
             self.error = error
@@ -203,7 +203,7 @@ extension Components.Schemas {
             snoozeEnabled: Swift.Bool? = nil,
             snoozeEndtime: Swift.Int? = nil,
             snoozeIsIndefinite: Swift.Bool? = nil,
-            snoozeRemaining: Swift.Int? = nil
+            snoozeRemaining: Swift.Int? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -252,7 +252,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            users: OpenAPIRuntime.OpenAPIObjectContainer? = nil
+            users: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
         ) {
             self.error = error
             self.needed = needed

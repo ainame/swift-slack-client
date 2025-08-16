@@ -70,7 +70,7 @@ public struct Organization: Codable, Hashable, Sendable {
         slackConnectPrefs: SlackConnectPrefs? = nil,
         teamDomain: Swift.String? = nil,
         teamId: Swift.String? = nil,
-        teamName: Swift.String? = nil
+        teamName: Swift.String? = nil,
     ) {
         self.canvas = canvas
         self.connectedWorkspaces = connectedWorkspaces

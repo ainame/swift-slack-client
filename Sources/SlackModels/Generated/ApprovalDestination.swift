@@ -22,7 +22,7 @@ public struct ApprovalDestination: Codable, Hashable, Sendable {
     ///   - channelId:
     public init(
         allWhoCanManageSharedChannels: Swift.Bool? = nil,
-        channelId: Swift.String? = nil
+        channelId: Swift.String? = nil,
     ) {
         self.allWhoCanManageSharedChannels = allWhoCanManageSharedChannels
         self.channelId = channelId

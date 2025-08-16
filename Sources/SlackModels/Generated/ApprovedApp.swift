@@ -30,7 +30,7 @@ public struct ApprovedApp: Codable, Hashable, Sendable {
         app: App? = nil,
         dateUpdated: Swift.Int? = nil,
         lastResolvedBy: LastResolvedBy? = nil,
-        scopes: [Scope]? = nil
+        scopes: [Scope]? = nil,
     ) {
         self.app = app
         self.dateUpdated = dateUpdated

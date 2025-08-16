@@ -22,7 +22,7 @@ public struct RejectedUser: Codable, Hashable, Sendable {
     ///   - id:
     public init(
         error: Swift.String? = nil,
-        id: Swift.String? = nil
+        id: Swift.String? = nil,
     ) {
         self.error = error
         self.id = id

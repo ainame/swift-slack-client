@@ -75,7 +75,7 @@ public struct Room: Codable, Hashable, Sendable {
         externalUniqueId: Swift.String? = nil,
         appId: Swift.String? = nil,
         callFamily: Swift.String? = nil,
-        huddleLink: Swift.String? = nil
+        huddleLink: Swift.String? = nil,
     ) {
         self.id = id
         self.name = name

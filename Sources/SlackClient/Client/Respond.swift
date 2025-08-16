@@ -98,7 +98,7 @@ extension Respond {
             unfurlLinks: Bool? = nil,
             unfurlMedia: Bool? = nil,
             threadTs: String? = nil,
-            metadata: OpenAPIObjectContainer? = nil
+            metadata: OpenAPIObjectContainer? = nil,
         ) {
             self.text = text
             self.blocks = blocks

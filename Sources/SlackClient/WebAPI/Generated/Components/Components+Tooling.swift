@@ -66,7 +66,7 @@ extension Components.Schemas {
             responseMetadata: SlackModels.ResponseMetadata? = nil,
             teamId: Swift.String? = nil,
             token: Swift.String? = nil,
-            userId: Swift.String? = nil
+            userId: Swift.String? = nil,
         ) {
             self.error = error
             self.exp = exp

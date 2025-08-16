@@ -64,7 +64,7 @@ extension Operations {
                     public init(
                         channel: Swift.String,
                         ts: Swift.String,
-                        asUser: Swift.Bool? = nil
+                        asUser: Swift.Bool? = nil,
                     ) {
                         self.channel = channel
                         self.ts = ts
@@ -90,7 +90,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ChatDelete.Input.Headers = .init(),
-                body: Operations.ChatDelete.Input.Body
+                body: Operations.ChatDelete.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -230,7 +230,7 @@ extension Operations {
                     public init(
                         channel: Swift.String,
                         scheduledMessageId: Swift.String,
-                        asUser: Swift.Bool? = nil
+                        asUser: Swift.Bool? = nil,
                     ) {
                         self.channel = channel
                         self.scheduledMessageId = scheduledMessageId
@@ -256,7 +256,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ChatDeleteScheduledMessage.Input.Headers = .init(),
-                body: Operations.ChatDeleteScheduledMessage.Input.Body
+                body: Operations.ChatDeleteScheduledMessage.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -388,7 +388,7 @@ extension Operations {
                     ///   - messageTs: A message's ts value, uniquely identifying it within a channel.
                     public init(
                         channel: Swift.String,
-                        messageTs: Swift.String
+                        messageTs: Swift.String,
                     ) {
                         self.channel = channel
                         self.messageTs = messageTs
@@ -412,7 +412,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ChatGetPermalink.Input.Headers = .init(),
-                body: Operations.ChatGetPermalink.Input.Body
+                body: Operations.ChatGetPermalink.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -544,7 +544,7 @@ extension Operations {
                     ///   - text: Text of the message to send.
                     public init(
                         channel: Swift.String,
-                        text: Swift.String
+                        text: Swift.String,
                     ) {
                         self.channel = channel
                         self.text = text
@@ -568,7 +568,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ChatMeMessage.Input.Headers = .init(),
-                body: Operations.ChatMeMessage.Input.Body
+                body: Operations.ChatMeMessage.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -768,7 +768,7 @@ extension Operations {
                         markdownText: Swift.String? = nil,
                         parse: Swift.String? = nil,
                         threadTs: Swift.String? = nil,
-                        username: Swift.String? = nil
+                        username: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.user = user
@@ -814,7 +814,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ChatPostEphemeral.Input.Headers = .init(),
-                body: Operations.ChatPostEphemeral.Input.Body
+                body: Operations.ChatPostEphemeral.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1045,7 +1045,7 @@ extension Operations {
                         threadTs: Swift.String? = nil,
                         unfurlLinks: Swift.Bool? = nil,
                         unfurlMedia: Swift.Bool? = nil,
-                        username: Swift.String? = nil
+                        username: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.attachments = attachments
@@ -1101,7 +1101,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ChatPostMessage.Input.Headers = .init(),
-                body: Operations.ChatPostMessage.Input.Body
+                body: Operations.ChatPostMessage.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1307,7 +1307,7 @@ extension Operations {
                         replyBroadcast: Swift.Bool? = nil,
                         threadTs: Swift.String? = nil,
                         unfurlLinks: Swift.Bool? = nil,
-                        unfurlMedia: Swift.Bool? = nil
+                        unfurlMedia: Swift.Bool? = nil,
                     ) {
                         self.channel = channel
                         self.postAt = postAt
@@ -1355,7 +1355,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ChatScheduleMessage.Input.Headers = .init(),
-                body: Operations.ChatScheduleMessage.Input.Body
+                body: Operations.ChatScheduleMessage.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1511,7 +1511,7 @@ extension Operations {
                         latest: Swift.String? = nil,
                         limit: Swift.Int? = nil,
                         oldest: Swift.String? = nil,
-                        teamId: Swift.String? = nil
+                        teamId: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.cursor = cursor
@@ -1543,7 +1543,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ChatScheduledMessagesList.Input.Headers = .init(),
-                body: Operations.ChatScheduledMessagesList.Input.Body
+                body: Operations.ChatScheduledMessagesList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1723,7 +1723,7 @@ extension Operations {
                         userAuthBlocks: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
                         userAuthMessage: Swift.String? = nil,
                         userAuthRequired: Swift.Bool? = nil,
-                        userAuthUrl: Swift.String? = nil
+                        userAuthUrl: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.ts = ts
@@ -1761,7 +1761,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ChatUnfurl.Input.Headers = .init(),
-                body: Operations.ChatUnfurl.Input.Body
+                body: Operations.ChatUnfurl.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1960,7 +1960,7 @@ extension Operations {
                         markdownText: Swift.String? = nil,
                         metadata: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
                         parse: Swift.String? = nil,
-                        replyBroadcast: Swift.Bool? = nil
+                        replyBroadcast: Swift.Bool? = nil,
                     ) {
                         self.channel = channel
                         self.ts = ts
@@ -2004,7 +2004,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.ChatUpdate.Input.Headers = .init(),
-                body: Operations.ChatUpdate.Input.Body
+                body: Operations.ChatUpdate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

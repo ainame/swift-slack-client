@@ -102,7 +102,7 @@ public struct User: Codable, Hashable, Sendable {
         tzLabel: Swift.String? = nil,
         tzOffset: Swift.Int? = nil,
         updated: Swift.Int? = nil,
-        whoCanShareContactCard: Swift.String? = nil
+        whoCanShareContactCard: Swift.String? = nil,
     ) {
         self.color = color
         self.deleted = deleted

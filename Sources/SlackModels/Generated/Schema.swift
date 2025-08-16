@@ -38,7 +38,7 @@ public struct Schema: Codable, Hashable, Sendable {
         key: Swift.String? = nil,
         name: Swift.String? = nil,
         options: Options? = nil,
-        _type: Swift.String
+        _type: Swift.String,
     ) {
         self.id = id
         self.isPrimaryColumn = isPrimaryColumn

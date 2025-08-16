@@ -54,7 +54,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             posts: SlackModels.Posts? = nil,
             provided: Swift.String? = nil,
-            query: Swift.String? = nil
+            query: Swift.String? = nil,
         ) {
             self.error = error
             self.files = files
@@ -107,7 +107,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            query: Swift.String? = nil
+            query: Swift.String? = nil,
         ) {
             self.error = error
             self.files = files
@@ -156,7 +156,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
-            query: Swift.String? = nil
+            query: Swift.String? = nil,
         ) {
             self.error = error
             self.messages = messages

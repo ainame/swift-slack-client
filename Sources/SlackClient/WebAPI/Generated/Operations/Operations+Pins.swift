@@ -48,7 +48,7 @@ extension Operations {
                     ///   - timestamp: Timestamp of the message to pin. You must also include the channel.
                     public init(
                         channel: Swift.String,
-                        timestamp: Swift.String? = nil
+                        timestamp: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.timestamp = timestamp
@@ -72,7 +72,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.PinsAdd.Input.Headers = .init(),
-                body: Operations.PinsAdd.Input.Body
+                body: Operations.PinsAdd.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -218,7 +218,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.PinsList.Input.Headers = .init(),
-                body: Operations.PinsList.Input.Body
+                body: Operations.PinsList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -350,7 +350,7 @@ extension Operations {
                     ///   - timestamp: Timestamp of the message to un-pin.
                     public init(
                         channel: Swift.String,
-                        timestamp: Swift.String? = nil
+                        timestamp: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.timestamp = timestamp
@@ -374,7 +374,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.PinsRemove.Input.Headers = .init(),
-                body: Operations.PinsRemove.Input.Body
+                body: Operations.PinsRemove.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

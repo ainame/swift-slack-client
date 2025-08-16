@@ -22,7 +22,7 @@ public struct Shares: Codable, Hashable, Sendable {
     ///   - _public:
     public init(
         _private: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-        _public: OpenAPIRuntime.OpenAPIObjectContainer? = nil
+        _public: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
     ) {
         self._private = _private
         self._public = _public

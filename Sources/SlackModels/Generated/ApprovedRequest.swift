@@ -26,7 +26,7 @@ public struct ApprovedRequest: Codable, Hashable, Sendable {
     public init(
         approvedBy: ApprovedBy? = nil,
         invite: Invite? = nil,
-        inviteRequest: InviteRequest? = nil
+        inviteRequest: InviteRequest? = nil,
     ) {
         self.approvedBy = approvedBy
         self.invite = invite

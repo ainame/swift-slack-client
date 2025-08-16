@@ -30,7 +30,7 @@ public struct Canvas: Codable, Hashable, Sendable {
         fileId: Swift.String? = nil,
         isEmpty: Swift.Bool? = nil,
         isMigrated: Swift.Bool? = nil,
-        quipThreadId: Swift.String? = nil
+        quipThreadId: Swift.String? = nil,
     ) {
         self.fileId = fileId
         self.isEmpty = isEmpty

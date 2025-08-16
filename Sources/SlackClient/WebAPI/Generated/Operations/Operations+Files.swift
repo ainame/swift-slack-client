@@ -78,7 +78,7 @@ extension Operations {
                         channelId: Swift.String? = nil,
                         channels: Swift.String? = nil,
                         initialComment: Swift.String? = nil,
-                        threadTs: Swift.String? = nil
+                        threadTs: Swift.String? = nil,
                     ) {
                         self.files = files
                         self.blocks = blocks
@@ -110,7 +110,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesCompleteUploadExternal.Input.Headers = .init(),
-                body: Operations.FilesCompleteUploadExternal.Input.Body
+                body: Operations.FilesCompleteUploadExternal.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -256,7 +256,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesDelete.Input.Headers = .init(),
-                body: Operations.FilesDelete.Input.Body
+                body: Operations.FilesDelete.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -400,7 +400,7 @@ extension Operations {
                         filename: Swift.String,
                         length: Swift.Int,
                         altTxt: Swift.String? = nil,
-                        snippetType: Swift.String? = nil
+                        snippetType: Swift.String? = nil,
                     ) {
                         self.filename = filename
                         self.length = length
@@ -428,7 +428,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesGetUploadURLExternal.Input.Headers = .init(),
-                body: Operations.FilesGetUploadURLExternal.Input.Body
+                body: Operations.FilesGetUploadURLExternal.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -569,7 +569,7 @@ extension Operations {
                     public init(
                         file: Swift.String,
                         cursor: Swift.String? = nil,
-                        limit: Swift.Int? = nil
+                        limit: Swift.Int? = nil,
                     ) {
                         self.file = file
                         self.cursor = cursor
@@ -595,7 +595,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesInfo.Input.Headers = .init(),
-                body: Operations.FilesInfo.Input.Body
+                body: Operations.FilesInfo.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -758,7 +758,7 @@ extension Operations {
                         tsFrom: Swift.String? = nil,
                         tsTo: Swift.String? = nil,
                         types: Swift.String? = nil,
-                        user: Swift.String? = nil
+                        user: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.showFilesHiddenByLimit = showFilesHiddenByLimit
@@ -792,7 +792,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesList.Input.Headers = .init(),
-                body: Operations.FilesList.Input.Body
+                body: Operations.FilesList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -948,7 +948,7 @@ extension Operations {
                         title: Swift.String,
                         filetype: Swift.String? = nil,
                         indexableFileContents: Swift.String? = nil,
-                        previewImage: Swift.String? = nil
+                        previewImage: Swift.String? = nil,
                     ) {
                         self.externalId = externalId
                         self.externalUrl = externalUrl
@@ -980,7 +980,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesRemoteAdd.Input.Headers = .init(),
-                body: Operations.FilesRemoteAdd.Input.Body
+                body: Operations.FilesRemoteAdd.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1112,7 +1112,7 @@ extension Operations {
                     ///   - file: Specify a file by providing its ID.
                     public init(
                         externalId: Swift.String? = nil,
-                        file: Swift.String? = nil
+                        file: Swift.String? = nil,
                     ) {
                         self.externalId = externalId
                         self.file = file
@@ -1136,7 +1136,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesRemoteInfo.Input.Headers = .init(),
-                body: Operations.FilesRemoteInfo.Input.Body
+                body: Operations.FilesRemoteInfo.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1288,7 +1288,7 @@ extension Operations {
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
                         tsFrom: Swift.String? = nil,
-                        tsTo: Swift.String? = nil
+                        tsTo: Swift.String? = nil,
                     ) {
                         self.channel = channel
                         self.cursor = cursor
@@ -1318,7 +1318,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesRemoteList.Input.Headers = .init(),
-                body: Operations.FilesRemoteList.Input.Body
+                body: Operations.FilesRemoteList.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1450,7 +1450,7 @@ extension Operations {
                     ///   - file: Specify a file by providing its ID.
                     public init(
                         externalId: Swift.String? = nil,
-                        file: Swift.String? = nil
+                        file: Swift.String? = nil,
                     ) {
                         self.externalId = externalId
                         self.file = file
@@ -1474,7 +1474,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesRemoteRemove.Input.Headers = .init(),
-                body: Operations.FilesRemoteRemove.Input.Body
+                body: Operations.FilesRemoteRemove.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1612,7 +1612,7 @@ extension Operations {
                     public init(
                         channels: Swift.String,
                         externalId: Swift.String? = nil,
-                        file: Swift.String? = nil
+                        file: Swift.String? = nil,
                     ) {
                         self.channels = channels
                         self.externalId = externalId
@@ -1638,7 +1638,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesRemoteShare.Input.Headers = .init(),
-                body: Operations.FilesRemoteShare.Input.Body
+                body: Operations.FilesRemoteShare.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1800,7 +1800,7 @@ extension Operations {
                         filetype: Swift.String? = nil,
                         indexableFileContents: Swift.String? = nil,
                         previewImage: Swift.String? = nil,
-                        title: Swift.String? = nil
+                        title: Swift.String? = nil,
                     ) {
                         self.externalId = externalId
                         self.externalUrl = externalUrl
@@ -1834,7 +1834,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesRemoteUpdate.Input.Headers = .init(),
-                body: Operations.FilesRemoteUpdate.Input.Body
+                body: Operations.FilesRemoteUpdate.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -1980,7 +1980,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesRevokePublicURL.Input.Headers = .init(),
-                body: Operations.FilesRevokePublicURL.Input.Body
+                body: Operations.FilesRevokePublicURL.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2126,7 +2126,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesSharedPublicURL.Input.Headers = .init(),
-                body: Operations.FilesSharedPublicURL.Input.Body
+                body: Operations.FilesSharedPublicURL.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -2294,7 +2294,7 @@ extension Operations {
                         filetype: Swift.String? = nil,
                         initialComment: Swift.String? = nil,
                         threadTs: Swift.String? = nil,
-                        title: Swift.String? = nil
+                        title: Swift.String? = nil,
                     ) {
                         self.channels = channels
                         self.content = content
@@ -2330,7 +2330,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.FilesUpload.Input.Headers = .init(),
-                body: Operations.FilesUpload.Input.Body
+                body: Operations.FilesUpload.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

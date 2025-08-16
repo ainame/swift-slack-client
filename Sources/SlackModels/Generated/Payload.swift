@@ -114,7 +114,7 @@ public struct Payload: Codable, Hashable, Sendable {
         trigger: Trigger? = nil,
         _type: Swift.String,
         userId: Swift.String? = nil,
-        workflowName: Swift.String? = nil
+        workflowName: Swift.String? = nil,
     ) {
         self.action = action
         self.actor = actor

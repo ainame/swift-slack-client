@@ -42,7 +42,7 @@ public struct Properties: Codable, Hashable, Sendable {
         postingRestrictedTo: PostingRestrictedTo? = nil,
         tabs: [Tab]? = nil,
         tabz: [Tab]? = nil,
-        threadsRestrictedTo: ThreadsRestrictedTo? = nil
+        threadsRestrictedTo: ThreadsRestrictedTo? = nil,
     ) {
         self.canvas = canvas
         self.huddlesRestricted = huddlesRestricted

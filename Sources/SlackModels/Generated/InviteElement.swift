@@ -78,7 +78,7 @@ public struct InviteElement: Codable, Hashable, Sendable {
         link: Swift.String? = nil,
         recipientUserId: Swift.String? = nil,
         sig: Swift.String? = nil,
-        status: Swift.String? = nil
+        status: Swift.String? = nil,
     ) {
         self.acceptances = acceptances
         self.channel = channel

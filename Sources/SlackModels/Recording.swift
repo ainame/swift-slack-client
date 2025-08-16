@@ -10,7 +10,7 @@ public struct Recording: Codable, Hashable, Sendable {
         summary: Swift.Bool? = nil,
         notetaking: Swift.Bool? = nil,
         summaryStatus: Swift.String? = nil,
-        canRecordSummary: Swift.String? = nil
+        canRecordSummary: Swift.String? = nil,
     ) {
         self.transcript = transcript
         self.summary = summary

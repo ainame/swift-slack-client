@@ -238,7 +238,7 @@ public struct Attachment: Codable, Hashable, Sendable {
         videoHtml: Swift.String? = nil,
         videoHtmlHeight: Swift.Int? = nil,
         videoHtmlWidth: Swift.Int? = nil,
-        videoUrl: Swift.String? = nil
+        videoUrl: Swift.String? = nil,
     ) {
         self.actions = actions
         self.appId = appId

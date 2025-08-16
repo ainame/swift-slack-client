@@ -76,7 +76,7 @@ extension Operations {
                         code: Swift.String? = nil,
                         grantType: Swift.String? = nil,
                         redirectUri: Swift.String? = nil,
-                        refreshToken: Swift.String? = nil
+                        refreshToken: Swift.String? = nil,
                     ) {
                         self.clientId = clientId
                         self.clientSecret = clientSecret
@@ -108,7 +108,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.OauthV2Access.Input.Headers = .init(),
-                body: Operations.OauthV2Access.Input.Body
+                body: Operations.OauthV2Access.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body
@@ -240,7 +240,7 @@ extension Operations {
                     ///   - clientSecret: Issued when you created your application.
                     public init(
                         clientId: Swift.String,
-                        clientSecret: Swift.String
+                        clientSecret: Swift.String,
                     ) {
                         self.clientId = clientId
                         self.clientSecret = clientSecret
@@ -264,7 +264,7 @@ extension Operations {
             ///   - body:
             public init(
                 headers: Operations.OauthV2Exchange.Input.Headers = .init(),
-                body: Operations.OauthV2Exchange.Input.Body
+                body: Operations.OauthV2Exchange.Input.Body,
             ) {
                 self.headers = headers
                 self.body = body

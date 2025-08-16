@@ -110,7 +110,7 @@ extension Say {
             iconUrl: String? = nil,
             unfurlLinks: Bool? = nil,
             unfurlMedia: Bool? = nil,
-            metadata: OpenAPIObjectContainer? = nil
+            metadata: OpenAPIObjectContainer? = nil,
         ) {
             self.channel = channel
             self.text = text

@@ -78,7 +78,7 @@ public struct Bookmark: Codable, Hashable, Sendable {
         rank: Swift.String? = nil,
         shortcutId: Swift.String? = nil,
         title: Swift.String? = nil,
-        _type: Swift.String
+        _type: Swift.String,
     ) {
         self.appActionId = appActionId
         self.appId = appId

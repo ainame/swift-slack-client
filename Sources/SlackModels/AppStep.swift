@@ -8,7 +8,7 @@ public struct AppStep: Codable, Hashable, Sendable {
     public init(
         appId: String? = nil,
         workflowStepId: String? = nil,
-        callbackId: String? = nil
+        callbackId: String? = nil,
     ) {
         self.appId = appId
         self.workflowStepId = workflowStepId

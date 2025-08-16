@@ -42,7 +42,7 @@ public struct InitialComment: Codable, Hashable, Sendable {
         id: Swift.String? = nil,
         isIntro: Swift.Bool? = nil,
         timestamp: Swift.Int? = nil,
-        user: Swift.String? = nil
+        user: Swift.String? = nil,
     ) {
         self.channel = channel
         self.comment = comment

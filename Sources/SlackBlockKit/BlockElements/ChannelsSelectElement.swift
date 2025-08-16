@@ -15,7 +15,7 @@ public struct ChannelsSelectElement: Codable, Hashable, Sendable {
         responseUrlEnabled: Bool? = nil,
         confirm: ConfirmationDialogObject? = nil,
         focusOnLoad: Bool? = nil,
-        placeholder: TextObject? = nil
+        placeholder: TextObject? = nil,
     ) {
         type = "channels_select"
         self.actionId = actionId

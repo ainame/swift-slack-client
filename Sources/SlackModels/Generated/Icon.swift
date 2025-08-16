@@ -50,7 +50,7 @@ public struct Icon: Codable, Hashable, Sendable {
         image68: Swift.String? = nil,
         image88: Swift.String? = nil,
         imageDefault: Swift.Bool? = nil,
-        imageOriginal: Swift.String? = nil
+        imageOriginal: Swift.String? = nil,
     ) {
         self.image102 = image102
         self.image132 = image132

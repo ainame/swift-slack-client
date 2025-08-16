@@ -22,7 +22,7 @@ public struct CustomizableInputParameter: Codable, Hashable, Sendable {
     ///   - value:
     public init(
         name: Swift.String? = nil,
-        value: Swift.String? = nil
+        value: Swift.String? = nil,
     ) {
         self.name = name
         self.value = value

@@ -42,7 +42,7 @@ public struct SharedChannelInviteRequested: Codable, Hashable, Sendable {
         enabled: Swift.Bool? = nil,
         source: Swift.String? = nil,
         usergroupExclude: UsergroupClude? = nil,
-        usergroupInclude: UsergroupClude? = nil
+        usergroupInclude: UsergroupClude? = nil,
     ) {
         self.actor = actor
         self.approvalDestination = approvalDestination

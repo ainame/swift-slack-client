@@ -22,7 +22,7 @@ public struct Edited: Codable, Hashable, Sendable {
     ///   - user:
     public init(
         ts: Swift.String? = nil,
-        user: Swift.String? = nil
+        user: Swift.String? = nil,
     ) {
         self.ts = ts
         self.user = user

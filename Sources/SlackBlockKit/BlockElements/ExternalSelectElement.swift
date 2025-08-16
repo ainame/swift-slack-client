@@ -15,7 +15,7 @@ public struct ExternalSelectElement: Codable, Hashable, Sendable {
         minQueryLength: Int? = nil,
         confirm: ConfirmationDialogObject? = nil,
         focusOnLoad: Bool? = nil,
-        placeholder: TextObject? = nil
+        placeholder: TextObject? = nil,
     ) {
         type = "external_select"
         self.actionId = actionId

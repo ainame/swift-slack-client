@@ -30,7 +30,7 @@ public struct Shortcut: Codable, Hashable, Sendable {
         callbackId: Swift.String? = nil,
         description: Swift.String? = nil,
         name: Swift.String? = nil,
-        _type: Swift.String
+        _type: Swift.String,
     ) {
         self.callbackId = callbackId
         self.description = description

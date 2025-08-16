@@ -26,7 +26,7 @@ public struct AppHome: Codable, Hashable, Sendable {
     public init(
         homeTabEnabled: Swift.Bool? = nil,
         messagesTabEnabled: Swift.Bool? = nil,
-        messagesTabReadOnlyEnabled: Swift.Bool? = nil
+        messagesTabReadOnlyEnabled: Swift.Bool? = nil,
     ) {
         self.homeTabEnabled = homeTabEnabled
         self.messagesTabEnabled = messagesTabEnabled

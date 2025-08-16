@@ -22,7 +22,7 @@ public struct PostingRestrictedTo: Codable, Hashable, Sendable {
     ///   - user:
     public init(
         _type: [Swift.String]? = nil,
-        user: [Swift.String]? = nil
+        user: [Swift.String]? = nil,
     ) {
         self._type = _type
         self.user = user

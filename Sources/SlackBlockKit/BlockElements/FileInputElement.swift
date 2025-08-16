@@ -9,7 +9,7 @@ public struct FileInputElement: Codable, Hashable, Sendable {
     public init(
         actionId: String,
         filetypes: [String]? = nil,
-        maxFiles: Int? = nil
+        maxFiles: Int? = nil,
     ) {
         type = "file_input"
         self.actionId = actionId

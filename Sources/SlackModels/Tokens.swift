@@ -6,7 +6,7 @@ public struct Tokens: Codable, Hashable, Sendable {
 
     public init(
         oauth: [Swift.String]? = nil,
-        bot: [Swift.String]? = nil
+        bot: [Swift.String]? = nil,
     ) {
         self.oauth = oauth
         self.bot = bot

@@ -30,7 +30,7 @@ public struct Paging: Codable, Hashable, Sendable {
         count: Swift.Int? = nil,
         page: Swift.Int? = nil,
         pages: Swift.Int? = nil,
-        total: Swift.Int? = nil
+        total: Swift.Int? = nil,
     ) {
         self.count = count
         self.page = page

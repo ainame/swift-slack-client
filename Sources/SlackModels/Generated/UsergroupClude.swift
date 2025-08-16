@@ -22,7 +22,7 @@ public struct UsergroupClude: Codable, Hashable, Sendable {
     ///   - teamId:
     public init(
         id: Swift.String? = nil,
-        teamId: Swift.String? = nil
+        teamId: Swift.String? = nil,
     ) {
         self.id = id
         self.teamId = teamId

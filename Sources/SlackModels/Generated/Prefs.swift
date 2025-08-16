@@ -22,7 +22,7 @@ public struct Prefs: Codable, Hashable, Sendable {
     ///   - groups:
     public init(
         channels: [Swift.String]? = nil,
-        groups: [Swift.String]? = nil
+        groups: [Swift.String]? = nil,
     ) {
         self.channels = channels
         self.groups = groups

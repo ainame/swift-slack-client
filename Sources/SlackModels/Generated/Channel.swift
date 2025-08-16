@@ -170,7 +170,7 @@ public struct Channel: Codable, Hashable, Sendable {
         topic: Purpose? = nil,
         unlinked: Swift.Int? = nil,
         updated: Swift.Int? = nil,
-        user: Swift.String? = nil
+        user: Swift.String? = nil,
     ) {
         self.contextTeamId = contextTeamId
         self.conversationHostId = conversationHostId

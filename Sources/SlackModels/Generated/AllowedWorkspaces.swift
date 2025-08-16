@@ -34,7 +34,7 @@ public struct AllowedWorkspaces: Codable, Hashable, Sendable {
         dateUpdate: Swift.Int? = nil,
         source: Swift.String? = nil,
         teamIds: [Swift.String]? = nil,
-        _type: Swift.String
+        _type: Swift.String,
     ) {
         self.actor = actor
         self.dateUpdate = dateUpdate

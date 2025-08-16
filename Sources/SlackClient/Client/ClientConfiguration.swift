@@ -6,7 +6,7 @@ public struct ClientConfiguration: Sendable {
     public init(
         userAgent: String? = nil,
         appToken: String? = nil,
-        token: String? = nil
+        token: String? = nil,
     ) {
         self.userAgent = userAgent
         self.appToken = appToken

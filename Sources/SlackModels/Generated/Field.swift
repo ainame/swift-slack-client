@@ -22,7 +22,7 @@ public struct Field: Codable, Hashable, Sendable {
     ///   - value:
     public init(
         alt: Swift.String? = nil,
-        value: Swift.String? = nil
+        value: Swift.String? = nil,
     ) {
         self.alt = alt
         self.value = value
