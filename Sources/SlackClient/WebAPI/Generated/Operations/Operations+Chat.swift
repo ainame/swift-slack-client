@@ -947,10 +947,6 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/text`.
                     public var text: Swift.String?
-                    /// Identify how the message was posted for agentforce BE logging.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/agent_message_source_type`.
-                    public var agentMessageSourceType: Swift.String?
                     /// (Legacy) Pass true to post the message as the authed user instead of as a bot. Defaults to false. Can only be used by classic apps. See legacy as_user parameter below.
                     ///
                     /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/as_user`.
@@ -1011,7 +1007,6 @@ extension Operations {
                     ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
                     ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
                     ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
-                    ///   - agentMessageSourceType: Identify how the message was posted for agentforce BE logging.
                     ///   - asUser: (Legacy) Pass true to post the message as the authed user instead of as a bot. Defaults to false. Can only be used by classic apps. See legacy as_user parameter
                     /// below.
                     ///   - iconEmoji: Emoji to use as the icon for this message. Overrides icon_url.
@@ -1032,7 +1027,6 @@ extension Operations {
                         attachments: [SlackModels.Attachment]? = nil,
                         blocks: [SlackBlockKit.Block]? = nil,
                         text: Swift.String? = nil,
-                        agentMessageSourceType: Swift.String? = nil,
                         asUser: Swift.Bool? = nil,
                         iconEmoji: Swift.String? = nil,
                         iconUrl: Swift.String? = nil,
@@ -1051,7 +1045,6 @@ extension Operations {
                         self.attachments = attachments
                         self.blocks = blocks
                         self.text = text
-                        self.agentMessageSourceType = agentMessageSourceType
                         self.asUser = asUser
                         self.iconEmoji = iconEmoji
                         self.iconUrl = iconUrl
@@ -1072,7 +1065,6 @@ extension Operations {
                         case attachments
                         case blocks
                         case text
-                        case agentMessageSourceType = "agent_message_source_type"
                         case asUser = "as_user"
                         case iconEmoji = "icon_emoji"
                         case iconUrl = "icon_url"

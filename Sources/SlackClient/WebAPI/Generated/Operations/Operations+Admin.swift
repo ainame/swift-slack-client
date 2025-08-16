@@ -11667,6 +11667,10 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
+                    /// If true, returns only guests and their expiration dates that belong to the team_id.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/only_guests`.
+                    public var onlyGuests: Swift.Bool?
                     /// The ID (T1234) of a workspace. Filters results to just the specified workspace.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/team_id`.
@@ -11679,18 +11683,21 @@ extension Operations {
                     /// return workspaces for a user only when user is active on them. Default is false.
                     ///   - isActive: If true, only active users will be returned. If false, only deactivated users will be returned. Default is true.
                     ///   - limit: Limit for how many users to be retrieved per page.
+                    ///   - onlyGuests: If true, returns only guests and their expiration dates that belong to the team_id.
                     ///   - teamId: The ID (T1234) of a workspace. Filters results to just the specified workspace.
                     public init(
                         cursor: Swift.String? = nil,
                         includeDeactivatedUserWorkspaces: Swift.Bool? = nil,
                         isActive: Swift.Bool? = nil,
                         limit: Swift.Int? = nil,
+                        onlyGuests: Swift.Bool? = nil,
                         teamId: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.includeDeactivatedUserWorkspaces = includeDeactivatedUserWorkspaces
                         self.isActive = isActive
                         self.limit = limit
+                        self.onlyGuests = onlyGuests
                         self.teamId = teamId
                     }
 
@@ -11699,6 +11706,7 @@ extension Operations {
                         case includeDeactivatedUserWorkspaces = "include_deactivated_user_workspaces"
                         case isActive = "is_active"
                         case limit
+                        case onlyGuests = "only_guests"
                         case teamId = "team_id"
                     }
                 }
