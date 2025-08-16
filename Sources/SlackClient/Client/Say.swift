@@ -154,8 +154,8 @@ extension Say {
             Operations.ChatPostMessage.Input.Body.JsonPayload(
                 channel: channel,
                 text: text,
-                agentMessageSourceType: nil,
-                asUser: nil,
+                agentMessageSourceType: nil as Swift.String?,
+                asUser: nil as Swift.Bool?,
                 iconEmoji: iconEmoji,
                 iconUrl: iconUrl,
                 linkNames: linkNames,
