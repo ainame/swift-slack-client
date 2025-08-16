@@ -11,6 +11,9 @@ DerivedData/
 openapi.json
 .vscode
 
+# DocC generated documentation
+docs/
+
 # Environment variables
 .env
 .env.local

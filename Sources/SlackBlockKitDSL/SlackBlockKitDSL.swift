@@ -3,6 +3,32 @@ import SlackBlockKit
 
 // MARK: - Text DSL
 
+/// A declarative text component for Block Kit DSL with SwiftUI-like syntax.
+///
+/// `Text` provides a fluent interface for creating text objects with various formatting options.
+/// It automatically handles text type selection and supports method chaining for configuration.
+///
+/// ## Usage
+///
+/// ### Basic Text
+/// ```swift
+/// Text("Hello, World!")
+/// ```
+///
+/// ### Formatted Text
+/// ```swift
+/// Text("*Bold text* with _italics_")
+///     .style(.mrkdwn)
+///     .emoji(true)
+/// ```
+///
+/// ### Plain Text with Options
+/// ```swift
+/// Text("Literal text")
+///     .style(.plainText)
+///     .verbatim(true)
+///     .emoji(false)
+/// ```
 public struct Text: CompositionObject {
     var text: String
     private var type: TextType

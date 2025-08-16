@@ -28,3 +28,9 @@ update:
 	@git submodule init
 	@git submodule update --remote --merge
 	@echo "Submodules updated to latest main/master branch"
+
+doc:
+	./scripts/build-docs.sh
+
+doc-preview: doc
+	python3 -m http.server 8080 -d docs
