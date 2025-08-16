@@ -26,12 +26,12 @@ jobs:
         uses: actions/cache@v4
         with:
           path: /usr/local/bin/swiftformat
-          key: ${{ runner.os }}-swiftformat-0.56.2
+          key: ${{ runner.os }}-swiftformat-0.57.2
 
       - name: Install SwiftFormat
         if: steps.cache-swiftformat.outputs.cache-hit != 'true'
         run: |
-          git clone --depth 1 --branch 0.56.2 https://github.com/nicklockwood/SwiftFormat.git
+          git clone --depth 1 --branch 0.57.2 https://github.com/nicklockwood/SwiftFormat.git
           cd SwiftFormat
           swift build -c release
           sudo cp .build/release/swiftformat /usr/local/bin/
