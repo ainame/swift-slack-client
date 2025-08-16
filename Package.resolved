@@ -1,5 +1,5 @@
 {
-  "originHash" : "6d33157ecc31b59cd5e521b12215d65a8956460b3358bdf15c7bfb824cbba34f",
+  "originHash" : "2d69b2fb5d38b1898c0b975593893af457dfbdc37b5adb29f0a6d37a3bba12f1",
   "pins" : [
     {
       "identity" : "compress-nio",
@@ -114,8 +114,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
       "state" : {
-        "revision" : "3d8596ed08bd13520157f0355e35caed215ffbfa",
-        "version" : "1.6.3"
+        "revision" : "ce592ae52f982c847a4efc0dd881cc9eb32d29f2",
+        "version" : "1.6.4"
       }
     },
     {
@@ -177,8 +177,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-openapi-generator.git",
       "state" : {
-        "revision" : "ea291f05436363665ee67c453f4a72a895f18e75",
-        "version" : "1.9.0"
+        "revision" : "bb9a13596af11db9bb83389295d91cd335810fe8",
+        "version" : "1.10.2"
       }
     },
     {
