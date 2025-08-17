@@ -5,7 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.2.0] - 2025-08-17
+
+### Added
+
+* Minimum DocC documentation support https://ainame.github.io/swift-slack-client/documentation
+* Schema update https://github.com/ainame/swift-slack-client/pull/33
+
+### Fixed
+
+* Schema update automation issue was resolved https://github.com/ainame/swift-slack-client/commit/44966ba5be88fe6df115d42f229bd04e9153f472
+   * SwiftFormat got bug fixes around trailing commas and that helps us get consistently formatted code in schema updates
+
 
 ## [0.1.2] - 2025-06-28
 
@@ -15,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `Item` now has `public var ts: Swift.String?` to support both reaction events and other APIs
   - Maintains type safety by keeping `ts` optional since it's not present in all contexts
 
-### ✨ Added  
+### ✨ Added
 - **Form-Encoding Middleware**: Automatic JSON to form-urlencoded conversion for Slack API compatibility
   - `FormEncodingMiddleware` installed by default in `SlackClient`
   - Transparent handling of Slack's POST + `application/x-www-form-urlencoded` requirement
@@ -52,7 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Handles nested objects by serializing them as JSON strings in form fields
   - Installed by default in SlackClient for transparent operation
 
-### 🔧 Enhanced  
+### 🔧 Enhanced
 - **DeepL Translator Demo**: Improved error handling and API compatibility
   - Fixed reaction event handling with proper `conversations.replies` usage
   - Enhanced duplicate translation detection logic
@@ -63,7 +74,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 🚨 Breaking Changes
 - **BREAKING**: Socket Mode interactive handlers now require explicit acknowledgment
   - Removed auto-acknowledgment for interactive handlers (global shortcuts, view submissions, slash commands, block actions, message shortcuts)
-  - All interactive handlers must now call `try await context.ack()` 
+  - All interactive handlers must now call `try await context.ack()`
   - Event API handlers remain unchanged (no acknowledgment required)
   - **Migration**: Add `try await context.ack()` at the start of your interactive handlers
 
@@ -80,7 +91,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Comprehensive unit tests for JSON decoding scenarios
 - **DeepL Translator Demo App**: Complete real-world Slack bot implementation
   - Global shortcut and reaction-based translation features
-  - Modal UI with form handling and loading states  
+  - Modal UI with form handling and loading states
   - Demonstrates proper custom Ack usage patterns
   - DeepL API integration with shared HTTPClient
 
@@ -157,7 +168,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **BREAKING**: Renamed core types for better Swift conventions:
   - `ViewType` → `View`
-  - `BlockType` → `Block` 
+  - `BlockType` → `Block`
   - `EventType` → `Event`
   - `SocketModeMessageType` → `SocketModeMessage`
 - Moved Snippets examples to proper Sources directory structure
