@@ -60,5 +60,3 @@ To build an interactive app using events or shortcuts, it's best to use SocketMo
     "Events"
 ])
 ```
-
-See details <doc:SocketMode>

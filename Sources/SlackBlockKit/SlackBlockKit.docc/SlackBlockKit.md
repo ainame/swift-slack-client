@@ -38,11 +38,33 @@ let welcomeSection = SectionBlock(
 let blocks: [Block] = [.section(welcomeSection)]
 ```
 
+## Integration
+
+SlackBlockKit integrates seamlessly with other swift-slack-client modules:
+
+- Use with `SlackClient` to send messages and open modals
+- Combine with `SlackBlockKitDSL` for declarative syntax
+- Access shared types from `SlackModels`
+
+```swift
+import SlackClient
+import SlackBlockKit
+
+let slack = Slack(transport: transport, configuration: config)
+
+try await slack.client.chatPostMessage(
+    body: .json(.init(
+        channel: "#general",
+        blocks: blocks
+    ))
+)
+```
+
 ## Topics
 
 ### Getting Started
 
-- <doc:BlockKit> - Complete guide to Block Kit components and usage patterns
+- <doc:BlockKit>
 
 ### Block Types
 
@@ -97,30 +119,6 @@ let blocks: [Block] = [.section(welcomeSection)]
 - ``ContextElementType``
 - ``SectionAccessory``
 
-## Integration
-
-SlackBlockKit integrates seamlessly with other swift-slack-client modules:
-
-- Use with ``SlackClient`` to send messages and open modals
-- Combine with ``SlackBlockKitDSL`` for declarative syntax
-- Access shared types from ``SlackModels``
-
-```swift
-import SlackClient
-import SlackBlockKit
-
-let slack = Slack(transport: transport, configuration: config)
-
-try await slack.client.chatPostMessage(
-    body: .json(.init(
-        channel: "#general",
-        blocks: blocks
-    ))
-)
-```
-
 ## See Also
 
-- ``SlackBlockKitDSL`` for SwiftUI-inspired declarative syntax
-- ``SlackClient`` for sending messages and handling interactions
-- [Slack Block Kit Reference](https://api.slack.com/block-kit) - Official Slack documentation
+- [Slack Block Kit Reference](https://api.slack.com/block-kit)

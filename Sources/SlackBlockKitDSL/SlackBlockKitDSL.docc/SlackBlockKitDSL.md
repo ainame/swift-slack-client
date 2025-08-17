@@ -96,7 +96,7 @@ try await slack.client.viewsOpen(
 
 ### Getting Started
 
-- <doc:BlockKitDSL> - Comprehensive guide to the DSL syntax and patterns
+- <doc:BlockKitDSL>
 
 ### Core Components
 
@@ -265,26 +265,6 @@ try await slack.client.chatPostMessage(
 )
 ```
 
-## Best Practices
-
-### Code Organization
-
-- Group related components into reusable view protocols
-- Use extensions to add domain-specific DSL components
-- Separate data models from view logic
-
-### Performance
-
-- Use lazy evaluation for expensive computations in view builders
-- Cache complex view structures when data doesn't change frequently
-- Prefer functional composition over imperative construction
-
-### Maintainability
-
-- Keep view builders focused and break complex views into smaller components
-- Use meaningful action IDs that include context
-- Document complex conditional logic in view builders
-
 ## Migration from SlackBlockKit
 
 The DSL provides a smooth migration path from direct SlackBlockKit usage:
@@ -311,8 +291,3 @@ let section = Section {
 )
 ```
 
-## See Also
-
-- ``SlackBlockKit`` for direct Block Kit API access
-- ``SlackClient`` for sending messages and handling interactions
-- [SwiftUI Documentation](https://developer.apple.com/xcode/swiftui/) for result builder patterns

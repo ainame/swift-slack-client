@@ -352,9 +352,3 @@ try await slack.client.chatPostMessage(
     ))
 )
 ```
-
-## See Also
-
-- <doc:BlockKitDSL> for a SwiftUI-inspired declarative syntax
-- [Slack Block Kit Reference](https://api.slack.com/block-kit/building) - Official Slack documentation
-- <doc:Examples> for complete code examples

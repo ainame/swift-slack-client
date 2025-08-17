@@ -88,9 +88,3 @@ router.onEvent(AppMentionEvent.self) { context, envelope, event in
 await client.addSocketModeRouter(router)
 try await client.runInSocketMode()
 ```
-
-## Next Steps
-
-- Explore <doc:BlockKit> and <doc:BlockKitDSL> for rich message formatting
-- Set up <doc:SocketMode> for real-time interactions
-- Understand <doc:Traits> for modular imports
