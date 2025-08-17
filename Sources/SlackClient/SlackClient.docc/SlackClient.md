@@ -12,7 +12,7 @@ similar with Bolt framework that are available for officially supported language
 
 ### Up-to-date client code
 
-You can benefit of SlackClient being always up-to-date to the Slack API specs.
+You can benefit SlackClient being always up-to-date to the Slack API specs.
 This project relies on the official Java SDK
  [java-slack-sdk](https://github.com/slackapi/java-slack-sdk)
 and community project
