@@ -10,7 +10,8 @@ The DSL transforms verbose Block Kit JSON structures into intuitive Swift code, 
 
 ## Quick Comparison
 
-**Traditional SlackBlockKit:**
+**SlackBlockKit:**
+
 ```swift
 import SlackBlockKit
 
@@ -649,55 +650,3 @@ router.onViewSubmission("create_task") { context, payload in
     try await context.ack(responseAction: .update, view: successView.asView())
 }
 ```
-
-## Best Practices
-
-### Code Organization
-
-- Group related components into reusable view protocols
-- Use extensions to add domain-specific DSL components
-- Separate data models from view logic
-
-### Performance
-
-- Use lazy evaluation for expensive computations in view builders
-- Cache complex view structures when data doesn't change frequently
-- Prefer functional composition over imperative construction
-
-### Maintainability
-
-- Keep view builders focused and break complex views into smaller components
-- Use meaningful action IDs that include context
-- Document complex conditional logic in view builders
-
-## Migration from SlackBlockKit
-
-Converting existing SlackBlockKit code to DSL:
-
-```swift
-// Before: SlackBlockKit
-let section = SectionBlock(
-    text: TextObject(type: .mrkdwn, text: "*Status:* Active"),
-    accessory: .button(ButtonElement(
-        text: TextObject(text: "Details", type: .plainText),
-        actionId: "view_details",
-        style: .primary
-    ))
-)
-
-// After: SlackBlockKitDSL
-let section = Section {
-    Text("*Status:* Active").style(.mrkdwn)
-}
-.accessory(
-    Button("Details")
-        .actionId("view_details")
-        .style(.primary)
-)
-```
-
-## See Also
-
-- <doc:BlockKit> for direct Block Kit API access
-- <doc:SocketMode> for interactive routing and event handling
-- <doc:Examples> for complete application examples

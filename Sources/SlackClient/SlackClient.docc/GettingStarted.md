@@ -10,7 +10,7 @@ Add SlackClient to your Swift package or Xcode project:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/ainame/swift-slack-client", from: "1.0.0")
+    .package(url: "https://github.com/ainame/swift-slack-client", from: "0.1.0")
 ]
 ```
 
@@ -19,18 +19,20 @@ dependencies: [
 SlackClient uses traits to include only the API components you need:
 
 ```swift
-.package(url: "https://github.com/ainame/swift-slack-client", traits: [
-    "WebAPI_Chat",    // Chat API methods
-    "WebAPI_Views",   // Views API methods  
-    "SocketMode",     // Real-time Socket Mode
-    "Events"          // Event handling
-])
+.package(
+    url: "https://github.com/ainame/swift-slack-client",
+    from: "0.1.0",
+    traits: [
+        "WebAPI_Chat",    // Chat API methods
+        "WebAPI_Views",   // Views API methods
+        "SocketMode",     // Real-time Socket Mode
+        "Events"          // Event handling
+    ]
+)
 ```
 
-Available traits include:
-- **WebAPI traits**: `WebAPI_Admin`, `WebAPI_Apps`, `WebAPI_Chat`, `WebAPI_Conversations`, `WebAPI_Files`, `WebAPI_Users`, `WebAPI_Views`, and more
-- **SocketMode**: Real-time WebSocket connections
-- **Events**: Event handling and routing
+See <doc:Traits> for details.
+
 
 ## Basic Usage
 
@@ -49,29 +51,24 @@ let client = Slack(
 ### Sending a Message
 
 ```swift
-#if WebAPI_Chat
 try await client.chatPostMessage(
-    channel: "#general", 
+    channel: "#general",
     text: "Hello from SwiftSlackClient!"
 )
-#endif
 ```
 
 ### Getting Channel Information
 
 ```swift
-#if WebAPI_Conversations
 let response = try await client.conversationsInfo(channel: "C1234567890")
 print("Channel name: \(response.channel?.name ?? "Unknown")")
-#endif
 ```
 
 ## Socket Mode
 
-For real-time interactions, use Socket Mode:
+For real-time interactions, use Socket Mode. This way you can build Slack apps with various ways such as a plain app with Events, Shortcuts or Slash Commands. 
 
 ```swift
-#if SocketMode
 let router = SocketModeRouter()
 
 router.onSlashCommand("/hello") { context, payload in
@@ -90,12 +87,10 @@ router.onEvent(AppMentionEvent.self) { context, envelope, event in
 
 await client.addSocketModeRouter(router)
 try await client.runInSocketMode()
-#endif
 ```
 
 ## Next Steps
 
-- Learn about <doc:Authentication> options
-- Explore <doc:BlockKit> for rich message formatting
+- Explore <doc:BlockKit> and <doc:BlockKitDSL> for rich message formatting
 - Set up <doc:SocketMode> for real-time interactions
 - Understand <doc:Traits> for modular imports

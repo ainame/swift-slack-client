@@ -4,40 +4,28 @@ A Swift library for interacting with the Slack API, providing type-safe WebAPI a
 
 ## Overview
 
-SlackClient is a comprehensive Swift library auto-generated from Slack's OpenAPI specifications using swift-openapi-generator. It provides a complete, type-safe interface to Slack's Web API and real-time Socket Mode functionality.
+SlackClient is a comprehensive Swift library to interact with Slack APIs.
+You can use SlackClient as just API client or simple app framework with SocketMode
+similar with Bolt framework that are available for officially supported language such as
+ [bolt-js](https://github.com/slackapi/bolt-js) or
+[bolt-python](https://github.com/slackapi/bolt-python).
 
-The library is designed with a modular architecture using Swift Package Manager traits, allowing you to include only the API components you need.
+### Up-to-date client code
 
-## Topics
+You can benefit of SlackClient being always up-to-date to the Slack API specs.
+This project relies on the official Java SDK
+ [java-slack-sdk](https://github.com/slackapi/java-slack-sdk)
+and community project
+ [slack-api-ref](https://github.com/slack-ruby/slack-ruby-client)
+to compose own OpenAPI spec and generate client and model code by
+ [swift-openapi-generator](https://github.com/apple/swift-openapi-generator).
+When those source repositories get updates, this project will also recieve update from GitHub Actions.
 
-### Getting Started
+### Built for Server on Swift
 
-- <doc:GettingStarted>
-- <doc:Authentication>
-- <doc:Traits>
+SlackClient is built with server on Swift in mind. You can build your Slack app with strctured conrrency throughout
+and benefit [swift-service-lifecycle](https://github.com/swift-server/swift-service-lifecycle) when deploying a Socket Mode Slack App.
 
-### Core Components
-
-- ``Slack``
-- <doc:WebAPI>
-- <doc:SocketMode>
-
-### Block Kit Integration
-
-Learn about integrating with Block Kit UI framework:
-
-- ``SlackBlockKit`` for direct Block Kit API access
-- ``SlackBlockKitDSL`` for SwiftUI-inspired declarative syntax
-
-### Events
-
-Handle Slack events in real-time:
-
-- <doc:Events>
-- <doc:EventHandling>
-
-### Advanced Topics
-
-- <doc:Examples>
-- <doc:CodeGeneration>
-- <doc:Configuration>
+You can also choose underlying networking layer; i.e.
+[swift-openapi-async-http-client](https://github.com/swift-server/swift-openapi-async-http-client),
+thanks to swift-openapi-generator ecosystem.

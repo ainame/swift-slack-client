@@ -21,17 +21,14 @@ import OpenAPIRuntime
 ///
 /// ### Web API Calls
 /// ```swift
-/// #if WebAPI_Chat
 /// try await client.chatPostMessage(
 ///     channel: "#general",
 ///     text: "Hello from SwiftSlackClient!"
 /// )
-/// #endif
 /// ```
 ///
 /// ### Socket Mode
 /// ```swift
-/// #if SocketMode
 /// let router = SocketModeRouter()
 /// router.onSlashCommand("/hello") { context, payload in
 ///     try await context.client.chatPostMessage(
@@ -42,7 +39,6 @@ import OpenAPIRuntime
 ///
 /// await client.addSocketModeRouter(router)
 /// try await client.runInSocketMode()
-/// #endif
 /// ```
 public actor Slack {
     public let client: APIProtocol

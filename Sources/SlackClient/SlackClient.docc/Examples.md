@@ -795,38 +795,3 @@ struct TaskListView: SlackView {
     }
 }
 ```
-
-## Best Practices Demonstrated
-
-### Consistent Styling
-
-- Use emoji consistently for visual cues (✅, 🔴, 📊)
-- Apply `.style(.mrkdwn)` for formatted text
-- Use appropriate button styles (`.primary`, `.danger`)
-
-### User Experience
-
-- Provide clear placeholder text for inputs
-- Include helpful hint text for complex forms
-- Use confirmation dialogs for destructive actions
-- Show loading states and success messages
-
-### Data Management
-
-- Extract form values safely with null coalescing
-- Validate user input before processing
-- Provide meaningful error messages
-- Use block IDs for targeted updates
-
-### Code Organization
-
-- Create reusable view protocols for common interfaces
-- Separate data models from view logic
-- Use meaningful action IDs that include context
-- Group related functionality in view components
-
-## See Also
-
-- <doc:BlockKit> for direct Block Kit API reference
-- <doc:BlockKitDSL> for comprehensive DSL documentation
-- <doc:SocketMode> for interactive routing and event handling

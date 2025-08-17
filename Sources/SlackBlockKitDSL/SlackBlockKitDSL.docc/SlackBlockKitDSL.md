@@ -8,18 +8,9 @@ SlackBlockKitDSL provides a modern, declarative API for building Slack Block Kit
 
 The DSL transforms verbose Block Kit JSON structures into intuitive Swift code, making it easier to build, maintain, and understand complex Slack interfaces.
 
-## Key Features
-
-- **Declarative Syntax**: SwiftUI-inspired result builders for clean code
-- **Method Chaining**: Fluent interface for configuring components
-- **Type Safety**: Prevents invalid configurations at compile time
-- **Reusable Components**: Protocol-based view system for code reuse
-- **Full Block Kit Support**: Complete coverage of all Block Kit features
-- **Zero Overhead**: Compiles to efficient SlackBlockKit calls
-
 ## Quick Comparison
 
-**Traditional SlackBlockKit:**
+**SlackBlockKit:**
 ```swift
 import SlackBlockKit
 

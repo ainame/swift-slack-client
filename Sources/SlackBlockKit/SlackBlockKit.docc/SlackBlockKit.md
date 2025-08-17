@@ -8,14 +8,6 @@ SlackBlockKit provides a comprehensive, type-safe Swift interface to Slack's Blo
 
 This library gives you direct access to all Block Kit components with full control over their properties and structure, matching Slack's JSON Block Kit specification exactly.
 
-## Key Features
-
-- **Complete Block Kit Coverage**: All blocks, elements, and composition objects
-- **Type Safety**: Swift types prevent invalid Block Kit configurations
-- **Direct API**: One-to-one mapping with Slack's Block Kit JSON structure
-- **Full Control**: Access to all properties and advanced features
-- **Zero Dependencies**: Pure Swift implementation with only OpenAPIRuntime dependency
-
 ## Architecture
 
 Block Kit applications are composed of these key elements:

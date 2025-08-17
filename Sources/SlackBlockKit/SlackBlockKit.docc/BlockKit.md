@@ -330,28 +330,6 @@ HomeTabView(
 )
 ```
 
-## Best Practices
-
-### Text Formatting
-
-- Use `.plainText` for simple content and UI labels
-- Use `.mrkdwn` for content that needs formatting (bold, italic, links)
-- Always provide meaningful `alt_text` for images
-- Keep text concise - Slack has character limits for various components
-
-### User Experience
-
-- Use confirmation dialogs for destructive actions
-- Provide clear placeholder text for inputs
-- Group related actions in `ActionsBlock`
-- Use appropriate button styles (primary for main actions, danger for destructive actions)
-
-### Performance
-
-- Minimize the number of blocks in complex interfaces
-- Use `blockId` properties to enable targeted updates
-- Consider using `Context` blocks for supplementary information instead of additional sections
-
 ## Integration with SlackClient
 
 Use these Block Kit components with SlackClient's Web API:
