@@ -33,12 +33,16 @@ public struct Usergroup: Codable, Hashable, Sendable {
     public var id: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Usergroup/is_external`.
     public var isExternal: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/is_idp_group`.
+    public var isIdpGroup: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Usergroup/is_section`.
     public var isSection: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Usergroup/is_subteam`.
     public var isSubteam: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Usergroup/is_usergroup`.
     public var isUsergroup: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Usergroup/is_visible`.
+    public var isVisible: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Usergroup/name`.
     public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Usergroup/prefs`.
@@ -63,9 +67,11 @@ public struct Usergroup: Codable, Hashable, Sendable {
     ///   - handle:
     ///   - id:
     ///   - isExternal:
+    ///   - isIdpGroup:
     ///   - isSection:
     ///   - isSubteam:
     ///   - isUsergroup:
+    ///   - isVisible:
     ///   - name:
     ///   - prefs:
     ///   - teamId:
@@ -83,9 +89,11 @@ public struct Usergroup: Codable, Hashable, Sendable {
         handle: Swift.String? = nil,
         id: Swift.String? = nil,
         isExternal: Swift.Bool? = nil,
+        isIdpGroup: Swift.Bool? = nil,
         isSection: Swift.Bool? = nil,
         isSubteam: Swift.Bool? = nil,
         isUsergroup: Swift.Bool? = nil,
+        isVisible: Swift.Bool? = nil,
         name: Swift.String? = nil,
         prefs: Prefs? = nil,
         teamId: Swift.String? = nil,
@@ -103,9 +111,11 @@ public struct Usergroup: Codable, Hashable, Sendable {
         self.handle = handle
         self.id = id
         self.isExternal = isExternal
+        self.isIdpGroup = isIdpGroup
         self.isSection = isSection
         self.isSubteam = isSubteam
         self.isUsergroup = isUsergroup
+        self.isVisible = isVisible
         self.name = name
         self.prefs = prefs
         self.teamId = teamId
@@ -125,9 +135,11 @@ public struct Usergroup: Codable, Hashable, Sendable {
         case handle
         case id
         case isExternal = "is_external"
+        case isIdpGroup = "is_idp_group"
         case isSection = "is_section"
         case isSubteam = "is_subteam"
         case isUsergroup = "is_usergroup"
+        case isVisible = "is_visible"
         case name
         case prefs
         case teamId = "team_id"
