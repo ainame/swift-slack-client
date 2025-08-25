@@ -15,6 +15,8 @@ public struct Properties: Codable, Hashable, Sendable {
     public var canvas: Canvas?
     /// - Remark: Generated from `#/components/schemas/Properties/huddles_restricted`.
     public var huddlesRestricted: Swift.Bool?
+    /// - Remark: Generated from `#/components/schemas/Properties/is_dormant`.
+    public var isDormant: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Properties/meeting_notes`.
     public var meetingNotes: MeetingNotes?
     /// - Remark: Generated from `#/components/schemas/Properties/posting_restricted_to`.
@@ -30,6 +32,7 @@ public struct Properties: Codable, Hashable, Sendable {
     /// - Parameters:
     ///   - canvas:
     ///   - huddlesRestricted:
+    ///   - isDormant:
     ///   - meetingNotes:
     ///   - postingRestrictedTo:
     ///   - tabs:
@@ -38,6 +41,7 @@ public struct Properties: Codable, Hashable, Sendable {
     public init(
         canvas: Canvas? = nil,
         huddlesRestricted: Swift.Bool? = nil,
+        isDormant: Swift.Bool? = nil,
         meetingNotes: MeetingNotes? = nil,
         postingRestrictedTo: PostingRestrictedTo? = nil,
         tabs: [Tab]? = nil,
@@ -46,6 +50,7 @@ public struct Properties: Codable, Hashable, Sendable {
     ) {
         self.canvas = canvas
         self.huddlesRestricted = huddlesRestricted
+        self.isDormant = isDormant
         self.meetingNotes = meetingNotes
         self.postingRestrictedTo = postingRestrictedTo
         self.tabs = tabs
@@ -56,6 +61,7 @@ public struct Properties: Codable, Hashable, Sendable {
     public enum CodingKeys: String, CodingKey {
         case canvas
         case huddlesRestricted = "huddles_restricted"
+        case isDormant = "is_dormant"
         case meetingNotes = "meeting_notes"
         case postingRestrictedTo = "posting_restricted_to"
         case tabs
