@@ -25,7 +25,7 @@ jobs:
 
       - name: Cache SwiftFormat
         id: cache-swiftformat
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /usr/local/bin/swiftformat
           key: ${{ runner.os }}-swiftformat-0.57.2
@@ -41,7 +41,7 @@ jobs:
           rm -rf SwiftFormat
 
       - name: Cache Swift build
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .build
           key: ${{ runner.os }}-swift-build-${{ hashFiles('Package.swift', 'Package.resolved') }}
