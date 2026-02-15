@@ -16,7 +16,7 @@ public struct InvitingUser: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/InvitingUser/name`.
     public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/InvitingUser/profile`.
-    public var profile: Profile?
+    public var profile: UserProfile?
     /// - Remark: Generated from `#/components/schemas/InvitingUser/team_id`.
     public var teamId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/InvitingUser/updated`.
@@ -35,7 +35,7 @@ public struct InvitingUser: Codable, Hashable, Sendable {
     public init(
         id: Swift.String? = nil,
         name: Swift.String? = nil,
-        profile: Profile? = nil,
+        profile: UserProfile? = nil,
         teamId: Swift.String? = nil,
         updated: Swift.Int? = nil,
         whoCanShareContactCard: Swift.String? = nil,

@@ -1,5 +1,5 @@
-import SlackModels
 @testable import SlackClient
+import SlackModels
 import Testing
 
 struct UserProfileSchemaMappingTests {
@@ -22,10 +22,10 @@ struct UserProfileSchemaMappingTests {
 
     @Test
     func nonUserProfileContextsStillUseProfile() {
-#if WebAPI_Team
+        #if WebAPI_Team
         let profile = Profile(avatarHash: "abc")
         let response = Components.Schemas.TeamProfileGetResponse(ok: true, profile: profile)
         #expect(response.profile?.avatarHash == "abc")
-#endif
+        #endif
     }
 }

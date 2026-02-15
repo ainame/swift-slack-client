@@ -40,7 +40,7 @@ public struct User: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/User/name`.
     public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/User/profile`.
-    public var profile: Profile?
+    public var profile: UserProfile?
     /// - Remark: Generated from `#/components/schemas/User/real_name`.
     public var realName: Swift.String?
     /// - Remark: Generated from `#/components/schemas/User/team_id`.
@@ -95,7 +95,7 @@ public struct User: Codable, Hashable, Sendable {
         isRestricted: Swift.Bool? = nil,
         isUltraRestricted: Swift.Bool? = nil,
         name: Swift.String? = nil,
-        profile: Profile? = nil,
+        profile: UserProfile? = nil,
         realName: Swift.String? = nil,
         teamId: Swift.String? = nil,
         tz: Swift.String? = nil,

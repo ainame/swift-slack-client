@@ -48,7 +48,7 @@ public struct Member: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Member/name`.
     public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Member/profile`.
-    public var profile: Profile?
+    public var profile: UserProfile?
     /// - Remark: Generated from `#/components/schemas/Member/real_name`.
     public var realName: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Member/team_id`.
@@ -114,7 +114,7 @@ public struct Member: Codable, Hashable, Sendable {
         isWorkflowBot: Swift.Bool? = nil,
         locale: Swift.String? = nil,
         name: Swift.String? = nil,
-        profile: Profile? = nil,
+        profile: UserProfile? = nil,
         realName: Swift.String? = nil,
         teamId: Swift.String? = nil,
         twoFactorType: Swift.String? = nil,

@@ -16,7 +16,7 @@ public struct TingUser: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/TingUser/name`.
     public var name: Swift.String?
     /// - Remark: Generated from `#/components/schemas/TingUser/profile`.
-    public var profile: Profile?
+    public var profile: UserProfile?
     /// - Remark: Generated from `#/components/schemas/TingUser/team_id`.
     public var teamId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/TingUser/updated`.
@@ -35,7 +35,7 @@ public struct TingUser: Codable, Hashable, Sendable {
     public init(
         id: Swift.String? = nil,
         name: Swift.String? = nil,
-        profile: Profile? = nil,
+        profile: UserProfile? = nil,
         teamId: Swift.String? = nil,
         updated: Swift.Int? = nil,
         whoCanShareContactCard: Swift.String? = nil,

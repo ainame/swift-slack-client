@@ -229,12 +229,30 @@ class UserProfileRefFixer
     definitions = root['definitions']
     return unless definitions.is_a?(Hash)
 
+    ensure_user_profile_schema(definitions)
+
     TARGET_SCHEMAS.each do |schema_name|
       profile_ref = definitions.dig(schema_name, 'properties', 'profile', '$ref')
       next unless profile_ref == '#/components/schemas/Profile'
 
       definitions[schema_name]['properties']['profile']['$ref'] = '#/components/schemas/UserProfile'
     end
+  end
+
+  private
+
+  def ensure_user_profile_schema(definitions)
+    return if definitions.key?('UserProfile')
+
+    definitions['UserProfile'] = if definitions.key?('Profile')
+                                   Marshal.load(Marshal.dump(definitions['Profile']))
+                                 else
+                                   {
+                                     'type' => 'object',
+                                     'properties' => {},
+                                     'additionalProperties' => true
+                                   }
+                                 end
   end
 end
 

@@ -7,7 +7,8 @@ class SlackModelsExtractor
   def initialize(types_file, output_dir)
     @types_file = types_file
     @output_dir = output_dir
-    @manually_handled_types = %w[View Block]  # These are handled by SlackBlockKit
+    # These are handled outside generated SlackModels.
+    @manually_handled_types = %w[View Block UserProfile]
   end
   
   def extract
