@@ -117,7 +117,7 @@ def normalize_type(name, attributes)
 
   return 'string' if attributes['type'] == 'enum'
   return 'object' if attributes['format'] == 'json'
-  return 'string' if attributes['type'] == 'timestamp' && attributes['example'].is_a?(String)
+  return 'string' if attributes['type'] == 'timestamp'
 
   # apps.manifest.create requires 'manifest' property as json but the slack-api-ref describes it wrong type
   return 'string' if attributes['type'] == 'manifest object as string'
