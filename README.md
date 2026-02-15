@@ -1,6 +1,6 @@
 ![swift-slack-client](/logo.png)
 
-[![Swift Version](https://img.shields.io/badge/Swift-6.1+-blue.svg)](https://swift.org)
+[![Swift Version](https://img.shields.io/badge/Swift-6.2+-blue.svg)](https://swift.org)
 [![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ainame/swift-slack-client/blob/main/LICENSE)
 [![GitHub Release](https://img.shields.io/github/v/release/ainame/swift-slack-client)](https://github.com/ainame/swift-slack-client/releases)
