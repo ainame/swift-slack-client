@@ -69,6 +69,7 @@ visitors = [
   ReferenceFixer.new,
   AcronymsFixer.new('DND' => 'Dnd'),
   TypeFixer.new,
+  UserProfileRefFixer.new,
   OptionalityFixer.new,
 ]
 

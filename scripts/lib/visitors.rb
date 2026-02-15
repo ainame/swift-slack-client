@@ -222,6 +222,22 @@ class TypeFixer
   end
 end
 
+class UserProfileRefFixer
+  TARGET_SCHEMAS = %w[User Member InvitingUser TingUser].freeze
+
+  def walk(root)
+    definitions = root['definitions']
+    return unless definitions.is_a?(Hash)
+
+    TARGET_SCHEMAS.each do |schema_name|
+      profile_ref = definitions.dig(schema_name, 'properties', 'profile', '$ref')
+      next unless profile_ref == '#/components/schemas/Profile'
+
+      definitions[schema_name]['properties']['profile']['$ref'] = '#/components/schemas/UserProfile'
+    end
+  end
+end
+
 
 
 # Add optional ts property to Item schema for reaction events compatibility

@@ -78,7 +78,7 @@ let package = Package(
         ),
         .testTarget(
             name: "SlackClientTests",
-            dependencies: ["SlackClient"],
+            dependencies: ["SlackClient", "SlackModels"],
         ),
         .target(
             name: "SlackModels",
