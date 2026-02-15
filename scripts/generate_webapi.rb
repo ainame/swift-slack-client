@@ -112,6 +112,8 @@ end
 # slack-api-ref misses many properties' type
 # They need to be filled in
 def normalize_type(name, attributes)
+  attributes = {} unless attributes.is_a?(Hash)
+
   return 'string' if attributes['type'] == 'enum'
   return 'object' if attributes['format'] == 'json'
   return 'string' if attributes['type'] == 'timestamp' && attributes['example'].is_a?(String)
@@ -145,8 +147,10 @@ def generate_openapi_path(path)
 
   json = JSON.parse(File.read(path))
   operation_id = method_name.camelize(separator: '\.')
+  method_args = json['args'].is_a?(Hash) ? json['args'] : {}
   required = []
-  request_body_props = json['args'].each_with_object({}) do |(name, attributes), props|
+  request_body_props = method_args.each_with_object({}) do |(name, attributes), props|
+    attributes = {} unless attributes.is_a?(Hash)
     required.append(name) if attributes['required']
 
     case name
@@ -167,8 +171,8 @@ def generate_openapi_path(path)
       props[name] = { 'type': normalized_type }
     end
 
-    props[name]['example'] = attributes['example']
-    props[name]['description'] = attributes['desc']
+    props[name]['example'] = attributes['example'] if attributes.key?('example')
+    props[name]['description'] = attributes['desc'] if attributes.key?('desc')
   end
 
   response_model_name = "#{method_name.split('.').map { _1.sub(/\A./, &:upcase) }.join}Response"
