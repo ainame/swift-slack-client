@@ -54,7 +54,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.10.2"),
         .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.8.2"),
-        .package(url: "https://github.com/apple/swift-log.git", from: "1.6.4"),
+        .package(url: "https://github.com/apple/swift-log.git", from: "1.9.1"),
         .package(url: "https://github.com/hummingbird-project/swift-websocket", from: "1.3.2"),
         .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.4.6"),
     ],
