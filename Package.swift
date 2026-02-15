@@ -52,7 +52,7 @@ let package = Package(
     ],
     traits: Set(traits),
     dependencies: [
-        .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.10.2"),
+        .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.10.4"),
         .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.8.2"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.9.1"),
         .package(url: "https://github.com/hummingbird-project/swift-websocket", from: "1.3.2"),
