@@ -8,7 +8,7 @@ class SlackModelsExtractor
     @types_file = types_file
     @output_dir = output_dir
     # These are handled outside generated SlackModels.
-    @manually_handled_types = %w[View Block UserProfile]
+    @manually_handled_types = %w[View Block UserProfile TeamProfile]
   end
   
   def extract

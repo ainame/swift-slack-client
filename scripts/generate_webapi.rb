@@ -98,6 +98,7 @@ def generate_openapi_component(path, output_dir)
     AcronymsFixer.new('DND' => 'Dnd'),
     TypeFixer.new,
     UserProfileRefFixer.new,
+    TeamProfileRefFixer.new,
     OptionalityFixer.new,
     ItemTsOptionalAdder.new,
   ]

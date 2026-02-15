@@ -430,7 +430,7 @@ extension Components.Schemas {
         /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/ok`.
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/profile`.
-        public var profile: SlackModels.Profile?
+        public var profile: SlackModels.TeamProfile?
         /// - Remark: Generated from `#/components/schemas/TeamProfileGetResponse/provided`.
         public var provided: Swift.String?
         /// Creates a new `TeamProfileGetResponse`.
@@ -445,7 +445,7 @@ extension Components.Schemas {
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
-            profile: SlackModels.Profile? = nil,
+            profile: SlackModels.TeamProfile? = nil,
             provided: Swift.String? = nil,
         ) {
             self.error = error

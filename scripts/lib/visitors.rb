@@ -256,6 +256,38 @@ class UserProfileRefFixer
   end
 end
 
+class TeamProfileRefFixer
+  TARGET_SCHEMA = 'TeamProfileGetResponse'.freeze
+
+  def walk(root)
+    definitions = root['definitions']
+    return unless definitions.is_a?(Hash)
+
+    ensure_team_profile_schema(definitions)
+
+    profile_ref = definitions.dig(TARGET_SCHEMA, 'properties', 'profile', '$ref')
+    return unless profile_ref == '#/components/schemas/Profile'
+
+    definitions[TARGET_SCHEMA]['properties']['profile']['$ref'] = '#/components/schemas/TeamProfile'
+  end
+
+  private
+
+  def ensure_team_profile_schema(definitions)
+    return if definitions.key?('TeamProfile')
+
+    definitions['TeamProfile'] = if definitions.key?('Profile')
+                                   Marshal.load(Marshal.dump(definitions['Profile']))
+                                 else
+                                   {
+                                     'type' => 'object',
+                                     'properties' => {},
+                                     'additionalProperties' => true
+                                   }
+                                 end
+  end
+end
+
 
 
 # Add optional ts property to Item schema for reaction events compatibility

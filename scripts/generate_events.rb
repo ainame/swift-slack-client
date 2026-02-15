@@ -70,6 +70,7 @@ visitors = [
   AcronymsFixer.new('DND' => 'Dnd'),
   TypeFixer.new,
   UserProfileRefFixer.new,
+  TeamProfileRefFixer.new,
   OptionalityFixer.new,
 ]
 
