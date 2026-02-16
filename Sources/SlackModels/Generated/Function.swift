@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Function`.
@@ -30,13 +30,14 @@ public struct Function: Codable, Hashable, Sendable {
         description: Swift.String? = nil,
         inputParameters: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
         outputParameters: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-        title: Swift.String? = nil
+        title: Swift.String? = nil,
     ) {
         self.description = description
         self.inputParameters = inputParameters
         self.outputParameters = outputParameters
         self.title = title
     }
+
     public enum CodingKeys: String, CodingKey {
         case description
         case inputParameters = "input_parameters"

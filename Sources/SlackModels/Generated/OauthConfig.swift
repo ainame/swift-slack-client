@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/OauthConfig`.
@@ -26,12 +26,13 @@ public struct OauthConfig: Codable, Hashable, Sendable {
     public init(
         redirectUrls: [Swift.String]? = nil,
         scopes: Scopes? = nil,
-        tokenManagementEnabled: Swift.Bool? = nil
+        tokenManagementEnabled: Swift.Bool? = nil,
     ) {
         self.redirectUrls = redirectUrls
         self.scopes = scopes
         self.tokenManagementEnabled = tokenManagementEnabled
     }
+
     public enum CodingKeys: String, CodingKey {
         case redirectUrls = "redirect_urls"
         case scopes

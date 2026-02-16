@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/ApprovedApp`.
@@ -30,13 +30,14 @@ public struct ApprovedApp: Codable, Hashable, Sendable {
         app: App? = nil,
         dateUpdated: Swift.Int? = nil,
         lastResolvedBy: LastResolvedBy? = nil,
-        scopes: [Scope]? = nil
+        scopes: [Scope]? = nil,
     ) {
         self.app = app
         self.dateUpdated = dateUpdated
         self.lastResolvedBy = lastResolvedBy
         self.scopes = scopes
     }
+
     public enum CodingKeys: String, CodingKey {
         case app
         case dateUpdated = "date_updated"

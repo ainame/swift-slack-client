@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 #if canImport(SlackBlockKit)
@@ -62,7 +62,7 @@ public struct ListLimits: Codable, Hashable, Sendable {
         rowCount: Swift.Int? = nil,
         rowCountLimit: Swift.Int? = nil,
         viewCount: Swift.Int? = nil,
-        viewCountLimit: Swift.Int? = nil
+        viewCountLimit: Swift.Int? = nil,
     ) {
         self.archivedRowCount = archivedRowCount
         self.columnCount = columnCount
@@ -76,6 +76,7 @@ public struct ListLimits: Codable, Hashable, Sendable {
         self.viewCount = viewCount
         self.viewCountLimit = viewCountLimit
     }
+
     public enum CodingKeys: String, CodingKey {
         case archivedRowCount = "archived_row_count"
         case columnCount = "column_count"

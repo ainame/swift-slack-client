@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Organization`.
@@ -70,7 +70,7 @@ public struct Organization: Codable, Hashable, Sendable {
         slackConnectPrefs: SlackConnectPrefs? = nil,
         teamDomain: Swift.String? = nil,
         teamId: Swift.String? = nil,
-        teamName: Swift.String? = nil
+        teamName: Swift.String? = nil,
     ) {
         self.canvas = canvas
         self.connectedWorkspaces = connectedWorkspaces
@@ -87,6 +87,7 @@ public struct Organization: Codable, Hashable, Sendable {
         self.teamId = teamId
         self.teamName = teamName
     }
+
     public enum CodingKeys: String, CodingKey {
         case canvas
         case connectedWorkspaces = "connected_workspaces"

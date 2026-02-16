@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Config`.
@@ -26,12 +26,13 @@ public struct Config: Codable, Hashable, Sendable {
     public init(
         appId: Swift.String? = nil,
         domainRestrictions: DomainRestrictions? = nil,
-        workflowAuthStrategy: Swift.String? = nil
+        workflowAuthStrategy: Swift.String? = nil,
     ) {
         self.appId = appId
         self.domainRestrictions = domainRestrictions
         self.workflowAuthStrategy = workflowAuthStrategy
     }
+
     public enum CodingKeys: String, CodingKey {
         case appId = "app_id"
         case domainRestrictions = "domain_restrictions"

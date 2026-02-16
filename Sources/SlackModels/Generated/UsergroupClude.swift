@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/UsergroupClude`.
@@ -22,11 +22,12 @@ public struct UsergroupClude: Codable, Hashable, Sendable {
     ///   - teamId:
     public init(
         id: Swift.String? = nil,
-        teamId: Swift.String? = nil
+        teamId: Swift.String? = nil,
     ) {
         self.id = id
         self.teamId = teamId
     }
+
     public enum CodingKeys: String, CodingKey {
         case id
         case teamId = "team_id"

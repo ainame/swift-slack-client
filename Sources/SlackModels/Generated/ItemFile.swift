@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/ItemFile`.
@@ -526,7 +526,7 @@ public struct ItemFile: Codable, Hashable, Sendable {
         user: Swift.String? = nil,
         userTeam: Swift.String? = nil,
         username: Swift.String? = nil,
-        vtt: Swift.String? = nil
+        vtt: Swift.String? = nil,
     ) {
         self.altTxt = altTxt
         self.appId = appId
@@ -657,6 +657,7 @@ public struct ItemFile: Codable, Hashable, Sendable {
         self.username = username
         self.vtt = vtt
     }
+
     public enum CodingKeys: String, CodingKey {
         case altTxt = "alt_txt"
         case appId = "app_id"

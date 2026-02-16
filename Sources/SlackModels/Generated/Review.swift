@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Review`.
@@ -26,12 +26,13 @@ public struct Review: Codable, Hashable, Sendable {
     public init(
         dateReview: Swift.Int? = nil,
         reviewingTeam: IngTeam? = nil,
-        _type: Swift.String
+        _type: Swift.String,
     ) {
         self.dateReview = dateReview
         self.reviewingTeam = reviewingTeam
         self._type = _type
     }
+
     public enum CodingKeys: String, CodingKey {
         case dateReview = "date_review"
         case reviewingTeam = "reviewing_team"
