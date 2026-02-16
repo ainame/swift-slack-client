@@ -29,7 +29,8 @@ let webAPITraits: [String] = [
     "WebAPI_Team",
     "WebAPI_Tooling",
     "WebAPI_Users",
-    "WebAPI_Views"
+    "WebAPI_Views",
+    "WebAPI_Unknown"
 ]
 
 var traits: [Trait] = webAPITraits.map { .trait(name: $0) }

@@ -292,7 +292,9 @@ class PackageConfigurationManager
     content = File.read(package_file)
 
     # Generate WebAPI trait names
-    webapi_trait_names = groups.map { |group| "WebAPI_#{GroupNameFormatter.capitalize_group_name(group)}" }
+    normalized_groups = groups.dup
+    normalized_groups << 'unknown' unless normalized_groups.include?('unknown')
+    webapi_trait_names = normalized_groups.map { |group| "WebAPI_#{GroupNameFormatter.capitalize_group_name(group)}" }
 
     # Generate the traits list variable definition
     traits_list_definition = <<~SWIFT
