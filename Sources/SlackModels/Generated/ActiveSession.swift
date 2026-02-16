@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/ActiveSession`.
@@ -34,7 +34,7 @@ public struct ActiveSession: Codable, Hashable, Sendable {
         recent: Created? = nil,
         sessionId: Swift.Int? = nil,
         teamId: Swift.String? = nil,
-        userId: Swift.String? = nil,
+        userId: Swift.String? = nil
     ) {
         self.created = created
         self.recent = recent
@@ -42,7 +42,6 @@ public struct ActiveSession: Codable, Hashable, Sendable {
         self.teamId = teamId
         self.userId = userId
     }
-
     public enum CodingKeys: String, CodingKey {
         case created
         case recent

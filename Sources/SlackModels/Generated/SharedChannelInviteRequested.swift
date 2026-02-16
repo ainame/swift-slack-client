@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/SharedChannelInviteRequested`.
@@ -42,7 +42,7 @@ public struct SharedChannelInviteRequested: Codable, Hashable, Sendable {
         enabled: Swift.Bool? = nil,
         source: Swift.String? = nil,
         usergroupExclude: UsergroupClude? = nil,
-        usergroupInclude: UsergroupClude? = nil,
+        usergroupInclude: UsergroupClude? = nil
     ) {
         self.actor = actor
         self.approvalDestination = approvalDestination
@@ -52,7 +52,6 @@ public struct SharedChannelInviteRequested: Codable, Hashable, Sendable {
         self.usergroupExclude = usergroupExclude
         self.usergroupInclude = usergroupInclude
     }
-
     public enum CodingKeys: String, CodingKey {
         case actor
         case approvalDestination = "approval_destination"

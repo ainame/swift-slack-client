@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Settings`.
@@ -58,7 +58,7 @@ public struct Settings: Codable, Hashable, Sendable {
         longDescription: Swift.String? = nil,
         orgDeployEnabled: Swift.Bool? = nil,
         socketModeEnabled: Swift.Bool? = nil,
-        tokenRotationEnabled: Swift.Bool? = nil,
+        tokenRotationEnabled: Swift.Bool? = nil
     ) {
         self.allowedIpAddressRanges = allowedIpAddressRanges
         self.backgroundColor = backgroundColor
@@ -72,7 +72,6 @@ public struct Settings: Codable, Hashable, Sendable {
         self.socketModeEnabled = socketModeEnabled
         self.tokenRotationEnabled = tokenRotationEnabled
     }
-
     public enum CodingKeys: String, CodingKey {
         case allowedIpAddressRanges = "allowed_ip_address_ranges"
         case backgroundColor = "background_color"

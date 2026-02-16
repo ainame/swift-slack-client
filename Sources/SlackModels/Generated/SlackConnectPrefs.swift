@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/SlackConnectPrefs`.
@@ -70,7 +70,7 @@ public struct SlackConnectPrefs: Codable, Hashable, Sendable {
         requireScChannelForScDm: AllowScFileUploads? = nil,
         scChannelLimitedAccess: AllowScFileUploads? = nil,
         scMpdmToPrivate: ScMpdmToPrivate? = nil,
-        sharedChannelInviteRequested: SharedChannelInviteRequested? = nil,
+        sharedChannelInviteRequested: SharedChannelInviteRequested? = nil
     ) {
         self.acceptScInvites = acceptScInvites
         self.allowScFileUploads = allowScFileUploads
@@ -87,7 +87,6 @@ public struct SlackConnectPrefs: Codable, Hashable, Sendable {
         self.scMpdmToPrivate = scMpdmToPrivate
         self.sharedChannelInviteRequested = sharedChannelInviteRequested
     }
-
     public enum CodingKeys: String, CodingKey {
         case acceptScInvites = "accept_sc_invites"
         case allowScFileUploads = "allow_sc_file_uploads"

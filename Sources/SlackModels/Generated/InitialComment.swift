@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/InitialComment`.
@@ -42,7 +42,7 @@ public struct InitialComment: Codable, Hashable, Sendable {
         id: Swift.String? = nil,
         isIntro: Swift.Bool? = nil,
         timestamp: Swift.Int? = nil,
-        user: Swift.String? = nil,
+        user: Swift.String? = nil
     ) {
         self.channel = channel
         self.comment = comment
@@ -52,7 +52,6 @@ public struct InitialComment: Codable, Hashable, Sendable {
         self.timestamp = timestamp
         self.user = user
     }
-
     public enum CodingKeys: String, CodingKey {
         case channel
         case comment

@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 #if canImport(SlackBlockKit)
@@ -15,6 +15,8 @@ import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/ListLimits`.
 public struct ListLimits: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/ListLimits/archived_row_count`.
+    public var archivedRowCount: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/ListLimits/column_count`.
     public var columnCount: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/ListLimits/column_count_limit`.
@@ -38,6 +40,7 @@ public struct ListLimits: Codable, Hashable, Sendable {
     /// Creates a new `ListLimits`.
     ///
     /// - Parameters:
+    ///   - archivedRowCount:
     ///   - columnCount:
     ///   - columnCountLimit:
     ///   - maxAttachmentsPerCell:
@@ -49,6 +52,7 @@ public struct ListLimits: Codable, Hashable, Sendable {
     ///   - viewCount:
     ///   - viewCountLimit:
     public init(
+        archivedRowCount: Swift.Int? = nil,
         columnCount: Swift.Int? = nil,
         columnCountLimit: Swift.Int? = nil,
         maxAttachmentsPerCell: Swift.Int? = nil,
@@ -58,8 +62,9 @@ public struct ListLimits: Codable, Hashable, Sendable {
         rowCount: Swift.Int? = nil,
         rowCountLimit: Swift.Int? = nil,
         viewCount: Swift.Int? = nil,
-        viewCountLimit: Swift.Int? = nil,
+        viewCountLimit: Swift.Int? = nil
     ) {
+        self.archivedRowCount = archivedRowCount
         self.columnCount = columnCount
         self.columnCountLimit = columnCountLimit
         self.maxAttachmentsPerCell = maxAttachmentsPerCell
@@ -71,8 +76,8 @@ public struct ListLimits: Codable, Hashable, Sendable {
         self.viewCount = viewCount
         self.viewCountLimit = viewCountLimit
     }
-
     public enum CodingKeys: String, CodingKey {
+        case archivedRowCount = "archived_row_count"
         case columnCount = "column_count"
         case columnCountLimit = "column_count_limit"
         case maxAttachmentsPerCell = "max_attachments_per_cell"

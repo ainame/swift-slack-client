@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Payload`.
@@ -114,7 +114,7 @@ public struct Payload: Codable, Hashable, Sendable {
         trigger: Trigger? = nil,
         _type: Swift.String,
         userId: Swift.String? = nil,
-        workflowName: Swift.String? = nil,
+        workflowName: Swift.String? = nil
     ) {
         self.action = action
         self.actor = actor
@@ -142,7 +142,6 @@ public struct Payload: Codable, Hashable, Sendable {
         self.userId = userId
         self.workflowName = workflowName
     }
-
     public enum CodingKeys: String, CodingKey {
         case action
         case actor

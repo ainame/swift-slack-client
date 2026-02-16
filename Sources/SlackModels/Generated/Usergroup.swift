@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Usergroup`.
@@ -98,7 +98,7 @@ public struct Usergroup: Codable, Hashable, Sendable {
         prefs: Prefs? = nil,
         teamId: Swift.String? = nil,
         updatedBy: Swift.String? = nil,
-        users: [Swift.String]? = nil,
+        users: [Swift.String]? = nil
     ) {
         self.autoProvision = autoProvision
         self.channelCount = channelCount
@@ -122,7 +122,6 @@ public struct Usergroup: Codable, Hashable, Sendable {
         self.updatedBy = updatedBy
         self.users = users
     }
-
     public enum CodingKeys: String, CodingKey {
         case autoProvision = "auto_provision"
         case channelCount = "channel_count"
