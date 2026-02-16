@@ -17,10 +17,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /admin.users.session.invalidate`.
     /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)`.
     func adminUsersSessionInvalidate(_ input: Operations.AdminUsersSessionInvalidate.Input) async throws -> Operations.AdminUsersSessionInvalidate.Output
-    // Sends an ephemeral message to a user in a channel.
-    //
-    // - Remark: HTTP `POST /chat.postEphemeral`.
-    // - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
+    /// Sends an ephemeral message to a user in a channel.
+    ///
+    /// - Remark: HTTP `POST /chat.postEphemeral`.
+    /// - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
     #endif
     #if WebAPI_Chat
     func chatPostEphemeral(_ input: Operations.ChatPostEphemeral.Input) async throws -> Operations.ChatPostEphemeral.Output
@@ -39,10 +39,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /chat.update`.
     /// - Remark: Generated from `#/paths//chat.update/post(chatUpdate)`.
     func chatUpdate(_ input: Operations.ChatUpdate.Input) async throws -> Operations.ChatUpdate.Output
-    // Open a view for a user.
-    //
-    // - Remark: HTTP `POST /views.open`.
-    // - Remark: Generated from `#/paths//views.open/post(viewsOpen)`.
+    /// Open a view for a user.
+    ///
+    /// - Remark: HTTP `POST /views.open`.
+    /// - Remark: Generated from `#/paths//views.open/post(viewsOpen)`.
     #endif
     #if WebAPI_Views
     func viewsOpen(_ input: Operations.ViewsOpen.Input) async throws -> Operations.ViewsOpen.Output
@@ -56,10 +56,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /views.update`.
     /// - Remark: Generated from `#/paths//views.update/post(viewsUpdate)`.
     func viewsUpdate(_ input: Operations.ViewsUpdate.Input) async throws -> Operations.ViewsUpdate.Output
-    // Get logs for a specified team/org
-    //
-    // - Remark: HTTP `POST /admin.apps.activities.list`.
-    // - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
+    /// Get logs for a specified team/org
+    ///
+    /// - Remark: HTTP `POST /admin.apps.activities.list`.
+    /// - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
     #endif
     #if WebAPI_Admin
     func adminAppsActivitiesList(_ input: Operations.AdminAppsActivitiesList.Input) async throws -> Operations.AdminAppsActivitiesList.Output
@@ -485,10 +485,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /admin.users.unsupportedVersions.export`.
     /// - Remark: Generated from `#/paths//admin.users.unsupportedVersions.export/post(adminUsersUnsupportedVersionsExport)`.
     func adminUsersUnsupportedVersionsExport(_ input: Operations.AdminUsersUnsupportedVersionsExport.Input) async throws -> Operations.AdminUsersUnsupportedVersionsExport.Output
-    // Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over.
-    //
-    // - Remark: HTTP `POST /apps.connections.open`.
-    // - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
+    /// Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over.
+    ///
+    /// - Remark: HTTP `POST /apps.connections.open`.
+    /// - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
     #endif
     #if WebAPI_Apps
     func appsConnectionsOpen(_ input: Operations.AppsConnectionsOpen.Input) async throws -> Operations.AppsConnectionsOpen.Output
@@ -527,10 +527,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /apps.uninstall`.
     /// - Remark: Generated from `#/paths//apps.uninstall/post(appsUninstall)`.
     func appsUninstall(_ input: Operations.AppsUninstall.Input) async throws -> Operations.AppsUninstall.Output
-    // Set the status for an AI assistant thread.
-    //
-    // - Remark: HTTP `POST /assistant.threads.setStatus`.
-    // - Remark: Generated from `#/paths//assistant.threads.setStatus/post(assistantThreadsSetStatus)`.
+    /// Set the status for an AI assistant thread.
+    ///
+    /// - Remark: HTTP `POST /assistant.threads.setStatus`.
+    /// - Remark: Generated from `#/paths//assistant.threads.setStatus/post(assistantThreadsSetStatus)`.
     #endif
     #if WebAPI_Assistant
     func assistantThreadsSetStatus(_ input: Operations.AssistantThreadsSetStatus.Input) async throws -> Operations.AssistantThreadsSetStatus.Output
@@ -544,10 +544,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /assistant.threads.setTitle`.
     /// - Remark: Generated from `#/paths//assistant.threads.setTitle/post(assistantThreadsSetTitle)`.
     func assistantThreadsSetTitle(_ input: Operations.AssistantThreadsSetTitle.Input) async throws -> Operations.AssistantThreadsSetTitle.Output
-    // Revokes a token.
-    //
-    // - Remark: HTTP `POST /auth.revoke`.
-    // - Remark: Generated from `#/paths//auth.revoke/post(authRevoke)`.
+    /// Revokes a token.
+    ///
+    /// - Remark: HTTP `POST /auth.revoke`.
+    /// - Remark: Generated from `#/paths//auth.revoke/post(authRevoke)`.
     #endif
     #if WebAPI_Auth
     func authRevoke(_ input: Operations.AuthRevoke.Input) async throws -> Operations.AuthRevoke.Output
@@ -561,10 +561,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /auth.test`.
     /// - Remark: Generated from `#/paths//auth.test/post(authTest)`.
     func authTest(_ input: Operations.AuthTest.Input) async throws -> Operations.AuthTest.Output
-    // Add bookmark to a channel.
-    //
-    // - Remark: HTTP `POST /bookmarks.add`.
-    // - Remark: Generated from `#/paths//bookmarks.add/post(bookmarksAdd)`.
+    /// Add bookmark to a channel.
+    ///
+    /// - Remark: HTTP `POST /bookmarks.add`.
+    /// - Remark: Generated from `#/paths//bookmarks.add/post(bookmarksAdd)`.
     #endif
     #if WebAPI_Bookmarks
     func bookmarksAdd(_ input: Operations.BookmarksAdd.Input) async throws -> Operations.BookmarksAdd.Output
@@ -583,17 +583,17 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /bookmarks.remove`.
     /// - Remark: Generated from `#/paths//bookmarks.remove/post(bookmarksRemove)`.
     func bookmarksRemove(_ input: Operations.BookmarksRemove.Input) async throws -> Operations.BookmarksRemove.Output
-    // Gets information about a bot user.
-    //
-    // - Remark: HTTP `POST /bots.info`.
-    // - Remark: Generated from `#/paths//bots.info/post(botsInfo)`.
+    /// Gets information about a bot user.
+    ///
+    /// - Remark: HTTP `POST /bots.info`.
+    /// - Remark: Generated from `#/paths//bots.info/post(botsInfo)`.
     #endif
     #if WebAPI_Bots
     func botsInfo(_ input: Operations.BotsInfo.Input) async throws -> Operations.BotsInfo.Output
-    // Remove access to a canvas for specified entities
-    //
-    // - Remark: HTTP `POST /canvases.access.delete`.
-    // - Remark: Generated from `#/paths//canvases.access.delete/post(canvasesAccessDelete)`.
+    /// Remove access to a canvas for specified entities
+    ///
+    /// - Remark: HTTP `POST /canvases.access.delete`.
+    /// - Remark: Generated from `#/paths//canvases.access.delete/post(canvasesAccessDelete)`.
     #endif
     #if WebAPI_Canvases
     func canvasesAccessDelete(_ input: Operations.CanvasesAccessDelete.Input) async throws -> Operations.CanvasesAccessDelete.Output
@@ -622,10 +622,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /canvases.sections.lookup`.
     /// - Remark: Generated from `#/paths//canvases.sections.lookup/post(canvasesSectionsLookup)`.
     func canvasesSectionsLookup(_ input: Operations.CanvasesSectionsLookup.Input) async throws -> Operations.CanvasesSectionsLookup.Output
-    // Appends text to an existing streaming conversation.
-    //
-    // - Remark: HTTP `POST /chat.appendStream`.
-    // - Remark: Generated from `#/paths//chat.appendStream/post(chatAppendStream)`.
+    /// Appends text to an existing streaming conversation.
+    ///
+    /// - Remark: HTTP `POST /chat.appendStream`.
+    /// - Remark: Generated from `#/paths//chat.appendStream/post(chatAppendStream)`.
     #endif
     #if WebAPI_Chat
     func chatAppendStream(_ input: Operations.ChatAppendStream.Input) async throws -> Operations.ChatAppendStream.Output
@@ -669,10 +669,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /chat.unfurl`.
     /// - Remark: Generated from `#/paths//chat.unfurl/post(chatUnfurl)`.
     func chatUnfurl(_ input: Operations.ChatUnfurl.Input) async throws -> Operations.ChatUnfurl.Output
-    // Accepts an invitation to a Slack Connect channel.
-    //
-    // - Remark: HTTP `POST /conversations.acceptSharedInvite`.
-    // - Remark: Generated from `#/paths//conversations.acceptSharedInvite/post(conversationsAcceptSharedInvite)`.
+    /// Accepts an invitation to a Slack Connect channel.
+    ///
+    /// - Remark: HTTP `POST /conversations.acceptSharedInvite`.
+    /// - Remark: Generated from `#/paths//conversations.acceptSharedInvite/post(conversationsAcceptSharedInvite)`.
     #endif
     #if WebAPI_Conversations
     func conversationsAcceptSharedInvite(_ input: Operations.ConversationsAcceptSharedInvite.Input) async throws -> Operations.ConversationsAcceptSharedInvite.Output
@@ -811,10 +811,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /conversations.unarchive`.
     /// - Remark: Generated from `#/paths//conversations.unarchive/post(conversationsUnarchive)`.
     func conversationsUnarchive(_ input: Operations.ConversationsUnarchive.Input) async throws -> Operations.ConversationsUnarchive.Output
-    // Ends the current user's Do Not Disturb session immediately.
-    //
-    // - Remark: HTTP `POST /dnd.endDnd`.
-    // - Remark: Generated from `#/paths//dnd.endDnd/post(dndEndDnd)`.
+    /// Ends the current user's Do Not Disturb session immediately.
+    ///
+    /// - Remark: HTTP `POST /dnd.endDnd`.
+    /// - Remark: Generated from `#/paths//dnd.endDnd/post(dndEndDnd)`.
     #endif
     #if WebAPI_DND
     func dndEndDnd(_ input: Operations.DndEndDnd.Input) async throws -> Operations.DndEndDnd.Output
@@ -838,24 +838,24 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /dnd.teamInfo`.
     /// - Remark: Generated from `#/paths//dnd.teamInfo/post(dndTeamInfo)`.
     func dndTeamInfo(_ input: Operations.DndTeamInfo.Input) async throws -> Operations.DndTeamInfo.Output
-    // Lists custom emoji for a team.
-    //
-    // - Remark: HTTP `POST /emoji.list`.
-    // - Remark: Generated from `#/paths//emoji.list/post(emojiList)`.
+    /// Lists custom emoji for a team.
+    ///
+    /// - Remark: HTTP `POST /emoji.list`.
+    /// - Remark: Generated from `#/paths//emoji.list/post(emojiList)`.
     #endif
     #if WebAPI_Emoji
     func emojiList(_ input: Operations.EmojiList.Input) async throws -> Operations.EmojiList.Output
-    // Provide custom flexpane behavior for Work Objects. Apps call this endpoint to send per-user flexpane metadata to the client.
-    //
-    // - Remark: HTTP `POST /entity.presentDetails`.
-    // - Remark: Generated from `#/paths//entity.presentDetails/post(entityPresentDetails)`.
+    /// Provide custom flexpane behavior for Work Objects. Apps call this endpoint to send per-user flexpane metadata to the client.
+    ///
+    /// - Remark: HTTP `POST /entity.presentDetails`.
+    /// - Remark: Generated from `#/paths//entity.presentDetails/post(entityPresentDetails)`.
     #endif
     #if WebAPI_Entity
     func entityPresentDetails(_ input: Operations.EntityPresentDetails.Input) async throws -> Operations.EntityPresentDetails.Output
-    // Finishes an upload started with files.getUploadURLExternal
-    //
-    // - Remark: HTTP `POST /files.completeUploadExternal`.
-    // - Remark: Generated from `#/paths//files.completeUploadExternal/post(filesCompleteUploadExternal)`.
+    /// Finishes an upload started with files.getUploadURLExternal
+    ///
+    /// - Remark: HTTP `POST /files.completeUploadExternal`.
+    /// - Remark: Generated from `#/paths//files.completeUploadExternal/post(filesCompleteUploadExternal)`.
     #endif
     #if WebAPI_Files
     func filesCompleteUploadExternal(_ input: Operations.FilesCompleteUploadExternal.Input) async throws -> Operations.FilesCompleteUploadExternal.Output
@@ -924,10 +924,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /files.upload`.
     /// - Remark: Generated from `#/paths//files.upload/post(filesUpload)`.
     func filesUpload(_ input: Operations.FilesUpload.Input) async throws -> Operations.FilesUpload.Output
-    // Signal that a function failed to complete
-    //
-    // - Remark: HTTP `POST /functions.completeError`.
-    // - Remark: Generated from `#/paths//functions.completeError/post(functionsCompleteError)`.
+    /// Signal that a function failed to complete
+    ///
+    /// - Remark: HTTP `POST /functions.completeError`.
+    /// - Remark: Generated from `#/paths//functions.completeError/post(functionsCompleteError)`.
     #endif
     #if WebAPI_Functions
     func functionsCompleteError(_ input: Operations.FunctionsCompleteError.Input) async throws -> Operations.FunctionsCompleteError.Output
@@ -936,10 +936,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /functions.completeSuccess`.
     /// - Remark: Generated from `#/paths//functions.completeSuccess/post(functionsCompleteSuccess)`.
     func functionsCompleteSuccess(_ input: Operations.FunctionsCompleteSuccess.Input) async throws -> Operations.FunctionsCompleteSuccess.Output
-    // Revoke access to a List for specified entities.
-    //
-    // - Remark: HTTP `POST /slackLists.access.delete`.
-    // - Remark: Generated from `#/paths//slackLists.access.delete/post(slackListsAccessDelete)`.
+    /// Revoke access to a List for specified entities.
+    ///
+    /// - Remark: HTTP `POST /slackLists.access.delete`.
+    /// - Remark: Generated from `#/paths//slackLists.access.delete/post(slackListsAccessDelete)`.
     #endif
     #if WebAPI_Lists
     func slackListsAccessDelete(_ input: Operations.SlackListsAccessDelete.Input) async throws -> Operations.SlackListsAccessDelete.Output
@@ -998,17 +998,17 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /slackLists.update`.
     /// - Remark: Generated from `#/paths//slackLists.update/post(slackListsUpdate)`.
     func slackListsUpdate(_ input: Operations.SlackListsUpdate.Input) async throws -> Operations.SlackListsUpdate.Output
-    // For Enterprise organization workspaces, map local user IDs to global user IDs
-    //
-    // - Remark: HTTP `POST /migration.exchange`.
-    // - Remark: Generated from `#/paths//migration.exchange/post(migrationExchange)`.
+    /// For Enterprise organization workspaces, map local user IDs to global user IDs
+    ///
+    /// - Remark: HTTP `POST /migration.exchange`.
+    /// - Remark: Generated from `#/paths//migration.exchange/post(migrationExchange)`.
     #endif
     #if WebAPI_Migration
     func migrationExchange(_ input: Operations.MigrationExchange.Input) async throws -> Operations.MigrationExchange.Output
-    // Exchanges a temporary OAuth verifier code for an access token.
-    //
-    // - Remark: HTTP `POST /oauth.v2.access`.
-    // - Remark: Generated from `#/paths//oauth.v2.access/post(oauthV2Access)`.
+    /// Exchanges a temporary OAuth verifier code for an access token.
+    ///
+    /// - Remark: HTTP `POST /oauth.v2.access`.
+    /// - Remark: Generated from `#/paths//oauth.v2.access/post(oauthV2Access)`.
     #endif
     #if WebAPI_OAuth
     func oauthV2Access(_ input: Operations.OauthV2Access.Input) async throws -> Operations.OauthV2Access.Output
@@ -1017,10 +1017,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /oauth.v2.exchange`.
     /// - Remark: Generated from `#/paths//oauth.v2.exchange/post(oauthV2Exchange)`.
     func oauthV2Exchange(_ input: Operations.OauthV2Exchange.Input) async throws -> Operations.OauthV2Exchange.Output
-    // Exchanges a temporary OAuth verifier code for an access token for Sign in with Slack.
-    //
-    // - Remark: HTTP `POST /openid.connect.token`.
-    // - Remark: Generated from `#/paths//openid.connect.token/post(openidConnectToken)`.
+    /// Exchanges a temporary OAuth verifier code for an access token for Sign in with Slack.
+    ///
+    /// - Remark: HTTP `POST /openid.connect.token`.
+    /// - Remark: Generated from `#/paths//openid.connect.token/post(openidConnectToken)`.
     #endif
     #if WebAPI_OpenID
     func openidConnectToken(_ input: Operations.OpenidConnectToken.Input) async throws -> Operations.OpenidConnectToken.Output
@@ -1029,10 +1029,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /openid.connect.userInfo`.
     /// - Remark: Generated from `#/paths//openid.connect.userInfo/post(openidConnectUserInfo)`.
     func openidConnectUserInfo(_ input: Operations.OpenidConnectUserInfo.Input) async throws -> Operations.OpenidConnectUserInfo.Output
-    // Pins an item to a channel.
-    //
-    // - Remark: HTTP `POST /pins.add`.
-    // - Remark: Generated from `#/paths//pins.add/post(pinsAdd)`.
+    /// Pins an item to a channel.
+    ///
+    /// - Remark: HTTP `POST /pins.add`.
+    /// - Remark: Generated from `#/paths//pins.add/post(pinsAdd)`.
     #endif
     #if WebAPI_Pins
     func pinsAdd(_ input: Operations.PinsAdd.Input) async throws -> Operations.PinsAdd.Output
@@ -1046,10 +1046,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /pins.remove`.
     /// - Remark: Generated from `#/paths//pins.remove/post(pinsRemove)`.
     func pinsRemove(_ input: Operations.PinsRemove.Input) async throws -> Operations.PinsRemove.Output
-    // Adds a reaction to an item.
-    //
-    // - Remark: HTTP `POST /reactions.add`.
-    // - Remark: Generated from `#/paths//reactions.add/post(reactionsAdd)`.
+    /// Adds a reaction to an item.
+    ///
+    /// - Remark: HTTP `POST /reactions.add`.
+    /// - Remark: Generated from `#/paths//reactions.add/post(reactionsAdd)`.
     #endif
     #if WebAPI_Reactions
     func reactionsAdd(_ input: Operations.ReactionsAdd.Input) async throws -> Operations.ReactionsAdd.Output
@@ -1068,10 +1068,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /reactions.remove`.
     /// - Remark: Generated from `#/paths//reactions.remove/post(reactionsRemove)`.
     func reactionsRemove(_ input: Operations.ReactionsRemove.Input) async throws -> Operations.ReactionsRemove.Output
-    // Creates a reminder.
-    //
-    // - Remark: HTTP `POST /reminders.add`.
-    // - Remark: Generated from `#/paths//reminders.add/post(remindersAdd)`.
+    /// Creates a reminder.
+    ///
+    /// - Remark: HTTP `POST /reminders.add`.
+    /// - Remark: Generated from `#/paths//reminders.add/post(remindersAdd)`.
     #endif
     #if WebAPI_Reminders
     func remindersAdd(_ input: Operations.RemindersAdd.Input) async throws -> Operations.RemindersAdd.Output
@@ -1095,10 +1095,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /reminders.list`.
     /// - Remark: Generated from `#/paths//reminders.list/post(remindersList)`.
     func remindersList(_ input: Operations.RemindersList.Input) async throws -> Operations.RemindersList.Output
-    // Searches for messages and files matching a query.
-    //
-    // - Remark: HTTP `POST /search.all`.
-    // - Remark: Generated from `#/paths//search.all/post(searchAll)`.
+    /// Searches for messages and files matching a query.
+    ///
+    /// - Remark: HTTP `POST /search.all`.
+    /// - Remark: Generated from `#/paths//search.all/post(searchAll)`.
     #endif
     #if WebAPI_Search
     func searchAll(_ input: Operations.SearchAll.Input) async throws -> Operations.SearchAll.Output
@@ -1112,10 +1112,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /search.messages`.
     /// - Remark: Generated from `#/paths//search.messages/post(searchMessages)`.
     func searchMessages(_ input: Operations.SearchMessages.Input) async throws -> Operations.SearchMessages.Output
-    // Save an item for later. Formerly known as adding a star.
-    //
-    // - Remark: HTTP `POST /stars.add`.
-    // - Remark: Generated from `#/paths//stars.add/post(starsAdd)`.
+    /// Save an item for later. Formerly known as adding a star.
+    ///
+    /// - Remark: HTTP `POST /stars.add`.
+    /// - Remark: Generated from `#/paths//stars.add/post(starsAdd)`.
     #endif
     #if WebAPI_Stars
     func starsAdd(_ input: Operations.StarsAdd.Input) async throws -> Operations.StarsAdd.Output
@@ -1129,10 +1129,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /stars.remove`.
     /// - Remark: Generated from `#/paths//stars.remove/post(starsRemove)`.
     func starsRemove(_ input: Operations.StarsRemove.Input) async throws -> Operations.StarsRemove.Output
-    // Gets the access logs for the current team.
-    //
-    // - Remark: HTTP `POST /team.accessLogs`.
-    // - Remark: Generated from `#/paths//team.accessLogs/post(teamAccessLogs)`.
+    /// Gets the access logs for the current team.
+    ///
+    /// - Remark: HTTP `POST /team.accessLogs`.
+    /// - Remark: Generated from `#/paths//team.accessLogs/post(teamAccessLogs)`.
     #endif
     #if WebAPI_Team
     func teamAccessLogs(_ input: Operations.TeamAccessLogs.Input) async throws -> Operations.TeamAccessLogs.Output
@@ -1176,17 +1176,17 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /team.profile.get`.
     /// - Remark: Generated from `#/paths//team.profile.get/post(teamProfileGet)`.
     func teamProfileGet(_ input: Operations.TeamProfileGet.Input) async throws -> Operations.TeamProfileGet.Output
-    // Exchanges a refresh token for a new app configuration token.
-    //
-    // - Remark: HTTP `POST /tooling.tokens.rotate`.
-    // - Remark: Generated from `#/paths//tooling.tokens.rotate/post(toolingTokensRotate)`.
+    /// Exchanges a refresh token for a new app configuration token.
+    ///
+    /// - Remark: HTTP `POST /tooling.tokens.rotate`.
+    /// - Remark: Generated from `#/paths//tooling.tokens.rotate/post(toolingTokensRotate)`.
     #endif
     #if WebAPI_Tooling
     func toolingTokensRotate(_ input: Operations.ToolingTokensRotate.Input) async throws -> Operations.ToolingTokensRotate.Output
-    // List conversations the calling user is a member of.
-    //
-    // - Remark: HTTP `POST /users.conversations`.
-    // - Remark: Generated from `#/paths//users.conversations/post(usersConversations)`.
+    /// List conversations the calling user is a member of.
+    ///
+    /// - Remark: HTTP `POST /users.conversations`.
+    /// - Remark: Generated from `#/paths//users.conversations/post(usersConversations)`.
     #endif
     #if WebAPI_Users
     func usersConversations(_ input: Operations.UsersConversations.Input) async throws -> Operations.UsersConversations.Output
@@ -1250,10 +1250,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /users.setPresence`.
     /// - Remark: Generated from `#/paths//users.setPresence/post(usersSetPresence)`.
     func usersSetPresence(_ input: Operations.UsersSetPresence.Input) async throws -> Operations.UsersSetPresence.Output
-    // Publish a static view for a User.
-    //
-    // - Remark: HTTP `POST /views.publish`.
-    // - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
+    /// Publish a static view for a User.
+    ///
+    /// - Remark: HTTP `POST /views.publish`.
+    /// - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
     #endif
     #if WebAPI_Views
     func viewsPublish(_ input: Operations.ViewsPublish.Input) async throws -> Operations.ViewsPublish.Output
@@ -1276,10 +1276,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Sends an ephemeral message to a user in a channel.
-    //
-    // - Remark: HTTP `POST /chat.postEphemeral`.
-    // - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
+    /// Sends an ephemeral message to a user in a channel.
+    ///
+    /// - Remark: HTTP `POST /chat.postEphemeral`.
+    /// - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
     #endif
     #if WebAPI_Chat
     public func chatPostEphemeral(
@@ -1333,10 +1333,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Open a view for a user.
-    //
-    // - Remark: HTTP `POST /views.open`.
-    // - Remark: Generated from `#/paths//views.open/post(viewsOpen)`.
+    /// Open a view for a user.
+    ///
+    /// - Remark: HTTP `POST /views.open`.
+    /// - Remark: Generated from `#/paths//views.open/post(viewsOpen)`.
     #endif
     #if WebAPI_Views
     public func viewsOpen(
@@ -1376,10 +1376,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Get logs for a specified team/org
-    //
-    // - Remark: HTTP `POST /admin.apps.activities.list`.
-    // - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
+    /// Get logs for a specified team/org
+    ///
+    /// - Remark: HTTP `POST /admin.apps.activities.list`.
+    /// - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
     #endif
     #if WebAPI_Admin
     public func adminAppsActivitiesList(
@@ -2567,10 +2567,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over.
-    //
-    // - Remark: HTTP `POST /apps.connections.open`.
-    // - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
+    /// Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over.
+    ///
+    /// - Remark: HTTP `POST /apps.connections.open`.
+    /// - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
     #endif
     #if WebAPI_Apps
     public func appsConnectionsOpen(
@@ -2680,10 +2680,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Set the status for an AI assistant thread.
-    //
-    // - Remark: HTTP `POST /assistant.threads.setStatus`.
-    // - Remark: Generated from `#/paths//assistant.threads.setStatus/post(assistantThreadsSetStatus)`.
+    /// Set the status for an AI assistant thread.
+    ///
+    /// - Remark: HTTP `POST /assistant.threads.setStatus`.
+    /// - Remark: Generated from `#/paths//assistant.threads.setStatus/post(assistantThreadsSetStatus)`.
     #endif
     #if WebAPI_Assistant
     public func assistantThreadsSetStatus(
@@ -2723,10 +2723,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Revokes a token.
-    //
-    // - Remark: HTTP `POST /auth.revoke`.
-    // - Remark: Generated from `#/paths//auth.revoke/post(authRevoke)`.
+    /// Revokes a token.
+    ///
+    /// - Remark: HTTP `POST /auth.revoke`.
+    /// - Remark: Generated from `#/paths//auth.revoke/post(authRevoke)`.
     #endif
     #if WebAPI_Auth
     public func authRevoke(
@@ -2766,10 +2766,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Add bookmark to a channel.
-    //
-    // - Remark: HTTP `POST /bookmarks.add`.
-    // - Remark: Generated from `#/paths//bookmarks.add/post(bookmarksAdd)`.
+    /// Add bookmark to a channel.
+    ///
+    /// - Remark: HTTP `POST /bookmarks.add`.
+    /// - Remark: Generated from `#/paths//bookmarks.add/post(bookmarksAdd)`.
     #endif
     #if WebAPI_Bookmarks
     public func bookmarksAdd(
@@ -2823,10 +2823,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Gets information about a bot user.
-    //
-    // - Remark: HTTP `POST /bots.info`.
-    // - Remark: Generated from `#/paths//bots.info/post(botsInfo)`.
+    /// Gets information about a bot user.
+    ///
+    /// - Remark: HTTP `POST /bots.info`.
+    /// - Remark: Generated from `#/paths//bots.info/post(botsInfo)`.
     #endif
     #if WebAPI_Bots
     public func botsInfo(
@@ -2838,10 +2838,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Remove access to a canvas for specified entities
-    //
-    // - Remark: HTTP `POST /canvases.access.delete`.
-    // - Remark: Generated from `#/paths//canvases.access.delete/post(canvasesAccessDelete)`.
+    /// Remove access to a canvas for specified entities
+    ///
+    /// - Remark: HTTP `POST /canvases.access.delete`.
+    /// - Remark: Generated from `#/paths//canvases.access.delete/post(canvasesAccessDelete)`.
     #endif
     #if WebAPI_Canvases
     public func canvasesAccessDelete(
@@ -2923,10 +2923,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Appends text to an existing streaming conversation.
-    //
-    // - Remark: HTTP `POST /chat.appendStream`.
-    // - Remark: Generated from `#/paths//chat.appendStream/post(chatAppendStream)`.
+    /// Appends text to an existing streaming conversation.
+    ///
+    /// - Remark: HTTP `POST /chat.appendStream`.
+    /// - Remark: Generated from `#/paths//chat.appendStream/post(chatAppendStream)`.
     #endif
     #if WebAPI_Chat
     public func chatAppendStream(
@@ -3050,10 +3050,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Accepts an invitation to a Slack Connect channel.
-    //
-    // - Remark: HTTP `POST /conversations.acceptSharedInvite`.
-    // - Remark: Generated from `#/paths//conversations.acceptSharedInvite/post(conversationsAcceptSharedInvite)`.
+    /// Accepts an invitation to a Slack Connect channel.
+    ///
+    /// - Remark: HTTP `POST /conversations.acceptSharedInvite`.
+    /// - Remark: Generated from `#/paths//conversations.acceptSharedInvite/post(conversationsAcceptSharedInvite)`.
     #endif
     #if WebAPI_Conversations
     public func conversationsAcceptSharedInvite(
@@ -3443,10 +3443,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Ends the current user's Do Not Disturb session immediately.
-    //
-    // - Remark: HTTP `POST /dnd.endDnd`.
-    // - Remark: Generated from `#/paths//dnd.endDnd/post(dndEndDnd)`.
+    /// Ends the current user's Do Not Disturb session immediately.
+    ///
+    /// - Remark: HTTP `POST /dnd.endDnd`.
+    /// - Remark: Generated from `#/paths//dnd.endDnd/post(dndEndDnd)`.
     #endif
     #if WebAPI_DND
     public func dndEndDnd(
@@ -3514,10 +3514,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Lists custom emoji for a team.
-    //
-    // - Remark: HTTP `POST /emoji.list`.
-    // - Remark: Generated from `#/paths//emoji.list/post(emojiList)`.
+    /// Lists custom emoji for a team.
+    ///
+    /// - Remark: HTTP `POST /emoji.list`.
+    /// - Remark: Generated from `#/paths//emoji.list/post(emojiList)`.
     #endif
     #if WebAPI_Emoji
     public func emojiList(
@@ -3529,10 +3529,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Provide custom flexpane behavior for Work Objects. Apps call this endpoint to send per-user flexpane metadata to the client.
-    //
-    // - Remark: HTTP `POST /entity.presentDetails`.
-    // - Remark: Generated from `#/paths//entity.presentDetails/post(entityPresentDetails)`.
+    /// Provide custom flexpane behavior for Work Objects. Apps call this endpoint to send per-user flexpane metadata to the client.
+    ///
+    /// - Remark: HTTP `POST /entity.presentDetails`.
+    /// - Remark: Generated from `#/paths//entity.presentDetails/post(entityPresentDetails)`.
     #endif
     #if WebAPI_Entity
     public func entityPresentDetails(
@@ -3544,10 +3544,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Finishes an upload started with files.getUploadURLExternal
-    //
-    // - Remark: HTTP `POST /files.completeUploadExternal`.
-    // - Remark: Generated from `#/paths//files.completeUploadExternal/post(filesCompleteUploadExternal)`.
+    /// Finishes an upload started with files.getUploadURLExternal
+    ///
+    /// - Remark: HTTP `POST /files.completeUploadExternal`.
+    /// - Remark: Generated from `#/paths//files.completeUploadExternal/post(filesCompleteUploadExternal)`.
     #endif
     #if WebAPI_Files
     public func filesCompleteUploadExternal(
@@ -3741,10 +3741,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Signal that a function failed to complete
-    //
-    // - Remark: HTTP `POST /functions.completeError`.
-    // - Remark: Generated from `#/paths//functions.completeError/post(functionsCompleteError)`.
+    /// Signal that a function failed to complete
+    ///
+    /// - Remark: HTTP `POST /functions.completeError`.
+    /// - Remark: Generated from `#/paths//functions.completeError/post(functionsCompleteError)`.
     #endif
     #if WebAPI_Functions
     public func functionsCompleteError(
@@ -3770,10 +3770,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Revoke access to a List for specified entities.
-    //
-    // - Remark: HTTP `POST /slackLists.access.delete`.
-    // - Remark: Generated from `#/paths//slackLists.access.delete/post(slackListsAccessDelete)`.
+    /// Revoke access to a List for specified entities.
+    ///
+    /// - Remark: HTTP `POST /slackLists.access.delete`.
+    /// - Remark: Generated from `#/paths//slackLists.access.delete/post(slackListsAccessDelete)`.
     #endif
     #if WebAPI_Lists
     public func slackListsAccessDelete(
@@ -3939,10 +3939,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // For Enterprise organization workspaces, map local user IDs to global user IDs
-    //
-    // - Remark: HTTP `POST /migration.exchange`.
-    // - Remark: Generated from `#/paths//migration.exchange/post(migrationExchange)`.
+    /// For Enterprise organization workspaces, map local user IDs to global user IDs
+    ///
+    /// - Remark: HTTP `POST /migration.exchange`.
+    /// - Remark: Generated from `#/paths//migration.exchange/post(migrationExchange)`.
     #endif
     #if WebAPI_Migration
     public func migrationExchange(
@@ -3954,10 +3954,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Exchanges a temporary OAuth verifier code for an access token.
-    //
-    // - Remark: HTTP `POST /oauth.v2.access`.
-    // - Remark: Generated from `#/paths//oauth.v2.access/post(oauthV2Access)`.
+    /// Exchanges a temporary OAuth verifier code for an access token.
+    ///
+    /// - Remark: HTTP `POST /oauth.v2.access`.
+    /// - Remark: Generated from `#/paths//oauth.v2.access/post(oauthV2Access)`.
     #endif
     #if WebAPI_OAuth
     public func oauthV2Access(
@@ -3983,10 +3983,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Exchanges a temporary OAuth verifier code for an access token for Sign in with Slack.
-    //
-    // - Remark: HTTP `POST /openid.connect.token`.
-    // - Remark: Generated from `#/paths//openid.connect.token/post(openidConnectToken)`.
+    /// Exchanges a temporary OAuth verifier code for an access token for Sign in with Slack.
+    ///
+    /// - Remark: HTTP `POST /openid.connect.token`.
+    /// - Remark: Generated from `#/paths//openid.connect.token/post(openidConnectToken)`.
     #endif
     #if WebAPI_OpenID
     public func openidConnectToken(
@@ -4012,10 +4012,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Pins an item to a channel.
-    //
-    // - Remark: HTTP `POST /pins.add`.
-    // - Remark: Generated from `#/paths//pins.add/post(pinsAdd)`.
+    /// Pins an item to a channel.
+    ///
+    /// - Remark: HTTP `POST /pins.add`.
+    /// - Remark: Generated from `#/paths//pins.add/post(pinsAdd)`.
     #endif
     #if WebAPI_Pins
     public func pinsAdd(
@@ -4055,10 +4055,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Adds a reaction to an item.
-    //
-    // - Remark: HTTP `POST /reactions.add`.
-    // - Remark: Generated from `#/paths//reactions.add/post(reactionsAdd)`.
+    /// Adds a reaction to an item.
+    ///
+    /// - Remark: HTTP `POST /reactions.add`.
+    /// - Remark: Generated from `#/paths//reactions.add/post(reactionsAdd)`.
     #endif
     #if WebAPI_Reactions
     public func reactionsAdd(
@@ -4112,10 +4112,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Creates a reminder.
-    //
-    // - Remark: HTTP `POST /reminders.add`.
-    // - Remark: Generated from `#/paths//reminders.add/post(remindersAdd)`.
+    /// Creates a reminder.
+    ///
+    /// - Remark: HTTP `POST /reminders.add`.
+    /// - Remark: Generated from `#/paths//reminders.add/post(remindersAdd)`.
     #endif
     #if WebAPI_Reminders
     public func remindersAdd(
@@ -4183,10 +4183,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Searches for messages and files matching a query.
-    //
-    // - Remark: HTTP `POST /search.all`.
-    // - Remark: Generated from `#/paths//search.all/post(searchAll)`.
+    /// Searches for messages and files matching a query.
+    ///
+    /// - Remark: HTTP `POST /search.all`.
+    /// - Remark: Generated from `#/paths//search.all/post(searchAll)`.
     #endif
     #if WebAPI_Search
     public func searchAll(
@@ -4226,10 +4226,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Save an item for later. Formerly known as adding a star.
-    //
-    // - Remark: HTTP `POST /stars.add`.
-    // - Remark: Generated from `#/paths//stars.add/post(starsAdd)`.
+    /// Save an item for later. Formerly known as adding a star.
+    ///
+    /// - Remark: HTTP `POST /stars.add`.
+    /// - Remark: Generated from `#/paths//stars.add/post(starsAdd)`.
     #endif
     #if WebAPI_Stars
     public func starsAdd(
@@ -4269,10 +4269,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Gets the access logs for the current team.
-    //
-    // - Remark: HTTP `POST /team.accessLogs`.
-    // - Remark: Generated from `#/paths//team.accessLogs/post(teamAccessLogs)`.
+    /// Gets the access logs for the current team.
+    ///
+    /// - Remark: HTTP `POST /team.accessLogs`.
+    /// - Remark: Generated from `#/paths//team.accessLogs/post(teamAccessLogs)`.
     #endif
     #if WebAPI_Team
     public func teamAccessLogs(
@@ -4396,10 +4396,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Exchanges a refresh token for a new app configuration token.
-    //
-    // - Remark: HTTP `POST /tooling.tokens.rotate`.
-    // - Remark: Generated from `#/paths//tooling.tokens.rotate/post(toolingTokensRotate)`.
+    /// Exchanges a refresh token for a new app configuration token.
+    ///
+    /// - Remark: HTTP `POST /tooling.tokens.rotate`.
+    /// - Remark: Generated from `#/paths//tooling.tokens.rotate/post(toolingTokensRotate)`.
     #endif
     #if WebAPI_Tooling
     public func toolingTokensRotate(
@@ -4411,10 +4411,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // List conversations the calling user is a member of.
-    //
-    // - Remark: HTTP `POST /users.conversations`.
-    // - Remark: Generated from `#/paths//users.conversations/post(usersConversations)`.
+    /// List conversations the calling user is a member of.
+    ///
+    /// - Remark: HTTP `POST /users.conversations`.
+    /// - Remark: Generated from `#/paths//users.conversations/post(usersConversations)`.
     #endif
     #if WebAPI_Users
     public func usersConversations(
@@ -4594,10 +4594,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    // Publish a static view for a User.
-    //
-    // - Remark: HTTP `POST /views.publish`.
-    // - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
+    /// Publish a static view for a User.
+    ///
+    /// - Remark: HTTP `POST /views.publish`.
+    /// - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
     #endif
     #if WebAPI_Views
     public func viewsPublish(

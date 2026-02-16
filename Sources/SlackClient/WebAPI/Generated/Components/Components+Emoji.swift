@@ -13,7 +13,7 @@ import struct Foundation.URL
 #if canImport(SlackModels)
 import SlackModels
 #endif
-// Types generated from the components section of the OpenAPI document.
+/// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Emoji
 extension Components.Schemas {
@@ -35,6 +35,8 @@ extension Components.Schemas {
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/EmojiListResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/EmojiListResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `EmojiListResponse`.
         ///
         /// - Parameters:
@@ -46,6 +48,7 @@ extension Components.Schemas {
         ///   - needed:
         ///   - ok:
         ///   - provided:
+        ///   - warning:
         public init(
             cacheTs: Swift.String? = nil,
             categories: [SlackModels.Category]? = nil,
@@ -55,6 +58,7 @@ extension Components.Schemas {
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.cacheTs = cacheTs
             self.categories = categories
@@ -64,6 +68,7 @@ extension Components.Schemas {
             self.needed = needed
             self.ok = ok
             self.provided = provided
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -75,6 +80,7 @@ extension Components.Schemas {
             case needed
             case ok
             case provided
+            case warning
         }
     }
 }

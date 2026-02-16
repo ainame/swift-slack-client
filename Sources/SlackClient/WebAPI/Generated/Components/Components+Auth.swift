@@ -13,7 +13,7 @@ import struct Foundation.URL
 #if canImport(SlackModels)
 import SlackModels
 #endif
-// Types generated from the components section of the OpenAPI document.
+/// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Auth
 extension Components.Schemas {
@@ -27,6 +27,8 @@ extension Components.Schemas {
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AuthRevokeResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthRevokeResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `AuthRevokeResponse`.
         ///
         /// - Parameters:
@@ -34,16 +36,19 @@ extension Components.Schemas {
         ///   - needed:
         ///   - ok:
         ///   - provided:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
             self.ok = ok
             self.provided = provided
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -51,6 +56,7 @@ extension Components.Schemas {
             case needed
             case ok
             case provided
+            case warning
         }
     }
 
@@ -68,6 +74,8 @@ extension Components.Schemas {
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/teams`.
         public var teams: [SlackModels.Team]?
+        /// - Remark: Generated from `#/components/schemas/AuthTeamsListResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `AuthTeamsListResponse`.
         ///
         /// - Parameters:
@@ -77,6 +85,7 @@ extension Components.Schemas {
         ///   - provided:
         ///   - responseMetadata:
         ///   - teams:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
@@ -84,6 +93,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
             teams: [SlackModels.Team]? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -91,6 +101,7 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
             self.teams = teams
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -100,6 +111,7 @@ extension Components.Schemas {
             case provided
             case responseMetadata = "response_metadata"
             case teams
+            case warning
         }
     }
 
@@ -111,6 +123,8 @@ extension Components.Schemas {
         public var appName: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AuthTestResponse/bot_id`.
         public var botId: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/context`.
+        public var context: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AuthTestResponse/enterprise_id`.
         public var enterpriseId: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AuthTestResponse/error`.
@@ -135,12 +149,15 @@ extension Components.Schemas {
         public var user: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AuthTestResponse/user_id`.
         public var userId: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AuthTestResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `AuthTestResponse`.
         ///
         /// - Parameters:
         ///   - appId:
         ///   - appName:
         ///   - botId:
+        ///   - context:
         ///   - enterpriseId:
         ///   - error:
         ///   - expiresIn:
@@ -153,10 +170,12 @@ extension Components.Schemas {
         ///   - url:
         ///   - user:
         ///   - userId:
+        ///   - warning:
         public init(
             appId: Swift.String? = nil,
             appName: Swift.String? = nil,
             botId: Swift.String? = nil,
+            context: Swift.String? = nil,
             enterpriseId: Swift.String? = nil,
             error: Swift.String? = nil,
             expiresIn: Swift.Int? = nil,
@@ -169,10 +188,12 @@ extension Components.Schemas {
             url: Swift.String? = nil,
             user: Swift.String? = nil,
             userId: Swift.String? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.appId = appId
             self.appName = appName
             self.botId = botId
+            self.context = context
             self.enterpriseId = enterpriseId
             self.error = error
             self.expiresIn = expiresIn
@@ -185,12 +206,14 @@ extension Components.Schemas {
             self.url = url
             self.user = user
             self.userId = userId
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
             case appId = "app_id"
             case appName = "app_name"
             case botId = "bot_id"
+            case context
             case enterpriseId = "enterprise_id"
             case error
             case expiresIn = "expires_in"
@@ -203,6 +226,7 @@ extension Components.Schemas {
             case url
             case user
             case userId = "user_id"
+            case warning
         }
     }
 }

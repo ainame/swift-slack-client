@@ -13,7 +13,7 @@ import struct Foundation.URL
 #if canImport(SlackModels)
 import SlackModels
 #endif
-// Types generated from the components section of the OpenAPI document.
+/// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Apps
 extension Components.Schemas {
@@ -29,6 +29,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AppsConnectionsOpenResponse/url`.
         public var url: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AppsConnectionsOpenResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `AppsConnectionsOpenResponse`.
         ///
         /// - Parameters:
@@ -37,18 +39,21 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - url:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             url: Swift.String? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
             self.ok = ok
             self.provided = provided
             self.url = url
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -57,6 +62,7 @@ extension Components.Schemas {
             case ok
             case provided
             case url
+            case warning
         }
     }
 
@@ -72,6 +78,8 @@ extension Components.Schemas {
         public var ok: Swift.Bool
         /// - Remark: Generated from `#/components/schemas/AppsEventAuthorizationsListResponse/provided`.
         public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AppsEventAuthorizationsListResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `AppsEventAuthorizationsListResponse`.
         ///
         /// - Parameters:
@@ -80,18 +88,21 @@ extension Components.Schemas {
         ///   - needed:
         ///   - ok:
         ///   - provided:
+        ///   - warning:
         public init(
             authorizations: [SlackModels.Authorization]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.authorizations = authorizations
             self.error = error
             self.needed = needed
             self.ok = ok
             self.provided = provided
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -100,6 +111,7 @@ extension Components.Schemas {
             case needed
             case ok
             case provided
+            case warning
         }
     }
 
@@ -372,6 +384,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/AppsUninstallResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/AppsUninstallResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `AppsUninstallResponse`.
         ///
         /// - Parameters:
@@ -380,18 +394,21 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -400,6 +417,7 @@ extension Components.Schemas {
             case ok
             case provided
             case responseMetadata = "response_metadata"
+            case warning
         }
     }
 }
