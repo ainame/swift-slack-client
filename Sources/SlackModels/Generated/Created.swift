@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Created`.
@@ -34,7 +34,7 @@ public struct Created: Codable, Hashable, Sendable {
         ip: Swift.String? = nil,
         os: Swift.String? = nil,
         osVersion: Swift.String? = nil,
-        slackClientVersion: Swift.String? = nil,
+        slackClientVersion: Swift.String? = nil
     ) {
         self.deviceHardware = deviceHardware
         self.ip = ip
@@ -42,7 +42,6 @@ public struct Created: Codable, Hashable, Sendable {
         self.osVersion = osVersion
         self.slackClientVersion = slackClientVersion
     }
-
     public enum CodingKeys: String, CodingKey {
         case deviceHardware = "device_hardware"
         case ip

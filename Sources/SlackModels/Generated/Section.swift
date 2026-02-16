@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Section`.
@@ -38,7 +38,7 @@ public struct Section: Codable, Hashable, Sendable {
         label: Swift.String? = nil,
         order: Swift.Int? = nil,
         sectionType: Swift.String? = nil,
-        teamId: Swift.String? = nil,
+        teamId: Swift.String? = nil
     ) {
         self.id = id
         self.isHidden = isHidden
@@ -47,7 +47,6 @@ public struct Section: Codable, Hashable, Sendable {
         self.sectionType = sectionType
         self.teamId = teamId
     }
-
     public enum CodingKeys: String, CodingKey {
         case id
         case isHidden = "is_hidden"

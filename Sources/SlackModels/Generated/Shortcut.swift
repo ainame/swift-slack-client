@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Shortcut`.
@@ -30,14 +30,13 @@ public struct Shortcut: Codable, Hashable, Sendable {
         callbackId: Swift.String? = nil,
         description: Swift.String? = nil,
         name: Swift.String? = nil,
-        _type: Swift.String,
+        _type: Swift.String
     ) {
         self.callbackId = callbackId
         self.description = description
         self.name = name
         self._type = _type
     }
-
     public enum CodingKeys: String, CodingKey {
         case callbackId = "callback_id"
         case description

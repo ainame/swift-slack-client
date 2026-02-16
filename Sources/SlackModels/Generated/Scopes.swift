@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Scopes`.
@@ -42,7 +42,7 @@ public struct Scopes: Codable, Hashable, Sendable {
         im: [Swift.String]? = nil,
         mpim: [Swift.String]? = nil,
         team: [Swift.String]? = nil,
-        user: [Swift.String]? = nil,
+        user: [Swift.String]? = nil
     ) {
         self.appHome = appHome
         self.channel = channel
@@ -52,7 +52,6 @@ public struct Scopes: Codable, Hashable, Sendable {
         self.team = team
         self.user = user
     }
-
     public enum CodingKeys: String, CodingKey {
         case appHome = "app_home"
         case channel

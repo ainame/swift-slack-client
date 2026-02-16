@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Icon`.
@@ -50,7 +50,7 @@ public struct Icon: Codable, Hashable, Sendable {
         image68: Swift.String? = nil,
         image88: Swift.String? = nil,
         imageDefault: Swift.Bool? = nil,
-        imageOriginal: Swift.String? = nil,
+        imageOriginal: Swift.String? = nil
     ) {
         self.image102 = image102
         self.image132 = image132
@@ -62,7 +62,6 @@ public struct Icon: Codable, Hashable, Sendable {
         self.imageDefault = imageDefault
         self.imageOriginal = imageOriginal
     }
-
     public enum CodingKeys: String, CodingKey {
         case image102 = "image_102"
         case image132 = "image_132"

@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Choice`.
@@ -26,13 +26,12 @@ public struct Choice: Codable, Hashable, Sendable {
     public init(
         color: Swift.String? = nil,
         label: Swift.String? = nil,
-        value: Swift.String? = nil,
+        value: Swift.String? = nil
     ) {
         self.color = color
         self.label = label
         self.value = value
     }
-
     public enum CodingKeys: String, CodingKey {
         case color
         case label

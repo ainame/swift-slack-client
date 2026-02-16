@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Conversation`.
@@ -142,7 +142,7 @@ public struct Conversation: Codable, Hashable, Sendable {
         name: Swift.String? = nil,
         pendingConnectedTeamIds: [Swift.String]? = nil,
         properties: Properties? = nil,
-        purpose: Swift.String? = nil,
+        purpose: Swift.String? = nil
     ) {
         self.canvas = canvas
         self.channelEmailAddresses = channelEmailAddresses
@@ -177,7 +177,6 @@ public struct Conversation: Codable, Hashable, Sendable {
         self.properties = properties
         self.purpose = purpose
     }
-
     public enum CodingKeys: String, CodingKey {
         case canvas
         case channelEmailAddresses = "channel_email_addresses"

@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 #if canImport(SlackBlockKit)
@@ -238,7 +238,7 @@ public struct Attachment: Codable, Hashable, Sendable {
         videoHtml: Swift.String? = nil,
         videoHtmlHeight: Swift.Int? = nil,
         videoHtmlWidth: Swift.Int? = nil,
-        videoUrl: Swift.String? = nil,
+        videoUrl: Swift.String? = nil
     ) {
         self.actions = actions
         self.appId = appId
@@ -296,7 +296,6 @@ public struct Attachment: Codable, Hashable, Sendable {
         self.videoHtmlWidth = videoHtmlWidth
         self.videoUrl = videoUrl
     }
-
     public enum CodingKeys: String, CodingKey {
         case actions
         case appId = "app_id"

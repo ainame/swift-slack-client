@@ -186,8 +186,11 @@ class ClientFunctionParser
   API_GROUPS = %w[
     admin apps assistant auth bookmarks bots canvases chat conversations
     dnd emoji files functions migration oauth openid pins reactions
-    reminders rtm search stars team tooling users views
+    reminders rtm search stars team tooling users views entity lists
   ].freeze
+  GROUP_PREFIX_ALIASES = {
+    'slacklists' => 'lists'
+  }.freeze
 
   # Extracts header lines from client file (everything before struct declaration)
   def self.extract_header(lines)
@@ -258,7 +261,14 @@ class ClientFunctionParser
 
   # Extracts API group name from function name
   def self.extract_group_name(function_name)
-    API_GROUPS.find { |group| function_name&.start_with?(group) } || 'unknown'
+    group = API_GROUPS.find { |candidate| function_name&.downcase&.start_with?(candidate.downcase) }
+    return group if group
+
+    GROUP_PREFIX_ALIASES.each do |prefix, alias_group|
+      return alias_group if function_name&.downcase&.start_with?(prefix)
+    end
+
+    'unknown'
   end
 
   private
@@ -292,9 +302,7 @@ class PackageConfigurationManager
     content = File.read(package_file)
 
     # Generate WebAPI trait names
-    normalized_groups = groups.dup
-    normalized_groups << 'unknown' unless normalized_groups.include?('unknown')
-    webapi_trait_names = normalized_groups.map { |group| "WebAPI_#{GroupNameFormatter.capitalize_group_name(group)}" }
+    webapi_trait_names = groups.map { |group| "WebAPI_#{GroupNameFormatter.capitalize_group_name(group)}" }
 
     # Generate the traits list variable definition
     traits_list_definition = <<~SWIFT
@@ -427,6 +435,9 @@ class CodeGenerationProcessor
     client_dir = File.join(@output_directory, 'Client')
     FileUtils.mkdir_p(client_dir)
 
+    expected_files = ["Client+Base.swift"] + functions.keys.map { |group| "Client+#{GroupNameFormatter.capitalize_group_name(group)}.swift" }
+    cleanup_stale_group_files(client_dir, "Client+*.swift", expected_files)
+
     functions.each do |group, content|
       filename = "Client+#{GroupNameFormatter.capitalize_group_name(group)}.swift"
       File.write(File.join(client_dir, filename), generate_extension_content(group, content, header_lines))
@@ -492,6 +503,16 @@ class CodeGenerationProcessor
       end
     end
     content_lines
+  end
+
+  def cleanup_stale_group_files(directory, pattern, expected_files)
+    Dir.glob(File.join(directory, pattern)).each do |path|
+      basename = File.basename(path)
+      next if expected_files.include?(basename)
+
+      File.delete(path)
+      puts "Removed stale #{File.basename(directory)}/#{basename}"
+    end
   end
 end
 
@@ -886,6 +907,11 @@ class ComponentsSplitter
     components_dir = File.join(@output_directory, 'Components')
     FileUtils.mkdir_p(components_dir)
 
+    expected_files = ["Components+Base.swift"] + schema_groups.keys.reject { |group| group == 'Common' }.map do |group|
+      "Components+#{GroupNameFormatter.capitalize_group_name(group)}.swift"
+    end
+    cleanup_stale_group_files(components_dir, "Components+*.swift", expected_files)
+
     # Write group files
     schema_groups.each do |group, content_lines|
       if group == 'Common'
@@ -1003,6 +1029,16 @@ public enum Components {
 
     { groups: result, header: header }
   end
+
+  def cleanup_stale_group_files(directory, pattern, expected_files)
+    Dir.glob(File.join(directory, pattern)).each do |path|
+      basename = File.basename(path)
+      next if expected_files.include?(basename)
+
+      File.delete(path)
+      puts "Removed stale #{File.basename(directory)}/#{basename}"
+    end
+  end
 end
 
 # Handles splitting of Operations.swift by operation groups
@@ -1025,6 +1061,9 @@ class OperationsSplitter
     # Create Operations subdirectory
     operations_dir = File.join(@output_directory, 'Operations')
     FileUtils.mkdir_p(operations_dir)
+
+    expected_files = ["Operations+Base.swift"] + operation_groups.keys.map { |group| "Operations+#{GroupNameFormatter.capitalize_group_name(group)}.swift" }
+    cleanup_stale_group_files(operations_dir, "Operations+*.swift", expected_files)
 
     # Write group files
     operation_groups.each do |group, content_lines|
@@ -1151,6 +1190,16 @@ class OperationsSplitter
     end
 
     result
+  end
+
+  def cleanup_stale_group_files(directory, pattern, expected_files)
+    Dir.glob(File.join(directory, pattern)).each do |path|
+      basename = File.basename(path)
+      next if expected_files.include?(basename)
+
+      File.delete(path)
+      puts "Removed stale #{File.basename(directory)}/#{basename}"
+    end
   end
 end
 
@@ -1382,6 +1431,11 @@ class SchemaGroupDeterminer
       prefix = type_name.gsub(/Response$/, '')
       # Find the first API group that matches
       group = ClientFunctionParser::API_GROUPS.find { |g| prefix.downcase.start_with?(g.downcase) }
+      if group.nil?
+        group = ClientFunctionParser::GROUP_PREFIX_ALIASES.find do |group_prefix, _alias_group|
+          prefix.downcase.start_with?(group_prefix)
+        end&.last
+      end
       return GroupNameFormatter.capitalize_group_name(group) if group
       return 'Unknown'
     end
@@ -1397,7 +1451,14 @@ class OperationGroupExtractor
   def self.extract_operation_group_name(operation_name)
     # Operations follow the pattern AdminAppsActivitiesList, UsersInfo, etc.
     # Extract the first part that matches our API groups
-    ClientFunctionParser::API_GROUPS.find { |group| operation_name.downcase.start_with?(group.downcase) } || 'unknown'
+    group = ClientFunctionParser::API_GROUPS.find { |candidate| operation_name.downcase.start_with?(candidate.downcase) }
+    return group if group
+
+    ClientFunctionParser::GROUP_PREFIX_ALIASES.each do |prefix, alias_group|
+      return alias_group if operation_name.downcase.start_with?(prefix)
+    end
+
+    'unknown'
   end
 end
 

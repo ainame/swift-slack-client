@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/CreationSource`.
@@ -22,12 +22,11 @@ public struct CreationSource: Codable, Hashable, Sendable {
     ///   - _type:
     public init(
         referenceId: Swift.String? = nil,
-        _type: Swift.String,
+        _type: Swift.String
     ) {
         self.referenceId = referenceId
         self._type = _type
     }
-
     public enum CodingKeys: String, CodingKey {
         case referenceId = "reference_id"
         case _type = "type"

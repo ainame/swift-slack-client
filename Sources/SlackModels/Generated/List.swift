@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/List`.
@@ -162,7 +162,7 @@ public struct List: Codable, Hashable, Sendable {
         urlPrivateDownload: Swift.String? = nil,
         user: Swift.String? = nil,
         userTeam: Swift.String? = nil,
-        username: Swift.String? = nil,
+        username: Swift.String? = nil
     ) {
         self.access = access
         self.created = created
@@ -202,7 +202,6 @@ public struct List: Codable, Hashable, Sendable {
         self.userTeam = userTeam
         self.username = username
     }
-
     public enum CodingKeys: String, CodingKey {
         case access
         case created

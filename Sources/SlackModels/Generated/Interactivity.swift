@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Interactivity`.
@@ -26,13 +26,12 @@ public struct Interactivity: Codable, Hashable, Sendable {
     public init(
         isEnabled: Swift.Bool? = nil,
         messageMenuOptionsUrl: Swift.String? = nil,
-        requestUrl: Swift.String? = nil,
+        requestUrl: Swift.String? = nil
     ) {
         self.isEnabled = isEnabled
         self.messageMenuOptionsUrl = messageMenuOptionsUrl
         self.requestUrl = requestUrl
     }
-
     public enum CodingKeys: String, CodingKey {
         case isEnabled = "is_enabled"
         case messageMenuOptionsUrl = "message_menu_options_url"

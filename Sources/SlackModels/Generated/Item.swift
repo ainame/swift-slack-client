@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Item`.
@@ -42,7 +42,7 @@ public struct Item: Codable, Hashable, Sendable {
         file: ItemFile? = nil,
         message: Message? = nil,
         _type: Swift.String,
-        ts: Swift.String? = nil,
+        ts: Swift.String? = nil
     ) {
         self.channel = channel
         self.comment = comment
@@ -52,7 +52,6 @@ public struct Item: Codable, Hashable, Sendable {
         self._type = _type
         self.ts = ts
     }
-
     public enum CodingKeys: String, CodingKey {
         case channel
         case comment

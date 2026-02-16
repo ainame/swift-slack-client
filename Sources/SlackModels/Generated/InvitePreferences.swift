@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/InvitePreferences`.
@@ -30,14 +30,13 @@ public struct InvitePreferences: Codable, Hashable, Sendable {
         channelIds: [Swift.String]? = nil,
         isDomainMatched: Swift.Bool? = nil,
         isRestricted: Swift.Bool? = nil,
-        isUltraRestricted: Swift.Bool? = nil,
+        isUltraRestricted: Swift.Bool? = nil
     ) {
         self.channelIds = channelIds
         self.isDomainMatched = isDomainMatched
         self.isRestricted = isRestricted
         self.isUltraRestricted = isUltraRestricted
     }
-
     public enum CodingKeys: String, CodingKey {
         case channelIds = "channel_ids"
         case isDomainMatched = "is_domain_matched"

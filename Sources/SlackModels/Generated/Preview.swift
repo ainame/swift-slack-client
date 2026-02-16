@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Preview`.
@@ -34,7 +34,7 @@ public struct Preview: Codable, Hashable, Sendable {
         iconUrl: Swift.String? = nil,
         subtitle: Description? = nil,
         title: Description? = nil,
-        _type: Swift.String,
+        _type: Swift.String
     ) {
         self.canRemove = canRemove
         self.iconUrl = iconUrl
@@ -42,7 +42,6 @@ public struct Preview: Codable, Hashable, Sendable {
         self.title = title
         self._type = _type
     }
-
     public enum CodingKeys: String, CodingKey {
         case canRemove = "can_remove"
         case iconUrl = "icon_url"

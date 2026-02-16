@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Usergroup`.
@@ -31,16 +31,10 @@ public struct Usergroup: Codable, Hashable, Sendable {
     public var handle: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Usergroup/id`.
     public var id: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/is_editing_restricted`.
-    public var isEditingRestricted: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Usergroup/is_external`.
     public var isExternal: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Usergroup/is_idp_group`.
     public var isIdpGroup: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/is_membership_locked`.
-    public var isMembershipLocked: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Usergroup/is_org_level`.
-    public var isOrgLevel: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Usergroup/is_section`.
     public var isSection: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Usergroup/is_subteam`.
@@ -72,11 +66,8 @@ public struct Usergroup: Codable, Hashable, Sendable {
     ///   - enterpriseSubteamId:
     ///   - handle:
     ///   - id:
-    ///   - isEditingRestricted:
     ///   - isExternal:
     ///   - isIdpGroup:
-    ///   - isMembershipLocked:
-    ///   - isOrgLevel:
     ///   - isSection:
     ///   - isSubteam:
     ///   - isUsergroup:
@@ -97,11 +88,8 @@ public struct Usergroup: Codable, Hashable, Sendable {
         enterpriseSubteamId: Swift.String? = nil,
         handle: Swift.String? = nil,
         id: Swift.String? = nil,
-        isEditingRestricted: Swift.Bool? = nil,
         isExternal: Swift.Bool? = nil,
         isIdpGroup: Swift.Bool? = nil,
-        isMembershipLocked: Swift.Bool? = nil,
-        isOrgLevel: Swift.Bool? = nil,
         isSection: Swift.Bool? = nil,
         isSubteam: Swift.Bool? = nil,
         isUsergroup: Swift.Bool? = nil,
@@ -110,7 +98,7 @@ public struct Usergroup: Codable, Hashable, Sendable {
         prefs: Prefs? = nil,
         teamId: Swift.String? = nil,
         updatedBy: Swift.String? = nil,
-        users: [Swift.String]? = nil,
+        users: [Swift.String]? = nil
     ) {
         self.autoProvision = autoProvision
         self.channelCount = channelCount
@@ -122,11 +110,8 @@ public struct Usergroup: Codable, Hashable, Sendable {
         self.enterpriseSubteamId = enterpriseSubteamId
         self.handle = handle
         self.id = id
-        self.isEditingRestricted = isEditingRestricted
         self.isExternal = isExternal
         self.isIdpGroup = isIdpGroup
-        self.isMembershipLocked = isMembershipLocked
-        self.isOrgLevel = isOrgLevel
         self.isSection = isSection
         self.isSubteam = isSubteam
         self.isUsergroup = isUsergroup
@@ -137,7 +122,6 @@ public struct Usergroup: Codable, Hashable, Sendable {
         self.updatedBy = updatedBy
         self.users = users
     }
-
     public enum CodingKeys: String, CodingKey {
         case autoProvision = "auto_provision"
         case channelCount = "channel_count"
@@ -149,11 +133,8 @@ public struct Usergroup: Codable, Hashable, Sendable {
         case enterpriseSubteamId = "enterprise_subteam_id"
         case handle
         case id
-        case isEditingRestricted = "is_editing_restricted"
         case isExternal = "is_external"
         case isIdpGroup = "is_idp_group"
-        case isMembershipLocked = "is_membership_locked"
-        case isOrgLevel = "is_org_level"
         case isSection = "is_section"
         case isSubteam = "is_subteam"
         case isUsergroup = "is_usergroup"

@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Reaction`.
@@ -30,14 +30,13 @@ public struct Reaction: Codable, Hashable, Sendable {
         count: Swift.Int? = nil,
         name: Swift.String? = nil,
         url: Swift.String? = nil,
-        users: [Swift.String]? = nil,
+        users: [Swift.String]? = nil
     ) {
         self.count = count
         self.name = name
         self.url = url
         self.users = users
     }
-
     public enum CodingKeys: String, CodingKey {
         case count
         case name

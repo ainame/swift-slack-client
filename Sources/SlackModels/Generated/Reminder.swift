@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
+@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
-@preconcurrency import struct Foundation.URL
 #else
+import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
-import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Reminder`.
@@ -50,7 +50,7 @@ public struct Reminder: Codable, Hashable, Sendable {
         recurring: Swift.Bool? = nil,
         text: Swift.String? = nil,
         time: Swift.Int? = nil,
-        user: Swift.String? = nil,
+        user: Swift.String? = nil
     ) {
         self.channel = channel
         self.completeTs = completeTs
@@ -62,7 +62,6 @@ public struct Reminder: Codable, Hashable, Sendable {
         self.time = time
         self.user = user
     }
-
     public enum CodingKeys: String, CodingKey {
         case channel
         case completeTs = "complete_ts"
