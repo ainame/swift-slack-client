@@ -4,7 +4,7 @@ import SlackBlockKitDSL
 enum StringLiteralExamples {
     // MARK: - Clean String Literal Syntax Examples
 
-    // ✅ Before: Verbose .asTextObject() calls
+    /// ✅ Before: Verbose .asTextObject() calls
     struct OldStyleModal: SlackModalView {
         var title: TextObject {
             TextObject(type: .plainText, text: "Old Style")
@@ -21,7 +21,7 @@ enum StringLiteralExamples {
         }
     }
 
-    // ✨ After: Clean string literals (ExpressibleByStringLiteral)
+    /// ✨ After: Clean string literals (ExpressibleByStringLiteral)
     struct NewStyleModal: SlackModalView {
         var title: TextObject {
             "Clean Style" // ✨ String literal becomes TextObject automatically!

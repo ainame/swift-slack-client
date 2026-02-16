@@ -2,7 +2,7 @@ import SlackBlockKit
 import SlackBlockKitDSL
 
 enum FinalExamples {
-    // Simple modal example
+    /// Simple modal example
     struct WelcomeModal: SlackModalView {
         let userName: String
 
@@ -23,7 +23,7 @@ enum FinalExamples {
         }
     }
 
-    // Home tab example
+    /// Home tab example
     struct DashboardHomeTab: SlackHomeTabView {
         let stats: DashboardStats
 
@@ -48,7 +48,7 @@ enum FinalExamples {
         }
     }
 
-    // Usage example
+    /// Usage example
     static func demonstrateAPI() {
         // Modal usage
         let modal = WelcomeModal(userName: "Alice")

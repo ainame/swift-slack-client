@@ -13,7 +13,7 @@ import struct Foundation.URL
 import HTTPTypes
 
 extension Client {
-    /// Remove access to a list for specified entities
+    /// Revoke access to a List for specified entities.
     ///
     /// - Remark: HTTP `POST /slackLists.access.delete`.
     /// - Remark: Generated from `#/paths//slackLists.access.delete/post(slackListsAccessDelete)`.
@@ -82,7 +82,7 @@ extension Client {
         )
     }
 
-    /// Sets the access level to a list for specified entities
+    /// Set the access level to a List for specified entities.
     ///
     /// - Remark: HTTP `POST /slackLists.access.set`.
     /// - Remark: Generated from `#/paths//slackLists.access.set/post(slackListsAccessSet)`.
@@ -151,7 +151,7 @@ extension Client {
         )
     }
 
-    /// Create a list
+    /// Create a List.
     ///
     /// - Remark: HTTP `POST /slackLists.create`.
     /// - Remark: Generated from `#/paths//slackLists.create/post(slackListsCreate)`.
@@ -220,7 +220,7 @@ extension Client {
         )
     }
 
-    /// Retrieve list download URL from an export job to download list contents
+    /// Retrieve List download URL from an export job to download List contents.
     ///
     /// - Remark: HTTP `POST /slackLists.download.get`.
     /// - Remark: Generated from `#/paths//slackLists.download.get/post(slackListsDownloadGet)`.
@@ -289,7 +289,7 @@ extension Client {
         )
     }
 
-    /// Initiate a job to export list contents
+    /// Initiate a job to export List contents.
     ///
     /// - Remark: HTTP `POST /slackLists.download.start`.
     /// - Remark: Generated from `#/paths//slackLists.download.start/post(slackListsDownloadStart)`.
@@ -358,7 +358,7 @@ extension Client {
         )
     }
 
-    /// Adds a new item to an existing list.
+    /// Add a new item to an existing List.
     ///
     /// - Remark: HTTP `POST /slackLists.items.create`.
     /// - Remark: Generated from `#/paths//slackLists.items.create/post(slackListsItemsCreate)`.
@@ -427,7 +427,7 @@ extension Client {
         )
     }
 
-    /// Deletes an item from an existing list.
+    /// Deletes an item from an existing List.
     ///
     /// - Remark: HTTP `POST /slackLists.items.delete`.
     /// - Remark: Generated from `#/paths//slackLists.items.delete/post(slackListsItemsDelete)`.
@@ -496,7 +496,7 @@ extension Client {
         )
     }
 
-    /// Deletes multiple items from an existing list.
+    /// Deletes multiple items from an existing List.
     ///
     /// - Remark: HTTP `POST /slackLists.items.deleteMultiple`.
     /// - Remark: Generated from `#/paths//slackLists.items.deleteMultiple/post(slackListsItemsDeleteMultiple)`.
@@ -565,7 +565,7 @@ extension Client {
         )
     }
 
-    /// Get a row from a list
+    /// Get a row from a List.
     ///
     /// - Remark: HTTP `POST /slackLists.items.info`.
     /// - Remark: Generated from `#/paths//slackLists.items.info/post(slackListsItemsInfo)`.
@@ -634,7 +634,7 @@ extension Client {
         )
     }
 
-    /// Get records from a list
+    /// Get records from a List.
     ///
     /// - Remark: HTTP `POST /slackLists.items.list`.
     /// - Remark: Generated from `#/paths//slackLists.items.list/post(slackListsItemsList)`.
@@ -703,7 +703,7 @@ extension Client {
         )
     }
 
-    /// Updates cells in a list
+    /// Updates cells in a List.
     ///
     /// - Remark: HTTP `POST /slackLists.items.update`.
     /// - Remark: Generated from `#/paths//slackLists.items.update/post(slackListsItemsUpdate)`.
@@ -772,7 +772,7 @@ extension Client {
         )
     }
 
-    /// Update a list
+    /// Update a List.
     ///
     /// - Remark: HTTP `POST /slackLists.update`.
     /// - Remark: Generated from `#/paths//slackLists.update/post(slackListsUpdate)`.

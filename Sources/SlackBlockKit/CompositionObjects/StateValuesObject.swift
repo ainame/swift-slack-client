@@ -2,11 +2,11 @@ import Foundation
 import OpenAPIRuntime
 
 public struct StateValuesObject: Codable, Hashable, Sendable {
-    // This should be [String: StateValuesObject.Value]? but Codable can't decode dictionary.
-    // OpenAPIObjectContainer can support such case.
+    /// This should be [String: StateValuesObject.Value]? but Codable can't decode dictionary.
+    /// OpenAPIObjectContainer can support such case.
     public let values: OpenAPIObjectContainer?
 
-    // Helper subscript to access nested values by block_id and action_id
+    /// Helper subscript to access nested values by block_id and action_id
     public subscript(blockId: String) -> [String: Value]? {
         guard let values,
               let blockValue = values.value[blockId] as? [String: Any],

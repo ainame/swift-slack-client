@@ -9,7 +9,7 @@ import struct Foundation.Data
 import struct Foundation.Date
 import struct Foundation.URL
 #endif
-/// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
+// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_Lists
 extension Operations {
@@ -33,7 +33,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/slackLists.access.delete/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Encoded ID of the list.
+                    /// Encoded ID of the List.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.access.delete/POST/requestBody/json/list_id`.
                     public var listId: Swift.String
@@ -48,7 +48,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - listId: Encoded ID of the list.
+                    ///   - listId: Encoded ID of the List.
                     ///   - channelIds: List of channels you wish to update access for. Can only be used if user_ids is not provided.
                     ///   - userIds: List of users you wish to update access for. Can only be used if channel_ids is not provided.
                     public init(
@@ -197,14 +197,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/slackLists.access.set/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Encoded ID of the List.
+                    ///
+                    /// - Remark: Generated from `#/paths/slackLists.access.set/POST/requestBody/json/list_id`.
+                    public var listId: Swift.String
                     /// Desired level of access.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.access.set/POST/requestBody/json/access_level`.
                     public var accessLevel: Swift.String
-                    /// Encoded ID of the list.
-                    ///
-                    /// - Remark: Generated from `#/paths/slackLists.access.set/POST/requestBody/json/list_id`.
-                    public var listId: Swift.String
                     /// List of channels you wish to update access for. Can only be used if user_ids is not provided.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.access.set/POST/requestBody/json/channel_ids`.
@@ -216,25 +216,25 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - listId: Encoded ID of the List.
                     ///   - accessLevel: Desired level of access.
-                    ///   - listId: Encoded ID of the list.
                     ///   - channelIds: List of channels you wish to update access for. Can only be used if user_ids is not provided.
                     ///   - userIds: List of users you wish to update access for. Can only be used if channel_ids is not provided.
                     public init(
-                        accessLevel: Swift.String,
                         listId: Swift.String,
+                        accessLevel: Swift.String,
                         channelIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         userIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                     ) {
-                        self.accessLevel = accessLevel
                         self.listId = listId
+                        self.accessLevel = accessLevel
                         self.channelIds = channelIds
                         self.userIds = userIds
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case accessLevel = "access_level"
                         case listId = "list_id"
+                        case accessLevel = "access_level"
                         case channelIds = "channel_ids"
                         case userIds = "user_ids"
                     }
@@ -369,61 +369,61 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/slackLists.create/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Name of the list.
+                    /// Name of the List.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.create/POST/requestBody/json/name`.
                     public var name: Swift.String
-                    /// Id of the list to copy.
-                    ///
-                    /// - Remark: Generated from `#/paths/slackLists.create/POST/requestBody/json/copy_from_list_id`.
-                    public var copyFromListId: Swift.String?
-                    /// A rich text description of the list.
+                    /// A rich text description of the List.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.create/POST/requestBody/json/description_blocks`.
                     public var descriptionBlocks: OpenAPIRuntime.OpenAPIArrayContainer?
-                    /// Option to include records when a list is copied.
-                    ///
-                    /// - Remark: Generated from `#/paths/slackLists.create/POST/requestBody/json/include_copied_list_records`.
-                    public var includeCopiedListRecords: Swift.Bool?
-                    /// Column definition for the list.
+                    /// Column definition for the List.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.create/POST/requestBody/json/schema`.
                     public var schema: OpenAPIRuntime.OpenAPIArrayContainer?
-                    /// Boolean indicating if list should be used to track todo tasks.
+                    /// ID of the List to copy.
+                    ///
+                    /// - Remark: Generated from `#/paths/slackLists.create/POST/requestBody/json/copy_from_list_id`.
+                    public var copyFromListId: Swift.String?
+                    /// Boolean indicating whether to include records when a List is copied.
+                    ///
+                    /// - Remark: Generated from `#/paths/slackLists.create/POST/requestBody/json/include_copied_list_records`.
+                    public var includeCopiedListRecords: Swift.Bool?
+                    /// Boolean indicating whether the List should be used to track todo tasks.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.create/POST/requestBody/json/todo_mode`.
                     public var todoMode: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - name: Name of the list.
-                    ///   - copyFromListId: Id of the list to copy.
-                    ///   - descriptionBlocks: A rich text description of the list.
-                    ///   - includeCopiedListRecords: Option to include records when a list is copied.
-                    ///   - schema: Column definition for the list.
-                    ///   - todoMode: Boolean indicating if list should be used to track todo tasks.
+                    ///   - name: Name of the List.
+                    ///   - descriptionBlocks: A rich text description of the List.
+                    ///   - schema: Column definition for the List.
+                    ///   - copyFromListId: ID of the List to copy.
+                    ///   - includeCopiedListRecords: Boolean indicating whether to include records when a List is copied.
+                    ///   - todoMode: Boolean indicating whether the List should be used to track todo tasks.
                     public init(
                         name: Swift.String,
-                        copyFromListId: Swift.String? = nil,
                         descriptionBlocks: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
-                        includeCopiedListRecords: Swift.Bool? = nil,
                         schema: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
+                        copyFromListId: Swift.String? = nil,
+                        includeCopiedListRecords: Swift.Bool? = nil,
                         todoMode: Swift.Bool? = nil,
                     ) {
                         self.name = name
-                        self.copyFromListId = copyFromListId
                         self.descriptionBlocks = descriptionBlocks
-                        self.includeCopiedListRecords = includeCopiedListRecords
                         self.schema = schema
+                        self.copyFromListId = copyFromListId
+                        self.includeCopiedListRecords = includeCopiedListRecords
                         self.todoMode = todoMode
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case name
-                        case copyFromListId = "copy_from_list_id"
                         case descriptionBlocks = "description_blocks"
-                        case includeCopiedListRecords = "include_copied_list_records"
                         case schema
+                        case copyFromListId = "copy_from_list_id"
+                        case includeCopiedListRecords = "include_copied_list_records"
                         case todoMode = "todo_mode"
                     }
                 }
@@ -557,30 +557,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/slackLists.download.get/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The ID of the recently started job to export the list.
-                    ///
-                    /// - Remark: Generated from `#/paths/slackLists.download.get/POST/requestBody/json/job_id`.
-                    public var jobId: Swift.String
-                    /// Id of the list to export.
+                    /// ID of the List to export.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.download.get/POST/requestBody/json/list_id`.
                     public var listId: Swift.String
+                    /// The ID of the recently started job to export the List.
+                    ///
+                    /// - Remark: Generated from `#/paths/slackLists.download.get/POST/requestBody/json/job_id`.
+                    public var jobId: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - jobId: The ID of the recently started job to export the list.
-                    ///   - listId: Id of the list to export.
+                    ///   - listId: ID of the List to export.
+                    ///   - jobId: The ID of the recently started job to export the List.
                     public init(
-                        jobId: Swift.String,
                         listId: Swift.String,
+                        jobId: Swift.String,
                     ) {
-                        self.jobId = jobId
                         self.listId = listId
+                        self.jobId = jobId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case jobId = "job_id"
                         case listId = "list_id"
+                        case jobId = "job_id"
                     }
                 }
 
@@ -713,19 +713,19 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/slackLists.download.start/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Id of the list to export.
+                    /// ID of the List to export.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.download.start/POST/requestBody/json/list_id`.
                     public var listId: Swift.String
-                    /// .
+                    ///
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.download.start/POST/requestBody/json/include_archived`.
                     public var includeArchived: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - listId: Id of the list to export.
-                    ///   - includeArchived: .
+                    ///   - listId: ID of the List to export.
+                    ///   - includeArchived:
                     public init(
                         listId: Swift.String,
                         includeArchived: Swift.Bool? = nil,
@@ -869,46 +869,46 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/slackLists.items.create/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Id of the list to add the item to.
+                    /// ID of the List to add the item to.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.items.create/POST/requestBody/json/list_id`.
                     public var listId: Swift.String
-                    /// Id of the record to make a copy of.
+                    /// ID of the record to make a copy of.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.items.create/POST/requestBody/json/duplicated_item_id`.
                     public var duplicatedItemId: Swift.String?
+                    /// ID of the parent record for this subtask.
+                    ///
+                    /// - Remark: Generated from `#/paths/slackLists.items.create/POST/requestBody/json/parent_item_id`.
+                    public var parentItemId: Swift.String?
                     /// Initial item data.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.items.create/POST/requestBody/json/initial_fields`.
                     public var initialFields: OpenAPIRuntime.OpenAPIArrayContainer?
-                    /// Id of the parent record for this subtask.
-                    ///
-                    /// - Remark: Generated from `#/paths/slackLists.items.create/POST/requestBody/json/parent_item_id`.
-                    public var parentItemId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - listId: Id of the list to add the item to.
-                    ///   - duplicatedItemId: Id of the record to make a copy of.
+                    ///   - listId: ID of the List to add the item to.
+                    ///   - duplicatedItemId: ID of the record to make a copy of.
+                    ///   - parentItemId: ID of the parent record for this subtask.
                     ///   - initialFields: Initial item data.
-                    ///   - parentItemId: Id of the parent record for this subtask.
                     public init(
                         listId: Swift.String,
                         duplicatedItemId: Swift.String? = nil,
-                        initialFields: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         parentItemId: Swift.String? = nil,
+                        initialFields: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                     ) {
                         self.listId = listId
                         self.duplicatedItemId = duplicatedItemId
-                        self.initialFields = initialFields
                         self.parentItemId = parentItemId
+                        self.initialFields = initialFields
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case listId = "list_id"
                         case duplicatedItemId = "duplicated_item_id"
-                        case initialFields = "initial_fields"
                         case parentItemId = "parent_item_id"
+                        case initialFields = "initial_fields"
                     }
                 }
 
@@ -1041,30 +1041,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/slackLists.items.delete/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Id of item to delete.
-                    ///
-                    /// - Remark: Generated from `#/paths/slackLists.items.delete/POST/requestBody/json/id`.
-                    public var id: Swift.String
-                    /// Id of list that contains the item.
+                    /// ID of the List containing the item.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.items.delete/POST/requestBody/json/list_id`.
                     public var listId: Swift.String
+                    /// ID of item to delete.
+                    ///
+                    /// - Remark: Generated from `#/paths/slackLists.items.delete/POST/requestBody/json/id`.
+                    public var id: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - id: Id of item to delete.
-                    ///   - listId: Id of list that contains the item.
+                    ///   - listId: ID of the List containing the item.
+                    ///   - id: ID of item to delete.
                     public init(
-                        id: Swift.String,
                         listId: Swift.String,
+                        id: Swift.String,
                     ) {
-                        self.id = id
                         self.listId = listId
+                        self.id = id
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case id
                         case listId = "list_id"
+                        case id
                     }
                 }
 
@@ -1197,30 +1197,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/slackLists.items.deleteMultiple/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Ids of items to delete.
-                    ///
-                    /// - Remark: Generated from `#/paths/slackLists.items.deleteMultiple/POST/requestBody/json/ids`.
-                    public var ids: OpenAPIRuntime.OpenAPIArrayContainer
-                    /// Id of list that contains the items.
+                    /// ID of the List containing the items.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.items.deleteMultiple/POST/requestBody/json/list_id`.
                     public var listId: Swift.String
+                    /// IDs of items to delete.
+                    ///
+                    /// - Remark: Generated from `#/paths/slackLists.items.deleteMultiple/POST/requestBody/json/ids`.
+                    public var ids: OpenAPIRuntime.OpenAPIArrayContainer
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - ids: Ids of items to delete.
-                    ///   - listId: Id of list that contains the items.
+                    ///   - listId: ID of the List containing the items.
+                    ///   - ids: IDs of items to delete.
                     public init(
-                        ids: OpenAPIRuntime.OpenAPIArrayContainer,
                         listId: Swift.String,
+                        ids: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
-                        self.ids = ids
                         self.listId = listId
+                        self.ids = ids
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case ids
                         case listId = "list_id"
+                        case ids
                     }
                 }
 
@@ -1353,37 +1353,37 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/slackLists.items.info/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Id of row to get.
-                    ///
-                    /// - Remark: Generated from `#/paths/slackLists.items.info/POST/requestBody/json/id`.
-                    public var id: Swift.String
-                    /// Id of the list to export.
+                    /// ID of the List.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.items.info/POST/requestBody/json/list_id`.
                     public var listId: Swift.String
-                    /// Set to true to include is_subscribed data for returned list row.
+                    /// ID of the row to get.
+                    ///
+                    /// - Remark: Generated from `#/paths/slackLists.items.info/POST/requestBody/json/id`.
+                    public var id: Swift.String
+                    /// Set to true to include is_subscribed data for the returned List row.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.items.info/POST/requestBody/json/include_is_subscribed`.
                     public var includeIsSubscribed: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - id: Id of row to get.
-                    ///   - listId: Id of the list to export.
-                    ///   - includeIsSubscribed: Set to true to include is_subscribed data for returned list row.
+                    ///   - listId: ID of the List.
+                    ///   - id: ID of the row to get.
+                    ///   - includeIsSubscribed: Set to true to include is_subscribed data for the returned List row.
                     public init(
-                        id: Swift.String,
                         listId: Swift.String,
+                        id: Swift.String,
                         includeIsSubscribed: Swift.Bool? = nil,
                     ) {
-                        self.id = id
                         self.listId = listId
+                        self.id = id
                         self.includeIsSubscribed = includeIsSubscribed
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case id
                         case listId = "list_id"
+                        case id
                         case includeIsSubscribed = "include_is_subscribed"
                     }
                 }
@@ -1517,46 +1517,46 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/slackLists.items.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Id of list.
+                    /// ID of the List.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.items.list/POST/requestBody/json/list_id`.
                     public var listId: Swift.String
-                    /// Boolean indicating whether archived items or normal items should be returned.
-                    ///
-                    /// - Remark: Generated from `#/paths/slackLists.items.list/POST/requestBody/json/archived`.
-                    public var archived: Swift.Bool?
-                    /// Next cursor for pagination.
-                    ///
-                    /// - Remark: Generated from `#/paths/slackLists.items.list/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
                     /// The maximum number of records to return.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.items.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
+                    /// Next cursor for pagination.
+                    ///
+                    /// - Remark: Generated from `#/paths/slackLists.items.list/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
+                    /// Boolean indicating whether archived items or normal items should be returned.
+                    ///
+                    /// - Remark: Generated from `#/paths/slackLists.items.list/POST/requestBody/json/archived`.
+                    public var archived: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - listId: Id of list.
-                    ///   - archived: Boolean indicating whether archived items or normal items should be returned.
-                    ///   - cursor: Next cursor for pagination.
+                    ///   - listId: ID of the List.
                     ///   - limit: The maximum number of records to return.
+                    ///   - cursor: Next cursor for pagination.
+                    ///   - archived: Boolean indicating whether archived items or normal items should be returned.
                     public init(
                         listId: Swift.String,
-                        archived: Swift.Bool? = nil,
-                        cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
+                        cursor: Swift.String? = nil,
+                        archived: Swift.Bool? = nil,
                     ) {
                         self.listId = listId
-                        self.archived = archived
-                        self.cursor = cursor
                         self.limit = limit
+                        self.cursor = cursor
+                        self.archived = archived
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case listId = "list_id"
-                        case archived
-                        case cursor
                         case limit
+                        case cursor
+                        case archived
                     }
                 }
 
@@ -1689,30 +1689,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/slackLists.items.update/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// ID of the List to add or update cells.
+                    ///
+                    /// - Remark: Generated from `#/paths/slackLists.items.update/POST/requestBody/json/list_id`.
+                    public var listId: Swift.String
                     /// Cells to update.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.items.update/POST/requestBody/json/cells`.
                     public var cells: OpenAPIRuntime.OpenAPIArrayContainer
-                    /// Id of list to add or update cells.
-                    ///
-                    /// - Remark: Generated from `#/paths/slackLists.items.update/POST/requestBody/json/list_id`.
-                    public var listId: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - listId: ID of the List to add or update cells.
                     ///   - cells: Cells to update.
-                    ///   - listId: Id of list to add or update cells.
                     public init(
-                        cells: OpenAPIRuntime.OpenAPIArrayContainer,
                         listId: Swift.String,
+                        cells: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
-                        self.cells = cells
                         self.listId = listId
+                        self.cells = cells
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case cells
                         case listId = "list_id"
+                        case cells
                     }
                 }
 
@@ -1845,45 +1845,45 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/slackLists.update/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Id of list to update.
+                    /// The ID of the List to update.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.update/POST/requestBody/json/id`.
                     public var id: Swift.String
-                    /// A rich text description of the list.
-                    ///
-                    /// - Remark: Generated from `#/paths/slackLists.update/POST/requestBody/json/description_blocks`.
-                    public var descriptionBlocks: OpenAPIRuntime.OpenAPIArrayContainer?
-                    /// Updated name of the list.
+                    /// The updated name of the List.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.update/POST/requestBody/json/name`.
                     public var name: Swift.String?
-                    /// Boolean indicating if list should be in todo mode.
+                    /// A rich text description of the List.
+                    ///
+                    /// - Remark: Generated from `#/paths/slackLists.update/POST/requestBody/json/description_blocks`.
+                    public var descriptionBlocks: OpenAPIRuntime.OpenAPIArrayContainer?
+                    /// Boolean indicating whether the List should be in todo mode.
                     ///
                     /// - Remark: Generated from `#/paths/slackLists.update/POST/requestBody/json/todo_mode`.
                     public var todoMode: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - id: Id of list to update.
-                    ///   - descriptionBlocks: A rich text description of the list.
-                    ///   - name: Updated name of the list.
-                    ///   - todoMode: Boolean indicating if list should be in todo mode.
+                    ///   - id: The ID of the List to update.
+                    ///   - name: The updated name of the List.
+                    ///   - descriptionBlocks: A rich text description of the List.
+                    ///   - todoMode: Boolean indicating whether the List should be in todo mode.
                     public init(
                         id: Swift.String,
-                        descriptionBlocks: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         name: Swift.String? = nil,
+                        descriptionBlocks: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         todoMode: Swift.Bool? = nil,
                     ) {
                         self.id = id
-                        self.descriptionBlocks = descriptionBlocks
                         self.name = name
+                        self.descriptionBlocks = descriptionBlocks
                         self.todoMode = todoMode
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case id
-                        case descriptionBlocks = "description_blocks"
                         case name
+                        case descriptionBlocks = "description_blocks"
                         case todoMode = "todo_mode"
                     }
                 }

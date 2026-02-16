@@ -215,6 +215,11 @@ public struct RichTextShowcaseHomeTab: SlackHomeTabView {
         }
     }
 
-    public var callbackId: String { "richtext_showcase" }
-    public var externalId: String? { "richtext_demo_v1" }
+    public var callbackId: String {
+        "richtext_showcase"
+    }
+
+    public var externalId: String? {
+        "richtext_demo_v1"
+    }
 }

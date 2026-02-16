@@ -13,7 +13,7 @@ import struct Foundation.URL
 #if canImport(SlackModels)
 import SlackModels
 #endif
-/// Types generated from the components section of the OpenAPI document.
+// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Bookmarks
 extension Components.Schemas {

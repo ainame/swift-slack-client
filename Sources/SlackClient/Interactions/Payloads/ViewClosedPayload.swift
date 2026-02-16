@@ -20,5 +20,7 @@ public struct ViewClosedPayload: InteractivePayloadProtocol, Decodable, Sendable
 }
 
 extension ViewClosedPayload {
-    public var callbackId: String? { view.callbackId }
+    public var callbackId: String? {
+        view.callbackId
+    }
 }

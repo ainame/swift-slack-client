@@ -208,10 +208,21 @@ enum SlackViewExamples {
             struct SettingsModal: SlackModalView {
                 let settingsView: SlackViewExamples.UserSettingsForm
 
-                var title: TextObject { "User Settings" }
-                var submit: TextObject? { "Save" }
-                var close: TextObject? { "Cancel" }
-                var callbackId: String { "user_settings_modal" }
+                var title: TextObject {
+                    "User Settings"
+                }
+
+                var submit: TextObject? {
+                    "Save"
+                }
+
+                var close: TextObject? {
+                    "Cancel"
+                }
+
+                var callbackId: String {
+                    "user_settings_modal"
+                }
 
                 var blocks: [Block] {
                     for block in settingsView.blocks {
@@ -241,7 +252,9 @@ enum SlackViewExamples {
             struct DashboardHomeTabWrapper: SlackHomeTabView {
                 let dashboard: SlackViewExamples.ProjectDashboard
 
-                var callbackId: String { "dashboard_home_tab" }
+                var callbackId: String {
+                    "dashboard_home_tab"
+                }
 
                 var blocks: [Block] {
                     for block in dashboard.blocks {
@@ -265,8 +278,13 @@ enum SlackViewExamples {
             struct ProfileModal: SlackModalView {
                 let profileCard: SlackViewExamples.UserProfileCard
 
-                var title: TextObject { "User Profile" }
-                var close: TextObject? { "Close" }
+                var title: TextObject {
+                    "User Profile"
+                }
+
+                var close: TextObject? {
+                    "Close"
+                }
 
                 var blocks: [Block] {
                     for block in profileCard.blocks {

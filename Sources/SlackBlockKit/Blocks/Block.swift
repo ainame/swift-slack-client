@@ -1,6 +1,6 @@
 import Foundation
 
-// Enum for all possible block types that can be used in views
+/// Enum for all possible block types that can be used in views
 public enum Block: Codable, Hashable, Sendable {
     case actions(ActionsBlock)
     case context(ContextBlock)

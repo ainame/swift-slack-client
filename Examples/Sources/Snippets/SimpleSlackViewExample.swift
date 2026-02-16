@@ -2,7 +2,7 @@ import SlackBlockKit
 import SlackBlockKitDSL
 
 enum SimpleExamples {
-    // Simple modal with minimal configuration
+    /// Simple modal with minimal configuration
     struct SimpleGreetingModal: SlackModalView {
         var title: TextObject = "Hello World"
 
@@ -13,7 +13,7 @@ enum SimpleExamples {
         }
     }
 
-    // More complex modal with all the bells and whistles
+    /// More complex modal with all the bells and whistles
     struct FeedbackModal: SlackModalView {
         let userName: String
 
@@ -74,7 +74,7 @@ enum SimpleExamples {
         }
     }
 
-    // Simple home tab
+    /// Simple home tab
     struct WelcomeHomeTab: SlackHomeTabView {
         let userName: String
 
@@ -106,7 +106,7 @@ enum SimpleExamples {
         }
     }
 
-    // Usage
+    /// Usage
     static func demonstrateSimpleUsage() {
         // Simple modal
         let greeting = SimpleGreetingModal()

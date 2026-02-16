@@ -9,10 +9,174 @@ import struct Foundation.Data
 import struct Foundation.Date
 import struct Foundation.URL
 #endif
-/// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
+// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_Admin
 extension Operations {
+    public enum AdminUsersSessionInvalidate {
+        public static let id: Swift.String = "adminUsersSessionInvalidate"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionInvalidate.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - accept:
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionInvalidate.AcceptableContentType>] = .defaultValues()) {
+                    self.accept = accept
+                }
+            }
+
+            public var headers: Operations.AdminUsersSessionInvalidate.Input.Headers
+            /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// ID of the workspace that the session belongs to.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/requestBody/json/team_id`.
+                    public var teamId: Swift.String?
+                    /// ID of the user that the session belongs to.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/requestBody/json/user_id`.
+                    public var userId: Swift.String
+                    /// ID of the session to invalidate.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/requestBody/json/session_id`.
+                    public var sessionId: Swift.Int
+                    /// Creates a new `JsonPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - teamId: ID of the workspace that the session belongs to.
+                    ///   - userId: ID of the user that the session belongs to.
+                    ///   - sessionId: ID of the session to invalidate.
+                    public init(
+                        teamId: Swift.String? = nil,
+                        userId: Swift.String,
+                        sessionId: Swift.Int,
+                    ) {
+                        self.teamId = teamId
+                        self.userId = userId
+                        self.sessionId = sessionId
+                    }
+
+                    public enum CodingKeys: String, CodingKey {
+                        case teamId = "team_id"
+                        case userId = "user_id"
+                        case sessionId = "session_id"
+                    }
+                }
+
+                /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/requestBody/content/application\/json`.
+                case json(Operations.AdminUsersSessionInvalidate.Input.Body.JsonPayload)
+            }
+
+            public var body: Operations.AdminUsersSessionInvalidate.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            ///   - body:
+            public init(
+                headers: Operations.AdminUsersSessionInvalidate.Input.Headers = .init(),
+                body: Operations.AdminUsersSessionInvalidate.Input.Body,
+            ) {
+                self.headers = headers
+                self.body = body
+            }
+        }
+
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.AdminUsersSessionInvalidateResponse)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.AdminUsersSessionInvalidateResponse {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                body
+                            }
+                        }
+                    }
+                }
+
+                /// Received HTTP response body
+                public var body: Operations.AdminUsersSessionInvalidate.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.AdminUsersSessionInvalidate.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+
+            /// OK
+            ///
+            /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.AdminUsersSessionInvalidate.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.AdminUsersSessionInvalidate.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self,
+                        )
+                    }
+                }
+            }
+
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    string
+                case .json:
+                    "application/json"
+                }
+            }
+
+            public static var allCases: [Self] {
+                [
+                    .json,
+                ]
+            }
+        }
+    }
+
     public enum AdminAppsActivitiesList {
         public static let id: Swift.String = "adminAppsActivitiesList"
         public struct Input: Sendable, Hashable {
@@ -37,14 +201,10 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/app_id`.
                     public var appId: Swift.String?
-                    /// The component ID of log events to be returned. Will be FnXXXXXX for functions, and WfXXXXXX for worflows.
+                    /// The team who owns this log.
                     ///
-                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/component_id`.
-                    public var componentId: Swift.String?
-                    /// The component type of log events to be returned. Acceptable values are events_api, workflows, functions and tables.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/component_type`.
-                    public var componentType: Swift.String?
+                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/team_id`.
+                    public var teamId: Swift.String?
                     /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. See pagination for more
                     /// detail.
                     ///
@@ -54,101 +214,105 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// The event type of log events to be returned.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/log_event_type`.
-                    public var logEventType: Swift.String?
-                    /// The latest timestamp of the log to retrieve (epoch microseconds).
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/max_date_created`.
-                    public var maxDateCreated: Swift.Int?
-                    /// The earliest timestamp of the log to retrieve (epoch microseconds).
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/min_date_created`.
-                    public var minDateCreated: Swift.Int?
                     /// The minimum log level of the log events to be returned. Defaults to info. Acceptable values (in order of relative importance from smallest to largest) are trace, debug, info,
                     /// warn, error and fatal.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/min_log_level`.
                     public var minLogLevel: Swift.String?
-                    /// The direction you want the data sorted by (always by timestamp).
+                    /// The event type of log events to be returned.
                     ///
-                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/sort_direction`.
-                    public var sortDirection: Swift.String?
+                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/log_event_type`.
+                    public var logEventType: Swift.String?
                     /// The source of log events to be returned. Acceptable values are slack and developer.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/source`.
                     public var source: Swift.String?
-                    /// The team who owns this log.
+                    /// The component type of log events to be returned. Acceptable values are events_api, workflows, functions and tables.
                     ///
-                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/team_id`.
-                    public var teamId: Swift.String?
+                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/component_type`.
+                    public var componentType: Swift.String?
+                    /// The component ID of log events to be returned. Will be FnXXXXXX for functions, and WfXXXXXX for workflows.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/component_id`.
+                    public var componentId: Swift.String?
                     /// The trace ID of log events to be returned.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/trace_id`.
                     public var traceId: Swift.String?
+                    /// The earliest timestamp of the log to retrieve (epoch microseconds).
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/min_date_created`.
+                    public var minDateCreated: Swift.Int?
+                    /// The latest timestamp of the log to retrieve (epoch microseconds).
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/max_date_created`.
+                    public var maxDateCreated: Swift.Int?
+                    /// The direction you want the data sorted by (always by timestamp).
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.activities.list/POST/requestBody/json/sort_direction`.
+                    public var sortDirection: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - appId: The ID of the app to get activities from.
-                    ///   - componentId: The component ID of log events to be returned. Will be FnXXXXXX for functions, and WfXXXXXX for worflows.
-                    ///   - componentType: The component type of log events to be returned. Acceptable values are events_api, workflows, functions and tables.
+                    ///   - teamId: The team who owns this log.
                     ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. See pagination
                     /// for more detail.
                     ///   - limit: The maximum number of items to return.
-                    ///   - logEventType: The event type of log events to be returned.
-                    ///   - maxDateCreated: The latest timestamp of the log to retrieve (epoch microseconds).
-                    ///   - minDateCreated: The earliest timestamp of the log to retrieve (epoch microseconds).
                     ///   - minLogLevel: The minimum log level of the log events to be returned. Defaults to info. Acceptable values (in order of relative importance from smallest to largest) are
                     /// trace, debug, info, warn, error and fatal.
-                    ///   - sortDirection: The direction you want the data sorted by (always by timestamp).
+                    ///   - logEventType: The event type of log events to be returned.
                     ///   - source: The source of log events to be returned. Acceptable values are slack and developer.
-                    ///   - teamId: The team who owns this log.
+                    ///   - componentType: The component type of log events to be returned. Acceptable values are events_api, workflows, functions and tables.
+                    ///   - componentId: The component ID of log events to be returned. Will be FnXXXXXX for functions, and WfXXXXXX for workflows.
                     ///   - traceId: The trace ID of log events to be returned.
+                    ///   - minDateCreated: The earliest timestamp of the log to retrieve (epoch microseconds).
+                    ///   - maxDateCreated: The latest timestamp of the log to retrieve (epoch microseconds).
+                    ///   - sortDirection: The direction you want the data sorted by (always by timestamp).
                     public init(
                         appId: Swift.String? = nil,
-                        componentId: Swift.String? = nil,
-                        componentType: Swift.String? = nil,
+                        teamId: Swift.String? = nil,
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        logEventType: Swift.String? = nil,
-                        maxDateCreated: Swift.Int? = nil,
-                        minDateCreated: Swift.Int? = nil,
                         minLogLevel: Swift.String? = nil,
-                        sortDirection: Swift.String? = nil,
+                        logEventType: Swift.String? = nil,
                         source: Swift.String? = nil,
-                        teamId: Swift.String? = nil,
+                        componentType: Swift.String? = nil,
+                        componentId: Swift.String? = nil,
                         traceId: Swift.String? = nil,
+                        minDateCreated: Swift.Int? = nil,
+                        maxDateCreated: Swift.Int? = nil,
+                        sortDirection: Swift.String? = nil,
                     ) {
                         self.appId = appId
-                        self.componentId = componentId
-                        self.componentType = componentType
+                        self.teamId = teamId
                         self.cursor = cursor
                         self.limit = limit
-                        self.logEventType = logEventType
-                        self.maxDateCreated = maxDateCreated
-                        self.minDateCreated = minDateCreated
                         self.minLogLevel = minLogLevel
-                        self.sortDirection = sortDirection
+                        self.logEventType = logEventType
                         self.source = source
-                        self.teamId = teamId
+                        self.componentType = componentType
+                        self.componentId = componentId
                         self.traceId = traceId
+                        self.minDateCreated = minDateCreated
+                        self.maxDateCreated = maxDateCreated
+                        self.sortDirection = sortDirection
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case appId = "app_id"
-                        case componentId = "component_id"
-                        case componentType = "component_type"
+                        case teamId = "team_id"
                         case cursor
                         case limit
-                        case logEventType = "log_event_type"
-                        case maxDateCreated = "max_date_created"
-                        case minDateCreated = "min_date_created"
                         case minLogLevel = "min_log_level"
-                        case sortDirection = "sort_direction"
+                        case logEventType = "log_event_type"
                         case source
-                        case teamId = "team_id"
+                        case componentType = "component_type"
+                        case componentId = "component_id"
                         case traceId = "trace_id"
+                        case minDateCreated = "min_date_created"
+                        case maxDateCreated = "max_date_created"
+                        case sortDirection = "sort_direction"
                     }
                 }
 
@@ -285,10 +449,6 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.approve/POST/requestBody/json/app_id`.
                     public var appId: Swift.String?
-                    /// The ID of the enterprise to approve the app on.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.approve/POST/requestBody/json/enterprise_id`.
-                    public var enterpriseId: Swift.String?
                     /// The id of the request to approve.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.approve/POST/requestBody/json/request_id`.
@@ -297,30 +457,34 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.approve/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    /// The ID of the enterprise to approve the app on.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.approve/POST/requestBody/json/enterprise_id`.
+                    public var enterpriseId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - appId: The id of the app to approve.
-                    ///   - enterpriseId: The ID of the enterprise to approve the app on.
                     ///   - requestId: The id of the request to approve.
                     ///   - teamId: The ID of the workspace to approve the app on.
+                    ///   - enterpriseId: The ID of the enterprise to approve the app on.
                     public init(
                         appId: Swift.String? = nil,
-                        enterpriseId: Swift.String? = nil,
                         requestId: Swift.String? = nil,
                         teamId: Swift.String? = nil,
+                        enterpriseId: Swift.String? = nil,
                     ) {
                         self.appId = appId
-                        self.enterpriseId = enterpriseId
                         self.requestId = requestId
                         self.teamId = teamId
+                        self.enterpriseId = enterpriseId
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case appId = "app_id"
-                        case enterpriseId = "enterprise_id"
                         case requestId = "request_id"
                         case teamId = "team_id"
+                        case enterpriseId = "enterprise_id"
                     }
                 }
 
@@ -453,54 +617,54 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.apps.approved.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Limit the results to only include certified apps. When false, no certified apps will appear in the result.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.approved.list/POST/requestBody/json/certified`.
-                    public var certified: Swift.Bool?
-                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.approved.list/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
-                    /// .
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.approved.list/POST/requestBody/json/enterprise_id`.
-                    public var enterpriseId: Swift.String?
                     /// The maximum number of items to return. Must be between 1 - 1000 both inclusive.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.approved.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// .
+                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.approved.list/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
+                    ///
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.approved.list/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    ///
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.approved.list/POST/requestBody/json/enterprise_id`.
+                    public var enterpriseId: Swift.String?
+                    /// Limit the results to only include certified apps. When false, no certified apps will appear in the result.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.approved.list/POST/requestBody/json/certified`.
+                    public var certified: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - certified: Limit the results to only include certified apps. When false, no certified apps will appear in the result.
-                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///   - enterpriseId: .
                     ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
-                    ///   - teamId: .
+                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///   - teamId:
+                    ///   - enterpriseId:
+                    ///   - certified: Limit the results to only include certified apps. When false, no certified apps will appear in the result.
                     public init(
-                        certified: Swift.Bool? = nil,
-                        cursor: Swift.String? = nil,
-                        enterpriseId: Swift.String? = nil,
                         limit: Swift.Int? = nil,
+                        cursor: Swift.String? = nil,
                         teamId: Swift.String? = nil,
+                        enterpriseId: Swift.String? = nil,
+                        certified: Swift.Bool? = nil,
                     ) {
-                        self.certified = certified
-                        self.cursor = cursor
-                        self.enterpriseId = enterpriseId
                         self.limit = limit
+                        self.cursor = cursor
                         self.teamId = teamId
+                        self.enterpriseId = enterpriseId
+                        self.certified = certified
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case certified
-                        case cursor
-                        case enterpriseId = "enterprise_id"
                         case limit
+                        case cursor
                         case teamId = "team_id"
+                        case enterpriseId = "enterprise_id"
+                        case certified
                     }
                 }
 
@@ -637,34 +801,34 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.clearResolution/POST/requestBody/json/app_id`.
                     public var appId: Swift.String
-                    /// The enterprise to clear the app resolution from.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.clearResolution/POST/requestBody/json/enterprise_id`.
-                    public var enterpriseId: Swift.String?
                     /// The workspace to clear the app resolution from.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.clearResolution/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    /// The enterprise to clear the app resolution from.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.clearResolution/POST/requestBody/json/enterprise_id`.
+                    public var enterpriseId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - appId: The id of the app whose resolution you want to clear/undo.
-                    ///   - enterpriseId: The enterprise to clear the app resolution from.
                     ///   - teamId: The workspace to clear the app resolution from.
+                    ///   - enterpriseId: The enterprise to clear the app resolution from.
                     public init(
                         appId: Swift.String,
-                        enterpriseId: Swift.String? = nil,
                         teamId: Swift.String? = nil,
+                        enterpriseId: Swift.String? = nil,
                     ) {
                         self.appId = appId
-                        self.enterpriseId = enterpriseId
                         self.teamId = teamId
+                        self.enterpriseId = enterpriseId
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case appId = "app_id"
-                        case enterpriseId = "enterprise_id"
                         case teamId = "team_id"
+                        case enterpriseId = "enterprise_id"
                     }
                 }
 
@@ -957,44 +1121,44 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.config.set/POST/requestBody/json/app_id`.
                     public var appId: Swift.String
+                    /// The workflow auth permission. Can be one of builder_choice or end_user_only.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.config.set/POST/requestBody/json/workflow_auth_strategy`.
+                    public var workflowAuthStrategy: Swift.String?
+                    /// Indicates the app-level override for rich link preview. Unsupported for free teams.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.config.set/POST/requestBody/json/rich_link_preview_type`.
+                    public var richLinkPreviewType: Swift.String?
                     /// Domain restrictions for the app. Should be an object with two properties: urls and emails. Each is an array of strings, and each sets the allowed URLs and emails for connector
                     /// authorization, respectively.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.config.set/POST/requestBody/json/domain_restrictions`.
                     public var domainRestrictions: OpenAPIRuntime.OpenAPIObjectContainer?
-                    /// Indicates the app-level override for rich link preview. Unsupported for free teams.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.config.set/POST/requestBody/json/rich_link_preview_type`.
-                    public var richLinkPreviewType: Swift.String?
-                    /// The workflow auth permission. Can be one of builder_choice or end_user_only.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.config.set/POST/requestBody/json/workflow_auth_strategy`.
-                    public var workflowAuthStrategy: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - appId: The encoded app ID to set the app config for.
+                    ///   - workflowAuthStrategy: The workflow auth permission. Can be one of builder_choice or end_user_only.
+                    ///   - richLinkPreviewType: Indicates the app-level override for rich link preview. Unsupported for free teams.
                     ///   - domainRestrictions: Domain restrictions for the app. Should be an object with two properties: urls and emails. Each is an array of strings, and each sets the allowed URLs
                     /// and emails for connector authorization, respectively.
-                    ///   - richLinkPreviewType: Indicates the app-level override for rich link preview. Unsupported for free teams.
-                    ///   - workflowAuthStrategy: The workflow auth permission. Can be one of builder_choice or end_user_only.
                     public init(
                         appId: Swift.String,
-                        domainRestrictions: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-                        richLinkPreviewType: Swift.String? = nil,
                         workflowAuthStrategy: Swift.String? = nil,
+                        richLinkPreviewType: Swift.String? = nil,
+                        domainRestrictions: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
                     ) {
                         self.appId = appId
-                        self.domainRestrictions = domainRestrictions
-                        self.richLinkPreviewType = richLinkPreviewType
                         self.workflowAuthStrategy = workflowAuthStrategy
+                        self.richLinkPreviewType = richLinkPreviewType
+                        self.domainRestrictions = domainRestrictions
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case appId = "app_id"
-                        case domainRestrictions = "domain_restrictions"
-                        case richLinkPreviewType = "rich_link_preview_type"
                         case workflowAuthStrategy = "workflow_auth_strategy"
+                        case richLinkPreviewType = "rich_link_preview_type"
+                        case domainRestrictions = "domain_restrictions"
                     }
                 }
 
@@ -1131,34 +1295,34 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.requests.cancel/POST/requestBody/json/request_id`.
                     public var requestId: Swift.String
-                    /// The ID of the enterprise where this request belongs.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.requests.cancel/POST/requestBody/json/enterprise_id`.
-                    public var enterpriseId: Swift.String?
                     /// The ID of the workspace where this request belongs.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.requests.cancel/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    /// The ID of the enterprise where this request belongs.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.requests.cancel/POST/requestBody/json/enterprise_id`.
+                    public var enterpriseId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - requestId: The id of the request to cancel.
-                    ///   - enterpriseId: The ID of the enterprise where this request belongs.
                     ///   - teamId: The ID of the workspace where this request belongs.
+                    ///   - enterpriseId: The ID of the enterprise where this request belongs.
                     public init(
                         requestId: Swift.String,
-                        enterpriseId: Swift.String? = nil,
                         teamId: Swift.String? = nil,
+                        enterpriseId: Swift.String? = nil,
                     ) {
                         self.requestId = requestId
-                        self.enterpriseId = enterpriseId
                         self.teamId = teamId
+                        self.enterpriseId = enterpriseId
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case requestId = "request_id"
-                        case enterpriseId = "enterprise_id"
                         case teamId = "team_id"
+                        case enterpriseId = "enterprise_id"
                     }
                 }
 
@@ -1291,54 +1455,54 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.apps.requests.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Include requests for certified apps.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.requests.list/POST/requestBody/json/certified`.
-                    public var certified: Swift.Bool?
-                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.requests.list/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
-                    /// .
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.requests.list/POST/requestBody/json/enterprise_id`.
-                    public var enterpriseId: Swift.String?
                     /// The maximum number of items to return. Must be between 1 - 1000 both inclusive.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.requests.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// .
+                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.requests.list/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
+                    ///
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.requests.list/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    ///
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.requests.list/POST/requestBody/json/enterprise_id`.
+                    public var enterpriseId: Swift.String?
+                    /// Include requests for certified apps.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.requests.list/POST/requestBody/json/certified`.
+                    public var certified: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - certified: Include requests for certified apps.
-                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///   - enterpriseId: .
                     ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
-                    ///   - teamId: .
+                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///   - teamId:
+                    ///   - enterpriseId:
+                    ///   - certified: Include requests for certified apps.
                     public init(
-                        certified: Swift.Bool? = nil,
-                        cursor: Swift.String? = nil,
-                        enterpriseId: Swift.String? = nil,
                         limit: Swift.Int? = nil,
+                        cursor: Swift.String? = nil,
                         teamId: Swift.String? = nil,
+                        enterpriseId: Swift.String? = nil,
+                        certified: Swift.Bool? = nil,
                     ) {
-                        self.certified = certified
-                        self.cursor = cursor
-                        self.enterpriseId = enterpriseId
                         self.limit = limit
+                        self.cursor = cursor
                         self.teamId = teamId
+                        self.enterpriseId = enterpriseId
+                        self.certified = certified
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case certified
-                        case cursor
-                        case enterpriseId = "enterprise_id"
                         case limit
+                        case cursor
                         case teamId = "team_id"
+                        case enterpriseId = "enterprise_id"
+                        case certified
                     }
                 }
 
@@ -1475,10 +1639,6 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.restrict/POST/requestBody/json/app_id`.
                     public var appId: Swift.String?
-                    /// The ID of the enterprise to approve the app on.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.restrict/POST/requestBody/json/enterprise_id`.
-                    public var enterpriseId: Swift.String?
                     /// The id of the request to restrict.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.restrict/POST/requestBody/json/request_id`.
@@ -1487,30 +1647,34 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.restrict/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    /// The ID of the enterprise to approve the app on.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.restrict/POST/requestBody/json/enterprise_id`.
+                    public var enterpriseId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - appId: The id of the app to restrict.
-                    ///   - enterpriseId: The ID of the enterprise to approve the app on.
                     ///   - requestId: The id of the request to restrict.
                     ///   - teamId: The ID of the workspace to approve the app on.
+                    ///   - enterpriseId: The ID of the enterprise to approve the app on.
                     public init(
                         appId: Swift.String? = nil,
-                        enterpriseId: Swift.String? = nil,
                         requestId: Swift.String? = nil,
                         teamId: Swift.String? = nil,
+                        enterpriseId: Swift.String? = nil,
                     ) {
                         self.appId = appId
-                        self.enterpriseId = enterpriseId
                         self.requestId = requestId
                         self.teamId = teamId
+                        self.enterpriseId = enterpriseId
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case appId = "app_id"
-                        case enterpriseId = "enterprise_id"
                         case requestId = "request_id"
                         case teamId = "team_id"
+                        case enterpriseId = "enterprise_id"
                     }
                 }
 
@@ -1643,54 +1807,54 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.apps.restricted.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Limit the results to only include certified apps. When false, no certified apps will appear in the result.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.restricted.list/POST/requestBody/json/certified`.
-                    public var certified: Swift.Bool?
-                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.restricted.list/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
-                    /// .
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.restricted.list/POST/requestBody/json/enterprise_id`.
-                    public var enterpriseId: Swift.String?
                     /// The maximum number of items to return. Must be between 1 - 1000 both inclusive.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.restricted.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// .
+                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.restricted.list/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
+                    ///
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.restricted.list/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    ///
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.restricted.list/POST/requestBody/json/enterprise_id`.
+                    public var enterpriseId: Swift.String?
+                    /// Limit the results to only include certified apps. When false, no certified apps will appear in the result.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.restricted.list/POST/requestBody/json/certified`.
+                    public var certified: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - certified: Limit the results to only include certified apps. When false, no certified apps will appear in the result.
-                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///   - enterpriseId: .
                     ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
-                    ///   - teamId: .
+                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///   - teamId:
+                    ///   - enterpriseId:
+                    ///   - certified: Limit the results to only include certified apps. When false, no certified apps will appear in the result.
                     public init(
-                        certified: Swift.Bool? = nil,
-                        cursor: Swift.String? = nil,
-                        enterpriseId: Swift.String? = nil,
                         limit: Swift.Int? = nil,
+                        cursor: Swift.String? = nil,
                         teamId: Swift.String? = nil,
+                        enterpriseId: Swift.String? = nil,
+                        certified: Swift.Bool? = nil,
                     ) {
-                        self.certified = certified
-                        self.cursor = cursor
-                        self.enterpriseId = enterpriseId
                         self.limit = limit
+                        self.cursor = cursor
                         self.teamId = teamId
+                        self.enterpriseId = enterpriseId
+                        self.certified = certified
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case certified
-                        case cursor
-                        case enterpriseId = "enterprise_id"
                         case limit
+                        case cursor
                         case teamId = "team_id"
+                        case enterpriseId = "enterprise_id"
+                        case certified
                     }
                 }
 
@@ -1827,34 +1991,34 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.uninstall/POST/requestBody/json/app_id`.
                     public var appId: Swift.String
-                    /// The enterprise to completely uninstall the application from (across all workspaces). With an org-level token, this or team_ids is required.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.apps.uninstall/POST/requestBody/json/enterprise_id`.
-                    public var enterpriseId: Swift.String?
                     /// IDs of the teams to uninstall from (max 100). With an org-level token, this or enterprise_id is required.
                     ///
                     /// - Remark: Generated from `#/paths/admin.apps.uninstall/POST/requestBody/json/team_ids`.
                     public var teamIds: Swift.String?
+                    /// The enterprise to completely uninstall the application from (across all workspaces). With an org-level token, this or team_ids is required.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.apps.uninstall/POST/requestBody/json/enterprise_id`.
+                    public var enterpriseId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - appId: The ID of the app to uninstall.
-                    ///   - enterpriseId: The enterprise to completely uninstall the application from (across all workspaces). With an org-level token, this or team_ids is required.
                     ///   - teamIds: IDs of the teams to uninstall from (max 100). With an org-level token, this or enterprise_id is required.
+                    ///   - enterpriseId: The enterprise to completely uninstall the application from (across all workspaces). With an org-level token, this or team_ids is required.
                     public init(
                         appId: Swift.String,
-                        enterpriseId: Swift.String? = nil,
                         teamIds: Swift.String? = nil,
+                        enterpriseId: Swift.String? = nil,
                     ) {
                         self.appId = appId
-                        self.enterpriseId = enterpriseId
                         self.teamIds = teamIds
+                        self.enterpriseId = enterpriseId
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case appId = "app_id"
-                        case enterpriseId = "enterprise_id"
                         case teamIds = "team_ids"
+                        case enterpriseId = "enterprise_id"
                     }
                 }
 
@@ -1987,38 +2151,38 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.auth.policy.assignEntities/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Array of IDs to assign to the policy.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.auth.policy.assignEntities/POST/requestBody/json/entity_ids`.
-                    public var entityIds: OpenAPIRuntime.OpenAPIArrayContainer
-                    /// The type of entity to assign to the policy. Currently, USER is supported.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.auth.policy.assignEntities/POST/requestBody/json/entity_type`.
-                    public var entityType: Swift.String
                     /// The name of the authentication policy to assign the entities to. Currently, email_password is the only policy that may be used with this method.
                     ///
                     /// - Remark: Generated from `#/paths/admin.auth.policy.assignEntities/POST/requestBody/json/policy_name`.
                     public var policyName: Swift.String
+                    /// The type of entity to assign to the policy. Currently, USER is supported.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.auth.policy.assignEntities/POST/requestBody/json/entity_type`.
+                    public var entityType: Swift.String
+                    /// Array of IDs to assign to the policy.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.auth.policy.assignEntities/POST/requestBody/json/entity_ids`.
+                    public var entityIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - entityIds: Array of IDs to assign to the policy.
-                    ///   - entityType: The type of entity to assign to the policy. Currently, USER is supported.
                     ///   - policyName: The name of the authentication policy to assign the entities to. Currently, email_password is the only policy that may be used with this method.
+                    ///   - entityType: The type of entity to assign to the policy. Currently, USER is supported.
+                    ///   - entityIds: Array of IDs to assign to the policy.
                     public init(
-                        entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
-                        entityType: Swift.String,
                         policyName: Swift.String,
+                        entityType: Swift.String,
+                        entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
-                        self.entityIds = entityIds
-                        self.entityType = entityType
                         self.policyName = policyName
+                        self.entityType = entityType
+                        self.entityIds = entityIds
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case entityIds = "entity_ids"
-                        case entityType = "entity_type"
                         case policyName = "policy_name"
+                        case entityType = "entity_type"
+                        case entityIds = "entity_ids"
                     }
                 }
 
@@ -2155,10 +2319,6 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.auth.policy.getEntities/POST/requestBody/json/policy_name`.
                     public var policyName: Swift.String
-                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.auth.policy.getEntities/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
                     /// The type of entity to assign to the policy. Currently, USER is supported.
                     ///
                     /// - Remark: Generated from `#/paths/admin.auth.policy.getEntities/POST/requestBody/json/entity_type`.
@@ -2167,30 +2327,34 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.auth.policy.getEntities/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
+                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.auth.policy.getEntities/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - policyName: The name of the policy to fetch entities for. Currently, email_password is the only policy that may be used with this method.
-                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///   - entityType: The type of entity to assign to the policy. Currently, USER is supported.
                     ///   - limit: The maximum number of items to return. Must be between 1 and 1000, both inclusive.
+                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     public init(
                         policyName: Swift.String,
-                        cursor: Swift.String? = nil,
                         entityType: Swift.String? = nil,
                         limit: Swift.Int? = nil,
+                        cursor: Swift.String? = nil,
                     ) {
                         self.policyName = policyName
-                        self.cursor = cursor
                         self.entityType = entityType
                         self.limit = limit
+                        self.cursor = cursor
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case policyName = "policy_name"
-                        case cursor
                         case entityType = "entity_type"
                         case limit
+                        case cursor
                     }
                 }
 
@@ -2323,38 +2487,38 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.auth.policy.removeEntities/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Encoded IDs of the entities you'd like to remove from the policy.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.auth.policy.removeEntities/POST/requestBody/json/entity_ids`.
-                    public var entityIds: OpenAPIRuntime.OpenAPIArrayContainer
-                    /// The type of entity to assign to the policy. Currently, USER is supported.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.auth.policy.removeEntities/POST/requestBody/json/entity_type`.
-                    public var entityType: Swift.String
                     /// The name of the policy to remove entities from. Currently, email_password is the only policy that may be used with this method.
                     ///
                     /// - Remark: Generated from `#/paths/admin.auth.policy.removeEntities/POST/requestBody/json/policy_name`.
                     public var policyName: Swift.String
+                    /// The type of entity to assign to the policy. Currently, USER is supported.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.auth.policy.removeEntities/POST/requestBody/json/entity_type`.
+                    public var entityType: Swift.String
+                    /// Encoded IDs of the entities you'd like to remove from the policy.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.auth.policy.removeEntities/POST/requestBody/json/entity_ids`.
+                    public var entityIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - entityIds: Encoded IDs of the entities you'd like to remove from the policy.
-                    ///   - entityType: The type of entity to assign to the policy. Currently, USER is supported.
                     ///   - policyName: The name of the policy to remove entities from. Currently, email_password is the only policy that may be used with this method.
+                    ///   - entityType: The type of entity to assign to the policy. Currently, USER is supported.
+                    ///   - entityIds: Encoded IDs of the entities you'd like to remove from the policy.
                     public init(
-                        entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
-                        entityType: Swift.String,
                         policyName: Swift.String,
+                        entityType: Swift.String,
+                        entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
-                        self.entityIds = entityIds
-                        self.entityType = entityType
                         self.policyName = policyName
+                        self.entityType = entityType
+                        self.entityIds = entityIds
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case entityIds = "entity_ids"
-                        case entityType = "entity_type"
                         case policyName = "policy_name"
+                        case entityType = "entity_type"
+                        case entityIds = "entity_ids"
                     }
                 }
 
@@ -2487,14 +2651,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.barriers.create/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// A list of IDP Groups ids that the primary usergroup is to be barriered from.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.barriers.create/POST/requestBody/json/barriered_from_usergroup_ids`.
-                    public var barrieredFromUsergroupIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// The id of the primary IDP Group.
                     ///
                     /// - Remark: Generated from `#/paths/admin.barriers.create/POST/requestBody/json/primary_usergroup_id`.
                     public var primaryUsergroupId: Swift.String
+                    /// A list of IDP Groups ids that the primary usergroup is to be barriered from.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.barriers.create/POST/requestBody/json/barriered_from_usergroup_ids`.
+                    public var barrieredFromUsergroupIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// What kind of interactions are blocked by this barrier? For v1, we only support a list of all 3, eg im, mpim, call.
                     ///
                     /// - Remark: Generated from `#/paths/admin.barriers.create/POST/requestBody/json/restricted_subjects`.
@@ -2502,22 +2666,22 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - barrieredFromUsergroupIds: A list of IDP Groups ids that the primary usergroup is to be barriered from.
                     ///   - primaryUsergroupId: The id of the primary IDP Group.
+                    ///   - barrieredFromUsergroupIds: A list of IDP Groups ids that the primary usergroup is to be barriered from.
                     ///   - restrictedSubjects: What kind of interactions are blocked by this barrier? For v1, we only support a list of all 3, eg im, mpim, call.
                     public init(
-                        barrieredFromUsergroupIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         primaryUsergroupId: Swift.String,
+                        barrieredFromUsergroupIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         restrictedSubjects: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
-                        self.barrieredFromUsergroupIds = barrieredFromUsergroupIds
                         self.primaryUsergroupId = primaryUsergroupId
+                        self.barrieredFromUsergroupIds = barrieredFromUsergroupIds
                         self.restrictedSubjects = restrictedSubjects
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case barrieredFromUsergroupIds = "barriered_from_usergroup_ids"
                         case primaryUsergroupId = "primary_usergroup_id"
+                        case barrieredFromUsergroupIds = "barriered_from_usergroup_ids"
                         case restrictedSubjects = "restricted_subjects"
                     }
                 }
@@ -2797,30 +2961,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.barriers.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.barriers.list/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
                     /// The maximum number of items to return. Must be between 1 - 1000 both inclusive.
                     ///
                     /// - Remark: Generated from `#/paths/admin.barriers.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
+                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.barriers.list/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
+                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     public init(
-                        cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
+                        cursor: Swift.String? = nil,
                     ) {
-                        self.cursor = cursor
                         self.limit = limit
+                        self.cursor = cursor
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case cursor
                         case limit
+                        case cursor
                     }
                 }
 
@@ -2957,14 +3121,14 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.barriers.update/POST/requestBody/json/barrier_id`.
                     public var barrierId: Swift.String
-                    /// A list of IDP Groups ids that the primary usergroup is to be barriered from.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.barriers.update/POST/requestBody/json/barriered_from_usergroup_ids`.
-                    public var barrieredFromUsergroupIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// The id of the primary IDP Group.
                     ///
                     /// - Remark: Generated from `#/paths/admin.barriers.update/POST/requestBody/json/primary_usergroup_id`.
                     public var primaryUsergroupId: Swift.String
+                    /// A list of IDP Groups ids that the primary usergroup is to be barriered from.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.barriers.update/POST/requestBody/json/barriered_from_usergroup_ids`.
+                    public var barrieredFromUsergroupIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// What kind of interactions are blocked by this barrier? For v1, we only support a list of all 3, eg im, mpim, call.
                     ///
                     /// - Remark: Generated from `#/paths/admin.barriers.update/POST/requestBody/json/restricted_subjects`.
@@ -2973,25 +3137,25 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - barrierId: The ID of the barrier you're trying to modify.
-                    ///   - barrieredFromUsergroupIds: A list of IDP Groups ids that the primary usergroup is to be barriered from.
                     ///   - primaryUsergroupId: The id of the primary IDP Group.
+                    ///   - barrieredFromUsergroupIds: A list of IDP Groups ids that the primary usergroup is to be barriered from.
                     ///   - restrictedSubjects: What kind of interactions are blocked by this barrier? For v1, we only support a list of all 3, eg im, mpim, call.
                     public init(
                         barrierId: Swift.String,
-                        barrieredFromUsergroupIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         primaryUsergroupId: Swift.String,
+                        barrieredFromUsergroupIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         restrictedSubjects: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
                         self.barrierId = barrierId
-                        self.barrieredFromUsergroupIds = barrieredFromUsergroupIds
                         self.primaryUsergroupId = primaryUsergroupId
+                        self.barrieredFromUsergroupIds = barrieredFromUsergroupIds
                         self.restrictedSubjects = restrictedSubjects
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case barrierId = "barrier_id"
-                        case barrieredFromUsergroupIds = "barriered_from_usergroup_ids"
                         case primaryUsergroupId = "primary_usergroup_id"
+                        case barrieredFromUsergroupIds = "barriered_from_usergroup_ids"
                         case restrictedSubjects = "restricted_subjects"
                     }
                 }
@@ -3563,30 +3727,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.bulkMove/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// An array of channel IDs.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.bulkMove/POST/requestBody/json/channel_ids`.
-                    public var channelIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// Target team ID.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.bulkMove/POST/requestBody/json/target_team_id`.
                     public var targetTeamId: Swift.String
+                    /// An array of channel IDs.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.bulkMove/POST/requestBody/json/channel_ids`.
+                    public var channelIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - channelIds: An array of channel IDs.
                     ///   - targetTeamId: Target team ID.
+                    ///   - channelIds: An array of channel IDs.
                     public init(
-                        channelIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         targetTeamId: Swift.String,
+                        channelIds: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
-                        self.channelIds = channelIds
                         self.targetTeamId = targetTeamId
+                        self.channelIds = channelIds
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case channelIds = "channel_ids"
                         case targetTeamId = "target_team_id"
+                        case channelIds = "channel_ids"
                     }
                 }
 
@@ -4021,10 +4185,6 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.create/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// When true, creates a private channel instead of a public channel.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.create/POST/requestBody/json/is_private`.
-                    public var isPrivate: Swift.Bool
                     /// Name of the public or private channel to create.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.create/POST/requestBody/json/name`.
@@ -4033,6 +4193,10 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.create/POST/requestBody/json/description`.
                     public var description: Swift.String?
+                    /// When true, creates a private channel instead of a public channel.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.create/POST/requestBody/json/is_private`.
+                    public var isPrivate: Swift.Bool
                     /// When true, the channel will be available org-wide. Note: if the channel is not org_wide=true, you must specify a team_id for this channel.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.create/POST/requestBody/json/org_wide`.
@@ -4044,29 +4208,29 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - isPrivate: When true, creates a private channel instead of a public channel.
                     ///   - name: Name of the public or private channel to create.
                     ///   - description: Description of the public or private channel to create.
+                    ///   - isPrivate: When true, creates a private channel instead of a public channel.
                     ///   - orgWide: When true, the channel will be available org-wide. Note: if the channel is not org_wide=true, you must specify a team_id for this channel.
                     ///   - teamId: The workspace to create the channel in. Note: this argument is required unless you set org_wide=true.
                     public init(
-                        isPrivate: Swift.Bool,
                         name: Swift.String,
                         description: Swift.String? = nil,
+                        isPrivate: Swift.Bool,
                         orgWide: Swift.Bool? = nil,
                         teamId: Swift.String? = nil,
                     ) {
-                        self.isPrivate = isPrivate
                         self.name = name
                         self.description = description
+                        self.isPrivate = isPrivate
                         self.orgWide = orgWide
                         self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case isPrivate = "is_private"
                         case name
                         case description
+                        case isPrivate = "is_private"
                         case orgWide = "org_wide"
                         case teamId = "team_id"
                     }
@@ -4351,7 +4515,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.disconnectShared/POST/requestBody/json/channel_id`.
                     public var channelId: Swift.String
-                    /// team IDs getting removed from the channel, optional if there are only two teams in the channel.
+                    /// Used for disconnecting a team from a shared channel. Only one team ID may be passed at a time.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.disconnectShared/POST/requestBody/json/leaving_team_ids`.
                     public var leavingTeamIds: OpenAPIRuntime.OpenAPIArrayContainer?
@@ -4359,7 +4523,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channelId: The channel to be disconnected from some workspaces.
-                    ///   - leavingTeamIds: team IDs getting removed from the channel, optional if there are only two teams in the channel.
+                    ///   - leavingTeamIds: Used for disconnecting a team from a shared channel. Only one team ID may be passed at a time.
                     public init(
                         channelId: Swift.String,
                         leavingTeamIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
@@ -4507,42 +4671,42 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/channel_ids`.
                     public var channelIds: Swift.String?
-                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
-                    /// The maximum number of items to return. Must be between 1 - 1000 both inclusive.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/limit`.
-                    public var limit: Swift.Int?
                     /// A comma-separated list of the workspaces to which the channels you would like returned belong.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/team_ids`.
                     public var teamIds: Swift.String?
+                    /// The maximum number of items to return. Must be between 1 - 1000 both inclusive.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/limit`.
+                    public var limit: Swift.Int?
+                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.ekm.listOriginalConnectedChannelInfo/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - channelIds: A comma-separated list of channels to filter to.
-                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
                     ///   - teamIds: A comma-separated list of the workspaces to which the channels you would like returned belong.
+                    ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
+                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     public init(
                         channelIds: Swift.String? = nil,
-                        cursor: Swift.String? = nil,
-                        limit: Swift.Int? = nil,
                         teamIds: Swift.String? = nil,
+                        limit: Swift.Int? = nil,
+                        cursor: Swift.String? = nil,
                     ) {
                         self.channelIds = channelIds
-                        self.cursor = cursor
-                        self.limit = limit
                         self.teamIds = teamIds
+                        self.limit = limit
+                        self.cursor = cursor
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case channelIds = "channel_ids"
-                        case cursor
-                        case limit
                         case teamIds = "team_ids"
+                        case limit
+                        case cursor
                     }
                 }
 
@@ -5131,30 +5295,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.invite/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The channel that the users will be invited to.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.invite/POST/requestBody/json/channel_id`.
-                    public var channelId: Swift.String
                     /// The users to invite.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.invite/POST/requestBody/json/user_ids`.
                     public var userIds: OpenAPIRuntime.OpenAPIArrayContainer
+                    /// The channel that the users will be invited to.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.invite/POST/requestBody/json/channel_id`.
+                    public var channelId: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - channelId: The channel that the users will be invited to.
                     ///   - userIds: The users to invite.
+                    ///   - channelId: The channel that the users will be invited to.
                     public init(
-                        channelId: Swift.String,
                         userIds: OpenAPIRuntime.OpenAPIArrayContainer,
+                        channelId: Swift.String,
                     ) {
-                        self.channelId = channelId
                         self.userIds = userIds
+                        self.channelId = channelId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case channelId = "channel_id"
                         case userIds = "user_ids"
+                        case channelId = "channel_id"
                     }
                 }
 
@@ -5287,14 +5451,18 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.lookup/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Filter by public channels where the most recent message was sent before last_message_activity.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.lookup/POST/requestBody/json/last_message_activity_before`.
-                    public var lastMessageActivityBefore: Swift.Int
                     /// Array of team IDs to filter by.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.lookup/POST/requestBody/json/team_ids`.
                     public var teamIds: OpenAPIRuntime.OpenAPIArrayContainer
+                    /// Filter by public channels with member count equal to or less than the specified number.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.lookup/POST/requestBody/json/max_member_count`.
+                    public var maxMemberCount: Swift.Int?
+                    /// Filter by public channels where the most recent message was sent before last_message_activity.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.lookup/POST/requestBody/json/last_message_activity_before`.
+                    public var lastMessageActivityBefore: Swift.Int
                     /// Set cursor to next_cursor returned in the previous call, to fetch the next page.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.lookup/POST/requestBody/json/cursor`.
@@ -5303,38 +5471,34 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.lookup/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// Filter by public channels with member count equal to or less than the specified number.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.lookup/POST/requestBody/json/max_member_count`.
-                    public var maxMemberCount: Swift.Int?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - lastMessageActivityBefore: Filter by public channels where the most recent message was sent before last_message_activity.
                     ///   - teamIds: Array of team IDs to filter by.
+                    ///   - maxMemberCount: Filter by public channels with member count equal to or less than the specified number.
+                    ///   - lastMessageActivityBefore: Filter by public channels where the most recent message was sent before last_message_activity.
                     ///   - cursor: Set cursor to next_cursor returned in the previous call, to fetch the next page.
                     ///   - limit: Maximum number of results.
-                    ///   - maxMemberCount: Filter by public channels with member count equal to or less than the specified number.
                     public init(
-                        lastMessageActivityBefore: Swift.Int,
                         teamIds: OpenAPIRuntime.OpenAPIArrayContainer,
+                        maxMemberCount: Swift.Int? = nil,
+                        lastMessageActivityBefore: Swift.Int,
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        maxMemberCount: Swift.Int? = nil,
                     ) {
-                        self.lastMessageActivityBefore = lastMessageActivityBefore
                         self.teamIds = teamIds
+                        self.maxMemberCount = maxMemberCount
+                        self.lastMessageActivityBefore = lastMessageActivityBefore
                         self.cursor = cursor
                         self.limit = limit
-                        self.maxMemberCount = maxMemberCount
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case lastMessageActivityBefore = "last_message_activity_before"
                         case teamIds = "team_ids"
+                        case maxMemberCount = "max_member_count"
+                        case lastMessageActivityBefore = "last_message_activity_before"
                         case cursor
                         case limit
-                        case maxMemberCount = "max_member_count"
                     }
                 }
 
@@ -5617,7 +5781,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.rename/POST/requestBody/json/channel_id`.
                     public var channelId: Swift.String
-                    /// .
+                    ///
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.rename/POST/requestBody/json/name`.
                     public var name: Swift.String
@@ -5625,7 +5789,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channelId: The channel to rename.
-                    ///   - name: .
+                    ///   - name:
                     public init(
                         channelId: Swift.String,
                         name: Swift.String,
@@ -5769,39 +5933,39 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.addGroup/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The channel to link this group to.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.addGroup/POST/requestBody/json/channel_id`.
-                    public var channelId: Swift.String
-                    /// The IDP Group ID to be an allowlist for the private channel.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.addGroup/POST/requestBody/json/group_id`.
-                    public var groupId: Swift.String
                     /// The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an organization.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.addGroup/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    /// The IDP Group ID to be an allowlist for the private channel.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.addGroup/POST/requestBody/json/group_id`.
+                    public var groupId: Swift.String
+                    /// The channel to link this group to.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.addGroup/POST/requestBody/json/channel_id`.
+                    public var channelId: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - channelId: The channel to link this group to.
-                    ///   - groupId: The IDP Group ID to be an allowlist for the private channel.
                     ///   - teamId: The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an
                     /// organization.
+                    ///   - groupId: The IDP Group ID to be an allowlist for the private channel.
+                    ///   - channelId: The channel to link this group to.
                     public init(
-                        channelId: Swift.String,
-                        groupId: Swift.String,
                         teamId: Swift.String? = nil,
+                        groupId: Swift.String,
+                        channelId: Swift.String,
                     ) {
-                        self.channelId = channelId
-                        self.groupId = groupId
                         self.teamId = teamId
+                        self.groupId = groupId
+                        self.channelId = channelId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case channelId = "channel_id"
-                        case groupId = "group_id"
                         case teamId = "team_id"
+                        case groupId = "group_id"
+                        case channelId = "channel_id"
                     }
                 }
 
@@ -5934,7 +6098,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.listGroups/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// .
+                    ///
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.listGroups/POST/requestBody/json/channel_id`.
                     public var channelId: Swift.String
@@ -5945,7 +6109,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - channelId: .
+                    ///   - channelId:
                     ///   - teamId: The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an
                     /// organization.
                     public init(
@@ -6091,39 +6255,39 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.removeGroup/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The channel to remove the linked group from.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.removeGroup/POST/requestBody/json/channel_id`.
-                    public var channelId: Swift.String
-                    /// The IDP Group ID to remove from the private channel.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.removeGroup/POST/requestBody/json/group_id`.
-                    public var groupId: Swift.String
                     /// The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an organization.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.removeGroup/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String
+                    /// The IDP Group ID to remove from the private channel.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.removeGroup/POST/requestBody/json/group_id`.
+                    public var groupId: Swift.String
+                    /// The channel to remove the linked group from.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.restrictAccess.removeGroup/POST/requestBody/json/channel_id`.
+                    public var channelId: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - channelId: The channel to remove the linked group from.
-                    ///   - groupId: The IDP Group ID to remove from the private channel.
                     ///   - teamId: The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an
                     /// organization.
+                    ///   - groupId: The IDP Group ID to remove from the private channel.
+                    ///   - channelId: The channel to remove the linked group from.
                     public init(
-                        channelId: Swift.String,
-                        groupId: Swift.String,
                         teamId: Swift.String,
+                        groupId: Swift.String,
+                        channelId: Swift.String,
                     ) {
-                        self.channelId = channelId
-                        self.groupId = groupId
                         self.teamId = teamId
+                        self.groupId = groupId
+                        self.channelId = channelId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case channelId = "channel_id"
-                        case groupId = "group_id"
                         case teamId = "team_id"
+                        case groupId = "group_id"
+                        case channelId = "channel_id"
                     }
                 }
 
@@ -6256,29 +6420,33 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Comma separated string of team IDs, signifying the internal workspaces to search through.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/team_ids`.
+                    public var teamIds: OpenAPIRuntime.OpenAPIArrayContainer?
                     /// Array of encoded team IDs, signifying the external orgs to search through.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/connected_team_ids`.
                     public var connectedTeamIds: OpenAPIRuntime.OpenAPIArrayContainer?
-                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
-                    /// Maximum number of items to be returned. Must be between 1 - 20 both inclusive. Default is 10.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/limit`.
-                    public var limit: Swift.Int?
                     /// Name of the the channel to query by.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/query`.
                     public var query: Swift.String?
+                    /// Maximum number of items to be returned. Must be between 1 - 20 both inclusive. Default is 10.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/limit`.
+                    public var limit: Swift.Int?
+                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
                     /// The type of channel to include or exclude in the search. For example private will search private channels, while private_exclude will exclude them. For a full list of types,
                     /// check the Types section.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/search_channel_types`.
                     public var searchChannelTypes: OpenAPIRuntime.OpenAPIArrayContainer?
                     /// Possible values are relevant (search ranking based on what we think is closest), name (alphabetical), member_count (number of users in the channel), and created (date channel
-                    /// was created). You can optionally pair this with the sort_dir arg to change how it is sorted.
+                    /// was created). You can optionally pair this with the sort_dir arg to change how it is sorted .
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/sort`.
                     public var sort: Swift.String?
@@ -6286,10 +6454,6 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/sort_dir`.
                     public var sortDir: Swift.String?
-                    /// Comma separated string of team IDs, signifying the internal workspaces to search through.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/team_ids`.
-                    public var teamIds: OpenAPIRuntime.OpenAPIArrayContainer?
                     /// Only return the total_count of channels. Omits channel data and allows access for admins without channel manager permissions.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.search/POST/requestBody/json/total_count_only`.
@@ -6297,48 +6461,48 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - teamIds: Comma separated string of team IDs, signifying the internal workspaces to search through.
                     ///   - connectedTeamIds: Array of encoded team IDs, signifying the external orgs to search through.
-                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///   - limit: Maximum number of items to be returned. Must be between 1 - 20 both inclusive. Default is 10.
                     ///   - query: Name of the the channel to query by.
+                    ///   - limit: Maximum number of items to be returned. Must be between 1 - 20 both inclusive. Default is 10.
+                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///   - searchChannelTypes: The type of channel to include or exclude in the search. For example private will search private channels, while private_exclude will exclude them. For
                     /// a full list of types, check the Types section.
                     ///   - sort: Possible values are relevant (search ranking based on what we think is closest), name (alphabetical), member_count (number of users in the channel), and created (date
-                    /// channel was created). You can optionally pair this with the sort_dir arg to change how it is sorted.
+                    /// channel was created). You can optionally pair this with the sort_dir arg to change how it is sorted .
                     ///   - sortDir: Sort direction. Possible values are asc for ascending order like (1, 2, 3) or (a, b, c), and desc for descending order like (3, 2, 1) or (c, b, a).
-                    ///   - teamIds: Comma separated string of team IDs, signifying the internal workspaces to search through.
                     ///   - totalCountOnly: Only return the total_count of channels. Omits channel data and allows access for admins without channel manager permissions.
                     public init(
+                        teamIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         connectedTeamIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
-                        cursor: Swift.String? = nil,
-                        limit: Swift.Int? = nil,
                         query: Swift.String? = nil,
+                        limit: Swift.Int? = nil,
+                        cursor: Swift.String? = nil,
                         searchChannelTypes: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         sort: Swift.String? = nil,
                         sortDir: Swift.String? = nil,
-                        teamIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         totalCountOnly: Swift.Bool? = nil,
                     ) {
+                        self.teamIds = teamIds
                         self.connectedTeamIds = connectedTeamIds
-                        self.cursor = cursor
-                        self.limit = limit
                         self.query = query
+                        self.limit = limit
+                        self.cursor = cursor
                         self.searchChannelTypes = searchChannelTypes
                         self.sort = sort
                         self.sortDir = sortDir
-                        self.teamIds = teamIds
                         self.totalCountOnly = totalCountOnly
                     }
 
                     public enum CodingKeys: String, CodingKey {
+                        case teamIds = "team_ids"
                         case connectedTeamIds = "connected_team_ids"
-                        case cursor
-                        case limit
                         case query
+                        case limit
+                        case cursor
                         case searchChannelTypes = "search_channel_types"
                         case sort
                         case sortDir = "sort_dir"
-                        case teamIds = "team_ids"
                         case totalCountOnly = "total_count_only"
                     }
                 }
@@ -6788,43 +6952,43 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.setTeams/POST/requestBody/json/channel_id`.
                     public var channelId: Swift.String
-                    /// True if channel has to be converted to an org channel.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.setTeams/POST/requestBody/json/org_channel`.
-                    public var orgChannel: Swift.Bool?
-                    /// A comma-separated list of workspaces to which the channel should be shared. Not required if the channel is being shared org-wide.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.conversations.setTeams/POST/requestBody/json/target_team_ids`.
-                    public var targetTeamIds: OpenAPIRuntime.OpenAPIArrayContainer?
                     /// The workspace to which the channel belongs if the channel is a local workspace channel. Omit this argument if the channel is a cross-workspace or org-wide shared channel.
                     ///
                     /// - Remark: Generated from `#/paths/admin.conversations.setTeams/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    /// A comma-separated list of workspaces to which the channel should be shared. Not required if the channel is being shared org-wide.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.setTeams/POST/requestBody/json/target_team_ids`.
+                    public var targetTeamIds: OpenAPIRuntime.OpenAPIArrayContainer?
+                    /// True if channel has to be converted to an org channel.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.conversations.setTeams/POST/requestBody/json/org_channel`.
+                    public var orgChannel: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - channelId: The encoded channel_id to add or remove to workspaces.
-                    ///   - orgChannel: True if channel has to be converted to an org channel.
-                    ///   - targetTeamIds: A comma-separated list of workspaces to which the channel should be shared. Not required if the channel is being shared org-wide.
                     ///   - teamId: The workspace to which the channel belongs if the channel is a local workspace channel. Omit this argument if the channel is a cross-workspace or org-wide shared
                     /// channel.
+                    ///   - targetTeamIds: A comma-separated list of workspaces to which the channel should be shared. Not required if the channel is being shared org-wide.
+                    ///   - orgChannel: True if channel has to be converted to an org channel.
                     public init(
                         channelId: Swift.String,
-                        orgChannel: Swift.Bool? = nil,
-                        targetTeamIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         teamId: Swift.String? = nil,
+                        targetTeamIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
+                        orgChannel: Swift.Bool? = nil,
                     ) {
                         self.channelId = channelId
-                        self.orgChannel = orgChannel
-                        self.targetTeamIds = targetTeamIds
                         self.teamId = teamId
+                        self.targetTeamIds = targetTeamIds
+                        self.orgChannel = orgChannel
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case channelId = "channel_id"
-                        case orgChannel = "org_channel"
-                        case targetTeamIds = "target_team_ids"
                         case teamId = "team_id"
+                        case targetTeamIds = "target_team_ids"
+                        case orgChannel = "org_channel"
                     }
                 }
 
@@ -7259,30 +7423,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.emoji.addAlias/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Name of the emoji for which the alias is being made. Any wrapping whitespace or colons will be automatically trimmed.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.emoji.addAlias/POST/requestBody/json/alias_for`.
-                    public var aliasFor: Swift.String
                     /// The new alias for the specified emoji. Any wrapping whitespace or colons will be automatically trimmed.
                     ///
                     /// - Remark: Generated from `#/paths/admin.emoji.addAlias/POST/requestBody/json/name`.
                     public var name: Swift.String
+                    /// Name of the emoji for which the alias is being made. Any wrapping whitespace or colons will be automatically trimmed.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.emoji.addAlias/POST/requestBody/json/alias_for`.
+                    public var aliasFor: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - aliasFor: Name of the emoji for which the alias is being made. Any wrapping whitespace or colons will be automatically trimmed.
                     ///   - name: The new alias for the specified emoji. Any wrapping whitespace or colons will be automatically trimmed.
+                    ///   - aliasFor: Name of the emoji for which the alias is being made. Any wrapping whitespace or colons will be automatically trimmed.
                     public init(
-                        aliasFor: Swift.String,
                         name: Swift.String,
+                        aliasFor: Swift.String,
                     ) {
-                        self.aliasFor = aliasFor
                         self.name = name
+                        self.aliasFor = aliasFor
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case aliasFor = "alias_for"
                         case name
+                        case aliasFor = "alias_for"
                     }
                 }
 
@@ -7873,10 +8037,19 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.functions.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// The team context to retrieve functions from.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.functions.list/POST/requestBody/json/team_id`.
+                    public var teamId: Swift.String?
                     /// Comma-separated array of app IDs to get functions for; max 50.
                     ///
                     /// - Remark: Generated from `#/paths/admin.functions.list/POST/requestBody/json/app_ids`.
                     public var appIds: OpenAPIRuntime.OpenAPIArrayContainer
+                    /// Whether to also include functions that are not yet distributed to any users in the function count. This is needed for admins that are approving an app request and will only
+                    /// work if the team owns the app.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.functions.list/POST/requestBody/json/include_non_distributed_functions`.
+                    public var includeNonDistributedFunctions: Swift.Bool?
                     /// Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///
                     /// - Remark: Generated from `#/paths/admin.functions.list/POST/requestBody/json/cursor`.
@@ -7885,34 +8058,35 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.functions.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// The team context to retrieve functions from.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.functions.list/POST/requestBody/json/team_id`.
-                    public var teamId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - teamId: The team context to retrieve functions from.
                     ///   - appIds: Comma-separated array of app IDs to get functions for; max 50.
+                    ///   - includeNonDistributedFunctions: Whether to also include functions that are not yet distributed to any users in the function count. This is needed for admins that are
+                    /// approving an app request and will only work if the team owns the app.
                     ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///   - limit: The number of results that will be returned by the API on each invocation. Must be between 1 and 1000, both inclusive.
-                    ///   - teamId: The team context to retrieve functions from.
                     public init(
+                        teamId: Swift.String? = nil,
                         appIds: OpenAPIRuntime.OpenAPIArrayContainer,
+                        includeNonDistributedFunctions: Swift.Bool? = nil,
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil,
                     ) {
+                        self.teamId = teamId
                         self.appIds = appIds
+                        self.includeNonDistributedFunctions = includeNonDistributedFunctions
                         self.cursor = cursor
                         self.limit = limit
-                        self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
+                        case teamId = "team_id"
                         case appIds = "app_ids"
+                        case includeNonDistributedFunctions = "include_non_distributed_functions"
                         case cursor
                         case limit
-                        case teamId = "team_id"
                     }
                 }
 
@@ -8198,31 +8372,39 @@ extension Operations {
                     /// The function visibility.
                     ///
                     /// - Remark: Generated from `#/paths/admin.functions.permissions.set/POST/requestBody/json/visibility`.
-                    public var visibility: Swift.String
+                    public var visibility: Swift.String?
                     /// List of user IDs to allow for named_entities visibility.
                     ///
                     /// - Remark: Generated from `#/paths/admin.functions.permissions.set/POST/requestBody/json/user_ids`.
                     public var userIds: OpenAPIRuntime.OpenAPIArrayContainer?
+                    /// Array of permissions for the function.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.functions.permissions.set/POST/requestBody/json/permissions`.
+                    public var permissions: OpenAPIRuntime.OpenAPIArrayContainer?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - functionId: The function ID to set permissions for.
                     ///   - visibility: The function visibility.
                     ///   - userIds: List of user IDs to allow for named_entities visibility.
+                    ///   - permissions: Array of permissions for the function.
                     public init(
                         functionId: Swift.String,
-                        visibility: Swift.String,
+                        visibility: Swift.String? = nil,
                         userIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
+                        permissions: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                     ) {
                         self.functionId = functionId
                         self.visibility = visibility
                         self.userIds = userIds
+                        self.permissions = permissions
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case functionId = "function_id"
                         case visibility
                         case userIds = "user_ids"
+                        case permissions
                     }
                 }
 
@@ -8355,30 +8537,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.inviteRequests.approve/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// ID of the request to invite.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.inviteRequests.approve/POST/requestBody/json/invite_request_id`.
-                    public var inviteRequestId: Swift.String
                     /// ID for the workspace where the invite request was made.
                     ///
                     /// - Remark: Generated from `#/paths/admin.inviteRequests.approve/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    /// ID of the request to invite.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.inviteRequests.approve/POST/requestBody/json/invite_request_id`.
+                    public var inviteRequestId: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - inviteRequestId: ID of the request to invite.
                     ///   - teamId: ID for the workspace where the invite request was made.
+                    ///   - inviteRequestId: ID of the request to invite.
                     public init(
-                        inviteRequestId: Swift.String,
                         teamId: Swift.String? = nil,
+                        inviteRequestId: Swift.String,
                     ) {
-                        self.inviteRequestId = inviteRequestId
                         self.teamId = teamId
+                        self.inviteRequestId = inviteRequestId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case inviteRequestId = "invite_request_id"
                         case teamId = "team_id"
+                        case inviteRequestId = "invite_request_id"
                     }
                 }
 
@@ -8511,6 +8693,10 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.inviteRequests.approved.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// ID for the workspace where the invite requests were made.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.inviteRequests.approved.list/POST/requestBody/json/team_id`.
+                    public var teamId: Swift.String?
                     /// Value of the next_cursor field sent as part of the previous API response.
                     ///
                     /// - Remark: Generated from `#/paths/admin.inviteRequests.approved.list/POST/requestBody/json/cursor`.
@@ -8519,30 +8705,26 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.inviteRequests.approved.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// ID for the workspace where the invite requests were made.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.inviteRequests.approved.list/POST/requestBody/json/team_id`.
-                    public var teamId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - teamId: ID for the workspace where the invite requests were made.
                     ///   - cursor: Value of the next_cursor field sent as part of the previous API response.
                     ///   - limit: The number of results that will be returned by the API on each invocation. Must be between 1 - 1000, both inclusive.
-                    ///   - teamId: ID for the workspace where the invite requests were made.
                     public init(
+                        teamId: Swift.String? = nil,
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil,
                     ) {
+                        self.teamId = teamId
                         self.cursor = cursor
                         self.limit = limit
-                        self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
+                        case teamId = "team_id"
                         case cursor
                         case limit
-                        case teamId = "team_id"
                     }
                 }
 
@@ -8675,6 +8857,10 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.inviteRequests.denied.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// ID for the workspace where the invite requests were made.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.inviteRequests.denied.list/POST/requestBody/json/team_id`.
+                    public var teamId: Swift.String?
                     /// Value of the next_cursor field sent as part of the previous api response.
                     ///
                     /// - Remark: Generated from `#/paths/admin.inviteRequests.denied.list/POST/requestBody/json/cursor`.
@@ -8683,30 +8869,26 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.inviteRequests.denied.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// ID for the workspace where the invite requests were made.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.inviteRequests.denied.list/POST/requestBody/json/team_id`.
-                    public var teamId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - teamId: ID for the workspace where the invite requests were made.
                     ///   - cursor: Value of the next_cursor field sent as part of the previous api response.
                     ///   - limit: The number of results that will be returned by the API on each invocation. Must be between 1 - 1000 both inclusive.
-                    ///   - teamId: ID for the workspace where the invite requests were made.
                     public init(
+                        teamId: Swift.String? = nil,
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil,
                     ) {
+                        self.teamId = teamId
                         self.cursor = cursor
                         self.limit = limit
-                        self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
+                        case teamId = "team_id"
                         case cursor
                         case limit
-                        case teamId = "team_id"
                     }
                 }
 
@@ -8839,30 +9021,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.inviteRequests.deny/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// ID of the request to invite.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.inviteRequests.deny/POST/requestBody/json/invite_request_id`.
-                    public var inviteRequestId: Swift.String
                     /// ID for the workspace where the invite request was made.
                     ///
                     /// - Remark: Generated from `#/paths/admin.inviteRequests.deny/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    /// ID of the request to invite.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.inviteRequests.deny/POST/requestBody/json/invite_request_id`.
+                    public var inviteRequestId: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - inviteRequestId: ID of the request to invite.
                     ///   - teamId: ID for the workspace where the invite request was made.
+                    ///   - inviteRequestId: ID of the request to invite.
                     public init(
-                        inviteRequestId: Swift.String,
                         teamId: Swift.String? = nil,
+                        inviteRequestId: Swift.String,
                     ) {
-                        self.inviteRequestId = inviteRequestId
                         self.teamId = teamId
+                        self.inviteRequestId = inviteRequestId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case inviteRequestId = "invite_request_id"
                         case teamId = "team_id"
+                        case inviteRequestId = "invite_request_id"
                     }
                 }
 
@@ -8995,6 +9177,10 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.inviteRequests.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// ID for the workspace where the invite requests were made.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.inviteRequests.list/POST/requestBody/json/team_id`.
+                    public var teamId: Swift.String?
                     /// Value of the next_cursor field sent as part of the previous API response.
                     ///
                     /// - Remark: Generated from `#/paths/admin.inviteRequests.list/POST/requestBody/json/cursor`.
@@ -9003,30 +9189,26 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.inviteRequests.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// ID for the workspace where the invite requests were made.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.inviteRequests.list/POST/requestBody/json/team_id`.
-                    public var teamId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - teamId: ID for the workspace where the invite requests were made.
                     ///   - cursor: Value of the next_cursor field sent as part of the previous API response.
                     ///   - limit: The number of results that will be returned by the API on each invocation. Must be between 1 - 1000, both inclusive.
-                    ///   - teamId: ID for the workspace where the invite requests were made.
                     public init(
+                        teamId: Swift.String? = nil,
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil,
                     ) {
+                        self.teamId = teamId
                         self.cursor = cursor
                         self.limit = limit
-                        self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
+                        case teamId = "team_id"
                         case cursor
                         case limit
-                        case teamId = "team_id"
                     }
                 }
 
@@ -9159,14 +9341,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.roles.addAssignments/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// List of the entity IDs for which roles will be assigned. These can be Org IDs, Team IDs or Channel IDs.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.roles.addAssignments/POST/requestBody/json/entity_ids`.
-                    public var entityIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// ID of the role to which users will be assigned.
                     ///
                     /// - Remark: Generated from `#/paths/admin.roles.addAssignments/POST/requestBody/json/role_id`.
                     public var roleId: Swift.String
+                    /// List of the entity IDs for which roles will be assigned. These can be Org IDs, Team IDs or Channel IDs.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.roles.addAssignments/POST/requestBody/json/entity_ids`.
+                    public var entityIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// List of IDs from the users to be added to the given role.
                     ///
                     /// - Remark: Generated from `#/paths/admin.roles.addAssignments/POST/requestBody/json/user_ids`.
@@ -9174,22 +9356,22 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - entityIds: List of the entity IDs for which roles will be assigned. These can be Org IDs, Team IDs or Channel IDs.
                     ///   - roleId: ID of the role to which users will be assigned.
+                    ///   - entityIds: List of the entity IDs for which roles will be assigned. These can be Org IDs, Team IDs or Channel IDs.
                     ///   - userIds: List of IDs from the users to be added to the given role.
                     public init(
-                        entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         roleId: Swift.String,
+                        entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         userIds: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
-                        self.entityIds = entityIds
                         self.roleId = roleId
+                        self.entityIds = entityIds
                         self.userIds = userIds
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case entityIds = "entity_ids"
                         case roleId = "role_id"
+                        case entityIds = "entity_ids"
                         case userIds = "user_ids"
                     }
                 }
@@ -9327,10 +9509,6 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.roles.listAssignments/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
-                    /// The entities for which the roles apply.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.roles.listAssignments/POST/requestBody/json/entity_ids`.
-                    public var entityIds: OpenAPIRuntime.OpenAPIArrayContainer?
                     /// The maximum number of items to return. Must be between 1 - 200 both inclusive.
                     ///
                     /// - Remark: Generated from `#/paths/admin.roles.listAssignments/POST/requestBody/json/limit`.
@@ -9339,6 +9517,10 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.roles.listAssignments/POST/requestBody/json/role_ids`.
                     public var roleIds: OpenAPIRuntime.OpenAPIArrayContainer?
+                    /// The entities for which the roles apply.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.roles.listAssignments/POST/requestBody/json/entity_ids`.
+                    public var entityIds: OpenAPIRuntime.OpenAPIArrayContainer?
                     /// Sort direction. Default is descending on date_create, can be either ASC or DESC.
                     ///
                     /// - Remark: Generated from `#/paths/admin.roles.listAssignments/POST/requestBody/json/sort_dir`.
@@ -9347,29 +9529,29 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///   - entityIds: The entities for which the roles apply.
                     ///   - limit: The maximum number of items to return. Must be between 1 - 200 both inclusive.
                     ///   - roleIds: collection of role ids to scope results by.
+                    ///   - entityIds: The entities for which the roles apply.
                     ///   - sortDir: Sort direction. Default is descending on date_create, can be either ASC or DESC.
                     public init(
                         cursor: Swift.String? = nil,
-                        entityIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         limit: Swift.Int? = nil,
                         roleIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
+                        entityIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         sortDir: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
-                        self.entityIds = entityIds
                         self.limit = limit
                         self.roleIds = roleIds
+                        self.entityIds = entityIds
                         self.sortDir = sortDir
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case cursor
-                        case entityIds = "entity_ids"
                         case limit
                         case roleIds = "role_ids"
+                        case entityIds = "entity_ids"
                         case sortDir = "sort_dir"
                     }
                 }
@@ -9503,14 +9685,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.roles.removeAssignments/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// List of the entity IDs for which roles will be revoked. These can be Org IDs, Team IDs or Channel IDs.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.roles.removeAssignments/POST/requestBody/json/entity_ids`.
-                    public var entityIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// ID of the role to which users will be assigned.
                     ///
                     /// - Remark: Generated from `#/paths/admin.roles.removeAssignments/POST/requestBody/json/role_id`.
                     public var roleId: Swift.String
+                    /// List of the entity IDs for which roles will be revoked. These can be Org IDs, Team IDs or Channel IDs.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.roles.removeAssignments/POST/requestBody/json/entity_ids`.
+                    public var entityIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// List of IDs of the users whose roles will be revoked.
                     ///
                     /// - Remark: Generated from `#/paths/admin.roles.removeAssignments/POST/requestBody/json/user_ids`.
@@ -9518,22 +9700,22 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - entityIds: List of the entity IDs for which roles will be revoked. These can be Org IDs, Team IDs or Channel IDs.
                     ///   - roleId: ID of the role to which users will be assigned.
+                    ///   - entityIds: List of the entity IDs for which roles will be revoked. These can be Org IDs, Team IDs or Channel IDs.
                     ///   - userIds: List of IDs of the users whose roles will be revoked.
                     public init(
-                        entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         roleId: Swift.String,
+                        entityIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         userIds: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
-                        self.entityIds = entityIds
                         self.roleId = roleId
+                        self.entityIds = entityIds
                         self.userIds = userIds
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case entityIds = "entity_ids"
                         case roleId = "role_id"
+                        case entityIds = "entity_ids"
                         case userIds = "user_ids"
                     }
                 }
@@ -9667,38 +9849,38 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.teams.admins.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// .
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.teams.admins.list/POST/requestBody/json/team_id`.
-                    public var teamId: Swift.String
-                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.teams.admins.list/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
                     /// The maximum number of items to return.
                     ///
                     /// - Remark: Generated from `#/paths/admin.teams.admins.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
+                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.teams.admins.list/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
+                    ///
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.teams.admins.list/POST/requestBody/json/team_id`.
+                    public var teamId: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - teamId: .
-                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///   - limit: The maximum number of items to return.
+                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///   - teamId:
                     public init(
-                        teamId: Swift.String,
-                        cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
+                        cursor: Swift.String? = nil,
+                        teamId: Swift.String,
                     ) {
-                        self.teamId = teamId
-                        self.cursor = cursor
                         self.limit = limit
+                        self.cursor = cursor
+                        self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case teamId = "team_id"
-                        case cursor
                         case limit
+                        case cursor
+                        case teamId = "team_id"
                     }
                 }
 
@@ -10003,30 +10185,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.teams.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.teams.list/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
                     /// The maximum number of items to return. Must be a positive integer no larger than 1000.
                     ///
                     /// - Remark: Generated from `#/paths/admin.teams.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
+                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.teams.list/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///   - limit: The maximum number of items to return. Must be a positive integer no larger than 1000.
+                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     public init(
-                        cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
+                        cursor: Swift.String? = nil,
                     ) {
-                        self.cursor = cursor
                         self.limit = limit
+                        self.cursor = cursor
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case cursor
                         case limit
+                        case cursor
                     }
                 }
 
@@ -10159,38 +10341,38 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.teams.owners.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// .
+                    ///
                     ///
                     /// - Remark: Generated from `#/paths/admin.teams.owners.list/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String
-                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.teams.owners.list/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
                     /// The maximum number of items to return. Must be between 1 - 1000 both inclusive.
                     ///
                     /// - Remark: Generated from `#/paths/admin.teams.owners.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
+                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.teams.owners.list/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - teamId: .
-                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///   - teamId:
                     ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
+                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     public init(
                         teamId: Swift.String,
-                        cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
+                        cursor: Swift.String? = nil,
                     ) {
                         self.teamId = teamId
-                        self.cursor = cursor
                         self.limit = limit
+                        self.cursor = cursor
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case teamId = "team_id"
-                        case cursor
                         case limit
+                        case cursor
                     }
                 }
 
@@ -10323,14 +10505,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.teams.settings.info/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// .
+                    ///
                     ///
                     /// - Remark: Generated from `#/paths/admin.teams.settings.info/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - teamId: .
+                    ///   - teamId:
                     public init(teamId: Swift.String) {
                         self.teamId = teamId
                     }
@@ -10469,30 +10651,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.teams.settings.setDefaultChannels/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// An array of channel IDs.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.teams.settings.setDefaultChannels/POST/requestBody/json/channel_ids`.
-                    public var channelIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// ID for the workspace to set the default channel for.
                     ///
                     /// - Remark: Generated from `#/paths/admin.teams.settings.setDefaultChannels/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String
+                    /// An array of channel IDs.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.teams.settings.setDefaultChannels/POST/requestBody/json/channel_ids`.
+                    public var channelIds: OpenAPIRuntime.OpenAPIArrayContainer
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - channelIds: An array of channel IDs.
                     ///   - teamId: ID for the workspace to set the default channel for.
+                    ///   - channelIds: An array of channel IDs.
                     public init(
-                        channelIds: OpenAPIRuntime.OpenAPIArrayContainer,
                         teamId: Swift.String,
+                        channelIds: OpenAPIRuntime.OpenAPIArrayContainer,
                     ) {
-                        self.channelIds = channelIds
                         self.teamId = teamId
+                        self.channelIds = channelIds
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case channelIds = "channel_ids"
                         case teamId = "team_id"
+                        case channelIds = "channel_ids"
                     }
                 }
 
@@ -10625,30 +10807,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.teams.settings.setDescription/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The new description for the workspace.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.teams.settings.setDescription/POST/requestBody/json/description`.
-                    public var description: Swift.String
                     /// ID for the workspace to set the description for.
                     ///
                     /// - Remark: Generated from `#/paths/admin.teams.settings.setDescription/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String
+                    /// The new description for the workspace.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.teams.settings.setDescription/POST/requestBody/json/description`.
+                    public var description: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - description: The new description for the workspace.
                     ///   - teamId: ID for the workspace to set the description for.
+                    ///   - description: The new description for the workspace.
                     public init(
-                        description: Swift.String,
                         teamId: Swift.String,
+                        description: Swift.String,
                     ) {
-                        self.description = description
                         self.teamId = teamId
+                        self.description = description
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case description
                         case teamId = "team_id"
+                        case description
                     }
                 }
 
@@ -10781,30 +10963,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.teams.settings.setDiscoverability/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// This workspace's discovery setting. It must be set to one of open, invite_only, closed, or unlisted.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.teams.settings.setDiscoverability/POST/requestBody/json/discoverability`.
-                    public var discoverability: Swift.String
                     /// The ID of the workspace to set discoverability on.
                     ///
                     /// - Remark: Generated from `#/paths/admin.teams.settings.setDiscoverability/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String
+                    /// This workspace's discovery setting. It must be set to one of open, invite_only, closed, or unlisted.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.teams.settings.setDiscoverability/POST/requestBody/json/discoverability`.
+                    public var discoverability: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - discoverability: This workspace's discovery setting. It must be set to one of open, invite_only, closed, or unlisted.
                     ///   - teamId: The ID of the workspace to set discoverability on.
+                    ///   - discoverability: This workspace's discovery setting. It must be set to one of open, invite_only, closed, or unlisted.
                     public init(
-                        discoverability: Swift.String,
                         teamId: Swift.String,
+                        discoverability: Swift.String,
                     ) {
-                        self.discoverability = discoverability
                         self.teamId = teamId
+                        self.discoverability = discoverability
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case discoverability
                         case teamId = "team_id"
+                        case discoverability
                     }
                 }
 
@@ -11093,30 +11275,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.teams.settings.setName/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The new name of the workspace.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.teams.settings.setName/POST/requestBody/json/name`.
-                    public var name: Swift.String
                     /// ID for the workspace to set the name for.
                     ///
                     /// - Remark: Generated from `#/paths/admin.teams.settings.setName/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String
+                    /// The new name of the workspace.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.teams.settings.setName/POST/requestBody/json/name`.
+                    public var name: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - name: The new name of the workspace.
                     ///   - teamId: ID for the workspace to set the name for.
+                    ///   - name: The new name of the workspace.
                     public init(
-                        name: Swift.String,
                         teamId: Swift.String,
+                        name: Swift.String,
                     ) {
-                        self.name = name
                         self.teamId = teamId
+                        self.name = name
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case name
                         case teamId = "team_id"
+                        case name
                     }
                 }
 
@@ -11257,10 +11439,6 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.assign/POST/requestBody/json/user_id`.
                     public var userId: Swift.String
-                    /// Comma separated values of channel IDs to add user in the new workspace.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.assign/POST/requestBody/json/channel_ids`.
-                    public var channelIds: Swift.String?
                     /// True if user should be added to the workspace as a guest.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.assign/POST/requestBody/json/is_restricted`.
@@ -11269,34 +11447,38 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.assign/POST/requestBody/json/is_ultra_restricted`.
                     public var isUltraRestricted: Swift.Bool?
+                    /// Comma separated values of channel IDs to add user in the new workspace.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.assign/POST/requestBody/json/channel_ids`.
+                    public var channelIds: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - teamId: The ID (T1234) of the workspace.
                     ///   - userId: The ID of the user to add to the workspace.
-                    ///   - channelIds: Comma separated values of channel IDs to add user in the new workspace.
                     ///   - isRestricted: True if user should be added to the workspace as a guest.
                     ///   - isUltraRestricted: True if user should be added to the workspace as a single-channel guest.
+                    ///   - channelIds: Comma separated values of channel IDs to add user in the new workspace.
                     public init(
                         teamId: Swift.String,
                         userId: Swift.String,
-                        channelIds: Swift.String? = nil,
                         isRestricted: Swift.Bool? = nil,
                         isUltraRestricted: Swift.Bool? = nil,
+                        channelIds: Swift.String? = nil,
                     ) {
                         self.teamId = teamId
                         self.userId = userId
-                        self.channelIds = channelIds
                         self.isRestricted = isRestricted
                         self.isUltraRestricted = isUltraRestricted
+                        self.channelIds = channelIds
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case teamId = "team_id"
                         case userId = "user_id"
-                        case channelIds = "channel_ids"
                         case isRestricted = "is_restricted"
                         case isUltraRestricted = "is_ultra_restricted"
+                        case channelIds = "channel_ids"
                     }
                 }
 
@@ -11409,6 +11591,163 @@ extension Operations {
         }
     }
 
+    public enum AdminUsersGetExpiration {
+        public static let id: Swift.String = "adminUsersGetExpiration"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/admin.users.getExpiration/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersGetExpiration.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - accept:
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersGetExpiration.AcceptableContentType>] = .defaultValues()) {
+                    self.accept = accept
+                }
+            }
+
+            public var headers: Operations.AdminUsersGetExpiration.Input.Headers
+            /// - Remark: Generated from `#/paths/admin.users.getExpiration/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/admin.users.getExpiration/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// The ID of the guest user to get the expiration for.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.getExpiration/POST/requestBody/json/user_id`.
+                    public var userId: Swift.String?
+                    /// If an org token is passed in and this team is on the org, it will operate on the workspace level on the specified team. Otherwise it will operate on the org or team in context.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.getExpiration/POST/requestBody/json/target_team`.
+                    public var targetTeam: Swift.String?
+                    /// Creates a new `JsonPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - userId: The ID of the guest user to get the expiration for.
+                    ///   - targetTeam: If an org token is passed in and this team is on the org, it will operate on the workspace level on the specified team. Otherwise it will operate on the org or
+                    /// team in context.
+                    public init(
+                        userId: Swift.String? = nil,
+                        targetTeam: Swift.String? = nil,
+                    ) {
+                        self.userId = userId
+                        self.targetTeam = targetTeam
+                    }
+
+                    public enum CodingKeys: String, CodingKey {
+                        case userId = "user_id"
+                        case targetTeam = "target_team"
+                    }
+                }
+
+                /// - Remark: Generated from `#/paths/admin.users.getExpiration/POST/requestBody/content/application\/json`.
+                case json(Operations.AdminUsersGetExpiration.Input.Body.JsonPayload)
+            }
+
+            public var body: Operations.AdminUsersGetExpiration.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            ///   - body:
+            public init(
+                headers: Operations.AdminUsersGetExpiration.Input.Headers = .init(),
+                body: Operations.AdminUsersGetExpiration.Input.Body,
+            ) {
+                self.headers = headers
+                self.body = body
+            }
+        }
+
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/admin.users.getExpiration/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/admin.users.getExpiration/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.AdminUsersGetExpirationResponse)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.AdminUsersGetExpirationResponse {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                body
+                            }
+                        }
+                    }
+                }
+
+                /// Received HTTP response body
+                public var body: Operations.AdminUsersGetExpiration.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.AdminUsersGetExpiration.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+
+            /// OK
+            ///
+            /// - Remark: Generated from `#/paths//admin.users.getExpiration/post(adminUsersGetExpiration)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.AdminUsersGetExpiration.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.AdminUsersGetExpiration.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self,
+                        )
+                    }
+                }
+            }
+
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    string
+                case .json:
+                    "application/json"
+                }
+            }
+
+            public static var allCases: [Self] {
+                [
+                    .json,
+                ]
+            }
+        }
+    }
+
     public enum AdminUsersInvite {
         public static let id: Swift.String = "adminUsersInvite"
         public struct Input: Sendable, Hashable {
@@ -11429,38 +11768,22 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// A comma-separated list of channel_ids for this user to join. At least one channel is required.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/channel_ids`.
-                    public var channelIds: Swift.String
-                    /// The email address of the person to invite.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/email`.
-                    public var email: Swift.String
                     /// The ID (T1234) of the workspace.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String
+                    /// The email address of the person to invite.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/email`.
+                    public var email: Swift.String
+                    /// A comma-separated list of channel_ids for this user to join. At least one channel is required.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/channel_ids`.
+                    public var channelIds: Swift.String
                     /// An optional message to send to the user in the invite email.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/custom_message`.
                     public var customMessage: Swift.String?
-                    /// Allow invited user to sign in via email and password. Only available for Enterprise Grid teams via admin invite.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/email_password_policy_enabled`.
-                    public var emailPasswordPolicyEnabled: Swift.Bool?
-                    /// Timestamp when guest account should be disabled. Only include this timestamp if you are inviting a guest user and you want their account to expire on a certain date.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/guest_expiration_ts`.
-                    public var guestExpirationTs: Swift.String?
-                    /// Is this user a multi-channel guest user? (default: false).
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/is_restricted`.
-                    public var isRestricted: Swift.Bool?
-                    /// Is this user a single channel guest user? (default: false).
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/is_ultra_restricted`.
-                    public var isUltraRestricted: Swift.Bool?
                     /// Full name of the user.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/real_name`.
@@ -11469,55 +11792,71 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/resend`.
                     public var resend: Swift.Bool?
+                    /// Is this user a multi-channel guest user? (default: false).
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/is_restricted`.
+                    public var isRestricted: Swift.Bool?
+                    /// Is this user a single channel guest user? (default: false).
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/is_ultra_restricted`.
+                    public var isUltraRestricted: Swift.Bool?
+                    /// Timestamp when guest account should be disabled. Only include this timestamp if you are inviting a guest user and you want their account to expire on a certain date.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/guest_expiration_ts`.
+                    public var guestExpirationTs: Swift.String?
+                    /// Allow invited user to sign in via email and password. Only available for Enterprise org teams via admin invite.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.invite/POST/requestBody/json/email_password_policy_enabled`.
+                    public var emailPasswordPolicyEnabled: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - channelIds: A comma-separated list of channel_ids for this user to join. At least one channel is required.
-                    ///   - email: The email address of the person to invite.
                     ///   - teamId: The ID (T1234) of the workspace.
+                    ///   - email: The email address of the person to invite.
+                    ///   - channelIds: A comma-separated list of channel_ids for this user to join. At least one channel is required.
                     ///   - customMessage: An optional message to send to the user in the invite email.
-                    ///   - emailPasswordPolicyEnabled: Allow invited user to sign in via email and password. Only available for Enterprise Grid teams via admin invite.
-                    ///   - guestExpirationTs: Timestamp when guest account should be disabled. Only include this timestamp if you are inviting a guest user and you want their account to expire on a
-                    /// certain date.
-                    ///   - isRestricted: Is this user a multi-channel guest user? (default: false).
-                    ///   - isUltraRestricted: Is this user a single channel guest user? (default: false).
                     ///   - realName: Full name of the user.
                     ///   - resend: Allow this invite to be resent in the future if a user has not signed up yet. Resending can only be done via the UI and has no expiration. (default: false).
+                    ///   - isRestricted: Is this user a multi-channel guest user? (default: false).
+                    ///   - isUltraRestricted: Is this user a single channel guest user? (default: false).
+                    ///   - guestExpirationTs: Timestamp when guest account should be disabled. Only include this timestamp if you are inviting a guest user and you want their account to expire on a
+                    /// certain date.
+                    ///   - emailPasswordPolicyEnabled: Allow invited user to sign in via email and password. Only available for Enterprise org teams via admin invite.
                     public init(
-                        channelIds: Swift.String,
-                        email: Swift.String,
                         teamId: Swift.String,
+                        email: Swift.String,
+                        channelIds: Swift.String,
                         customMessage: Swift.String? = nil,
-                        emailPasswordPolicyEnabled: Swift.Bool? = nil,
-                        guestExpirationTs: Swift.String? = nil,
-                        isRestricted: Swift.Bool? = nil,
-                        isUltraRestricted: Swift.Bool? = nil,
                         realName: Swift.String? = nil,
                         resend: Swift.Bool? = nil,
+                        isRestricted: Swift.Bool? = nil,
+                        isUltraRestricted: Swift.Bool? = nil,
+                        guestExpirationTs: Swift.String? = nil,
+                        emailPasswordPolicyEnabled: Swift.Bool? = nil,
                     ) {
-                        self.channelIds = channelIds
-                        self.email = email
                         self.teamId = teamId
+                        self.email = email
+                        self.channelIds = channelIds
                         self.customMessage = customMessage
-                        self.emailPasswordPolicyEnabled = emailPasswordPolicyEnabled
-                        self.guestExpirationTs = guestExpirationTs
-                        self.isRestricted = isRestricted
-                        self.isUltraRestricted = isUltraRestricted
                         self.realName = realName
                         self.resend = resend
+                        self.isRestricted = isRestricted
+                        self.isUltraRestricted = isUltraRestricted
+                        self.guestExpirationTs = guestExpirationTs
+                        self.emailPasswordPolicyEnabled = emailPasswordPolicyEnabled
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case channelIds = "channel_ids"
-                        case email
                         case teamId = "team_id"
+                        case email
+                        case channelIds = "channel_ids"
                         case customMessage = "custom_message"
-                        case emailPasswordPolicyEnabled = "email_password_policy_enabled"
-                        case guestExpirationTs = "guest_expiration_ts"
-                        case isRestricted = "is_restricted"
-                        case isUltraRestricted = "is_ultra_restricted"
                         case realName = "real_name"
                         case resend
+                        case isRestricted = "is_restricted"
+                        case isUltraRestricted = "is_ultra_restricted"
+                        case guestExpirationTs = "guest_expiration_ts"
+                        case emailPasswordPolicyEnabled = "email_password_policy_enabled"
                     }
                 }
 
@@ -11650,64 +11989,64 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// The ID (T1234) of a workspace. Filters results to just the specified workspace.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/team_id`.
+                    public var teamId: Swift.String?
                     /// Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
+                    /// If true, only active users will be returned. If false, only deactivated users will be returned. Default is true.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/is_active`.
+                    public var isActive: Swift.Bool?
                     /// Only applies with org token and no team_id. If true, return workspaces for a user even if they may be deactivated on them. If false, return workspaces for a user only when user
                     /// is active on them. Default is false.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/include_deactivated_user_workspaces`.
                     public var includeDeactivatedUserWorkspaces: Swift.Bool?
-                    /// If true, only active users will be returned. If false, only deactivated users will be returned. Default is true.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/is_active`.
-                    public var isActive: Swift.Bool?
-                    /// Limit for how many users to be retrieved per page.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/limit`.
-                    public var limit: Swift.Int?
                     /// If true, returns only guests and their expiration dates that belong to the team_id.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/only_guests`.
                     public var onlyGuests: Swift.Bool?
-                    /// The ID (T1234) of a workspace. Filters results to just the specified workspace.
+                    /// Limit for how many users to be retrieved per page.
                     ///
-                    /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/team_id`.
-                    public var teamId: Swift.String?
+                    /// - Remark: Generated from `#/paths/admin.users.list/POST/requestBody/json/limit`.
+                    public var limit: Swift.Int?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - teamId: The ID (T1234) of a workspace. Filters results to just the specified workspace.
                     ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///   - isActive: If true, only active users will be returned. If false, only deactivated users will be returned. Default is true.
                     ///   - includeDeactivatedUserWorkspaces: Only applies with org token and no team_id. If true, return workspaces for a user even if they may be deactivated on them. If false,
                     /// return workspaces for a user only when user is active on them. Default is false.
-                    ///   - isActive: If true, only active users will be returned. If false, only deactivated users will be returned. Default is true.
-                    ///   - limit: Limit for how many users to be retrieved per page.
                     ///   - onlyGuests: If true, returns only guests and their expiration dates that belong to the team_id.
-                    ///   - teamId: The ID (T1234) of a workspace. Filters results to just the specified workspace.
+                    ///   - limit: Limit for how many users to be retrieved per page.
                     public init(
-                        cursor: Swift.String? = nil,
-                        includeDeactivatedUserWorkspaces: Swift.Bool? = nil,
-                        isActive: Swift.Bool? = nil,
-                        limit: Swift.Int? = nil,
-                        onlyGuests: Swift.Bool? = nil,
                         teamId: Swift.String? = nil,
+                        cursor: Swift.String? = nil,
+                        isActive: Swift.Bool? = nil,
+                        includeDeactivatedUserWorkspaces: Swift.Bool? = nil,
+                        onlyGuests: Swift.Bool? = nil,
+                        limit: Swift.Int? = nil,
                     ) {
-                        self.cursor = cursor
-                        self.includeDeactivatedUserWorkspaces = includeDeactivatedUserWorkspaces
-                        self.isActive = isActive
-                        self.limit = limit
-                        self.onlyGuests = onlyGuests
                         self.teamId = teamId
+                        self.cursor = cursor
+                        self.isActive = isActive
+                        self.includeDeactivatedUserWorkspaces = includeDeactivatedUserWorkspaces
+                        self.onlyGuests = onlyGuests
+                        self.limit = limit
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case cursor
-                        case includeDeactivatedUserWorkspaces = "include_deactivated_user_workspaces"
-                        case isActive = "is_active"
-                        case limit
-                        case onlyGuests = "only_guests"
                         case teamId = "team_id"
+                        case cursor
+                        case isActive = "is_active"
+                        case includeDeactivatedUserWorkspaces = "include_deactivated_user_workspaces"
+                        case onlyGuests = "only_guests"
+                        case limit
                     }
                 }
 
@@ -12268,162 +12607,6 @@ extension Operations {
         }
     }
 
-    public enum AdminUsersSessionInvalidate {
-        public static let id: Swift.String = "adminUsersSessionInvalidate"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionInvalidate.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.AdminUsersSessionInvalidate.AcceptableContentType>] = .defaultValues()) {
-                    self.accept = accept
-                }
-            }
-
-            public var headers: Operations.AdminUsersSessionInvalidate.Input.Headers
-            /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/requestBody/json`.
-                public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// ID of the session to invalidate.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/requestBody/json/session_id`.
-                    public var sessionId: Swift.Int
-                    /// ID of the user that the session belongs to.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/requestBody/json/user_id`.
-                    public var userId: Swift.String?
-                    /// Creates a new `JsonPayload`.
-                    ///
-                    /// - Parameters:
-                    ///   - sessionId: ID of the session to invalidate.
-                    ///   - userId: ID of the user that the session belongs to.
-                    public init(
-                        sessionId: Swift.Int,
-                        userId: Swift.String? = nil,
-                    ) {
-                        self.sessionId = sessionId
-                        self.userId = userId
-                    }
-
-                    public enum CodingKeys: String, CodingKey {
-                        case sessionId = "session_id"
-                        case userId = "user_id"
-                    }
-                }
-
-                /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/requestBody/content/application\/json`.
-                case json(Operations.AdminUsersSessionInvalidate.Input.Body.JsonPayload)
-            }
-
-            public var body: Operations.AdminUsersSessionInvalidate.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - headers:
-            ///   - body:
-            public init(
-                headers: Operations.AdminUsersSessionInvalidate.Input.Headers = .init(),
-                body: Operations.AdminUsersSessionInvalidate.Input.Body,
-            ) {
-                self.headers = headers
-                self.body = body
-            }
-        }
-
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/admin.users.session.invalidate/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.AdminUsersSessionInvalidateResponse)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.AdminUsersSessionInvalidateResponse {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                body
-                            }
-                        }
-                    }
-                }
-
-                /// Received HTTP response body
-                public var body: Operations.AdminUsersSessionInvalidate.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.AdminUsersSessionInvalidate.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-
-            /// OK
-            ///
-            /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.AdminUsersSessionInvalidate.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.AdminUsersSessionInvalidate.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self,
-                        )
-                    }
-                }
-            }
-
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    string
-                case .json:
-                    "application/json"
-                }
-            }
-
-            public static var allCases: [Self] {
-                [
-                    .json,
-                ]
-            }
-        }
-    }
-
     public enum AdminUsersSessionList {
         public static let id: Swift.String = "adminUsersSessionList"
         public struct Input: Sendable, Hashable {
@@ -12444,14 +12627,6 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.users.session.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.session.list/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
-                    /// The maximum number of items to return. Must be between 1 - 1000 both inclusive.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.session.list/POST/requestBody/json/limit`.
-                    public var limit: Swift.Int?
                     /// The ID of the workspace you'd like active sessions for. If you pass a team_id, you'll need to pass a user_id as well.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.session.list/POST/requestBody/json/team_id`.
@@ -12460,30 +12635,38 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.session.list/POST/requestBody/json/user_id`.
                     public var userId: Swift.String?
+                    /// The maximum number of items to return. Must be between 1 - 1000 both inclusive.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.session.list/POST/requestBody/json/limit`.
+                    public var limit: Swift.Int?
+                    /// Set cursor to next_cursor returned by the previous call to list items in the next page.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.session.list/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
-                    ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
                     ///   - teamId: The ID of the workspace you'd like active sessions for. If you pass a team_id, you'll need to pass a user_id as well.
                     ///   - userId: The ID of user you'd like active sessions for. If you pass a user_id, you'll need to pass a team_id as well.
+                    ///   - limit: The maximum number of items to return. Must be between 1 - 1000 both inclusive.
+                    ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     public init(
-                        cursor: Swift.String? = nil,
-                        limit: Swift.Int? = nil,
                         teamId: Swift.String? = nil,
                         userId: Swift.String? = nil,
+                        limit: Swift.Int? = nil,
+                        cursor: Swift.String? = nil,
                     ) {
-                        self.cursor = cursor
-                        self.limit = limit
                         self.teamId = teamId
                         self.userId = userId
+                        self.limit = limit
+                        self.cursor = cursor
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case cursor
-                        case limit
                         case teamId = "team_id"
                         case userId = "user_id"
+                        case limit
+                        case cursor
                     }
                 }
 
@@ -12780,7 +12963,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.users.session.resetBulk/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The ID of the user to wipe sessions for.
+                    /// The list of up to 1,000 user IDs to wipe sessions for.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.session.resetBulk/POST/requestBody/json/user_ids`.
                     public var userIds: OpenAPIRuntime.OpenAPIArrayContainer
@@ -12795,7 +12978,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - userIds: The ID of the user to wipe sessions for.
+                    ///   - userIds: The list of up to 1,000 user IDs to wipe sessions for.
                     ///   - mobileOnly: Only expire mobile sessions (default: false).
                     ///   - webOnly: Only expire web sessions (default: false).
                     public init(
@@ -12948,34 +13131,34 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.session.setSettings/POST/requestBody/json/user_ids`.
                     public var userIds: OpenAPIRuntime.OpenAPIArrayContainer
-                    /// Terminate the session when the client—either the desktop app or a browser window—is closed.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.session.setSettings/POST/requestBody/json/desktop_app_browser_quit`.
-                    public var desktopAppBrowserQuit: Swift.Bool?
                     /// The session duration, in seconds. The minimum value is 28800, which represents 8 hours; the max value is 315569520 or 10 years (that's a long Slack session).
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.session.setSettings/POST/requestBody/json/duration`.
                     public var duration: Swift.Int?
+                    /// Terminate the session when the client—either the desktop app or a browser window—is closed.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.session.setSettings/POST/requestBody/json/desktop_app_browser_quit`.
+                    public var desktopAppBrowserQuit: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - userIds: The list of up to 1,000 user IDs to apply the session settings for.
-                    ///   - desktopAppBrowserQuit: Terminate the session when the client—either the desktop app or a browser window—is closed.
                     ///   - duration: The session duration, in seconds. The minimum value is 28800, which represents 8 hours; the max value is 315569520 or 10 years (that's a long Slack session).
+                    ///   - desktopAppBrowserQuit: Terminate the session when the client—either the desktop app or a browser window—is closed.
                     public init(
                         userIds: OpenAPIRuntime.OpenAPIArrayContainer,
-                        desktopAppBrowserQuit: Swift.Bool? = nil,
                         duration: Swift.Int? = nil,
+                        desktopAppBrowserQuit: Swift.Bool? = nil,
                     ) {
                         self.userIds = userIds
-                        self.desktopAppBrowserQuit = desktopAppBrowserQuit
                         self.duration = duration
+                        self.desktopAppBrowserQuit = desktopAppBrowserQuit
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case userIds = "user_ids"
-                        case desktopAppBrowserQuit = "desktop_app_browser_quit"
                         case duration
+                        case desktopAppBrowserQuit = "desktop_app_browser_quit"
                     }
                 }
 
@@ -13108,7 +13291,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.users.setAdmin/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The ID (T1234) of the workspace.
+                    /// The ID of the workspace or organization.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.setAdmin/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String
@@ -13119,7 +13302,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - teamId: The ID (T1234) of the workspace.
+                    ///   - teamId: The ID of the workspace or organization.
                     ///   - userId: The ID of the user to designate as an admin.
                     public init(
                         teamId: Swift.String,
@@ -13264,38 +13447,38 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.users.setExpiration/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Epoch timestamp in seconds when guest account should be disabled.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.setExpiration/POST/requestBody/json/expiration_ts`.
-                    public var expirationTs: Swift.Int
-                    /// The ID of the user to set an expiration for.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.setExpiration/POST/requestBody/json/user_id`.
-                    public var userId: Swift.String
                     /// The ID (T1234) of the workspace.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.setExpiration/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    /// The ID of the user to set an expiration for.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.setExpiration/POST/requestBody/json/user_id`.
+                    public var userId: Swift.String
+                    /// Epoch timestamp in seconds when guest account should be disabled.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.setExpiration/POST/requestBody/json/expiration_ts`.
+                    public var expirationTs: Swift.Int
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - expirationTs: Epoch timestamp in seconds when guest account should be disabled.
-                    ///   - userId: The ID of the user to set an expiration for.
                     ///   - teamId: The ID (T1234) of the workspace.
+                    ///   - userId: The ID of the user to set an expiration for.
+                    ///   - expirationTs: Epoch timestamp in seconds when guest account should be disabled.
                     public init(
-                        expirationTs: Swift.Int,
-                        userId: Swift.String,
                         teamId: Swift.String? = nil,
+                        userId: Swift.String,
+                        expirationTs: Swift.Int,
                     ) {
-                        self.expirationTs = expirationTs
-                        self.userId = userId
                         self.teamId = teamId
+                        self.userId = userId
+                        self.expirationTs = expirationTs
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case expirationTs = "expiration_ts"
-                        case userId = "user_id"
                         case teamId = "team_id"
+                        case userId = "user_id"
+                        case expirationTs = "expiration_ts"
                     }
                 }
 
@@ -13428,19 +13611,19 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.users.setOwner/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The ID (T1234) of the workspace.
+                    /// The ID of the workspace or organization.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.setOwner/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String
-                    /// Id of the user to promote to owner.
+                    /// ID of the user to promote to owner.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.setOwner/POST/requestBody/json/user_id`.
                     public var userId: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - teamId: The ID (T1234) of the workspace.
-                    ///   - userId: Id of the user to promote to owner.
+                    ///   - teamId: The ID of the workspace or organization.
+                    ///   - userId: ID of the user to promote to owner.
                     public init(
                         teamId: Swift.String,
                         userId: Swift.String,
@@ -13584,7 +13767,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.users.setRegular/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The ID (T1234) of the workspace.
+                    /// The ID of the workspace or organization.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.setRegular/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String
@@ -13595,7 +13778,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - teamId: The ID (T1234) of the workspace.
+                    ///   - teamId: The ID of the workspace or organization.
                     ///   - userId: The ID of the user to designate as a regular user.
                     public init(
                         teamId: Swift.String,
@@ -13740,30 +13923,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/admin.users.unsupportedVersions.export/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Unix timestamp of the date of past or upcoming end of support cycles. If not provided will include all announced end of support cycles.
-                    ///
-                    /// - Remark: Generated from `#/paths/admin.users.unsupportedVersions.export/POST/requestBody/json/date_end_of_support`.
-                    public var dateEndOfSupport: Swift.Int?
                     /// Unix timestamp of a date to start looking for user sessions. If not provided will start six months ago.
                     ///
                     /// - Remark: Generated from `#/paths/admin.users.unsupportedVersions.export/POST/requestBody/json/date_sessions_started`.
                     public var dateSessionsStarted: Swift.Int?
+                    /// Unix timestamp of the date of past or upcoming end of support cycles. If not provided will include all announced end of support cycles.
+                    ///
+                    /// - Remark: Generated from `#/paths/admin.users.unsupportedVersions.export/POST/requestBody/json/date_end_of_support`.
+                    public var dateEndOfSupport: Swift.Int?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - dateEndOfSupport: Unix timestamp of the date of past or upcoming end of support cycles. If not provided will include all announced end of support cycles.
                     ///   - dateSessionsStarted: Unix timestamp of a date to start looking for user sessions. If not provided will start six months ago.
+                    ///   - dateEndOfSupport: Unix timestamp of the date of past or upcoming end of support cycles. If not provided will include all announced end of support cycles.
                     public init(
-                        dateEndOfSupport: Swift.Int? = nil,
                         dateSessionsStarted: Swift.Int? = nil,
+                        dateEndOfSupport: Swift.Int? = nil,
                     ) {
-                        self.dateEndOfSupport = dateEndOfSupport
                         self.dateSessionsStarted = dateSessionsStarted
+                        self.dateEndOfSupport = dateEndOfSupport
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case dateEndOfSupport = "date_end_of_support"
                         case dateSessionsStarted = "date_sessions_started"
+                        case dateEndOfSupport = "date_end_of_support"
                     }
                 }
 

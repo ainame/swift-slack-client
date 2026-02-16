@@ -13,10 +13,65 @@ import struct Foundation.URL
 #if canImport(SlackModels)
 import SlackModels
 #endif
-/// Types generated from the components section of the OpenAPI document.
+// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Chat
 extension Components.Schemas {
+    /// - Remark: Generated from `#/components/schemas/ChatAppendStreamResponse`.
+    public struct ChatAppendStreamResponse: Codable, Hashable, Sendable {
+        /// - Remark: Generated from `#/components/schemas/ChatAppendStreamResponse/channel`.
+        public var channel: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatAppendStreamResponse/error`.
+        public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatAppendStreamResponse/needed`.
+        public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatAppendStreamResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ChatAppendStreamResponse/provided`.
+        public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatAppendStreamResponse/ts`.
+        public var ts: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatAppendStreamResponse/warning`.
+        public var warning: Swift.String?
+        /// Creates a new `ChatAppendStreamResponse`.
+        ///
+        /// - Parameters:
+        ///   - channel:
+        ///   - error:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
+        ///   - ts:
+        ///   - warning:
+        public init(
+            channel: Swift.String? = nil,
+            error: Swift.String? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            ts: Swift.String? = nil,
+            warning: Swift.String? = nil,
+        ) {
+            self.channel = channel
+            self.error = error
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
+            self.ts = ts
+            self.warning = warning
+        }
+
+        public enum CodingKeys: String, CodingKey {
+            case channel
+            case error
+            case needed
+            case ok
+            case provided
+            case ts
+            case warning
+        }
+    }
+
     /// - Remark: Generated from `#/components/schemas/ChatDeleteResponse`.
     public struct ChatDeleteResponse: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/ChatDeleteResponse/channel`.
@@ -430,6 +485,98 @@ extension Components.Schemas {
             case provided
             case responseMetadata = "response_metadata"
             case scheduledMessages = "scheduled_messages"
+        }
+    }
+
+    /// - Remark: Generated from `#/components/schemas/ChatStartStreamResponse`.
+    public struct ChatStartStreamResponse: Codable, Hashable, Sendable {
+        /// - Remark: Generated from `#/components/schemas/ChatStartStreamResponse/channel`.
+        public var channel: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatStartStreamResponse/error`.
+        public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatStartStreamResponse/needed`.
+        public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatStartStreamResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ChatStartStreamResponse/provided`.
+        public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatStartStreamResponse/ts`.
+        public var ts: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatStartStreamResponse/warning`.
+        public var warning: Swift.String?
+        /// Creates a new `ChatStartStreamResponse`.
+        ///
+        /// - Parameters:
+        ///   - channel:
+        ///   - error:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
+        ///   - ts:
+        ///   - warning:
+        public init(
+            channel: Swift.String? = nil,
+            error: Swift.String? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            ts: Swift.String? = nil,
+            warning: Swift.String? = nil,
+        ) {
+            self.channel = channel
+            self.error = error
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
+            self.ts = ts
+            self.warning = warning
+        }
+
+        public enum CodingKeys: String, CodingKey {
+            case channel
+            case error
+            case needed
+            case ok
+            case provided
+            case ts
+            case warning
+        }
+    }
+
+    /// - Remark: Generated from `#/components/schemas/ChatStopStreamResponse`.
+    public struct ChatStopStreamResponse: Codable, Hashable, Sendable {
+        /// - Remark: Generated from `#/components/schemas/ChatStopStreamResponse/error`.
+        public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatStopStreamResponse/needed`.
+        public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/ChatStopStreamResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/ChatStopStreamResponse/provided`.
+        public var provided: Swift.String?
+        /// Creates a new `ChatStopStreamResponse`.
+        ///
+        /// - Parameters:
+        ///   - error:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
+        public init(
+            error: Swift.String? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+        ) {
+            self.error = error
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
+        }
+
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
         }
     }
 

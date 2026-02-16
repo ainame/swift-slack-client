@@ -18,7 +18,7 @@ func decodePlainTextInput() throws {
     }
     """
 
-    let data = json.data(using: .utf8)!
+    let data = try #require(json.data(using: .utf8))
     let decoder = JSONDecoder()
 
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
@@ -54,7 +54,7 @@ func decodeStaticSelect() throws {
     }
     """
 
-    let data = json.data(using: .utf8)!
+    let data = try #require(json.data(using: .utf8))
     let decoder = JSONDecoder()
 
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
@@ -80,7 +80,7 @@ func decodeMultiSelect() throws {
     }
     """
 
-    let data = json.data(using: .utf8)!
+    let data = try #require(json.data(using: .utf8))
     let decoder = JSONDecoder()
 
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
@@ -105,7 +105,7 @@ func decodeDatePicker() throws {
     }
     """
 
-    let data = json.data(using: .utf8)!
+    let data = try #require(json.data(using: .utf8))
     let decoder = JSONDecoder()
 
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
@@ -123,7 +123,7 @@ func missingValues() throws {
     }
     """
 
-    let data = json.data(using: .utf8)!
+    let data = try #require(json.data(using: .utf8))
     let decoder = JSONDecoder()
 
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
@@ -164,7 +164,7 @@ func decodeComplexForm() throws {
     }
     """
 
-    let data = json.data(using: .utf8)!
+    let data = try #require(json.data(using: .utf8))
     let decoder = JSONDecoder()
 
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)
@@ -185,7 +185,7 @@ func decodeComplexForm() throws {
 func decodeEmptyJSON() throws {
     let json = "{}"
 
-    let data = json.data(using: .utf8)!
+    let data = try #require(json.data(using: .utf8))
     let decoder = JSONDecoder()
 
     let stateValues = try decoder.decode(StateValuesObject.self, from: data)

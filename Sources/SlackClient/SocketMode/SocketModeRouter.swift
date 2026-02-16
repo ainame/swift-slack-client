@@ -191,7 +191,7 @@ public final class SocketModeRouter {
         handlers.append(filterHandler)
     }
 
-    // Regex isn't Sendable at this moment. Compile string pattern in Sendable closure.
+    /// Regex isn't Sendable at this moment. Compile string pattern in Sendable closure.
     public func onSlackMessageMatched(
         with regexPatterns: String...,
         handler: @escaping SocketModeMessageEnvelopePayloadHandler<EventsApiEnvelope<Event>, MessageEvent>,

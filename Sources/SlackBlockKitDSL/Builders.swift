@@ -8,17 +8,17 @@ public struct BlockBuilder {
         []
     }
 
-    // Handle arrays of Block (which is what gets passed from buildExpression)
+    /// Handle arrays of Block (which is what gets passed from buildExpression)
     public static func buildBlock(_ components: [Block]...) -> [Block] {
         components.flatMap(\.self)
     }
 
-    // Handle single BlockComponent
+    /// Handle single BlockComponent
     public static func buildBlock(_ component: some BlockComponent) -> [Block] {
         [component.render()]
     }
 
-    // Handle multiple BlockComponents
+    /// Handle multiple BlockComponents
     public static func buildBlock(_ first: any BlockComponent, _ rest: any BlockComponent...) -> [Block] {
         var result: [Block] = [first.render()]
         for component in rest {
@@ -59,7 +59,7 @@ public struct ActionElementBuilder {
         []
     }
 
-    // Handle arrays of ActionElementType (the primary method)
+    /// Handle arrays of ActionElementType (the primary method)
     public static func buildBlock(_ components: [ActionElementType]...) -> [ActionElementType] {
         components.flatMap(\.self)
     }
@@ -92,7 +92,7 @@ public struct ContextElementBuilder {
         []
     }
 
-    // Handle arrays of ContextElementType (from buildExpression)
+    /// Handle arrays of ContextElementType (from buildExpression)
     public static func buildBlock(_ components: ContextElementType...) -> [ContextElementType] {
         components
     }

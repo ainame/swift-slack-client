@@ -13,6 +13,351 @@ import struct Foundation.URL
 import HTTPTypes
 
 extension Client {
+    /// Sends an ephemeral message to a user in a channel.
+    ///
+    /// - Remark: HTTP `POST /chat.postEphemeral`.
+    /// - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
+    func chatPostEphemeral(_ input: Operations.ChatPostEphemeral.Input) async throws -> Operations.ChatPostEphemeral.Output {
+        try await client.send(
+            input: input,
+            forOperation: Operations.ChatPostEphemeral.id,
+            serializer: { input in
+                let path = try converter.renderedPath(
+                    template: "/chat.postEphemeral",
+                    parameters: [],
+                )
+                var request: HTTPTypes.HTTPRequest = .init(
+                    soar_path: path,
+                    method: .post,
+                )
+                suppressMutabilityWarning(&request)
+                converter.setAcceptHeader(
+                    in: &request.headerFields,
+                    contentTypes: input.headers.accept,
+                )
+                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
+                case let .json(value):
+                    try converter.setRequiredRequestBodyAsJSON(
+                        value,
+                        headerFields: &request.headerFields,
+                        contentType: "application/json; charset=utf-8",
+                    )
+                }
+                return (request, body)
+            },
+            deserializer: { response, responseBody in
+                switch response.status.code {
+                case 200:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.ChatPostEphemeral.Output.Ok.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json",
+                        ],
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Components.Schemas.ChatPostEphemeralResponse.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            },
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .ok(.init(body: body))
+                default:
+                    return .undocumented(
+                        statusCode: response.status.code,
+                        .init(
+                            headerFields: response.headerFields,
+                            body: responseBody,
+                        ),
+                    )
+                }
+            },
+        )
+    }
+
+    /// Sends a message to a channel.
+    ///
+    /// - Remark: HTTP `POST /chat.postMessage`.
+    /// - Remark: Generated from `#/paths//chat.postMessage/post(chatPostMessage)`.
+    func chatPostMessage(_ input: Operations.ChatPostMessage.Input) async throws -> Operations.ChatPostMessage.Output {
+        try await client.send(
+            input: input,
+            forOperation: Operations.ChatPostMessage.id,
+            serializer: { input in
+                let path = try converter.renderedPath(
+                    template: "/chat.postMessage",
+                    parameters: [],
+                )
+                var request: HTTPTypes.HTTPRequest = .init(
+                    soar_path: path,
+                    method: .post,
+                )
+                suppressMutabilityWarning(&request)
+                converter.setAcceptHeader(
+                    in: &request.headerFields,
+                    contentTypes: input.headers.accept,
+                )
+                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
+                case let .json(value):
+                    try converter.setRequiredRequestBodyAsJSON(
+                        value,
+                        headerFields: &request.headerFields,
+                        contentType: "application/json; charset=utf-8",
+                    )
+                }
+                return (request, body)
+            },
+            deserializer: { response, responseBody in
+                switch response.status.code {
+                case 200:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.ChatPostMessage.Output.Ok.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json",
+                        ],
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Components.Schemas.ChatPostMessageResponse.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            },
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .ok(.init(body: body))
+                default:
+                    return .undocumented(
+                        statusCode: response.status.code,
+                        .init(
+                            headerFields: response.headerFields,
+                            body: responseBody,
+                        ),
+                    )
+                }
+            },
+        )
+    }
+
+    /// Schedules a message to be sent to a channel.
+    ///
+    /// - Remark: HTTP `POST /chat.scheduleMessage`.
+    /// - Remark: Generated from `#/paths//chat.scheduleMessage/post(chatScheduleMessage)`.
+    func chatScheduleMessage(_ input: Operations.ChatScheduleMessage.Input) async throws -> Operations.ChatScheduleMessage.Output {
+        try await client.send(
+            input: input,
+            forOperation: Operations.ChatScheduleMessage.id,
+            serializer: { input in
+                let path = try converter.renderedPath(
+                    template: "/chat.scheduleMessage",
+                    parameters: [],
+                )
+                var request: HTTPTypes.HTTPRequest = .init(
+                    soar_path: path,
+                    method: .post,
+                )
+                suppressMutabilityWarning(&request)
+                converter.setAcceptHeader(
+                    in: &request.headerFields,
+                    contentTypes: input.headers.accept,
+                )
+                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
+                case let .json(value):
+                    try converter.setRequiredRequestBodyAsJSON(
+                        value,
+                        headerFields: &request.headerFields,
+                        contentType: "application/json; charset=utf-8",
+                    )
+                }
+                return (request, body)
+            },
+            deserializer: { response, responseBody in
+                switch response.status.code {
+                case 200:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.ChatScheduleMessage.Output.Ok.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json",
+                        ],
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Components.Schemas.ChatScheduleMessageResponse.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            },
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .ok(.init(body: body))
+                default:
+                    return .undocumented(
+                        statusCode: response.status.code,
+                        .init(
+                            headerFields: response.headerFields,
+                            body: responseBody,
+                        ),
+                    )
+                }
+            },
+        )
+    }
+
+    /// Updates a message.
+    ///
+    /// - Remark: HTTP `POST /chat.update`.
+    /// - Remark: Generated from `#/paths//chat.update/post(chatUpdate)`.
+    func chatUpdate(_ input: Operations.ChatUpdate.Input) async throws -> Operations.ChatUpdate.Output {
+        try await client.send(
+            input: input,
+            forOperation: Operations.ChatUpdate.id,
+            serializer: { input in
+                let path = try converter.renderedPath(
+                    template: "/chat.update",
+                    parameters: [],
+                )
+                var request: HTTPTypes.HTTPRequest = .init(
+                    soar_path: path,
+                    method: .post,
+                )
+                suppressMutabilityWarning(&request)
+                converter.setAcceptHeader(
+                    in: &request.headerFields,
+                    contentTypes: input.headers.accept,
+                )
+                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
+                case let .json(value):
+                    try converter.setRequiredRequestBodyAsJSON(
+                        value,
+                        headerFields: &request.headerFields,
+                        contentType: "application/json; charset=utf-8",
+                    )
+                }
+                return (request, body)
+            },
+            deserializer: { response, responseBody in
+                switch response.status.code {
+                case 200:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.ChatUpdate.Output.Ok.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json",
+                        ],
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Components.Schemas.ChatUpdateResponse.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            },
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .ok(.init(body: body))
+                default:
+                    return .undocumented(
+                        statusCode: response.status.code,
+                        .init(
+                            headerFields: response.headerFields,
+                            body: responseBody,
+                        ),
+                    )
+                }
+            },
+        )
+    }
+
+    /// Appends text to an existing streaming conversation.
+    ///
+    /// - Remark: HTTP `POST /chat.appendStream`.
+    /// - Remark: Generated from `#/paths//chat.appendStream/post(chatAppendStream)`.
+    func chatAppendStream(_ input: Operations.ChatAppendStream.Input) async throws -> Operations.ChatAppendStream.Output {
+        try await client.send(
+            input: input,
+            forOperation: Operations.ChatAppendStream.id,
+            serializer: { input in
+                let path = try converter.renderedPath(
+                    template: "/chat.appendStream",
+                    parameters: [],
+                )
+                var request: HTTPTypes.HTTPRequest = .init(
+                    soar_path: path,
+                    method: .post,
+                )
+                suppressMutabilityWarning(&request)
+                converter.setAcceptHeader(
+                    in: &request.headerFields,
+                    contentTypes: input.headers.accept,
+                )
+                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
+                case let .json(value):
+                    try converter.setRequiredRequestBodyAsJSON(
+                        value,
+                        headerFields: &request.headerFields,
+                        contentType: "application/json; charset=utf-8",
+                    )
+                }
+                return (request, body)
+            },
+            deserializer: { response, responseBody in
+                switch response.status.code {
+                case 200:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.ChatAppendStream.Output.Ok.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json",
+                        ],
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Components.Schemas.ChatAppendStreamResponse.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            },
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .ok(.init(body: body))
+                default:
+                    return .undocumented(
+                        statusCode: response.status.code,
+                        .init(
+                            headerFields: response.headerFields,
+                            body: responseBody,
+                        ),
+                    )
+                }
+            },
+        )
+    }
+
     /// Deletes a message.
     ///
     /// - Remark: HTTP `POST /chat.delete`.
@@ -289,213 +634,6 @@ extension Client {
         )
     }
 
-    /// Sends an ephemeral message to a user in a channel.
-    ///
-    /// - Remark: HTTP `POST /chat.postEphemeral`.
-    /// - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
-    func chatPostEphemeral(_ input: Operations.ChatPostEphemeral.Input) async throws -> Operations.ChatPostEphemeral.Output {
-        try await client.send(
-            input: input,
-            forOperation: Operations.ChatPostEphemeral.id,
-            serializer: { input in
-                let path = try converter.renderedPath(
-                    template: "/chat.postEphemeral",
-                    parameters: [],
-                )
-                var request: HTTPTypes.HTTPRequest = .init(
-                    soar_path: path,
-                    method: .post,
-                )
-                suppressMutabilityWarning(&request)
-                converter.setAcceptHeader(
-                    in: &request.headerFields,
-                    contentTypes: input.headers.accept,
-                )
-                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
-                case let .json(value):
-                    try converter.setRequiredRequestBodyAsJSON(
-                        value,
-                        headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
-                    )
-                }
-                return (request, body)
-            },
-            deserializer: { response, responseBody in
-                switch response.status.code {
-                case 200:
-                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.ChatPostEphemeral.Output.Ok.Body
-                    let chosenContentType = try converter.bestContentType(
-                        received: contentType,
-                        options: [
-                            "application/json",
-                        ],
-                    )
-                    switch chosenContentType {
-                    case "application/json":
-                        body = try await converter.getResponseBodyAsJSON(
-                            Components.Schemas.ChatPostEphemeralResponse.self,
-                            from: responseBody,
-                            transforming: { value in
-                                .json(value)
-                            },
-                        )
-                    default:
-                        preconditionFailure("bestContentType chose an invalid content type.")
-                    }
-                    return .ok(.init(body: body))
-                default:
-                    return .undocumented(
-                        statusCode: response.status.code,
-                        .init(
-                            headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
-                    )
-                }
-            },
-        )
-    }
-
-    /// Sends a message to a channel.
-    ///
-    /// - Remark: HTTP `POST /chat.postMessage`.
-    /// - Remark: Generated from `#/paths//chat.postMessage/post(chatPostMessage)`.
-    func chatPostMessage(_ input: Operations.ChatPostMessage.Input) async throws -> Operations.ChatPostMessage.Output {
-        try await client.send(
-            input: input,
-            forOperation: Operations.ChatPostMessage.id,
-            serializer: { input in
-                let path = try converter.renderedPath(
-                    template: "/chat.postMessage",
-                    parameters: [],
-                )
-                var request: HTTPTypes.HTTPRequest = .init(
-                    soar_path: path,
-                    method: .post,
-                )
-                suppressMutabilityWarning(&request)
-                converter.setAcceptHeader(
-                    in: &request.headerFields,
-                    contentTypes: input.headers.accept,
-                )
-                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
-                case let .json(value):
-                    try converter.setRequiredRequestBodyAsJSON(
-                        value,
-                        headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
-                    )
-                }
-                return (request, body)
-            },
-            deserializer: { response, responseBody in
-                switch response.status.code {
-                case 200:
-                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.ChatPostMessage.Output.Ok.Body
-                    let chosenContentType = try converter.bestContentType(
-                        received: contentType,
-                        options: [
-                            "application/json",
-                        ],
-                    )
-                    switch chosenContentType {
-                    case "application/json":
-                        body = try await converter.getResponseBodyAsJSON(
-                            Components.Schemas.ChatPostMessageResponse.self,
-                            from: responseBody,
-                            transforming: { value in
-                                .json(value)
-                            },
-                        )
-                    default:
-                        preconditionFailure("bestContentType chose an invalid content type.")
-                    }
-                    return .ok(.init(body: body))
-                default:
-                    return .undocumented(
-                        statusCode: response.status.code,
-                        .init(
-                            headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
-                    )
-                }
-            },
-        )
-    }
-
-    /// Schedules a message to be sent to a channel.
-    ///
-    /// - Remark: HTTP `POST /chat.scheduleMessage`.
-    /// - Remark: Generated from `#/paths//chat.scheduleMessage/post(chatScheduleMessage)`.
-    func chatScheduleMessage(_ input: Operations.ChatScheduleMessage.Input) async throws -> Operations.ChatScheduleMessage.Output {
-        try await client.send(
-            input: input,
-            forOperation: Operations.ChatScheduleMessage.id,
-            serializer: { input in
-                let path = try converter.renderedPath(
-                    template: "/chat.scheduleMessage",
-                    parameters: [],
-                )
-                var request: HTTPTypes.HTTPRequest = .init(
-                    soar_path: path,
-                    method: .post,
-                )
-                suppressMutabilityWarning(&request)
-                converter.setAcceptHeader(
-                    in: &request.headerFields,
-                    contentTypes: input.headers.accept,
-                )
-                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
-                case let .json(value):
-                    try converter.setRequiredRequestBodyAsJSON(
-                        value,
-                        headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
-                    )
-                }
-                return (request, body)
-            },
-            deserializer: { response, responseBody in
-                switch response.status.code {
-                case 200:
-                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.ChatScheduleMessage.Output.Ok.Body
-                    let chosenContentType = try converter.bestContentType(
-                        received: contentType,
-                        options: [
-                            "application/json",
-                        ],
-                    )
-                    switch chosenContentType {
-                    case "application/json":
-                        body = try await converter.getResponseBodyAsJSON(
-                            Components.Schemas.ChatScheduleMessageResponse.self,
-                            from: responseBody,
-                            transforming: { value in
-                                .json(value)
-                            },
-                        )
-                    default:
-                        preconditionFailure("bestContentType chose an invalid content type.")
-                    }
-                    return .ok(.init(body: body))
-                default:
-                    return .undocumented(
-                        statusCode: response.status.code,
-                        .init(
-                            headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
-                    )
-                }
-            },
-        )
-    }
-
     /// Returns a list of scheduled messages.
     ///
     /// - Remark: HTTP `POST /chat.scheduledMessages.list`.
@@ -565,6 +703,144 @@ extension Client {
         )
     }
 
+    /// Starts a new streaming conversation.
+    ///
+    /// - Remark: HTTP `POST /chat.startStream`.
+    /// - Remark: Generated from `#/paths//chat.startStream/post(chatStartStream)`.
+    func chatStartStream(_ input: Operations.ChatStartStream.Input) async throws -> Operations.ChatStartStream.Output {
+        try await client.send(
+            input: input,
+            forOperation: Operations.ChatStartStream.id,
+            serializer: { input in
+                let path = try converter.renderedPath(
+                    template: "/chat.startStream",
+                    parameters: [],
+                )
+                var request: HTTPTypes.HTTPRequest = .init(
+                    soar_path: path,
+                    method: .post,
+                )
+                suppressMutabilityWarning(&request)
+                converter.setAcceptHeader(
+                    in: &request.headerFields,
+                    contentTypes: input.headers.accept,
+                )
+                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
+                case let .json(value):
+                    try converter.setRequiredRequestBodyAsJSON(
+                        value,
+                        headerFields: &request.headerFields,
+                        contentType: "application/json; charset=utf-8",
+                    )
+                }
+                return (request, body)
+            },
+            deserializer: { response, responseBody in
+                switch response.status.code {
+                case 200:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.ChatStartStream.Output.Ok.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json",
+                        ],
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Components.Schemas.ChatStartStreamResponse.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            },
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .ok(.init(body: body))
+                default:
+                    return .undocumented(
+                        statusCode: response.status.code,
+                        .init(
+                            headerFields: response.headerFields,
+                            body: responseBody,
+                        ),
+                    )
+                }
+            },
+        )
+    }
+
+    /// Stops a streaming conversation.
+    ///
+    /// - Remark: HTTP `POST /chat.stopStream`.
+    /// - Remark: Generated from `#/paths//chat.stopStream/post(chatStopStream)`.
+    func chatStopStream(_ input: Operations.ChatStopStream.Input) async throws -> Operations.ChatStopStream.Output {
+        try await client.send(
+            input: input,
+            forOperation: Operations.ChatStopStream.id,
+            serializer: { input in
+                let path = try converter.renderedPath(
+                    template: "/chat.stopStream",
+                    parameters: [],
+                )
+                var request: HTTPTypes.HTTPRequest = .init(
+                    soar_path: path,
+                    method: .post,
+                )
+                suppressMutabilityWarning(&request)
+                converter.setAcceptHeader(
+                    in: &request.headerFields,
+                    contentTypes: input.headers.accept,
+                )
+                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
+                case let .json(value):
+                    try converter.setRequiredRequestBodyAsJSON(
+                        value,
+                        headerFields: &request.headerFields,
+                        contentType: "application/json; charset=utf-8",
+                    )
+                }
+                return (request, body)
+            },
+            deserializer: { response, responseBody in
+                switch response.status.code {
+                case 200:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.ChatStopStream.Output.Ok.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json",
+                        ],
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Components.Schemas.ChatStopStreamResponse.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            },
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .ok(.init(body: body))
+                default:
+                    return .undocumented(
+                        statusCode: response.status.code,
+                        .init(
+                            headerFields: response.headerFields,
+                            body: responseBody,
+                        ),
+                    )
+                }
+            },
+        )
+    }
+
     /// Provide custom unfurl behavior for user-posted URLs
     ///
     /// - Remark: HTTP `POST /chat.unfurl`.
@@ -612,75 +888,6 @@ extension Client {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
                             Components.Schemas.ChatUnfurlResponse.self,
-                            from: responseBody,
-                            transforming: { value in
-                                .json(value)
-                            },
-                        )
-                    default:
-                        preconditionFailure("bestContentType chose an invalid content type.")
-                    }
-                    return .ok(.init(body: body))
-                default:
-                    return .undocumented(
-                        statusCode: response.status.code,
-                        .init(
-                            headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
-                    )
-                }
-            },
-        )
-    }
-
-    /// Updates a message.
-    ///
-    /// - Remark: HTTP `POST /chat.update`.
-    /// - Remark: Generated from `#/paths//chat.update/post(chatUpdate)`.
-    func chatUpdate(_ input: Operations.ChatUpdate.Input) async throws -> Operations.ChatUpdate.Output {
-        try await client.send(
-            input: input,
-            forOperation: Operations.ChatUpdate.id,
-            serializer: { input in
-                let path = try converter.renderedPath(
-                    template: "/chat.update",
-                    parameters: [],
-                )
-                var request: HTTPTypes.HTTPRequest = .init(
-                    soar_path: path,
-                    method: .post,
-                )
-                suppressMutabilityWarning(&request)
-                converter.setAcceptHeader(
-                    in: &request.headerFields,
-                    contentTypes: input.headers.accept,
-                )
-                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
-                case let .json(value):
-                    try converter.setRequiredRequestBodyAsJSON(
-                        value,
-                        headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
-                    )
-                }
-                return (request, body)
-            },
-            deserializer: { response, responseBody in
-                switch response.status.code {
-                case 200:
-                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.ChatUpdate.Output.Ok.Body
-                    let chosenContentType = try converter.bestContentType(
-                        received: contentType,
-                        options: [
-                            "application/json",
-                        ],
-                    )
-                    switch chosenContentType {
-                    case "application/json":
-                        body = try await converter.getResponseBodyAsJSON(
-                            Components.Schemas.ChatUpdateResponse.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)

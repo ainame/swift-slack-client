@@ -9,7 +9,7 @@ import struct Foundation.Data
 import struct Foundation.Date
 import struct Foundation.URL
 #endif
-/// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
+// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_Assistant
 extension Operations {
@@ -37,34 +37,42 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/assistant.threads.setStatus/POST/requestBody/json/channel_id`.
                     public var channelId: Swift.String
-                    /// Status of the specified bot user, e.g. 'is thinking...'.
-                    ///
-                    /// - Remark: Generated from `#/paths/assistant.threads.setStatus/POST/requestBody/json/status`.
-                    public var status: Swift.String
                     /// Message timestamp of the thread of where to set the status.
                     ///
                     /// - Remark: Generated from `#/paths/assistant.threads.setStatus/POST/requestBody/json/thread_ts`.
                     public var threadTs: Swift.String
+                    /// Status of the specified bot user, e.g., 'is thinking...'. A two minute timeout applies, which will cause the status to be removed if no message has been sent.
+                    ///
+                    /// - Remark: Generated from `#/paths/assistant.threads.setStatus/POST/requestBody/json/status`.
+                    public var status: Swift.String
+                    /// The list of messages to rotate through as a loading indicator. Maximum of 10 messages.
+                    ///
+                    /// - Remark: Generated from `#/paths/assistant.threads.setStatus/POST/requestBody/json/loading_messages`.
+                    public var loadingMessages: OpenAPIRuntime.OpenAPIArrayContainer?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - channelId: Channel ID containing the assistant thread.
-                    ///   - status: Status of the specified bot user, e.g. 'is thinking...'.
                     ///   - threadTs: Message timestamp of the thread of where to set the status.
+                    ///   - status: Status of the specified bot user, e.g., 'is thinking...'. A two minute timeout applies, which will cause the status to be removed if no message has been sent.
+                    ///   - loadingMessages: The list of messages to rotate through as a loading indicator. Maximum of 10 messages.
                     public init(
                         channelId: Swift.String,
-                        status: Swift.String,
                         threadTs: Swift.String,
+                        status: Swift.String,
+                        loadingMessages: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                     ) {
                         self.channelId = channelId
-                        self.status = status
                         self.threadTs = threadTs
+                        self.status = status
+                        self.loadingMessages = loadingMessages
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case channelId = "channel_id"
-                        case status
                         case threadTs = "thread_ts"
+                        case status
+                        case loadingMessages = "loading_messages"
                     }
                 }
 
@@ -201,14 +209,14 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/requestBody/json/channel_id`.
                     public var channelId: Swift.String
-                    /// Each prompt should be supplied with its title and message attribute.
-                    ///
-                    /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/requestBody/json/prompts`.
-                    public var prompts: Swift.String
                     /// Message timestamp of the thread to set suggested prompts for.
                     ///
                     /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/requestBody/json/thread_ts`.
                     public var threadTs: Swift.String
+                    /// Each prompt should be supplied with its title and message attribute.
+                    ///
+                    /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/requestBody/json/prompts`.
+                    public var prompts: Swift.String
                     /// Title for the list of provided prompts. For example: Suggested Prompts, Related Questions.
                     ///
                     /// - Remark: Generated from `#/paths/assistant.threads.setSuggestedPrompts/POST/requestBody/json/title`.
@@ -217,25 +225,25 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channelId: Channel ID containing the assistant thread.
-                    ///   - prompts: Each prompt should be supplied with its title and message attribute.
                     ///   - threadTs: Message timestamp of the thread to set suggested prompts for.
+                    ///   - prompts: Each prompt should be supplied with its title and message attribute.
                     ///   - title: Title for the list of provided prompts. For example: Suggested Prompts, Related Questions.
                     public init(
                         channelId: Swift.String,
-                        prompts: Swift.String,
                         threadTs: Swift.String,
+                        prompts: Swift.String,
                         title: Swift.String? = nil,
                     ) {
                         self.channelId = channelId
-                        self.prompts = prompts
                         self.threadTs = threadTs
+                        self.prompts = prompts
                         self.title = title
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case channelId = "channel_id"
-                        case prompts
                         case threadTs = "thread_ts"
+                        case prompts
                         case title
                     }
                 }

@@ -33,7 +33,7 @@ public struct RichTextInputElement: Codable, Hashable, Sendable {
     }
 }
 
-// Rich Text Object for input elements - based on rich text specifications
+/// Rich Text Object for input elements - based on rich text specifications
 public struct RichTextObject: Codable, Hashable, Sendable {
     public let type: String
     public let elements: [RichTextElementType]

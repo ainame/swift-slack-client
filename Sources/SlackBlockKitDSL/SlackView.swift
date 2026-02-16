@@ -56,15 +56,38 @@ public protocol SlackHomeTabView: SlackView {
 // MARK: - Default Implementations
 
 extension SlackModalView {
-    // Provide defaults for all optional properties
-    public var submit: TextObject? { nil }
-    public var close: TextObject? { nil }
-    public var callbackId: String? { nil }
-    public var clearOnClose: Bool? { nil }
-    public var notifyOnClose: Bool? { nil }
-    public var externalId: String? { nil }
-    public var submitDisabled: Bool? { nil }
-    public var privateMetadata: String? { nil }
+    /// Provide defaults for all optional properties
+    public var submit: TextObject? {
+        nil
+    }
+
+    public var close: TextObject? {
+        nil
+    }
+
+    public var callbackId: String? {
+        nil
+    }
+
+    public var clearOnClose: Bool? {
+        nil
+    }
+
+    public var notifyOnClose: Bool? {
+        nil
+    }
+
+    public var externalId: String? {
+        nil
+    }
+
+    public var submitDisabled: Bool? {
+        nil
+    }
+
+    public var privateMetadata: String? {
+        nil
+    }
 
     /// Builds this modal view into a ModalView
     public func render() -> View {
@@ -86,9 +109,14 @@ extension SlackModalView {
 }
 
 extension SlackHomeTabView {
-    // Provide defaults for all optional properties
-    public var externalId: String? { nil }
-    public var privateMetadata: String? { nil }
+    /// Provide defaults for all optional properties
+    public var externalId: String? {
+        nil
+    }
+
+    public var privateMetadata: String? {
+        nil
+    }
 
     /// Builds this home tab view into a View
     public func render() -> View {

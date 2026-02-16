@@ -9,7 +9,7 @@ import struct Foundation.Data
 import struct Foundation.Date
 import struct Foundation.URL
 #endif
-/// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
+// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_DND
 extension Operations {
@@ -305,31 +305,31 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/dnd.info/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Encoded team id where passed in user param belongs, required if org token is used. If no user param is passed, then a team which has access to the app should be passed.
-                    ///
-                    /// - Remark: Generated from `#/paths/dnd.info/POST/requestBody/json/team_id`.
-                    public var teamId: Swift.String?
                     /// User to fetch status for (defaults to current user).
                     ///
                     /// - Remark: Generated from `#/paths/dnd.info/POST/requestBody/json/user`.
                     public var user: Swift.String?
+                    /// Encoded team id where passed in user param belongs, required if org token is used. If no user param is passed, then a team which has access to the app should be passed.
+                    ///
+                    /// - Remark: Generated from `#/paths/dnd.info/POST/requestBody/json/team_id`.
+                    public var teamId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - user: User to fetch status for (defaults to current user).
                     ///   - teamId: Encoded team id where passed in user param belongs, required if org token is used. If no user param is passed, then a team which has access to the app should be
                     /// passed.
-                    ///   - user: User to fetch status for (defaults to current user).
                     public init(
-                        teamId: Swift.String? = nil,
                         user: Swift.String? = nil,
+                        teamId: Swift.String? = nil,
                     ) {
-                        self.teamId = teamId
                         self.user = user
+                        self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case teamId = "team_id"
                         case user
+                        case teamId = "team_id"
                     }
                 }
 

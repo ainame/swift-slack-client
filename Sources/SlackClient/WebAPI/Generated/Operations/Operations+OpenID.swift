@@ -9,7 +9,7 @@ import struct Foundation.Data
 import struct Foundation.Date
 import struct Foundation.URL
 #endif
-/// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
+// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_OpenID
 extension Operations {
@@ -45,14 +45,14 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/code`.
                     public var code: Swift.String?
-                    /// The grant_type param as described in the OAuth spec.
-                    ///
-                    /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/grant_type`.
-                    public var grantType: Swift.String?
                     /// This must match the originally submitted URI (if one was sent).
                     ///
                     /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/redirect_uri`.
                     public var redirectUri: Swift.String?
+                    /// The grant_type param as described in the OAuth spec.
+                    ///
+                    /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/grant_type`.
+                    public var grantType: Swift.String?
                     /// The refresh_token param as described in the OAuth spec.
                     ///
                     /// - Remark: Generated from `#/paths/openid.connect.token/POST/requestBody/json/refresh_token`.
@@ -63,22 +63,22 @@ extension Operations {
                     ///   - clientId: Issued when you created your application.
                     ///   - clientSecret: Issued when you created your application.
                     ///   - code: The code param returned via the OAuth callback.
-                    ///   - grantType: The grant_type param as described in the OAuth spec.
                     ///   - redirectUri: This must match the originally submitted URI (if one was sent).
+                    ///   - grantType: The grant_type param as described in the OAuth spec.
                     ///   - refreshToken: The refresh_token param as described in the OAuth spec.
                     public init(
                         clientId: Swift.String? = nil,
                         clientSecret: Swift.String? = nil,
                         code: Swift.String? = nil,
-                        grantType: Swift.String? = nil,
                         redirectUri: Swift.String? = nil,
+                        grantType: Swift.String? = nil,
                         refreshToken: Swift.String? = nil,
                     ) {
                         self.clientId = clientId
                         self.clientSecret = clientSecret
                         self.code = code
-                        self.grantType = grantType
                         self.redirectUri = redirectUri
+                        self.grantType = grantType
                         self.refreshToken = refreshToken
                     }
 
@@ -86,8 +86,8 @@ extension Operations {
                         case clientId = "client_id"
                         case clientSecret = "client_secret"
                         case code
-                        case grantType = "grant_type"
                         case redirectUri = "redirect_uri"
+                        case grantType = "grant_type"
                         case refreshToken = "refresh_token"
                     }
                 }

@@ -20,5 +20,7 @@ public struct ViewSubmissionPayload: InteractivePayloadProtocol, Decodable, Send
 }
 
 extension ViewSubmissionPayload {
-    public var callbackId: String? { view.callbackId }
+    public var callbackId: String? {
+        view.callbackId
+    }
 }

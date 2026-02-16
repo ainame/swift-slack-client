@@ -9,7 +9,7 @@ import struct Foundation.Data
 import struct Foundation.Date
 import struct Foundation.URL
 #endif
-/// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
+// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_Search
 extension Operations {
@@ -33,14 +33,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/search.all/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Search query. May contains booleans, etc.
-                    ///
-                    /// - Remark: Generated from `#/paths/search.all/POST/requestBody/json/query`.
-                    public var query: Swift.String
                     /// Pass a value of true to enable query highlight markers (see below).
                     ///
                     /// - Remark: Generated from `#/paths/search.all/POST/requestBody/json/highlight`.
                     public var highlight: Swift.Bool?
+                    /// Search query. May contains booleans, etc.
+                    ///
+                    /// - Remark: Generated from `#/paths/search.all/POST/requestBody/json/query`.
+                    public var query: Swift.String
                     /// Return matches sorted by either score or timestamp.
                     ///
                     /// - Remark: Generated from `#/paths/search.all/POST/requestBody/json/sort`.
@@ -56,28 +56,28 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - query: Search query. May contains booleans, etc.
                     ///   - highlight: Pass a value of true to enable query highlight markers (see below).
+                    ///   - query: Search query. May contains booleans, etc.
                     ///   - sort: Return matches sorted by either score or timestamp.
                     ///   - sortDir: Change sort direction to ascending (asc) or descending (desc).
                     ///   - teamId: encoded team id to search in, required if org token is used.
                     public init(
-                        query: Swift.String,
                         highlight: Swift.Bool? = nil,
+                        query: Swift.String,
                         sort: Swift.String? = nil,
                         sortDir: Swift.String? = nil,
                         teamId: Swift.String? = nil,
                     ) {
-                        self.query = query
                         self.highlight = highlight
+                        self.query = query
                         self.sort = sort
                         self.sortDir = sortDir
                         self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case query
                         case highlight
+                        case query
                         case sort
                         case sortDir = "sort_dir"
                         case teamId = "team_id"
@@ -213,14 +213,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/search.files/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Search query.
-                    ///
-                    /// - Remark: Generated from `#/paths/search.files/POST/requestBody/json/query`.
-                    public var query: Swift.String
                     /// Pass a value of true to enable query highlight markers (see below).
                     ///
                     /// - Remark: Generated from `#/paths/search.files/POST/requestBody/json/highlight`.
                     public var highlight: Swift.Bool?
+                    /// Search query.
+                    ///
+                    /// - Remark: Generated from `#/paths/search.files/POST/requestBody/json/query`.
+                    public var query: Swift.String
                     /// Return matches sorted by either score or timestamp.
                     ///
                     /// - Remark: Generated from `#/paths/search.files/POST/requestBody/json/sort`.
@@ -236,28 +236,28 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - query: Search query.
                     ///   - highlight: Pass a value of true to enable query highlight markers (see below).
+                    ///   - query: Search query.
                     ///   - sort: Return matches sorted by either score or timestamp.
                     ///   - sortDir: Change sort direction to ascending (asc) or descending (desc).
                     ///   - teamId: encoded team id to search in, required if org token is used.
                     public init(
-                        query: Swift.String,
                         highlight: Swift.Bool? = nil,
+                        query: Swift.String,
                         sort: Swift.String? = nil,
                         sortDir: Swift.String? = nil,
                         teamId: Swift.String? = nil,
                     ) {
-                        self.query = query
                         self.highlight = highlight
+                        self.query = query
                         self.sort = sort
                         self.sortDir = sortDir
                         self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case query
                         case highlight
+                        case query
                         case sort
                         case sortDir = "sort_dir"
                         case teamId = "team_id"
@@ -393,18 +393,18 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Search query.
-                    ///
-                    /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json/query`.
-                    public var query: Swift.String
-                    /// Use this when getting results with cursormark pagination. For first call send * for subsequent calls, send the value of next_cursor returned in the previous call's results.
-                    ///
-                    /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
                     /// Pass a value of true to enable query highlight markers (see below).
                     ///
                     /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json/highlight`.
                     public var highlight: Swift.Bool?
+                    /// Use this when getting results with cursormark pagination. For first call send * for subsequent calls, send the value of next_cursor returned in the previous call's results.
+                    ///
+                    /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
+                    /// Search query.
+                    ///
+                    /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json/query`.
+                    public var query: Swift.String
                     /// Return matches sorted by either score or timestamp.
                     ///
                     /// - Remark: Generated from `#/paths/search.messages/POST/requestBody/json/sort`.
@@ -420,33 +420,33 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - query: Search query.
+                    ///   - highlight: Pass a value of true to enable query highlight markers (see below).
                     ///   - cursor: Use this when getting results with cursormark pagination. For first call send * for subsequent calls, send the value of next_cursor returned in the previous call's
                     /// results.
-                    ///   - highlight: Pass a value of true to enable query highlight markers (see below).
+                    ///   - query: Search query.
                     ///   - sort: Return matches sorted by either score or timestamp.
                     ///   - sortDir: Change sort direction to ascending (asc) or descending (desc).
                     ///   - teamId: encoded team id to search in, required if org token is used.
                     public init(
-                        query: Swift.String,
-                        cursor: Swift.String? = nil,
                         highlight: Swift.Bool? = nil,
+                        cursor: Swift.String? = nil,
+                        query: Swift.String,
                         sort: Swift.String? = nil,
                         sortDir: Swift.String? = nil,
                         teamId: Swift.String? = nil,
                     ) {
-                        self.query = query
-                        self.cursor = cursor
                         self.highlight = highlight
+                        self.cursor = cursor
+                        self.query = query
                         self.sort = sort
                         self.sortDir = sortDir
                         self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case query
-                        case cursor
                         case highlight
+                        case cursor
+                        case query
                         case sort
                         case sortDir = "sort_dir"
                         case teamId = "team_id"

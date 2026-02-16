@@ -1,6 +1,6 @@
 import Foundation
 
-// https://docs.slack.dev/reference/interaction-payloads
+/// https://docs.slack.dev/reference/interaction-payloads
 public struct InteractiveEnvelope: Decodable, Hashable, Sendable {
     public let _type: String
     public let body: InteractivePayload

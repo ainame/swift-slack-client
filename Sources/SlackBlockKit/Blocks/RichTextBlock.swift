@@ -63,7 +63,7 @@ public enum RichTextElementType: Codable, Hashable, Sendable {
     }
 }
 
-// Rich text element implementations based on Slack API specifications
+/// Rich text element implementations based on Slack API specifications
 public struct RichTextSection: Codable, Hashable, Sendable {
     public let type: String
     public let elements: [RichTextContentElement]
@@ -223,7 +223,7 @@ public enum RichTextContentElement: Codable, Hashable, Sendable {
     }
 }
 
-// Rich text content elements
+/// Rich text content elements
 public struct RichTextTextElement: Codable, Hashable, Sendable {
     public let type: String
     public let text: String

@@ -269,7 +269,7 @@ private let jsonDecoder = JSONDecoder()
     #expect(decodedView == view)
 }
 
-@Test func textModifiers() throws {
+@Test func textModifiers() {
     // Test plain text with emoji
     let plainText = Text("Hello 👋")
         .emoji(true)
@@ -293,10 +293,10 @@ private let jsonDecoder = JSONDecoder()
 }
 
 @Test func optionBuilding() throws {
-    let option = Option(Text("Email notifications").type(.mrkdwn))
+    let option = try Option(Text("Email notifications").type(.mrkdwn))
         .value("email")
         .description("Get daily email summaries")
-        .url(URL(string: "https://example.com/settings")!)
+        .url(#require(URL(string: "https://example.com/settings")))
 
     let optionObject = option.render()
     #expect(optionObject.text.text == "Email notifications")
@@ -305,7 +305,7 @@ private let jsonDecoder = JSONDecoder()
     #expect(optionObject.url?.absoluteString == "https://example.com/settings")
 }
 
-@Test func buttonModifiers() throws {
+@Test func buttonModifiers() {
     let button = Button("Click me")
         .actionId("click_action")
         .style(.primary)
@@ -326,7 +326,7 @@ private let jsonDecoder = JSONDecoder()
     }
 }
 
-@Test func checkboxesInitialOptions() throws {
+@Test func checkboxesInitialOptions() {
     let checkboxes = Checkboxes {
         Option("Option A").value("a")
         Option("Option B").value("b")
@@ -352,7 +352,7 @@ private let jsonDecoder = JSONDecoder()
     }
 }
 
-@Test func autoclosureModifiers() throws {
+@Test func autoclosureModifiers() {
     // Test Button with autoclosure confirm
     let button = Button("Delete")
         .actionId("delete_action")

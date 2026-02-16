@@ -783,9 +783,17 @@ public struct RichBroadcast {
         self.range = range
     }
 
-    public static var here: RichBroadcast { RichBroadcast("here") }
-    public static var channel: RichBroadcast { RichBroadcast("channel") }
-    public static var everyone: RichBroadcast { RichBroadcast("everyone") }
+    public static var here: RichBroadcast {
+        RichBroadcast("here")
+    }
+
+    public static var channel: RichBroadcast {
+        RichBroadcast("channel")
+    }
+
+    public static var everyone: RichBroadcast {
+        RichBroadcast("everyone")
+    }
 
     public func asRichTextContent() -> RichTextContentElement {
         .broadcast(RichTextBroadcastElement(range: range))

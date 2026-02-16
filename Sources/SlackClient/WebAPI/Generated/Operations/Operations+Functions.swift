@@ -9,7 +9,7 @@ import struct Foundation.Data
 import struct Foundation.Date
 import struct Foundation.URL
 #endif
-/// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
+// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_Functions
 extension Operations {
@@ -33,30 +33,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/functions.completeError/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// A human-readable error message that contains information about why the function failed to complete.
-                    ///
-                    /// - Remark: Generated from `#/paths/functions.completeError/POST/requestBody/json/error`.
-                    public var error: Swift.String
                     /// Context identifier that maps to the executed function.
                     ///
                     /// - Remark: Generated from `#/paths/functions.completeError/POST/requestBody/json/function_execution_id`.
                     public var functionExecutionId: Swift.String
+                    /// A human-readable error message that contains information about why the function failed to complete.
+                    ///
+                    /// - Remark: Generated from `#/paths/functions.completeError/POST/requestBody/json/error`.
+                    public var error: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - error: A human-readable error message that contains information about why the function failed to complete.
                     ///   - functionExecutionId: Context identifier that maps to the executed function.
+                    ///   - error: A human-readable error message that contains information about why the function failed to complete.
                     public init(
-                        error: Swift.String,
                         functionExecutionId: Swift.String,
+                        error: Swift.String,
                     ) {
-                        self.error = error
                         self.functionExecutionId = functionExecutionId
+                        self.error = error
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case error
                         case functionExecutionId = "function_execution_id"
+                        case error
                     }
                 }
 

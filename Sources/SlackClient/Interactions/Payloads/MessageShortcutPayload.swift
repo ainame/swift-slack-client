@@ -1,7 +1,7 @@
 import Foundation
 import SlackModels
 
-// https://docs.slack.dev/reference/interaction-payloads/shortcuts-interaction-payload
+/// https://docs.slack.dev/reference/interaction-payloads/shortcuts-interaction-payload
 public struct MessageShortcutPayload: InteractivePayloadProtocol, Decodable, Sendable {
     /// "shortcut"
     public let _type: String

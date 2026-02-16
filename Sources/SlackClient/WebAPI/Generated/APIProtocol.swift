@@ -12,10 +12,56 @@ import struct Foundation.URL
 /// A type that performs HTTP operations defined by the OpenAPI document.
 public protocol APIProtocol: Sendable {
     #if WebAPI_Admin
-    /// Get logs for a specified team/org
+    /// Revoke a single session for a user. The user will be forced to login to Slack.
     ///
-    /// - Remark: HTTP `POST /admin.apps.activities.list`.
-    /// - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
+    /// - Remark: HTTP `POST /admin.users.session.invalidate`.
+    /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)`.
+    func adminUsersSessionInvalidate(_ input: Operations.AdminUsersSessionInvalidate.Input) async throws -> Operations.AdminUsersSessionInvalidate.Output
+    // Sends an ephemeral message to a user in a channel.
+    //
+    // - Remark: HTTP `POST /chat.postEphemeral`.
+    // - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
+    #endif
+    #if WebAPI_Chat
+    func chatPostEphemeral(_ input: Operations.ChatPostEphemeral.Input) async throws -> Operations.ChatPostEphemeral.Output
+    /// Sends a message to a channel.
+    ///
+    /// - Remark: HTTP `POST /chat.postMessage`.
+    /// - Remark: Generated from `#/paths//chat.postMessage/post(chatPostMessage)`.
+    func chatPostMessage(_ input: Operations.ChatPostMessage.Input) async throws -> Operations.ChatPostMessage.Output
+    /// Schedules a message to be sent to a channel.
+    ///
+    /// - Remark: HTTP `POST /chat.scheduleMessage`.
+    /// - Remark: Generated from `#/paths//chat.scheduleMessage/post(chatScheduleMessage)`.
+    func chatScheduleMessage(_ input: Operations.ChatScheduleMessage.Input) async throws -> Operations.ChatScheduleMessage.Output
+    /// Updates a message.
+    ///
+    /// - Remark: HTTP `POST /chat.update`.
+    /// - Remark: Generated from `#/paths//chat.update/post(chatUpdate)`.
+    func chatUpdate(_ input: Operations.ChatUpdate.Input) async throws -> Operations.ChatUpdate.Output
+    // Open a view for a user.
+    //
+    // - Remark: HTTP `POST /views.open`.
+    // - Remark: Generated from `#/paths//views.open/post(viewsOpen)`.
+    #endif
+    #if WebAPI_Views
+    func viewsOpen(_ input: Operations.ViewsOpen.Input) async throws -> Operations.ViewsOpen.Output
+    /// Push a view onto the stack of a root view.
+    ///
+    /// - Remark: HTTP `POST /views.push`.
+    /// - Remark: Generated from `#/paths//views.push/post(viewsPush)`.
+    func viewsPush(_ input: Operations.ViewsPush.Input) async throws -> Operations.ViewsPush.Output
+    /// Update an existing view.
+    ///
+    /// - Remark: HTTP `POST /views.update`.
+    /// - Remark: Generated from `#/paths//views.update/post(viewsUpdate)`.
+    func viewsUpdate(_ input: Operations.ViewsUpdate.Input) async throws -> Operations.ViewsUpdate.Output
+    // Get logs for a specified team/org
+    //
+    // - Remark: HTTP `POST /admin.apps.activities.list`.
+    // - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
+    #endif
+    #if WebAPI_Admin
     func adminAppsActivitiesList(_ input: Operations.AdminAppsActivitiesList.Input) async throws -> Operations.AdminAppsActivitiesList.Output
     /// Approve an app for installation on a workspace.
     ///
@@ -219,7 +265,7 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /admin.conversations.setCustomRetention`.
     /// - Remark: Generated from `#/paths//admin.conversations.setCustomRetention/post(adminConversationsSetCustomRetention)`.
     func adminConversationsSetCustomRetention(_ input: Operations.AdminConversationsSetCustomRetention.Input) async throws -> Operations.AdminConversationsSetCustomRetention.Output
-    /// Set the workspaces in an Enterprise grid org that connect to a public or private channel.
+    /// Set the workspaces in an Enterprise org that connect to a public or private channel.
     ///
     /// - Remark: HTTP `POST /admin.conversations.setTeams`.
     /// - Remark: Generated from `#/paths//admin.conversations.setTeams/post(adminConversationsSetTeams)`.
@@ -239,12 +285,12 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /admin.emoji.addAlias`.
     /// - Remark: Generated from `#/paths//admin.emoji.addAlias/post(adminEmojiAddAlias)`.
     func adminEmojiAddAlias(_ input: Operations.AdminEmojiAddAlias.Input) async throws -> Operations.AdminEmojiAddAlias.Output
-    /// List emoji for an Enterprise Grid organization.
+    /// List emoji for an Enterprise organization.
     ///
     /// - Remark: HTTP `POST /admin.emoji.list`.
     /// - Remark: Generated from `#/paths//admin.emoji.list/post(adminEmojiList)`.
     func adminEmojiList(_ input: Operations.AdminEmojiList.Input) async throws -> Operations.AdminEmojiList.Output
-    /// Remove an emoji across an Enterprise Grid organization
+    /// Remove an emoji across an Enterprise organization
     ///
     /// - Remark: HTTP `POST /admin.emoji.remove`.
     /// - Remark: Generated from `#/paths//admin.emoji.remove/post(adminEmojiRemove)`.
@@ -254,7 +300,7 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /admin.emoji.rename`.
     /// - Remark: Generated from `#/paths//admin.emoji.rename/post(adminEmojiRename)`.
     func adminEmojiRename(_ input: Operations.AdminEmojiRename.Input) async throws -> Operations.AdminEmojiRename.Output
-    /// Look up functions by a set of apps
+    /// Look up functions by a set of apps.
     ///
     /// - Remark: HTTP `POST /admin.functions.list`.
     /// - Remark: Generated from `#/paths//admin.functions.list/post(adminFunctionsList)`.
@@ -264,7 +310,7 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /admin.functions.permissions.lookup`.
     /// - Remark: Generated from `#/paths//admin.functions.permissions.lookup/post(adminFunctionsPermissionsLookup)`.
     func adminFunctionsPermissionsLookup(_ input: Operations.AdminFunctionsPermissionsLookup.Input) async throws -> Operations.AdminFunctionsPermissionsLookup.Output
-    /// Set the visibility of a Slack function and define the users or workspaces if it is set to named_entities
+    /// Set the visibility of a Slack function and define the users or workspaces if it is set to named_entities.
     ///
     /// - Remark: HTTP `POST /admin.functions.permissions.set`.
     /// - Remark: Generated from `#/paths//admin.functions.permissions.set/post(adminFunctionsPermissionsSet)`.
@@ -319,7 +365,7 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /admin.teams.create`.
     /// - Remark: Generated from `#/paths//admin.teams.create/post(adminTeamsCreate)`.
     func adminTeamsCreate(_ input: Operations.AdminTeamsCreate.Input) async throws -> Operations.AdminTeamsCreate.Output
-    /// List all teams on an Enterprise organization
+    /// List all teams in an Enterprise organization
     ///
     /// - Remark: HTTP `POST /admin.teams.list`.
     /// - Remark: Generated from `#/paths//admin.teams.list/post(adminTeamsList)`.
@@ -364,6 +410,11 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /admin.users.assign`.
     /// - Remark: Generated from `#/paths//admin.users.assign/post(adminUsersAssign)`.
     func adminUsersAssign(_ input: Operations.AdminUsersAssign.Input) async throws -> Operations.AdminUsersAssign.Output
+    /// Fetches the expiration timestamp for a guest
+    ///
+    /// - Remark: HTTP `POST /admin.users.getExpiration`.
+    /// - Remark: Generated from `#/paths//admin.users.getExpiration/post(adminUsersGetExpiration)`.
+    func adminUsersGetExpiration(_ input: Operations.AdminUsersGetExpiration.Input) async throws -> Operations.AdminUsersGetExpiration.Output
     /// Invite a user to a workspace.
     ///
     /// - Remark: HTTP `POST /admin.users.invite`.
@@ -389,11 +440,6 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /admin.users.session.getSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.getSettings/post(adminUsersSessionGetSettings)`.
     func adminUsersSessionGetSettings(_ input: Operations.AdminUsersSessionGetSettings.Input) async throws -> Operations.AdminUsersSessionGetSettings.Output
-    /// Revoke a single session for a user. The user will be forced to login to Slack.
-    ///
-    /// - Remark: HTTP `POST /admin.users.session.invalidate`.
-    /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)`.
-    func adminUsersSessionInvalidate(_ input: Operations.AdminUsersSessionInvalidate.Input) async throws -> Operations.AdminUsersSessionInvalidate.Output
     /// List active user sessions for an organization
     ///
     /// - Remark: HTTP `POST /admin.users.session.list`.
@@ -414,7 +460,7 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /admin.users.session.setSettings`.
     /// - Remark: Generated from `#/paths//admin.users.session.setSettings/post(adminUsersSessionSetSettings)`.
     func adminUsersSessionSetSettings(_ input: Operations.AdminUsersSessionSetSettings.Input) async throws -> Operations.AdminUsersSessionSetSettings.Output
-    /// Set an existing regular user or owner to be a workspace admin.
+    /// Set an existing regular user or owner to be a workspace or org admin.
     ///
     /// - Remark: HTTP `POST /admin.users.setAdmin`.
     /// - Remark: Generated from `#/paths//admin.users.setAdmin/post(adminUsersSetAdmin)`.
@@ -424,7 +470,7 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /admin.users.setExpiration`.
     /// - Remark: Generated from `#/paths//admin.users.setExpiration/post(adminUsersSetExpiration)`.
     func adminUsersSetExpiration(_ input: Operations.AdminUsersSetExpiration.Input) async throws -> Operations.AdminUsersSetExpiration.Output
-    /// Set an existing regular user or admin to be a workspace owner.
+    /// Set an existing regular user or admin to be a workspace or org owner.
     ///
     /// - Remark: HTTP `POST /admin.users.setOwner`.
     /// - Remark: Generated from `#/paths//admin.users.setOwner/post(adminUsersSetOwner)`.
@@ -439,10 +485,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /admin.users.unsupportedVersions.export`.
     /// - Remark: Generated from `#/paths//admin.users.unsupportedVersions.export/post(adminUsersUnsupportedVersionsExport)`.
     func adminUsersUnsupportedVersionsExport(_ input: Operations.AdminUsersUnsupportedVersionsExport.Input) async throws -> Operations.AdminUsersUnsupportedVersionsExport.Output
-    /// Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over.
-    ///
-    /// - Remark: HTTP `POST /apps.connections.open`.
-    /// - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
+    // Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over.
+    //
+    // - Remark: HTTP `POST /apps.connections.open`.
+    // - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
     #endif
     #if WebAPI_Apps
     func appsConnectionsOpen(_ input: Operations.AppsConnectionsOpen.Input) async throws -> Operations.AppsConnectionsOpen.Output
@@ -481,10 +527,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /apps.uninstall`.
     /// - Remark: Generated from `#/paths//apps.uninstall/post(appsUninstall)`.
     func appsUninstall(_ input: Operations.AppsUninstall.Input) async throws -> Operations.AppsUninstall.Output
-    /// Set the status for an AI assistant thread.
-    ///
-    /// - Remark: HTTP `POST /assistant.threads.setStatus`.
-    /// - Remark: Generated from `#/paths//assistant.threads.setStatus/post(assistantThreadsSetStatus)`.
+    // Set the status for an AI assistant thread.
+    //
+    // - Remark: HTTP `POST /assistant.threads.setStatus`.
+    // - Remark: Generated from `#/paths//assistant.threads.setStatus/post(assistantThreadsSetStatus)`.
     #endif
     #if WebAPI_Assistant
     func assistantThreadsSetStatus(_ input: Operations.AssistantThreadsSetStatus.Input) async throws -> Operations.AssistantThreadsSetStatus.Output
@@ -498,10 +544,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /assistant.threads.setTitle`.
     /// - Remark: Generated from `#/paths//assistant.threads.setTitle/post(assistantThreadsSetTitle)`.
     func assistantThreadsSetTitle(_ input: Operations.AssistantThreadsSetTitle.Input) async throws -> Operations.AssistantThreadsSetTitle.Output
-    /// Revokes a token.
-    ///
-    /// - Remark: HTTP `POST /auth.revoke`.
-    /// - Remark: Generated from `#/paths//auth.revoke/post(authRevoke)`.
+    // Revokes a token.
+    //
+    // - Remark: HTTP `POST /auth.revoke`.
+    // - Remark: Generated from `#/paths//auth.revoke/post(authRevoke)`.
     #endif
     #if WebAPI_Auth
     func authRevoke(_ input: Operations.AuthRevoke.Input) async throws -> Operations.AuthRevoke.Output
@@ -515,10 +561,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /auth.test`.
     /// - Remark: Generated from `#/paths//auth.test/post(authTest)`.
     func authTest(_ input: Operations.AuthTest.Input) async throws -> Operations.AuthTest.Output
-    /// Add bookmark to a channel.
-    ///
-    /// - Remark: HTTP `POST /bookmarks.add`.
-    /// - Remark: Generated from `#/paths//bookmarks.add/post(bookmarksAdd)`.
+    // Add bookmark to a channel.
+    //
+    // - Remark: HTTP `POST /bookmarks.add`.
+    // - Remark: Generated from `#/paths//bookmarks.add/post(bookmarksAdd)`.
     #endif
     #if WebAPI_Bookmarks
     func bookmarksAdd(_ input: Operations.BookmarksAdd.Input) async throws -> Operations.BookmarksAdd.Output
@@ -537,17 +583,17 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /bookmarks.remove`.
     /// - Remark: Generated from `#/paths//bookmarks.remove/post(bookmarksRemove)`.
     func bookmarksRemove(_ input: Operations.BookmarksRemove.Input) async throws -> Operations.BookmarksRemove.Output
-    /// Gets information about a bot user.
-    ///
-    /// - Remark: HTTP `POST /bots.info`.
-    /// - Remark: Generated from `#/paths//bots.info/post(botsInfo)`.
+    // Gets information about a bot user.
+    //
+    // - Remark: HTTP `POST /bots.info`.
+    // - Remark: Generated from `#/paths//bots.info/post(botsInfo)`.
     #endif
     #if WebAPI_Bots
     func botsInfo(_ input: Operations.BotsInfo.Input) async throws -> Operations.BotsInfo.Output
-    /// Remove access to a canvas for specified entities
-    ///
-    /// - Remark: HTTP `POST /canvases.access.delete`.
-    /// - Remark: Generated from `#/paths//canvases.access.delete/post(canvasesAccessDelete)`.
+    // Remove access to a canvas for specified entities
+    //
+    // - Remark: HTTP `POST /canvases.access.delete`.
+    // - Remark: Generated from `#/paths//canvases.access.delete/post(canvasesAccessDelete)`.
     #endif
     #if WebAPI_Canvases
     func canvasesAccessDelete(_ input: Operations.CanvasesAccessDelete.Input) async throws -> Operations.CanvasesAccessDelete.Output
@@ -576,12 +622,17 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /canvases.sections.lookup`.
     /// - Remark: Generated from `#/paths//canvases.sections.lookup/post(canvasesSectionsLookup)`.
     func canvasesSectionsLookup(_ input: Operations.CanvasesSectionsLookup.Input) async throws -> Operations.CanvasesSectionsLookup.Output
+    // Appends text to an existing streaming conversation.
+    //
+    // - Remark: HTTP `POST /chat.appendStream`.
+    // - Remark: Generated from `#/paths//chat.appendStream/post(chatAppendStream)`.
+    #endif
+    #if WebAPI_Chat
+    func chatAppendStream(_ input: Operations.ChatAppendStream.Input) async throws -> Operations.ChatAppendStream.Output
     /// Deletes a message.
     ///
     /// - Remark: HTTP `POST /chat.delete`.
     /// - Remark: Generated from `#/paths//chat.delete/post(chatDelete)`.
-    #endif
-    #if WebAPI_Chat
     func chatDelete(_ input: Operations.ChatDelete.Input) async throws -> Operations.ChatDelete.Output
     /// Deletes a pending scheduled message from the queue.
     ///
@@ -598,40 +649,30 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /chat.meMessage`.
     /// - Remark: Generated from `#/paths//chat.meMessage/post(chatMeMessage)`.
     func chatMeMessage(_ input: Operations.ChatMeMessage.Input) async throws -> Operations.ChatMeMessage.Output
-    /// Sends an ephemeral message to a user in a channel.
-    ///
-    /// - Remark: HTTP `POST /chat.postEphemeral`.
-    /// - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
-    func chatPostEphemeral(_ input: Operations.ChatPostEphemeral.Input) async throws -> Operations.ChatPostEphemeral.Output
-    /// Sends a message to a channel.
-    ///
-    /// - Remark: HTTP `POST /chat.postMessage`.
-    /// - Remark: Generated from `#/paths//chat.postMessage/post(chatPostMessage)`.
-    func chatPostMessage(_ input: Operations.ChatPostMessage.Input) async throws -> Operations.ChatPostMessage.Output
-    /// Schedules a message to be sent to a channel.
-    ///
-    /// - Remark: HTTP `POST /chat.scheduleMessage`.
-    /// - Remark: Generated from `#/paths//chat.scheduleMessage/post(chatScheduleMessage)`.
-    func chatScheduleMessage(_ input: Operations.ChatScheduleMessage.Input) async throws -> Operations.ChatScheduleMessage.Output
     /// Returns a list of scheduled messages.
     ///
     /// - Remark: HTTP `POST /chat.scheduledMessages.list`.
     /// - Remark: Generated from `#/paths//chat.scheduledMessages.list/post(chatScheduledMessagesList)`.
     func chatScheduledMessagesList(_ input: Operations.ChatScheduledMessagesList.Input) async throws -> Operations.ChatScheduledMessagesList.Output
+    /// Starts a new streaming conversation.
+    ///
+    /// - Remark: HTTP `POST /chat.startStream`.
+    /// - Remark: Generated from `#/paths//chat.startStream/post(chatStartStream)`.
+    func chatStartStream(_ input: Operations.ChatStartStream.Input) async throws -> Operations.ChatStartStream.Output
+    /// Stops a streaming conversation.
+    ///
+    /// - Remark: HTTP `POST /chat.stopStream`.
+    /// - Remark: Generated from `#/paths//chat.stopStream/post(chatStopStream)`.
+    func chatStopStream(_ input: Operations.ChatStopStream.Input) async throws -> Operations.ChatStopStream.Output
     /// Provide custom unfurl behavior for user-posted URLs
     ///
     /// - Remark: HTTP `POST /chat.unfurl`.
     /// - Remark: Generated from `#/paths//chat.unfurl/post(chatUnfurl)`.
     func chatUnfurl(_ input: Operations.ChatUnfurl.Input) async throws -> Operations.ChatUnfurl.Output
-    /// Updates a message.
-    ///
-    /// - Remark: HTTP `POST /chat.update`.
-    /// - Remark: Generated from `#/paths//chat.update/post(chatUpdate)`.
-    func chatUpdate(_ input: Operations.ChatUpdate.Input) async throws -> Operations.ChatUpdate.Output
-    /// Accepts an invitation to a Slack Connect channel.
-    ///
-    /// - Remark: HTTP `POST /conversations.acceptSharedInvite`.
-    /// - Remark: Generated from `#/paths//conversations.acceptSharedInvite/post(conversationsAcceptSharedInvite)`.
+    // Accepts an invitation to a Slack Connect channel.
+    //
+    // - Remark: HTTP `POST /conversations.acceptSharedInvite`.
+    // - Remark: Generated from `#/paths//conversations.acceptSharedInvite/post(conversationsAcceptSharedInvite)`.
     #endif
     #if WebAPI_Conversations
     func conversationsAcceptSharedInvite(_ input: Operations.ConversationsAcceptSharedInvite.Input) async throws -> Operations.ConversationsAcceptSharedInvite.Output
@@ -770,10 +811,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /conversations.unarchive`.
     /// - Remark: Generated from `#/paths//conversations.unarchive/post(conversationsUnarchive)`.
     func conversationsUnarchive(_ input: Operations.ConversationsUnarchive.Input) async throws -> Operations.ConversationsUnarchive.Output
-    /// Ends the current user's Do Not Disturb session immediately.
-    ///
-    /// - Remark: HTTP `POST /dnd.endDnd`.
-    /// - Remark: Generated from `#/paths//dnd.endDnd/post(dndEndDnd)`.
+    // Ends the current user's Do Not Disturb session immediately.
+    //
+    // - Remark: HTTP `POST /dnd.endDnd`.
+    // - Remark: Generated from `#/paths//dnd.endDnd/post(dndEndDnd)`.
     #endif
     #if WebAPI_DND
     func dndEndDnd(_ input: Operations.DndEndDnd.Input) async throws -> Operations.DndEndDnd.Output
@@ -797,17 +838,24 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /dnd.teamInfo`.
     /// - Remark: Generated from `#/paths//dnd.teamInfo/post(dndTeamInfo)`.
     func dndTeamInfo(_ input: Operations.DndTeamInfo.Input) async throws -> Operations.DndTeamInfo.Output
-    /// Lists custom emoji for a team.
-    ///
-    /// - Remark: HTTP `POST /emoji.list`.
-    /// - Remark: Generated from `#/paths//emoji.list/post(emojiList)`.
+    // Lists custom emoji for a team.
+    //
+    // - Remark: HTTP `POST /emoji.list`.
+    // - Remark: Generated from `#/paths//emoji.list/post(emojiList)`.
     #endif
     #if WebAPI_Emoji
     func emojiList(_ input: Operations.EmojiList.Input) async throws -> Operations.EmojiList.Output
-    /// Finishes an upload started with files.getUploadURLExternal
-    ///
-    /// - Remark: HTTP `POST /files.completeUploadExternal`.
-    /// - Remark: Generated from `#/paths//files.completeUploadExternal/post(filesCompleteUploadExternal)`.
+    // Provide custom flexpane behavior for Work Objects. Apps call this endpoint to send per-user flexpane metadata to the client.
+    //
+    // - Remark: HTTP `POST /entity.presentDetails`.
+    // - Remark: Generated from `#/paths//entity.presentDetails/post(entityPresentDetails)`.
+    #endif
+    #if WebAPI_Entity
+    func entityPresentDetails(_ input: Operations.EntityPresentDetails.Input) async throws -> Operations.EntityPresentDetails.Output
+    // Finishes an upload started with files.getUploadURLExternal
+    //
+    // - Remark: HTTP `POST /files.completeUploadExternal`.
+    // - Remark: Generated from `#/paths//files.completeUploadExternal/post(filesCompleteUploadExternal)`.
     #endif
     #if WebAPI_Files
     func filesCompleteUploadExternal(_ input: Operations.FilesCompleteUploadExternal.Input) async throws -> Operations.FilesCompleteUploadExternal.Output
@@ -876,10 +924,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /files.upload`.
     /// - Remark: Generated from `#/paths//files.upload/post(filesUpload)`.
     func filesUpload(_ input: Operations.FilesUpload.Input) async throws -> Operations.FilesUpload.Output
-    /// Signal that a function failed to complete
-    ///
-    /// - Remark: HTTP `POST /functions.completeError`.
-    /// - Remark: Generated from `#/paths//functions.completeError/post(functionsCompleteError)`.
+    // Signal that a function failed to complete
+    //
+    // - Remark: HTTP `POST /functions.completeError`.
+    // - Remark: Generated from `#/paths//functions.completeError/post(functionsCompleteError)`.
     #endif
     #if WebAPI_Functions
     func functionsCompleteError(_ input: Operations.FunctionsCompleteError.Input) async throws -> Operations.FunctionsCompleteError.Output
@@ -888,17 +936,79 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /functions.completeSuccess`.
     /// - Remark: Generated from `#/paths//functions.completeSuccess/post(functionsCompleteSuccess)`.
     func functionsCompleteSuccess(_ input: Operations.FunctionsCompleteSuccess.Input) async throws -> Operations.FunctionsCompleteSuccess.Output
-    /// For Enterprise Grid workspaces, map local user IDs to global user IDs
+    // Revoke access to a List for specified entities.
+    //
+    // - Remark: HTTP `POST /slackLists.access.delete`.
+    // - Remark: Generated from `#/paths//slackLists.access.delete/post(slackListsAccessDelete)`.
+    #endif
+    #if WebAPI_Lists
+    func slackListsAccessDelete(_ input: Operations.SlackListsAccessDelete.Input) async throws -> Operations.SlackListsAccessDelete.Output
+    /// Set the access level to a List for specified entities.
     ///
-    /// - Remark: HTTP `POST /migration.exchange`.
-    /// - Remark: Generated from `#/paths//migration.exchange/post(migrationExchange)`.
+    /// - Remark: HTTP `POST /slackLists.access.set`.
+    /// - Remark: Generated from `#/paths//slackLists.access.set/post(slackListsAccessSet)`.
+    func slackListsAccessSet(_ input: Operations.SlackListsAccessSet.Input) async throws -> Operations.SlackListsAccessSet.Output
+    /// Create a List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.create`.
+    /// - Remark: Generated from `#/paths//slackLists.create/post(slackListsCreate)`.
+    func slackListsCreate(_ input: Operations.SlackListsCreate.Input) async throws -> Operations.SlackListsCreate.Output
+    /// Retrieve List download URL from an export job to download List contents.
+    ///
+    /// - Remark: HTTP `POST /slackLists.download.get`.
+    /// - Remark: Generated from `#/paths//slackLists.download.get/post(slackListsDownloadGet)`.
+    func slackListsDownloadGet(_ input: Operations.SlackListsDownloadGet.Input) async throws -> Operations.SlackListsDownloadGet.Output
+    /// Initiate a job to export List contents.
+    ///
+    /// - Remark: HTTP `POST /slackLists.download.start`.
+    /// - Remark: Generated from `#/paths//slackLists.download.start/post(slackListsDownloadStart)`.
+    func slackListsDownloadStart(_ input: Operations.SlackListsDownloadStart.Input) async throws -> Operations.SlackListsDownloadStart.Output
+    /// Add a new item to an existing List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.items.create`.
+    /// - Remark: Generated from `#/paths//slackLists.items.create/post(slackListsItemsCreate)`.
+    func slackListsItemsCreate(_ input: Operations.SlackListsItemsCreate.Input) async throws -> Operations.SlackListsItemsCreate.Output
+    /// Deletes an item from an existing List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.items.delete`.
+    /// - Remark: Generated from `#/paths//slackLists.items.delete/post(slackListsItemsDelete)`.
+    func slackListsItemsDelete(_ input: Operations.SlackListsItemsDelete.Input) async throws -> Operations.SlackListsItemsDelete.Output
+    /// Deletes multiple items from an existing List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.items.deleteMultiple`.
+    /// - Remark: Generated from `#/paths//slackLists.items.deleteMultiple/post(slackListsItemsDeleteMultiple)`.
+    func slackListsItemsDeleteMultiple(_ input: Operations.SlackListsItemsDeleteMultiple.Input) async throws -> Operations.SlackListsItemsDeleteMultiple.Output
+    /// Get a row from a List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.items.info`.
+    /// - Remark: Generated from `#/paths//slackLists.items.info/post(slackListsItemsInfo)`.
+    func slackListsItemsInfo(_ input: Operations.SlackListsItemsInfo.Input) async throws -> Operations.SlackListsItemsInfo.Output
+    /// Get records from a List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.items.list`.
+    /// - Remark: Generated from `#/paths//slackLists.items.list/post(slackListsItemsList)`.
+    func slackListsItemsList(_ input: Operations.SlackListsItemsList.Input) async throws -> Operations.SlackListsItemsList.Output
+    /// Updates cells in a List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.items.update`.
+    /// - Remark: Generated from `#/paths//slackLists.items.update/post(slackListsItemsUpdate)`.
+    func slackListsItemsUpdate(_ input: Operations.SlackListsItemsUpdate.Input) async throws -> Operations.SlackListsItemsUpdate.Output
+    /// Update a List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.update`.
+    /// - Remark: Generated from `#/paths//slackLists.update/post(slackListsUpdate)`.
+    func slackListsUpdate(_ input: Operations.SlackListsUpdate.Input) async throws -> Operations.SlackListsUpdate.Output
+    // For Enterprise organization workspaces, map local user IDs to global user IDs
+    //
+    // - Remark: HTTP `POST /migration.exchange`.
+    // - Remark: Generated from `#/paths//migration.exchange/post(migrationExchange)`.
     #endif
     #if WebAPI_Migration
     func migrationExchange(_ input: Operations.MigrationExchange.Input) async throws -> Operations.MigrationExchange.Output
-    /// Exchanges a temporary OAuth verifier code for an access token.
-    ///
-    /// - Remark: HTTP `POST /oauth.v2.access`.
-    /// - Remark: Generated from `#/paths//oauth.v2.access/post(oauthV2Access)`.
+    // Exchanges a temporary OAuth verifier code for an access token.
+    //
+    // - Remark: HTTP `POST /oauth.v2.access`.
+    // - Remark: Generated from `#/paths//oauth.v2.access/post(oauthV2Access)`.
     #endif
     #if WebAPI_OAuth
     func oauthV2Access(_ input: Operations.OauthV2Access.Input) async throws -> Operations.OauthV2Access.Output
@@ -907,10 +1017,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /oauth.v2.exchange`.
     /// - Remark: Generated from `#/paths//oauth.v2.exchange/post(oauthV2Exchange)`.
     func oauthV2Exchange(_ input: Operations.OauthV2Exchange.Input) async throws -> Operations.OauthV2Exchange.Output
-    /// Exchanges a temporary OAuth verifier code for an access token for Sign in with Slack.
-    ///
-    /// - Remark: HTTP `POST /openid.connect.token`.
-    /// - Remark: Generated from `#/paths//openid.connect.token/post(openidConnectToken)`.
+    // Exchanges a temporary OAuth verifier code for an access token for Sign in with Slack.
+    //
+    // - Remark: HTTP `POST /openid.connect.token`.
+    // - Remark: Generated from `#/paths//openid.connect.token/post(openidConnectToken)`.
     #endif
     #if WebAPI_OpenID
     func openidConnectToken(_ input: Operations.OpenidConnectToken.Input) async throws -> Operations.OpenidConnectToken.Output
@@ -919,10 +1029,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /openid.connect.userInfo`.
     /// - Remark: Generated from `#/paths//openid.connect.userInfo/post(openidConnectUserInfo)`.
     func openidConnectUserInfo(_ input: Operations.OpenidConnectUserInfo.Input) async throws -> Operations.OpenidConnectUserInfo.Output
-    /// Pins an item to a channel.
-    ///
-    /// - Remark: HTTP `POST /pins.add`.
-    /// - Remark: Generated from `#/paths//pins.add/post(pinsAdd)`.
+    // Pins an item to a channel.
+    //
+    // - Remark: HTTP `POST /pins.add`.
+    // - Remark: Generated from `#/paths//pins.add/post(pinsAdd)`.
     #endif
     #if WebAPI_Pins
     func pinsAdd(_ input: Operations.PinsAdd.Input) async throws -> Operations.PinsAdd.Output
@@ -936,10 +1046,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /pins.remove`.
     /// - Remark: Generated from `#/paths//pins.remove/post(pinsRemove)`.
     func pinsRemove(_ input: Operations.PinsRemove.Input) async throws -> Operations.PinsRemove.Output
-    /// Adds a reaction to an item.
-    ///
-    /// - Remark: HTTP `POST /reactions.add`.
-    /// - Remark: Generated from `#/paths//reactions.add/post(reactionsAdd)`.
+    // Adds a reaction to an item.
+    //
+    // - Remark: HTTP `POST /reactions.add`.
+    // - Remark: Generated from `#/paths//reactions.add/post(reactionsAdd)`.
     #endif
     #if WebAPI_Reactions
     func reactionsAdd(_ input: Operations.ReactionsAdd.Input) async throws -> Operations.ReactionsAdd.Output
@@ -958,10 +1068,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /reactions.remove`.
     /// - Remark: Generated from `#/paths//reactions.remove/post(reactionsRemove)`.
     func reactionsRemove(_ input: Operations.ReactionsRemove.Input) async throws -> Operations.ReactionsRemove.Output
-    /// Creates a reminder.
-    ///
-    /// - Remark: HTTP `POST /reminders.add`.
-    /// - Remark: Generated from `#/paths//reminders.add/post(remindersAdd)`.
+    // Creates a reminder.
+    //
+    // - Remark: HTTP `POST /reminders.add`.
+    // - Remark: Generated from `#/paths//reminders.add/post(remindersAdd)`.
     #endif
     #if WebAPI_Reminders
     func remindersAdd(_ input: Operations.RemindersAdd.Input) async throws -> Operations.RemindersAdd.Output
@@ -985,10 +1095,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /reminders.list`.
     /// - Remark: Generated from `#/paths//reminders.list/post(remindersList)`.
     func remindersList(_ input: Operations.RemindersList.Input) async throws -> Operations.RemindersList.Output
-    /// Searches for messages and files matching a query.
-    ///
-    /// - Remark: HTTP `POST /search.all`.
-    /// - Remark: Generated from `#/paths//search.all/post(searchAll)`.
+    // Searches for messages and files matching a query.
+    //
+    // - Remark: HTTP `POST /search.all`.
+    // - Remark: Generated from `#/paths//search.all/post(searchAll)`.
     #endif
     #if WebAPI_Search
     func searchAll(_ input: Operations.SearchAll.Input) async throws -> Operations.SearchAll.Output
@@ -1002,72 +1112,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /search.messages`.
     /// - Remark: Generated from `#/paths//search.messages/post(searchMessages)`.
     func searchMessages(_ input: Operations.SearchMessages.Input) async throws -> Operations.SearchMessages.Output
-    /// Remove access to a list for specified entities
-    ///
-    /// - Remark: HTTP `POST /slackLists.access.delete`.
-    /// - Remark: Generated from `#/paths//slackLists.access.delete/post(slackListsAccessDelete)`.
-    #endif
-    #if WebAPI_Lists
-    func slackListsAccessDelete(_ input: Operations.SlackListsAccessDelete.Input) async throws -> Operations.SlackListsAccessDelete.Output
-    /// Sets the access level to a list for specified entities
-    ///
-    /// - Remark: HTTP `POST /slackLists.access.set`.
-    /// - Remark: Generated from `#/paths//slackLists.access.set/post(slackListsAccessSet)`.
-    func slackListsAccessSet(_ input: Operations.SlackListsAccessSet.Input) async throws -> Operations.SlackListsAccessSet.Output
-    /// Create a list
-    ///
-    /// - Remark: HTTP `POST /slackLists.create`.
-    /// - Remark: Generated from `#/paths//slackLists.create/post(slackListsCreate)`.
-    func slackListsCreate(_ input: Operations.SlackListsCreate.Input) async throws -> Operations.SlackListsCreate.Output
-    /// Retrieve list download URL from an export job to download list contents
-    ///
-    /// - Remark: HTTP `POST /slackLists.download.get`.
-    /// - Remark: Generated from `#/paths//slackLists.download.get/post(slackListsDownloadGet)`.
-    func slackListsDownloadGet(_ input: Operations.SlackListsDownloadGet.Input) async throws -> Operations.SlackListsDownloadGet.Output
-    /// Initiate a job to export list contents
-    ///
-    /// - Remark: HTTP `POST /slackLists.download.start`.
-    /// - Remark: Generated from `#/paths//slackLists.download.start/post(slackListsDownloadStart)`.
-    func slackListsDownloadStart(_ input: Operations.SlackListsDownloadStart.Input) async throws -> Operations.SlackListsDownloadStart.Output
-    /// Adds a new item to an existing list.
-    ///
-    /// - Remark: HTTP `POST /slackLists.items.create`.
-    /// - Remark: Generated from `#/paths//slackLists.items.create/post(slackListsItemsCreate)`.
-    func slackListsItemsCreate(_ input: Operations.SlackListsItemsCreate.Input) async throws -> Operations.SlackListsItemsCreate.Output
-    /// Deletes an item from an existing list.
-    ///
-    /// - Remark: HTTP `POST /slackLists.items.delete`.
-    /// - Remark: Generated from `#/paths//slackLists.items.delete/post(slackListsItemsDelete)`.
-    func slackListsItemsDelete(_ input: Operations.SlackListsItemsDelete.Input) async throws -> Operations.SlackListsItemsDelete.Output
-    /// Deletes multiple items from an existing list.
-    ///
-    /// - Remark: HTTP `POST /slackLists.items.deleteMultiple`.
-    /// - Remark: Generated from `#/paths//slackLists.items.deleteMultiple/post(slackListsItemsDeleteMultiple)`.
-    func slackListsItemsDeleteMultiple(_ input: Operations.SlackListsItemsDeleteMultiple.Input) async throws -> Operations.SlackListsItemsDeleteMultiple.Output
-    /// Get a row from a list
-    ///
-    /// - Remark: HTTP `POST /slackLists.items.info`.
-    /// - Remark: Generated from `#/paths//slackLists.items.info/post(slackListsItemsInfo)`.
-    func slackListsItemsInfo(_ input: Operations.SlackListsItemsInfo.Input) async throws -> Operations.SlackListsItemsInfo.Output
-    /// Get records from a list
-    ///
-    /// - Remark: HTTP `POST /slackLists.items.list`.
-    /// - Remark: Generated from `#/paths//slackLists.items.list/post(slackListsItemsList)`.
-    func slackListsItemsList(_ input: Operations.SlackListsItemsList.Input) async throws -> Operations.SlackListsItemsList.Output
-    /// Updates cells in a list
-    ///
-    /// - Remark: HTTP `POST /slackLists.items.update`.
-    /// - Remark: Generated from `#/paths//slackLists.items.update/post(slackListsItemsUpdate)`.
-    func slackListsItemsUpdate(_ input: Operations.SlackListsItemsUpdate.Input) async throws -> Operations.SlackListsItemsUpdate.Output
-    /// Update a list
-    ///
-    /// - Remark: HTTP `POST /slackLists.update`.
-    /// - Remark: Generated from `#/paths//slackLists.update/post(slackListsUpdate)`.
-    func slackListsUpdate(_ input: Operations.SlackListsUpdate.Input) async throws -> Operations.SlackListsUpdate.Output
-    /// Save an item for later. Formerly known as adding a star.
-    ///
-    /// - Remark: HTTP `POST /stars.add`.
-    /// - Remark: Generated from `#/paths//stars.add/post(starsAdd)`.
+    // Save an item for later. Formerly known as adding a star.
+    //
+    // - Remark: HTTP `POST /stars.add`.
+    // - Remark: Generated from `#/paths//stars.add/post(starsAdd)`.
     #endif
     #if WebAPI_Stars
     func starsAdd(_ input: Operations.StarsAdd.Input) async throws -> Operations.StarsAdd.Output
@@ -1081,10 +1129,10 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /stars.remove`.
     /// - Remark: Generated from `#/paths//stars.remove/post(starsRemove)`.
     func starsRemove(_ input: Operations.StarsRemove.Input) async throws -> Operations.StarsRemove.Output
-    /// Gets the access logs for the current team.
-    ///
-    /// - Remark: HTTP `POST /team.accessLogs`.
-    /// - Remark: Generated from `#/paths//team.accessLogs/post(teamAccessLogs)`.
+    // Gets the access logs for the current team.
+    //
+    // - Remark: HTTP `POST /team.accessLogs`.
+    // - Remark: Generated from `#/paths//team.accessLogs/post(teamAccessLogs)`.
     #endif
     #if WebAPI_Team
     func teamAccessLogs(_ input: Operations.TeamAccessLogs.Input) async throws -> Operations.TeamAccessLogs.Output
@@ -1128,17 +1176,17 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /team.profile.get`.
     /// - Remark: Generated from `#/paths//team.profile.get/post(teamProfileGet)`.
     func teamProfileGet(_ input: Operations.TeamProfileGet.Input) async throws -> Operations.TeamProfileGet.Output
-    /// Exchanges a refresh token for a new app configuration token.
-    ///
-    /// - Remark: HTTP `POST /tooling.tokens.rotate`.
-    /// - Remark: Generated from `#/paths//tooling.tokens.rotate/post(toolingTokensRotate)`.
+    // Exchanges a refresh token for a new app configuration token.
+    //
+    // - Remark: HTTP `POST /tooling.tokens.rotate`.
+    // - Remark: Generated from `#/paths//tooling.tokens.rotate/post(toolingTokensRotate)`.
     #endif
     #if WebAPI_Tooling
     func toolingTokensRotate(_ input: Operations.ToolingTokensRotate.Input) async throws -> Operations.ToolingTokensRotate.Output
-    /// List conversations the calling user may access.
-    ///
-    /// - Remark: HTTP `POST /users.conversations`.
-    /// - Remark: Generated from `#/paths//users.conversations/post(usersConversations)`.
+    // List conversations the calling user is a member of.
+    //
+    // - Remark: HTTP `POST /users.conversations`.
+    // - Remark: Generated from `#/paths//users.conversations/post(usersConversations)`.
     #endif
     #if WebAPI_Users
     func usersConversations(_ input: Operations.UsersConversations.Input) async throws -> Operations.UsersConversations.Output
@@ -1202,38 +1250,138 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /users.setPresence`.
     /// - Remark: Generated from `#/paths//users.setPresence/post(usersSetPresence)`.
     func usersSetPresence(_ input: Operations.UsersSetPresence.Input) async throws -> Operations.UsersSetPresence.Output
-    /// Open a view for a user.
-    ///
-    /// - Remark: HTTP `POST /views.open`.
-    /// - Remark: Generated from `#/paths//views.open/post(viewsOpen)`.
+    // Publish a static view for a User.
+    //
+    // - Remark: HTTP `POST /views.publish`.
+    // - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
     #endif
     #if WebAPI_Views
-    func viewsOpen(_ input: Operations.ViewsOpen.Input) async throws -> Operations.ViewsOpen.Output
-    /// Publish a static view for a User.
-    ///
-    /// - Remark: HTTP `POST /views.publish`.
-    /// - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
     func viewsPublish(_ input: Operations.ViewsPublish.Input) async throws -> Operations.ViewsPublish.Output
-    /// Push a view onto the stack of a root view.
-    ///
-    /// - Remark: HTTP `POST /views.push`.
-    /// - Remark: Generated from `#/paths//views.push/post(viewsPush)`.
-    func viewsPush(_ input: Operations.ViewsPush.Input) async throws -> Operations.ViewsPush.Output
-    /// Update an existing view.
-    ///
-    /// - Remark: HTTP `POST /views.update`.
-    /// - Remark: Generated from `#/paths//views.update/post(viewsUpdate)`.
-    func viewsUpdate(_ input: Operations.ViewsUpdate.Input) async throws -> Operations.ViewsUpdate.Output
     #endif
 }
 
 /// Convenience overloads for operation inputs.
 extension APIProtocol {
     #if WebAPI_Admin
-    /// Get logs for a specified team/org
+    /// Revoke a single session for a user. The user will be forced to login to Slack.
     ///
-    /// - Remark: HTTP `POST /admin.apps.activities.list`.
-    /// - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
+    /// - Remark: HTTP `POST /admin.users.session.invalidate`.
+    /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)`.
+    public func adminUsersSessionInvalidate(
+        headers: Operations.AdminUsersSessionInvalidate.Input.Headers = .init(),
+        body: Operations.AdminUsersSessionInvalidate.Input.Body,
+    ) async throws -> Operations.AdminUsersSessionInvalidate.Output {
+        try await adminUsersSessionInvalidate(Operations.AdminUsersSessionInvalidate.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+    // Sends an ephemeral message to a user in a channel.
+    //
+    // - Remark: HTTP `POST /chat.postEphemeral`.
+    // - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
+    #endif
+    #if WebAPI_Chat
+    public func chatPostEphemeral(
+        headers: Operations.ChatPostEphemeral.Input.Headers = .init(),
+        body: Operations.ChatPostEphemeral.Input.Body,
+    ) async throws -> Operations.ChatPostEphemeral.Output {
+        try await chatPostEphemeral(Operations.ChatPostEphemeral.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Sends a message to a channel.
+    ///
+    /// - Remark: HTTP `POST /chat.postMessage`.
+    /// - Remark: Generated from `#/paths//chat.postMessage/post(chatPostMessage)`.
+    public func chatPostMessage(
+        headers: Operations.ChatPostMessage.Input.Headers = .init(),
+        body: Operations.ChatPostMessage.Input.Body,
+    ) async throws -> Operations.ChatPostMessage.Output {
+        try await chatPostMessage(Operations.ChatPostMessage.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Schedules a message to be sent to a channel.
+    ///
+    /// - Remark: HTTP `POST /chat.scheduleMessage`.
+    /// - Remark: Generated from `#/paths//chat.scheduleMessage/post(chatScheduleMessage)`.
+    public func chatScheduleMessage(
+        headers: Operations.ChatScheduleMessage.Input.Headers = .init(),
+        body: Operations.ChatScheduleMessage.Input.Body,
+    ) async throws -> Operations.ChatScheduleMessage.Output {
+        try await chatScheduleMessage(Operations.ChatScheduleMessage.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Updates a message.
+    ///
+    /// - Remark: HTTP `POST /chat.update`.
+    /// - Remark: Generated from `#/paths//chat.update/post(chatUpdate)`.
+    public func chatUpdate(
+        headers: Operations.ChatUpdate.Input.Headers = .init(),
+        body: Operations.ChatUpdate.Input.Body,
+    ) async throws -> Operations.ChatUpdate.Output {
+        try await chatUpdate(Operations.ChatUpdate.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+    // Open a view for a user.
+    //
+    // - Remark: HTTP `POST /views.open`.
+    // - Remark: Generated from `#/paths//views.open/post(viewsOpen)`.
+    #endif
+    #if WebAPI_Views
+    public func viewsOpen(
+        headers: Operations.ViewsOpen.Input.Headers = .init(),
+        body: Operations.ViewsOpen.Input.Body,
+    ) async throws -> Operations.ViewsOpen.Output {
+        try await viewsOpen(Operations.ViewsOpen.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Push a view onto the stack of a root view.
+    ///
+    /// - Remark: HTTP `POST /views.push`.
+    /// - Remark: Generated from `#/paths//views.push/post(viewsPush)`.
+    public func viewsPush(
+        headers: Operations.ViewsPush.Input.Headers = .init(),
+        body: Operations.ViewsPush.Input.Body,
+    ) async throws -> Operations.ViewsPush.Output {
+        try await viewsPush(Operations.ViewsPush.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Update an existing view.
+    ///
+    /// - Remark: HTTP `POST /views.update`.
+    /// - Remark: Generated from `#/paths//views.update/post(viewsUpdate)`.
+    public func viewsUpdate(
+        headers: Operations.ViewsUpdate.Input.Headers = .init(),
+        body: Operations.ViewsUpdate.Input.Body,
+    ) async throws -> Operations.ViewsUpdate.Output {
+        try await viewsUpdate(Operations.ViewsUpdate.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+    // Get logs for a specified team/org
+    //
+    // - Remark: HTTP `POST /admin.apps.activities.list`.
+    // - Remark: Generated from `#/paths//admin.apps.activities.list/post(adminAppsActivitiesList)`.
+    #endif
+    #if WebAPI_Admin
     public func adminAppsActivitiesList(
         headers: Operations.AdminAppsActivitiesList.Input.Headers = .init(),
         body: Operations.AdminAppsActivitiesList.Input.Body,
@@ -1804,7 +1952,7 @@ extension APIProtocol {
         ))
     }
 
-    /// Set the workspaces in an Enterprise grid org that connect to a public or private channel.
+    /// Set the workspaces in an Enterprise org that connect to a public or private channel.
     ///
     /// - Remark: HTTP `POST /admin.conversations.setTeams`.
     /// - Remark: Generated from `#/paths//admin.conversations.setTeams/post(adminConversationsSetTeams)`.
@@ -1860,7 +2008,7 @@ extension APIProtocol {
         ))
     }
 
-    /// List emoji for an Enterprise Grid organization.
+    /// List emoji for an Enterprise organization.
     ///
     /// - Remark: HTTP `POST /admin.emoji.list`.
     /// - Remark: Generated from `#/paths//admin.emoji.list/post(adminEmojiList)`.
@@ -1874,7 +2022,7 @@ extension APIProtocol {
         ))
     }
 
-    /// Remove an emoji across an Enterprise Grid organization
+    /// Remove an emoji across an Enterprise organization
     ///
     /// - Remark: HTTP `POST /admin.emoji.remove`.
     /// - Remark: Generated from `#/paths//admin.emoji.remove/post(adminEmojiRemove)`.
@@ -1902,7 +2050,7 @@ extension APIProtocol {
         ))
     }
 
-    /// Look up functions by a set of apps
+    /// Look up functions by a set of apps.
     ///
     /// - Remark: HTTP `POST /admin.functions.list`.
     /// - Remark: Generated from `#/paths//admin.functions.list/post(adminFunctionsList)`.
@@ -1930,7 +2078,7 @@ extension APIProtocol {
         ))
     }
 
-    /// Set the visibility of a Slack function and define the users or workspaces if it is set to named_entities
+    /// Set the visibility of a Slack function and define the users or workspaces if it is set to named_entities.
     ///
     /// - Remark: HTTP `POST /admin.functions.permissions.set`.
     /// - Remark: Generated from `#/paths//admin.functions.permissions.set/post(adminFunctionsPermissionsSet)`.
@@ -2084,7 +2232,7 @@ extension APIProtocol {
         ))
     }
 
-    /// List all teams on an Enterprise organization
+    /// List all teams in an Enterprise organization
     ///
     /// - Remark: HTTP `POST /admin.teams.list`.
     /// - Remark: Generated from `#/paths//admin.teams.list/post(adminTeamsList)`.
@@ -2210,6 +2358,20 @@ extension APIProtocol {
         ))
     }
 
+    /// Fetches the expiration timestamp for a guest
+    ///
+    /// - Remark: HTTP `POST /admin.users.getExpiration`.
+    /// - Remark: Generated from `#/paths//admin.users.getExpiration/post(adminUsersGetExpiration)`.
+    public func adminUsersGetExpiration(
+        headers: Operations.AdminUsersGetExpiration.Input.Headers = .init(),
+        body: Operations.AdminUsersGetExpiration.Input.Body,
+    ) async throws -> Operations.AdminUsersGetExpiration.Output {
+        try await adminUsersGetExpiration(Operations.AdminUsersGetExpiration.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
     /// Invite a user to a workspace.
     ///
     /// - Remark: HTTP `POST /admin.users.invite`.
@@ -2280,20 +2442,6 @@ extension APIProtocol {
         ))
     }
 
-    /// Revoke a single session for a user. The user will be forced to login to Slack.
-    ///
-    /// - Remark: HTTP `POST /admin.users.session.invalidate`.
-    /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)`.
-    public func adminUsersSessionInvalidate(
-        headers: Operations.AdminUsersSessionInvalidate.Input.Headers = .init(),
-        body: Operations.AdminUsersSessionInvalidate.Input.Body,
-    ) async throws -> Operations.AdminUsersSessionInvalidate.Output {
-        try await adminUsersSessionInvalidate(Operations.AdminUsersSessionInvalidate.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
     /// List active user sessions for an organization
     ///
     /// - Remark: HTTP `POST /admin.users.session.list`.
@@ -2350,7 +2498,7 @@ extension APIProtocol {
         ))
     }
 
-    /// Set an existing regular user or owner to be a workspace admin.
+    /// Set an existing regular user or owner to be a workspace or org admin.
     ///
     /// - Remark: HTTP `POST /admin.users.setAdmin`.
     /// - Remark: Generated from `#/paths//admin.users.setAdmin/post(adminUsersSetAdmin)`.
@@ -2378,7 +2526,7 @@ extension APIProtocol {
         ))
     }
 
-    /// Set an existing regular user or admin to be a workspace owner.
+    /// Set an existing regular user or admin to be a workspace or org owner.
     ///
     /// - Remark: HTTP `POST /admin.users.setOwner`.
     /// - Remark: Generated from `#/paths//admin.users.setOwner/post(adminUsersSetOwner)`.
@@ -2419,10 +2567,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over.
-    ///
-    /// - Remark: HTTP `POST /apps.connections.open`.
-    /// - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
+    // Generate a temporary Socket Mode WebSocket URL that your app can connect to in order to receive events and interactive payloads over.
+    //
+    // - Remark: HTTP `POST /apps.connections.open`.
+    // - Remark: Generated from `#/paths//apps.connections.open/post(appsConnectionsOpen)`.
     #endif
     #if WebAPI_Apps
     public func appsConnectionsOpen(
@@ -2532,10 +2680,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Set the status for an AI assistant thread.
-    ///
-    /// - Remark: HTTP `POST /assistant.threads.setStatus`.
-    /// - Remark: Generated from `#/paths//assistant.threads.setStatus/post(assistantThreadsSetStatus)`.
+    // Set the status for an AI assistant thread.
+    //
+    // - Remark: HTTP `POST /assistant.threads.setStatus`.
+    // - Remark: Generated from `#/paths//assistant.threads.setStatus/post(assistantThreadsSetStatus)`.
     #endif
     #if WebAPI_Assistant
     public func assistantThreadsSetStatus(
@@ -2575,10 +2723,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Revokes a token.
-    ///
-    /// - Remark: HTTP `POST /auth.revoke`.
-    /// - Remark: Generated from `#/paths//auth.revoke/post(authRevoke)`.
+    // Revokes a token.
+    //
+    // - Remark: HTTP `POST /auth.revoke`.
+    // - Remark: Generated from `#/paths//auth.revoke/post(authRevoke)`.
     #endif
     #if WebAPI_Auth
     public func authRevoke(
@@ -2618,10 +2766,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Add bookmark to a channel.
-    ///
-    /// - Remark: HTTP `POST /bookmarks.add`.
-    /// - Remark: Generated from `#/paths//bookmarks.add/post(bookmarksAdd)`.
+    // Add bookmark to a channel.
+    //
+    // - Remark: HTTP `POST /bookmarks.add`.
+    // - Remark: Generated from `#/paths//bookmarks.add/post(bookmarksAdd)`.
     #endif
     #if WebAPI_Bookmarks
     public func bookmarksAdd(
@@ -2675,10 +2823,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Gets information about a bot user.
-    ///
-    /// - Remark: HTTP `POST /bots.info`.
-    /// - Remark: Generated from `#/paths//bots.info/post(botsInfo)`.
+    // Gets information about a bot user.
+    //
+    // - Remark: HTTP `POST /bots.info`.
+    // - Remark: Generated from `#/paths//bots.info/post(botsInfo)`.
     #endif
     #if WebAPI_Bots
     public func botsInfo(
@@ -2690,10 +2838,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Remove access to a canvas for specified entities
-    ///
-    /// - Remark: HTTP `POST /canvases.access.delete`.
-    /// - Remark: Generated from `#/paths//canvases.access.delete/post(canvasesAccessDelete)`.
+    // Remove access to a canvas for specified entities
+    //
+    // - Remark: HTTP `POST /canvases.access.delete`.
+    // - Remark: Generated from `#/paths//canvases.access.delete/post(canvasesAccessDelete)`.
     #endif
     #if WebAPI_Canvases
     public func canvasesAccessDelete(
@@ -2775,12 +2923,26 @@ extension APIProtocol {
             body: body,
         ))
     }
+    // Appends text to an existing streaming conversation.
+    //
+    // - Remark: HTTP `POST /chat.appendStream`.
+    // - Remark: Generated from `#/paths//chat.appendStream/post(chatAppendStream)`.
+    #endif
+    #if WebAPI_Chat
+    public func chatAppendStream(
+        headers: Operations.ChatAppendStream.Input.Headers = .init(),
+        body: Operations.ChatAppendStream.Input.Body,
+    ) async throws -> Operations.ChatAppendStream.Output {
+        try await chatAppendStream(Operations.ChatAppendStream.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
     /// Deletes a message.
     ///
     /// - Remark: HTTP `POST /chat.delete`.
     /// - Remark: Generated from `#/paths//chat.delete/post(chatDelete)`.
-    #endif
-    #if WebAPI_Chat
     public func chatDelete(
         headers: Operations.ChatDelete.Input.Headers = .init(),
         body: Operations.ChatDelete.Input.Body,
@@ -2833,48 +2995,6 @@ extension APIProtocol {
         ))
     }
 
-    /// Sends an ephemeral message to a user in a channel.
-    ///
-    /// - Remark: HTTP `POST /chat.postEphemeral`.
-    /// - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)`.
-    public func chatPostEphemeral(
-        headers: Operations.ChatPostEphemeral.Input.Headers = .init(),
-        body: Operations.ChatPostEphemeral.Input.Body,
-    ) async throws -> Operations.ChatPostEphemeral.Output {
-        try await chatPostEphemeral(Operations.ChatPostEphemeral.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Sends a message to a channel.
-    ///
-    /// - Remark: HTTP `POST /chat.postMessage`.
-    /// - Remark: Generated from `#/paths//chat.postMessage/post(chatPostMessage)`.
-    public func chatPostMessage(
-        headers: Operations.ChatPostMessage.Input.Headers = .init(),
-        body: Operations.ChatPostMessage.Input.Body,
-    ) async throws -> Operations.ChatPostMessage.Output {
-        try await chatPostMessage(Operations.ChatPostMessage.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Schedules a message to be sent to a channel.
-    ///
-    /// - Remark: HTTP `POST /chat.scheduleMessage`.
-    /// - Remark: Generated from `#/paths//chat.scheduleMessage/post(chatScheduleMessage)`.
-    public func chatScheduleMessage(
-        headers: Operations.ChatScheduleMessage.Input.Headers = .init(),
-        body: Operations.ChatScheduleMessage.Input.Body,
-    ) async throws -> Operations.ChatScheduleMessage.Output {
-        try await chatScheduleMessage(Operations.ChatScheduleMessage.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
     /// Returns a list of scheduled messages.
     ///
     /// - Remark: HTTP `POST /chat.scheduledMessages.list`.
@@ -2884,6 +3004,34 @@ extension APIProtocol {
         body: Operations.ChatScheduledMessagesList.Input.Body,
     ) async throws -> Operations.ChatScheduledMessagesList.Output {
         try await chatScheduledMessagesList(Operations.ChatScheduledMessagesList.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Starts a new streaming conversation.
+    ///
+    /// - Remark: HTTP `POST /chat.startStream`.
+    /// - Remark: Generated from `#/paths//chat.startStream/post(chatStartStream)`.
+    public func chatStartStream(
+        headers: Operations.ChatStartStream.Input.Headers = .init(),
+        body: Operations.ChatStartStream.Input.Body,
+    ) async throws -> Operations.ChatStartStream.Output {
+        try await chatStartStream(Operations.ChatStartStream.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Stops a streaming conversation.
+    ///
+    /// - Remark: HTTP `POST /chat.stopStream`.
+    /// - Remark: Generated from `#/paths//chat.stopStream/post(chatStopStream)`.
+    public func chatStopStream(
+        headers: Operations.ChatStopStream.Input.Headers = .init(),
+        body: Operations.ChatStopStream.Input.Body,
+    ) async throws -> Operations.ChatStopStream.Output {
+        try await chatStopStream(Operations.ChatStopStream.Input(
             headers: headers,
             body: body,
         ))
@@ -2902,24 +3050,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-
-    /// Updates a message.
-    ///
-    /// - Remark: HTTP `POST /chat.update`.
-    /// - Remark: Generated from `#/paths//chat.update/post(chatUpdate)`.
-    public func chatUpdate(
-        headers: Operations.ChatUpdate.Input.Headers = .init(),
-        body: Operations.ChatUpdate.Input.Body,
-    ) async throws -> Operations.ChatUpdate.Output {
-        try await chatUpdate(Operations.ChatUpdate.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-    /// Accepts an invitation to a Slack Connect channel.
-    ///
-    /// - Remark: HTTP `POST /conversations.acceptSharedInvite`.
-    /// - Remark: Generated from `#/paths//conversations.acceptSharedInvite/post(conversationsAcceptSharedInvite)`.
+    // Accepts an invitation to a Slack Connect channel.
+    //
+    // - Remark: HTTP `POST /conversations.acceptSharedInvite`.
+    // - Remark: Generated from `#/paths//conversations.acceptSharedInvite/post(conversationsAcceptSharedInvite)`.
     #endif
     #if WebAPI_Conversations
     public func conversationsAcceptSharedInvite(
@@ -3309,10 +3443,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Ends the current user's Do Not Disturb session immediately.
-    ///
-    /// - Remark: HTTP `POST /dnd.endDnd`.
-    /// - Remark: Generated from `#/paths//dnd.endDnd/post(dndEndDnd)`.
+    // Ends the current user's Do Not Disturb session immediately.
+    //
+    // - Remark: HTTP `POST /dnd.endDnd`.
+    // - Remark: Generated from `#/paths//dnd.endDnd/post(dndEndDnd)`.
     #endif
     #if WebAPI_DND
     public func dndEndDnd(
@@ -3380,10 +3514,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Lists custom emoji for a team.
-    ///
-    /// - Remark: HTTP `POST /emoji.list`.
-    /// - Remark: Generated from `#/paths//emoji.list/post(emojiList)`.
+    // Lists custom emoji for a team.
+    //
+    // - Remark: HTTP `POST /emoji.list`.
+    // - Remark: Generated from `#/paths//emoji.list/post(emojiList)`.
     #endif
     #if WebAPI_Emoji
     public func emojiList(
@@ -3395,10 +3529,25 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Finishes an upload started with files.getUploadURLExternal
-    ///
-    /// - Remark: HTTP `POST /files.completeUploadExternal`.
-    /// - Remark: Generated from `#/paths//files.completeUploadExternal/post(filesCompleteUploadExternal)`.
+    // Provide custom flexpane behavior for Work Objects. Apps call this endpoint to send per-user flexpane metadata to the client.
+    //
+    // - Remark: HTTP `POST /entity.presentDetails`.
+    // - Remark: Generated from `#/paths//entity.presentDetails/post(entityPresentDetails)`.
+    #endif
+    #if WebAPI_Entity
+    public func entityPresentDetails(
+        headers: Operations.EntityPresentDetails.Input.Headers = .init(),
+        body: Operations.EntityPresentDetails.Input.Body,
+    ) async throws -> Operations.EntityPresentDetails.Output {
+        try await entityPresentDetails(Operations.EntityPresentDetails.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+    // Finishes an upload started with files.getUploadURLExternal
+    //
+    // - Remark: HTTP `POST /files.completeUploadExternal`.
+    // - Remark: Generated from `#/paths//files.completeUploadExternal/post(filesCompleteUploadExternal)`.
     #endif
     #if WebAPI_Files
     public func filesCompleteUploadExternal(
@@ -3592,10 +3741,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Signal that a function failed to complete
-    ///
-    /// - Remark: HTTP `POST /functions.completeError`.
-    /// - Remark: Generated from `#/paths//functions.completeError/post(functionsCompleteError)`.
+    // Signal that a function failed to complete
+    //
+    // - Remark: HTTP `POST /functions.completeError`.
+    // - Remark: Generated from `#/paths//functions.completeError/post(functionsCompleteError)`.
     #endif
     #if WebAPI_Functions
     public func functionsCompleteError(
@@ -3621,10 +3770,179 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// For Enterprise Grid workspaces, map local user IDs to global user IDs
+    // Revoke access to a List for specified entities.
+    //
+    // - Remark: HTTP `POST /slackLists.access.delete`.
+    // - Remark: Generated from `#/paths//slackLists.access.delete/post(slackListsAccessDelete)`.
+    #endif
+    #if WebAPI_Lists
+    public func slackListsAccessDelete(
+        headers: Operations.SlackListsAccessDelete.Input.Headers = .init(),
+        body: Operations.SlackListsAccessDelete.Input.Body,
+    ) async throws -> Operations.SlackListsAccessDelete.Output {
+        try await slackListsAccessDelete(Operations.SlackListsAccessDelete.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Set the access level to a List for specified entities.
     ///
-    /// - Remark: HTTP `POST /migration.exchange`.
-    /// - Remark: Generated from `#/paths//migration.exchange/post(migrationExchange)`.
+    /// - Remark: HTTP `POST /slackLists.access.set`.
+    /// - Remark: Generated from `#/paths//slackLists.access.set/post(slackListsAccessSet)`.
+    public func slackListsAccessSet(
+        headers: Operations.SlackListsAccessSet.Input.Headers = .init(),
+        body: Operations.SlackListsAccessSet.Input.Body,
+    ) async throws -> Operations.SlackListsAccessSet.Output {
+        try await slackListsAccessSet(Operations.SlackListsAccessSet.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Create a List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.create`.
+    /// - Remark: Generated from `#/paths//slackLists.create/post(slackListsCreate)`.
+    public func slackListsCreate(
+        headers: Operations.SlackListsCreate.Input.Headers = .init(),
+        body: Operations.SlackListsCreate.Input.Body,
+    ) async throws -> Operations.SlackListsCreate.Output {
+        try await slackListsCreate(Operations.SlackListsCreate.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Retrieve List download URL from an export job to download List contents.
+    ///
+    /// - Remark: HTTP `POST /slackLists.download.get`.
+    /// - Remark: Generated from `#/paths//slackLists.download.get/post(slackListsDownloadGet)`.
+    public func slackListsDownloadGet(
+        headers: Operations.SlackListsDownloadGet.Input.Headers = .init(),
+        body: Operations.SlackListsDownloadGet.Input.Body,
+    ) async throws -> Operations.SlackListsDownloadGet.Output {
+        try await slackListsDownloadGet(Operations.SlackListsDownloadGet.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Initiate a job to export List contents.
+    ///
+    /// - Remark: HTTP `POST /slackLists.download.start`.
+    /// - Remark: Generated from `#/paths//slackLists.download.start/post(slackListsDownloadStart)`.
+    public func slackListsDownloadStart(
+        headers: Operations.SlackListsDownloadStart.Input.Headers = .init(),
+        body: Operations.SlackListsDownloadStart.Input.Body,
+    ) async throws -> Operations.SlackListsDownloadStart.Output {
+        try await slackListsDownloadStart(Operations.SlackListsDownloadStart.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Add a new item to an existing List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.items.create`.
+    /// - Remark: Generated from `#/paths//slackLists.items.create/post(slackListsItemsCreate)`.
+    public func slackListsItemsCreate(
+        headers: Operations.SlackListsItemsCreate.Input.Headers = .init(),
+        body: Operations.SlackListsItemsCreate.Input.Body,
+    ) async throws -> Operations.SlackListsItemsCreate.Output {
+        try await slackListsItemsCreate(Operations.SlackListsItemsCreate.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Deletes an item from an existing List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.items.delete`.
+    /// - Remark: Generated from `#/paths//slackLists.items.delete/post(slackListsItemsDelete)`.
+    public func slackListsItemsDelete(
+        headers: Operations.SlackListsItemsDelete.Input.Headers = .init(),
+        body: Operations.SlackListsItemsDelete.Input.Body,
+    ) async throws -> Operations.SlackListsItemsDelete.Output {
+        try await slackListsItemsDelete(Operations.SlackListsItemsDelete.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Deletes multiple items from an existing List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.items.deleteMultiple`.
+    /// - Remark: Generated from `#/paths//slackLists.items.deleteMultiple/post(slackListsItemsDeleteMultiple)`.
+    public func slackListsItemsDeleteMultiple(
+        headers: Operations.SlackListsItemsDeleteMultiple.Input.Headers = .init(),
+        body: Operations.SlackListsItemsDeleteMultiple.Input.Body,
+    ) async throws -> Operations.SlackListsItemsDeleteMultiple.Output {
+        try await slackListsItemsDeleteMultiple(Operations.SlackListsItemsDeleteMultiple.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Get a row from a List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.items.info`.
+    /// - Remark: Generated from `#/paths//slackLists.items.info/post(slackListsItemsInfo)`.
+    public func slackListsItemsInfo(
+        headers: Operations.SlackListsItemsInfo.Input.Headers = .init(),
+        body: Operations.SlackListsItemsInfo.Input.Body,
+    ) async throws -> Operations.SlackListsItemsInfo.Output {
+        try await slackListsItemsInfo(Operations.SlackListsItemsInfo.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Get records from a List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.items.list`.
+    /// - Remark: Generated from `#/paths//slackLists.items.list/post(slackListsItemsList)`.
+    public func slackListsItemsList(
+        headers: Operations.SlackListsItemsList.Input.Headers = .init(),
+        body: Operations.SlackListsItemsList.Input.Body,
+    ) async throws -> Operations.SlackListsItemsList.Output {
+        try await slackListsItemsList(Operations.SlackListsItemsList.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Updates cells in a List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.items.update`.
+    /// - Remark: Generated from `#/paths//slackLists.items.update/post(slackListsItemsUpdate)`.
+    public func slackListsItemsUpdate(
+        headers: Operations.SlackListsItemsUpdate.Input.Headers = .init(),
+        body: Operations.SlackListsItemsUpdate.Input.Body,
+    ) async throws -> Operations.SlackListsItemsUpdate.Output {
+        try await slackListsItemsUpdate(Operations.SlackListsItemsUpdate.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Update a List.
+    ///
+    /// - Remark: HTTP `POST /slackLists.update`.
+    /// - Remark: Generated from `#/paths//slackLists.update/post(slackListsUpdate)`.
+    public func slackListsUpdate(
+        headers: Operations.SlackListsUpdate.Input.Headers = .init(),
+        body: Operations.SlackListsUpdate.Input.Body,
+    ) async throws -> Operations.SlackListsUpdate.Output {
+        try await slackListsUpdate(Operations.SlackListsUpdate.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+    // For Enterprise organization workspaces, map local user IDs to global user IDs
+    //
+    // - Remark: HTTP `POST /migration.exchange`.
+    // - Remark: Generated from `#/paths//migration.exchange/post(migrationExchange)`.
     #endif
     #if WebAPI_Migration
     public func migrationExchange(
@@ -3636,10 +3954,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Exchanges a temporary OAuth verifier code for an access token.
-    ///
-    /// - Remark: HTTP `POST /oauth.v2.access`.
-    /// - Remark: Generated from `#/paths//oauth.v2.access/post(oauthV2Access)`.
+    // Exchanges a temporary OAuth verifier code for an access token.
+    //
+    // - Remark: HTTP `POST /oauth.v2.access`.
+    // - Remark: Generated from `#/paths//oauth.v2.access/post(oauthV2Access)`.
     #endif
     #if WebAPI_OAuth
     public func oauthV2Access(
@@ -3665,10 +3983,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Exchanges a temporary OAuth verifier code for an access token for Sign in with Slack.
-    ///
-    /// - Remark: HTTP `POST /openid.connect.token`.
-    /// - Remark: Generated from `#/paths//openid.connect.token/post(openidConnectToken)`.
+    // Exchanges a temporary OAuth verifier code for an access token for Sign in with Slack.
+    //
+    // - Remark: HTTP `POST /openid.connect.token`.
+    // - Remark: Generated from `#/paths//openid.connect.token/post(openidConnectToken)`.
     #endif
     #if WebAPI_OpenID
     public func openidConnectToken(
@@ -3694,10 +4012,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Pins an item to a channel.
-    ///
-    /// - Remark: HTTP `POST /pins.add`.
-    /// - Remark: Generated from `#/paths//pins.add/post(pinsAdd)`.
+    // Pins an item to a channel.
+    //
+    // - Remark: HTTP `POST /pins.add`.
+    // - Remark: Generated from `#/paths//pins.add/post(pinsAdd)`.
     #endif
     #if WebAPI_Pins
     public func pinsAdd(
@@ -3737,10 +4055,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Adds a reaction to an item.
-    ///
-    /// - Remark: HTTP `POST /reactions.add`.
-    /// - Remark: Generated from `#/paths//reactions.add/post(reactionsAdd)`.
+    // Adds a reaction to an item.
+    //
+    // - Remark: HTTP `POST /reactions.add`.
+    // - Remark: Generated from `#/paths//reactions.add/post(reactionsAdd)`.
     #endif
     #if WebAPI_Reactions
     public func reactionsAdd(
@@ -3794,10 +4112,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Creates a reminder.
-    ///
-    /// - Remark: HTTP `POST /reminders.add`.
-    /// - Remark: Generated from `#/paths//reminders.add/post(remindersAdd)`.
+    // Creates a reminder.
+    //
+    // - Remark: HTTP `POST /reminders.add`.
+    // - Remark: Generated from `#/paths//reminders.add/post(remindersAdd)`.
     #endif
     #if WebAPI_Reminders
     public func remindersAdd(
@@ -3865,10 +4183,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Searches for messages and files matching a query.
-    ///
-    /// - Remark: HTTP `POST /search.all`.
-    /// - Remark: Generated from `#/paths//search.all/post(searchAll)`.
+    // Searches for messages and files matching a query.
+    //
+    // - Remark: HTTP `POST /search.all`.
+    // - Remark: Generated from `#/paths//search.all/post(searchAll)`.
     #endif
     #if WebAPI_Search
     public func searchAll(
@@ -3908,179 +4226,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Remove access to a list for specified entities
-    ///
-    /// - Remark: HTTP `POST /slackLists.access.delete`.
-    /// - Remark: Generated from `#/paths//slackLists.access.delete/post(slackListsAccessDelete)`.
-    #endif
-    #if WebAPI_Lists
-    public func slackListsAccessDelete(
-        headers: Operations.SlackListsAccessDelete.Input.Headers = .init(),
-        body: Operations.SlackListsAccessDelete.Input.Body,
-    ) async throws -> Operations.SlackListsAccessDelete.Output {
-        try await slackListsAccessDelete(Operations.SlackListsAccessDelete.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Sets the access level to a list for specified entities
-    ///
-    /// - Remark: HTTP `POST /slackLists.access.set`.
-    /// - Remark: Generated from `#/paths//slackLists.access.set/post(slackListsAccessSet)`.
-    public func slackListsAccessSet(
-        headers: Operations.SlackListsAccessSet.Input.Headers = .init(),
-        body: Operations.SlackListsAccessSet.Input.Body,
-    ) async throws -> Operations.SlackListsAccessSet.Output {
-        try await slackListsAccessSet(Operations.SlackListsAccessSet.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Create a list
-    ///
-    /// - Remark: HTTP `POST /slackLists.create`.
-    /// - Remark: Generated from `#/paths//slackLists.create/post(slackListsCreate)`.
-    public func slackListsCreate(
-        headers: Operations.SlackListsCreate.Input.Headers = .init(),
-        body: Operations.SlackListsCreate.Input.Body,
-    ) async throws -> Operations.SlackListsCreate.Output {
-        try await slackListsCreate(Operations.SlackListsCreate.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Retrieve list download URL from an export job to download list contents
-    ///
-    /// - Remark: HTTP `POST /slackLists.download.get`.
-    /// - Remark: Generated from `#/paths//slackLists.download.get/post(slackListsDownloadGet)`.
-    public func slackListsDownloadGet(
-        headers: Operations.SlackListsDownloadGet.Input.Headers = .init(),
-        body: Operations.SlackListsDownloadGet.Input.Body,
-    ) async throws -> Operations.SlackListsDownloadGet.Output {
-        try await slackListsDownloadGet(Operations.SlackListsDownloadGet.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Initiate a job to export list contents
-    ///
-    /// - Remark: HTTP `POST /slackLists.download.start`.
-    /// - Remark: Generated from `#/paths//slackLists.download.start/post(slackListsDownloadStart)`.
-    public func slackListsDownloadStart(
-        headers: Operations.SlackListsDownloadStart.Input.Headers = .init(),
-        body: Operations.SlackListsDownloadStart.Input.Body,
-    ) async throws -> Operations.SlackListsDownloadStart.Output {
-        try await slackListsDownloadStart(Operations.SlackListsDownloadStart.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Adds a new item to an existing list.
-    ///
-    /// - Remark: HTTP `POST /slackLists.items.create`.
-    /// - Remark: Generated from `#/paths//slackLists.items.create/post(slackListsItemsCreate)`.
-    public func slackListsItemsCreate(
-        headers: Operations.SlackListsItemsCreate.Input.Headers = .init(),
-        body: Operations.SlackListsItemsCreate.Input.Body,
-    ) async throws -> Operations.SlackListsItemsCreate.Output {
-        try await slackListsItemsCreate(Operations.SlackListsItemsCreate.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Deletes an item from an existing list.
-    ///
-    /// - Remark: HTTP `POST /slackLists.items.delete`.
-    /// - Remark: Generated from `#/paths//slackLists.items.delete/post(slackListsItemsDelete)`.
-    public func slackListsItemsDelete(
-        headers: Operations.SlackListsItemsDelete.Input.Headers = .init(),
-        body: Operations.SlackListsItemsDelete.Input.Body,
-    ) async throws -> Operations.SlackListsItemsDelete.Output {
-        try await slackListsItemsDelete(Operations.SlackListsItemsDelete.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Deletes multiple items from an existing list.
-    ///
-    /// - Remark: HTTP `POST /slackLists.items.deleteMultiple`.
-    /// - Remark: Generated from `#/paths//slackLists.items.deleteMultiple/post(slackListsItemsDeleteMultiple)`.
-    public func slackListsItemsDeleteMultiple(
-        headers: Operations.SlackListsItemsDeleteMultiple.Input.Headers = .init(),
-        body: Operations.SlackListsItemsDeleteMultiple.Input.Body,
-    ) async throws -> Operations.SlackListsItemsDeleteMultiple.Output {
-        try await slackListsItemsDeleteMultiple(Operations.SlackListsItemsDeleteMultiple.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Get a row from a list
-    ///
-    /// - Remark: HTTP `POST /slackLists.items.info`.
-    /// - Remark: Generated from `#/paths//slackLists.items.info/post(slackListsItemsInfo)`.
-    public func slackListsItemsInfo(
-        headers: Operations.SlackListsItemsInfo.Input.Headers = .init(),
-        body: Operations.SlackListsItemsInfo.Input.Body,
-    ) async throws -> Operations.SlackListsItemsInfo.Output {
-        try await slackListsItemsInfo(Operations.SlackListsItemsInfo.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Get records from a list
-    ///
-    /// - Remark: HTTP `POST /slackLists.items.list`.
-    /// - Remark: Generated from `#/paths//slackLists.items.list/post(slackListsItemsList)`.
-    public func slackListsItemsList(
-        headers: Operations.SlackListsItemsList.Input.Headers = .init(),
-        body: Operations.SlackListsItemsList.Input.Body,
-    ) async throws -> Operations.SlackListsItemsList.Output {
-        try await slackListsItemsList(Operations.SlackListsItemsList.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Updates cells in a list
-    ///
-    /// - Remark: HTTP `POST /slackLists.items.update`.
-    /// - Remark: Generated from `#/paths//slackLists.items.update/post(slackListsItemsUpdate)`.
-    public func slackListsItemsUpdate(
-        headers: Operations.SlackListsItemsUpdate.Input.Headers = .init(),
-        body: Operations.SlackListsItemsUpdate.Input.Body,
-    ) async throws -> Operations.SlackListsItemsUpdate.Output {
-        try await slackListsItemsUpdate(Operations.SlackListsItemsUpdate.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Update a list
-    ///
-    /// - Remark: HTTP `POST /slackLists.update`.
-    /// - Remark: Generated from `#/paths//slackLists.update/post(slackListsUpdate)`.
-    public func slackListsUpdate(
-        headers: Operations.SlackListsUpdate.Input.Headers = .init(),
-        body: Operations.SlackListsUpdate.Input.Body,
-    ) async throws -> Operations.SlackListsUpdate.Output {
-        try await slackListsUpdate(Operations.SlackListsUpdate.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-    /// Save an item for later. Formerly known as adding a star.
-    ///
-    /// - Remark: HTTP `POST /stars.add`.
-    /// - Remark: Generated from `#/paths//stars.add/post(starsAdd)`.
+    // Save an item for later. Formerly known as adding a star.
+    //
+    // - Remark: HTTP `POST /stars.add`.
+    // - Remark: Generated from `#/paths//stars.add/post(starsAdd)`.
     #endif
     #if WebAPI_Stars
     public func starsAdd(
@@ -4120,10 +4269,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Gets the access logs for the current team.
-    ///
-    /// - Remark: HTTP `POST /team.accessLogs`.
-    /// - Remark: Generated from `#/paths//team.accessLogs/post(teamAccessLogs)`.
+    // Gets the access logs for the current team.
+    //
+    // - Remark: HTTP `POST /team.accessLogs`.
+    // - Remark: Generated from `#/paths//team.accessLogs/post(teamAccessLogs)`.
     #endif
     #if WebAPI_Team
     public func teamAccessLogs(
@@ -4247,10 +4396,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Exchanges a refresh token for a new app configuration token.
-    ///
-    /// - Remark: HTTP `POST /tooling.tokens.rotate`.
-    /// - Remark: Generated from `#/paths//tooling.tokens.rotate/post(toolingTokensRotate)`.
+    // Exchanges a refresh token for a new app configuration token.
+    //
+    // - Remark: HTTP `POST /tooling.tokens.rotate`.
+    // - Remark: Generated from `#/paths//tooling.tokens.rotate/post(toolingTokensRotate)`.
     #endif
     #if WebAPI_Tooling
     public func toolingTokensRotate(
@@ -4262,10 +4411,10 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// List conversations the calling user may access.
-    ///
-    /// - Remark: HTTP `POST /users.conversations`.
-    /// - Remark: Generated from `#/paths//users.conversations/post(usersConversations)`.
+    // List conversations the calling user is a member of.
+    //
+    // - Remark: HTTP `POST /users.conversations`.
+    // - Remark: Generated from `#/paths//users.conversations/post(usersConversations)`.
     #endif
     #if WebAPI_Users
     public func usersConversations(
@@ -4445,59 +4594,17 @@ extension APIProtocol {
             body: body,
         ))
     }
-    /// Open a view for a user.
-    ///
-    /// - Remark: HTTP `POST /views.open`.
-    /// - Remark: Generated from `#/paths//views.open/post(viewsOpen)`.
+    // Publish a static view for a User.
+    //
+    // - Remark: HTTP `POST /views.publish`.
+    // - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
     #endif
     #if WebAPI_Views
-    public func viewsOpen(
-        headers: Operations.ViewsOpen.Input.Headers = .init(),
-        body: Operations.ViewsOpen.Input.Body,
-    ) async throws -> Operations.ViewsOpen.Output {
-        try await viewsOpen(Operations.ViewsOpen.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Publish a static view for a User.
-    ///
-    /// - Remark: HTTP `POST /views.publish`.
-    /// - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
     public func viewsPublish(
         headers: Operations.ViewsPublish.Input.Headers = .init(),
         body: Operations.ViewsPublish.Input.Body,
     ) async throws -> Operations.ViewsPublish.Output {
         try await viewsPublish(Operations.ViewsPublish.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Push a view onto the stack of a root view.
-    ///
-    /// - Remark: HTTP `POST /views.push`.
-    /// - Remark: Generated from `#/paths//views.push/post(viewsPush)`.
-    public func viewsPush(
-        headers: Operations.ViewsPush.Input.Headers = .init(),
-        body: Operations.ViewsPush.Input.Body,
-    ) async throws -> Operations.ViewsPush.Output {
-        try await viewsPush(Operations.ViewsPush.Input(
-            headers: headers,
-            body: body,
-        ))
-    }
-
-    /// Update an existing view.
-    ///
-    /// - Remark: HTTP `POST /views.update`.
-    /// - Remark: Generated from `#/paths//views.update/post(viewsUpdate)`.
-    public func viewsUpdate(
-        headers: Operations.ViewsUpdate.Input.Headers = .init(),
-        body: Operations.ViewsUpdate.Input.Body,
-    ) async throws -> Operations.ViewsUpdate.Output {
-        try await viewsUpdate(Operations.ViewsUpdate.Input(
             headers: headers,
             body: body,
         ))

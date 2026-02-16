@@ -11,7 +11,7 @@ import Testing
 // These tests verify that handlers are registered correctly and filtering logic works
 
 struct SocketModeRouterTests {
-    @Test func onSocketModeMessageRegistration() async throws {
+    @Test func onSocketModeMessageRegistration() {
         let router = SocketModeRouter()
 
         router.onSocketModeMessage { _, _ in
@@ -22,7 +22,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onInteractiveRegistration() async throws {
+    @Test func onInteractiveRegistration() {
         let router = SocketModeRouter()
 
         router.onInteractive { _, _ in
@@ -32,7 +32,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onGlobalShortcutRegistration() async throws {
+    @Test func onGlobalShortcutRegistration() {
         let router = SocketModeRouter()
 
         router.onGlboalShortcut("test_shortcut") { _, _ in
@@ -42,7 +42,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onMessageShortcutRegistration() async throws {
+    @Test func onMessageShortcutRegistration() {
         let router = SocketModeRouter()
 
         router.onMessageShortcut("test_message_shortcut") { _, _ in
@@ -52,7 +52,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onSlashCommandRegistration() async throws {
+    @Test func onSlashCommandRegistration() {
         let router = SocketModeRouter()
 
         router.onSlashCommand("/test") { _, _ in
@@ -62,7 +62,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onSlashCommandRequiresSlashPrefix() async throws {
+    @Test func onSlashCommandRequiresSlashPrefix() {
         let router = SocketModeRouter()
 
         // This should trigger a precondition failure since "test" doesn't start with "/"
@@ -77,7 +77,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onBlockActionRegistration() async throws {
+    @Test func onBlockActionRegistration() {
         let router = SocketModeRouter()
 
         router.onBlockAction("test_block_action") { _, _ in
@@ -87,7 +87,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onViewRegistration() async throws {
+    @Test func onViewRegistration() {
         let router = SocketModeRouter()
 
         router.onView("test_view") { _, _ in
@@ -97,7 +97,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onViewSubmissionRegistration() async throws {
+    @Test func onViewSubmissionRegistration() {
         let router = SocketModeRouter()
 
         router.onViewSubmission("test_view_submission") { _, _ in
@@ -107,7 +107,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onViewClosedRegistration() async throws {
+    @Test func onViewClosedRegistration() {
         let router = SocketModeRouter()
 
         router.onViewClosed("test_view_closed") { _, _ in
@@ -117,7 +117,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onEventRegistration() async throws {
+    @Test func onEventRegistration() {
         let router = SocketModeRouter()
 
         router.onEvent { _, _ in
@@ -127,7 +127,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onSpecificEventRegistration() async throws {
+    @Test func onSpecificEventRegistration() {
         let router = SocketModeRouter()
 
         router.onEvent(MessageEvent.self) { _, _, _ in
@@ -137,7 +137,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onSlackMessageMatchedRegistration() async throws {
+    @Test func onSlackMessageMatchedRegistration() {
         let router = SocketModeRouter()
 
         router.onSlackMessageMatched(with: "hello", "world") { _, _, _ in
@@ -147,7 +147,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 1)
     }
 
-    @Test func onErrorRegistration() async throws {
+    @Test func onErrorRegistration() {
         let router = SocketModeRouter()
 
         router.onError { _, _, _ in
@@ -159,7 +159,7 @@ struct SocketModeRouterTests {
         #expect(router.errorHandler != nil)
     }
 
-    @Test func multipleHandlerRegistration() async throws {
+    @Test func multipleHandlerRegistration() {
         let router = SocketModeRouter()
 
         router.onSocketModeMessage { _, _ in
@@ -177,7 +177,7 @@ struct SocketModeRouterTests {
         #expect(router.handlers.count == 3)
     }
 
-    @Test func slashCommandValidation() async throws {
+    @Test func slashCommandValidation() {
         let router = SocketModeRouter()
 
         // Valid slash command
@@ -191,8 +191,8 @@ struct SocketModeRouterTests {
         // is complex in swift-testing. The precondition check is documented in the method.
     }
 
-    // Test data structure creation to ensure our renamed types work correctly
-    @Test func eventTypeHandling() async throws {
+    /// Test data structure creation to ensure our renamed types work correctly
+    @Test func eventTypeHandling() {
         // Test that we can create a MessageEvent (this verifies the Event enum works)
         let messageEvent = MessageEvent(
             attachments: nil,
@@ -228,7 +228,7 @@ struct SocketModeRouterTests {
         }
     }
 
-    @Test func slashCommandPayloadCreation() async throws {
+    @Test func slashCommandPayloadCreation() throws {
         let json = """
         {
             "command": "/test",
@@ -246,7 +246,7 @@ struct SocketModeRouterTests {
         }
         """
 
-        let payload = try JSONDecoder().decode(SlashCommandsPayload.self, from: json.data(using: .utf8)!)
+        let payload = try JSONDecoder().decode(SlashCommandsPayload.self, from: #require(json.data(using: .utf8)))
 
         #expect(payload.command == "/test")
         #expect(payload.text == "test text")
@@ -255,7 +255,7 @@ struct SocketModeRouterTests {
         #expect(payload.isEnterpriseInstall == false)
     }
 
-    @Test func globalShortcutPayloadCreation() async throws {
+    @Test func globalShortcutPayloadCreation() throws {
         // Test that we can decode a GlobalShortcutPayload from JSON
         let json = """
         {
@@ -273,7 +273,7 @@ struct SocketModeRouterTests {
         }
         """
 
-        let payload = try JSONDecoder().decode(GlobalShortcutPayload.self, from: json.data(using: .utf8)!)
+        let payload = try JSONDecoder().decode(GlobalShortcutPayload.self, from: #require(json.data(using: .utf8)))
 
         #expect(payload.callbackId == "test_shortcut")
         #expect(payload.triggerId == "test-trigger-id")
@@ -281,7 +281,7 @@ struct SocketModeRouterTests {
         #expect(payload.user.id == "U123456")
     }
 
-    @Test func socketModeMessageEnvelopeCreation() async throws {
+    @Test func socketModeMessageEnvelopeCreation() throws {
         // Test that we can create a SocketModeMessageEnvelope with slash command payload
         let slashCommandJson = """
         {
@@ -305,7 +305,7 @@ struct SocketModeRouterTests {
         }
         """
 
-        let envelope = try JSONDecoder().decode(SocketModeMessageEnvelope.self, from: slashCommandJson.data(using: .utf8)!)
+        let envelope = try JSONDecoder().decode(SocketModeMessageEnvelope.self, from: #require(slashCommandJson.data(using: .utf8)))
 
         #expect(envelope.envelopeId == "test-envelope-id")
         #expect(envelope._type == "slash_commands")
@@ -319,9 +319,9 @@ struct SocketModeRouterTests {
         }
     }
 
-    // REGRESSION TEST: Verify that the onEvent method with specific event types compiles correctly
-    // This test would fail to compile if commit 7882fc2 is reverted due to type parameter conflicts
-    @Test func onEventTypeParameterRegression() async throws {
+    /// REGRESSION TEST: Verify that the onEvent method with specific event types compiles correctly
+    /// This test would fail to compile if commit 7882fc2 is reverted due to type parameter conflicts
+    @Test func onEventTypeParameterRegression() {
         let router = SocketModeRouter()
 
         // This specific usage pattern would fail to compile with the original bug
@@ -347,7 +347,7 @@ struct SocketModeRouterTests {
     // This test verifies that events are properly cast and handlers are actually executed
     // TODO: This test is currently disabled because creating a Context requires WebSocketOutboundWriter
     // which is not easily mockable. Consider refactoring Context to accept a protocol instead.
-    @Test(.disabled("Requires WebSocket mocking")) func onEventActualDispatchRegression() async throws {
+    @Test(.disabled("Requires WebSocket mocking")) func onEventActualDispatchRegression() async {
         let router = SocketModeRouter()
 
         // Use actor to safely track handler execution in concurrent context
@@ -497,7 +497,7 @@ struct SocketModeRouterTests {
     }
 }
 
-// Helper to access private properties for testing
+/// Helper to access private properties for testing
 extension SocketModeRouter {
     fileprivate var handlers: [SocketModeMessageHandler] {
         Mirror(reflecting: self).children.first(where: { $0.label == "handlers" })?.value as? [SocketModeMessageHandler] ?? []

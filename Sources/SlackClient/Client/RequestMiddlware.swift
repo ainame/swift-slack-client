@@ -41,7 +41,7 @@ actor RequestMiddlware: ClientMiddleware {
         next: (HTTPRequest, HTTPBody?, URL) async throws -> (HTTPResponse, HTTPBody?),
     ) async throws -> (
         HTTPResponse,
-        HTTPBody?
+        HTTPBody?,
     ) {
         var req = request
         req.headerFields.append(contentsOf: additionalHeaderFields)

@@ -82,11 +82,13 @@ enum MinimalExamples {
         }
     }
 
-    // Usage - Create modal/home tab wrappers
+    /// Usage - Create modal/home tab wrappers
     struct SimpleGreetingModal: SlackModalView {
         let greeting: SimpleGreeting
 
-        var title: TextObject { "Welcome" }
+        var title: TextObject {
+            "Welcome"
+        }
 
         var blocks: [Block] {
             for block in greeting.blocks {
@@ -98,8 +100,13 @@ enum MinimalExamples {
     struct TeamUpdateModal: SlackModalView {
         let update: TeamUpdate
 
-        var title: TextObject { "Team Updates" }
-        var close: TextObject? { "Dismiss" }
+        var title: TextObject {
+            "Team Updates"
+        }
+
+        var close: TextObject? {
+            "Dismiss"
+        }
 
         var blocks: [Block] {
             for block in update.blocks {

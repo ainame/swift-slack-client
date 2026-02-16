@@ -118,7 +118,9 @@ public enum DSLConvenienceExample {
 
 /// Modal example using convenient DSL patterns
 public struct ConvenientModal: SlackModalView {
-    public var title: TextObject { Text("🚀 Quick Setup").render() }
+    public var title: TextObject {
+        Text("🚀 Quick Setup").render()
+    }
 
     public var blocks: [Block] {
         Section {
@@ -181,9 +183,17 @@ public struct ConvenientModal: SlackModalView {
         .blockId("welcome_message")
     }
 
-    public var submit: TextObject? { Text("Complete Setup").render() }
-    public var close: TextObject? { Text("Cancel").render() }
-    public var callbackId: String { "convenient_setup_modal" }
+    public var submit: TextObject? {
+        Text("Complete Setup").render()
+    }
+
+    public var close: TextObject? {
+        Text("Cancel").render()
+    }
+
+    public var callbackId: String {
+        "convenient_setup_modal"
+    }
 }
 
 /// Home tab showcasing all convenience patterns
@@ -199,6 +209,11 @@ public struct ConvenienceShowcaseHomeTab: SlackHomeTabView {
         return allBlocks
     }
 
-    public var callbackId: String { "convenience_showcase" }
-    public var externalId: String? { "dsl_patterns_demo" }
+    public var callbackId: String {
+        "convenience_showcase"
+    }
+
+    public var externalId: String? {
+        "dsl_patterns_demo"
+    }
 }

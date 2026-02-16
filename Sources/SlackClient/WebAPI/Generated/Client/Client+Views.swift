@@ -82,75 +82,6 @@ extension Client {
         )
     }
 
-    /// Publish a static view for a User.
-    ///
-    /// - Remark: HTTP `POST /views.publish`.
-    /// - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
-    func viewsPublish(_ input: Operations.ViewsPublish.Input) async throws -> Operations.ViewsPublish.Output {
-        try await client.send(
-            input: input,
-            forOperation: Operations.ViewsPublish.id,
-            serializer: { input in
-                let path = try converter.renderedPath(
-                    template: "/views.publish",
-                    parameters: [],
-                )
-                var request: HTTPTypes.HTTPRequest = .init(
-                    soar_path: path,
-                    method: .post,
-                )
-                suppressMutabilityWarning(&request)
-                converter.setAcceptHeader(
-                    in: &request.headerFields,
-                    contentTypes: input.headers.accept,
-                )
-                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
-                case let .json(value):
-                    try converter.setRequiredRequestBodyAsJSON(
-                        value,
-                        headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
-                    )
-                }
-                return (request, body)
-            },
-            deserializer: { response, responseBody in
-                switch response.status.code {
-                case 200:
-                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.ViewsPublish.Output.Ok.Body
-                    let chosenContentType = try converter.bestContentType(
-                        received: contentType,
-                        options: [
-                            "application/json",
-                        ],
-                    )
-                    switch chosenContentType {
-                    case "application/json":
-                        body = try await converter.getResponseBodyAsJSON(
-                            Components.Schemas.ViewsPublishResponse.self,
-                            from: responseBody,
-                            transforming: { value in
-                                .json(value)
-                            },
-                        )
-                    default:
-                        preconditionFailure("bestContentType chose an invalid content type.")
-                    }
-                    return .ok(.init(body: body))
-                default:
-                    return .undocumented(
-                        statusCode: response.status.code,
-                        .init(
-                            headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
-                    )
-                }
-            },
-        )
-    }
-
     /// Push a view onto the stack of a root view.
     ///
     /// - Remark: HTTP `POST /views.push`.
@@ -267,6 +198,75 @@ extension Client {
                     case "application/json":
                         body = try await converter.getResponseBodyAsJSON(
                             Components.Schemas.ViewsUpdateResponse.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            },
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .ok(.init(body: body))
+                default:
+                    return .undocumented(
+                        statusCode: response.status.code,
+                        .init(
+                            headerFields: response.headerFields,
+                            body: responseBody,
+                        ),
+                    )
+                }
+            },
+        )
+    }
+
+    /// Publish a static view for a User.
+    ///
+    /// - Remark: HTTP `POST /views.publish`.
+    /// - Remark: Generated from `#/paths//views.publish/post(viewsPublish)`.
+    func viewsPublish(_ input: Operations.ViewsPublish.Input) async throws -> Operations.ViewsPublish.Output {
+        try await client.send(
+            input: input,
+            forOperation: Operations.ViewsPublish.id,
+            serializer: { input in
+                let path = try converter.renderedPath(
+                    template: "/views.publish",
+                    parameters: [],
+                )
+                var request: HTTPTypes.HTTPRequest = .init(
+                    soar_path: path,
+                    method: .post,
+                )
+                suppressMutabilityWarning(&request)
+                converter.setAcceptHeader(
+                    in: &request.headerFields,
+                    contentTypes: input.headers.accept,
+                )
+                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
+                case let .json(value):
+                    try converter.setRequiredRequestBodyAsJSON(
+                        value,
+                        headerFields: &request.headerFields,
+                        contentType: "application/json; charset=utf-8",
+                    )
+                }
+                return (request, body)
+            },
+            deserializer: { response, responseBody in
+                switch response.status.code {
+                case 200:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.ViewsPublish.Output.Ok.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json",
+                        ],
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Components.Schemas.ViewsPublishResponse.self,
                             from: responseBody,
                             transforming: { value in
                                 .json(value)

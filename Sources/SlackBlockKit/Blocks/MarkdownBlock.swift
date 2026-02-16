@@ -1,6 +1,6 @@
 import Foundation
 
-// A Markdown block containing markdown-formatted text
+/// A Markdown block containing markdown-formatted text
 public struct MarkdownBlock: Codable, Hashable, Sendable {
     public var type: String = "markdown"
     public var text: String

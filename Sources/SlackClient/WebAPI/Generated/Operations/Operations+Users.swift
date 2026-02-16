@@ -9,7 +9,7 @@ import struct Foundation.Data
 import struct Foundation.Date
 import struct Foundation.URL
 #endif
-/// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
+// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_Users
 extension Operations {
@@ -361,14 +361,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/users.discoverableContacts.lookup/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// .
+                    ///
                     ///
                     /// - Remark: Generated from `#/paths/users.discoverableContacts.lookup/POST/requestBody/json/email`.
                     public var email: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - email: .
+                    ///   - email:
                     public init(email: Swift.String) {
                         self.email = email
                     }
@@ -789,30 +789,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/users.info/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// User to get info on.
-                    ///
-                    /// - Remark: Generated from `#/paths/users.info/POST/requestBody/json/user`.
-                    public var user: Swift.String
                     /// Set this to true to receive the locale for this user. Defaults to false.
                     ///
                     /// - Remark: Generated from `#/paths/users.info/POST/requestBody/json/include_locale`.
                     public var includeLocale: Swift.Bool?
+                    /// User to get info on.
+                    ///
+                    /// - Remark: Generated from `#/paths/users.info/POST/requestBody/json/user`.
+                    public var user: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - user: User to get info on.
                     ///   - includeLocale: Set this to true to receive the locale for this user. Defaults to false.
+                    ///   - user: User to get info on.
                     public init(
-                        user: Swift.String,
                         includeLocale: Swift.Bool? = nil,
+                        user: Swift.String,
                     ) {
-                        self.user = user
                         self.includeLocale = includeLocale
+                        self.user = user
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case user
                         case includeLocale = "include_locale"
+                        case user
                     }
                 }
 

@@ -6,18 +6,21 @@ import PackageDescription
 // BEGIN: Generated WebAPI traits - Do not edit manually
 let webAPITraits: [String] = [
     "WebAPI_Admin",
+    "WebAPI_Chat",
+    "WebAPI_Views",
     "WebAPI_Apps",
     "WebAPI_Assistant",
     "WebAPI_Auth",
     "WebAPI_Bookmarks",
     "WebAPI_Bots",
     "WebAPI_Canvases",
-    "WebAPI_Chat",
     "WebAPI_Conversations",
     "WebAPI_DND",
     "WebAPI_Emoji",
+    "WebAPI_Entity",
     "WebAPI_Files",
     "WebAPI_Functions",
+    "WebAPI_Lists",
     "WebAPI_Migration",
     "WebAPI_OAuth",
     "WebAPI_OpenID",
@@ -25,12 +28,10 @@ let webAPITraits: [String] = [
     "WebAPI_Reactions",
     "WebAPI_Reminders",
     "WebAPI_Search",
-    "WebAPI_Lists",
     "WebAPI_Stars",
     "WebAPI_Team",
     "WebAPI_Tooling",
-    "WebAPI_Users",
-    "WebAPI_Views"
+    "WebAPI_Users"
 ]
 
 var traits: [Trait] = webAPITraits.map { .trait(name: $0) }

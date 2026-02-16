@@ -9,7 +9,7 @@ import struct Foundation.Data
 import struct Foundation.Date
 import struct Foundation.URL
 #endif
-/// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
+// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_Conversations
 extension Operations {
@@ -37,10 +37,10 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/channel_name`.
                     public var channelName: Swift.String
-                    /// ID of the channel that you'd like to accept. Must provide either invite_id or channel_id.
+                    /// Whether the channel should be private.
                     ///
-                    /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/channel_id`.
-                    public var channelId: Swift.String?
+                    /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/is_private`.
+                    public var isPrivate: Swift.Bool?
                     /// Whether you'd like to use your workspace's free trial to begin using Slack Connect.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/free_trial_accepted`.
@@ -50,10 +50,10 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/invite_id`.
                     public var inviteId: Swift.String?
-                    /// Whether the channel should be private.
+                    /// ID of the channel that you'd like to accept. Must provide either invite_id or channel_id.
                     ///
-                    /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/is_private`.
-                    public var isPrivate: Swift.Bool?
+                    /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/channel_id`.
+                    public var channelId: Swift.String?
                     /// The ID of the workspace to accept the channel in. If an org-level token is used to call this method, the team_id argument is required.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.acceptSharedInvite/POST/requestBody/json/team_id`.
@@ -62,34 +62,34 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channelName: Name of the channel. If the channel does not exist already in your workspace, this name is the one that the channel will take.
-                    ///   - channelId: ID of the channel that you'd like to accept. Must provide either invite_id or channel_id.
+                    ///   - isPrivate: Whether the channel should be private.
                     ///   - freeTrialAccepted: Whether you'd like to use your workspace's free trial to begin using Slack Connect.
                     ///   - inviteId: ID of the invite that you'd like to accept. Must provide either invite_id or channel_id. See the shared_channel_invite_received event payload for more details on
                     /// how to retrieve the ID of the invitation.
-                    ///   - isPrivate: Whether the channel should be private.
+                    ///   - channelId: ID of the channel that you'd like to accept. Must provide either invite_id or channel_id.
                     ///   - teamId: The ID of the workspace to accept the channel in. If an org-level token is used to call this method, the team_id argument is required.
                     public init(
                         channelName: Swift.String,
-                        channelId: Swift.String? = nil,
+                        isPrivate: Swift.Bool? = nil,
                         freeTrialAccepted: Swift.Bool? = nil,
                         inviteId: Swift.String? = nil,
-                        isPrivate: Swift.Bool? = nil,
+                        channelId: Swift.String? = nil,
                         teamId: Swift.String? = nil,
                     ) {
                         self.channelName = channelName
-                        self.channelId = channelId
+                        self.isPrivate = isPrivate
                         self.freeTrialAccepted = freeTrialAccepted
                         self.inviteId = inviteId
-                        self.isPrivate = isPrivate
+                        self.channelId = channelId
                         self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case channelName = "channel_name"
-                        case channelId = "channel_id"
+                        case isPrivate = "is_private"
                         case freeTrialAccepted = "free_trial_accepted"
                         case inviteId = "invite_id"
-                        case isPrivate = "is_private"
+                        case channelId = "channel_id"
                         case teamId = "team_id"
                     }
                 }
@@ -525,7 +525,7 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.canvases.create/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Channel ID of the channel we create the channel canvas for.
+                    /// Channel ID of the channel the canvas will be tabbed in.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.canvases.create/POST/requestBody/json/channel_id`.
                     public var channelId: Swift.String
@@ -540,7 +540,7 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - channelId: Channel ID of the channel we create the channel canvas for.
+                    ///   - channelId: Channel ID of the channel the canvas will be tabbed in.
                     ///   - documentContent: Structure describing the type and value of the content to create.
                     ///   - title: Title of the newly created canvas.
                     public init(
@@ -835,14 +835,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.create/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Name of the public or private channel to create.
-                    ///
-                    /// - Remark: Generated from `#/paths/conversations.create/POST/requestBody/json/name`.
-                    public var name: Swift.String
                     /// Create a private channel instead of a public one.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.create/POST/requestBody/json/is_private`.
                     public var isPrivate: Swift.Bool?
+                    /// Name of the public or private channel to create.
+                    ///
+                    /// - Remark: Generated from `#/paths/conversations.create/POST/requestBody/json/name`.
+                    public var name: Swift.String
                     /// encoded team id to create the channel in, required if org token is used.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.create/POST/requestBody/json/team_id`.
@@ -850,22 +850,22 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - name: Name of the public or private channel to create.
                     ///   - isPrivate: Create a private channel instead of a public one.
+                    ///   - name: Name of the public or private channel to create.
                     ///   - teamId: encoded team id to create the channel in, required if org token is used.
                     public init(
-                        name: Swift.String,
                         isPrivate: Swift.Bool? = nil,
+                        name: Swift.String,
                         teamId: Swift.String? = nil,
                     ) {
-                        self.name = name
                         self.isPrivate = isPrivate
+                        self.name = name
                         self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case name
                         case isPrivate = "is_private"
+                        case name
                         case teamId = "team_id"
                     }
                 }
@@ -1157,10 +1157,6 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.externalInvitePermissions.set/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Type of action to be taken: upgrade or downgrade.
-                    ///
-                    /// - Remark: Generated from `#/paths/conversations.externalInvitePermissions.set/POST/requestBody/json/action`.
-                    public var action: Swift.String
                     /// The channel ID to change external invite permissions for.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.externalInvitePermissions.set/POST/requestBody/json/channel`.
@@ -1169,26 +1165,30 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.externalInvitePermissions.set/POST/requestBody/json/target_team`.
                     public var targetTeam: Swift.String
+                    /// Type of action to be taken: upgrade or downgrade.
+                    ///
+                    /// - Remark: Generated from `#/paths/conversations.externalInvitePermissions.set/POST/requestBody/json/action`.
+                    public var action: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - action: Type of action to be taken: upgrade or downgrade.
                     ///   - channel: The channel ID to change external invite permissions for.
                     ///   - targetTeam: The encoded team ID of the target team.  Must be in the specified channel.
+                    ///   - action: Type of action to be taken: upgrade or downgrade.
                     public init(
-                        action: Swift.String,
                         channel: Swift.String,
                         targetTeam: Swift.String,
+                        action: Swift.String,
                     ) {
-                        self.action = action
                         self.channel = channel
                         self.targetTeam = targetTeam
+                        self.action = action
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case action
                         case channel
                         case targetTeam = "target_team"
+                        case action
                     }
                 }
 
@@ -1689,34 +1689,34 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.invite/POST/requestBody/json/channel`.
                     public var channel: Swift.String
-                    /// A comma separated list of user IDs. Up to 1000 users may be listed.
-                    ///
-                    /// - Remark: Generated from `#/paths/conversations.invite/POST/requestBody/json/users`.
-                    public var users: Swift.String
                     /// When set to true and multiple user IDs are provided, continue inviting the valid ones while disregarding invalid IDs. Defaults to false.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.invite/POST/requestBody/json/force`.
                     public var force: Swift.Bool?
+                    /// A comma separated list of user IDs. Up to 100 users may be listed.
+                    ///
+                    /// - Remark: Generated from `#/paths/conversations.invite/POST/requestBody/json/users`.
+                    public var users: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - channel: The ID of the public or private channel to invite user(s) to.
-                    ///   - users: A comma separated list of user IDs. Up to 1000 users may be listed.
                     ///   - force: When set to true and multiple user IDs are provided, continue inviting the valid ones while disregarding invalid IDs. Defaults to false.
+                    ///   - users: A comma separated list of user IDs. Up to 100 users may be listed.
                     public init(
                         channel: Swift.String,
-                        users: Swift.String,
                         force: Swift.Bool? = nil,
+                        users: Swift.String,
                     ) {
                         self.channel = channel
-                        self.users = users
                         self.force = force
+                        self.users = users
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case channel
-                        case users
                         case force
+                        case users
                     }
                 }
 
@@ -1857,38 +1857,38 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/json/emails`.
                     public var emails: OpenAPIRuntime.OpenAPIArrayContainer?
-                    /// Optional boolean on whether invite is to an external limited member. Defaults to true.
-                    ///
-                    /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/json/external_limited`.
-                    public var externalLimited: Swift.Bool?
                     /// Optional user_id to receive this invite. Either emails or user_ids must be provided. Only one email or one user ID may be invited at a time.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/json/user_ids`.
                     public var userIds: OpenAPIRuntime.OpenAPIArrayContainer?
+                    /// Optional boolean on whether invite is to an external limited member. Defaults to true.
+                    ///
+                    /// - Remark: Generated from `#/paths/conversations.inviteShared/POST/requestBody/json/external_limited`.
+                    public var externalLimited: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - channel: ID of the channel on your team that you'd like to share.
                     ///   - emails: Optional email to receive this invite. Either emails or user_ids must be provided. Only one email or one user ID may be invited at a time.
-                    ///   - externalLimited: Optional boolean on whether invite is to an external limited member. Defaults to true.
                     ///   - userIds: Optional user_id to receive this invite. Either emails or user_ids must be provided. Only one email or one user ID may be invited at a time.
+                    ///   - externalLimited: Optional boolean on whether invite is to an external limited member. Defaults to true.
                     public init(
                         channel: Swift.String,
                         emails: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
-                        externalLimited: Swift.Bool? = nil,
                         userIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
+                        externalLimited: Swift.Bool? = nil,
                     ) {
                         self.channel = channel
                         self.emails = emails
-                        self.externalLimited = externalLimited
                         self.userIds = userIds
+                        self.externalLimited = externalLimited
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case channel
                         case emails
-                        case externalLimited = "external_limited"
                         case userIds = "user_ids"
+                        case externalLimited = "external_limited"
                     }
                 }
 
@@ -2652,30 +2652,30 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.listConnectInvites/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Set to next_cursor returned by previous call to list items in subsequent page.
-                    ///
-                    /// - Remark: Generated from `#/paths/conversations.listConnectInvites/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
                     /// Encoded team id for the workspace to retrieve invites for, required if org token is used.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.listConnectInvites/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
+                    /// Set to next_cursor returned by previous call to list items in subsequent page.
+                    ///
+                    /// - Remark: Generated from `#/paths/conversations.listConnectInvites/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - cursor: Set to next_cursor returned by previous call to list items in subsequent page.
                     ///   - teamId: Encoded team id for the workspace to retrieve invites for, required if org token is used.
+                    ///   - cursor: Set to next_cursor returned by previous call to list items in subsequent page.
                     public init(
-                        cursor: Swift.String? = nil,
                         teamId: Swift.String? = nil,
+                        cursor: Swift.String? = nil,
                     ) {
-                        self.cursor = cursor
                         self.teamId = teamId
+                        self.cursor = cursor
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case cursor
                         case teamId = "team_id"
+                        case cursor
                     }
                 }
 
@@ -3134,10 +3134,6 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/channel`.
                     public var channel: Swift.String?
-                    /// Do not create a direct message or multi-person direct message. This is used to see if there is an existing dm or mpdm.
-                    ///
-                    /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/prevent_creation`.
-                    public var preventCreation: Swift.Bool?
                     /// Boolean, indicates you want the full IM channel definition in the response.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/return_im`.
@@ -3147,31 +3143,35 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/users`.
                     public var users: Swift.String?
+                    /// Do not create a direct message or multi-person direct message. This is used to see if there is an existing dm or mpdm.
+                    ///
+                    /// - Remark: Generated from `#/paths/conversations.open/POST/requestBody/json/prevent_creation`.
+                    public var preventCreation: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - channel: Resume a conversation by supplying an im or mpim's ID. Or provide the users field instead.
-                    ///   - preventCreation: Do not create a direct message or multi-person direct message. This is used to see if there is an existing dm or mpdm.
                     ///   - returnIm: Boolean, indicates you want the full IM channel definition in the response.
                     ///   - users: Comma separated lists of users. If only one user is included, this creates a 1:1 DM.  The ordering of the users is preserved whenever a multi-person direct message
                     /// is returned. Supply a channel when not supplying users.
+                    ///   - preventCreation: Do not create a direct message or multi-person direct message. This is used to see if there is an existing dm or mpdm.
                     public init(
                         channel: Swift.String? = nil,
-                        preventCreation: Swift.Bool? = nil,
                         returnIm: Swift.Bool? = nil,
                         users: Swift.String? = nil,
+                        preventCreation: Swift.Bool? = nil,
                     ) {
                         self.channel = channel
-                        self.preventCreation = preventCreation
                         self.returnIm = returnIm
                         self.users = users
+                        self.preventCreation = preventCreation
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case channel
-                        case preventCreation = "prevent_creation"
                         case returnIm = "return_im"
                         case users
+                        case preventCreation = "prevent_creation"
                     }
                 }
 
@@ -3464,11 +3464,6 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.replies/POST/requestBody/json/channel`.
                     public var channel: Swift.String
-                    /// Unique identifier of either a thread's parent message or a message in the thread. ts must be the timestamp of an existing message with 0 or more replies. If there are no
-                    /// replies then just the single message referenced by ts will return - it is just an ordinary, unthreaded message.
-                    ///
-                    /// - Remark: Generated from `#/paths/conversations.replies/POST/requestBody/json/ts`.
-                    public var ts: Swift.String
                     /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value fetches the
                     /// first "page" of the collection. See pagination for more detail.
                     ///
@@ -3494,12 +3489,15 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.replies/POST/requestBody/json/oldest`.
                     public var oldest: Swift.String?
+                    /// Unique identifier of either a thread's parent message or a message in the thread. ts must be the timestamp of an existing message with 0 or more replies. If there are no
+                    /// replies then just the single message referenced by ts will return - it is just an ordinary, unthreaded message.
+                    ///
+                    /// - Remark: Generated from `#/paths/conversations.replies/POST/requestBody/json/ts`.
+                    public var ts: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - channel: Conversation ID to fetch thread from.
-                    ///   - ts: Unique identifier of either a thread's parent message or a message in the thread. ts must be the timestamp of an existing message with 0 or more replies. If there are
-                    /// no replies then just the single message referenced by ts will return - it is just an ordinary, unthreaded message.
                     ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. Default value
                     /// fetches the first "page" of the collection. See pagination for more detail.
                     ///   - includeAllMetadata: Return all metadata associated with this message.
@@ -3507,35 +3505,37 @@ extension Operations {
                     ///   - latest: Only messages before this Unix timestamp will be included in results.
                     ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached.
                     ///   - oldest: Only messages after this Unix timestamp will be included in results.
+                    ///   - ts: Unique identifier of either a thread's parent message or a message in the thread. ts must be the timestamp of an existing message with 0 or more replies. If there are
+                    /// no replies then just the single message referenced by ts will return - it is just an ordinary, unthreaded message.
                     public init(
                         channel: Swift.String,
-                        ts: Swift.String,
                         cursor: Swift.String? = nil,
                         includeAllMetadata: Swift.Bool? = nil,
                         inclusive: Swift.Bool? = nil,
                         latest: Swift.String? = nil,
                         limit: Swift.Double? = nil,
                         oldest: Swift.String? = nil,
+                        ts: Swift.String,
                     ) {
                         self.channel = channel
-                        self.ts = ts
                         self.cursor = cursor
                         self.includeAllMetadata = includeAllMetadata
                         self.inclusive = inclusive
                         self.latest = latest
                         self.limit = limit
                         self.oldest = oldest
+                        self.ts = ts
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case channel
-                        case ts
                         case cursor
                         case includeAllMetadata = "include_all_metadata"
                         case inclusive
                         case latest
                         case limit
                         case oldest
+                        case ts
                     }
                 }
 
@@ -3672,14 +3672,14 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/invite_id`.
                     public var inviteId: Swift.String
-                    /// Optional channel_id to which external user will be invited to. Will override the value on the requested invite.
-                    ///
-                    /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/channel_id`.
-                    public var channelId: Swift.String?
                     /// Optional boolean on whether the invited team will have post-only permissions in the channel. Will override the value on the requested invite.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/is_external_limited`.
                     public var isExternalLimited: Swift.Bool?
+                    /// Optional channel_id to which external user will be invited to. Will override the value on the requested invite.
+                    ///
+                    /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.approve/POST/requestBody/json/channel_id`.
+                    public var channelId: Swift.String?
                     /// Object describing the text to send along with the invite. If this object is specified, both text and is_override are required properties. If is_override is set to true, text
                     /// will override the original invitation message. Otherwise, text will be appended to the original invitation message. The total length of the message cannot exceed 560
                     /// characters. If is_override is set to false, the length of text and the user specified message on the invite request in total must be less than 560 characters.
@@ -3690,27 +3690,27 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - inviteId: ID of the requested shared channel invite to approve.
-                    ///   - channelId: Optional channel_id to which external user will be invited to. Will override the value on the requested invite.
                     ///   - isExternalLimited: Optional boolean on whether the invited team will have post-only permissions in the channel. Will override the value on the requested invite.
+                    ///   - channelId: Optional channel_id to which external user will be invited to. Will override the value on the requested invite.
                     ///   - message: Object describing the text to send along with the invite. If this object is specified, both text and is_override are required properties. If is_override is set to
                     /// true, text will override the original invitation message. Otherwise, text will be appended to the original invitation message. The total length of the message cannot exceed 560
                     /// characters. If is_override is set to false, the length of text and the user specified message on the invite request in total must be less than 560 characters.
                     public init(
                         inviteId: Swift.String,
-                        channelId: Swift.String? = nil,
                         isExternalLimited: Swift.Bool? = nil,
+                        channelId: Swift.String? = nil,
                         message: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
                     ) {
                         self.inviteId = inviteId
-                        self.channelId = channelId
                         self.isExternalLimited = isExternalLimited
+                        self.channelId = channelId
                         self.message = message
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case inviteId = "invite_id"
-                        case channelId = "channel_id"
                         case isExternalLimited = "is_external_limited"
+                        case channelId = "channel_id"
                         case message
                     }
                 }
@@ -4000,11 +4000,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. See pagination for more
-                    /// detail.
+                    /// Optional filter to return invitation requests for the inviting user.
                     ///
-                    /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/cursor`.
-                    public var cursor: Swift.String?
+                    /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/user_id`.
+                    public var userId: Swift.String?
+                    /// When true expired invitation requests will be returned, otherwise they will be excluded.
+                    ///
+                    /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/include_expired`.
+                    public var includeExpired: Swift.Bool?
                     /// When true approved invitation requests will be returned, otherwise they will be excluded.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/include_approved`.
@@ -4013,10 +4016,6 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/include_denied`.
                     public var includeDenied: Swift.Bool?
-                    /// When true expired invitation requests will be returned, otherwise they will be excluded.
-                    ///
-                    /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/include_expired`.
-                    public var includeExpired: Swift.Bool?
                     /// An optional list of invitation ids to look up.
                     ///
                     /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/invite_ids`.
@@ -4025,47 +4024,48 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// Optional filter to return invitation requests for the inviting user.
+                    /// Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. See pagination for more
+                    /// detail.
                     ///
-                    /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/user_id`.
-                    public var userId: Swift.String?
+                    /// - Remark: Generated from `#/paths/conversations.requestSharedInvite.list/POST/requestBody/json/cursor`.
+                    public var cursor: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. See pagination
-                    /// for more detail.
+                    ///   - userId: Optional filter to return invitation requests for the inviting user.
+                    ///   - includeExpired: When true expired invitation requests will be returned, otherwise they will be excluded.
                     ///   - includeApproved: When true approved invitation requests will be returned, otherwise they will be excluded.
                     ///   - includeDenied: When true denied invitation requests will be returned, otherwise they will be excluded.
-                    ///   - includeExpired: When true expired invitation requests will be returned, otherwise they will be excluded.
                     ///   - inviteIds: An optional list of invitation ids to look up.
                     ///   - limit: The number of items to return. Must be between 1 - 1000 (inclusive).
-                    ///   - userId: Optional filter to return invitation requests for the inviting user.
+                    ///   - cursor: Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previous request's response_metadata. See pagination
+                    /// for more detail.
                     public init(
-                        cursor: Swift.String? = nil,
+                        userId: Swift.String? = nil,
+                        includeExpired: Swift.Bool? = nil,
                         includeApproved: Swift.Bool? = nil,
                         includeDenied: Swift.Bool? = nil,
-                        includeExpired: Swift.Bool? = nil,
                         inviteIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         limit: Swift.Int? = nil,
-                        userId: Swift.String? = nil,
+                        cursor: Swift.String? = nil,
                     ) {
-                        self.cursor = cursor
+                        self.userId = userId
+                        self.includeExpired = includeExpired
                         self.includeApproved = includeApproved
                         self.includeDenied = includeDenied
-                        self.includeExpired = includeExpired
                         self.inviteIds = inviteIds
                         self.limit = limit
-                        self.userId = userId
+                        self.cursor = cursor
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case cursor
+                        case userId = "user_id"
+                        case includeExpired = "include_expired"
                         case includeApproved = "include_approved"
                         case includeDenied = "include_denied"
-                        case includeExpired = "include_expired"
                         case inviteIds = "invite_ids"
                         case limit
-                        case userId = "user_id"
+                        case cursor
                     }
                 }
 

@@ -3,7 +3,7 @@ import OpenAPIRuntime
 import SlackBlockKit
 import SlackModels
 
-// https://docs.slack.dev/reference/interaction-payloads/block_actions-payload#fields
+/// https://docs.slack.dev/reference/interaction-payloads/block_actions-payload#fields
 public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendable {
     /// "block_actions"
     public let _type: String
@@ -30,5 +30,7 @@ public struct BlockActionsPaylaod: InteractivePayloadProtocol, Decodable, Sendab
 }
 
 extension BlockActionsPaylaod {
-    public var callbackId: String? { view.callbackId }
+    public var callbackId: String? {
+        view.callbackId
+    }
 }

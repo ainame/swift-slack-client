@@ -4,7 +4,7 @@ import SlackBlockKit
 import Testing
 
 struct SlackViewTests {
-    // Test native for-in loop
+    /// Test native for-in loop
     @Test func nativeForInLoop() {
         struct TestView: SlackView {
             let items = ["Apple", "Banana", "Orange"]
@@ -44,7 +44,7 @@ struct SlackViewTests {
         }
     }
 
-    // Test enumerated for-in loop
+    /// Test enumerated for-in loop
     @Test func enumeratedForInLoop() {
         struct TestView: SlackView {
             let items = ["First", "Second", "Third"]
@@ -77,7 +77,7 @@ struct SlackViewTests {
         }
     }
 
-    // Test complex scenario with conditionals inside loops
+    /// Test complex scenario with conditionals inside loops
     @Test func forInWithConditionals() {
         struct TestView: SlackView {
             let numbers = [1, 2, 3, 4, 5]
@@ -114,7 +114,7 @@ struct SlackViewTests {
         }
     }
 
-    // Test nested loops
+    /// Test nested loops
     @Test func nestedForInLoops() {
         struct TestView: SlackView {
             let categories = [
@@ -154,7 +154,7 @@ struct SlackViewTests {
         #expect(blocks[7].isDivider)
     }
 
-    // Test empty views and conditional rendering
+    /// Test empty views and conditional rendering
     @Test func emptyAndConditionalRendering() {
         struct TestView: SlackView {
             let showContent: Bool
@@ -192,7 +192,7 @@ struct SlackViewTests {
         #expect(fullView.blocks.count == 3) // Header + 2 item sections
     }
 
-    // Test with filter and map operations
+    /// Test with filter and map operations
     @Test func filterAndMapOperations() {
         struct TestView: SlackView {
             let numbers = [1, 2, 3, 4, 5, 6]
@@ -223,7 +223,7 @@ struct SlackViewTests {
         }
     }
 
-    // Test SlackModalView protocol
+    /// Test SlackModalView protocol
     @Test func modalViewProtocol() {
         struct TestModal: SlackModalView {
             let userName: String
@@ -279,7 +279,7 @@ struct SlackViewTests {
         }
     }
 
-    // Test SlackHomeTabView protocol
+    /// Test SlackHomeTabView protocol
     @Test func homeTabViewProtocol() {
         struct TestHomeTab: SlackHomeTabView {
             let items: [String]
@@ -318,7 +318,7 @@ struct SlackViewTests {
         }
     }
 
-    // Test minimal modal with defaults
+    /// Test minimal modal with defaults
     @Test func minimalModalView() {
         struct MinimalModal: SlackModalView {
             var title: TextObject {
@@ -348,7 +348,7 @@ struct SlackViewTests {
     }
 }
 
-// Helper extensions for cleaner assertions
+/// Helper extensions for cleaner assertions
 extension Block {
     var isHeader: Bool {
         if case .header = self { return true }
