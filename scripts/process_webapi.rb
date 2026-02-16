@@ -1381,6 +1381,7 @@ class SchemaGroupDeterminer
       # Find the first API group that matches
       group = ClientFunctionParser::API_GROUPS.find { |g| prefix.downcase.start_with?(g.downcase) }
       return GroupNameFormatter.capitalize_group_name(group) if group
+      return 'Unknown'
     end
 
     # For non-response types, put in Common

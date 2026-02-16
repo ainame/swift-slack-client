@@ -151,23 +151,24 @@ extension Say {
 
         #if WebAPI_Chat
         fileprivate func asInput() -> Operations.ChatPostMessage.Input.Body.JsonPayload {
-            Operations.ChatPostMessage.Input.Body.JsonPayload(
-                channel: channel,
-                text: text,
-                asUser: nil as Swift.Bool?,
-                iconEmoji: iconEmoji,
-                iconUrl: iconUrl,
-                linkNames: linkNames,
-                markdownText: markdownText,
-                metadata: metadata,
-                mrkdwn: mrkdwn,
-                parse: parse.flatMap { $0 == .none ? "none" : "full" },
-                replyBroadcast: replyBroadcast,
-                threadTs: threadTs,
-                unfurlLinks: unfurlLinks,
-                unfurlMedia: unfurlMedia,
-                username: username,
-            )
+            var payload = Operations.ChatPostMessage.Input.Body.JsonPayload(channel: channel)
+            payload.text = text
+            payload.asUser = nil
+            payload.iconEmoji = iconEmoji
+            payload.iconUrl = iconUrl
+            payload.linkNames = linkNames
+            payload.markdownText = markdownText
+            payload.mrkdwn = mrkdwn
+            payload.parse = parse.flatMap { $0 == .none ? "none" : "full" }
+            payload.replyBroadcast = replyBroadcast
+            payload.threadTs = threadTs
+            payload.unfurlLinks = unfurlLinks
+            payload.unfurlMedia = unfurlMedia
+            payload.username = username
+            payload.blocks = blocks
+            payload.attachments = attachments
+            payload.metadata = metadata
+            return payload
         }
         #endif
     }
