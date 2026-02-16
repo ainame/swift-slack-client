@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/ConnectedWorkspace`.
@@ -22,11 +22,12 @@ public struct ConnectedWorkspace: Codable, Hashable, Sendable {
     ///   - workspaceName:
     public init(
         workspaceId: Swift.String? = nil,
-        workspaceName: Swift.String? = nil
+        workspaceName: Swift.String? = nil,
     ) {
         self.workspaceId = workspaceId
         self.workspaceName = workspaceName
     }
+
     public enum CodingKeys: String, CodingKey {
         case workspaceId = "workspace_id"
         case workspaceName = "workspace_name"

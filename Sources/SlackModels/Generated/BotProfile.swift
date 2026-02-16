@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/BotProfile`.
@@ -42,7 +42,7 @@ public struct BotProfile: Codable, Hashable, Sendable {
         id: Swift.String? = nil,
         name: Swift.String? = nil,
         teamId: Swift.String? = nil,
-        updated: Swift.Int? = nil
+        updated: Swift.Int? = nil,
     ) {
         self.appId = appId
         self.deleted = deleted
@@ -52,6 +52,7 @@ public struct BotProfile: Codable, Hashable, Sendable {
         self.teamId = teamId
         self.updated = updated
     }
+
     public enum CodingKeys: String, CodingKey {
         case appId = "app_id"
         case deleted

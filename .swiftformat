@@ -1,8 +1,10 @@
 # SwiftFormat configuration
 --indent 4
+--swiftversion 6.2
 --maxwidth 200
 --wraparguments before-first
 --wrapcollections before-first
+--trailing-commas always
 --closingparen balanced
 --guardelse same-line
 --elseposition same-line

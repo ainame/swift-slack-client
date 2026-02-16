@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Bookmark`.
@@ -78,7 +78,7 @@ public struct Bookmark: Codable, Hashable, Sendable {
         rank: Swift.String? = nil,
         shortcutId: Swift.String? = nil,
         title: Swift.String? = nil,
-        _type: Swift.String
+        _type: Swift.String,
     ) {
         self.appActionId = appActionId
         self.appId = appId
@@ -97,6 +97,7 @@ public struct Bookmark: Codable, Hashable, Sendable {
         self.title = title
         self._type = _type
     }
+
     public enum CodingKeys: String, CodingKey {
         case appActionId = "app_action_id"
         case appId = "app_id"

@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Login`.
@@ -54,7 +54,7 @@ public struct Login: Codable, Hashable, Sendable {
         region: Swift.String? = nil,
         userAgent: Swift.String? = nil,
         userId: Swift.String? = nil,
-        username: Swift.String? = nil
+        username: Swift.String? = nil,
     ) {
         self.count = count
         self.country = country
@@ -67,6 +67,7 @@ public struct Login: Codable, Hashable, Sendable {
         self.userId = userId
         self.username = username
     }
+
     public enum CodingKeys: String, CodingKey {
         case count
         case country

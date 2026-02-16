@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Pagination`.
@@ -38,7 +38,7 @@ public struct Pagination: Codable, Hashable, Sendable {
         page: Swift.Int? = nil,
         pageCount: Swift.Int? = nil,
         perPage: Swift.Int? = nil,
-        totalCount: Swift.Int? = nil
+        totalCount: Swift.Int? = nil,
     ) {
         self.first = first
         self.last = last
@@ -47,6 +47,7 @@ public struct Pagination: Codable, Hashable, Sendable {
         self.perPage = perPage
         self.totalCount = totalCount
     }
+
     public enum CodingKeys: String, CodingKey {
         case first
         case last

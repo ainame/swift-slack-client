@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/ScheduledMessage`.
@@ -34,7 +34,7 @@ public struct ScheduledMessage: Codable, Hashable, Sendable {
         dateCreated: Swift.Int? = nil,
         id: Swift.String? = nil,
         postAt: Swift.Int? = nil,
-        text: Swift.String? = nil
+        text: Swift.String? = nil,
     ) {
         self.channelId = channelId
         self.dateCreated = dateCreated
@@ -42,6 +42,7 @@ public struct ScheduledMessage: Codable, Hashable, Sendable {
         self.postAt = postAt
         self.text = text
     }
+
     public enum CodingKeys: String, CodingKey {
         case channelId = "channel_id"
         case dateCreated = "date_created"

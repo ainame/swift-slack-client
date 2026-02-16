@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Description`.
@@ -30,13 +30,14 @@ public struct Description: Codable, Hashable, Sendable {
         emoji: Swift.Bool? = nil,
         text: Swift.String? = nil,
         _type: Swift.String,
-        verbatim: Swift.Bool? = nil
+        verbatim: Swift.Bool? = nil,
     ) {
         self.emoji = emoji
         self.text = text
         self._type = _type
         self.verbatim = verbatim
     }
+
     public enum CodingKeys: String, CodingKey {
         case emoji
         case text

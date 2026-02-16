@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Record`.
@@ -46,7 +46,7 @@ public struct Record: Codable, Hashable, Sendable {
         isSubscribed: Swift.Bool? = nil,
         listId: Swift.String? = nil,
         updatedBy: Swift.String? = nil,
-        updatedTimestamp: Swift.String? = nil
+        updatedTimestamp: Swift.String? = nil,
     ) {
         self.createdBy = createdBy
         self.dateCreated = dateCreated
@@ -57,6 +57,7 @@ public struct Record: Codable, Hashable, Sendable {
         self.updatedBy = updatedBy
         self.updatedTimestamp = updatedTimestamp
     }
+
     public enum CodingKeys: String, CodingKey {
         case createdBy = "created_by"
         case dateCreated = "date_created"

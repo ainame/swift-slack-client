@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/ScMpdmToPrivate`.
@@ -38,7 +38,7 @@ public struct ScMpdmToPrivate: Codable, Hashable, Sendable {
         dateUpdate: Swift.Int? = nil,
         invalidWorkspaceIds: [Swift.String]? = nil,
         source: Swift.String? = nil,
-        _type: Swift.String
+        _type: Swift.String,
     ) {
         self.acceptInWorkspaceId = acceptInWorkspaceId
         self.actor = actor
@@ -47,6 +47,7 @@ public struct ScMpdmToPrivate: Codable, Hashable, Sendable {
         self.source = source
         self._type = _type
     }
+
     public enum CodingKeys: String, CodingKey {
         case acceptInWorkspaceId = "accept_in_workspace_id"
         case actor

@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Schema`.
@@ -38,7 +38,7 @@ public struct Schema: Codable, Hashable, Sendable {
         key: Swift.String? = nil,
         name: Swift.String? = nil,
         options: SchemaOptions? = nil,
-        _type: Swift.String
+        _type: Swift.String,
     ) {
         self.id = id
         self.isPrimaryColumn = isPrimaryColumn
@@ -47,6 +47,7 @@ public struct Schema: Codable, Hashable, Sendable {
         self.options = options
         self._type = _type
     }
+
     public enum CodingKeys: String, CodingKey {
         case id
         case isPrimaryColumn = "is_primary_column"
