@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/InviteInvite`.
@@ -50,7 +50,7 @@ public struct InviteInvite: Codable, Hashable, Sendable {
         link: Swift.String? = nil,
         recipientEmail: Swift.String? = nil,
         recipientUserId: Swift.String? = nil,
-        sig: Swift.String? = nil
+        sig: Swift.String? = nil,
     ) {
         self.dateCreated = dateCreated
         self.dateInvalid = dateInvalid
@@ -62,6 +62,7 @@ public struct InviteInvite: Codable, Hashable, Sendable {
         self.recipientUserId = recipientUserId
         self.sig = sig
     }
+
     public enum CodingKeys: String, CodingKey {
         case dateCreated = "date_created"
         case dateInvalid = "date_invalid"

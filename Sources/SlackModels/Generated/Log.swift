@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Log`.
@@ -78,7 +78,7 @@ public struct Log: Codable, Hashable, Sendable {
         serviceId: Swift.Int? = nil,
         serviceType: Swift.String? = nil,
         userId: Swift.String? = nil,
-        userName: Swift.String? = nil
+        userName: Swift.String? = nil,
     ) {
         self.appId = appId
         self.appType = appType
@@ -97,6 +97,7 @@ public struct Log: Codable, Hashable, Sendable {
         self.userId = userId
         self.userName = userName
     }
+
     public enum CodingKeys: String, CodingKey {
         case appId = "app_id"
         case appType = "app_type"

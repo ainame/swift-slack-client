@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/App`.
@@ -62,7 +62,7 @@ public struct App: Codable, Hashable, Sendable {
         isGranularBotApp: Swift.Bool? = nil,
         isInternal: Swift.Bool? = nil,
         name: Swift.String? = nil,
-        privacyPolicyUrl: Swift.String? = nil
+        privacyPolicyUrl: Swift.String? = nil,
     ) {
         self.additionalInfo = additionalInfo
         self.appDirectoryUrl = appDirectoryUrl
@@ -77,6 +77,7 @@ public struct App: Codable, Hashable, Sendable {
         self.name = name
         self.privacyPolicyUrl = privacyPolicyUrl
     }
+
     public enum CodingKeys: String, CodingKey {
         case additionalInfo = "additional_info"
         case appDirectoryUrl = "app_directory_url"

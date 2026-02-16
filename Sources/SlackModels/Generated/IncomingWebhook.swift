@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/IncomingWebhook`.
@@ -30,13 +30,14 @@ public struct IncomingWebhook: Codable, Hashable, Sendable {
         channel: Swift.String? = nil,
         channelId: Swift.String? = nil,
         configurationUrl: Swift.String? = nil,
-        url: Swift.String? = nil
+        url: Swift.String? = nil,
     ) {
         self.channel = channel
         self.channelId = channelId
         self.configurationUrl = configurationUrl
         self.url = url
     }
+
     public enum CodingKeys: String, CodingKey {
         case channel
         case channelId = "channel_id"

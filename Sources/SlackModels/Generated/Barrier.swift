@@ -1,12 +1,12 @@
 @_spi(Generated) import OpenAPIRuntime
 #if os(Linux)
-@preconcurrency import struct Foundation.URL
 @preconcurrency import struct Foundation.Data
 @preconcurrency import struct Foundation.Date
+@preconcurrency import struct Foundation.URL
 #else
-import struct Foundation.URL
 import struct Foundation.Data
 import struct Foundation.Date
+import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Barrier`.
@@ -38,7 +38,7 @@ public struct Barrier: Codable, Hashable, Sendable {
         enterpriseId: Swift.String? = nil,
         id: Swift.String? = nil,
         primaryUsergroup: Usergroup? = nil,
-        restrictedSubjects: [Swift.String]? = nil
+        restrictedSubjects: [Swift.String]? = nil,
     ) {
         self.barrieredFromUsergroups = barrieredFromUsergroups
         self.dateUpdate = dateUpdate
@@ -47,6 +47,7 @@ public struct Barrier: Codable, Hashable, Sendable {
         self.primaryUsergroup = primaryUsergroup
         self.restrictedSubjects = restrictedSubjects
     }
+
     public enum CodingKeys: String, CodingKey {
         case barrieredFromUsergroups = "barriered_from_usergroups"
         case dateUpdate = "date_update"
