@@ -377,15 +377,19 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Show reactions made by this user. Defaults to the authed user.
+                    ///
+                    /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json/user`.
+                    public var user: Swift.String?
+                    /// If true always return the complete reaction list.
+                    ///
+                    /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json/full`.
+                    public var full: Swift.Bool?
                     /// Parameter for pagination. Set cursor equal to the next_cursor attribute returned by the previous request's response_metadata. This parameter is optional, but pagination is
                     /// mandatory: the default value simply fetches the first "page" of the collection. See pagination for more details.
                     ///
                     /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
-                    /// If true always return the complete reaction list.
-                    ///
-                    /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json/full`.
-                    public var full: Swift.Bool?
                     /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
                     ///
                     /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json/limit`.
@@ -394,39 +398,35 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json/team_id`.
                     public var teamId: Swift.String?
-                    /// Show reactions made by this user. Defaults to the authed user.
-                    ///
-                    /// - Remark: Generated from `#/paths/reactions.list/POST/requestBody/json/user`.
-                    public var user: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - user: Show reactions made by this user. Defaults to the authed user.
+                    ///   - full: If true always return the complete reaction list.
                     ///   - cursor: Parameter for pagination. Set cursor equal to the next_cursor attribute returned by the previous request's response_metadata. This parameter is optional, but
                     /// pagination is mandatory: the default value simply fetches the first "page" of the collection. See pagination for more details.
-                    ///   - full: If true always return the complete reaction list.
                     ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
                     ///   - teamId: encoded team id to list reactions in, required if org token is used.
-                    ///   - user: Show reactions made by this user. Defaults to the authed user.
                     public init(
-                        cursor: Swift.String? = nil,
+                        user: Swift.String? = nil,
                         full: Swift.Bool? = nil,
+                        cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
                         teamId: Swift.String? = nil,
-                        user: Swift.String? = nil,
                     ) {
-                        self.cursor = cursor
+                        self.user = user
                         self.full = full
+                        self.cursor = cursor
                         self.limit = limit
                         self.teamId = teamId
-                        self.user = user
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case cursor
+                        case user
                         case full
+                        case cursor
                         case limit
                         case teamId = "team_id"
-                        case user
                     }
                 }
 
@@ -563,10 +563,6 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/reactions.remove/POST/requestBody/json/name`.
                     public var name: Swift.String
-                    /// Channel where the message to remove reaction from was posted.
-                    ///
-                    /// - Remark: Generated from `#/paths/reactions.remove/POST/requestBody/json/channel`.
-                    public var channel: Swift.String?
                     /// File to remove reaction from.
                     ///
                     /// - Remark: Generated from `#/paths/reactions.remove/POST/requestBody/json/file`.
@@ -575,6 +571,10 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/reactions.remove/POST/requestBody/json/file_comment`.
                     public var fileComment: Swift.String?
+                    /// Channel where the message to remove reaction from was posted.
+                    ///
+                    /// - Remark: Generated from `#/paths/reactions.remove/POST/requestBody/json/channel`.
+                    public var channel: Swift.String?
                     /// Timestamp of the message to remove reaction from.
                     ///
                     /// - Remark: Generated from `#/paths/reactions.remove/POST/requestBody/json/timestamp`.
@@ -583,29 +583,29 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - name: Reaction (emoji) name.
-                    ///   - channel: Channel where the message to remove reaction from was posted.
                     ///   - file: File to remove reaction from.
                     ///   - fileComment: File comment to remove reaction from.
+                    ///   - channel: Channel where the message to remove reaction from was posted.
                     ///   - timestamp: Timestamp of the message to remove reaction from.
                     public init(
                         name: Swift.String,
-                        channel: Swift.String? = nil,
                         file: Swift.String? = nil,
                         fileComment: Swift.String? = nil,
+                        channel: Swift.String? = nil,
                         timestamp: Swift.String? = nil,
                     ) {
                         self.name = name
-                        self.channel = channel
                         self.file = file
                         self.fileComment = fileComment
+                        self.channel = channel
                         self.timestamp = timestamp
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case name
-                        case channel
                         case file
                         case fileComment = "file_comment"
+                        case channel
                         case timestamp
                     }
                 }

@@ -13,7 +13,7 @@ import struct Foundation.URL
 import HTTPTypes
 
 extension Client {
-    /// For Enterprise Grid workspaces, map local user IDs to global user IDs
+    /// For Enterprise organization workspaces, map local user IDs to global user IDs
     ///
     /// - Remark: HTTP `POST /migration.exchange`.
     /// - Remark: Generated from `#/paths//migration.exchange/post(migrationExchange)`.

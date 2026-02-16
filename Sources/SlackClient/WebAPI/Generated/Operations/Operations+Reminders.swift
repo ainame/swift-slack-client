@@ -42,47 +42,47 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/time`.
                     public var time: Swift.String
-                    /// Specify the repeating behavior of a reminder. Available options: daily, weekly, monthly, or yearly. If weekly, may further specify the days of the week.
-                    ///
-                    /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/recurrence`.
-                    public var recurrence: OpenAPIRuntime.OpenAPIObjectContainer?
-                    /// Encoded team id, required if org token is used.
-                    ///
-                    /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/team_id`.
-                    public var teamId: Swift.String?
                     /// No longer supported - reminders cannot be set for other users. Previously, was the user who would receive the reminder.
                     ///
                     /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/user`.
                     public var user: Swift.String?
+                    /// Encoded team id, required if org token is used.
+                    ///
+                    /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/team_id`.
+                    public var teamId: Swift.String?
+                    /// Specify the repeating behavior of a reminder. Available options: daily, weekly, monthly, or yearly. If weekly, may further specify the days of the week.
+                    ///
+                    /// - Remark: Generated from `#/paths/reminders.add/POST/requestBody/json/recurrence`.
+                    public var recurrence: OpenAPIRuntime.OpenAPIObjectContainer?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - text: The content of the reminder.
                     ///   - time: Can also take a type of integer. When this reminder should happen: the Unix timestamp (up to five years from now), the number of seconds until the reminder (if within
                     /// 24 hours), or a natural language description (Ex. "in 15 minutes," or "every Thursday").
-                    ///   - recurrence: Specify the repeating behavior of a reminder. Available options: daily, weekly, monthly, or yearly. If weekly, may further specify the days of the week.
-                    ///   - teamId: Encoded team id, required if org token is used.
                     ///   - user: No longer supported - reminders cannot be set for other users. Previously, was the user who would receive the reminder.
+                    ///   - teamId: Encoded team id, required if org token is used.
+                    ///   - recurrence: Specify the repeating behavior of a reminder. Available options: daily, weekly, monthly, or yearly. If weekly, may further specify the days of the week.
                     public init(
                         text: Swift.String,
                         time: Swift.String,
-                        recurrence: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-                        teamId: Swift.String? = nil,
                         user: Swift.String? = nil,
+                        teamId: Swift.String? = nil,
+                        recurrence: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
                     ) {
                         self.text = text
                         self.time = time
-                        self.recurrence = recurrence
-                        self.teamId = teamId
                         self.user = user
+                        self.teamId = teamId
+                        self.recurrence = recurrence
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case text
                         case time
-                        case recurrence
-                        case teamId = "team_id"
                         case user
+                        case teamId = "team_id"
+                        case recurrence
                     }
                 }
 

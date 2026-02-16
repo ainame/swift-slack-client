@@ -31,6 +31,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/FilesCompleteUploadExternalResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/FilesCompleteUploadExternalResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `FilesCompleteUploadExternalResponse`.
         ///
         /// - Parameters:
@@ -40,6 +42,7 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             files: [SlackModels.File]? = nil,
@@ -47,6 +50,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.files = files
@@ -54,6 +58,7 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -63,6 +68,7 @@ extension Components.Schemas {
             case ok
             case provided
             case responseMetadata = "response_metadata"
+            case warning
         }
     }
 
@@ -119,6 +125,8 @@ extension Components.Schemas {
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// - Remark: Generated from `#/components/schemas/FilesGetUploadURLExternalResponse/upload_url`.
         public var uploadUrl: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/FilesGetUploadURLExternalResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `FilesGetUploadURLExternalResponse`.
         ///
         /// - Parameters:
@@ -129,6 +137,7 @@ extension Components.Schemas {
         ///   - provided:
         ///   - responseMetadata:
         ///   - uploadUrl:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             fileId: Swift.String? = nil,
@@ -137,6 +146,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
             uploadUrl: Swift.String? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.fileId = fileId
@@ -145,6 +155,7 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
             self.uploadUrl = uploadUrl
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -155,6 +166,7 @@ extension Components.Schemas {
             case provided
             case responseMetadata = "response_metadata"
             case uploadUrl = "upload_url"
+            case warning
         }
     }
 

@@ -13,15 +13,23 @@ import struct Foundation.URL
 public struct ResponseMetadata: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/ResponseMetadata/messages`.
     public var messages: [Swift.String]?
+    /// - Remark: Generated from `#/components/schemas/ResponseMetadata/warnings`.
+    public var warnings: [OpenAPIRuntime.OpenAPIValueContainer]?
     /// Creates a new `ResponseMetadata`.
     ///
     /// - Parameters:
     ///   - messages:
-    public init(messages: [Swift.String]? = nil) {
+    ///   - warnings:
+    public init(
+        messages: [Swift.String]? = nil,
+        warnings: [OpenAPIRuntime.OpenAPIValueContainer]? = nil,
+    ) {
         self.messages = messages
+        self.warnings = warnings
     }
 
     public enum CodingKeys: String, CodingKey {
         case messages
+        case warnings
     }
 }

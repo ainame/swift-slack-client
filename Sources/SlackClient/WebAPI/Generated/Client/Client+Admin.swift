@@ -13,6 +13,75 @@ import struct Foundation.URL
 import HTTPTypes
 
 extension Client {
+    /// Revoke a single session for a user. The user will be forced to login to Slack.
+    ///
+    /// - Remark: HTTP `POST /admin.users.session.invalidate`.
+    /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)`.
+    func adminUsersSessionInvalidate(_ input: Operations.AdminUsersSessionInvalidate.Input) async throws -> Operations.AdminUsersSessionInvalidate.Output {
+        try await client.send(
+            input: input,
+            forOperation: Operations.AdminUsersSessionInvalidate.id,
+            serializer: { input in
+                let path = try converter.renderedPath(
+                    template: "/admin.users.session.invalidate",
+                    parameters: [],
+                )
+                var request: HTTPTypes.HTTPRequest = .init(
+                    soar_path: path,
+                    method: .post,
+                )
+                suppressMutabilityWarning(&request)
+                converter.setAcceptHeader(
+                    in: &request.headerFields,
+                    contentTypes: input.headers.accept,
+                )
+                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
+                case let .json(value):
+                    try converter.setRequiredRequestBodyAsJSON(
+                        value,
+                        headerFields: &request.headerFields,
+                        contentType: "application/json; charset=utf-8",
+                    )
+                }
+                return (request, body)
+            },
+            deserializer: { response, responseBody in
+                switch response.status.code {
+                case 200:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.AdminUsersSessionInvalidate.Output.Ok.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json",
+                        ],
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Components.Schemas.AdminUsersSessionInvalidateResponse.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            },
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .ok(.init(body: body))
+                default:
+                    return .undocumented(
+                        statusCode: response.status.code,
+                        .init(
+                            headerFields: response.headerFields,
+                            body: responseBody,
+                        ),
+                    )
+                }
+            },
+        )
+    }
+
     /// Get logs for a specified team/org
     ///
     /// - Remark: HTTP `POST /admin.apps.activities.list`.
@@ -2844,7 +2913,7 @@ extension Client {
         )
     }
 
-    /// Set the workspaces in an Enterprise grid org that connect to a public or private channel.
+    /// Set the workspaces in an Enterprise org that connect to a public or private channel.
     ///
     /// - Remark: HTTP `POST /admin.conversations.setTeams`.
     /// - Remark: Generated from `#/paths//admin.conversations.setTeams/post(adminConversationsSetTeams)`.
@@ -3120,7 +3189,7 @@ extension Client {
         )
     }
 
-    /// List emoji for an Enterprise Grid organization.
+    /// List emoji for an Enterprise organization.
     ///
     /// - Remark: HTTP `POST /admin.emoji.list`.
     /// - Remark: Generated from `#/paths//admin.emoji.list/post(adminEmojiList)`.
@@ -3189,7 +3258,7 @@ extension Client {
         )
     }
 
-    /// Remove an emoji across an Enterprise Grid organization
+    /// Remove an emoji across an Enterprise organization
     ///
     /// - Remark: HTTP `POST /admin.emoji.remove`.
     /// - Remark: Generated from `#/paths//admin.emoji.remove/post(adminEmojiRemove)`.
@@ -3327,7 +3396,7 @@ extension Client {
         )
     }
 
-    /// Look up functions by a set of apps
+    /// Look up functions by a set of apps.
     ///
     /// - Remark: HTTP `POST /admin.functions.list`.
     /// - Remark: Generated from `#/paths//admin.functions.list/post(adminFunctionsList)`.
@@ -3465,7 +3534,7 @@ extension Client {
         )
     }
 
-    /// Set the visibility of a Slack function and define the users or workspaces if it is set to named_entities
+    /// Set the visibility of a Slack function and define the users or workspaces if it is set to named_entities.
     ///
     /// - Remark: HTTP `POST /admin.functions.permissions.set`.
     /// - Remark: Generated from `#/paths//admin.functions.permissions.set/post(adminFunctionsPermissionsSet)`.
@@ -4224,7 +4293,7 @@ extension Client {
         )
     }
 
-    /// List all teams on an Enterprise organization
+    /// List all teams in an Enterprise organization
     ///
     /// - Remark: HTTP `POST /admin.teams.list`.
     /// - Remark: Generated from `#/paths//admin.teams.list/post(adminTeamsList)`.
@@ -4845,6 +4914,75 @@ extension Client {
         )
     }
 
+    /// Fetches the expiration timestamp for a guest
+    ///
+    /// - Remark: HTTP `POST /admin.users.getExpiration`.
+    /// - Remark: Generated from `#/paths//admin.users.getExpiration/post(adminUsersGetExpiration)`.
+    func adminUsersGetExpiration(_ input: Operations.AdminUsersGetExpiration.Input) async throws -> Operations.AdminUsersGetExpiration.Output {
+        try await client.send(
+            input: input,
+            forOperation: Operations.AdminUsersGetExpiration.id,
+            serializer: { input in
+                let path = try converter.renderedPath(
+                    template: "/admin.users.getExpiration",
+                    parameters: [],
+                )
+                var request: HTTPTypes.HTTPRequest = .init(
+                    soar_path: path,
+                    method: .post,
+                )
+                suppressMutabilityWarning(&request)
+                converter.setAcceptHeader(
+                    in: &request.headerFields,
+                    contentTypes: input.headers.accept,
+                )
+                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
+                case let .json(value):
+                    try converter.setRequiredRequestBodyAsJSON(
+                        value,
+                        headerFields: &request.headerFields,
+                        contentType: "application/json; charset=utf-8",
+                    )
+                }
+                return (request, body)
+            },
+            deserializer: { response, responseBody in
+                switch response.status.code {
+                case 200:
+                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
+                    let body: Operations.AdminUsersGetExpiration.Output.Ok.Body
+                    let chosenContentType = try converter.bestContentType(
+                        received: contentType,
+                        options: [
+                            "application/json",
+                        ],
+                    )
+                    switch chosenContentType {
+                    case "application/json":
+                        body = try await converter.getResponseBodyAsJSON(
+                            Components.Schemas.AdminUsersGetExpirationResponse.self,
+                            from: responseBody,
+                            transforming: { value in
+                                .json(value)
+                            },
+                        )
+                    default:
+                        preconditionFailure("bestContentType chose an invalid content type.")
+                    }
+                    return .ok(.init(body: body))
+                default:
+                    return .undocumented(
+                        statusCode: response.status.code,
+                        .init(
+                            headerFields: response.headerFields,
+                            body: responseBody,
+                        ),
+                    )
+                }
+            },
+        )
+    }
+
     /// Invite a user to a workspace.
     ///
     /// - Remark: HTTP `POST /admin.users.invite`.
@@ -5190,75 +5328,6 @@ extension Client {
         )
     }
 
-    /// Revoke a single session for a user. The user will be forced to login to Slack.
-    ///
-    /// - Remark: HTTP `POST /admin.users.session.invalidate`.
-    /// - Remark: Generated from `#/paths//admin.users.session.invalidate/post(adminUsersSessionInvalidate)`.
-    func adminUsersSessionInvalidate(_ input: Operations.AdminUsersSessionInvalidate.Input) async throws -> Operations.AdminUsersSessionInvalidate.Output {
-        try await client.send(
-            input: input,
-            forOperation: Operations.AdminUsersSessionInvalidate.id,
-            serializer: { input in
-                let path = try converter.renderedPath(
-                    template: "/admin.users.session.invalidate",
-                    parameters: [],
-                )
-                var request: HTTPTypes.HTTPRequest = .init(
-                    soar_path: path,
-                    method: .post,
-                )
-                suppressMutabilityWarning(&request)
-                converter.setAcceptHeader(
-                    in: &request.headerFields,
-                    contentTypes: input.headers.accept,
-                )
-                let body: OpenAPIRuntime.HTTPBody? = switch input.body {
-                case let .json(value):
-                    try converter.setRequiredRequestBodyAsJSON(
-                        value,
-                        headerFields: &request.headerFields,
-                        contentType: "application/json; charset=utf-8",
-                    )
-                }
-                return (request, body)
-            },
-            deserializer: { response, responseBody in
-                switch response.status.code {
-                case 200:
-                    let contentType = converter.extractContentTypeIfPresent(in: response.headerFields)
-                    let body: Operations.AdminUsersSessionInvalidate.Output.Ok.Body
-                    let chosenContentType = try converter.bestContentType(
-                        received: contentType,
-                        options: [
-                            "application/json",
-                        ],
-                    )
-                    switch chosenContentType {
-                    case "application/json":
-                        body = try await converter.getResponseBodyAsJSON(
-                            Components.Schemas.AdminUsersSessionInvalidateResponse.self,
-                            from: responseBody,
-                            transforming: { value in
-                                .json(value)
-                            },
-                        )
-                    default:
-                        preconditionFailure("bestContentType chose an invalid content type.")
-                    }
-                    return .ok(.init(body: body))
-                default:
-                    return .undocumented(
-                        statusCode: response.status.code,
-                        .init(
-                            headerFields: response.headerFields,
-                            body: responseBody,
-                        ),
-                    )
-                }
-            },
-        )
-    }
-
     /// List active user sessions for an organization
     ///
     /// - Remark: HTTP `POST /admin.users.session.list`.
@@ -5535,7 +5604,7 @@ extension Client {
         )
     }
 
-    /// Set an existing regular user or owner to be a workspace admin.
+    /// Set an existing regular user or owner to be a workspace or org admin.
     ///
     /// - Remark: HTTP `POST /admin.users.setAdmin`.
     /// - Remark: Generated from `#/paths//admin.users.setAdmin/post(adminUsersSetAdmin)`.
@@ -5673,7 +5742,7 @@ extension Client {
         )
     }
 
-    /// Set an existing regular user or admin to be a workspace owner.
+    /// Set an existing regular user or admin to be a workspace or org owner.
     ///
     /// - Remark: HTTP `POST /admin.users.setOwner`.
     /// - Remark: Generated from `#/paths//admin.users.setOwner/post(adminUsersSetOwner)`.

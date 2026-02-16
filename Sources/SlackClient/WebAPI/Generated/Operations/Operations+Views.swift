@@ -37,10 +37,6 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// A view payload. This must be a JSON-encoded string.
-                    ///
-                    /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/view`.
-                    public var view: SlackBlockKit.View
                     /// Exchange a trigger to post to the user.
                     ///
                     /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/trigger_id`.
@@ -49,26 +45,30 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/interactivity_pointer`.
                     public var interactivityPointer: Swift.String?
+                    /// A view payload. This must be a JSON-encoded string.
+                    ///
+                    /// - Remark: Generated from `#/paths/views.open/POST/requestBody/json/view`.
+                    public var view: SlackBlockKit.View
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - view: A view payload. This must be a JSON-encoded string.
                     ///   - triggerId: Exchange a trigger to post to the user.
                     ///   - interactivityPointer: Exchange an interactivity pointer to post to the user.
+                    ///   - view: A view payload. This must be a JSON-encoded string.
                     public init(
-                        view: SlackBlockKit.View,
                         triggerId: Swift.String? = nil,
                         interactivityPointer: Swift.String? = nil,
+                        view: SlackBlockKit.View,
                     ) {
-                        self.view = view
                         self.triggerId = triggerId
                         self.interactivityPointer = interactivityPointer
+                        self.view = view
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case view
                         case triggerId = "trigger_id"
                         case interactivityPointer = "interactivity_pointer"
+                        case view
                     }
                 }
 
@@ -133,6 +133,343 @@ extension Operations {
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
             public var ok: Operations.ViewsOpen.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self,
+                        )
+                    }
+                }
+            }
+
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    string
+                case .json:
+                    "application/json"
+                }
+            }
+
+            public static var allCases: [Self] {
+                [
+                    .json,
+                ]
+            }
+        }
+    }
+
+    public enum ViewsPush {
+        public static let id: Swift.String = "viewsPush"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/views.push/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsPush.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - accept:
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsPush.AcceptableContentType>] = .defaultValues()) {
+                    self.accept = accept
+                }
+            }
+
+            public var headers: Operations.ViewsPush.Input.Headers
+            /// - Remark: Generated from `#/paths/views.push/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Exchange a trigger to post to the user.
+                    ///
+                    /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/trigger_id`.
+                    public var triggerId: Swift.String?
+                    /// Exchange an interactivity pointer to post to the user.
+                    ///
+                    /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/interactivity_pointer`.
+                    public var interactivityPointer: Swift.String?
+                    /// A view payload. This must be a JSON-encoded string.
+                    ///
+                    /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/view`.
+                    public var view: SlackBlockKit.View
+                    /// Creates a new `JsonPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - triggerId: Exchange a trigger to post to the user.
+                    ///   - interactivityPointer: Exchange an interactivity pointer to post to the user.
+                    ///   - view: A view payload. This must be a JSON-encoded string.
+                    public init(
+                        triggerId: Swift.String? = nil,
+                        interactivityPointer: Swift.String? = nil,
+                        view: SlackBlockKit.View,
+                    ) {
+                        self.triggerId = triggerId
+                        self.interactivityPointer = interactivityPointer
+                        self.view = view
+                    }
+
+                    public enum CodingKeys: String, CodingKey {
+                        case triggerId = "trigger_id"
+                        case interactivityPointer = "interactivity_pointer"
+                        case view
+                    }
+                }
+
+                /// - Remark: Generated from `#/paths/views.push/POST/requestBody/content/application\/json`.
+                case json(Operations.ViewsPush.Input.Body.JsonPayload)
+            }
+
+            public var body: Operations.ViewsPush.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            ///   - body:
+            public init(
+                headers: Operations.ViewsPush.Input.Headers = .init(),
+                body: Operations.ViewsPush.Input.Body,
+            ) {
+                self.headers = headers
+                self.body = body
+            }
+        }
+
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/views.push/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/views.push/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.ViewsPushResponse)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.ViewsPushResponse {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                body
+                            }
+                        }
+                    }
+                }
+
+                /// Received HTTP response body
+                public var body: Operations.ViewsPush.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.ViewsPush.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+
+            /// OK
+            ///
+            /// - Remark: Generated from `#/paths//views.push/post(viewsPush)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.ViewsPush.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.ViewsPush.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self,
+                        )
+                    }
+                }
+            }
+
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    string
+                case .json:
+                    "application/json"
+                }
+            }
+
+            public static var allCases: [Self] {
+                [
+                    .json,
+                ]
+            }
+        }
+    }
+
+    public enum ViewsUpdate {
+        public static let id: Swift.String = "viewsUpdate"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/views.update/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsUpdate.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - accept:
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsUpdate.AcceptableContentType>] = .defaultValues()) {
+                    self.accept = accept
+                }
+            }
+
+            public var headers: Operations.ViewsUpdate.Input.Headers
+            /// - Remark: Generated from `#/paths/views.update/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// A unique identifier of the view to be updated. Either view_id or external_id is required.
+                    ///
+                    /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/view_id`.
+                    public var viewId: Swift.String?
+                    /// A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is required.
+                    ///
+                    /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/external_id`.
+                    public var externalId: Swift.String?
+                    /// A view object. This must be a JSON-encoded string.
+                    ///
+                    /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/view`.
+                    public var view: SlackBlockKit.View
+                    /// A string that represents view state to protect against possible race conditions.
+                    ///
+                    /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/hash`.
+                    public var hash: Swift.String?
+                    /// Creates a new `JsonPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - viewId: A unique identifier of the view to be updated. Either view_id or external_id is required.
+                    ///   - externalId: A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is
+                    /// required.
+                    ///   - view: A view object. This must be a JSON-encoded string.
+                    ///   - hash: A string that represents view state to protect against possible race conditions.
+                    public init(
+                        viewId: Swift.String? = nil,
+                        externalId: Swift.String? = nil,
+                        view: SlackBlockKit.View,
+                        hash: Swift.String? = nil,
+                    ) {
+                        self.viewId = viewId
+                        self.externalId = externalId
+                        self.view = view
+                        self.hash = hash
+                    }
+
+                    public enum CodingKeys: String, CodingKey {
+                        case viewId = "view_id"
+                        case externalId = "external_id"
+                        case view
+                        case hash
+                    }
+                }
+
+                /// - Remark: Generated from `#/paths/views.update/POST/requestBody/content/application\/json`.
+                case json(Operations.ViewsUpdate.Input.Body.JsonPayload)
+            }
+
+            public var body: Operations.ViewsUpdate.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            ///   - body:
+            public init(
+                headers: Operations.ViewsUpdate.Input.Headers = .init(),
+                body: Operations.ViewsUpdate.Input.Body,
+            ) {
+                self.headers = headers
+                self.body = body
+            }
+        }
+
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/views.update/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/views.update/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.ViewsUpdateResponse)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.ViewsUpdateResponse {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                body
+                            }
+                        }
+                    }
+                }
+
+                /// Received HTTP response body
+                public var body: Operations.ViewsUpdate.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.ViewsUpdate.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+
+            /// OK
+            ///
+            /// - Remark: Generated from `#/paths//views.update/post(viewsUpdate)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.ViewsUpdate.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.ViewsUpdate.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):
@@ -297,343 +634,6 @@ extension Operations {
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
             public var ok: Operations.ViewsPublish.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self,
-                        )
-                    }
-                }
-            }
-
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    string
-                case .json:
-                    "application/json"
-                }
-            }
-
-            public static var allCases: [Self] {
-                [
-                    .json,
-                ]
-            }
-        }
-    }
-
-    public enum ViewsPush {
-        public static let id: Swift.String = "viewsPush"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/views.push/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsPush.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsPush.AcceptableContentType>] = .defaultValues()) {
-                    self.accept = accept
-                }
-            }
-
-            public var headers: Operations.ViewsPush.Input.Headers
-            /// - Remark: Generated from `#/paths/views.push/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json`.
-                public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// A view payload. This must be a JSON-encoded string.
-                    ///
-                    /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/view`.
-                    public var view: SlackBlockKit.View
-                    /// Exchange a trigger to post to the user.
-                    ///
-                    /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/trigger_id`.
-                    public var triggerId: Swift.String?
-                    /// Exchange an interactivity pointer to post to the user.
-                    ///
-                    /// - Remark: Generated from `#/paths/views.push/POST/requestBody/json/interactivity_pointer`.
-                    public var interactivityPointer: Swift.String?
-                    /// Creates a new `JsonPayload`.
-                    ///
-                    /// - Parameters:
-                    ///   - view: A view payload. This must be a JSON-encoded string.
-                    ///   - triggerId: Exchange a trigger to post to the user.
-                    ///   - interactivityPointer: Exchange an interactivity pointer to post to the user.
-                    public init(
-                        view: SlackBlockKit.View,
-                        triggerId: Swift.String? = nil,
-                        interactivityPointer: Swift.String? = nil,
-                    ) {
-                        self.view = view
-                        self.triggerId = triggerId
-                        self.interactivityPointer = interactivityPointer
-                    }
-
-                    public enum CodingKeys: String, CodingKey {
-                        case view
-                        case triggerId = "trigger_id"
-                        case interactivityPointer = "interactivity_pointer"
-                    }
-                }
-
-                /// - Remark: Generated from `#/paths/views.push/POST/requestBody/content/application\/json`.
-                case json(Operations.ViewsPush.Input.Body.JsonPayload)
-            }
-
-            public var body: Operations.ViewsPush.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - headers:
-            ///   - body:
-            public init(
-                headers: Operations.ViewsPush.Input.Headers = .init(),
-                body: Operations.ViewsPush.Input.Body,
-            ) {
-                self.headers = headers
-                self.body = body
-            }
-        }
-
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/views.push/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/views.push/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.ViewsPushResponse)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.ViewsPushResponse {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                body
-                            }
-                        }
-                    }
-                }
-
-                /// Received HTTP response body
-                public var body: Operations.ViewsPush.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.ViewsPush.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-
-            /// OK
-            ///
-            /// - Remark: Generated from `#/paths//views.push/post(viewsPush)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.ViewsPush.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.ViewsPush.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self,
-                        )
-                    }
-                }
-            }
-
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    string
-                case .json:
-                    "application/json"
-                }
-            }
-
-            public static var allCases: [Self] {
-                [
-                    .json,
-                ]
-            }
-        }
-    }
-
-    public enum ViewsUpdate {
-        public static let id: Swift.String = "viewsUpdate"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/views.update/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsUpdate.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ViewsUpdate.AcceptableContentType>] = .defaultValues()) {
-                    self.accept = accept
-                }
-            }
-
-            public var headers: Operations.ViewsUpdate.Input.Headers
-            /// - Remark: Generated from `#/paths/views.update/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json`.
-                public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// A view object. This must be a JSON-encoded string.
-                    ///
-                    /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/view`.
-                    public var view: SlackBlockKit.View
-                    /// A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is required.
-                    ///
-                    /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/external_id`.
-                    public var externalId: Swift.String?
-                    /// A unique identifier of the view to be updated. Either view_id or external_id is required.
-                    ///
-                    /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/view_id`.
-                    public var viewId: Swift.String?
-                    /// A string that represents view state to protect against possible race conditions.
-                    ///
-                    /// - Remark: Generated from `#/paths/views.update/POST/requestBody/json/hash`.
-                    public var hash: Swift.String?
-                    /// Creates a new `JsonPayload`.
-                    ///
-                    /// - Parameters:
-                    ///   - view: A view object. This must be a JSON-encoded string.
-                    ///   - externalId: A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either view_id or external_id is
-                    /// required.
-                    ///   - viewId: A unique identifier of the view to be updated. Either view_id or external_id is required.
-                    ///   - hash: A string that represents view state to protect against possible race conditions.
-                    public init(
-                        view: SlackBlockKit.View,
-                        externalId: Swift.String? = nil,
-                        viewId: Swift.String? = nil,
-                        hash: Swift.String? = nil,
-                    ) {
-                        self.view = view
-                        self.externalId = externalId
-                        self.viewId = viewId
-                        self.hash = hash
-                    }
-
-                    public enum CodingKeys: String, CodingKey {
-                        case view
-                        case externalId = "external_id"
-                        case viewId = "view_id"
-                        case hash
-                    }
-                }
-
-                /// - Remark: Generated from `#/paths/views.update/POST/requestBody/content/application\/json`.
-                case json(Operations.ViewsUpdate.Input.Body.JsonPayload)
-            }
-
-            public var body: Operations.ViewsUpdate.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - headers:
-            ///   - body:
-            public init(
-                headers: Operations.ViewsUpdate.Input.Headers = .init(),
-                body: Operations.ViewsUpdate.Input.Body,
-            ) {
-                self.headers = headers
-                self.body = body
-            }
-        }
-
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/views.update/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/views.update/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.ViewsUpdateResponse)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.ViewsUpdateResponse {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                body
-                            }
-                        }
-                    }
-                }
-
-                /// Received HTTP response body
-                public var body: Operations.ViewsUpdate.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.ViewsUpdate.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-
-            /// OK
-            ///
-            /// - Remark: Generated from `#/paths//views.update/post(viewsUpdate)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.ViewsUpdate.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.ViewsUpdate.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):

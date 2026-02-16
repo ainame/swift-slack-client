@@ -33,6 +33,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/CanvasesAccessDeleteResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `CanvasesAccessDeleteResponse`.
         ///
         /// - Parameters:
@@ -43,6 +45,7 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             failedToUpdateChannelIds: [Swift.String]? = nil,
@@ -51,6 +54,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.failedToUpdateChannelIds = failedToUpdateChannelIds
@@ -59,6 +63,7 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -69,6 +74,7 @@ extension Components.Schemas {
             case ok
             case provided
             case responseMetadata = "response_metadata"
+            case warning
         }
     }
 
@@ -88,6 +94,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/CanvasesAccessSetResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `CanvasesAccessSetResponse`.
         ///
         /// - Parameters:
@@ -98,6 +106,7 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             failedToUpdateChannelIds: [Swift.String]? = nil,
@@ -106,6 +115,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.failedToUpdateChannelIds = failedToUpdateChannelIds
@@ -114,6 +124,7 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -124,6 +135,7 @@ extension Components.Schemas {
             case ok
             case provided
             case responseMetadata = "response_metadata"
+            case warning
         }
     }
 
@@ -143,6 +155,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/CanvasesCreateResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `CanvasesCreateResponse`.
         ///
         /// - Parameters:
@@ -153,6 +167,7 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
             canvasId: Swift.String? = nil,
             detail: Swift.String? = nil,
@@ -161,6 +176,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.canvasId = canvasId
             self.detail = detail
@@ -169,6 +185,7 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -179,6 +196,7 @@ extension Components.Schemas {
             case ok
             case provided
             case responseMetadata = "response_metadata"
+            case warning
         }
     }
 
@@ -194,6 +212,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/CanvasesDeleteResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `CanvasesDeleteResponse`.
         ///
         /// - Parameters:
@@ -202,18 +222,21 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -222,6 +245,7 @@ extension Components.Schemas {
             case ok
             case provided
             case responseMetadata = "response_metadata"
+            case warning
         }
     }
 
@@ -239,6 +263,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/CanvasesEditResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `CanvasesEditResponse`.
         ///
         /// - Parameters:
@@ -248,6 +274,7 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
             detail: Swift.String? = nil,
             error: Swift.String? = nil,
@@ -255,6 +282,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.detail = detail
             self.error = error
@@ -262,6 +290,7 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -271,6 +300,7 @@ extension Components.Schemas {
             case ok
             case provided
             case responseMetadata = "response_metadata"
+            case warning
         }
     }
 
@@ -288,6 +318,8 @@ extension Components.Schemas {
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/sections`.
         public var sections: [SlackModels.Section]?
+        /// - Remark: Generated from `#/components/schemas/CanvasesSectionsLookupResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `CanvasesSectionsLookupResponse`.
         ///
         /// - Parameters:
@@ -297,6 +329,7 @@ extension Components.Schemas {
         ///   - provided:
         ///   - responseMetadata:
         ///   - sections:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
@@ -304,6 +337,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
             sections: [SlackModels.Section]? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -311,6 +345,7 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
             self.sections = sections
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -320,6 +355,7 @@ extension Components.Schemas {
             case provided
             case responseMetadata = "response_metadata"
             case sections
+            case warning
         }
     }
 }

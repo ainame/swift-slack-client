@@ -41,15 +41,16 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/files`.
                     public var files: OpenAPIRuntime.OpenAPIArrayContainer
-                    /// A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the initial_comment field is provided, the blocks field is ignored.
-                    ///
-                    /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/blocks`.
-                    public var blocks: [SlackBlockKit.Block]?
                     /// Channel ID where the file will be shared. If not specified the file will be private.
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/channel_id`.
                     public var channelId: Swift.String?
-                    /// Comma-separated string of channel IDs where the file will be shared.
+                    /// Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use its parent instead. Also make sure to provide only one channel when using
+                    /// 'thread_ts'.
+                    ///
+                    /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/thread_ts`.
+                    public var threadTs: Swift.String?
+                    /// Comma-separated string of channel IDs or user IDs where the file will be shared.
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/channels`.
                     public var channels: Swift.String?
@@ -57,44 +58,43 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/initial_comment`.
                     public var initialComment: Swift.String?
-                    /// Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use its parent instead. Also make sure to provide only one channel when using
-                    /// 'thread_ts'.
+                    /// A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the initial_comment field is provided, the blocks field is ignored.
                     ///
-                    /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/thread_ts`.
-                    public var threadTs: Swift.String?
+                    /// - Remark: Generated from `#/paths/files.completeUploadExternal/POST/requestBody/json/blocks`.
+                    public var blocks: [SlackBlockKit.Block]?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - files: Array of file ids and their corresponding (optional) titles.
-                    ///   - blocks: A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the initial_comment field is provided, the blocks field is ignored.
                     ///   - channelId: Channel ID where the file will be shared. If not specified the file will be private.
-                    ///   - channels: Comma-separated string of channel IDs where the file will be shared.
-                    ///   - initialComment: The message text introducing the file in specified channels.
                     ///   - threadTs: Provide another message's ts value to upload this file as a reply. Never use a reply's ts value; use its parent instead. Also make sure to provide only one
                     /// channel when using 'thread_ts'.
+                    ///   - channels: Comma-separated string of channel IDs or user IDs where the file will be shared.
+                    ///   - initialComment: The message text introducing the file in specified channels.
+                    ///   - blocks: A JSON-based array of structured rich text blocks, presented as a URL-encoded string. If the initial_comment field is provided, the blocks field is ignored.
                     public init(
                         files: OpenAPIRuntime.OpenAPIArrayContainer,
-                        blocks: [SlackBlockKit.Block]? = nil,
                         channelId: Swift.String? = nil,
+                        threadTs: Swift.String? = nil,
                         channels: Swift.String? = nil,
                         initialComment: Swift.String? = nil,
-                        threadTs: Swift.String? = nil,
+                        blocks: [SlackBlockKit.Block]? = nil,
                     ) {
                         self.files = files
-                        self.blocks = blocks
                         self.channelId = channelId
+                        self.threadTs = threadTs
                         self.channels = channels
                         self.initialComment = initialComment
-                        self.threadTs = threadTs
+                        self.blocks = blocks
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case files
-                        case blocks
                         case channelId = "channel_id"
+                        case threadTs = "thread_ts"
                         case channels
                         case initialComment = "initial_comment"
-                        case threadTs = "thread_ts"
+                        case blocks
                     }
                 }
 
@@ -373,46 +373,46 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/files.getUploadURLExternal/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Name of the file being uploaded.
-                    ///
-                    /// - Remark: Generated from `#/paths/files.getUploadURLExternal/POST/requestBody/json/filename`.
-                    public var filename: Swift.String
                     /// Size in bytes of the file being uploaded.
                     ///
                     /// - Remark: Generated from `#/paths/files.getUploadURLExternal/POST/requestBody/json/length`.
                     public var length: Swift.Int
-                    /// Description of image for screen-reader.
+                    /// Name of the file being uploaded.
                     ///
-                    /// - Remark: Generated from `#/paths/files.getUploadURLExternal/POST/requestBody/json/alt_txt`.
-                    public var altTxt: Swift.String?
+                    /// - Remark: Generated from `#/paths/files.getUploadURLExternal/POST/requestBody/json/filename`.
+                    public var filename: Swift.String
                     /// Syntax type of the snippet being uploaded.
                     ///
                     /// - Remark: Generated from `#/paths/files.getUploadURLExternal/POST/requestBody/json/snippet_type`.
                     public var snippetType: Swift.String?
+                    /// Description of image for screen-reader.
+                    ///
+                    /// - Remark: Generated from `#/paths/files.getUploadURLExternal/POST/requestBody/json/alt_txt`.
+                    public var altTxt: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - filename: Name of the file being uploaded.
                     ///   - length: Size in bytes of the file being uploaded.
-                    ///   - altTxt: Description of image for screen-reader.
+                    ///   - filename: Name of the file being uploaded.
                     ///   - snippetType: Syntax type of the snippet being uploaded.
+                    ///   - altTxt: Description of image for screen-reader.
                     public init(
-                        filename: Swift.String,
                         length: Swift.Int,
-                        altTxt: Swift.String? = nil,
+                        filename: Swift.String,
                         snippetType: Swift.String? = nil,
+                        altTxt: Swift.String? = nil,
                     ) {
-                        self.filename = filename
                         self.length = length
-                        self.altTxt = altTxt
+                        self.filename = filename
                         self.snippetType = snippetType
+                        self.altTxt = altTxt
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case filename
                         case length
-                        case altTxt = "alt_txt"
+                        case filename
                         case snippetType = "snippet_type"
+                        case altTxt = "alt_txt"
                     }
                 }
 
@@ -545,15 +545,15 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/files.info/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Specify a file by providing its ID.
-                    ///
-                    /// - Remark: Generated from `#/paths/files.info/POST/requestBody/json/file`.
-                    public var file: Swift.String
                     /// Parameter for pagination. File comments are paginated for a single file. Set cursor equal to the next_cursor attribute returned by the previous request's response_metadata.
                     /// This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection of comments. See pagination for more details.
                     ///
                     /// - Remark: Generated from `#/paths/files.info/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
+                    /// Specify a file by providing its ID.
+                    ///
+                    /// - Remark: Generated from `#/paths/files.info/POST/requestBody/json/file`.
+                    public var file: Swift.String
                     /// The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
                     ///
                     /// - Remark: Generated from `#/paths/files.info/POST/requestBody/json/limit`.
@@ -561,24 +561,24 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - file: Specify a file by providing its ID.
                     ///   - cursor: Parameter for pagination. File comments are paginated for a single file. Set cursor equal to the next_cursor attribute returned by the previous request's
                     /// response_metadata. This parameter is optional, but pagination is mandatory: the default value simply fetches the first "page" of the collection of comments. See pagination for
                     /// more details.
+                    ///   - file: Specify a file by providing its ID.
                     ///   - limit: The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.
                     public init(
-                        file: Swift.String,
                         cursor: Swift.String? = nil,
+                        file: Swift.String,
                         limit: Swift.Int? = nil,
                     ) {
-                        self.file = file
                         self.cursor = cursor
+                        self.file = file
                         self.limit = limit
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case file
                         case cursor
+                        case file
                         case limit
                     }
                 }
@@ -917,10 +917,6 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/external_url`.
                     public var externalUrl: Swift.String
-                    /// Title of the file being shared.
-                    ///
-                    /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/title`.
-                    public var title: Swift.String
                     /// type of file.
                     ///
                     /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/filetype`.
@@ -933,38 +929,42 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/preview_image`.
                     public var previewImage: Swift.String?
+                    /// Title of the file being shared.
+                    ///
+                    /// - Remark: Generated from `#/paths/files.remote.add/POST/requestBody/json/title`.
+                    public var title: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - externalId: Creator defined GUID for the file.
                     ///   - externalUrl: URL of the remote file.
-                    ///   - title: Title of the file being shared.
                     ///   - filetype: type of file.
                     ///   - indexableFileContents: A text file (txt, pdf, doc, etc.) containing textual search terms that are used to improve discovery of the remote file.
                     ///   - previewImage: Preview of the document via multipart/form-data.
+                    ///   - title: Title of the file being shared.
                     public init(
                         externalId: Swift.String,
                         externalUrl: Swift.String,
-                        title: Swift.String,
                         filetype: Swift.String? = nil,
                         indexableFileContents: Swift.String? = nil,
                         previewImage: Swift.String? = nil,
+                        title: Swift.String,
                     ) {
                         self.externalId = externalId
                         self.externalUrl = externalUrl
-                        self.title = title
                         self.filetype = filetype
                         self.indexableFileContents = indexableFileContents
                         self.previewImage = previewImage
+                        self.title = title
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case externalId = "external_id"
                         case externalUrl = "external_url"
-                        case title
                         case filetype
                         case indexableFileContents = "indexable_file_contents"
                         case previewImage = "preview_image"
+                        case title
                     }
                 }
 

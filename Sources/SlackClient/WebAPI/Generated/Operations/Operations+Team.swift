@@ -217,38 +217,38 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/team.billableInfo/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
-                    /// encoded team id to get the billable information from, required if org token is used.
-                    ///
-                    /// - Remark: Generated from `#/paths/team.billableInfo/POST/requestBody/json/team_id`.
-                    public var teamId: Swift.String?
                     /// A user to retrieve the billable information for. Defaults to all users.
                     ///
                     /// - Remark: Generated from `#/paths/team.billableInfo/POST/requestBody/json/user`.
                     public var user: Swift.String?
+                    /// encoded team id to get the billable information from, required if org token is used.
+                    ///
+                    /// - Remark: Generated from `#/paths/team.billableInfo/POST/requestBody/json/team_id`.
+                    public var teamId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - cursor: Set cursor to next_cursor returned by previous call, to indicate from where you want to list next page of users list. Default value fetches the first page.
                     ///   - limit: The maximum number of items to return.
-                    ///   - teamId: encoded team id to get the billable information from, required if org token is used.
                     ///   - user: A user to retrieve the billable information for. Defaults to all users.
+                    ///   - teamId: encoded team id to get the billable information from, required if org token is used.
                     public init(
                         cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        teamId: Swift.String? = nil,
                         user: Swift.String? = nil,
+                        teamId: Swift.String? = nil,
                     ) {
                         self.cursor = cursor
                         self.limit = limit
-                        self.teamId = teamId
                         self.user = user
+                        self.teamId = teamId
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case cursor
                         case limit
-                        case teamId = "team_id"
                         case user
+                        case teamId = "team_id"
                     }
                 }
 
@@ -663,74 +663,74 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Status of the connected team.
+                    /// The maximum number of items to return per page.
                     ///
-                    /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/connection_status_filter`.
-                    public var connectionStatusFilter: Swift.String?
+                    /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/limit`.
+                    public var limit: Swift.Int?
                     /// Paginate through collections of data by setting parameter to the team_id attribute returned by a previous request's response_metadata. If not provided, the first page of the
                     /// collection is returned. See pagination for more detail.
                     ///
                     /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
-                    /// The maximum number of items to return per page.
+                    /// Name of the parameter that we are sorting by.
                     ///
-                    /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/limit`.
-                    public var limit: Swift.Int?
+                    /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/sort_field`.
+                    public var sortField: Swift.String?
+                    /// Direction to sort in asc or desc.
+                    ///
+                    /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/sort_direction`.
+                    public var sortDirection: Swift.String?
                     /// Filters connected orgs by Slack Connect pref override(s). Value can be: approved_orgs_only allow_sc_file_uploads profile_visibility away_team_sc_invite_permissions
                     /// accept_sc_invites sc_mpdm_to_private require_sc_channel_for_sc_dm external_awareness_context_bar.
                     ///
                     /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/slack_connect_pref_filter`.
                     public var slackConnectPrefFilter: OpenAPIRuntime.OpenAPIArrayContainer?
-                    /// Direction to sort in asc or desc.
-                    ///
-                    /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/sort_direction`.
-                    public var sortDirection: Swift.String?
-                    /// Name of the parameter that we are sorting by.
-                    ///
-                    /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/sort_field`.
-                    public var sortField: Swift.String?
                     /// Shows connected orgs which are connected on a specified encoded workspace ID.
                     ///
                     /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/workspace_filter`.
                     public var workspaceFilter: OpenAPIRuntime.OpenAPIArrayContainer?
+                    /// Status of the connected team.
+                    ///
+                    /// - Remark: Generated from `#/paths/team.externalTeams.list/POST/requestBody/json/connection_status_filter`.
+                    public var connectionStatusFilter: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - connectionStatusFilter: Status of the connected team.
+                    ///   - limit: The maximum number of items to return per page.
                     ///   - cursor: Paginate through collections of data by setting parameter to the team_id attribute returned by a previous request's response_metadata. If not provided, the first
                     /// page of the collection is returned. See pagination for more detail.
-                    ///   - limit: The maximum number of items to return per page.
+                    ///   - sortField: Name of the parameter that we are sorting by.
+                    ///   - sortDirection: Direction to sort in asc or desc.
                     ///   - slackConnectPrefFilter: Filters connected orgs by Slack Connect pref override(s). Value can be: approved_orgs_only allow_sc_file_uploads profile_visibility
                     /// away_team_sc_invite_permissions accept_sc_invites sc_mpdm_to_private require_sc_channel_for_sc_dm external_awareness_context_bar.
-                    ///   - sortDirection: Direction to sort in asc or desc.
-                    ///   - sortField: Name of the parameter that we are sorting by.
                     ///   - workspaceFilter: Shows connected orgs which are connected on a specified encoded workspace ID.
+                    ///   - connectionStatusFilter: Status of the connected team.
                     public init(
-                        connectionStatusFilter: Swift.String? = nil,
-                        cursor: Swift.String? = nil,
                         limit: Swift.Int? = nil,
-                        slackConnectPrefFilter: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
-                        sortDirection: Swift.String? = nil,
+                        cursor: Swift.String? = nil,
                         sortField: Swift.String? = nil,
+                        sortDirection: Swift.String? = nil,
+                        slackConnectPrefFilter: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         workspaceFilter: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
+                        connectionStatusFilter: Swift.String? = nil,
                     ) {
-                        self.connectionStatusFilter = connectionStatusFilter
-                        self.cursor = cursor
                         self.limit = limit
-                        self.slackConnectPrefFilter = slackConnectPrefFilter
-                        self.sortDirection = sortDirection
+                        self.cursor = cursor
                         self.sortField = sortField
+                        self.sortDirection = sortDirection
+                        self.slackConnectPrefFilter = slackConnectPrefFilter
                         self.workspaceFilter = workspaceFilter
+                        self.connectionStatusFilter = connectionStatusFilter
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case connectionStatusFilter = "connection_status_filter"
-                        case cursor
                         case limit
-                        case slackConnectPrefFilter = "slack_connect_pref_filter"
-                        case sortDirection = "sort_direction"
+                        case cursor
                         case sortField = "sort_field"
+                        case sortDirection = "sort_direction"
+                        case slackConnectPrefFilter = "slack_connect_pref_filter"
                         case workspaceFilter = "workspace_filter"
+                        case connectionStatusFilter = "connection_status_filter"
                     }
                 }
 

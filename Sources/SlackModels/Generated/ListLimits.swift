@@ -15,6 +15,8 @@ import SlackBlockKit
 
 /// - Remark: Generated from `#/components/schemas/ListLimits`.
 public struct ListLimits: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/ListLimits/archived_row_count`.
+    public var archivedRowCount: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/ListLimits/column_count`.
     public var columnCount: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/ListLimits/column_count_limit`.
@@ -38,6 +40,7 @@ public struct ListLimits: Codable, Hashable, Sendable {
     /// Creates a new `ListLimits`.
     ///
     /// - Parameters:
+    ///   - archivedRowCount:
     ///   - columnCount:
     ///   - columnCountLimit:
     ///   - maxAttachmentsPerCell:
@@ -49,6 +52,7 @@ public struct ListLimits: Codable, Hashable, Sendable {
     ///   - viewCount:
     ///   - viewCountLimit:
     public init(
+        archivedRowCount: Swift.Int? = nil,
         columnCount: Swift.Int? = nil,
         columnCountLimit: Swift.Int? = nil,
         maxAttachmentsPerCell: Swift.Int? = nil,
@@ -60,6 +64,7 @@ public struct ListLimits: Codable, Hashable, Sendable {
         viewCount: Swift.Int? = nil,
         viewCountLimit: Swift.Int? = nil,
     ) {
+        self.archivedRowCount = archivedRowCount
         self.columnCount = columnCount
         self.columnCountLimit = columnCountLimit
         self.maxAttachmentsPerCell = maxAttachmentsPerCell
@@ -73,6 +78,7 @@ public struct ListLimits: Codable, Hashable, Sendable {
     }
 
     public enum CodingKeys: String, CodingKey {
+        case archivedRowCount = "archived_row_count"
         case columnCount = "column_count"
         case columnCountLimit = "column_count_limit"
         case maxAttachmentsPerCell = "max_attachments_per_cell"

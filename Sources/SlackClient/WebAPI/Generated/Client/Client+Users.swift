@@ -13,7 +13,7 @@ import struct Foundation.URL
 import HTTPTypes
 
 extension Client {
-    /// List conversations the calling user may access.
+    /// List conversations the calling user is a member of.
     ///
     /// - Remark: HTTP `POST /users.conversations`.
     /// - Remark: Generated from `#/paths//users.conversations/post(usersConversations)`.

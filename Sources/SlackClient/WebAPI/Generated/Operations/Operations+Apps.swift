@@ -169,24 +169,24 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/apps.event.authorizations.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// .
+                    ///
                     ///
                     /// - Remark: Generated from `#/paths/apps.event.authorizations.list/POST/requestBody/json/event_context`.
                     public var eventContext: Swift.String
-                    /// .
+                    ///
                     ///
                     /// - Remark: Generated from `#/paths/apps.event.authorizations.list/POST/requestBody/json/cursor`.
                     public var cursor: Swift.String?
-                    /// .
+                    ///
                     ///
                     /// - Remark: Generated from `#/paths/apps.event.authorizations.list/POST/requestBody/json/limit`.
                     public var limit: Swift.Int?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - eventContext: .
-                    ///   - cursor: .
-                    ///   - limit: .
+                    ///   - eventContext:
+                    ///   - cursor:
+                    ///   - limit:
                     public init(
                         eventContext: Swift.String,
                         cursor: Swift.String? = nil,
@@ -771,32 +771,32 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/apps.manifest.update/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// The ID of the app whose configuration you want to update.
-                    ///
-                    /// - Remark: Generated from `#/paths/apps.manifest.update/POST/requestBody/json/app_id`.
-                    public var appId: Swift.String
-                    /// A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to creating one. As this method entirely replaces any previous
+                    /// A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to creating one. As this method entirely _replaces_ any previous
                     /// configuration, manifest must contain both unmodified and modified fields.
                     ///
                     /// - Remark: Generated from `#/paths/apps.manifest.update/POST/requestBody/json/manifest`.
                     public var manifest: OpenAPIRuntime.OpenAPIObjectContainer
+                    /// The ID of the app whose configuration you want to update.
+                    ///
+                    /// - Remark: Generated from `#/paths/apps.manifest.update/POST/requestBody/json/app_id`.
+                    public var appId: Swift.String
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - manifest: A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to creating one. As this method entirely _replaces_
+                    /// any previous configuration, manifest must contain both unmodified and modified fields.
                     ///   - appId: The ID of the app whose configuration you want to update.
-                    ///   - manifest: A JSON app manifest encoded as a string. This manifest must use a valid app manifest schema - read our guide to creating one. As this method entirely replaces any
-                    /// previous configuration, manifest must contain both unmodified and modified fields.
                     public init(
-                        appId: Swift.String,
                         manifest: OpenAPIRuntime.OpenAPIObjectContainer,
+                        appId: Swift.String,
                     ) {
-                        self.appId = appId
                         self.manifest = manifest
+                        self.appId = appId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case appId = "app_id"
                         case manifest
+                        case appId = "app_id"
                     }
                 }
 

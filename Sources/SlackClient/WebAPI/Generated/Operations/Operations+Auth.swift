@@ -33,14 +33,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/auth.revoke/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Setting this parameter to 1 triggers a testing mode where the specified token will not actually be revoked.
+                    /// Setting this parameter to 1 triggers a _testing mode_ where the specified token will not actually be revoked.
                     ///
                     /// - Remark: Generated from `#/paths/auth.revoke/POST/requestBody/json/test`.
                     public var test: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - test: Setting this parameter to 1 triggers a testing mode where the specified token will not actually be revoked.
+                    ///   - test: Setting this parameter to 1 triggers a _testing mode_ where the specified token will not actually be revoked.
                     public init(test: Swift.Bool? = nil) {
                         self.test = test
                     }
@@ -179,6 +179,10 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/auth.teams.list/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// The maximum number of workspaces to return. Must be a positive integer no larger than 1000.
+                    ///
+                    /// - Remark: Generated from `#/paths/auth.teams.list/POST/requestBody/json/limit`.
+                    public var limit: Swift.Int?
                     /// Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///
                     /// - Remark: Generated from `#/paths/auth.teams.list/POST/requestBody/json/cursor`.
@@ -187,30 +191,26 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/auth.teams.list/POST/requestBody/json/include_icon`.
                     public var includeIcon: Swift.Bool?
-                    /// The maximum number of workspaces to return. Must be a positive integer no larger than 1000.
-                    ///
-                    /// - Remark: Generated from `#/paths/auth.teams.list/POST/requestBody/json/limit`.
-                    public var limit: Swift.Int?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - limit: The maximum number of workspaces to return. Must be a positive integer no larger than 1000.
                     ///   - cursor: Set cursor to next_cursor returned by the previous call to list items in the next page.
                     ///   - includeIcon: Whether to return icon paths for each workspace. An icon path represents a URI pointing to the image signifying the workspace.
-                    ///   - limit: The maximum number of workspaces to return. Must be a positive integer no larger than 1000.
                     public init(
+                        limit: Swift.Int? = nil,
                         cursor: Swift.String? = nil,
                         includeIcon: Swift.Bool? = nil,
-                        limit: Swift.Int? = nil,
                     ) {
+                        self.limit = limit
                         self.cursor = cursor
                         self.includeIcon = includeIcon
-                        self.limit = limit
                     }
 
                     public enum CodingKeys: String, CodingKey {
+                        case limit
                         case cursor
                         case includeIcon = "include_icon"
-                        case limit
                     }
                 }
 

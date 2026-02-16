@@ -21,6 +21,1218 @@ import SlackModels
 
 #if WebAPI_Chat
 extension Operations {
+    public enum ChatPostEphemeral {
+        public static let id: Swift.String = "chatPostEphemeral"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatPostEphemeral.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - accept:
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatPostEphemeral.AcceptableContentType>] = .defaultValues()) {
+                    self.accept = accept
+                }
+            }
+
+            public var headers: Operations.ChatPostEphemeral.Input.Headers
+            /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// (Legacy) Pass true to post the message as the authed user. Defaults to true if the chat:write:bot scope is not included. Otherwise, defaults to false.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/as_user`.
+                    public var asUser: Swift.Bool?
+                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/attachments`.
+                    public var attachments: [SlackModels.Attachment]?
+                    /// A JSON-based array of structured blocks, presented as a URL-encoded string.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/blocks`.
+                    public var blocks: [SlackBlockKit.Block]?
+                    /// Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/channel`.
+                    public var channel: Swift.String
+                    /// Emoji to use as the icon for this message. Overrides icon_url.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/icon_emoji`.
+                    public var iconEmoji: Swift.String?
+                    /// URL to an image to use as the icon for this message.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/icon_url`.
+                    public var iconUrl: Swift.String?
+                    /// Find and link channel names and usernames.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/link_names`.
+                    public var linkNames: Swift.Bool?
+                    /// Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/markdown_text`.
+                    public var markdownText: Swift.String?
+                    /// Change how messages are treated. Defaults to none. See below.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/parse`.
+                    public var parse: Swift.String?
+                    /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/text`.
+                    public var text: Swift.String?
+                    /// Provide another message's ts value to post this message in a thread. Avoid using a reply's ts value; use its parent's value instead. Ephemeral messages in threads are only
+                    /// shown if there is already an active thread.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/thread_ts`.
+                    public var threadTs: Swift.String?
+                    /// id of the user who will receive the ephemeral message. The user should be in the channel specified by the channel argument.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/user`.
+                    public var user: Swift.String
+                    /// Set your bot's user name.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/username`.
+                    public var username: Swift.String?
+                    /// Creates a new `JsonPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - asUser: (Legacy) Pass true to post the message as the authed user. Defaults to true if the chat:write:bot scope is not included. Otherwise, defaults to false.
+                    ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
+                    ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
+                    ///   - channel: Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name.
+                    ///   - iconEmoji: Emoji to use as the icon for this message. Overrides icon_url.
+                    ///   - iconUrl: URL to an image to use as the icon for this message.
+                    ///   - linkNames: Find and link channel names and usernames.
+                    ///   - markdownText: Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
+                    ///   - parse: Change how messages are treated. Defaults to none. See below.
+                    ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
+                    ///   - threadTs: Provide another message's ts value to post this message in a thread. Avoid using a reply's ts value; use its parent's value instead. Ephemeral messages in threads
+                    /// are only shown if there is already an active thread.
+                    ///   - user: id of the user who will receive the ephemeral message. The user should be in the channel specified by the channel argument.
+                    ///   - username: Set your bot's user name.
+                    public init(
+                        asUser: Swift.Bool? = nil,
+                        attachments: [SlackModels.Attachment]? = nil,
+                        blocks: [SlackBlockKit.Block]? = nil,
+                        channel: Swift.String,
+                        iconEmoji: Swift.String? = nil,
+                        iconUrl: Swift.String? = nil,
+                        linkNames: Swift.Bool? = nil,
+                        markdownText: Swift.String? = nil,
+                        parse: Swift.String? = nil,
+                        text: Swift.String? = nil,
+                        threadTs: Swift.String? = nil,
+                        user: Swift.String,
+                        username: Swift.String? = nil,
+                    ) {
+                        self.asUser = asUser
+                        self.attachments = attachments
+                        self.blocks = blocks
+                        self.channel = channel
+                        self.iconEmoji = iconEmoji
+                        self.iconUrl = iconUrl
+                        self.linkNames = linkNames
+                        self.markdownText = markdownText
+                        self.parse = parse
+                        self.text = text
+                        self.threadTs = threadTs
+                        self.user = user
+                        self.username = username
+                    }
+
+                    public enum CodingKeys: String, CodingKey {
+                        case asUser = "as_user"
+                        case attachments
+                        case blocks
+                        case channel
+                        case iconEmoji = "icon_emoji"
+                        case iconUrl = "icon_url"
+                        case linkNames = "link_names"
+                        case markdownText = "markdown_text"
+                        case parse
+                        case text
+                        case threadTs = "thread_ts"
+                        case user
+                        case username
+                    }
+                }
+
+                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/content/application\/json`.
+                case json(Operations.ChatPostEphemeral.Input.Body.JsonPayload)
+            }
+
+            public var body: Operations.ChatPostEphemeral.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            ///   - body:
+            public init(
+                headers: Operations.ChatPostEphemeral.Input.Headers = .init(),
+                body: Operations.ChatPostEphemeral.Input.Body,
+            ) {
+                self.headers = headers
+                self.body = body
+            }
+        }
+
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.ChatPostEphemeralResponse)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.ChatPostEphemeralResponse {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                body
+                            }
+                        }
+                    }
+                }
+
+                /// Received HTTP response body
+                public var body: Operations.ChatPostEphemeral.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.ChatPostEphemeral.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+
+            /// OK
+            ///
+            /// - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.ChatPostEphemeral.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.ChatPostEphemeral.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self,
+                        )
+                    }
+                }
+            }
+
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    string
+                case .json:
+                    "application/json"
+                }
+            }
+
+            public static var allCases: [Self] {
+                [
+                    .json,
+                ]
+            }
+        }
+    }
+
+    public enum ChatPostMessage {
+        public static let id: Swift.String = "chatPostMessage"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/chat.postMessage/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatPostMessage.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - accept:
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatPostMessage.AcceptableContentType>] = .defaultValues()) {
+                    self.accept = accept
+                }
+            }
+
+            public var headers: Operations.ChatPostMessage.Input.Headers
+            /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// (Legacy) Pass true to post the message as the authed user instead of as a bot. Defaults to false. Can only be used by classic apps. See legacy as_user parameter below.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/as_user`.
+                    public var asUser: Swift.Bool?
+                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/attachments`.
+                    public var attachments: [SlackModels.Attachment]?
+                    /// A JSON-based array of structured blocks, presented as a URL-encoded string.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/blocks`.
+                    public var blocks: [SlackBlockKit.Block]?
+                    /// An encoded ID or channel name that represents a channel, private group, or IM channel to send the message to. See below for more details.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/channel`.
+                    public var channel: Swift.String
+                    /// This field represents the timestamp of the draft's last update at the time this API is called. If the current message is a draft, this field can be provided to ensure
+                    /// synchronization with the server.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/current_draft_last_updated_ts`.
+                    public var currentDraftLastUpdatedTs: Swift.String?
+                    /// Emoji to use as the icon for this message. Overrides icon_url.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/icon_emoji`.
+                    public var iconEmoji: Swift.String?
+                    /// URL to an image to use as the icon for this message.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/icon_url`.
+                    public var iconUrl: Swift.String?
+                    /// Find and link user groups. No longer supports linking individual users; use syntax shown in Mentioning Users instead.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/link_names`.
+                    public var linkNames: Swift.Bool?
+                    /// Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/markdown_text`.
+                    public var markdownText: Swift.String?
+                    /// JSON object with event_type and event_payload fields, presented as a URL-encoded string. You can also provide Work Object entity metadata using this parameter. Metadata you
+                    /// post to Slack is accessible to any app or user who is a member of that workspace.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/metadata`.
+                    public var metadata: OpenAPIRuntime.OpenAPIObjectContainer?
+                    /// Disable Slack markup parsing by setting to false. Enabled by default.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/mrkdwn`.
+                    public var mrkdwn: Swift.Bool?
+                    /// Change how messages are treated. See below.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/parse`.
+                    public var parse: Swift.String?
+                    /// Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/reply_broadcast`.
+                    public var replyBroadcast: Swift.Bool?
+                    /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/text`.
+                    public var text: Swift.String?
+                    /// Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/thread_ts`.
+                    public var threadTs: Swift.String?
+                    /// Pass true to enable unfurling of primarily text-based content.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/unfurl_links`.
+                    public var unfurlLinks: Swift.Bool?
+                    /// Pass false to disable unfurling of media content.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/unfurl_media`.
+                    public var unfurlMedia: Swift.Bool?
+                    /// Set your bot's user name.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/username`.
+                    public var username: Swift.String?
+                    /// Creates a new `JsonPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - asUser: (Legacy) Pass true to post the message as the authed user instead of as a bot. Defaults to false. Can only be used by classic apps. See legacy as_user parameter
+                    /// below.
+                    ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
+                    ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
+                    ///   - channel: An encoded ID or channel name that represents a channel, private group, or IM channel to send the message to. See below for more details.
+                    ///   - currentDraftLastUpdatedTs: This field represents the timestamp of the draft's last update at the time this API is called. If the current message is a draft, this field can
+                    /// be provided to ensure synchronization with the server.
+                    ///   - iconEmoji: Emoji to use as the icon for this message. Overrides icon_url.
+                    ///   - iconUrl: URL to an image to use as the icon for this message.
+                    ///   - linkNames: Find and link user groups. No longer supports linking individual users; use syntax shown in Mentioning Users instead.
+                    ///   - markdownText: Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
+                    ///   - metadata: JSON object with event_type and event_payload fields, presented as a URL-encoded string. You can also provide Work Object entity metadata using this parameter.
+                    /// Metadata you post to Slack is accessible to any app or user who is a member of that workspace.
+                    ///   - mrkdwn: Disable Slack markup parsing by setting to false. Enabled by default.
+                    ///   - parse: Change how messages are treated. See below.
+                    ///   - replyBroadcast: Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false.
+                    ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
+                    ///   - threadTs: Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead.
+                    ///   - unfurlLinks: Pass true to enable unfurling of primarily text-based content.
+                    ///   - unfurlMedia: Pass false to disable unfurling of media content.
+                    ///   - username: Set your bot's user name.
+                    public init(
+                        asUser: Swift.Bool? = nil,
+                        attachments: [SlackModels.Attachment]? = nil,
+                        blocks: [SlackBlockKit.Block]? = nil,
+                        channel: Swift.String,
+                        currentDraftLastUpdatedTs: Swift.String? = nil,
+                        iconEmoji: Swift.String? = nil,
+                        iconUrl: Swift.String? = nil,
+                        linkNames: Swift.Bool? = nil,
+                        markdownText: Swift.String? = nil,
+                        metadata: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
+                        mrkdwn: Swift.Bool? = nil,
+                        parse: Swift.String? = nil,
+                        replyBroadcast: Swift.Bool? = nil,
+                        text: Swift.String? = nil,
+                        threadTs: Swift.String? = nil,
+                        unfurlLinks: Swift.Bool? = nil,
+                        unfurlMedia: Swift.Bool? = nil,
+                        username: Swift.String? = nil,
+                    ) {
+                        self.asUser = asUser
+                        self.attachments = attachments
+                        self.blocks = blocks
+                        self.channel = channel
+                        self.currentDraftLastUpdatedTs = currentDraftLastUpdatedTs
+                        self.iconEmoji = iconEmoji
+                        self.iconUrl = iconUrl
+                        self.linkNames = linkNames
+                        self.markdownText = markdownText
+                        self.metadata = metadata
+                        self.mrkdwn = mrkdwn
+                        self.parse = parse
+                        self.replyBroadcast = replyBroadcast
+                        self.text = text
+                        self.threadTs = threadTs
+                        self.unfurlLinks = unfurlLinks
+                        self.unfurlMedia = unfurlMedia
+                        self.username = username
+                    }
+
+                    public enum CodingKeys: String, CodingKey {
+                        case asUser = "as_user"
+                        case attachments
+                        case blocks
+                        case channel
+                        case currentDraftLastUpdatedTs = "current_draft_last_updated_ts"
+                        case iconEmoji = "icon_emoji"
+                        case iconUrl = "icon_url"
+                        case linkNames = "link_names"
+                        case markdownText = "markdown_text"
+                        case metadata
+                        case mrkdwn
+                        case parse
+                        case replyBroadcast = "reply_broadcast"
+                        case text
+                        case threadTs = "thread_ts"
+                        case unfurlLinks = "unfurl_links"
+                        case unfurlMedia = "unfurl_media"
+                        case username
+                    }
+                }
+
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/content/application\/json`.
+                case json(Operations.ChatPostMessage.Input.Body.JsonPayload)
+            }
+
+            public var body: Operations.ChatPostMessage.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            ///   - body:
+            public init(
+                headers: Operations.ChatPostMessage.Input.Headers = .init(),
+                body: Operations.ChatPostMessage.Input.Body,
+            ) {
+                self.headers = headers
+                self.body = body
+            }
+        }
+
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.postMessage/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.ChatPostMessageResponse)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.ChatPostMessageResponse {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                body
+                            }
+                        }
+                    }
+                }
+
+                /// Received HTTP response body
+                public var body: Operations.ChatPostMessage.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.ChatPostMessage.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+
+            /// OK
+            ///
+            /// - Remark: Generated from `#/paths//chat.postMessage/post(chatPostMessage)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.ChatPostMessage.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.ChatPostMessage.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self,
+                        )
+                    }
+                }
+            }
+
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    string
+                case .json:
+                    "application/json"
+                }
+            }
+
+            public static var allCases: [Self] {
+                [
+                    .json,
+                ]
+            }
+        }
+    }
+
+    public enum ChatScheduleMessage {
+        public static let id: Swift.String = "chatScheduleMessage"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatScheduleMessage.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - accept:
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatScheduleMessage.AcceptableContentType>] = .defaultValues()) {
+                    self.accept = accept
+                }
+            }
+
+            public var headers: Operations.ChatScheduleMessage.Input.Headers
+            /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Set to true to post the message as the authed user, instead of as a bot. Defaults to false. Cannot be used by new Slack apps. See chat.postMessage.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/as_user`.
+                    public var asUser: Swift.Bool?
+                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/attachments`.
+                    public var attachments: [SlackModels.Attachment]?
+                    /// A JSON-based array of structured blocks, presented as a URL-encoded string.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/blocks`.
+                    public var blocks: [SlackBlockKit.Block]?
+                    /// Channel, private group, or DM channel to send message to. Can be an encoded ID, or a name. See below for more details.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/channel`.
+                    public var channel: Swift.String
+                    /// Find and link user groups. No longer supports linking individual users; use syntax shown in Mentioning Users instead.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/link_names`.
+                    public var linkNames: Swift.Bool?
+                    /// Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/markdown_text`.
+                    public var markdownText: Swift.String?
+                    /// Change how messages are treated. See chat.postMessage.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/parse`.
+                    public var parse: Swift.String?
+                    /// Unix timestamp representing the future time the message should post to Slack.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/post_at`.
+                    public var postAt: Swift.Int
+                    /// Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/reply_broadcast`.
+                    public var replyBroadcast: Swift.Bool?
+                    /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/text`.
+                    public var text: Swift.String?
+                    /// Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/thread_ts`.
+                    public var threadTs: Swift.String?
+                    /// Pass true to enable unfurling of primarily text-based content.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/unfurl_links`.
+                    public var unfurlLinks: Swift.Bool?
+                    /// Pass false to disable unfurling of media content.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/unfurl_media`.
+                    public var unfurlMedia: Swift.Bool?
+                    /// JSON object with event_type and event_payload fields, presented as a URL-encoded string. Metadata you post to Slack is accessible to any app or user who is a member of that
+                    /// workspace.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/metadata`.
+                    public var metadata: OpenAPIRuntime.OpenAPIObjectContainer?
+                    /// Creates a new `JsonPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - asUser: Set to true to post the message as the authed user, instead of as a bot. Defaults to false. Cannot be used by new Slack apps. See chat.postMessage.
+                    ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
+                    ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
+                    ///   - channel: Channel, private group, or DM channel to send message to. Can be an encoded ID, or a name. See below for more details.
+                    ///   - linkNames: Find and link user groups. No longer supports linking individual users; use syntax shown in Mentioning Users instead.
+                    ///   - markdownText: Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
+                    ///   - parse: Change how messages are treated. See chat.postMessage.
+                    ///   - postAt: Unix timestamp representing the future time the message should post to Slack.
+                    ///   - replyBroadcast: Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false.
+                    ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
+                    ///   - threadTs: Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead.
+                    ///   - unfurlLinks: Pass true to enable unfurling of primarily text-based content.
+                    ///   - unfurlMedia: Pass false to disable unfurling of media content.
+                    ///   - metadata: JSON object with event_type and event_payload fields, presented as a URL-encoded string. Metadata you post to Slack is accessible to any app or user who is a
+                    /// member of that workspace.
+                    public init(
+                        asUser: Swift.Bool? = nil,
+                        attachments: [SlackModels.Attachment]? = nil,
+                        blocks: [SlackBlockKit.Block]? = nil,
+                        channel: Swift.String,
+                        linkNames: Swift.Bool? = nil,
+                        markdownText: Swift.String? = nil,
+                        parse: Swift.String? = nil,
+                        postAt: Swift.Int,
+                        replyBroadcast: Swift.Bool? = nil,
+                        text: Swift.String? = nil,
+                        threadTs: Swift.String? = nil,
+                        unfurlLinks: Swift.Bool? = nil,
+                        unfurlMedia: Swift.Bool? = nil,
+                        metadata: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
+                    ) {
+                        self.asUser = asUser
+                        self.attachments = attachments
+                        self.blocks = blocks
+                        self.channel = channel
+                        self.linkNames = linkNames
+                        self.markdownText = markdownText
+                        self.parse = parse
+                        self.postAt = postAt
+                        self.replyBroadcast = replyBroadcast
+                        self.text = text
+                        self.threadTs = threadTs
+                        self.unfurlLinks = unfurlLinks
+                        self.unfurlMedia = unfurlMedia
+                        self.metadata = metadata
+                    }
+
+                    public enum CodingKeys: String, CodingKey {
+                        case asUser = "as_user"
+                        case attachments
+                        case blocks
+                        case channel
+                        case linkNames = "link_names"
+                        case markdownText = "markdown_text"
+                        case parse
+                        case postAt = "post_at"
+                        case replyBroadcast = "reply_broadcast"
+                        case text
+                        case threadTs = "thread_ts"
+                        case unfurlLinks = "unfurl_links"
+                        case unfurlMedia = "unfurl_media"
+                        case metadata
+                    }
+                }
+
+                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/content/application\/json`.
+                case json(Operations.ChatScheduleMessage.Input.Body.JsonPayload)
+            }
+
+            public var body: Operations.ChatScheduleMessage.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            ///   - body:
+            public init(
+                headers: Operations.ChatScheduleMessage.Input.Headers = .init(),
+                body: Operations.ChatScheduleMessage.Input.Body,
+            ) {
+                self.headers = headers
+                self.body = body
+            }
+        }
+
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.ChatScheduleMessageResponse)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.ChatScheduleMessageResponse {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                body
+                            }
+                        }
+                    }
+                }
+
+                /// Received HTTP response body
+                public var body: Operations.ChatScheduleMessage.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.ChatScheduleMessage.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+
+            /// OK
+            ///
+            /// - Remark: Generated from `#/paths//chat.scheduleMessage/post(chatScheduleMessage)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.ChatScheduleMessage.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.ChatScheduleMessage.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self,
+                        )
+                    }
+                }
+            }
+
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    string
+                case .json:
+                    "application/json"
+                }
+            }
+
+            public static var allCases: [Self] {
+                [
+                    .json,
+                ]
+            }
+        }
+    }
+
+    public enum ChatUpdate {
+        public static let id: Swift.String = "chatUpdate"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/chat.update/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatUpdate.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - accept:
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatUpdate.AcceptableContentType>] = .defaultValues()) {
+                    self.accept = accept
+                }
+            }
+
+            public var headers: Operations.ChatUpdate.Input.Headers
+            /// - Remark: Generated from `#/paths/chat.update/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Pass true to update the message as the authed user. Bot users in this context are considered authed users.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/as_user`.
+                    public var asUser: Swift.Bool?
+                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/attachments`.
+                    public var attachments: [SlackModels.Attachment]?
+                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/unfurled_attachments`.
+                    public var unfurledAttachments: OpenAPIRuntime.OpenAPIObjectContainer?
+                    /// A JSON-based array of structured blocks, presented as a URL-encoded string.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/blocks`.
+                    public var blocks: [SlackBlockKit.Block]?
+                    /// Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/markdown_text`.
+                    public var markdownText: Swift.String?
+                    /// JSON object with event_type and event_payload fields, presented as a URL-encoded string. If you don't include this field, the message's previous metadata will be retained. To
+                    /// remove previous metadata, include an empty object for this field. Metadata you post to Slack is accessible to any app or user who is a member of that workspace.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/metadata`.
+                    public var metadata: OpenAPIRuntime.OpenAPIObjectContainer?
+                    /// Channel containing the message to be updated. For direct messages, ensure that this value is a DM ID (starts with D) instead of a User ID (starts with either U or W).
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/channel`.
+                    public var channel: Swift.String
+                    /// Find and link channel names and usernames. Defaults to none. If you do not specify a value for this field, the original value set for the message will be overwritten with the
+                    /// default, none.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/link_names`.
+                    public var linkNames: Swift.Bool?
+                    /// Change how messages are treated. Defaults to client, unlike chat.postMessage. Accepts either none or full. If you do not specify a value for this field, the original value set
+                    /// for the message will be overwritten with the default, client.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/parse`.
+                    public var parse: Swift.String?
+                    /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/text`.
+                    public var text: Swift.String?
+                    /// Timestamp of the message to be updated.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/ts`.
+                    public var ts: Swift.String
+                    /// Broadcast an existing thread reply to make it visible to everyone in the channel or conversation.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/reply_broadcast`.
+                    public var replyBroadcast: Swift.Bool?
+                    /// Array of new file ids that will be sent with this message.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/file_ids`.
+                    public var fileIds: OpenAPIRuntime.OpenAPIArrayContainer?
+                    /// Creates a new `JsonPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - asUser: Pass true to update the message as the authed user. Bot users in this context are considered authed users.
+                    ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
+                    ///   - unfurledAttachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
+                    ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
+                    ///   - markdownText: Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
+                    ///   - metadata: JSON object with event_type and event_payload fields, presented as a URL-encoded string. If you don't include this field, the message's previous metadata will be
+                    /// retained. To remove previous metadata, include an empty object for this field. Metadata you post to Slack is accessible to any app or user who is a member of that workspace.
+                    ///   - channel: Channel containing the message to be updated. For direct messages, ensure that this value is a DM ID (starts with D) instead of a User ID (starts with either U or
+                    /// W).
+                    ///   - linkNames: Find and link channel names and usernames. Defaults to none. If you do not specify a value for this field, the original value set for the message will be
+                    /// overwritten with the default, none.
+                    ///   - parse: Change how messages are treated. Defaults to client, unlike chat.postMessage. Accepts either none or full. If you do not specify a value for this field, the original
+                    /// value set for the message will be overwritten with the default, client.
+                    ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
+                    ///   - ts: Timestamp of the message to be updated.
+                    ///   - replyBroadcast: Broadcast an existing thread reply to make it visible to everyone in the channel or conversation.
+                    ///   - fileIds: Array of new file ids that will be sent with this message.
+                    public init(
+                        asUser: Swift.Bool? = nil,
+                        attachments: [SlackModels.Attachment]? = nil,
+                        unfurledAttachments: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
+                        blocks: [SlackBlockKit.Block]? = nil,
+                        markdownText: Swift.String? = nil,
+                        metadata: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
+                        channel: Swift.String,
+                        linkNames: Swift.Bool? = nil,
+                        parse: Swift.String? = nil,
+                        text: Swift.String? = nil,
+                        ts: Swift.String,
+                        replyBroadcast: Swift.Bool? = nil,
+                        fileIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
+                    ) {
+                        self.asUser = asUser
+                        self.attachments = attachments
+                        self.unfurledAttachments = unfurledAttachments
+                        self.blocks = blocks
+                        self.markdownText = markdownText
+                        self.metadata = metadata
+                        self.channel = channel
+                        self.linkNames = linkNames
+                        self.parse = parse
+                        self.text = text
+                        self.ts = ts
+                        self.replyBroadcast = replyBroadcast
+                        self.fileIds = fileIds
+                    }
+
+                    public enum CodingKeys: String, CodingKey {
+                        case asUser = "as_user"
+                        case attachments
+                        case unfurledAttachments = "unfurled_attachments"
+                        case blocks
+                        case markdownText = "markdown_text"
+                        case metadata
+                        case channel
+                        case linkNames = "link_names"
+                        case parse
+                        case text
+                        case ts
+                        case replyBroadcast = "reply_broadcast"
+                        case fileIds = "file_ids"
+                    }
+                }
+
+                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/content/application\/json`.
+                case json(Operations.ChatUpdate.Input.Body.JsonPayload)
+            }
+
+            public var body: Operations.ChatUpdate.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            ///   - body:
+            public init(
+                headers: Operations.ChatUpdate.Input.Headers = .init(),
+                body: Operations.ChatUpdate.Input.Body,
+            ) {
+                self.headers = headers
+                self.body = body
+            }
+        }
+
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.update/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/chat.update/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.ChatUpdateResponse)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.ChatUpdateResponse {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                body
+                            }
+                        }
+                    }
+                }
+
+                /// Received HTTP response body
+                public var body: Operations.ChatUpdate.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.ChatUpdate.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+
+            /// OK
+            ///
+            /// - Remark: Generated from `#/paths//chat.update/post(chatUpdate)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.ChatUpdate.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.ChatUpdate.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self,
+                        )
+                    }
+                }
+            }
+
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    string
+                case .json:
+                    "application/json"
+                }
+            }
+
+            public static var allCases: [Self] {
+                [
+                    .json,
+                ]
+            }
+        }
+    }
+
+    public enum ChatAppendStream {
+        public static let id: Swift.String = "chatAppendStream"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/chat.appendStream/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatAppendStream.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - accept:
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatAppendStream.AcceptableContentType>] = .defaultValues()) {
+                    self.accept = accept
+                }
+            }
+
+            public var headers: Operations.ChatAppendStream.Input.Headers
+            /// - Remark: Generated from `#/paths/chat.appendStream/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.appendStream/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// An encoded ID that represents a channel, private group, or DM.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.appendStream/POST/requestBody/json/channel`.
+                    public var channel: Swift.String
+                    /// An array of streaming chunks. Chunks can be markdown text chunks, task update chunks, and plan update chunks.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.appendStream/POST/requestBody/json/chunks`.
+                    public var chunks: OpenAPIRuntime.OpenAPIArrayContainer?
+                    /// The timestamp of the streaming message.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.appendStream/POST/requestBody/json/ts`.
+                    public var ts: Swift.String
+                    /// Accepts message text formatted in markdown. Limit this field to 12,000 characters. This text is what will be appended to the message received so far.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.appendStream/POST/requestBody/json/markdown_text`.
+                    public var markdownText: Swift.String
+                    /// Creates a new `JsonPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - channel: An encoded ID that represents a channel, private group, or DM.
+                    ///   - chunks: An array of streaming chunks. Chunks can be markdown text chunks, task update chunks, and plan update chunks.
+                    ///   - ts: The timestamp of the streaming message.
+                    ///   - markdownText: Accepts message text formatted in markdown. Limit this field to 12,000 characters. This text is what will be appended to the message received so far.
+                    public init(
+                        channel: Swift.String,
+                        chunks: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
+                        ts: Swift.String,
+                        markdownText: Swift.String,
+                    ) {
+                        self.channel = channel
+                        self.chunks = chunks
+                        self.ts = ts
+                        self.markdownText = markdownText
+                    }
+
+                    public enum CodingKeys: String, CodingKey {
+                        case channel
+                        case chunks
+                        case ts
+                        case markdownText = "markdown_text"
+                    }
+                }
+
+                /// - Remark: Generated from `#/paths/chat.appendStream/POST/requestBody/content/application\/json`.
+                case json(Operations.ChatAppendStream.Input.Body.JsonPayload)
+            }
+
+            public var body: Operations.ChatAppendStream.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            ///   - body:
+            public init(
+                headers: Operations.ChatAppendStream.Input.Headers = .init(),
+                body: Operations.ChatAppendStream.Input.Body,
+            ) {
+                self.headers = headers
+                self.body = body
+            }
+        }
+
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.appendStream/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/chat.appendStream/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.ChatAppendStreamResponse)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.ChatAppendStreamResponse {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                body
+                            }
+                        }
+                    }
+                }
+
+                /// Received HTTP response body
+                public var body: Operations.ChatAppendStream.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.ChatAppendStream.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+
+            /// OK
+            ///
+            /// - Remark: Generated from `#/paths//chat.appendStream/post(chatAppendStream)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.ChatAppendStream.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.ChatAppendStream.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self,
+                        )
+                    }
+                }
+            }
+
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    string
+                case .json:
+                    "application/json"
+                }
+            }
+
+            public static var allCases: [Self] {
+                [
+                    .json,
+                ]
+            }
+        }
+    }
+
     public enum ChatDelete {
         public static let id: Swift.String = "chatDelete"
         public struct Input: Sendable, Hashable {
@@ -41,6 +1253,11 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/chat.delete/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// (Legacy) Pass true to delete the message as the authed user with chat:write:user scope. Bot users in this context are considered authed users. See legacy as_user parameter
+                    /// below.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.delete/POST/requestBody/json/as_user`.
+                    public var asUser: Swift.Bool?
                     /// Channel containing the message to be deleted.
                     ///
                     /// - Remark: Generated from `#/paths/chat.delete/POST/requestBody/json/channel`.
@@ -49,32 +1266,27 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/chat.delete/POST/requestBody/json/ts`.
                     public var ts: Swift.String
-                    /// Pass true to delete the message as the authed user with chat:write:user scope. Bot users in this context are considered authed users. If unused or false, the message will be
-                    /// deleted with chat:write:bot scope.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.delete/POST/requestBody/json/as_user`.
-                    public var asUser: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
+                    ///   - asUser: (Legacy) Pass true to delete the message as the authed user with chat:write:user scope. Bot users in this context are considered authed users. See legacy as_user
+                    /// parameter below.
                     ///   - channel: Channel containing the message to be deleted.
                     ///   - ts: Timestamp of the message to be deleted.
-                    ///   - asUser: Pass true to delete the message as the authed user with chat:write:user scope. Bot users in this context are considered authed users. If unused or false, the
-                    /// message will be deleted with chat:write:bot scope.
                     public init(
+                        asUser: Swift.Bool? = nil,
                         channel: Swift.String,
                         ts: Swift.String,
-                        asUser: Swift.Bool? = nil,
                     ) {
+                        self.asUser = asUser
                         self.channel = channel
                         self.ts = ts
-                        self.asUser = asUser
                     }
 
                     public enum CodingKeys: String, CodingKey {
+                        case asUser = "as_user"
                         case channel
                         case ts
-                        case asUser = "as_user"
                     }
                 }
 
@@ -207,6 +1419,11 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/chat.deleteScheduledMessage/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// Pass true to delete the message as the authed user with chat:write:user scope. Bot users in this context are considered authed users. If unused or false, the message will be
+                    /// deleted with chat:write:bot scope.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.deleteScheduledMessage/POST/requestBody/json/as_user`.
+                    public var asUser: Swift.Bool?
                     /// The channel the scheduled_message is posting to.
                     ///
                     /// - Remark: Generated from `#/paths/chat.deleteScheduledMessage/POST/requestBody/json/channel`.
@@ -215,32 +1432,27 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/chat.deleteScheduledMessage/POST/requestBody/json/scheduled_message_id`.
                     public var scheduledMessageId: Swift.String
-                    /// Pass true to delete the message as the authed user with chat:write:user scope. Bot users in this context are considered authed users. If unused or false, the message will be
-                    /// deleted with chat:write:bot scope.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.deleteScheduledMessage/POST/requestBody/json/as_user`.
-                    public var asUser: Swift.Bool?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - channel: The channel the scheduled_message is posting to.
-                    ///   - scheduledMessageId: scheduled_message_id returned from call to chat.scheduleMessage.
                     ///   - asUser: Pass true to delete the message as the authed user with chat:write:user scope. Bot users in this context are considered authed users. If unused or false, the
                     /// message will be deleted with chat:write:bot scope.
+                    ///   - channel: The channel the scheduled_message is posting to.
+                    ///   - scheduledMessageId: scheduled_message_id returned from call to chat.scheduleMessage.
                     public init(
+                        asUser: Swift.Bool? = nil,
                         channel: Swift.String,
                         scheduledMessageId: Swift.String,
-                        asUser: Swift.Bool? = nil,
                     ) {
+                        self.asUser = asUser
                         self.channel = channel
                         self.scheduledMessageId = scheduledMessageId
-                        self.asUser = asUser
                     }
 
                     public enum CodingKeys: String, CodingKey {
+                        case asUser = "as_user"
                         case channel
                         case scheduledMessageId = "scheduled_message_id"
-                        case asUser = "as_user"
                     }
                 }
 
@@ -665,785 +1877,6 @@ extension Operations {
         }
     }
 
-    public enum ChatPostEphemeral {
-        public static let id: Swift.String = "chatPostEphemeral"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatPostEphemeral.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatPostEphemeral.AcceptableContentType>] = .defaultValues()) {
-                    self.accept = accept
-                }
-            }
-
-            public var headers: Operations.ChatPostEphemeral.Input.Headers
-            /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json`.
-                public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/channel`.
-                    public var channel: Swift.String
-                    /// id of the user who will receive the ephemeral message. The user should be in the channel specified by the channel argument.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/user`.
-                    public var user: Swift.String
-                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/attachments`.
-                    public var attachments: [SlackModels.Attachment]?
-                    /// A JSON-based array of structured blocks, presented as a URL-encoded string.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/blocks`.
-                    public var blocks: [SlackBlockKit.Block]?
-                    /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/text`.
-                    public var text: Swift.String?
-                    /// (Legacy) Pass true to post the message as the authed user. Defaults to true if the chat:write:bot scope is not included. Otherwise, defaults to false.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/as_user`.
-                    public var asUser: Swift.Bool?
-                    /// Emoji to use as the icon for this message. Overrides icon_url.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/icon_emoji`.
-                    public var iconEmoji: Swift.String?
-                    /// URL to an image to use as the icon for this message.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/icon_url`.
-                    public var iconUrl: Swift.String?
-                    /// Find and link channel names and usernames.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/link_names`.
-                    public var linkNames: Swift.Bool?
-                    /// Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/markdown_text`.
-                    public var markdownText: Swift.String?
-                    /// Change how messages are treated. Defaults to none. See below.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/parse`.
-                    public var parse: Swift.String?
-                    /// Provide another message's ts value to post this message in a thread. Avoid using a reply's ts value; use its parent's value instead. Ephemeral messages in threads are only
-                    /// shown if there is already an active thread.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/thread_ts`.
-                    public var threadTs: Swift.String?
-                    /// Set your bot's user name.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/json/username`.
-                    public var username: Swift.String?
-                    /// Creates a new `JsonPayload`.
-                    ///
-                    /// - Parameters:
-                    ///   - channel: Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name.
-                    ///   - user: id of the user who will receive the ephemeral message. The user should be in the channel specified by the channel argument.
-                    ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
-                    ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
-                    ///   - asUser: (Legacy) Pass true to post the message as the authed user. Defaults to true if the chat:write:bot scope is not included. Otherwise, defaults to false.
-                    ///   - iconEmoji: Emoji to use as the icon for this message. Overrides icon_url.
-                    ///   - iconUrl: URL to an image to use as the icon for this message.
-                    ///   - linkNames: Find and link channel names and usernames.
-                    ///   - markdownText: Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
-                    ///   - parse: Change how messages are treated. Defaults to none. See below.
-                    ///   - threadTs: Provide another message's ts value to post this message in a thread. Avoid using a reply's ts value; use its parent's value instead. Ephemeral messages in threads
-                    /// are only shown if there is already an active thread.
-                    ///   - username: Set your bot's user name.
-                    public init(
-                        channel: Swift.String,
-                        user: Swift.String,
-                        attachments: [SlackModels.Attachment]? = nil,
-                        blocks: [SlackBlockKit.Block]? = nil,
-                        text: Swift.String? = nil,
-                        asUser: Swift.Bool? = nil,
-                        iconEmoji: Swift.String? = nil,
-                        iconUrl: Swift.String? = nil,
-                        linkNames: Swift.Bool? = nil,
-                        markdownText: Swift.String? = nil,
-                        parse: Swift.String? = nil,
-                        threadTs: Swift.String? = nil,
-                        username: Swift.String? = nil,
-                    ) {
-                        self.channel = channel
-                        self.user = user
-                        self.attachments = attachments
-                        self.blocks = blocks
-                        self.text = text
-                        self.asUser = asUser
-                        self.iconEmoji = iconEmoji
-                        self.iconUrl = iconUrl
-                        self.linkNames = linkNames
-                        self.markdownText = markdownText
-                        self.parse = parse
-                        self.threadTs = threadTs
-                        self.username = username
-                    }
-
-                    public enum CodingKeys: String, CodingKey {
-                        case channel
-                        case user
-                        case attachments
-                        case blocks
-                        case text
-                        case asUser = "as_user"
-                        case iconEmoji = "icon_emoji"
-                        case iconUrl = "icon_url"
-                        case linkNames = "link_names"
-                        case markdownText = "markdown_text"
-                        case parse
-                        case threadTs = "thread_ts"
-                        case username
-                    }
-                }
-
-                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/requestBody/content/application\/json`.
-                case json(Operations.ChatPostEphemeral.Input.Body.JsonPayload)
-            }
-
-            public var body: Operations.ChatPostEphemeral.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - headers:
-            ///   - body:
-            public init(
-                headers: Operations.ChatPostEphemeral.Input.Headers = .init(),
-                body: Operations.ChatPostEphemeral.Input.Body,
-            ) {
-                self.headers = headers
-                self.body = body
-            }
-        }
-
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/chat.postEphemeral/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.ChatPostEphemeralResponse)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.ChatPostEphemeralResponse {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                body
-                            }
-                        }
-                    }
-                }
-
-                /// Received HTTP response body
-                public var body: Operations.ChatPostEphemeral.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.ChatPostEphemeral.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-
-            /// OK
-            ///
-            /// - Remark: Generated from `#/paths//chat.postEphemeral/post(chatPostEphemeral)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.ChatPostEphemeral.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.ChatPostEphemeral.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self,
-                        )
-                    }
-                }
-            }
-
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    string
-                case .json:
-                    "application/json"
-                }
-            }
-
-            public static var allCases: [Self] {
-                [
-                    .json,
-                ]
-            }
-        }
-    }
-
-    public enum ChatPostMessage {
-        public static let id: Swift.String = "chatPostMessage"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/chat.postMessage/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatPostMessage.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatPostMessage.AcceptableContentType>] = .defaultValues()) {
-                    self.accept = accept
-                }
-            }
-
-            public var headers: Operations.ChatPostMessage.Input.Headers
-            /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json`.
-                public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// An encoded ID or channel name that represents a channel, private group, or IM channel to send the message to. See below for more details.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/channel`.
-                    public var channel: Swift.String
-                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/attachments`.
-                    public var attachments: [SlackModels.Attachment]?
-                    /// A JSON-based array of structured blocks, presented as a URL-encoded string.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/blocks`.
-                    public var blocks: [SlackBlockKit.Block]?
-                    /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/text`.
-                    public var text: Swift.String?
-                    /// (Legacy) Pass true to post the message as the authed user instead of as a bot. Defaults to false. Can only be used by classic apps. See legacy as_user parameter below.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/as_user`.
-                    public var asUser: Swift.Bool?
-                    /// Emoji to use as the icon for this message. Overrides icon_url.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/icon_emoji`.
-                    public var iconEmoji: Swift.String?
-                    /// URL to an image to use as the icon for this message.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/icon_url`.
-                    public var iconUrl: Swift.String?
-                    /// Find and link user groups. No longer supports linking individual users; use syntax shown in Mentioning Users instead.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/link_names`.
-                    public var linkNames: Swift.Bool?
-                    /// Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/markdown_text`.
-                    public var markdownText: Swift.String?
-                    /// JSON object with event_type and event_payload fields, presented as a URL-encoded string. Metadata you post to Slack is accessible to any app or user who is a member of that
-                    /// workspace.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/metadata`.
-                    public var metadata: OpenAPIRuntime.OpenAPIObjectContainer?
-                    /// Disable Slack markup parsing by setting to false. Enabled by default.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/mrkdwn`.
-                    public var mrkdwn: Swift.Bool?
-                    /// Change how messages are treated. See below.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/parse`.
-                    public var parse: Swift.String?
-                    /// Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/reply_broadcast`.
-                    public var replyBroadcast: Swift.Bool?
-                    /// Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/thread_ts`.
-                    public var threadTs: Swift.String?
-                    /// Pass true to enable unfurling of primarily text-based content.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/unfurl_links`.
-                    public var unfurlLinks: Swift.Bool?
-                    /// Pass false to disable unfurling of media content.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/unfurl_media`.
-                    public var unfurlMedia: Swift.Bool?
-                    /// Set your bot's user name.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/json/username`.
-                    public var username: Swift.String?
-                    /// Creates a new `JsonPayload`.
-                    ///
-                    /// - Parameters:
-                    ///   - channel: An encoded ID or channel name that represents a channel, private group, or IM channel to send the message to. See below for more details.
-                    ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
-                    ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
-                    ///   - asUser: (Legacy) Pass true to post the message as the authed user instead of as a bot. Defaults to false. Can only be used by classic apps. See legacy as_user parameter
-                    /// below.
-                    ///   - iconEmoji: Emoji to use as the icon for this message. Overrides icon_url.
-                    ///   - iconUrl: URL to an image to use as the icon for this message.
-                    ///   - linkNames: Find and link user groups. No longer supports linking individual users; use syntax shown in Mentioning Users instead.
-                    ///   - markdownText: Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
-                    ///   - metadata: JSON object with event_type and event_payload fields, presented as a URL-encoded string. Metadata you post to Slack is accessible to any app or user who is a
-                    /// member of that workspace.
-                    ///   - mrkdwn: Disable Slack markup parsing by setting to false. Enabled by default.
-                    ///   - parse: Change how messages are treated. See below.
-                    ///   - replyBroadcast: Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false.
-                    ///   - threadTs: Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead.
-                    ///   - unfurlLinks: Pass true to enable unfurling of primarily text-based content.
-                    ///   - unfurlMedia: Pass false to disable unfurling of media content.
-                    ///   - username: Set your bot's user name.
-                    public init(
-                        channel: Swift.String,
-                        attachments: [SlackModels.Attachment]? = nil,
-                        blocks: [SlackBlockKit.Block]? = nil,
-                        text: Swift.String? = nil,
-                        asUser: Swift.Bool? = nil,
-                        iconEmoji: Swift.String? = nil,
-                        iconUrl: Swift.String? = nil,
-                        linkNames: Swift.Bool? = nil,
-                        markdownText: Swift.String? = nil,
-                        metadata: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-                        mrkdwn: Swift.Bool? = nil,
-                        parse: Swift.String? = nil,
-                        replyBroadcast: Swift.Bool? = nil,
-                        threadTs: Swift.String? = nil,
-                        unfurlLinks: Swift.Bool? = nil,
-                        unfurlMedia: Swift.Bool? = nil,
-                        username: Swift.String? = nil,
-                    ) {
-                        self.channel = channel
-                        self.attachments = attachments
-                        self.blocks = blocks
-                        self.text = text
-                        self.asUser = asUser
-                        self.iconEmoji = iconEmoji
-                        self.iconUrl = iconUrl
-                        self.linkNames = linkNames
-                        self.markdownText = markdownText
-                        self.metadata = metadata
-                        self.mrkdwn = mrkdwn
-                        self.parse = parse
-                        self.replyBroadcast = replyBroadcast
-                        self.threadTs = threadTs
-                        self.unfurlLinks = unfurlLinks
-                        self.unfurlMedia = unfurlMedia
-                        self.username = username
-                    }
-
-                    public enum CodingKeys: String, CodingKey {
-                        case channel
-                        case attachments
-                        case blocks
-                        case text
-                        case asUser = "as_user"
-                        case iconEmoji = "icon_emoji"
-                        case iconUrl = "icon_url"
-                        case linkNames = "link_names"
-                        case markdownText = "markdown_text"
-                        case metadata
-                        case mrkdwn
-                        case parse
-                        case replyBroadcast = "reply_broadcast"
-                        case threadTs = "thread_ts"
-                        case unfurlLinks = "unfurl_links"
-                        case unfurlMedia = "unfurl_media"
-                        case username
-                    }
-                }
-
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/requestBody/content/application\/json`.
-                case json(Operations.ChatPostMessage.Input.Body.JsonPayload)
-            }
-
-            public var body: Operations.ChatPostMessage.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - headers:
-            ///   - body:
-            public init(
-                headers: Operations.ChatPostMessage.Input.Headers = .init(),
-                body: Operations.ChatPostMessage.Input.Body,
-            ) {
-                self.headers = headers
-                self.body = body
-            }
-        }
-
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/chat.postMessage/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/chat.postMessage/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.ChatPostMessageResponse)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.ChatPostMessageResponse {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                body
-                            }
-                        }
-                    }
-                }
-
-                /// Received HTTP response body
-                public var body: Operations.ChatPostMessage.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.ChatPostMessage.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-
-            /// OK
-            ///
-            /// - Remark: Generated from `#/paths//chat.postMessage/post(chatPostMessage)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.ChatPostMessage.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.ChatPostMessage.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self,
-                        )
-                    }
-                }
-            }
-
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    string
-                case .json:
-                    "application/json"
-                }
-            }
-
-            public static var allCases: [Self] {
-                [
-                    .json,
-                ]
-            }
-        }
-    }
-
-    public enum ChatScheduleMessage {
-        public static let id: Swift.String = "chatScheduleMessage"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatScheduleMessage.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatScheduleMessage.AcceptableContentType>] = .defaultValues()) {
-                    self.accept = accept
-                }
-            }
-
-            public var headers: Operations.ChatScheduleMessage.Input.Headers
-            /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json`.
-                public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Channel, private group, or DM channel to send message to. Can be an encoded ID, or a name. See below for more details.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/channel`.
-                    public var channel: Swift.String
-                    /// Unix timestamp representing the future time the message should post to Slack.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/post_at`.
-                    public var postAt: Swift.Int
-                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/attachments`.
-                    public var attachments: [SlackModels.Attachment]?
-                    /// A JSON-based array of structured blocks, presented as a URL-encoded string.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/blocks`.
-                    public var blocks: [SlackBlockKit.Block]?
-                    /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/text`.
-                    public var text: Swift.String?
-                    /// Set to true to post the message as the authed user, instead of as a bot. Defaults to false. Cannot be used by new Slack apps. See chat.postMessage.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/as_user`.
-                    public var asUser: Swift.Bool?
-                    /// Find and link user groups. No longer supports linking individual users; use syntax shown in Mentioning Users instead.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/link_names`.
-                    public var linkNames: Swift.Bool?
-                    /// Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/markdown_text`.
-                    public var markdownText: Swift.String?
-                    /// JSON object with event_type and event_payload fields, presented as a URL-encoded string. Metadata you post to Slack is accessible to any app or user who is a member of that
-                    /// workspace.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/metadata`.
-                    public var metadata: OpenAPIRuntime.OpenAPIObjectContainer?
-                    /// Change how messages are treated. See chat.postMessage.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/parse`.
-                    public var parse: Swift.String?
-                    /// Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/reply_broadcast`.
-                    public var replyBroadcast: Swift.Bool?
-                    /// Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/thread_ts`.
-                    public var threadTs: Swift.String?
-                    /// Pass true to enable unfurling of primarily text-based content.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/unfurl_links`.
-                    public var unfurlLinks: Swift.Bool?
-                    /// Pass false to disable unfurling of media content.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/json/unfurl_media`.
-                    public var unfurlMedia: Swift.Bool?
-                    /// Creates a new `JsonPayload`.
-                    ///
-                    /// - Parameters:
-                    ///   - channel: Channel, private group, or DM channel to send message to. Can be an encoded ID, or a name. See below for more details.
-                    ///   - postAt: Unix timestamp representing the future time the message should post to Slack.
-                    ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
-                    ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
-                    ///   - asUser: Set to true to post the message as the authed user, instead of as a bot. Defaults to false. Cannot be used by new Slack apps. See chat.postMessage.
-                    ///   - linkNames: Find and link user groups. No longer supports linking individual users; use syntax shown in Mentioning Users instead.
-                    ///   - markdownText: Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
-                    ///   - metadata: JSON object with event_type and event_payload fields, presented as a URL-encoded string. Metadata you post to Slack is accessible to any app or user who is a
-                    /// member of that workspace.
-                    ///   - parse: Change how messages are treated. See chat.postMessage.
-                    ///   - replyBroadcast: Used in conjunction with thread_ts and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to false.
-                    ///   - threadTs: Provide another message's ts value to make this message a reply. Avoid using a reply's ts value; use its parent instead.
-                    ///   - unfurlLinks: Pass true to enable unfurling of primarily text-based content.
-                    ///   - unfurlMedia: Pass false to disable unfurling of media content.
-                    public init(
-                        channel: Swift.String,
-                        postAt: Swift.Int,
-                        attachments: [SlackModels.Attachment]? = nil,
-                        blocks: [SlackBlockKit.Block]? = nil,
-                        text: Swift.String? = nil,
-                        asUser: Swift.Bool? = nil,
-                        linkNames: Swift.Bool? = nil,
-                        markdownText: Swift.String? = nil,
-                        metadata: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-                        parse: Swift.String? = nil,
-                        replyBroadcast: Swift.Bool? = nil,
-                        threadTs: Swift.String? = nil,
-                        unfurlLinks: Swift.Bool? = nil,
-                        unfurlMedia: Swift.Bool? = nil,
-                    ) {
-                        self.channel = channel
-                        self.postAt = postAt
-                        self.attachments = attachments
-                        self.blocks = blocks
-                        self.text = text
-                        self.asUser = asUser
-                        self.linkNames = linkNames
-                        self.markdownText = markdownText
-                        self.metadata = metadata
-                        self.parse = parse
-                        self.replyBroadcast = replyBroadcast
-                        self.threadTs = threadTs
-                        self.unfurlLinks = unfurlLinks
-                        self.unfurlMedia = unfurlMedia
-                    }
-
-                    public enum CodingKeys: String, CodingKey {
-                        case channel
-                        case postAt = "post_at"
-                        case attachments
-                        case blocks
-                        case text
-                        case asUser = "as_user"
-                        case linkNames = "link_names"
-                        case markdownText = "markdown_text"
-                        case metadata
-                        case parse
-                        case replyBroadcast = "reply_broadcast"
-                        case threadTs = "thread_ts"
-                        case unfurlLinks = "unfurl_links"
-                        case unfurlMedia = "unfurl_media"
-                    }
-                }
-
-                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/requestBody/content/application\/json`.
-                case json(Operations.ChatScheduleMessage.Input.Body.JsonPayload)
-            }
-
-            public var body: Operations.ChatScheduleMessage.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - headers:
-            ///   - body:
-            public init(
-                headers: Operations.ChatScheduleMessage.Input.Headers = .init(),
-                body: Operations.ChatScheduleMessage.Input.Body,
-            ) {
-                self.headers = headers
-                self.body = body
-            }
-        }
-
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/chat.scheduleMessage/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.ChatScheduleMessageResponse)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.ChatScheduleMessageResponse {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                body
-                            }
-                        }
-                    }
-                }
-
-                /// Received HTTP response body
-                public var body: Operations.ChatScheduleMessage.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.ChatScheduleMessage.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-
-            /// OK
-            ///
-            /// - Remark: Generated from `#/paths//chat.scheduleMessage/post(chatScheduleMessage)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.ChatScheduleMessage.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.ChatScheduleMessage.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self,
-                        )
-                    }
-                }
-            }
-
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    string
-                case .json:
-                    "application/json"
-                }
-            }
-
-            public static var allCases: [Self] {
-                [
-                    .json,
-                ]
-            }
-        }
-    }
-
     public enum ChatScheduledMessagesList {
         public static let id: Swift.String = "chatScheduledMessagesList"
         public struct Input: Sendable, Hashable {
@@ -1632,6 +2065,394 @@ extension Operations {
         }
     }
 
+    public enum ChatStartStream {
+        public static let id: Swift.String = "chatStartStream"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/chat.startStream/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatStartStream.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - accept:
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatStartStream.AcceptableContentType>] = .defaultValues()) {
+                    self.accept = accept
+                }
+            }
+
+            public var headers: Operations.ChatStartStream.Input.Headers
+            /// - Remark: Generated from `#/paths/chat.startStream/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.startStream/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// An encoded ID that represents a channel thread or DM.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.startStream/POST/requestBody/json/channel`.
+                    public var channel: Swift.String
+                    /// An array of streaming chunks. Chunks can be markdown text chunks, task update chunks, and plan update chunks.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.startStream/POST/requestBody/json/chunks`.
+                    public var chunks: OpenAPIRuntime.OpenAPIArrayContainer?
+                    /// Accepts message text formatted in markdown. Limit this field to 12,000 characters.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.startStream/POST/requestBody/json/markdown_text`.
+                    public var markdownText: Swift.String?
+                    /// Provide another message's ts value to reply to. Streamed messages should always be replies to a user request.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.startStream/POST/requestBody/json/thread_ts`.
+                    public var threadTs: Swift.String
+                    /// The encoded ID of the user to receive the streaming text. Required when streaming to channels.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.startStream/POST/requestBody/json/recipient_user_id`.
+                    public var recipientUserId: Swift.String?
+                    /// The encoded ID of the team the user receiving the streaming text belongs to. Required when streaming to channels.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.startStream/POST/requestBody/json/recipient_team_id`.
+                    public var recipientTeamId: Swift.String?
+                    /// Specifies how tasks are displayed in the message. A timeline displays individual tasks with text in sequential order, and plan displays all tasks together, with the first
+                    /// tasks's placement determining the placement of the rest of the tasks.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.startStream/POST/requestBody/json/task_display_mode`.
+                    public var taskDisplayMode: Swift.String?
+                    /// Creates a new `JsonPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - channel: An encoded ID that represents a channel thread or DM.
+                    ///   - chunks: An array of streaming chunks. Chunks can be markdown text chunks, task update chunks, and plan update chunks.
+                    ///   - markdownText: Accepts message text formatted in markdown. Limit this field to 12,000 characters.
+                    ///   - threadTs: Provide another message's ts value to reply to. Streamed messages should always be replies to a user request.
+                    ///   - recipientUserId: The encoded ID of the user to receive the streaming text. Required when streaming to channels.
+                    ///   - recipientTeamId: The encoded ID of the team the user receiving the streaming text belongs to. Required when streaming to channels.
+                    ///   - taskDisplayMode: Specifies how tasks are displayed in the message. A timeline displays individual tasks with text in sequential order, and plan displays all tasks together,
+                    /// with the first tasks's placement determining the placement of the rest of the tasks.
+                    public init(
+                        channel: Swift.String,
+                        chunks: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
+                        markdownText: Swift.String? = nil,
+                        threadTs: Swift.String,
+                        recipientUserId: Swift.String? = nil,
+                        recipientTeamId: Swift.String? = nil,
+                        taskDisplayMode: Swift.String? = nil,
+                    ) {
+                        self.channel = channel
+                        self.chunks = chunks
+                        self.markdownText = markdownText
+                        self.threadTs = threadTs
+                        self.recipientUserId = recipientUserId
+                        self.recipientTeamId = recipientTeamId
+                        self.taskDisplayMode = taskDisplayMode
+                    }
+
+                    public enum CodingKeys: String, CodingKey {
+                        case channel
+                        case chunks
+                        case markdownText = "markdown_text"
+                        case threadTs = "thread_ts"
+                        case recipientUserId = "recipient_user_id"
+                        case recipientTeamId = "recipient_team_id"
+                        case taskDisplayMode = "task_display_mode"
+                    }
+                }
+
+                /// - Remark: Generated from `#/paths/chat.startStream/POST/requestBody/content/application\/json`.
+                case json(Operations.ChatStartStream.Input.Body.JsonPayload)
+            }
+
+            public var body: Operations.ChatStartStream.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            ///   - body:
+            public init(
+                headers: Operations.ChatStartStream.Input.Headers = .init(),
+                body: Operations.ChatStartStream.Input.Body,
+            ) {
+                self.headers = headers
+                self.body = body
+            }
+        }
+
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.startStream/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/chat.startStream/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.ChatStartStreamResponse)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.ChatStartStreamResponse {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                body
+                            }
+                        }
+                    }
+                }
+
+                /// Received HTTP response body
+                public var body: Operations.ChatStartStream.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.ChatStartStream.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+
+            /// OK
+            ///
+            /// - Remark: Generated from `#/paths//chat.startStream/post(chatStartStream)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.ChatStartStream.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.ChatStartStream.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self,
+                        )
+                    }
+                }
+            }
+
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    string
+                case .json:
+                    "application/json"
+                }
+            }
+
+            public static var allCases: [Self] {
+                [
+                    .json,
+                ]
+            }
+        }
+    }
+
+    public enum ChatStopStream {
+        public static let id: Swift.String = "chatStopStream"
+        public struct Input: Sendable, Hashable {
+            /// - Remark: Generated from `#/paths/chat.stopStream/POST/header`.
+            public struct Headers: Sendable, Hashable {
+                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatStopStream.AcceptableContentType>]
+                /// Creates a new `Headers`.
+                ///
+                /// - Parameters:
+                ///   - accept:
+                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatStopStream.AcceptableContentType>] = .defaultValues()) {
+                    self.accept = accept
+                }
+            }
+
+            public var headers: Operations.ChatStopStream.Input.Headers
+            /// - Remark: Generated from `#/paths/chat.stopStream/POST/requestBody`.
+            @frozen public enum Body: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.stopStream/POST/requestBody/json`.
+                public struct JsonPayload: Codable, Hashable, Sendable {
+                    /// An encoded ID that represents a channel, private group, or DM.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.stopStream/POST/requestBody/json/channel`.
+                    public var channel: Swift.String
+                    /// An array of streaming chunks. Chunks can be markdown text chunks, task update chunks, and plan update chunks.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.stopStream/POST/requestBody/json/chunks`.
+                    public var chunks: OpenAPIRuntime.OpenAPIArrayContainer?
+                    /// The timestamp of the streaming message.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.stopStream/POST/requestBody/json/ts`.
+                    public var ts: Swift.String
+                    /// Accepts message text formatted in markdown. Limit this field to 12,000 characters.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.stopStream/POST/requestBody/json/markdown_text`.
+                    public var markdownText: Swift.String?
+                    /// A list of blocks that will be rendered at the bottom of the finalized message.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.stopStream/POST/requestBody/json/blocks`.
+                    public var blocks: [SlackBlockKit.Block]?
+                    /// JSON object with event_type and event_payload fields, presented as a URL-encoded string. Metadata you post to Slack is accessible to any app or user who is a member of that
+                    /// workspace.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.stopStream/POST/requestBody/json/metadata`.
+                    public var metadata: OpenAPIRuntime.OpenAPIObjectContainer?
+                    /// Creates a new `JsonPayload`.
+                    ///
+                    /// - Parameters:
+                    ///   - channel: An encoded ID that represents a channel, private group, or DM.
+                    ///   - chunks: An array of streaming chunks. Chunks can be markdown text chunks, task update chunks, and plan update chunks.
+                    ///   - ts: The timestamp of the streaming message.
+                    ///   - markdownText: Accepts message text formatted in markdown. Limit this field to 12,000 characters.
+                    ///   - blocks: A list of blocks that will be rendered at the bottom of the finalized message.
+                    ///   - metadata: JSON object with event_type and event_payload fields, presented as a URL-encoded string. Metadata you post to Slack is accessible to any app or user who is a
+                    /// member of that workspace.
+                    public init(
+                        channel: Swift.String,
+                        chunks: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
+                        ts: Swift.String,
+                        markdownText: Swift.String? = nil,
+                        blocks: [SlackBlockKit.Block]? = nil,
+                        metadata: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
+                    ) {
+                        self.channel = channel
+                        self.chunks = chunks
+                        self.ts = ts
+                        self.markdownText = markdownText
+                        self.blocks = blocks
+                        self.metadata = metadata
+                    }
+
+                    public enum CodingKeys: String, CodingKey {
+                        case channel
+                        case chunks
+                        case ts
+                        case markdownText = "markdown_text"
+                        case blocks
+                        case metadata
+                    }
+                }
+
+                /// - Remark: Generated from `#/paths/chat.stopStream/POST/requestBody/content/application\/json`.
+                case json(Operations.ChatStopStream.Input.Body.JsonPayload)
+            }
+
+            public var body: Operations.ChatStopStream.Input.Body
+            /// Creates a new `Input`.
+            ///
+            /// - Parameters:
+            ///   - headers:
+            ///   - body:
+            public init(
+                headers: Operations.ChatStopStream.Input.Headers = .init(),
+                body: Operations.ChatStopStream.Input.Body,
+            ) {
+                self.headers = headers
+                self.body = body
+            }
+        }
+
+        @frozen public enum Output: Sendable, Hashable {
+            public struct Ok: Sendable, Hashable {
+                /// - Remark: Generated from `#/paths/chat.stopStream/POST/responses/200/content`.
+                @frozen public enum Body: Sendable, Hashable {
+                    /// - Remark: Generated from `#/paths/chat.stopStream/POST/responses/200/content/application\/json`.
+                    case json(Components.Schemas.ChatStopStreamResponse)
+                    /// The associated value of the enum case if `self` is `.json`.
+                    ///
+                    /// - Throws: An error if `self` is not `.json`.
+                    /// - SeeAlso: `.json`.
+                    public var json: Components.Schemas.ChatStopStreamResponse {
+                        get throws {
+                            switch self {
+                            case let .json(body):
+                                body
+                            }
+                        }
+                    }
+                }
+
+                /// Received HTTP response body
+                public var body: Operations.ChatStopStream.Output.Ok.Body
+                /// Creates a new `Ok`.
+                ///
+                /// - Parameters:
+                ///   - body: Received HTTP response body
+                public init(body: Operations.ChatStopStream.Output.Ok.Body) {
+                    self.body = body
+                }
+            }
+
+            /// OK
+            ///
+            /// - Remark: Generated from `#/paths//chat.stopStream/post(chatStopStream)/responses/200`.
+            ///
+            /// HTTP response code: `200 ok`.
+            case ok(Operations.ChatStopStream.Output.Ok)
+            /// The associated value of the enum case if `self` is `.ok`.
+            ///
+            /// - Throws: An error if `self` is not `.ok`.
+            /// - SeeAlso: `.ok`.
+            public var ok: Operations.ChatStopStream.Output.Ok {
+                get throws {
+                    switch self {
+                    case let .ok(response):
+                        response
+                    default:
+                        try throwUnexpectedResponseStatus(
+                            expectedStatus: "ok",
+                            response: self,
+                        )
+                    }
+                }
+            }
+
+            /// Undocumented response.
+            ///
+            /// A response with a code that is not documented in the OpenAPI document.
+            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
+        }
+
+        @frozen public enum AcceptableContentType: AcceptableProtocol {
+            case json
+            case other(Swift.String)
+            public init?(rawValue: Swift.String) {
+                switch rawValue.lowercased() {
+                case "application/json":
+                    self = .json
+                default:
+                    self = .other(rawValue)
+                }
+            }
+
+            public var rawValue: Swift.String {
+                switch self {
+                case let .other(string):
+                    string
+                case .json:
+                    "application/json"
+                }
+            }
+
+            public static var allCases: [Self] {
+                [
+                    .json,
+                ]
+            }
+        }
+    }
+
     public enum ChatUnfurl {
         public static let id: Swift.String = "chatUnfurl"
         public struct Input: Sendable, Hashable {
@@ -1655,29 +2476,15 @@ extension Operations {
                     /// Channel ID of the message. Both channel and ts must be provided together, or unfurl_id and source must be provided together.
                     ///
                     /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/channel`.
-                    public var channel: Swift.String
+                    public var channel: Swift.String?
                     /// Timestamp of the message to add unfurl behavior to.
                     ///
                     /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/ts`.
-                    public var ts: Swift.String
-                    /// URL-encoded JSON map with keys set to URLs featured in the the message, pointing to their unfurl blocks or message attachments.
+                    public var ts: Swift.String?
+                    /// URL-encoded JSON map with keys set to URLs featured in the the message, pointing to their unfurl blocks or message attachments. Either unfurls or metadata must be provided.
                     ///
                     /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/unfurls`.
-                    public var unfurls: OpenAPIRuntime.OpenAPIObjectContainer
-                    /// The source of the link to unfurl. The source may either be composer, when the link is inside the message composer, or conversations_history, when the link has been posted to a
-                    /// conversation.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/source`.
-                    public var source: Swift.String?
-                    /// The ID of the link to unfurl. Both unfurl_id and source must be provided together, or channel and ts must be provided together.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/unfurl_id`.
-                    public var unfurlId: Swift.String?
-                    /// Provide a JSON based array of structured blocks presented as URL-encoded string to send as an ephemeral message to the user as invitation to authenticate further and enable
-                    /// full unfurling behavior.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/user_auth_blocks`.
-                    public var userAuthBlocks: OpenAPIRuntime.OpenAPIObjectContainer?
+                    public var unfurls: OpenAPIRuntime.OpenAPIObjectContainer?
                     /// Provide a simply-formatted string to send as an ephemeral message to the user as invitation to authenticate further and enable full unfurling behavior. Provides two buttons,
                     /// Not now or Never ask me again.
                     ///
@@ -1691,53 +2498,76 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/user_auth_url`.
                     public var userAuthUrl: Swift.String?
+                    /// Provide a JSON based array of structured blocks presented as URL-encoded string to send as an ephemeral message to the user as invitation to authenticate further and enable
+                    /// full unfurling behavior.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/user_auth_blocks`.
+                    public var userAuthBlocks: OpenAPIRuntime.OpenAPIObjectContainer?
+                    /// The ID of the link to unfurl. Both unfurl_id and source must be provided together, or channel and ts must be provided together.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/unfurl_id`.
+                    public var unfurlId: Swift.String?
+                    /// The source of the link to unfurl. The source may either be composer, when the link is inside the message composer, or conversations_history, when the link has been posted to a
+                    /// conversation.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/source`.
+                    public var source: Swift.String?
+                    /// JSON object with an entities field providing an array of Work Object entities. Either unfurls or metadata must be provided.
+                    ///
+                    /// - Remark: Generated from `#/paths/chat.unfurl/POST/requestBody/json/metadata`.
+                    public var metadata: OpenAPIRuntime.OpenAPIObjectContainer?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
                     ///   - channel: Channel ID of the message. Both channel and ts must be provided together, or unfurl_id and source must be provided together.
                     ///   - ts: Timestamp of the message to add unfurl behavior to.
-                    ///   - unfurls: URL-encoded JSON map with keys set to URLs featured in the the message, pointing to their unfurl blocks or message attachments.
-                    ///   - source: The source of the link to unfurl. The source may either be composer, when the link is inside the message composer, or conversations_history, when the link has been
-                    /// posted to a conversation.
-                    ///   - unfurlId: The ID of the link to unfurl. Both unfurl_id and source must be provided together, or channel and ts must be provided together.
-                    ///   - userAuthBlocks: Provide a JSON based array of structured blocks presented as URL-encoded string to send as an ephemeral message to the user as invitation to authenticate
-                    /// further and enable full unfurling behavior.
+                    ///   - unfurls: URL-encoded JSON map with keys set to URLs featured in the the message, pointing to their unfurl blocks or message attachments. Either unfurls or metadata must be
+                    /// provided.
                     ///   - userAuthMessage: Provide a simply-formatted string to send as an ephemeral message to the user as invitation to authenticate further and enable full unfurling behavior.
                     /// Provides two buttons, Not now or Never ask me again.
                     ///   - userAuthRequired: Set to true or 1 to indicate the user must install your Slack app to trigger unfurls for this domain.
                     ///   - userAuthUrl: Send users to this custom URL where they will complete authentication in your app to fully trigger unfurling. Value should be properly URL-encoded.
+                    ///   - userAuthBlocks: Provide a JSON based array of structured blocks presented as URL-encoded string to send as an ephemeral message to the user as invitation to authenticate
+                    /// further and enable full unfurling behavior.
+                    ///   - unfurlId: The ID of the link to unfurl. Both unfurl_id and source must be provided together, or channel and ts must be provided together.
+                    ///   - source: The source of the link to unfurl. The source may either be composer, when the link is inside the message composer, or conversations_history, when the link has been
+                    /// posted to a conversation.
+                    ///   - metadata: JSON object with an entities field providing an array of Work Object entities. Either unfurls or metadata must be provided.
                     public init(
-                        channel: Swift.String,
-                        ts: Swift.String,
-                        unfurls: OpenAPIRuntime.OpenAPIObjectContainer,
-                        source: Swift.String? = nil,
-                        unfurlId: Swift.String? = nil,
-                        userAuthBlocks: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
+                        channel: Swift.String? = nil,
+                        ts: Swift.String? = nil,
+                        unfurls: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
                         userAuthMessage: Swift.String? = nil,
                         userAuthRequired: Swift.Bool? = nil,
                         userAuthUrl: Swift.String? = nil,
+                        userAuthBlocks: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
+                        unfurlId: Swift.String? = nil,
+                        source: Swift.String? = nil,
+                        metadata: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
                     ) {
                         self.channel = channel
                         self.ts = ts
                         self.unfurls = unfurls
-                        self.source = source
-                        self.unfurlId = unfurlId
-                        self.userAuthBlocks = userAuthBlocks
                         self.userAuthMessage = userAuthMessage
                         self.userAuthRequired = userAuthRequired
                         self.userAuthUrl = userAuthUrl
+                        self.userAuthBlocks = userAuthBlocks
+                        self.unfurlId = unfurlId
+                        self.source = source
+                        self.metadata = metadata
                     }
 
                     public enum CodingKeys: String, CodingKey {
                         case channel
                         case ts
                         case unfurls
-                        case source
-                        case unfurlId = "unfurl_id"
-                        case userAuthBlocks = "user_auth_blocks"
                         case userAuthMessage = "user_auth_message"
                         case userAuthRequired = "user_auth_required"
                         case userAuthUrl = "user_auth_url"
+                        case userAuthBlocks = "user_auth_blocks"
+                        case unfurlId = "unfurl_id"
+                        case source
+                        case metadata
                     }
                 }
 
@@ -1802,249 +2632,6 @@ extension Operations {
             /// - Throws: An error if `self` is not `.ok`.
             /// - SeeAlso: `.ok`.
             public var ok: Operations.ChatUnfurl.Output.Ok {
-                get throws {
-                    switch self {
-                    case let .ok(response):
-                        response
-                    default:
-                        try throwUnexpectedResponseStatus(
-                            expectedStatus: "ok",
-                            response: self,
-                        )
-                    }
-                }
-            }
-
-            /// Undocumented response.
-            ///
-            /// A response with a code that is not documented in the OpenAPI document.
-            case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-        }
-
-        @frozen public enum AcceptableContentType: AcceptableProtocol {
-            case json
-            case other(Swift.String)
-            public init?(rawValue: Swift.String) {
-                switch rawValue.lowercased() {
-                case "application/json":
-                    self = .json
-                default:
-                    self = .other(rawValue)
-                }
-            }
-
-            public var rawValue: Swift.String {
-                switch self {
-                case let .other(string):
-                    string
-                case .json:
-                    "application/json"
-                }
-            }
-
-            public static var allCases: [Self] {
-                [
-                    .json,
-                ]
-            }
-        }
-    }
-
-    public enum ChatUpdate {
-        public static let id: Swift.String = "chatUpdate"
-        public struct Input: Sendable, Hashable {
-            /// - Remark: Generated from `#/paths/chat.update/POST/header`.
-            public struct Headers: Sendable, Hashable {
-                public var accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatUpdate.AcceptableContentType>]
-                /// Creates a new `Headers`.
-                ///
-                /// - Parameters:
-                ///   - accept:
-                public init(accept: [OpenAPIRuntime.AcceptHeaderContentType<Operations.ChatUpdate.AcceptableContentType>] = .defaultValues()) {
-                    self.accept = accept
-                }
-            }
-
-            public var headers: Operations.ChatUpdate.Input.Headers
-            /// - Remark: Generated from `#/paths/chat.update/POST/requestBody`.
-            @frozen public enum Body: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json`.
-                public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Channel containing the message to be updated. For direct messages, ensure that this value is a DM ID (starts with D) instead of a User ID (starts with either U or W).
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/channel`.
-                    public var channel: Swift.String
-                    /// Timestamp of the message to be updated.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/ts`.
-                    public var ts: Swift.String
-                    /// A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/attachments`.
-                    public var attachments: [SlackModels.Attachment]?
-                    /// A JSON-based array of structured blocks, presented as a URL-encoded string.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/blocks`.
-                    public var blocks: [SlackBlockKit.Block]?
-                    /// How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/text`.
-                    public var text: Swift.String?
-                    /// Pass true to update the message as the authed user. Bot users in this context are considered authed users.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/as_user`.
-                    public var asUser: Swift.Bool?
-                    /// Array of new file ids that will be sent with this message.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/file_ids`.
-                    public var fileIds: OpenAPIRuntime.OpenAPIArrayContainer?
-                    /// Find and link channel names and usernames. Defaults to none. If you do not specify a value for this field, the original value set for the message will be overwritten with the
-                    /// default, none.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/link_names`.
-                    public var linkNames: Swift.Bool?
-                    /// Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/markdown_text`.
-                    public var markdownText: Swift.String?
-                    /// JSON object with event_type and event_payload fields, presented as a URL-encoded string. If you don't include this field, the message's previous metadata will be retained. To
-                    /// remove previous metadata, include an empty object for this field. Metadata you post to Slack is accessible to any app or user who is a member of that workspace.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/metadata`.
-                    public var metadata: OpenAPIRuntime.OpenAPIObjectContainer?
-                    /// Change how messages are treated. Defaults to client, unlike chat.postMessage. Accepts either none or full. If you do not specify a value for this field, the original value set
-                    /// for the message will be overwritten with the default, client.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/parse`.
-                    public var parse: Swift.String?
-                    /// Broadcast an existing thread reply to make it visible to everyone in the channel or conversation.
-                    ///
-                    /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/json/reply_broadcast`.
-                    public var replyBroadcast: Swift.Bool?
-                    /// Creates a new `JsonPayload`.
-                    ///
-                    /// - Parameters:
-                    ///   - channel: Channel containing the message to be updated. For direct messages, ensure that this value is a DM ID (starts with D) instead of a User ID (starts with either U or
-                    /// W).
-                    ///   - ts: Timestamp of the message to be updated.
-                    ///   - attachments: A JSON-based array of structured attachments, presented as a URL-encoded string.
-                    ///   - blocks: A JSON-based array of structured blocks, presented as a URL-encoded string.
-                    ///   - text: How this field works and whether it is required depends on other fields you use in your API call. See below for more detail.
-                    ///   - asUser: Pass true to update the message as the authed user. Bot users in this context are considered authed users.
-                    ///   - fileIds: Array of new file ids that will be sent with this message.
-                    ///   - linkNames: Find and link channel names and usernames. Defaults to none. If you do not specify a value for this field, the original value set for the message will be
-                    /// overwritten with the default, none.
-                    ///   - markdownText: Accepts message text formatted in markdown. This argument should not be used in conjunction with blocks or text. Limit this field to 12,000 characters.
-                    ///   - metadata: JSON object with event_type and event_payload fields, presented as a URL-encoded string. If you don't include this field, the message's previous metadata will be
-                    /// retained. To remove previous metadata, include an empty object for this field. Metadata you post to Slack is accessible to any app or user who is a member of that workspace.
-                    ///   - parse: Change how messages are treated. Defaults to client, unlike chat.postMessage. Accepts either none or full. If you do not specify a value for this field, the original
-                    /// value set for the message will be overwritten with the default, client.
-                    ///   - replyBroadcast: Broadcast an existing thread reply to make it visible to everyone in the channel or conversation.
-                    public init(
-                        channel: Swift.String,
-                        ts: Swift.String,
-                        attachments: [SlackModels.Attachment]? = nil,
-                        blocks: [SlackBlockKit.Block]? = nil,
-                        text: Swift.String? = nil,
-                        asUser: Swift.Bool? = nil,
-                        fileIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
-                        linkNames: Swift.Bool? = nil,
-                        markdownText: Swift.String? = nil,
-                        metadata: OpenAPIRuntime.OpenAPIObjectContainer? = nil,
-                        parse: Swift.String? = nil,
-                        replyBroadcast: Swift.Bool? = nil,
-                    ) {
-                        self.channel = channel
-                        self.ts = ts
-                        self.attachments = attachments
-                        self.blocks = blocks
-                        self.text = text
-                        self.asUser = asUser
-                        self.fileIds = fileIds
-                        self.linkNames = linkNames
-                        self.markdownText = markdownText
-                        self.metadata = metadata
-                        self.parse = parse
-                        self.replyBroadcast = replyBroadcast
-                    }
-
-                    public enum CodingKeys: String, CodingKey {
-                        case channel
-                        case ts
-                        case attachments
-                        case blocks
-                        case text
-                        case asUser = "as_user"
-                        case fileIds = "file_ids"
-                        case linkNames = "link_names"
-                        case markdownText = "markdown_text"
-                        case metadata
-                        case parse
-                        case replyBroadcast = "reply_broadcast"
-                    }
-                }
-
-                /// - Remark: Generated from `#/paths/chat.update/POST/requestBody/content/application\/json`.
-                case json(Operations.ChatUpdate.Input.Body.JsonPayload)
-            }
-
-            public var body: Operations.ChatUpdate.Input.Body
-            /// Creates a new `Input`.
-            ///
-            /// - Parameters:
-            ///   - headers:
-            ///   - body:
-            public init(
-                headers: Operations.ChatUpdate.Input.Headers = .init(),
-                body: Operations.ChatUpdate.Input.Body,
-            ) {
-                self.headers = headers
-                self.body = body
-            }
-        }
-
-        @frozen public enum Output: Sendable, Hashable {
-            public struct Ok: Sendable, Hashable {
-                /// - Remark: Generated from `#/paths/chat.update/POST/responses/200/content`.
-                @frozen public enum Body: Sendable, Hashable {
-                    /// - Remark: Generated from `#/paths/chat.update/POST/responses/200/content/application\/json`.
-                    case json(Components.Schemas.ChatUpdateResponse)
-                    /// The associated value of the enum case if `self` is `.json`.
-                    ///
-                    /// - Throws: An error if `self` is not `.json`.
-                    /// - SeeAlso: `.json`.
-                    public var json: Components.Schemas.ChatUpdateResponse {
-                        get throws {
-                            switch self {
-                            case let .json(body):
-                                body
-                            }
-                        }
-                    }
-                }
-
-                /// Received HTTP response body
-                public var body: Operations.ChatUpdate.Output.Ok.Body
-                /// Creates a new `Ok`.
-                ///
-                /// - Parameters:
-                ///   - body: Received HTTP response body
-                public init(body: Operations.ChatUpdate.Output.Ok.Body) {
-                    self.body = body
-                }
-            }
-
-            /// OK
-            ///
-            /// - Remark: Generated from `#/paths//chat.update/post(chatUpdate)/responses/200`.
-            ///
-            /// HTTP response code: `200 ok`.
-            case ok(Operations.ChatUpdate.Output.Ok)
-            /// The associated value of the enum case if `self` is `.ok`.
-            ///
-            /// - Throws: An error if `self` is not `.ok`.
-            /// - SeeAlso: `.ok`.
-            public var ok: Operations.ChatUpdate.Output.Ok {
                 get throws {
                     switch self {
                     case let .ok(response):

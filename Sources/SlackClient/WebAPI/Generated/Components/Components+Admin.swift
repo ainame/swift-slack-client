@@ -3129,6 +3129,49 @@ extension Components.Schemas {
         }
     }
 
+    /// - Remark: Generated from `#/components/schemas/AdminUsersGetExpirationResponse`.
+    public struct AdminUsersGetExpirationResponse: Codable, Hashable, Sendable {
+        /// - Remark: Generated from `#/components/schemas/AdminUsersGetExpirationResponse/error`.
+        public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AdminUsersGetExpirationResponse/needed`.
+        public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AdminUsersGetExpirationResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/AdminUsersGetExpirationResponse/provided`.
+        public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AdminUsersGetExpirationResponse/user`.
+        public var user: SlackModels.User?
+        /// Creates a new `AdminUsersGetExpirationResponse`.
+        ///
+        /// - Parameters:
+        ///   - error:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
+        ///   - user:
+        public init(
+            error: Swift.String? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            user: SlackModels.User? = nil,
+        ) {
+            self.error = error
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
+            self.user = user
+        }
+
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case user
+        }
+    }
+
     /// - Remark: Generated from `#/components/schemas/AdminUsersInviteResponse`.
     public struct AdminUsersInviteResponse: Codable, Hashable, Sendable {
         /// - Remark: Generated from `#/components/schemas/AdminUsersInviteResponse/error`.

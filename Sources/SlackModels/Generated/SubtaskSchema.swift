@@ -9,21 +9,21 @@ import struct Foundation.Date
 import struct Foundation.URL
 #endif
 
-/// - Remark: Generated from `#/components/schemas/Schema`.
-public struct Schema: Codable, Hashable, Sendable {
-    /// - Remark: Generated from `#/components/schemas/Schema/id`.
+/// - Remark: Generated from `#/components/schemas/SubtaskSchema`.
+public struct SubtaskSchema: Codable, Hashable, Sendable {
+    /// - Remark: Generated from `#/components/schemas/SubtaskSchema/id`.
     public var id: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Schema/is_primary_column`.
+    /// - Remark: Generated from `#/components/schemas/SubtaskSchema/is_primary_column`.
     public var isPrimaryColumn: Swift.Bool?
-    /// - Remark: Generated from `#/components/schemas/Schema/key`.
+    /// - Remark: Generated from `#/components/schemas/SubtaskSchema/key`.
     public var key: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Schema/name`.
+    /// - Remark: Generated from `#/components/schemas/SubtaskSchema/name`.
     public var name: Swift.String?
-    /// - Remark: Generated from `#/components/schemas/Schema/options`.
-    public var options: SchemaOptions?
-    /// - Remark: Generated from `#/components/schemas/Schema/type`.
+    /// - Remark: Generated from `#/components/schemas/SubtaskSchema/options`.
+    public var options: SubtaskSchemaOptions?
+    /// - Remark: Generated from `#/components/schemas/SubtaskSchema/type`.
     public var _type: Swift.String
-    /// Creates a new `Schema`.
+    /// Creates a new `SubtaskSchema`.
     ///
     /// - Parameters:
     ///   - id:
@@ -37,7 +37,7 @@ public struct Schema: Codable, Hashable, Sendable {
         isPrimaryColumn: Swift.Bool? = nil,
         key: Swift.String? = nil,
         name: Swift.String? = nil,
-        options: SchemaOptions? = nil,
+        options: SubtaskSchemaOptions? = nil,
         _type: Swift.String,
     ) {
         self.id = id

@@ -47,14 +47,18 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/oauth.v2.access/POST/requestBody/json/code`.
                     public var code: Swift.String?
-                    /// The grant_type param as described in the OAuth spec.
+                    /// The code_verifier param used to generate the code_challenge originally. Used for PKCE.
                     ///
-                    /// - Remark: Generated from `#/paths/oauth.v2.access/POST/requestBody/json/grant_type`.
-                    public var grantType: Swift.String?
+                    /// - Remark: Generated from `#/paths/oauth.v2.access/POST/requestBody/json/code_verifier`.
+                    public var codeVerifier: Swift.String?
                     /// This must match the originally submitted URI (if one was sent).
                     ///
                     /// - Remark: Generated from `#/paths/oauth.v2.access/POST/requestBody/json/redirect_uri`.
                     public var redirectUri: Swift.String?
+                    /// The grant_type param as described in the OAuth spec.
+                    ///
+                    /// - Remark: Generated from `#/paths/oauth.v2.access/POST/requestBody/json/grant_type`.
+                    public var grantType: Swift.String?
                     /// The refresh_token param as described in the OAuth spec.
                     ///
                     /// - Remark: Generated from `#/paths/oauth.v2.access/POST/requestBody/json/refresh_token`.
@@ -67,22 +71,25 @@ extension Operations {
                     ///   - clientSecret: Issued when you created your application. If possible, avoid sending client_id and client_secret as parameters in your request and instead supply the Client
                     /// ID and Client Secret using the HTTP Basic authentication scheme.
                     ///   - code: The code param returned via the OAuth callback.
-                    ///   - grantType: The grant_type param as described in the OAuth spec.
+                    ///   - codeVerifier: The code_verifier param used to generate the code_challenge originally. Used for PKCE.
                     ///   - redirectUri: This must match the originally submitted URI (if one was sent).
+                    ///   - grantType: The grant_type param as described in the OAuth spec.
                     ///   - refreshToken: The refresh_token param as described in the OAuth spec.
                     public init(
                         clientId: Swift.String? = nil,
                         clientSecret: Swift.String? = nil,
                         code: Swift.String? = nil,
-                        grantType: Swift.String? = nil,
+                        codeVerifier: Swift.String? = nil,
                         redirectUri: Swift.String? = nil,
+                        grantType: Swift.String? = nil,
                         refreshToken: Swift.String? = nil,
                     ) {
                         self.clientId = clientId
                         self.clientSecret = clientSecret
                         self.code = code
-                        self.grantType = grantType
+                        self.codeVerifier = codeVerifier
                         self.redirectUri = redirectUri
+                        self.grantType = grantType
                         self.refreshToken = refreshToken
                     }
 
@@ -90,8 +97,9 @@ extension Operations {
                         case clientId = "client_id"
                         case clientSecret = "client_secret"
                         case code
-                        case grantType = "grant_type"
+                        case codeVerifier = "code_verifier"
                         case redirectUri = "redirect_uri"
+                        case grantType = "grant_type"
                         case refreshToken = "refresh_token"
                     }
                 }

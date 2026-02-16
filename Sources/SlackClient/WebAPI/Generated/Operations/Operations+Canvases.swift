@@ -197,14 +197,14 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Desired level of access.
-                    ///
-                    /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json/access_level`.
-                    public var accessLevel: Swift.String
                     /// Encoded ID of the canvas.
                     ///
                     /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json/canvas_id`.
                     public var canvasId: Swift.String
+                    /// Desired level of access.
+                    ///
+                    /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json/access_level`.
+                    public var accessLevel: Swift.String
                     /// List of channels you wish to update access for. Can only be used if user_ids is not provided.
                     ///
                     /// - Remark: Generated from `#/paths/canvases.access.set/POST/requestBody/json/channel_ids`.
@@ -216,25 +216,25 @@ extension Operations {
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - accessLevel: Desired level of access.
                     ///   - canvasId: Encoded ID of the canvas.
+                    ///   - accessLevel: Desired level of access.
                     ///   - channelIds: List of channels you wish to update access for. Can only be used if user_ids is not provided.
                     ///   - userIds: List of users you wish to update access for. Can only be used if channel_ids is not provided.
                     public init(
-                        accessLevel: Swift.String,
                         canvasId: Swift.String,
+                        accessLevel: Swift.String,
                         channelIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                         userIds: OpenAPIRuntime.OpenAPIArrayContainer? = nil,
                     ) {
-                        self.accessLevel = accessLevel
                         self.canvasId = canvasId
+                        self.accessLevel = accessLevel
                         self.channelIds = channelIds
                         self.userIds = userIds
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case accessLevel = "access_level"
                         case canvasId = "canvas_id"
+                        case accessLevel = "access_level"
                         case channelIds = "channel_ids"
                         case userIds = "user_ids"
                     }
@@ -369,38 +369,38 @@ extension Operations {
             @frozen public enum Body: Sendable, Hashable {
                 /// - Remark: Generated from `#/paths/canvases.create/POST/requestBody/json`.
                 public struct JsonPayload: Codable, Hashable, Sendable {
-                    /// Channel ID of the channel the canvas will be tabbed in. This is a required field for free teams.
-                    ///
-                    /// - Remark: Generated from `#/paths/canvases.create/POST/requestBody/json/channel_id`.
-                    public var channelId: Swift.String?
-                    /// Structure describing the type and value of the content to create.
-                    ///
-                    /// - Remark: Generated from `#/paths/canvases.create/POST/requestBody/json/document_content`.
-                    public var documentContent: Swift.String?
                     /// Title of the newly created canvas.
                     ///
                     /// - Remark: Generated from `#/paths/canvases.create/POST/requestBody/json/title`.
                     public var title: Swift.String?
+                    /// Structure describing the type and value of the content to create.
+                    ///
+                    /// - Remark: Generated from `#/paths/canvases.create/POST/requestBody/json/document_content`.
+                    public var documentContent: Swift.String?
+                    /// Channel ID of the channel the canvas will be tabbed in. This is a required field for free teams.
+                    ///
+                    /// - Remark: Generated from `#/paths/canvases.create/POST/requestBody/json/channel_id`.
+                    public var channelId: Swift.String?
                     /// Creates a new `JsonPayload`.
                     ///
                     /// - Parameters:
-                    ///   - channelId: Channel ID of the channel the canvas will be tabbed in. This is a required field for free teams.
-                    ///   - documentContent: Structure describing the type and value of the content to create.
                     ///   - title: Title of the newly created canvas.
+                    ///   - documentContent: Structure describing the type and value of the content to create.
+                    ///   - channelId: Channel ID of the channel the canvas will be tabbed in. This is a required field for free teams.
                     public init(
-                        channelId: Swift.String? = nil,
-                        documentContent: Swift.String? = nil,
                         title: Swift.String? = nil,
+                        documentContent: Swift.String? = nil,
+                        channelId: Swift.String? = nil,
                     ) {
-                        self.channelId = channelId
-                        self.documentContent = documentContent
                         self.title = title
+                        self.documentContent = documentContent
+                        self.channelId = channelId
                     }
 
                     public enum CodingKeys: String, CodingKey {
-                        case channelId = "channel_id"
-                        case documentContent = "document_content"
                         case title
+                        case documentContent = "document_content"
+                        case channelId = "channel_id"
                     }
                 }
 
