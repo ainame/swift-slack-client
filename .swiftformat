@@ -23,4 +23,5 @@
 --enable wrapAttributes
 --enable sortImports
 --disable andOperator
+--disable docComments
 --disable wrapMultilineStatementBraces
