@@ -108,5 +108,23 @@ let package = Package(
             name: "SlackBlockKitDSLTests",
             dependencies: ["SlackBlockKitDSL"]
         ),
+        .binaryTarget(
+            name: "swiftformat",
+            url: "https://github.com/nicklockwood/SwiftFormat/releases/download/0.59.1/swiftformat.artifactbundle.zip",
+            checksum: "89b979d56a26b5ef0cffe52508438c8d71f70d8b1594a40dfc94481ce631025f"
+        ),
+        .plugin(
+            name: "SwiftFormatPlugin",
+            capability: .command(
+                intent: .custom(
+                    verb: "swiftformat",
+                    description: "Formats Swift source files using SwiftFormat"
+                ),
+                permissions: [
+                    .writeToPackageDirectory(reason: "This command reformats source files")
+                ]
+            ),
+            dependencies: ["swiftformat"]
+        ),
     ]
 )

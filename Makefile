@@ -16,7 +16,7 @@ clean:
 	@echo "Clean complete"
 
 format:
-	swiftformat Sources/ Examples/ Tests/
+	swift package plugin --allow-writing-to-package-directory swiftformat -- Sources Examples Tests
 
 update:
 	@echo "Initializing and updating git submodules..."

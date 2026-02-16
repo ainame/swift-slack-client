@@ -23,23 +23,6 @@ jobs:
         with:
           toolchain: latest
 
-      - name: Cache SwiftFormat
-        id: cache-swiftformat
-        uses: actions/cache@v5
-        with:
-          path: /usr/local/bin/swiftformat
-          key: ${{ runner.os }}-swiftformat-0.57.2
-
-      - name: Install SwiftFormat
-        if: steps.cache-swiftformat.outputs.cache-hit != 'true'
-        run: |
-          git clone --depth 1 --branch 0.57.2 https://github.com/nicklockwood/SwiftFormat.git
-          cd SwiftFormat
-          swift build -c release
-          sudo cp .build/release/swiftformat /usr/local/bin/
-          cd ..
-          rm -rf SwiftFormat
-
       - name: Cache Swift build
         uses: actions/cache@v5
         with:
