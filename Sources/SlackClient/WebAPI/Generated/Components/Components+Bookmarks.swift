@@ -13,7 +13,7 @@ import struct Foundation.URL
 #if canImport(SlackModels)
 import SlackModels
 #endif
-// Types generated from the components section of the OpenAPI document.
+/// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Bookmarks
 extension Components.Schemas {
@@ -31,6 +31,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/BookmarksAddResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `BookmarksAddResponse`.
         ///
         /// - Parameters:
@@ -40,6 +42,7 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
             bookmark: SlackModels.Bookmark? = nil,
             error: Swift.String? = nil,
@@ -47,6 +50,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.bookmark = bookmark
             self.error = error
@@ -54,6 +58,7 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -63,6 +68,7 @@ extension Components.Schemas {
             case ok
             case provided
             case responseMetadata = "response_metadata"
+            case warning
         }
     }
 
@@ -80,6 +86,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/BookmarksEditResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `BookmarksEditResponse`.
         ///
         /// - Parameters:
@@ -89,6 +97,7 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
             bookmark: SlackModels.Bookmark? = nil,
             error: Swift.String? = nil,
@@ -96,6 +105,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.bookmark = bookmark
             self.error = error
@@ -103,6 +113,7 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -112,6 +123,7 @@ extension Components.Schemas {
             case ok
             case provided
             case responseMetadata = "response_metadata"
+            case warning
         }
     }
 
@@ -129,6 +141,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/BookmarksListResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `BookmarksListResponse`.
         ///
         /// - Parameters:
@@ -138,6 +152,7 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
             bookmarks: [SlackModels.Bookmark]? = nil,
             error: Swift.String? = nil,
@@ -145,6 +160,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.bookmarks = bookmarks
             self.error = error
@@ -152,6 +168,7 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -161,6 +178,7 @@ extension Components.Schemas {
             case ok
             case provided
             case responseMetadata = "response_metadata"
+            case warning
         }
     }
 
@@ -176,6 +194,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/BookmarksRemoveResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `BookmarksRemoveResponse`.
         ///
         /// - Parameters:
@@ -184,18 +204,21 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -204,6 +227,7 @@ extension Components.Schemas {
             case ok
             case provided
             case responseMetadata = "response_metadata"
+            case warning
         }
     }
 }

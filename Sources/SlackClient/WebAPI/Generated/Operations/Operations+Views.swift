@@ -13,7 +13,7 @@ import struct Foundation.URL
 #if canImport(SlackBlockKit)
 import SlackBlockKit
 #endif
-// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
+/// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_Views
 extension Operations {

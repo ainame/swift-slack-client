@@ -15,6 +15,8 @@ public struct Payload: Codable, Hashable, Sendable {
     public var action: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Payload/actor`.
     public var actor: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/app_id`.
+    public var appId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Payload/billing_reason`.
     public var billingReason: [Swift.String]?
     /// - Remark: Generated from `#/components/schemas/Payload/bot_user_id`.
@@ -23,6 +25,8 @@ public struct Payload: Codable, Hashable, Sendable {
     public var bundleSizeKb: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Payload/channel_id`.
     public var channelId: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/code`.
+    public var code: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Payload/current_step`.
     public var currentStep: Swift.Int?
     /// - Remark: Generated from `#/components/schemas/Payload/datastore_name`.
@@ -47,6 +51,8 @@ public struct Payload: Codable, Hashable, Sendable {
     public var isBillingExcluded: Swift.Bool?
     /// - Remark: Generated from `#/components/schemas/Payload/log`.
     public var log: Swift.String?
+    /// - Remark: Generated from `#/components/schemas/Payload/outputs`.
+    public var outputs: Outputs?
     /// - Remark: Generated from `#/components/schemas/Payload/request_type`.
     public var requestType: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Payload/team_id`.
@@ -66,10 +72,12 @@ public struct Payload: Codable, Hashable, Sendable {
     /// - Parameters:
     ///   - action:
     ///   - actor:
+    ///   - appId:
     ///   - billingReason:
     ///   - botUserId:
     ///   - bundleSizeKb:
     ///   - channelId:
+    ///   - code:
     ///   - currentStep:
     ///   - datastoreName:
     ///   - details:
@@ -82,6 +90,7 @@ public struct Payload: Codable, Hashable, Sendable {
     ///   - inputs:
     ///   - isBillingExcluded:
     ///   - log:
+    ///   - outputs:
     ///   - requestType:
     ///   - teamId:
     ///   - totalSteps:
@@ -92,10 +101,12 @@ public struct Payload: Codable, Hashable, Sendable {
     public init(
         action: Swift.String? = nil,
         actor: Swift.String? = nil,
+        appId: Swift.String? = nil,
         billingReason: [Swift.String]? = nil,
         botUserId: Swift.String? = nil,
         bundleSizeKb: Swift.Int? = nil,
         channelId: Swift.String? = nil,
+        code: Swift.String? = nil,
         currentStep: Swift.Int? = nil,
         datastoreName: Swift.String? = nil,
         details: Swift.String? = nil,
@@ -108,6 +119,7 @@ public struct Payload: Codable, Hashable, Sendable {
         inputs: Inputs? = nil,
         isBillingExcluded: Swift.Bool? = nil,
         log: Swift.String? = nil,
+        outputs: Outputs? = nil,
         requestType: Swift.String? = nil,
         teamId: Swift.String? = nil,
         totalSteps: Swift.Int? = nil,
@@ -118,10 +130,12 @@ public struct Payload: Codable, Hashable, Sendable {
     ) {
         self.action = action
         self.actor = actor
+        self.appId = appId
         self.billingReason = billingReason
         self.botUserId = botUserId
         self.bundleSizeKb = bundleSizeKb
         self.channelId = channelId
+        self.code = code
         self.currentStep = currentStep
         self.datastoreName = datastoreName
         self.details = details
@@ -134,6 +148,7 @@ public struct Payload: Codable, Hashable, Sendable {
         self.inputs = inputs
         self.isBillingExcluded = isBillingExcluded
         self.log = log
+        self.outputs = outputs
         self.requestType = requestType
         self.teamId = teamId
         self.totalSteps = totalSteps
@@ -146,10 +161,12 @@ public struct Payload: Codable, Hashable, Sendable {
     public enum CodingKeys: String, CodingKey {
         case action
         case actor
+        case appId = "app_id"
         case billingReason = "billing_reason"
         case botUserId = "bot_user_id"
         case bundleSizeKb = "bundle_size_kb"
         case channelId = "channel_id"
+        case code
         case currentStep = "current_step"
         case datastoreName = "datastore_name"
         case details
@@ -162,6 +179,7 @@ public struct Payload: Codable, Hashable, Sendable {
         case inputs
         case isBillingExcluded = "is_billing_excluded"
         case log
+        case outputs
         case requestType = "request_type"
         case teamId = "team_id"
         case totalSteps = "total_steps"

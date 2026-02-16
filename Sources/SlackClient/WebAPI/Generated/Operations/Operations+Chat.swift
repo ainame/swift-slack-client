@@ -17,7 +17,7 @@ import SlackBlockKit
 #if canImport(SlackModels)
 import SlackModels
 #endif
-// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
+/// API operations, with input and output types, generated from `#/paths` in the OpenAPI document.
 
 #if WebAPI_Chat
 extension Operations {

@@ -13,12 +13,14 @@ import struct Foundation.URL
 #if canImport(SlackModels)
 import SlackModels
 #endif
-// Types generated from the components section of the OpenAPI document.
+/// Types generated from the components section of the OpenAPI document.
 
 #if WebAPI_Users
 extension Components.Schemas {
     /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse`.
     public struct UsersConversationsResponse: Codable, Hashable, Sendable {
+        /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/arg`.
+        public var arg: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/channels`.
         public var channels: [SlackModels.Channel]?
         /// - Remark: Generated from `#/components/schemas/UsersConversationsResponse/error`.
@@ -34,6 +36,7 @@ extension Components.Schemas {
         /// Creates a new `UsersConversationsResponse`.
         ///
         /// - Parameters:
+        ///   - arg:
         ///   - channels:
         ///   - error:
         ///   - needed:
@@ -41,6 +44,7 @@ extension Components.Schemas {
         ///   - provided:
         ///   - responseMetadata:
         public init(
+            arg: Swift.String? = nil,
             channels: [SlackModels.Channel]? = nil,
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
@@ -48,6 +52,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
         ) {
+            self.arg = arg
             self.channels = channels
             self.error = error
             self.needed = needed
@@ -57,6 +62,7 @@ extension Components.Schemas {
         }
 
         public enum CodingKeys: String, CodingKey {
+            case arg
             case channels
             case error
             case needed
@@ -298,6 +304,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/user`.
         public var user: SlackModels.User?
+        /// - Remark: Generated from `#/components/schemas/UsersInfoResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `UsersInfoResponse`.
         ///
         /// - Parameters:
@@ -306,18 +314,21 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - user:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             user: SlackModels.User? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
             self.ok = ok
             self.provided = provided
             self.user = user
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -326,6 +337,7 @@ extension Components.Schemas {
             case ok
             case provided
             case user
+            case warning
         }
     }
 
@@ -349,6 +361,8 @@ extension Components.Schemas {
         public var provided: Swift.String?
         /// - Remark: Generated from `#/components/schemas/UsersListResponse/response_metadata`.
         public var responseMetadata: SlackModels.ResponseMetadata?
+        /// - Remark: Generated from `#/components/schemas/UsersListResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `UsersListResponse`.
         ///
         /// - Parameters:
@@ -361,6 +375,7 @@ extension Components.Schemas {
         ///   - ok:
         ///   - provided:
         ///   - responseMetadata:
+        ///   - warning:
         public init(
             arg: Swift.String? = nil,
             cacheTs: Swift.Int? = nil,
@@ -371,6 +386,7 @@ extension Components.Schemas {
             ok: Swift.Bool,
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.arg = arg
             self.cacheTs = cacheTs
@@ -381,6 +397,7 @@ extension Components.Schemas {
             self.ok = ok
             self.provided = provided
             self.responseMetadata = responseMetadata
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -393,6 +410,7 @@ extension Components.Schemas {
             case ok
             case provided
             case responseMetadata = "response_metadata"
+            case warning
         }
     }
 
@@ -410,6 +428,8 @@ extension Components.Schemas {
         public var responseMetadata: SlackModels.ResponseMetadata?
         /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/user`.
         public var user: SlackModels.User?
+        /// - Remark: Generated from `#/components/schemas/UsersLookupByEmailResponse/warning`.
+        public var warning: Swift.String?
         /// Creates a new `UsersLookupByEmailResponse`.
         ///
         /// - Parameters:
@@ -419,6 +439,7 @@ extension Components.Schemas {
         ///   - provided:
         ///   - responseMetadata:
         ///   - user:
+        ///   - warning:
         public init(
             error: Swift.String? = nil,
             needed: Swift.String? = nil,
@@ -426,6 +447,7 @@ extension Components.Schemas {
             provided: Swift.String? = nil,
             responseMetadata: SlackModels.ResponseMetadata? = nil,
             user: SlackModels.User? = nil,
+            warning: Swift.String? = nil,
         ) {
             self.error = error
             self.needed = needed
@@ -433,6 +455,7 @@ extension Components.Schemas {
             self.provided = provided
             self.responseMetadata = responseMetadata
             self.user = user
+            self.warning = warning
         }
 
         public enum CodingKeys: String, CodingKey {
@@ -442,6 +465,7 @@ extension Components.Schemas {
             case provided
             case responseMetadata = "response_metadata"
             case user
+            case warning
         }
     }
 
