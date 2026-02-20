@@ -4,10 +4,10 @@ Shared guidance for coding agents working in this repository.
 
 ## Repository Conventions
 
-- Make git commits for each meaningful change.
-- Create release tags without a `v` prefix (for example `0.0.4`).
+- Make git commits yourself for each meaningful change.
+- Git tags for each version should be without a `v` prefix (for example `0.0.4`).
 - Do not use `swift-actions/setup-swift@v2` in GitHub Actions.
-- Run `swift build` or `swift test` when verification is needed.
+- Run `swift build` or `swift test` to verify your changes when needed.
 - Do not push directly to `main`; use branches and PRs.
 
 ## Project Overview
