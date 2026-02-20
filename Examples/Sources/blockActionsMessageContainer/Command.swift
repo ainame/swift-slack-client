@@ -1,6 +1,7 @@
 import Foundation
 import OpenAPIAsyncHTTPClient
 import SlackBlockKit
+import SlackBlockKitDSL
 import SlackClient
 
 @main
@@ -44,30 +45,7 @@ struct Command {
 
         await slack.addSocketModeRouter(router)
 
-        let blocks: [Block] = [
-            .section(
-                .init(
-                    text: .init(
-                        type: .mrkdwn,
-                        text: "Click the button below to send a `block_actions` payload from a message container.",
-                    ),
-                ),
-            ),
-            .actions(
-                .init(
-                    elements: [
-                        .button(
-                            .init(
-                                text: "Reproduce bug",
-                                actionId: "repro_message_container",
-                                value: "repro",
-                            ),
-                        ),
-                    ],
-                    blockId: "repro_message_container",
-                ),
-            ),
-        ]
+        let blocks = ReproMessageBlocks().blocks
 
         _ = try await slack.client.chatPostMessage(
             body: .json(
@@ -83,5 +61,22 @@ struct Command {
         print("If you are on the buggy revision, Socket Mode will log a parse error for missing view_id.")
 
         try await slack.runInSocketMode()
+    }
+}
+
+private struct ReproMessageBlocks: SlackView {
+    @BlockBuilder
+    var blocks: [Block] {
+        Section {
+            Text("Click the button below to send a `block_actions` payload from a message container.")
+                .type(.mrkdwn)
+        }
+
+        Actions {
+            Button("Reproduce bug")
+                .actionId("repro_message_container")
+                .value("repro")
+        }
+        .blockId("repro_message_container")
     }
 }
