@@ -1,0 +1,101 @@
+import Foundation
+import SlackModels
+import Testing
+
+struct ContainerTests {
+    @Test
+    func decodeViewContainer() throws {
+        let json = """
+        {
+          "type": "view",
+          "view_id": "V123"
+        }
+        """
+
+        let container = try JSONDecoder().decode(Container.self, from: #require(json.data(using: .utf8)))
+
+        #expect(container == .view(.init(viewId: "V123")))
+        #expect(container._type == "view")
+        #expect(container.viewId == "V123")
+    }
+
+    @Test
+    func decodeMessageContainer() throws {
+        let json = """
+        {
+          "type": "message",
+          "message_ts": "1606455372.001200",
+          "channel_id": "C111",
+          "is_ephemeral": true
+        }
+        """
+
+        let container = try JSONDecoder().decode(Container.self, from: #require(json.data(using: .utf8)))
+
+        #expect(container == .message(.init(
+            messageTs: "1606455372.001200",
+            channelId: "C111",
+            isEphemeral: true
+        )))
+        #expect(container._type == "message")
+        #expect(container.messageTs == "1606455372.001200")
+        #expect(container.channelId == "C111")
+        #expect(container.isEphemeral == true)
+    }
+
+    @Test
+    func decodeMessageAttachmentContainer() throws {
+        let json = """
+        {
+          "type": "message_attachment",
+          "message_ts": "1661488735.191299",
+          "attachment_id": 1,
+          "channel_id": "C111",
+          "is_ephemeral": false,
+          "is_app_unfurl": true,
+          "app_unfurl_url": "https://example.com/foo"
+        }
+        """
+
+        let container = try JSONDecoder().decode(Container.self, from: #require(json.data(using: .utf8)))
+
+        #expect(container == .messageAttachment(.init(
+            messageTs: "1661488735.191299",
+            channelId: "C111",
+            attachmentId: 1,
+            isEphemeral: false,
+            isAppUnfurl: true,
+            appUnfurlUrl: "https://example.com/foo",
+            threadTs: nil,
+            text: nil
+        )))
+        #expect(container._type == "message_attachment")
+        #expect(container.messageTs == "1661488735.191299")
+        #expect(container.channelId == "C111")
+        #expect(container.attachmentId == 1)
+        #expect(container.isEphemeral == false)
+    }
+
+    @Test
+    func decodeUnknownContainerType() throws {
+        let json = """
+        {
+          "type": "canvas",
+          "canvas_id": "CA123",
+          "custom_flag": true
+        }
+        """
+
+        let container = try JSONDecoder().decode(Container.self, from: #require(json.data(using: .utf8)))
+
+        guard case let .unknown(type, payload) = container else {
+            Issue.record("Expected unknown container")
+            return
+        }
+
+        #expect(type == "canvas")
+        #expect(container._type == "canvas")
+        #expect(payload.value["canvas_id"] as? String == "CA123")
+        #expect(payload.value["custom_flag"] as? Bool == true)
+    }
+}
