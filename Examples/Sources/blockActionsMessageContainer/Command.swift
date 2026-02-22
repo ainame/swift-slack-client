@@ -36,7 +36,7 @@ struct Command {
             case let .blockActions(payload):
                 print("block_actions received")
                 print("container.type: \(payload.container._type)")
-                print("container.viewId: \(payload.container.viewId)")
+                print("container.viewId: \(payload.container.viewId ?? "nil")")
                 print("callbackId: \(payload.callbackId ?? "nil")")
             default:
                 print("interactive payload type: \(interactive._type)")
