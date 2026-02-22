@@ -35,9 +35,7 @@ struct Command {
             switch interactive.body {
             case let .blockActions(payload):
                 print("block_actions received")
-                print("container.type: \(payload.container._type)")
-                print("container.viewId: \(payload.container.viewId ?? "nil")")
-                print("callbackId: \(payload.callbackId ?? "nil")")
+                print("container: \(payload.container)")
             default:
                 print("interactive payload type: \(interactive._type)")
             }
