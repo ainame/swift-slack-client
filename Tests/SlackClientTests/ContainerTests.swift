@@ -1,8 +1,19 @@
 import Foundation
+import OpenAPIRuntime
 import SlackModels
 import Testing
 
 struct ContainerTests {
+    @Test
+    func encodeViewContainer() throws {
+        let container = Container.view(.init(viewId: "V123"))
+        let data = try JSONEncoder().encode(container)
+        let decoded = try JSONDecoder().decode(OpenAPIObjectContainer.self, from: data)
+
+        #expect(decoded.value["type"] as? String == "view")
+        #expect(decoded.value["view_id"] as? String == "V123")
+    }
+
     @Test
     func decodeViewContainer() throws {
         let json = """
@@ -97,5 +108,21 @@ struct ContainerTests {
         #expect(container._type == "canvas")
         #expect(payload.value["canvas_id"] as? String == "CA123")
         #expect(payload.value["custom_flag"] as? Bool == true)
+    }
+
+    @Test
+    func encodeUnknownContainerType() throws {
+        let payload = try OpenAPIObjectContainer(unvalidatedValue: [
+            "canvas_id": "CA123",
+            "custom_flag": true,
+        ])
+        let container = Container.unknown(type: "canvas", payload: payload)
+
+        let data = try JSONEncoder().encode(container)
+        let decoded = try JSONDecoder().decode(OpenAPIObjectContainer.self, from: data)
+
+        #expect(decoded.value["type"] as? String == "canvas")
+        #expect(decoded.value["canvas_id"] as? String == "CA123")
+        #expect(decoded.value["custom_flag"] as? Bool == true)
     }
 }

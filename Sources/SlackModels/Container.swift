@@ -2,7 +2,7 @@ import Foundation
 import OpenAPIRuntime
 
 public enum Container: Hashable, Sendable {
-    public struct Message: Decodable, Hashable, Sendable {
+    public struct Message: Codable, Hashable, Sendable {
         public let messageTs: String
         public let channelId: String
         public let isEphemeral: Bool?
@@ -20,7 +20,7 @@ public enum Container: Hashable, Sendable {
         }
     }
 
-    public struct MessageAttachment: Decodable, Hashable, Sendable {
+    public struct MessageAttachment: Codable, Hashable, Sendable {
         public let messageTs: String
         public let channelId: String
         public let attachmentId: Int?
@@ -62,7 +62,7 @@ public enum Container: Hashable, Sendable {
         }
     }
 
-    public struct View: Decodable, Hashable, Sendable {
+    public struct View: Codable, Hashable, Sendable {
         public let viewId: String
 
         public init(viewId: String) {
@@ -150,7 +150,7 @@ extension Container {
     }
 }
 
-extension Container: Decodable {
+extension Container: Codable {
     private enum CodingKeys: String, CodingKey {
         case _type = "type"
         case messageTs = "message_ts"
@@ -177,6 +177,36 @@ extension Container: Decodable {
             self = .view(try .init(from: decoder))
         default:
             self = .unknown(type: type, payload: try .init(from: decoder))
+        }
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        switch self {
+        case let .message(value):
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode("message", forKey: ._type)
+            try container.encode(value.messageTs, forKey: .messageTs)
+            try container.encode(value.channelId, forKey: .channelId)
+            try container.encodeIfPresent(value.isEphemeral, forKey: .isEphemeral)
+        case let .messageAttachment(value):
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode("message_attachment", forKey: ._type)
+            try container.encode(value.messageTs, forKey: .messageTs)
+            try container.encode(value.channelId, forKey: .channelId)
+            try container.encodeIfPresent(value.attachmentId, forKey: .attachmentId)
+            try container.encodeIfPresent(value.isEphemeral, forKey: .isEphemeral)
+            try container.encodeIfPresent(value.isAppUnfurl, forKey: .isAppUnfurl)
+            try container.encodeIfPresent(value.appUnfurlUrl, forKey: .appUnfurlUrl)
+            try container.encodeIfPresent(value.threadTs, forKey: .threadTs)
+            try container.encodeIfPresent(value.text, forKey: .text)
+        case let .view(value):
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode("view", forKey: ._type)
+            try container.encode(value.viewId, forKey: .viewId)
+        case let .unknown(type, payload):
+            var mergedValue = payload.value
+            mergedValue["type"] = type
+            try OpenAPIObjectContainer(unvalidatedValue: mergedValue).encode(to: encoder)
         }
     }
 }
