@@ -874,7 +874,7 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /files.info`.
     /// - Remark: Generated from `#/paths//files.info/post(filesInfo)`.
     func filesInfo(_ input: Operations.FilesInfo.Input) async throws -> Operations.FilesInfo.Output
-    /// List for a team, in a channel, or from a user with applied filters.
+    /// List files for a team, in a channel, or from a user with applied filters.
     ///
     /// - Remark: HTTP `POST /files.list`.
     /// - Remark: Generated from `#/paths//files.list/post(filesList)`.
@@ -3602,7 +3602,7 @@ extension APIProtocol {
         ))
     }
 
-    /// List for a team, in a channel, or from a user with applied filters.
+    /// List files for a team, in a channel, or from a user with applied filters.
     ///
     /// - Remark: HTTP `POST /files.list`.
     /// - Remark: Generated from `#/paths//files.list/post(filesList)`.
