@@ -38,7 +38,7 @@ public enum Container: Hashable, Sendable {
             isAppUnfurl: Bool?,
             appUnfurlUrl: String?,
             threadTs: String?,
-            text: String?
+            text: String?,
         ) {
             self.messageTs = messageTs
             self.channelId = channelId
@@ -170,13 +170,13 @@ extension Container: Codable {
 
         switch type {
         case "message":
-            self = .message(try .init(from: decoder))
+            self = try .message(.init(from: decoder))
         case "message_attachment":
-            self = .messageAttachment(try .init(from: decoder))
+            self = try .messageAttachment(.init(from: decoder))
         case "view":
-            self = .view(try .init(from: decoder))
+            self = try .view(.init(from: decoder))
         default:
-            self = .unknown(type: type, payload: try .init(from: decoder))
+            self = try .unknown(type: type, payload: .init(from: decoder))
         }
     }
 

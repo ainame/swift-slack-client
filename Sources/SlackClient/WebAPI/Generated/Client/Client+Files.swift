@@ -289,7 +289,7 @@ extension Client {
         )
     }
 
-    /// List for a team, in a channel, or from a user with applied filters.
+    /// List files for a team, in a channel, or from a user with applied filters.
     ///
     /// - Remark: HTTP `POST /files.list`.
     /// - Remark: Generated from `#/paths//files.list/post(filesList)`.
