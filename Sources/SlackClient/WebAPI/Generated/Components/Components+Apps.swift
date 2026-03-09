@@ -420,5 +420,48 @@ extension Components.Schemas {
             case warning
         }
     }
+
+    /// - Remark: Generated from `#/components/schemas/AppsUserConnectionUpdateResponse`.
+    public struct AppsUserConnectionUpdateResponse: Codable, Hashable, Sendable {
+        /// - Remark: Generated from `#/components/schemas/AppsUserConnectionUpdateResponse/error`.
+        public var error: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AppsUserConnectionUpdateResponse/needed`.
+        public var needed: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AppsUserConnectionUpdateResponse/ok`.
+        public var ok: Swift.Bool
+        /// - Remark: Generated from `#/components/schemas/AppsUserConnectionUpdateResponse/provided`.
+        public var provided: Swift.String?
+        /// - Remark: Generated from `#/components/schemas/AppsUserConnectionUpdateResponse/warning`.
+        public var warning: Swift.String?
+        /// Creates a new `AppsUserConnectionUpdateResponse`.
+        ///
+        /// - Parameters:
+        ///   - error:
+        ///   - needed:
+        ///   - ok:
+        ///   - provided:
+        ///   - warning:
+        public init(
+            error: Swift.String? = nil,
+            needed: Swift.String? = nil,
+            ok: Swift.Bool,
+            provided: Swift.String? = nil,
+            warning: Swift.String? = nil,
+        ) {
+            self.error = error
+            self.needed = needed
+            self.ok = ok
+            self.provided = provided
+            self.warning = warning
+        }
+
+        public enum CodingKeys: String, CodingKey {
+            case error
+            case needed
+            case ok
+            case provided
+            case warning
+        }
+    }
 }
 #endif

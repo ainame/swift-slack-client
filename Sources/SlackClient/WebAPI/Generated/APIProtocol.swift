@@ -527,6 +527,11 @@ public protocol APIProtocol: Sendable {
     /// - Remark: HTTP `POST /apps.uninstall`.
     /// - Remark: Generated from `#/paths//apps.uninstall/post(appsUninstall)`.
     func appsUninstall(_ input: Operations.AppsUninstall.Input) async throws -> Operations.AppsUninstall.Output
+    /// Updates the connection status between a user and an app.
+    ///
+    /// - Remark: HTTP `POST /apps.user.connection.update`.
+    /// - Remark: Generated from `#/paths//apps.user.connection.update/post(appsUserConnectionUpdate)`.
+    func appsUserConnectionUpdate(_ input: Operations.AppsUserConnectionUpdate.Input) async throws -> Operations.AppsUserConnectionUpdate.Output
     /// Set the status for an AI assistant thread.
     ///
     /// - Remark: HTTP `POST /assistant.threads.setStatus`.
@@ -2676,6 +2681,20 @@ extension APIProtocol {
         body: Operations.AppsUninstall.Input.Body,
     ) async throws -> Operations.AppsUninstall.Output {
         try await appsUninstall(Operations.AppsUninstall.Input(
+            headers: headers,
+            body: body,
+        ))
+    }
+
+    /// Updates the connection status between a user and an app.
+    ///
+    /// - Remark: HTTP `POST /apps.user.connection.update`.
+    /// - Remark: Generated from `#/paths//apps.user.connection.update/post(appsUserConnectionUpdate)`.
+    public func appsUserConnectionUpdate(
+        headers: Operations.AppsUserConnectionUpdate.Input.Headers = .init(),
+        body: Operations.AppsUserConnectionUpdate.Input.Body,
+    ) async throws -> Operations.AppsUserConnectionUpdate.Output {
+        try await appsUserConnectionUpdate(Operations.AppsUserConnectionUpdate.Input(
             headers: headers,
             body: body,
         ))
