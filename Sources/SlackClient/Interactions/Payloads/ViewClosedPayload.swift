@@ -1,4 +1,5 @@
 import Foundation
+import OpenAPIRuntime
 import SlackBlockKit
 import SlackModels
 
@@ -14,9 +15,9 @@ public struct ViewClosedPayload: InteractivePayloadProtocol, Decodable, Sendable
     public let isEnterpriseInstall: Bool?
     public let isCleared: Bool
     /// Function-only metadata
-    public let functionData: BlockActionsPaylaod.FunctionData?
+    public let functionData: FunctionData?
     /// Function-only interactivity context
-    public let interactivity: BlockActionsPaylaod.Interactivity?
+    public let interactivity: Interactivity?
     /// Function-only just-in-time token
     public let botAccessToken: String?
 
@@ -38,5 +39,42 @@ public struct ViewClosedPayload: InteractivePayloadProtocol, Decodable, Sendable
 extension ViewClosedPayload {
     public var callbackId: String? {
         view.callbackId
+    }
+}
+
+extension ViewClosedPayload {
+    public struct FunctionData: Decodable, Hashable, Sendable {
+        public let executionId: String?
+        public let function: Function?
+        public let inputs: OpenAPIObjectContainer?
+
+        private enum CodingKeys: String, CodingKey {
+            case executionId = "execution_id"
+            case function
+            case inputs
+        }
+
+        public struct Function: Decodable, Hashable, Sendable {
+            public let callbackId: String?
+
+            private enum CodingKeys: String, CodingKey {
+                case callbackId = "callback_id"
+            }
+        }
+    }
+
+    public struct Interactivity: Decodable, Hashable, Sendable {
+        public let interactivityPointer: String?
+        public let interactor: Interactor?
+
+        private enum CodingKeys: String, CodingKey {
+            case interactivityPointer = "interactivity_pointer"
+            case interactor
+        }
+
+        public struct Interactor: Decodable, Hashable, Sendable {
+            public let id: String?
+            public let secret: String?
+        }
     }
 }
