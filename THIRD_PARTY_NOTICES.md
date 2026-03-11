@@ -25,10 +25,9 @@ The following upstream projects are used as generation inputs:
    Copyright:
    - Copyright (c) 2015-2017 Daniel Doubrovkine, Artsy and Contributors
 
-This repository is not a clean-room implementation of the Slack API surface.
-Its generated Web API and Events/Models layers are derived from the upstream
-reference data above, while the Swift implementation and integration code are
-original to this repository unless otherwise noted.
+This repository includes generated Web API and Events/Models layers derived
+from the upstream reference data above. The Swift implementation and
+integration code are original to this repository unless otherwise noted.
 
 The full upstream MIT license texts are reproduced below.
 
