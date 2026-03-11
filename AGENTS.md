@@ -26,7 +26,7 @@ This project is a Swift Slack client library generated from Slack OpenAPI specs 
 ### Commands
 
 ```bash
-make update    # Update git submodules (.dependencies/*)
+make update    # Update git submodules (vendor/*)
 make generate  # Run full code generation
 make clean     # Clean temp files
 ```
