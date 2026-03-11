@@ -1,7 +1,6 @@
 import Foundation
 import AsyncHTTPClient
 import NIOCore
-import NIOHTTP1
 import Logging
 
 public struct DeepLClient: Sendable {

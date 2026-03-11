@@ -35,11 +35,11 @@ public struct ReactionHandler: Sendable {
         let replies = try await client.conversationsReplies(
             body: .json(.init(
                 channel: channelId,
-                ts: messageTs,
-                inclusive: true
+                inclusive: true,
+                ts: messageTs
             ))
         )
-        
+
         let response = try replies.ok.body.json
 
         guard let messages = response.messages,

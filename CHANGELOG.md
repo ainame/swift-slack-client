@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Upcoming
 
+### Added
+
+* Added missing attributes for Slack interaction payloads:
+  * `block_actions` now includes function metadata and interactivity fields from Slack's current payload shape.
+  * `view_submission` and `view_closed` now include the missing function-related attributes.
+
 ## [0.4.0] - 2026-02-22
 
 ### Changed

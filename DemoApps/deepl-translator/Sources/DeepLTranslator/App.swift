@@ -69,8 +69,8 @@ struct DeepLTranslatorApp {
             let modal = TranslationModal.buildNewModal(defaultLang: defaultLang)
             _ = try await context.client.viewsOpen(
                 body: .json(.init(
-                    view: modal,
-                    triggerId: payload.triggerId
+                    triggerId: payload.triggerId,
+                    view: modal
                 ))
             )
         }
@@ -99,8 +99,8 @@ struct DeepLTranslatorApp {
 
             _ = try await context.client.viewsUpdate(
                 body: .json(.init(
-                    view: resultView,
-                    viewId: payload.view.id
+                    viewId: payload.view.id,
+                    view: resultView
                 ))
             )
         }

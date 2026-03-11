@@ -8,6 +8,8 @@ struct BlockActionsPayloadTests {
         let json = """
         {
           "type": "block_actions",
+          "token": "legacy-token",
+          "hash": "1571318366.2468e46f",
           "user": {
             "id": "U03TQQSQH25"
           },
@@ -19,7 +21,8 @@ struct BlockActionsPayloadTests {
             "message_ts": "1771366531.702529",
             "channel_id": "C0AFCSU2AKD",
             "is_ephemeral": false
-          }
+          },
+          "response_url": "https://hooks.slack.com/actions/T03T5HH7T9U/123/abc"
         }
         """
 
@@ -29,6 +32,8 @@ struct BlockActionsPayloadTests {
         #expect(payload.container._type == "message")
         #expect(payload.view == nil)
         #expect(payload.callbackId == nil)
+        #expect(payload.hash == "1571318366.2468e46f")
+        #expect(payload.responseUrl?.absoluteString == "https://hooks.slack.com/actions/T03T5HH7T9U/123/abc")
     }
 
     @Test
