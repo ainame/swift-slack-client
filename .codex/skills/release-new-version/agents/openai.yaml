@@ -1,0 +1,4 @@
+interface:
+  display_name: "Release New Version"
+  short_description: "Tag and publish a GitHub release"
+  default_prompt: "Use $release-new-version to prepare the changelog, tag from main, and publish the GitHub release."
