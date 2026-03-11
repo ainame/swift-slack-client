@@ -231,8 +231,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hummingbird-project/swift-websocket",
       "state" : {
-        "revision" : "7a2aec4d399e555cac4b14015e8a5b4793438840",
-        "version" : "1.4.0"
+        "revision" : "ca48d46c25f8fa948d37eaa480c73172182cf90f",
+        "version" : "1.5.0"
       }
     },
     {
