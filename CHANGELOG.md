@@ -5,13 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Upcoming
+## [0.5.0] - 2026-03-11
 
 ### Added
 
 * Added missing attributes for Slack interaction payloads:
   * `block_actions` now includes function metadata and interactivity fields from Slack's current payload shape.
   * `view_submission` and `view_closed` now include the missing function-related attributes.
+
+### Changed
+
+* Updated Slack API schemas to the latest upstream snapshots - #64, #65
+* Updated `apple/swift-openapi-runtime` to `1.11.0` - #62
+* Updated `hummingbird-project/swift-websocket` to `1.5.0` - #63
 
 ## [0.4.0] - 2026-02-22
 
