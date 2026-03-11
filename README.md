@@ -205,6 +205,11 @@ Generated from official Slack API sources:
 
 Uses [quicktype](https://github.com/glideapps/quicktype) to generate JSON schemas, then swift-openapi-generator for Swift code. Many properties are optional due to schema inference limitations.
 
+This is not a clean-room implementation of the Slack API surface. The generated
+Web API and Events/Models layers are derived from the upstream reference data
+above. Top-level attribution and bundled upstream MIT license texts are
+available in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
 ## Development
 
 Requirements: Swift 6.1+, SwiftFormat, Node.js
