@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Upcoming
 
+### Fixed
+
+* Updated the `deepl-translator` demo to match current generated initializer argument order for Slack API request bodies (`conversations.replies`, `views.open`, and `views.update`).
+
 ## [0.4.0] - 2026-02-22
 
 ### Changed
