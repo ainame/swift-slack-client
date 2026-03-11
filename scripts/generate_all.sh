@@ -3,7 +3,7 @@
 set -xe
 
 TMP_DIR="./.tmp"
-DEPS_DIR="./.dependencies"
+DEPS_DIR="./vendor"
 
 # Ensure submodules are initialized and updated
 if [ ! -f ".gitmodules" ]; then
