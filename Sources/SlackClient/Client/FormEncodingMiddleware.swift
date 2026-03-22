@@ -3,6 +3,10 @@ import HTTPTypes
 import OpenAPIRuntime
 
 struct FormEncodingMiddleware: ClientMiddleware, Sendable {
+    private static let formURLEncodedAllowedCharacters = CharacterSet(
+        charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~"
+    )
+
     func intercept(
         _ request: HTTPRequest,
         body: HTTPBody?,
@@ -52,12 +56,12 @@ struct FormEncodingMiddleware: ClientMiddleware, Sendable {
                 // Convert nested objects/arrays to JSON strings
                 let jsonData = try JSONSerialization.data(withJSONObject: value)
                 formValue = String(data: jsonData, encoding: .utf8) ?? ""
+            } else if let boolValue = value as? Bool {
+                formValue = boolValue ? "true" : "false"
             } else if let stringValue = value as? String {
                 formValue = stringValue
             } else if let numberValue = value as? NSNumber {
                 formValue = numberValue.stringValue
-            } else if let boolValue = value as? Bool {
-                formValue = boolValue ? "true" : "false"
             } else {
                 // Fallback: convert to JSON string
                 let jsonData = try JSONSerialization.data(withJSONObject: value)
@@ -65,8 +69,8 @@ struct FormEncodingMiddleware: ClientMiddleware, Sendable {
             }
 
             // URL encode both key and value
-            let encodedKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? key
-            let encodedValue = formValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? formValue
+            let encodedKey = key.addingPercentEncoding(withAllowedCharacters: Self.formURLEncodedAllowedCharacters) ?? key
+            let encodedValue = formValue.addingPercentEncoding(withAllowedCharacters: Self.formURLEncodedAllowedCharacters) ?? formValue
 
             formComponents.append("\(encodedKey)=\(encodedValue)")
         }
