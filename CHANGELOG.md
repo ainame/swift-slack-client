@@ -7,9 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [0.5.1] - 2026-03-23
+
+### Added
+
+* Added top-level third-party attribution notices for vendored generation inputs - #68
+
 ### Changed
 
-* Renamed the vendored upstream submodule directory from `.dependencies/` to `vendor/` and updated generation scripts and documentation accordingly.
+* Renamed the vendored upstream submodule directory from `.dependencies/` to `vendor/` and updated generation scripts and documentation accordingly - #67
+* Updated `apple/swift-openapi-generator` to `1.11.0` - #70
+* Updated Ruby toolchain references to `4.0.2` - #69
+
+### Fixed
+
+* Fixed form-encoded Web API payload escaping so typed Block Kit requests preserve reserved characters correctly - #71
 
 ## [0.5.0] - 2026-03-11
 
