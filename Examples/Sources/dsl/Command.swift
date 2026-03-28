@@ -14,7 +14,7 @@ struct Command {
         let router = Router()
 
         // Handle global shortcuts
-        router.onGlboalShortcut("run-something") {
+        router.onGlobalShortcut("run-something") {
             context,
                 payload in
             try await context.ack()

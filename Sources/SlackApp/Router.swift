@@ -208,7 +208,12 @@ public class Router {
         }
     }
 
+    @available(*, deprecated, message: "Use onGlobalShortcut(_:handler:) instead. This misspelled API will be removed in a future version.")
     public func onGlboalShortcut(_ callbackId: String, handler: @escaping RequestPayloadHandler<GlobalShortcutPayload>) {
+        onGlobalShortcut(callbackId, handler: handler)
+    }
+
+    public func onGlobalShortcut(_ callbackId: String, handler: @escaping RequestPayloadHandler<GlobalShortcutPayload>) {
         globalShortcutHandlers[callbackId] = { context, request in
             guard let context = context.requestContext,
                   case let .interactive(interactiveEnvelope) = request,

@@ -47,7 +47,7 @@ struct Command {
             }
         }
 
-        router.onGlboalShortcut("run-something") { context, payload in
+        router.onGlobalShortcut("run-something") { context, payload in
             try await context.ack()
             print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
         }
