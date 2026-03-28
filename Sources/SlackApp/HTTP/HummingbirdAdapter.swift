@@ -3,6 +3,7 @@ import Foundation
 import Hummingbird
 import HTTPTypes
 import NIOCore
+import NIOFoundationCompat
 
 public struct HummingbirdAdapter: HTTPServerAdapter {
     private let hostname: String

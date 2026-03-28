@@ -41,12 +41,42 @@ struct HTTPRequestVerifier {
             throw HTTPRequestVerificationError.expiredTimestamp
         }
 
-        let base = "v0:\(timestamp):" + String(decoding: body, as: UTF8.self)
-        let key = SymmetricKey(data: Data(signingSecret.utf8))
-        let digest = HMAC<SHA256>.authenticationCode(for: Data(base.utf8), using: key)
-        let hex = digest.map { String(format: "%02x", $0) }.joined()
-        guard signature == "v0=\(hex)" else {
+        guard signature.hasPrefix("v0=") else {
             throw HTTPRequestVerificationError.invalidSignature
         }
+        let hexSignature = String(signature.dropFirst(3))
+        guard let signatureBytes = Self.decodeHex(hexSignature) else {
+            throw HTTPRequestVerificationError.invalidSignature
+        }
+
+        let base = "v0:\(timestamp):" + String(decoding: body, as: UTF8.self)
+        let key = SymmetricKey(data: Data(signingSecret.utf8))
+        let baseData = Data(base.utf8)
+
+        guard HMAC<SHA256>.isValidAuthenticationCode(signatureBytes, authenticating: baseData, using: key) else {
+            throw HTTPRequestVerificationError.invalidSignature
+        }
+    }
+}
+
+
+extension HTTPRequestVerifier {
+    private static func decodeHex(_ hex: String) -> Data? {
+        let length = hex.utf8.count
+        guard length.isMultiple(of: 2) else { return nil }
+
+        var data = Data(capacity: length / 2)
+        var index = hex.startIndex
+
+        while index < hex.endIndex {
+            let nextIndex = hex.index(index, offsetBy: 2)
+            guard nextIndex <= hex.endIndex else { return nil }
+            let byteString = hex[index..<nextIndex]
+            guard let byte = UInt8(byteString, radix: 16) else { return nil }
+            data.append(byte)
+            index = nextIndex
+        }
+
+        return data
     }
 }
