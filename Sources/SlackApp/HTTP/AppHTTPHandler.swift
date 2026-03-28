@@ -96,8 +96,18 @@ struct AppHTTPHandler {
             return nil
         }
 
-        let typeContainer = try jsonDecoder.decode(HTTPEventTypeContainer.self, from: request.body)
-        if typeContainer.type == "url_verification" {
+        let logger = await slack.logger
+
+        let typeContainer: HTTPEventTypeContainer
+        do {
+            typeContainer = try jsonDecoder.decode(HTTPEventTypeContainer.self, from: request.body)
+        } catch {
+            logger.warning("Ignoring malformed Slack JSON request after successful signature verification")
+            return HTTPServerResponse(status: .ok)
+        }
+
+        switch typeContainer.type {
+        case "url_verification":
             let payload = try jsonDecoder.decode(URLVerificationPayload.self, from: request.body)
             let data = try jsonEncoder.encode(["challenge": payload.challenge])
             return HTTPServerResponse(
@@ -105,14 +115,24 @@ struct AppHTTPHandler {
                 headerFields: HTTPFields([HTTPField(name: .contentType, value: "application/json")]),
                 body: data,
             )
+        case "event_callback":
+            #if Events
+            do {
+                let payload = try jsonDecoder.decode(EventsApiEnvelope<Event>.self, from: request.body)
+                return try await dispatch(.event(payload), kind: .event)
+            } catch {
+                logger.warning("Ignoring malformed Slack event_callback request after successful signature verification")
+                return HTTPServerResponse(status: .ok)
+            }
+            #else
+            return HTTPServerResponse(status: .notImplemented)
+            #endif
+        case "app_rate_limited":
+            return HTTPServerResponse(status: .ok)
+        default:
+            logger.warning("Ignoring unsupported Slack JSON request type: \(typeContainer.type)")
+            return HTTPServerResponse(status: .ok)
         }
-
-        #if Events
-        let payload = try jsonDecoder.decode(EventsApiEnvelope<Event>.self, from: request.body)
-        return try await dispatch(.event(payload), kind: .event)
-        #else
-        return HTTPServerResponse(status: .notImplemented)
-        #endif
     }
 
     private func handleFormRequestIfNeeded(_ request: HTTPServerRequest) async throws -> HTTPServerResponse? {

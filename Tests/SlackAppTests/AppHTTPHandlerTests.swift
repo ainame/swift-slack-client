@@ -56,6 +56,63 @@ struct AppHTTPHandlerTests {
         #expect(String(decoding: responseBody, as: UTF8.self).contains(#""challenge":"abc""#))
     }
 
+
+    @Test func appRateLimitedReturnsOK() async throws {
+        let body = Data(#"{"type":"app_rate_limited","team_id":"T123","minute_rate_limited":1518467820,"api_app_id":"A123"}"#.utf8)
+        let timestamp = currentTimestamp()
+        let request = signedRequest(
+            secret: "secret",
+            method: .post,
+            path: "/slack/events",
+            contentType: "application/json",
+            body: body,
+            timestamp: timestamp,
+        )
+        let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
+
+        let response = try await app.handle(request)
+
+        #expect(response.status == .ok)
+        #expect(response.body == nil)
+    }
+
+    @Test func malformedJSONReturnsOK() async throws {
+        let body = Data(#"{"#.utf8)
+        let timestamp = currentTimestamp()
+        let request = signedRequest(
+            secret: "secret",
+            method: .post,
+            path: "/slack/events",
+            contentType: "application/json",
+            body: body,
+            timestamp: timestamp,
+        )
+        let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
+
+        let response = try await app.handle(request)
+
+        #expect(response.status == .ok)
+        #expect(response.body == nil)
+    }
+
+    @Test func malformedEventCallbackReturnsOK() async throws {
+        let body = Data(#"{"type":"event_callback","team_id":"T123"}"#.utf8)
+        let timestamp = currentTimestamp()
+        let request = signedRequest(
+            secret: "secret",
+            method: .post,
+            path: "/slack/events",
+            contentType: "application/json",
+            body: body,
+            timestamp: timestamp,
+        )
+        let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
+
+        let response = try await app.handle(request)
+
+        #expect(response.status == .ok)
+        #expect(response.body == nil)
+    }
     @Test func eventDispatchesHandlerWithoutAck() async throws {
         actor Tracker {
             private(set) var text: String?
