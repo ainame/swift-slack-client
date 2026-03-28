@@ -1,10 +1,9 @@
 public struct SocketModeOptions: OptionSet, RawRepresentable, Sendable {
-    /// If enabled, ``Slack`` instance will automatically re-connect when the current connection ends
+    /// If enabled, ``SlackApp`` will automatically re-connect when the current connection ends.
     public static let autoReconnectWhenDisconnected = SocketModeOptions(rawValue: 1 << 0)
 
-    /// If enabled, ``Slack/runInSocketMode(options:logger:)`` will not propagte app-level error to call-site
-    /// and continue waiting for next message automatically. You can still handle the error
-    /// with ``SocketModeRouter/onError(_:)`` but the error will be thrown unless opt-out this.
+    /// If enabled, ``SlackApp`` will not propagate app-level errors to the caller and will continue
+    /// waiting for the next message automatically.
     ///
     /// Any errors occured at lower-layer like following categories are not impacted with this and un-handled.
     ///

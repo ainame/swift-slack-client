@@ -8,7 +8,7 @@ public struct Say: Sendable {
     private let client: any APIProtocol
     private let logger: Logger
 
-    init(client: any APIProtocol, logger: Logger) {
+    package init(client: any APIProtocol, logger: Logger) {
         self.client = client
         self.logger = logger
     }

@@ -39,6 +39,7 @@ var traits: [Trait] = webAPITraits.map { .trait(name: $0) }
 
 traits.append(.trait(name: "SocketMode", enabledTraits: ["WebAPI_Apps"]))
 traits.append(.trait(name: "Events"))
+traits.append(.trait(name: "HummingbirdHTTPAdapter"))
 
 // By default, all the traits is enabled for development.
 traits.append(.default(enabledTraits: Set(traits.map(\.name))))
@@ -48,6 +49,7 @@ let package = Package(
     platforms: [.macOS(.v14)],
     products: [
         .library(name: "SlackClient", targets: ["SlackClient"]),
+        .library(name: "SlackApp", targets: ["SlackApp"]),
         .library(name: "SlackBlockKit", targets: ["SlackBlockKit"]),
         .library(name: "SlackBlockKitDSL", targets: ["SlackBlockKitDSL"]),
         .library(name: "SlackModels", targets: ["SlackModels"]),
@@ -56,9 +58,13 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.11.0"),
         .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.11.0"),
+        .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.10.1"),
+        .package(url: "https://github.com/apple/swift-crypto", from: "3.0.0"),
         .package(url: "https://github.com/hummingbird-project/swift-websocket", from: "1.5.0"),
+        .package(url: "https://github.com/hummingbird-project/hummingbird.git", from: "2.0.0"),
         .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.4.6"),
+        .package(url: "https://github.com/swift-server/swift-service-lifecycle.git", from: "2.3.0"),
     ],
     targets: [
         .target(
@@ -66,10 +72,6 @@ let package = Package(
             dependencies: [
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
                 .product(name: "Logging", package: "swift-log"),
-                .product(
-                    name: "WSClient", package: "swift-websocket",
-                    condition: .when(traits: ["SocketMode"])
-                ),
                 .target(name: "SlackBlockKit"),
                 .target(name: "SlackModels"),
             ],
@@ -81,6 +83,35 @@ let package = Package(
         .testTarget(
             name: "SlackClientTests",
             dependencies: ["SlackClient", "SlackModels"],
+        ),
+        .target(
+            name: "SlackApp",
+            dependencies: [
+                .target(name: "SlackClient"),
+                .target(name: "SlackBlockKit"),
+                .target(name: "SlackModels"),
+                .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "Logging", package: "swift-log"),
+                .product(name: "Crypto", package: "swift-crypto"),
+                .product(name: "ServiceLifecycle", package: "swift-service-lifecycle"),
+                .product(
+                    name: "WSClient", package: "swift-websocket",
+                    condition: .when(traits: ["SocketMode"])
+                ),
+                .product(
+                    name: "Hummingbird", package: "hummingbird",
+                    condition: .when(traits: ["HummingbirdHTTPAdapter"])
+                ),
+            ],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency"),
+                .unsafeFlags(["-Xfrontend", "-disable-availability-checking"], .when(configuration: .debug))
+            ]
+        ),
+        .testTarget(
+            name: "SlackAppTests",
+            dependencies: ["SlackApp", "SlackClient", "SlackModels"],
         ),
         .target(
             name: "SlackModels",

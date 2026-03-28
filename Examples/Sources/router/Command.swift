@@ -1,7 +1,6 @@
 import Foundation
-import OpenAPIAsyncHTTPClient
+import SlackApp
 import SlackBlockKitDSL
-import SlackClient
 
 @main
 struct Command {
@@ -12,24 +11,9 @@ struct Command {
             exit(1)
         }
 
-        let slack = Slack(
-            transport: AsyncHTTPClientTransport(),
-            configuration: .init(
-                userAgent: "SwiftBot",
-                appToken: appToken,
-                token: token,
-            ),
-        )
+        let router = Router()
 
-        let router = SocketModeRouter()
-
-        router.onSocketModeMessage { _, _ in
-            print("onMessage")
-        }
-
-        router.onEvent { context, envelope in
-            try await context.ack()
-
+        router.onEvent { _, envelope in
             switch envelope.event {
             case .appMention:
                 print("onEvent: appMention")
@@ -40,8 +24,7 @@ struct Command {
             }
         }
 
-        router.onEvent(AppMentionEvent.self) { context, _, _ in
-            try await context.ack()
+        router.onEvent(AppMentionEvent.self) { _, _, _ in
             print("onEvent: AppMentionEvent")
         }
 
@@ -64,7 +47,7 @@ struct Command {
             }
         }
 
-        router.onGlboalShortcut("run-something") { context, payload in
+        router.onGlobalShortcut("run-something") { context, payload in
             try await context.ack()
             print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
         }
@@ -74,13 +57,21 @@ struct Command {
             print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
         }
 
-        router.onSlackMessageMatched(with: "Hello", "World") { context, _, payload in
-            try await context.ack()
-            print("onSlackMessageMatched: \(payload.text!)")
+        router.onEvent(MessageEvent.self) { _, _, payload in
+            guard let text = payload.text,
+                  text.contains("Hello") || text.contains("World") else { return }
+            print("onEvent(MessageEvent.self): \(text)")
         }
 
-        await slack.addSocketModeRouter(router)
-
-        try await slack.runInSocketMode()
+        let app = SlackApp(
+            configuration: .init(
+                userAgent: "SwiftBot",
+                appToken: appToken,
+                token: token,
+            ),
+            router: router,
+            mode: .socketMode(),
+        )
+        try await app.run()
     }
 }

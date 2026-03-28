@@ -677,32 +677,34 @@ struct MeetingNotes: SlackView {
 
 Combining DSL components with Socket Mode for interactive task management.
 
+> Note: `SlackApp` auto-acknowledges Events API handlers. Slash commands, actions, shortcuts, and views still need explicit `ack()`. Router registrations are overwrite-based, and `onSlackMessageMatched(...)` was removed in favor of `onEvent(MessageEvent.self)` plus in-handler filtering.
+
 ```swift
 // Slash command handler
 router.onSlashCommand("/tasks") { context, payload in
+    try await context.ack()
+
     let tasks = try await TaskService.getUserTasks(userId: payload.userId)
     let taskList = TaskListView(tasks: tasks, userId: payload.userId)
-    
+
     try await context.respond(
         responseType: .ephemeral,
         blocks: taskList.blocks
     )
-    
-    try await context.ack()
 }
 
 // Button interaction handler
 router.onBlockAction("create_task") { context, payload in
+    try await context.ack()
+
     let modal = TaskCreationModal(userId: payload.user.id)
-    
+
     try await slack.client.viewsOpen(
         body: .json(.init(
             triggerId: payload.triggerId,
             view: modal.render()
         ))
     )
-    
-    try await context.ack()
 }
 
 // View submission handler

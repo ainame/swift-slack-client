@@ -64,7 +64,7 @@ struct DeepLTranslatorApp {
         let router = SocketModeRouter()
 
         // Handle global shortcut
-        router.onGlboalShortcut("deepl-translation") { context, payload in
+        router.onGlobalShortcut("deepl-translation") { context, payload in
             try await context.ack()
             let modal = TranslationModal.buildNewModal(defaultLang: defaultLang)
             _ = try await context.client.viewsOpen(

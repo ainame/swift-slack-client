@@ -1,9 +1,9 @@
 import Foundation
 import OpenAPIAsyncHTTPClient
 import OpenAPIRuntime
+import SlackApp
 import SlackBlockKit
 import SlackBlockKitDSL
-import SlackClient
 
 @main
 struct Command {
@@ -27,11 +27,7 @@ struct Command {
             ),
         )
 
-        let router = SocketModeRouter()
-
-        router.onSocketModeMessage { _, envelope in
-            print("SocketMode envelope received: \(envelope._type)")
-        }
+        let router = Router()
 
         router.onInteractive { context, interactive in
             try await context.ack()
@@ -47,8 +43,6 @@ struct Command {
                 print("interactive payload type: \(interactive._type)")
             }
         }
-
-        await slack.addSocketModeRouter(router)
 
         let blocks = ReproMessageBlocks().blocks
 
@@ -82,7 +76,7 @@ struct Command {
                 .init(
                     channel: channel,
                     ts: seedTs,
-                    unfurls: try buildMessageAttachmentUnfurlPayload(url: unfurlUrl),
+                    unfurls: buildMessageAttachmentUnfurlPayload(url: unfurlUrl),
                 ),
             ),
         )
@@ -99,7 +93,8 @@ struct Command {
         print("- unfurl button -> block_actions (container.type = message_attachment)")
         print("If unfurl button is missing, app/domain setup for link unfurls is incomplete.")
 
-        try await slack.runInSocketMode()
+        let app = SlackApp(slack: slack, router: router, mode: .socketMode())
+        try await app.run()
     }
 }
 
@@ -138,7 +133,7 @@ private func buildMessageAttachmentUnfurlPayload(url: String) throws -> OpenAPIO
 
 private func requireChatPostMessageResponse(
     _ output: Operations.ChatPostMessage.Output,
-    context: String
+    context: String,
 ) throws -> Components.Schemas.ChatPostMessageResponse {
     guard case let .ok(okOutput) = output,
           case let .json(response) = okOutput.body else {
@@ -151,7 +146,7 @@ private func requireChatPostMessageResponse(
 }
 
 private func requireChatUnfurlResponse(
-    _ output: Operations.ChatUnfurl.Output
+    _ output: Operations.ChatUnfurl.Output,
 ) throws -> Components.Schemas.ChatUnfurlResponse {
     guard case let .ok(okOutput) = output,
           case let .json(response) = okOutput.body else {

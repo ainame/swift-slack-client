@@ -1,7 +1,6 @@
 import Foundation
-import OpenAPIAsyncHTTPClient
+import SlackApp
 import SlackBlockKitDSL
-import SlackClient
 
 @main
 struct Command {
@@ -12,19 +11,10 @@ struct Command {
             exit(1)
         }
 
-        let slack = Slack(
-            transport: AsyncHTTPClientTransport(),
-            configuration: .init(
-                userAgent: "SwiftBot",
-                appToken: appToken,
-                token: token,
-            ),
-        )
-
-        let router = SocketModeRouter()
+        let router = Router()
 
         // Handle global shortcuts
-        router.onGlboalShortcut("run-something") {
+        router.onGlobalShortcut("run-something") {
             context,
                 payload in
             try await context.ack()
@@ -120,8 +110,8 @@ struct Command {
             // Open the modal
             let response = try await context.client.viewsOpen(
                 .init(body: .json(.init(
-                    view: view,
                     triggerId: payload.triggerId,
+                    view: view,
                 ))),
             )
 
@@ -130,8 +120,6 @@ struct Command {
 
         // Handle app home opened events
         router.onEvent(AppHomeOpenedEvent.self) { context, _, event in
-            try await context.ack()
-
             // Create a home tab view using the new DSL
             let view = HomeTab {
                 Header {
@@ -234,8 +222,8 @@ struct Command {
             // Update the view
             let response = try await context.client.viewsUpdate(
                 .init(body: .json(.init(
-                    view: view,
                     viewId: payload.container.viewId,
+                    view: view,
                 ))),
             )
 
@@ -325,18 +313,25 @@ struct Command {
             // Open the advanced modal
             let response = try await context.client.viewsOpen(
                 .init(body: .json(.init(
-                    view: view,
                     triggerId: payload.triggerId,
+                    view: view,
                 ))),
             )
 
             print("Advanced modal opened: \(response)")
         }
 
-        await slack.addSocketModeRouter(router)
-
         // This is demo so this doesn't automatically reconnect to socket when disconnected
         print("Starting Socket Mode connection...")
-        try await slack.runInSocketMode()
+        let app = SlackApp(
+            configuration: .init(
+                userAgent: "SwiftBot",
+                appToken: appToken,
+                token: token,
+            ),
+            router: router,
+            mode: .socketMode(options: []),
+        )
+        try await app.run()
     }
 }

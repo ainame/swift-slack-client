@@ -46,7 +46,7 @@ struct ContainerTests {
         #expect(container == .message(.init(
             messageTs: "1606455372.001200",
             channelId: "C111",
-            isEphemeral: true
+            isEphemeral: true,
         )))
         #expect(container._type == "message")
         #expect(container.messageTs == "1606455372.001200")
@@ -78,7 +78,7 @@ struct ContainerTests {
             isAppUnfurl: true,
             appUnfurlUrl: "https://example.com/foo",
             threadTs: nil,
-            text: nil
+            text: nil,
         )))
         #expect(container._type == "message_attachment")
         #expect(container.messageTs == "1661488735.191299")

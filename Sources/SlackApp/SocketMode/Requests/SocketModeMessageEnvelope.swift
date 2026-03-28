@@ -1,5 +1,6 @@
 #if SocketMode
 import Foundation
+import SlackClient
 
 public struct SocketModeMessageEnvelope: Decodable, Hashable, Sendable {
     public enum Payload: Decodable, Hashable, Sendable {
