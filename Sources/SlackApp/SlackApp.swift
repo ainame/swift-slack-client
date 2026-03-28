@@ -6,6 +6,7 @@ import ServiceLifecycle
 #if SocketMode
 import NIOCore
 import NIOFoundationCompat
+import NIOPosix
 import WSClient
 #endif
 
@@ -88,11 +89,23 @@ public final class SlackApp {
 #if SocketMode
 extension SlackApp {
     private func runSocketMode(options: SocketModeOptions, appLogger: Logger?) async throws {
+        let logger = await slack.logger
+
         while true {
             if Task.isCancelled { break }
 
             let url = try await slack.openSocketModeConnection()
-            try await startSocketMode(with: url, options: options, appLogger: appLogger)
+            do {
+                try await startSocketMode(with: url, options: options, appLogger: appLogger)
+            } catch {
+                guard options.contains(.autoReconnectWhenDisconnected),
+                      Self.shouldReconnectSocketMode(after: error) else {
+                    throw error
+                }
+
+                logger.warning("SocketMode client timed out while reading; reconnecting")
+                continue
+            }
 
             if !options.contains(.autoReconnectWhenDisconnected) { break }
         }
@@ -179,6 +192,20 @@ extension SlackApp {
         case let .unsupported(type):
             .unsupported(type)
         }
+    }
+
+    static func shouldReconnectSocketMode(after error: any Error) -> Bool {
+        if let ioError = error as? IOError, ioError.errnoCode == ETIMEDOUT {
+            return true
+        }
+
+        let description = String(describing: error).lowercased()
+        guard description.contains("operation timed out") else {
+            return false
+        }
+
+        return description.contains("read(descriptor:pointer:size:)")
+            || description.contains("errno: 60")
     }
 }
 #endif
