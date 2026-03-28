@@ -46,11 +46,11 @@ struct AppHTTPHandler {
     private static let contentTypeField = HTTPField.Name.contentType
 
     private let slack: Slack
-    private let router: AppRouter.FixedRouter
+    private let router: Router.FixedRouter
     private let jsonDecoder = JSONDecoder()
     private let jsonEncoder = JSONEncoder()
 
-    init(slack: Slack, router: AppRouter) {
+    init(slack: Slack, router: Router) {
         self.slack = slack
         self.router = .init(from: router)
     }
@@ -86,7 +86,7 @@ struct AppHTTPHandler {
 
     private func handleJSONRequestIfNeeded(
         _ request: HTTPServerRequest,
-        configuration _: ClientConfiguration
+        configuration _: Slack.Configuration
     ) async throws -> HTTPServerResponse? {
         guard contentType(of: request.headerFields)?.starts(with: "application/json") == true else {
             return nil
@@ -128,13 +128,13 @@ struct AppHTTPHandler {
         return try await dispatch(.slashCommand(payload), kind: .slashCommand)
     }
 
-    private func dispatch(_ request: AppRequest, kind: RequestKind) async throws -> HTTPServerResponse {
+    private func dispatch(_ request: Request, kind: RequestKind) async throws -> HTTPServerResponse {
         let client = await slack.client
         let transport = await slack.transport
         let logger = await slack.logger
         let state = HTTPAcknowledgmentState()
 
-        let context = AppContext(
+        let context = SlackApp.Context(
             client: client,
             logger: logger,
             respond: Respond(transport: transport, logger: logger),

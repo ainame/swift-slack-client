@@ -29,7 +29,7 @@ struct ThreadExpander {
             .replacingOccurrences(of: "https://", with: "")
             .replacingOccurrences(of: ".slack.com/", with: "")
 
-        let router = AppRouter()
+        let router = Router()
 
         router.onEvent(MessageEvent.self) { context, _, messageEvent in
             try await context.ack()
@@ -52,7 +52,7 @@ struct ThreadExpander {
         }
 
         print("🧵 Thread Expander started. Press Ctrl+C to stop.")
-        let app = App(slack: slack, router: router, mode: .socketMode())
+        let app = SlackApp(slack: slack, router: router, mode: .socketMode())
         try await app.run()
     }
 }

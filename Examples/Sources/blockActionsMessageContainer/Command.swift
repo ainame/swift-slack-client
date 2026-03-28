@@ -27,7 +27,7 @@ struct Command {
             ),
         )
 
-        let router = AppRouter()
+        let router = Router()
 
         router.onInteractive { context, interactive in
             try await context.ack()
@@ -93,7 +93,7 @@ struct Command {
         print("- unfurl button -> block_actions (container.type = message_attachment)")
         print("If unfurl button is missing, app/domain setup for link unfurls is incomplete.")
 
-        let app = App(slack: slack, router: router, mode: .socketMode())
+        let app = SlackApp(slack: slack, router: router, mode: .socketMode())
         try await app.run()
     }
 }

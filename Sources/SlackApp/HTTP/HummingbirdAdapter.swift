@@ -14,7 +14,7 @@ public struct HummingbirdAdapter: HTTPServerAdapter {
     }
 
     public func run(handler: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse) async throws {
-        let router = Router()
+        let router = Hummingbird.Router()
         router.get("/healthz") { request, _ -> Response in
             let response = try await handler(
                 HTTPServerRequest(

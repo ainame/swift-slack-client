@@ -6,8 +6,8 @@
 
 - `SlackClient` is now the pure Web API and shared model layer.
 - `SlackApp` is the runtime layer for:
-  - `App`
-  - `AppRouter`
+  - `SlackApp`
+  - `Router`
   - `Ack`
   - Socket Mode
   - HTTP request verification and adapters
@@ -52,8 +52,8 @@ try await slack.runInSocketMode()
 New:
 
 ```swift
-let router = AppRouter()
-let app = App(
+let router = Router()
+let app = SlackApp(
     configuration: .init(appToken: appToken, token: token),
     router: router,
     mode: .socketMode()
@@ -63,19 +63,19 @@ try await app.run()
 
 ## Update renamed and moved symbols
 
-- `SocketModeRouter` -> `AppRouter`
-- `Slack.runInSocketMode(...)` -> `App(..., mode: .socketMode(...)).run()`
-- `Slack.addSocketModeRouter(...)` -> remove it; pass the router into `App`
-- Hummingbird HTTP support now comes from `SlackApp.HummingbirdAdapter`
+- `SocketModeRouter` -> `Router`
+- `Slack.runInSocketMode(...)` -> `SlackApp(..., mode: .socketMode(...)).run()`
+- `Slack.addSocketModeRouter(...)` -> remove it; pass the router into `SlackApp`
+- Hummingbird HTTP support now comes from `HummingbirdAdapter`
 
 ## HTTP apps
 
 HTTP request handling now lives entirely in `SlackApp`:
 
 ```swift
-let router = AppRouter()
+let router = Router()
 let adapter = HummingbirdAdapter(hostname: "0.0.0.0", port: 8080)
-let app = App(
+let app = SlackApp(
     configuration: .init(token: token, signingSecret: signingSecret),
     router: router,
     mode: .http(adapter)

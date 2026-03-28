@@ -8,9 +8,9 @@ import Testing
 
 struct AppHTTPHandlerTests {
     @Test func appCanBeCreatedFromConfiguration() {
-        let app = App(
+        let app = SlackApp(
             configuration: .init(token: "xoxb-test", signingSecret: "secret"),
-            router: AppRouter(),
+            router: Router(),
             mode: .http(NoopAdapter())
         )
 
@@ -18,7 +18,7 @@ struct AppHTTPHandlerTests {
     }
 
     @Test func rejectsInvalidSignature() async throws {
-        let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: AppRouter())
+        let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
         let timestamp = currentTimestamp()
         let response = try await app.handle(
             HTTPServerRequest(
@@ -47,7 +47,7 @@ struct AppHTTPHandlerTests {
             body: body,
             timestamp: timestamp
         )
-        let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: AppRouter())
+        let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
 
         let response = try await app.handle(request)
 
@@ -66,7 +66,7 @@ struct AppHTTPHandlerTests {
         }
 
         let tracker = Tracker()
-        let router = AppRouter()
+        let router = Router()
         router.onSlashCommand("/echo") { context, payload in
             await tracker.setText(payload.text)
             try await context.ack()

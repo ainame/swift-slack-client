@@ -11,7 +11,7 @@ struct Command {
             exit(1)
         }
 
-        let router = AppRouter()
+        let router = Router()
 
         // Handle global shortcuts
         router.onGlboalShortcut("run-something") {
@@ -325,7 +325,7 @@ struct Command {
 
         // This is demo so this doesn't automatically reconnect to socket when disconnected
         print("Starting Socket Mode connection...")
-        let app = App(
+        let app = SlackApp(
             configuration: .init(
                 userAgent: "SwiftBot",
                 appToken: appToken,

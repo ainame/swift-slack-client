@@ -8,21 +8,29 @@ import NIOFoundationCompat
 import WSClient
 #endif
 
-public final class App {
-    public typealias Configuration = ClientConfiguration
+public final class SlackApp {
+    public typealias Configuration = Slack.Configuration
 
-    public enum RunMode: Sendable {
+    public enum Mode: Sendable {
         #if SocketMode
         case socketMode(options: SocketModeOptions = [.autoReconnectWhenDisconnected, .recoverFromAppError], logger: Logger? = nil)
         #endif
         case http(any HTTPServerAdapter)
     }
 
-    private let slack: Slack
-    private let router: AppRouter
-    private let mode: RunMode
+    public struct Context: Sendable {
+        public let client: APIProtocol
+        public let logger: Logger
+        public let respond: Respond
+        public let say: Say
+        public let ack: Ack
+    }
 
-    public init(slack: Slack, router: AppRouter, mode: RunMode) {
+    private let slack: Slack
+    private let router: Router
+    private let mode: Mode
+
+    public init(slack: Slack, router: Router, mode: Mode) {
         self.slack = slack
         self.router = router
         self.mode = mode
@@ -31,8 +39,8 @@ public final class App {
     public convenience init(
         serverURL: URL = URL(string: "https://slack.com/api")!,
         configuration: Configuration = .init(),
-        router: AppRouter,
-        mode: RunMode,
+        router: Router,
+        mode: Mode,
         logger: Logger? = nil,
         middlewares: [any ClientMiddleware] = [],
     ) {
@@ -62,7 +70,7 @@ public final class App {
 }
 
 #if SocketMode
-extension App {
+extension SlackApp {
     private func runSocketMode(options: SocketModeOptions, appLogger: Logger?) async throws {
         while true {
             if Task.isCancelled { break }
@@ -75,7 +83,7 @@ extension App {
     }
 
     private func startSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws {
-        let router = AppRouter.FixedRouter(from: router)
+        let router = Router.FixedRouter(from: router)
         let client = await slack.client
         let transport = await slack.transport
         let logger = await slack.logger
@@ -100,7 +108,7 @@ extension App {
 
                     let request = Self.request(from: envelope)
                     group.addTask {
-                        let context = AppContext(
+                        let context = Context(
                             client: client,
                             logger: runtimeLogger,
                             respond: Respond(transport: transport, logger: logger),
@@ -129,7 +137,7 @@ extension App {
         try await ws.run()
     }
 
-    private static func request(from envelope: SocketModeMessageEnvelope) -> AppRequest {
+    private static func request(from envelope: SocketModeMessageEnvelope) -> Request {
         switch envelope.payload {
         case let .interactive(payload):
             .interactive(payload)
@@ -146,7 +154,7 @@ extension App {
 }
 #endif
 
-extension App {
+extension SlackApp {
     private func runHTTP(with adapter: any HTTPServerAdapter) async throws {
         let handler = AppHTTPHandler(slack: slack, router: router)
         try await adapter.run(handler: handler.handle)
@@ -154,7 +162,7 @@ extension App {
 }
 
 #if SocketMode
-extension App {
+extension SlackApp {
     private static func parseSocketModeMessage(_ buffer: ByteBuffer, logger: Logger) throws -> SocketModeMessage {
         do {
             let messageType = try JSONDecoder().decode(SocketModeMessage.self, from: buffer)

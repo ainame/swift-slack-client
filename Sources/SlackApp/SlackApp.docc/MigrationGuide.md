@@ -29,8 +29,8 @@ try await slack.runInSocketMode()
 New:
 
 ```swift
-let router = AppRouter()
-let app = App(
+let router = Router()
+let app = SlackApp(
     configuration: .init(appToken: appToken, token: token),
     router: router,
     mode: .socketMode()
@@ -40,10 +40,10 @@ try await app.run()
 
 ## Symbol Moves
 
-- `SocketModeRouter` -> `AppRouter`
-- `Slack.runInSocketMode(...)` -> `App(..., mode: .socketMode(...)).run()`
-- `Slack.addSocketModeRouter(...)` -> pass the router directly to `App`
-- Hummingbird HTTP integration moved under `SlackApp.HummingbirdAdapter`
+- `SocketModeRouter` -> `Router`
+- `Slack.runInSocketMode(...)` -> `SlackApp(..., mode: .socketMode(...)).run()`
+- `Slack.addSocketModeRouter(...)` -> pass the router directly to `SlackApp`
+- Hummingbird HTTP integration moved under `HummingbirdAdapter`
 
 ## Client Layer
 

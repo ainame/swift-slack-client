@@ -9,7 +9,7 @@ import Testing
 
 struct AppRouterTests {
     @Test func slashCommandRegistration() {
-        let router = AppRouter()
+        let router = Router()
 
         router.onSlashCommand("/test") { _, _ in }
 
@@ -26,7 +26,7 @@ struct AppRouterTests {
         }
 
         let tracker = Tracker()
-        let router = AppRouter()
+        let router = Router()
         router.onEvent(MessageEvent.self) { _, _, event in
             await tracker.setText(event.text)
         }
@@ -54,7 +54,7 @@ struct AppRouterTests {
         )
         let envelope = try JSONDecoder().decode(EventsApiEnvelope<Event>.self, from: eventData)
 
-        let fixedRouter = AppRouter.FixedRouter(from: router)
+        let fixedRouter = Router.FixedRouter(from: router)
         try await fixedRouter.dispatch(
             context: await makeContext(),
             request: .event(envelope)
@@ -73,7 +73,7 @@ struct AppRouterTests {
         }
 
         let tracker = Tracker()
-        let router = AppRouter()
+        let router = Router()
         router.onBlockAction("button-id") { _, payload in
             await tracker.setCallbackId(payload.callbackId ?? "")
         }
@@ -118,26 +118,26 @@ struct AppRouterTests {
             from: bodyData
         )
 
-        let fixedRouter = AppRouter.FixedRouter(from: router)
+        let fixedRouter = Router.FixedRouter(from: router)
         try await fixedRouter.dispatch(context: await makeContext(), request: .interactive(body))
 
         #expect(await tracker.callbackId == "button-id")
     }
 }
 
-extension AppRouter {
-    fileprivate var handlers: [AppRequestHandler] {
-        Mirror(reflecting: self).children.first(where: { $0.label == "handlers" })?.value as? [AppRequestHandler] ?? []
+extension Router {
+    fileprivate var handlers: [RequestHandler] {
+        Mirror(reflecting: self).children.first(where: { $0.label == "handlers" })?.value as? [RequestHandler] ?? []
     }
 }
 
-private func makeContext() async -> AppContext {
+private func makeContext() async -> SlackApp.Context {
     let logger = Logger(label: "test")
     let transport = MockTransport()
     let slack = Slack(transport: transport)
     let client = await slack.client
 
-    return AppContext(
+    return SlackApp.Context(
         client: client,
         logger: logger,
         respond: Respond(transport: transport, logger: logger),

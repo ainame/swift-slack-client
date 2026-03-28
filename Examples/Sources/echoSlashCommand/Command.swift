@@ -14,7 +14,7 @@ struct EchoSlashCommand {
 
         print("🚀 Starting Echo Slash Command Server...")
 
-        let router = AppRouter()
+        let router = Router()
 
         router.onSlashCommand("/echo") { context, payload in
             try await context.ack()
@@ -45,7 +45,7 @@ struct EchoSlashCommand {
             try await context.respond(to: payload.responseUrl, text: payload.text, responseType: .ephemeral)
         }
 
-        let app = App(
+        let app = SlackApp(
             configuration: .init(
                 userAgent: "EchoSlashCommand/1.0",
                 appToken: appToken,

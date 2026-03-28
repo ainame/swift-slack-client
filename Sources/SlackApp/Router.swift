@@ -7,22 +7,14 @@ import Logging
 import OpenAPIRuntime
 import SlackClient
 
-typealias AppRequestHandler = @Sendable (AppContext, AppRequest) async throws -> Void
-public typealias AppRequestPayloadHandler<Payload: Sendable> =
-    @Sendable (AppContext, Payload) async throws -> Void
-public typealias AppRequestEnvelopePayloadHandler<Envelope: Sendable, Payload: Sendable> =
-    @Sendable (AppContext, Envelope, Payload) async throws -> Void
-typealias AppErrorHandler = @Sendable (AppContext, AppRequest, Swift.Error) async throws -> Void
+typealias RequestHandler = @Sendable (SlackApp.Context, Request) async throws -> Void
+public typealias RequestPayloadHandler<Payload: Sendable> =
+    @Sendable (SlackApp.Context, Payload) async throws -> Void
+public typealias RequestEnvelopePayloadHandler<Envelope: Sendable, Payload: Sendable> =
+    @Sendable (SlackApp.Context, Envelope, Payload) async throws -> Void
+typealias ErrorHandler = @Sendable (SlackApp.Context, Request, Swift.Error) async throws -> Void
 
-public struct AppContext: Sendable {
-    public let client: APIProtocol
-    public let logger: Logger
-    public let respond: Respond
-    public let say: Say
-    public let ack: Ack
-}
-
-public enum AppRequest: Sendable {
+enum Request: Sendable {
     case interactive(InteractiveEnvelope)
     case slashCommand(SlashCommandsPayload)
     #if Events
@@ -31,22 +23,22 @@ public enum AppRequest: Sendable {
     case unsupported(String)
 }
 
-public class AppRouter {
-    private var handlers: [AppRequestHandler] = []
-    private var errorHandler: AppErrorHandler?
+public class Router {
+    private var handlers: [RequestHandler] = []
+    private var errorHandler: ErrorHandler?
 
     public init() {}
 
     struct FixedRouter {
-        private let handlers: [AppRequestHandler]
-        private let errorHandler: AppErrorHandler?
+        private let handlers: [RequestHandler]
+        private let errorHandler: ErrorHandler?
 
-        init(from router: AppRouter) {
+        init(from router: Router) {
             handlers = router.handlers
             errorHandler = router.errorHandler
         }
 
-        func dispatch(context: AppContext, request: AppRequest) async throws {
+        func dispatch(context: SlackApp.Context, request: Request) async throws {
             try await withThrowingDiscardingTaskGroup { group in
                 for handler in handlers {
                     group.addTask {
@@ -64,18 +56,18 @@ public class AppRouter {
         }
     }
 
-    func onRequest(_ handler: @escaping AppRequestHandler) {
+    func onRequest(_ handler: @escaping RequestHandler) {
         handlers.append(handler)
     }
 
-    public func onInteractive(_ handler: @escaping AppRequestPayloadHandler<InteractiveEnvelope>) {
+    public func onInteractive(_ handler: @escaping RequestPayloadHandler<InteractiveEnvelope>) {
         handlers.append { context, request in
             guard case let .interactive(payload) = request else { return }
             try await handler(context, payload)
         }
     }
 
-    public func onGlboalShortcut(_ callbackId: String, handler: @escaping AppRequestPayloadHandler<GlobalShortcutPayload>) {
+    public func onGlboalShortcut(_ callbackId: String, handler: @escaping RequestPayloadHandler<GlobalShortcutPayload>) {
         handlers.append { context, request in
             guard case let .interactive(interactiveEnvelope) = request,
                   case let .shortcut(payload) = interactiveEnvelope.body,
@@ -86,7 +78,7 @@ public class AppRouter {
         }
     }
 
-    public func onMessageShortcut(_ callbackId: String, handler: @escaping AppRequestPayloadHandler<MessageShortcutPayload>) {
+    public func onMessageShortcut(_ callbackId: String, handler: @escaping RequestPayloadHandler<MessageShortcutPayload>) {
         handlers.append { context, request in
             guard case let .interactive(interactiveEnvelope) = request,
                   case let .messageAction(payload) = interactiveEnvelope.body,
@@ -99,7 +91,7 @@ public class AppRouter {
 
     public func onSlashCommand(
         _ command: String,
-        handler: @escaping AppRequestPayloadHandler<SlashCommandsPayload>
+        handler: @escaping RequestPayloadHandler<SlashCommandsPayload>
     ) {
         precondition(command.hasPrefix("/"), "A command should be registered with `/` prefix; e.g. `/command`")
 
@@ -112,7 +104,7 @@ public class AppRouter {
         }
     }
 
-    public func onBlockAction(_ callbackId: String, handler: @escaping AppRequestPayloadHandler<BlockActionsPaylaod>) {
+    public func onBlockAction(_ callbackId: String, handler: @escaping RequestPayloadHandler<BlockActionsPaylaod>) {
         handlers.append { context, request in
             guard case let .interactive(interactiveEnvelope) = request,
                   case let .blockActions(payload) = interactiveEnvelope.body,
@@ -123,7 +115,7 @@ public class AppRouter {
         }
     }
 
-    public func onView(_ callbackId: String, handler: @escaping AppRequestPayloadHandler<InteractivePayload>) {
+    public func onView(_ callbackId: String, handler: @escaping RequestPayloadHandler<InteractivePayload>) {
         handlers.append { context, request in
             guard case let .interactive(interactiveEnvelope) = request else { return }
             if case let .viewSubmission(payload) = interactiveEnvelope.body,
@@ -136,7 +128,7 @@ public class AppRouter {
         }
     }
 
-    public func onViewSubmission(_ callbackId: String, handler: @escaping AppRequestPayloadHandler<ViewSubmissionPayload>) {
+    public func onViewSubmission(_ callbackId: String, handler: @escaping RequestPayloadHandler<ViewSubmissionPayload>) {
         handlers.append { context, request in
             guard case let .interactive(interactiveEnvelope) = request,
                   case let .viewSubmission(payload) = interactiveEnvelope.body,
@@ -147,7 +139,7 @@ public class AppRouter {
         }
     }
 
-    public func onViewClosed(_ callbackId: String, handler: @escaping AppRequestPayloadHandler<ViewClosedPayload>) {
+    public func onViewClosed(_ callbackId: String, handler: @escaping RequestPayloadHandler<ViewClosedPayload>) {
         handlers.append { context, request in
             guard case let .interactive(interactiveEnvelope) = request,
                   case let .viewClosed(payload) = interactiveEnvelope.body,
@@ -158,12 +150,12 @@ public class AppRouter {
         }
     }
 
-    func onError(_ handler: @escaping AppErrorHandler) {
+    func onError(_ handler: @escaping ErrorHandler) {
         errorHandler = handler
     }
 
     #if Events
-    public func onEvent(_ handler: @escaping AppRequestPayloadHandler<EventsApiEnvelope<Event>>) {
+    public func onEvent(_ handler: @escaping RequestPayloadHandler<EventsApiEnvelope<Event>>) {
         handlers.append { context, request in
             guard case let .event(payload) = request else { return }
             try await handler(context, payload)
@@ -172,7 +164,7 @@ public class AppRouter {
 
     public func onEvent<T: SlackEvent>(
         _: T.Type,
-        handler: @escaping AppRequestEnvelopePayloadHandler<EventsApiEnvelope<Event>, T>
+        handler: @escaping RequestEnvelopePayloadHandler<EventsApiEnvelope<Event>, T>
     ) {
         handlers.append { context, request in
             guard case let .event(payload) = request,
@@ -185,7 +177,7 @@ public class AppRouter {
 
     public func onSlackMessageMatched(
         with regexPatterns: String...,
-        handler: @escaping AppRequestEnvelopePayloadHandler<EventsApiEnvelope<Event>, MessageEvent>
+        handler: @escaping RequestEnvelopePayloadHandler<EventsApiEnvelope<Event>, MessageEvent>
     ) {
         handlers.append { context, request in
             guard case let .event(payload) = request,

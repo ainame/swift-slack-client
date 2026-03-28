@@ -11,7 +11,7 @@ struct Command {
             exit(1)
         }
 
-        let router = AppRouter()
+        let router = Router()
 
         router.onEvent { context, envelope in
             try await context.ack()
@@ -65,7 +65,7 @@ struct Command {
             print("onSlackMessageMatched: \(payload.text!)")
         }
 
-        let app = App(
+        let app = SlackApp(
             configuration: .init(
                 userAgent: "SwiftBot",
                 appToken: appToken,

@@ -29,7 +29,7 @@ import OpenAPIRuntime
 public actor Slack {
     public let client: APIProtocol
     package let transport: any ClientTransport
-    package let clientConfiguration: ClientConfiguration
+    package let clientConfiguration: Configuration
     var requestMiddleware: RequestMiddlware
     let formEncodingMiddleware: FormEncodingMiddleware
     package let logger: Logger
@@ -39,7 +39,7 @@ public actor Slack {
         transport: any ClientTransport,
         middlewares: [any ClientMiddleware] = [],
         logger: Logger? = nil,
-        configuration: ClientConfiguration = .init(),
+        configuration: Configuration = .init(),
     ) {
         clientConfiguration = configuration
         requestMiddleware = RequestMiddlware(configuration: .init(

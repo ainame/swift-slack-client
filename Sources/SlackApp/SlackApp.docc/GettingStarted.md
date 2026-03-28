@@ -36,14 +36,14 @@ Then depend on `SlackApp` from your target:
 ```swift
 import SlackApp
 
-let router = AppRouter()
+let router = Router()
 
 router.onSlashCommand("/hello") { context, payload in
     try await context.ack()
     try await context.say(channel: payload.channelId, text: "Hello, \(payload.userName)!")
 }
 
-let app = App(
+let app = SlackApp(
     configuration: .init(
         appToken: appToken,
         token: token
@@ -59,9 +59,9 @@ try await app.run()
 ```swift
 import SlackApp
 
-let router = AppRouter()
+let router = Router()
 let adapter = HummingbirdAdapter(hostname: "0.0.0.0", port: 8080)
-let app = App(
+let app = SlackApp(
     configuration: .init(
         token: token,
         signingSecret: signingSecret
