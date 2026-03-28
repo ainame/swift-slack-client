@@ -132,38 +132,46 @@ struct AppHTTPHandler {
         let client = await slack.client
         let transport = await slack.transport
         let logger = await slack.logger
-        let state = HTTPAcknowledgmentState()
-
-        let context = SlackApp.Context(
-            client: client,
-            logger: logger,
-            respond: Respond(transport: transport, logger: logger),
-            say: Say(client: client, logger: logger),
-            ack: Ack(
-                basicHandler: {
-                    try await state.storeEmptyIfNeeded()
-                },
-                viewHandler: { responseAction, view in
-                    let data = try jsonEncoder.encode(HTTPViewAckPayload(responseAction: responseAction.rawValue, view: view))
-                    try await state.storeJSON(data)
-                },
-                errorHandler: { errors in
-                    let data = try jsonEncoder.encode(HTTPErrorAckPayload(responseAction: "errors", errors: errors))
-                    try await state.storeJSON(data)
-                },
-            ),
-        )
-
-        try await router.dispatch(context: context, request: request)
-
-        if let response = await state.response() {
-            return response
-        }
+        let respond = Respond(transport: transport, logger: logger)
+        let say = Say(client: client, logger: logger)
 
         switch kind {
         case .event:
+            let context = SlackApp.EventContext(
+                client: client,
+                logger: logger,
+                respond: respond,
+                say: say,
+            )
+            try await router.dispatch(context: .event(context), request: request)
             return HTTPServerResponse(status: .ok)
         case .interactive, .slashCommand:
+            let state = HTTPAcknowledgmentState()
+            let context = SlackApp.Context(
+                client: client,
+                logger: logger,
+                respond: respond,
+                say: say,
+                ack: Ack(
+                    basicHandler: {
+                        try await state.storeEmptyIfNeeded()
+                    },
+                    viewHandler: { responseAction, view in
+                        let data = try jsonEncoder.encode(HTTPViewAckPayload(responseAction: responseAction.rawValue, view: view))
+                        try await state.storeJSON(data)
+                    },
+                    errorHandler: { errors in
+                        let data = try jsonEncoder.encode(HTTPErrorAckPayload(responseAction: "errors", errors: errors))
+                        try await state.storeJSON(data)
+                    },
+                ),
+            )
+            try await router.dispatch(context: .request(context), request: request)
+
+            if let response = await state.response() {
+                return response
+            }
+
             return HTTPServerResponse(status: .internalServerError)
         }
     }

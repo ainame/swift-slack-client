@@ -120,7 +120,6 @@ struct Command {
 
         // Handle app home opened events
         router.onEvent(AppHomeOpenedEvent.self) { context, _, event in
-            try await context.ack()
 
             // Create a home tab view using the new DSL
             let view = HomeTab {

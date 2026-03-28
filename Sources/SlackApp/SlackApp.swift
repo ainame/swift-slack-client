@@ -18,6 +18,13 @@ public final class SlackApp {
         case http(any HTTPServerAdapter)
     }
 
+    public struct EventContext: Sendable {
+        public let client: APIProtocol
+        public let logger: Logger
+        public let respond: Respond
+        public let say: Say
+    }
+
     public struct Context: Sendable {
         public let client: APIProtocol
         public let logger: Logger
@@ -99,30 +106,37 @@ extension SlackApp {
                     let message = try Self.parseSocketModeMessage(frame.data, logger: logger)
                     guard case let .message(envelope) = message.body else { continue }
 
-                    if case .eventsApi = envelope.payload {
-                        try await SocketModeAcknowledger.sendBasicAck(
-                            envelopeId: envelope.envelopeId,
-                            writer: outbound,
-                        )
-                    }
-
                     let request = Self.request(from: envelope)
                     group.addTask {
-                        let context = Context(
-                            client: client,
-                            logger: runtimeLogger,
-                            respond: Respond(transport: transport, logger: logger),
-                            say: Say(client: client, logger: logger),
-                            ack: SocketModeAcknowledger.makeAck(
-                                envelopeId: envelope.envelopeId,
-                                writer: outbound,
-                            ),
-                        )
-
                         do {
-                            try await router.dispatch(context: context, request: request)
+                            switch request {
+                            case .event:
+                                try await SocketModeAcknowledger.sendBasicAck(
+                                    envelopeId: envelope.envelopeId,
+                                    writer: outbound,
+                                )
+                                let context = EventContext(
+                                    client: client,
+                                    logger: runtimeLogger,
+                                    respond: Respond(transport: transport, logger: logger),
+                                    say: Say(client: client, logger: logger),
+                                )
+                                try await router.dispatch(context: .event(context), request: request)
+                            case .interactive, .slashCommand, .unsupported:
+                                let context = Context(
+                                    client: client,
+                                    logger: runtimeLogger,
+                                    respond: Respond(transport: transport, logger: logger),
+                                    say: Say(client: client, logger: logger),
+                                    ack: SocketModeAcknowledger.makeAck(
+                                        envelopeId: envelope.envelopeId,
+                                        writer: outbound,
+                                    ),
+                                )
+                                try await router.dispatch(context: .request(context), request: request)
+                            }
                         } catch {
-                            context.logger.error("App Level Error: \(error)")
+                            runtimeLogger.error("App Level Error: \(error)")
                             if !options.contains(.recoverFromAppError) {
                                 throw error
                             }

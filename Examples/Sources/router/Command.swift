@@ -14,8 +14,6 @@ struct Command {
         let router = Router()
 
         router.onEvent { context, envelope in
-            try await context.ack()
-
             switch envelope.event {
             case .appMention:
                 print("onEvent: appMention")
@@ -27,7 +25,6 @@ struct Command {
         }
 
         router.onEvent(AppMentionEvent.self) { context, _, _ in
-            try await context.ack()
             print("onEvent: AppMentionEvent")
         }
 
@@ -61,7 +58,6 @@ struct Command {
         }
 
         router.onSlackMessageMatched(with: "Hello", "World") { context, _, payload in
-            try await context.ack()
             print("onSlackMessageMatched: \(payload.text!)")
         }
 

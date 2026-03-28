@@ -56,7 +56,7 @@ struct AppRouterTests {
 
         let fixedRouter = Router.FixedRouter(from: router)
         try await fixedRouter.dispatch(
-            context: await makeContext(),
+            context: .event(await makeEventContext()),
             request: .event(envelope)
         )
 
@@ -119,7 +119,7 @@ struct AppRouterTests {
         )
 
         let fixedRouter = Router.FixedRouter(from: router)
-        try await fixedRouter.dispatch(context: await makeContext(), request: .interactive(body))
+        try await fixedRouter.dispatch(context: .request(await makeRequestContext()), request: .interactive(body))
 
         #expect(await tracker.callbackId == "button-id")
     }
@@ -131,7 +131,21 @@ extension Router {
     }
 }
 
-private func makeContext() async -> SlackApp.Context {
+private func makeEventContext() async -> SlackApp.EventContext {
+    let logger = Logger(label: "test")
+    let transport = MockTransport()
+    let slack = Slack(transport: transport)
+    let client = await slack.client
+
+    return SlackApp.EventContext(
+        client: client,
+        logger: logger,
+        respond: Respond(transport: transport, logger: logger),
+        say: Say(client: client, logger: logger)
+    )
+}
+
+private func makeRequestContext() async -> SlackApp.Context {
     let logger = Logger(label: "test")
     let transport = MockTransport()
     let slack = Slack(transport: transport)

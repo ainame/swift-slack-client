@@ -1,18 +1,39 @@
-#if Events
 import Foundation
-#else
-import Foundation
-#endif
 import Logging
 import OpenAPIRuntime
 import SlackClient
 
-typealias RequestHandler = @Sendable (SlackApp.Context, Request) async throws -> Void
+enum DispatchContext: Sendable {
+    case request(SlackApp.Context)
+    #if Events
+    case event(SlackApp.EventContext)
+    #endif
+
+    var requestContext: SlackApp.Context? {
+        guard case let .request(context) = self else { return nil }
+        return context
+    }
+
+    #if Events
+    var eventContext: SlackApp.EventContext? {
+        guard case let .event(context) = self else { return nil }
+        return context
+    }
+    #endif
+}
+
+typealias RequestHandler = @Sendable (DispatchContext, Request) async throws -> Void
 public typealias RequestPayloadHandler<Payload: Sendable> =
     @Sendable (SlackApp.Context, Payload) async throws -> Void
 public typealias RequestEnvelopePayloadHandler<Envelope: Sendable, Payload: Sendable> =
     @Sendable (SlackApp.Context, Envelope, Payload) async throws -> Void
-typealias ErrorHandler = @Sendable (SlackApp.Context, Request, Swift.Error) async throws -> Void
+#if Events
+public typealias EventRequestPayloadHandler<Payload: Sendable> =
+    @Sendable (SlackApp.EventContext, Payload) async throws -> Void
+public typealias EventRequestEnvelopePayloadHandler<Envelope: Sendable, Payload: Sendable> =
+    @Sendable (SlackApp.EventContext, Envelope, Payload) async throws -> Void
+#endif
+typealias ErrorHandler = @Sendable (DispatchContext, Request, Swift.Error) async throws -> Void
 
 enum Request: Sendable {
     case interactive(InteractiveEnvelope)
@@ -38,7 +59,7 @@ public class Router {
             errorHandler = router.errorHandler
         }
 
-        func dispatch(context: SlackApp.Context, request: Request) async throws {
+        func dispatch(context: DispatchContext, request: Request) async throws {
             try await withThrowingDiscardingTaskGroup { group in
                 for handler in handlers {
                     group.addTask {
@@ -62,14 +83,16 @@ public class Router {
 
     public func onInteractive(_ handler: @escaping RequestPayloadHandler<InteractiveEnvelope>) {
         handlers.append { context, request in
-            guard case let .interactive(payload) = request else { return }
+            guard let context = context.requestContext,
+                  case let .interactive(payload) = request else { return }
             try await handler(context, payload)
         }
     }
 
     public func onGlboalShortcut(_ callbackId: String, handler: @escaping RequestPayloadHandler<GlobalShortcutPayload>) {
         handlers.append { context, request in
-            guard case let .interactive(interactiveEnvelope) = request,
+            guard let context = context.requestContext,
+                  case let .interactive(interactiveEnvelope) = request,
                   case let .shortcut(payload) = interactiveEnvelope.body,
                   payload.callbackId == callbackId else {
                 return
@@ -80,7 +103,8 @@ public class Router {
 
     public func onMessageShortcut(_ callbackId: String, handler: @escaping RequestPayloadHandler<MessageShortcutPayload>) {
         handlers.append { context, request in
-            guard case let .interactive(interactiveEnvelope) = request,
+            guard let context = context.requestContext,
+                  case let .interactive(interactiveEnvelope) = request,
                   case let .messageAction(payload) = interactiveEnvelope.body,
                   payload.callbackId == callbackId else {
                 return
@@ -96,7 +120,8 @@ public class Router {
         precondition(command.hasPrefix("/"), "A command should be registered with `/` prefix; e.g. `/command`")
 
         handlers.append { context, request in
-            guard case let .slashCommand(payload) = request,
+            guard let context = context.requestContext,
+                  case let .slashCommand(payload) = request,
                   payload.command == command else {
                 return
             }
@@ -106,7 +131,8 @@ public class Router {
 
     public func onBlockAction(_ callbackId: String, handler: @escaping RequestPayloadHandler<BlockActionsPaylaod>) {
         handlers.append { context, request in
-            guard case let .interactive(interactiveEnvelope) = request,
+            guard let context = context.requestContext,
+                  case let .interactive(interactiveEnvelope) = request,
                   case let .blockActions(payload) = interactiveEnvelope.body,
                   payload.callbackId == callbackId else {
                 return
@@ -117,7 +143,8 @@ public class Router {
 
     public func onView(_ callbackId: String, handler: @escaping RequestPayloadHandler<InteractivePayload>) {
         handlers.append { context, request in
-            guard case let .interactive(interactiveEnvelope) = request else { return }
+            guard let context = context.requestContext,
+                  case let .interactive(interactiveEnvelope) = request else { return }
             if case let .viewSubmission(payload) = interactiveEnvelope.body,
                payload.callbackId == callbackId {
                 try await handler(context, interactiveEnvelope.body)
@@ -130,7 +157,8 @@ public class Router {
 
     public func onViewSubmission(_ callbackId: String, handler: @escaping RequestPayloadHandler<ViewSubmissionPayload>) {
         handlers.append { context, request in
-            guard case let .interactive(interactiveEnvelope) = request,
+            guard let context = context.requestContext,
+                  case let .interactive(interactiveEnvelope) = request,
                   case let .viewSubmission(payload) = interactiveEnvelope.body,
                   payload.callbackId == callbackId else {
                 return
@@ -141,7 +169,8 @@ public class Router {
 
     public func onViewClosed(_ callbackId: String, handler: @escaping RequestPayloadHandler<ViewClosedPayload>) {
         handlers.append { context, request in
-            guard case let .interactive(interactiveEnvelope) = request,
+            guard let context = context.requestContext,
+                  case let .interactive(interactiveEnvelope) = request,
                   case let .viewClosed(payload) = interactiveEnvelope.body,
                   payload.callbackId == callbackId else {
                 return
@@ -155,19 +184,21 @@ public class Router {
     }
 
     #if Events
-    public func onEvent(_ handler: @escaping RequestPayloadHandler<EventsApiEnvelope<Event>>) {
+    public func onEvent(_ handler: @escaping EventRequestPayloadHandler<EventsApiEnvelope<Event>>) {
         handlers.append { context, request in
-            guard case let .event(payload) = request else { return }
+            guard let context = context.eventContext,
+                  case let .event(payload) = request else { return }
             try await handler(context, payload)
         }
     }
 
     public func onEvent<T: SlackEvent>(
         _: T.Type,
-        handler: @escaping RequestEnvelopePayloadHandler<EventsApiEnvelope<Event>, T>
+        handler: @escaping EventRequestEnvelopePayloadHandler<EventsApiEnvelope<Event>, T>
     ) {
         handlers.append { context, request in
-            guard case let .event(payload) = request,
+            guard let context = context.eventContext,
+                  case let .event(payload) = request,
                   let event = payload.event.payload as? T else {
                 return
             }
@@ -177,10 +208,11 @@ public class Router {
 
     public func onSlackMessageMatched(
         with regexPatterns: String...,
-        handler: @escaping RequestEnvelopePayloadHandler<EventsApiEnvelope<Event>, MessageEvent>
+        handler: @escaping EventRequestEnvelopePayloadHandler<EventsApiEnvelope<Event>, MessageEvent>
     ) {
         handlers.append { context, request in
-            guard case let .event(payload) = request,
+            guard let context = context.eventContext,
+                  case let .event(payload) = request,
                   case let .message(messageEvent) = payload.event,
                   let text = messageEvent.text else {
                 return

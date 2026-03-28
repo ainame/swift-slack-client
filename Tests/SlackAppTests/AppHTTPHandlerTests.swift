@@ -56,6 +56,43 @@ struct AppHTTPHandlerTests {
         #expect(String(decoding: responseBody, as: UTF8.self).contains(#""challenge":"abc""#))
     }
 
+
+    @Test func eventDispatchesHandlerWithoutAck() async throws {
+        actor Tracker {
+            private(set) var text: String?
+
+            func setText(_ value: String?) {
+                text = value
+            }
+        }
+
+        let tracker = Tracker()
+        let router = Router()
+        router.onEvent(MessageEvent.self) { _, _, event in
+            await tracker.setText(event.text)
+        }
+
+        let body = Data(
+            #"{"team_id":"T123","api_app_id":"A123","event":{"type":"message","channel":"C123","channel_type":"channel","event_ts":"123","team":"T123","text":"hello","ts":"123","user":"U123"},"type":"event_callback","event_id":"Ev123","event_time":123}"#.utf8
+        )
+        let timestamp = currentTimestamp()
+        let request = signedRequest(
+            secret: "secret",
+            method: .post,
+            path: "/slack/events",
+            contentType: "application/json",
+            body: body,
+            timestamp: timestamp
+        )
+        let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
+
+        let response = try await app.handle(request)
+
+        #expect(response.status == .ok)
+        #expect(response.body == nil)
+        #expect(await tracker.text == "hello")
+    }
+
     @Test func slashCommandDispatchesHandler() async throws {
         actor Tracker {
             private(set) var text: String?
