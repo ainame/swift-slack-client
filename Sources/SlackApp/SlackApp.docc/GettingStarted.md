@@ -79,6 +79,8 @@ try await app.run()
 
 - Events API handlers are auto-acked and receive `EventContext` without `ack`.
 - Slash commands, block actions, shortcuts, and views receive `Context` and must call `ack()`.
+- Router registrations are overwrite-based: the same API/key uses the last registered handler.
+- `onSlackMessageMatched(...)` was removed; use `onEvent(MessageEvent.self)` and filter inside the handler.
 
 ## Running with ServiceLifecycle
 

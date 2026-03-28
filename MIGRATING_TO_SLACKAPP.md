@@ -94,6 +94,8 @@ try await app.run()
 - slash commands, block actions, shortcuts, and view handlers still require explicit `ack()`
 - in HTTP mode, Events API requests return `200 OK` automatically
 - in Socket Mode, Events API envelopes are acknowledged before dispatch
+- router registrations are overwrite-based, so the same API/key uses the last registered handler
+- `onSlackMessageMatched(...)` was removed; use `onEvent(MessageEvent.self)` and filter inside the handler
 
 
 ## ServiceLifecycle integration

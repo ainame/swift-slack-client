@@ -167,6 +167,8 @@ try await group.run()
 - `router.onSlashCommand(...)`, `router.onBlockAction(...)`, shortcuts, and view handlers **must call** `context.ack()`
 - In HTTP mode, event auto-ack means returning `200 OK` automatically
 - In Socket Mode, event auto-ack means sending the ack envelope before dispatch
+- Router registrations are overwrite-based: registering the same API/key again replaces the previous handler
+- `onSlackMessageMatched(...)` was removed; use `router.onEvent(MessageEvent.self)` and filter inside the handler
 
 Call `context.ack()` as soon as possible for interactive payloads because Slack expects an acknowledgment within about 3 seconds.
 
