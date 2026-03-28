@@ -167,7 +167,13 @@ struct AppHTTPHandler {
                 respond: respond,
                 say: say,
             )
-            _ = try await router.dispatch(context: .event(context), request: request)
+            Task {
+                do {
+                    _ = try await router.dispatch(context: .event(context), request: request)
+                } catch {
+                    logger.error("Failed to process Slack event request: \(String(describing: error))")
+                }
+            }
             return HTTPServerResponse(status: .ok)
         case .interactive, .slashCommand:
             let state = HTTPAcknowledgmentState()
@@ -190,17 +196,57 @@ struct AppHTTPHandler {
                     },
                 ),
             )
-            let matched = try await router.dispatch(context: .request(context), request: request)
-
-            if let response = await state.response() {
-                return response
+            enum HTTPDispatchOutcome {
+                case response(HTTPServerResponse)
+                case dispatchResult(Bool)
+                case failed(Error)
             }
 
-            if !matched {
-                return HTTPServerResponse(status: .ok)
-            }
+            return await withTaskGroup(of: HTTPDispatchOutcome.self) { group in
+                group.addTask {
+                    do {
+                        let matched = try await router.dispatch(context: .request(context), request: request)
+                        return .dispatchResult(matched)
+                    } catch {
+                        logger.error("Failed to process Slack HTTP request: \(String(describing: error))")
+                        return .failed(error)
+                    }
+                }
+                group.addTask {
+                    do {
+                        while true {
+                            if let response = await state.response() {
+                                return .response(response)
+                            }
+                            try Task.checkCancellation()
+                            try await Task.sleep(for: .milliseconds(10))
+                        }
+                    } catch {
+                        return .failed(error)
+                    }
+                }
 
-            return HTTPServerResponse(status: .internalServerError)
+                let first = await group.next()!
+                group.cancelAll()
+
+                switch first {
+                case let .response(response):
+                    return response
+                case let .dispatchResult(matched):
+                    if let response = await state.response() {
+                        return response
+                    }
+                    if !matched {
+                        return HTTPServerResponse(status: .ok)
+                    }
+                    return HTTPServerResponse(status: .internalServerError)
+                case .failed:
+                    if let response = await state.response() {
+                        return response
+                    }
+                    return HTTPServerResponse(status: .internalServerError)
+                }
+            }
         }
     }
 

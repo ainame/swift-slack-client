@@ -113,6 +113,93 @@ struct AppHTTPHandlerTests {
         #expect(response.status == .ok)
         #expect(response.body == nil)
     }
+    @Test func eventAutoAckReturnsBeforeHandlerCompletes() async throws {
+        actor Tracker {
+            private(set) var processed = false
+
+            func markProcessed() {
+                processed = true
+            }
+        }
+
+        let tracker = Tracker()
+        let router = Router()
+        router.onEvent(MessageEvent.self) { _, _, _ in
+            try? await Task.sleep(for: .milliseconds(200))
+            await tracker.markProcessed()
+        }
+
+        let body = Data(
+            #"{"team_id":"T123","api_app_id":"A123","event":{"type":"message","channel":"C123","channel_type":"channel","event_ts":"123","team":"T123","text":"hello","ts":"123","user":"U123"},"type":"event_callback","event_id":"Ev123","event_time":123}"#
+                .utf8,
+        )
+        let timestamp = currentTimestamp()
+        let request = signedRequest(
+            secret: "secret",
+            method: .post,
+            path: "/slack/events",
+            contentType: "application/json",
+            body: body,
+            timestamp: timestamp,
+        )
+        let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
+
+        let started = ContinuousClock.now
+        let response = try await app.handle(request)
+        let elapsed = started.duration(to: .now)
+
+        #expect(response.status == .ok)
+        #expect(response.body == nil)
+        #expect(elapsed < .milliseconds(100))
+
+        try? await Task.sleep(for: .milliseconds(250))
+        #expect(await tracker.processed)
+    }
+
+    @Test func interactiveAckReturnsBeforeHandlerCompletes() async throws {
+        actor Tracker {
+            private(set) var processed = false
+
+            func markProcessed() {
+                processed = true
+            }
+        }
+
+        let tracker = Tracker()
+        let router = Router()
+        router.onSlashCommand("/echo") { context, _ in
+            try await context.ack()
+            try? await Task.sleep(for: .milliseconds(200))
+            await tracker.markProcessed()
+        }
+
+        let body = Data(
+            "command=%2Fecho&text=hello+world&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2F123%2F456&trigger_id=trigger&user_id=U123&user_name=tester&channel_id=C123&channel_name=general&team_id=T123&team_domain=example&is_enterprise_install=false&api_app_id=A123"
+                .utf8,
+        )
+        let timestamp = currentTimestamp()
+        let request = signedRequest(
+            secret: "secret",
+            method: .post,
+            path: "/slack/events",
+            contentType: "application/x-www-form-urlencoded",
+            body: body,
+            timestamp: timestamp,
+        )
+        let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
+
+        let started = ContinuousClock.now
+        let response = try await app.handle(request)
+        let elapsed = started.duration(to: .now)
+
+        #expect(response.status == .ok)
+        #expect(response.body == nil)
+        #expect(elapsed < .milliseconds(100))
+
+        try? await Task.sleep(for: .milliseconds(250))
+        #expect(await tracker.processed)
+    }
+
     @Test func eventDispatchesHandlerWithoutAck() async throws {
         actor Tracker {
             private(set) var text: String?
@@ -147,6 +234,8 @@ struct AppHTTPHandlerTests {
 
         #expect(response.status == .ok)
         #expect(response.body == nil)
+
+        try? await Task.sleep(for: .milliseconds(50))
         #expect(await tracker.text == "hello")
     }
 
