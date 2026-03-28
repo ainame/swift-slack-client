@@ -1,41 +1,25 @@
+import Darwin
 import Foundation
+import NIOCore
 @testable import SlackApp
 import Testing
 
 struct SocketModeRecoveryTests {
     @Test func socketModeReconnectsForTimedOutReadError() {
-        let error = NSError(
-            domain: "NIO",
-            code: 60,
-            userInfo: [
-                NSLocalizedDescriptionKey: "read(descriptor:pointer:size:): Operation timed out) (errno: 60)",
-            ]
-        )
+        let error = IOError(errnoCode: ETIMEDOUT, reason: "read(descriptor:pointer:size:)")
 
         #expect(SlackApp.shouldReconnectSocketMode(after: error))
     }
 
     @Test func socketModeDoesNotReconnectForOtherSocketErrors() {
-        let error = NSError(
-            domain: "NIO",
-            code: 54,
-            userInfo: [
-                NSLocalizedDescriptionKey: "read(descriptor:pointer:size:): Connection reset by peer) (errno: 54)",
-            ]
-        )
+        let error = IOError(errnoCode: ECONNRESET, reason: "read(descriptor:pointer:size:)")
 
         #expect(!SlackApp.shouldReconnectSocketMode(after: error))
     }
 
-    @Test func socketModeReconnectsForTimedOutNSErrorFallback() {
-        let error = NSError(
-            domain: "NIO",
-            code: 60,
-            userInfo: [
-                NSLocalizedDescriptionKey: "read(descriptor:pointer:size:): Operation timed out) (errno: 60)",
-            ]
-        )
+    @Test func socketModeDoesNotReconnectForNonIOErrors() {
+        struct TestError: Error {}
 
-        #expect(SlackApp.shouldReconnectSocketMode(after: error))
+        #expect(!SlackApp.shouldReconnectSocketMode(after: TestError()))
     }
 }

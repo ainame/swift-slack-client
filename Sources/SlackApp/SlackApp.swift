@@ -195,17 +195,10 @@ extension SlackApp {
     }
 
     static func shouldReconnectSocketMode(after error: any Error) -> Bool {
-        if let ioError = error as? IOError, ioError.errnoCode == ETIMEDOUT {
-            return true
-        }
-
-        let description = String(describing: error).lowercased()
-        guard description.contains("operation timed out") else {
+        guard let ioError = error as? IOError else {
             return false
         }
-
-        return description.contains("read(descriptor:pointer:size:)")
-            || description.contains("errno: 60")
+        return ioError.errnoCode == ETIMEDOUT
     }
 }
 #endif
