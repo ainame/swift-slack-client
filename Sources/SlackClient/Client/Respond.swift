@@ -10,7 +10,7 @@ public struct Respond: Sendable {
     private let logger: Logger
     private let jsonEncoder = JSONEncoder()
 
-    init(transport: any ClientTransport, logger: Logger) {
+    package init(transport: any ClientTransport, logger: Logger) {
         self.transport = transport
         self.logger = logger
     }

@@ -3,7 +3,8 @@ import Foundation
 import HTTPTypes
 import Logging
 import OpenAPIRuntime
-@testable import SlackClient
+import SlackClient
+@testable import SlackApp
 import Testing
 
 struct AppRouterTests {
@@ -30,39 +31,33 @@ struct AppRouterTests {
             await tracker.setText(event.text)
         }
 
+        let eventData = try #require(
+            """
+            {
+              "team_id": "T123",
+              "api_app_id": "A123",
+              "event": {
+                "type": "message",
+                "channel": "C123",
+                "channel_type": "channel",
+                "event_ts": "123",
+                "team": "T123",
+                "text": "hello",
+                "ts": "123",
+                "user": "U123"
+              },
+              "type": "event_callback",
+              "event_id": "Ev123",
+              "event_time": 123
+            }
+            """.data(using: .utf8)
+        )
+        let envelope = try JSONDecoder().decode(EventsApiEnvelope<Event>.self, from: eventData)
+
         let fixedRouter = AppRouter.FixedRouter(from: router)
         try await fixedRouter.dispatch(
             context: await makeContext(),
-            request: .event(
-                EventsApiEnvelope(
-                    teamId: "T123",
-                    apiAppId: "A123",
-                    event: .message(
-                        MessageEvent(
-                            attachments: nil,
-                            blocks: nil,
-                            botId: nil,
-                            botProfile: nil,
-                            channel: "C123",
-                            channelType: "channel",
-                            clientMsgId: nil,
-                            edited: nil,
-                            eventTs: "123",
-                            metadata: nil,
-                            parentUserId: nil,
-                            team: "T123",
-                            text: "hello",
-                            threadTs: nil,
-                            ts: "123",
-                            _type: "message",
-                            user: "U123"
-                        )
-                    ),
-                    type: "event_callback",
-                    eventId: "Ev123",
-                    eventTime: 123
-                )
-            )
+            request: .event(envelope)
         )
 
         #expect(await tracker.text == "hello")

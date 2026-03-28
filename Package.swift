@@ -49,6 +49,7 @@ let package = Package(
     platforms: [.macOS(.v14)],
     products: [
         .library(name: "SlackClient", targets: ["SlackClient"]),
+        .library(name: "SlackApp", targets: ["SlackApp"]),
         .library(name: "SlackBlockKit", targets: ["SlackBlockKit"]),
         .library(name: "SlackBlockKitDSL", targets: ["SlackBlockKitDSL"]),
         .library(name: "SlackModels", targets: ["SlackModels"]),
@@ -69,15 +70,6 @@ let package = Package(
             dependencies: [
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
                 .product(name: "Logging", package: "swift-log"),
-                .product(name: "Crypto", package: "swift-crypto"),
-                .product(
-                    name: "WSClient", package: "swift-websocket",
-                    condition: .when(traits: ["SocketMode"])
-                ),
-                .product(
-                    name: "Hummingbird", package: "hummingbird",
-                    condition: .when(traits: ["HummingbirdHTTPAdapter"])
-                ),
                 .target(name: "SlackBlockKit"),
                 .target(name: "SlackModels"),
             ],
@@ -89,6 +81,33 @@ let package = Package(
         .testTarget(
             name: "SlackClientTests",
             dependencies: ["SlackClient", "SlackModels"],
+        ),
+        .target(
+            name: "SlackApp",
+            dependencies: [
+                .target(name: "SlackClient"),
+                .target(name: "SlackBlockKit"),
+                .target(name: "SlackModels"),
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "Logging", package: "swift-log"),
+                .product(name: "Crypto", package: "swift-crypto"),
+                .product(
+                    name: "WSClient", package: "swift-websocket",
+                    condition: .when(traits: ["SocketMode"])
+                ),
+                .product(
+                    name: "Hummingbird", package: "hummingbird",
+                    condition: .when(traits: ["HummingbirdHTTPAdapter"])
+                ),
+            ],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency"),
+                .unsafeFlags(["-Xfrontend", "-disable-availability-checking"], .when(configuration: .debug))
+            ]
+        ),
+        .testTarget(
+            name: "SlackAppTests",
+            dependencies: ["SlackApp", "SlackClient", "SlackModels"],
         ),
         .target(
             name: "SlackModels",

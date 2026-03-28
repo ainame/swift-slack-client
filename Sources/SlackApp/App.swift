@@ -1,8 +1,10 @@
 import Foundation
-import HTTPTypes
 import Logging
 import OpenAPIRuntime
+import SlackClient
 #if SocketMode
+import NIOCore
+import NIOFoundationCompat
 import WSClient
 #endif
 
@@ -64,7 +66,7 @@ extension App {
         while true {
             if Task.isCancelled { break }
 
-            let url = try await slack.openConnection()
+            let url = try await slack.openSocketModeConnection()
             try await startSocketMode(with: url, options: options, appLogger: appLogger)
 
             if !options.contains(.autoReconnectWhenDisconnected) { break }
@@ -73,11 +75,10 @@ extension App {
 
     private func startSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws {
         let router = AppRouter.FixedRouter(from: router)
-        let client = slack.client
-        let transport = slack.transport
-        let logger = slack.logger
+        let client = await slack.client
+        let transport = await slack.transport
+        let logger = await slack.logger
         let runtimeLogger = appLogger ?? logger
-        let slack = self.slack
 
         let ws = WebSocketClient(url: url, logger: logger) { inbound, outbound, context in
             context.logger.info("SocketMode client connected")
@@ -86,7 +87,7 @@ extension App {
                 for try await frame in inbound {
                     guard frame.opcode == .text else { continue }
 
-                    let message = try await slack.onMessageRecieved(frame.data)
+                    let message = try Self.parseSocketModeMessage(frame.data, logger: logger)
                     guard case let .message(envelope) = message.body else { continue }
 
                     if case .eventsApi = envelope.payload {
@@ -150,3 +151,26 @@ extension App {
         try await adapter.run(handler: handler.handle)
     }
 }
+
+#if SocketMode
+extension App {
+    private static func parseSocketModeMessage(_ buffer: ByteBuffer, logger: Logger) throws -> SocketModeMessage {
+        do {
+            let messageType = try JSONDecoder().decode(SocketModeMessage.self, from: buffer)
+            switch messageType.body {
+            case let .hello(message):
+                logger.info("\(message)")
+            case let .disconnect(message):
+                logger.info("\(message)")
+            case .message:
+                break
+            }
+            return messageType
+        } catch {
+            let message = String(buffer: buffer)
+            logger.error("Parsing message failed: \(error) /// \(message)")
+            throw error
+        }
+    }
+}
+#endif

@@ -1,0 +1,47 @@
+# Migration Guide
+
+Move existing runtime code from `SlackClient` to `SlackApp`.
+
+## Import Changes
+
+Old:
+
+```swift
+import SlackClient
+```
+
+New:
+
+```swift
+import SlackApp
+import SlackClient
+```
+
+## Runtime Entry Point
+
+Old:
+
+```swift
+let router = SocketModeRouter()
+await slack.addSocketModeRouter(router)
+try await slack.runInSocketMode()
+```
+
+New:
+
+```swift
+let router = AppRouter()
+let app = App(slack: slack, router: router, mode: .socketMode())
+try await app.run()
+```
+
+## Symbol Moves
+
+- `SocketModeRouter` -> `AppRouter`
+- `Slack.runInSocketMode(...)` -> `App(..., mode: .socketMode(...)).run()`
+- `Slack.addSocketModeRouter(...)` -> pass the router directly to `App`
+- Hummingbird HTTP integration moved under `SlackApp.HummingbirdAdapter`
+
+## Client Layer
+
+`SlackClient` is now the pure Web API layer. Runtime concerns such as Socket Mode, HTTP request verification, routing, and acknowledgements live in `SlackApp`.

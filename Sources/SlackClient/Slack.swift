@@ -3,11 +3,10 @@ import HTTPTypes
 import Logging
 import OpenAPIRuntime
 
-/// The main Slack client providing access to Slack's Web API and Socket Mode functionality.
+/// The main Slack client providing access to Slack's Web API.
 ///
 /// `Slack` is an actor-based client that provides type-safe access to Slack's APIs through
-/// code generated from OpenAPI specifications. It supports both Web API calls and real-time
-/// Socket Mode connections.
+/// code generated from OpenAPI specifications.
 ///
 /// ## Usage
 ///
@@ -27,26 +26,13 @@ import OpenAPIRuntime
 /// )
 /// ```
 ///
-/// ### Socket Mode
-/// ```swift
-/// let router = SocketModeRouter()
-/// router.onSlashCommand("/hello") { context, payload in
-///     try await context.client.chatPostMessage(
-///         channel: payload.channelId,
-///         text: "Hello, \(payload.userName)!"
-///     )
-/// }
-///
-/// await client.addSocketModeRouter(router)
-/// try await client.runInSocketMode()
-/// ```
 public actor Slack {
     public let client: APIProtocol
-    let transport: any ClientTransport
-    let clientConfiguration: ClientConfiguration
+    package let transport: any ClientTransport
+    package let clientConfiguration: ClientConfiguration
     var requestMiddleware: RequestMiddlware
     let formEncodingMiddleware: FormEncodingMiddleware
-    let logger: Logger
+    package let logger: Logger
 
     public init(
         serverURL: URL = URL(string: "https://slack.com/api")!,
@@ -74,12 +60,4 @@ public actor Slack {
         guard let value else { return }
         await requestMiddleware.setToken(value)
     }
-
-    #if SocketMode
-    var socketModeState: SocketModeState = .notReady
-    var routers: [AppRouter.FixedRouter] = []
-
-    let jsonEncoder = JSONEncoder()
-    let jsonDecoder = JSONDecoder()
-    #endif
 }

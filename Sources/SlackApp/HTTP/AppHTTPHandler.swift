@@ -1,5 +1,6 @@
 import Foundation
 import HTTPTypes
+import SlackClient
 import SlackBlockKit
 
 private actor HTTPAcknowledgmentState {
@@ -63,7 +64,7 @@ struct AppHTTPHandler {
             return HTTPServerResponse(status: .notFound)
         }
 
-        let configuration = slack.clientConfiguration
+        let configuration = await slack.clientConfiguration
         let verifier = HTTPRequestVerifier(signingSecret: configuration.signingSecret ?? "")
 
         do {
@@ -128,9 +129,9 @@ struct AppHTTPHandler {
     }
 
     private func dispatch(_ request: AppRequest, kind: RequestKind) async throws -> HTTPServerResponse {
-        let client = slack.client
-        let transport = slack.transport
-        let logger = slack.logger
+        let client = await slack.client
+        let transport = await slack.transport
+        let logger = await slack.logger
         let state = HTTPAcknowledgmentState()
 
         let context = AppContext(

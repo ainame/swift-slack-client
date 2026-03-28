@@ -2,7 +2,8 @@ import Crypto
 import Foundation
 import HTTPTypes
 import OpenAPIRuntime
-@testable import SlackClient
+import SlackClient
+@testable import SlackApp
 import Testing
 
 struct AppHTTPHandlerTests {
