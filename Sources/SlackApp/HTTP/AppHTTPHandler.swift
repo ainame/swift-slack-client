@@ -147,7 +147,7 @@ struct AppHTTPHandler {
                 respond: respond,
                 say: say,
             )
-            try await router.dispatch(context: .event(context), request: request)
+            _ = try await router.dispatch(context: .event(context), request: request)
             return HTTPServerResponse(status: .ok)
         case .interactive, .slashCommand:
             let state = HTTPAcknowledgmentState()
@@ -170,10 +170,14 @@ struct AppHTTPHandler {
                     },
                 ),
             )
-            try await router.dispatch(context: .request(context), request: request)
+            let matched = try await router.dispatch(context: .request(context), request: request)
 
             if let response = await state.response() {
                 return response
+            }
+
+            if !matched {
+                return HTTPServerResponse(status: .ok)
             }
 
             return HTTPServerResponse(status: .internalServerError)

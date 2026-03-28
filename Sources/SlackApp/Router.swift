@@ -123,16 +123,20 @@ public class Router {
             errorHandler = router.errorHandler
         }
 
-        func dispatch(context: DispatchContext, request: Request) async throws {
-            if let handler = handler(for: request) {
-                do {
-                    try await handler(context, request)
-                } catch {
-                    if let errorHandler {
-                        try await errorHandler(context, request, error)
-                    }
-                    throw error
+        @discardableResult
+        func dispatch(context: DispatchContext, request: Request) async throws -> Bool {
+            guard let handler = handler(for: request) else {
+                return false
+            }
+
+            do {
+                try await handler(context, request)
+                return true
+            } catch {
+                if let errorHandler {
+                    try await errorHandler(context, request, error)
                 }
+                throw error
             }
         }
 
