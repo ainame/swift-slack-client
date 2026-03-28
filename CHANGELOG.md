@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * **BREAKING**: Split the app runtime out of `SlackClient` into a new `SlackApp` product.
-* Moved Socket Mode, HTTP request handling, routing, acknowledgements, and Hummingbird integration into `SlackApp`.
+* Moved Socket Mode, HTTP request handling, routing, acknowledgements, and the existing Hummingbird integration into `SlackApp`.
 * Added a migration guide at `MIGRATING_TO_SLACKAPP.md`.
 
 ## [0.5.1] - 2026-03-23
