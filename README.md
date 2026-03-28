@@ -38,6 +38,7 @@ The documentation is automatically generated from code and hosted on GitHub Page
 
 * **Type-safe Slack Web API/Block Kit support** to build rich Slack apps
 * **Optional `SlackApp` runtime** for Socket Mode and HTTP-based Slack apps
+* **ServiceLifecycle integration** so `SlackApp` can run inside a `ServiceGroup`
 * **Automatically generated from OpenAPI specs** to stay current with official Web API changes
 * **Designed for modern Swift on Server** - structured concurrency, swift-openapi-generator, Swift Package traits, etc.
 
@@ -132,6 +133,30 @@ let app = SlackApp(
     mode: .socketMode()
 )
 try await app.run()
+```
+
+### Running with `ServiceGroup`
+
+`SlackApp` now conforms to `Service`, so you can run it inside `swift-service-lifecycle`:
+
+```swift
+import Logging
+import ServiceLifecycle
+import SlackApp
+
+let app = SlackApp(
+    configuration: .init(appToken: appToken, token: token),
+    router: router,
+    mode: .socketMode()
+)
+
+let group = ServiceGroup(
+    services: [app],
+    gracefulShutdownSignals: [.sigterm, .sigint],
+    logger: Logger(label: "MySlackApp")
+)
+
+try await group.run()
 ```
 
 ### Ack semantics

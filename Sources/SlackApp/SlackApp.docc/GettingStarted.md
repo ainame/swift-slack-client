@@ -28,6 +28,7 @@ Then depend on `SlackApp` from your target:
     name: "MySlackApp",
     dependencies: [
         .product(name: "SlackApp", package: "swift-slack-client"),
+        .product(name: "ServiceLifecycle", package: "swift-service-lifecycle"),
     ]
 )
 ```
@@ -78,3 +79,30 @@ try await app.run()
 
 - Events API handlers are auto-acked and receive `EventContext` without `ack`.
 - Slash commands, block actions, shortcuts, and views receive `Context` and must call `ack()`.
+
+## Running with ServiceLifecycle
+
+`SlackApp` conforms to `Service`, so you can run it inside a `ServiceGroup`:
+
+```swift
+import Logging
+import ServiceLifecycle
+import SlackApp
+
+let app = SlackApp(
+    configuration: .init(
+        appToken: appToken,
+        token: token
+    ),
+    router: router,
+    mode: .socketMode()
+)
+
+let group = ServiceGroup(
+    services: [app],
+    gracefulShutdownSignals: [.sigterm, .sigint],
+    logger: Logger(label: "MySlackApp")
+)
+
+try await group.run()
+```

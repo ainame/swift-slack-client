@@ -2,6 +2,7 @@ import Foundation
 import Logging
 import OpenAPIAsyncHTTPClient
 import OpenAPIRuntime
+import ServiceLifecycle
 #if SocketMode
 import NIOCore
 import NIOFoundationCompat
@@ -197,3 +198,7 @@ extension SlackApp {
     }
 }
 #endif
+
+
+extension SlackApp: @unchecked Sendable {}
+extension SlackApp: Service {}

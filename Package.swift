@@ -64,6 +64,7 @@ let package = Package(
         .package(url: "https://github.com/hummingbird-project/swift-websocket", from: "1.5.0"),
         .package(url: "https://github.com/hummingbird-project/hummingbird.git", from: "2.0.0"),
         .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.4.6"),
+        .package(url: "https://github.com/swift-server/swift-service-lifecycle.git", from: "2.3.0"),
     ],
     targets: [
         .target(
@@ -93,6 +94,7 @@ let package = Package(
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
                 .product(name: "Logging", package: "swift-log"),
                 .product(name: "Crypto", package: "swift-crypto"),
+                .product(name: "ServiceLifecycle", package: "swift-service-lifecycle"),
                 .product(
                     name: "WSClient", package: "swift-websocket",
                     condition: .when(traits: ["SocketMode"])
