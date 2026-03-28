@@ -3,7 +3,7 @@ import Logging
 import OpenAPIRuntime
 import SlackClient
 
-enum DispatchContext: Sendable {
+public enum DispatchContext: Sendable {
     case request(SlackApp.Context)
     #if Events
     case event(SlackApp.EventContext)
@@ -33,9 +33,9 @@ public typealias EventRequestPayloadHandler<Payload: Sendable> =
 public typealias EventRequestEnvelopePayloadHandler<Envelope: Sendable, Payload: Sendable> =
     @Sendable (SlackApp.EventContext, Envelope, Payload) async throws -> Void
 #endif
-typealias ErrorHandler = @Sendable (DispatchContext, Request, Swift.Error) async throws -> Void
+public typealias ErrorHandler = @Sendable (DispatchContext, Request, Swift.Error) async throws -> Void
 
-enum Request: Sendable {
+public enum Request: Sendable {
     case interactive(InteractiveEnvelope)
     case slashCommand(SlashCommandsPayload)
     #if Events
@@ -294,7 +294,7 @@ public class Router {
         })
     }
 
-    func onError(_ handler: @escaping ErrorHandler) {
+    public func onError(_ handler: @escaping ErrorHandler) {
         errorHandler = handler
     }
 

@@ -682,29 +682,29 @@ Combining DSL components with Socket Mode for interactive task management.
 ```swift
 // Slash command handler
 router.onSlashCommand("/tasks") { context, payload in
+    try await context.ack()
+
     let tasks = try await TaskService.getUserTasks(userId: payload.userId)
     let taskList = TaskListView(tasks: tasks, userId: payload.userId)
-    
+
     try await context.respond(
         responseType: .ephemeral,
         blocks: taskList.blocks
     )
-    
-    try await context.ack()
 }
 
 // Button interaction handler
 router.onBlockAction("create_task") { context, payload in
+    try await context.ack()
+
     let modal = TaskCreationModal(userId: payload.user.id)
-    
+
     try await slack.client.viewsOpen(
         body: .json(.init(
             triggerId: payload.triggerId,
             view: modal.render()
         ))
     )
-    
-    try await context.ack()
 }
 
 // View submission handler
