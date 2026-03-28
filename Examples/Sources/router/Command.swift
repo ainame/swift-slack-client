@@ -57,8 +57,10 @@ struct Command {
             print("onGlobalShortcut: \(payload._type) \(payload.callbackId!)")
         }
 
-        router.onSlackMessageMatched(with: "Hello", "World") { context, _, payload in
-            print("onSlackMessageMatched: \(payload.text!)")
+        router.onEvent(MessageEvent.self) { _, _, payload in
+            guard let text = payload.text,
+                  text.contains("Hello") || text.contains("World") else { return }
+            print("onEvent(MessageEvent.self): \(text)")
         }
 
         let app = SlackApp(

@@ -110,8 +110,8 @@ struct Command {
             // Open the modal
             let response = try await context.client.viewsOpen(
                 .init(body: .json(.init(
-                    view: view,
                     triggerId: payload.triggerId,
+                    view: view,
                 ))),
             )
 
@@ -223,8 +223,8 @@ struct Command {
             // Update the view
             let response = try await context.client.viewsUpdate(
                 .init(body: .json(.init(
-                    view: view,
                     viewId: payload.container.viewId,
+                    view: view,
                 ))),
             )
 
@@ -314,8 +314,8 @@ struct Command {
             // Open the advanced modal
             let response = try await context.client.viewsOpen(
                 .init(body: .json(.init(
-                    view: view,
                     triggerId: payload.triggerId,
+                    view: view,
                 ))),
             )
 
