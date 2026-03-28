@@ -1,7 +1,6 @@
 #if SocketMode
 
 import Foundation
-import HTTPTypes
 import Logging
 import NIOCore
 import NIOFoundationCompat
@@ -22,18 +21,26 @@ extension Slack {
         ],
         logger appLogger: Logger? = nil,
     ) async throws {
+        let routers = routers
+        if routers.isEmpty {
+            let app = App(slack: self, router: AppRouter(), mode: .socketMode(options: options, logger: appLogger))
+            try await app.run()
+            return
+        }
+
         while true {
             if Task.isCancelled { break }
 
             let url = try await openConnection()
-            try await doStartSocketMode(with: url, options: options, appLogger: appLogger)
+            try await startSocketMode(with: url, routers: routers, options: options, appLogger: appLogger)
 
             if !options.contains(.autoReconnectWhenDisconnected) { break }
         }
     }
 
+    @available(*, deprecated, renamed: "AppRouter")
     public func addSocketModeRouter(_ router: SocketModeRouter) {
-        routers.append(SocketModeRouter.FixedRouter(from: router))
+        routers.append(AppRouter.FixedRouter(from: router))
     }
 
     func openConnection() async throws -> String {
@@ -46,45 +53,82 @@ extension Slack {
         return url
     }
 
-    func doStartSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws {
-        // Context creation will be moved inside message handling to pass envelope-specific ack
-        // Fix the set of routers to be routed before starting
-        let routers = routers
+    func onMessageRecieved(_ buffer: ByteBuffer) async throws -> SocketModeMessage {
+        do {
+            let messageType = try jsonDecoder.decode(SocketModeMessage.self, from: buffer)
+            switch messageType.body {
+            case let .hello(message):
+                logger.info("\(message)")
+            case let .disconnect(message):
+                logger.info("\(message)")
+            case .message:
+                break
+            }
+            return messageType
+        } catch {
+            let message = String(buffer: buffer)
+            logger.error("Parsing message failed: \(error) /// \(message)")
+            throw error
+        }
+    }
 
-        let ws = WebSocketClient(url: url, logger: logger) { [weak self] inbound, outbound, context in
+    private func startSocketMode(
+        with url: String,
+        routers: [AppRouter.FixedRouter],
+        options: SocketModeOptions,
+        appLogger: Logger?,
+    ) async throws {
+        let client = client
+        let transport = transport
+        let logger = logger
+        let runtimeLogger = appLogger ?? logger
+
+        let ws = WebSocketClient(url: url, logger: logger) { inbound, outbound, context in
             context.logger.info("SocketMode client connected")
-            await self?.setWebSocketOutboundWriter(outbound)
+            await self.setWebSocketOutboundWriter(outbound)
 
-            // Process each message as a structured task so that a long running handler won't block subsequent messages
-            // swiftformat:disable redundantSelf
             try await withThrowingDiscardingTaskGroup { group in
                 for try await frame in inbound {
-                    guard frame.opcode == .text,
-                          let message = try await self?.onMessageRecieved(frame.data),
-                          case let .message(envelope) = message.body else {
-                        // Only handle meaningful messages
-                        continue
+                    guard frame.opcode == .text else { continue }
+
+                    let message = try await self.onMessageRecieved(frame.data)
+                    guard case let .message(envelope) = message.body else { continue }
+
+                    if case .eventsApi = envelope.payload {
+                        try await SocketModeAcknowledger.sendBasicAck(
+                            envelopeId: envelope.envelopeId,
+                            writer: outbound,
+                        )
                     }
 
-                    group.addTask { [weak self] in
-                        guard let self else { return }
+                    group.addTask {
+                        let request = switch envelope.payload {
+                        case let .interactive(payload):
+                            AppRequest.interactive(payload)
+                        case let .slashCommands(payload):
+                            AppRequest.slashCommand(payload)
+                        #if Events
+                        case let .eventsApi(payload):
+                            AppRequest.event(payload)
+                        #endif
+                        case let .unsupported(type):
+                            AppRequest.unsupported(type)
+                        }
 
-                        // Create context with envelope-specific ack
-                        let routerContext = SocketModeRouter.Context(
-                            client: self.client,
-                            logger: appLogger ?? self.logger,
-                            respond: Respond(transport: self.transport, logger: self.logger),
-                            say: Say(client: self.client, logger: self.logger),
-                            ack: Ack(
+                        let appContext = AppContext(
+                            client: client,
+                            logger: runtimeLogger,
+                            respond: Respond(transport: transport, logger: logger),
+                            say: Say(client: client, logger: logger),
+                            ack: SocketModeAcknowledger.makeAck(
                                 envelopeId: envelope.envelopeId,
                                 writer: outbound,
-                                logger: self.logger,
                             ),
                         )
 
                         do {
                             for router in routers {
-                                try await router.dispatch(context: routerContext, messageEnvelope: envelope)
+                                try await router.dispatch(context: appContext, request: request)
                             }
                         } catch {
                             context.logger.error("App Level Error: \(error)")
@@ -95,42 +139,11 @@ extension Slack {
                     }
                 }
             }
-            // swiftformat:enable redundantSelf
+
             context.logger.info("SocketMode client disconnected")
         }
 
         try await ws.run()
-    }
-
-    private func onMessageRecieved(_ buffer: ByteBuffer) async throws -> SocketModeMessage {
-        do {
-            let messageType = try jsonDecoder.decode(SocketModeMessage.self, from: buffer)
-            switch messageType.body {
-            case let .message(message):
-                if case .eventsApi = message.payload {
-                    // Events APIs should be acked right away
-                    try await ack(message.envelopeId)
-                }
-            case let .hello(message):
-                logger.info("\(message)")
-            case let .disconnect(message):
-                logger.info("\(message)")
-            }
-            return messageType
-        } catch {
-            let message = String(buffer: buffer)
-            logger.error("Parsing message failed: \(error) /// \(message)")
-            throw error
-        }
-    }
-
-    private func ack(_ envelopeId: String) async throws {
-        try await send(SocketModeAcknowledgementlMessage(envelopeId: envelopeId))
-    }
-
-    private func send(_ payload: Encodable) async throws {
-        let data = try jsonEncoder.encode(payload)
-        try await socketModeState.writer?.write(.text(String(decoding: data, as: UTF8.self)))
     }
 
     private func setWebSocketOutboundWriter(_ webSocketOutboundWriter: WebSocketOutboundWriter) {

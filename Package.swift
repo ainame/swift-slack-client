@@ -39,6 +39,7 @@ var traits: [Trait] = webAPITraits.map { .trait(name: $0) }
 
 traits.append(.trait(name: "SocketMode", enabledTraits: ["WebAPI_Apps"]))
 traits.append(.trait(name: "Events"))
+traits.append(.trait(name: "HummingbirdHTTPAdapter"))
 
 // By default, all the traits is enabled for development.
 traits.append(.default(enabledTraits: Set(traits.map(\.name))))
@@ -57,7 +58,9 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.11.0"),
         .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.11.0"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.10.1"),
+        .package(url: "https://github.com/apple/swift-crypto", from: "3.0.0"),
         .package(url: "https://github.com/hummingbird-project/swift-websocket", from: "1.5.0"),
+        .package(url: "https://github.com/hummingbird-project/hummingbird.git", from: "2.0.0"),
         .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.4.6"),
     ],
     targets: [
@@ -66,9 +69,14 @@ let package = Package(
             dependencies: [
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
                 .product(name: "Logging", package: "swift-log"),
+                .product(name: "Crypto", package: "swift-crypto"),
                 .product(
                     name: "WSClient", package: "swift-websocket",
                     condition: .when(traits: ["SocketMode"])
+                ),
+                .product(
+                    name: "Hummingbird", package: "hummingbird",
+                    condition: .when(traits: ["HummingbirdHTTPAdapter"])
                 ),
                 .target(name: "SlackBlockKit"),
                 .target(name: "SlackModels"),
