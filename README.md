@@ -135,6 +135,14 @@ let app = SlackApp(
 try await app.run()
 ```
 
+If you need to do setup work before the runtime starts, use the `preparing` hook:
+
+```swift
+try await app.run { slack in
+    _ = try await slack.authTest()
+}
+```
+
 ### Running with `ServiceGroup`
 
 `SlackApp` now conforms to `Service`, so you can run it inside `swift-service-lifecycle`:

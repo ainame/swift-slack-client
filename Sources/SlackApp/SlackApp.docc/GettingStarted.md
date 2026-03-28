@@ -56,6 +56,14 @@ let app = SlackApp(
 try await app.run()
 ```
 
+If you need to perform setup work with the underlying client before the runtime starts, use the `preparing` hook:
+
+```swift
+try await app.run { slack in
+    _ = try await slack.authTest()
+}
+```
+
 ## HTTP App
 
 ```swift

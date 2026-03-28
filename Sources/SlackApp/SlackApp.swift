@@ -66,6 +66,14 @@ public final class SlackApp {
     }
 
     public func run() async throws {
+        try await run(preparing: nil)
+    }
+
+    public func run(preparing: (@Sendable (Slack) async throws -> Void)? = nil) async throws {
+        if let preparing {
+            try await preparing(slack)
+        }
+
         switch mode {
         #if SocketMode
         case let .socketMode(options, logger):
