@@ -677,7 +677,7 @@ struct MeetingNotes: SlackView {
 
 Combining DSL components with Socket Mode for interactive task management.
 
-> Note: `SlackApp` auto-acknowledges Events API handlers. Slash commands, actions, shortcuts, and views still need explicit `ack()`.
+> Note: `SlackApp` auto-acknowledges Events API handlers. Slash commands, actions, shortcuts, and views still need explicit `ack()`. Router registrations are overwrite-based, and `onSlackMessageMatched(...)` was removed in favor of `onEvent(MessageEvent.self)` plus in-handler filtering.
 
 ```swift
 // Slash command handler
