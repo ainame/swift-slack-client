@@ -1,10 +1,10 @@
 # Getting Started
 
-Learn how to set up and use SlackClient in your project.
+Learn how to set up and use the `SlackClient` Web API client in your project.
 
 ## Installation
 
-Add SlackClient to your Swift package or Xcode project:
+Add the package to your Swift package or Xcode project:
 
 ### Swift Package Manager
 
@@ -16,7 +16,7 @@ dependencies: [
 
 ### Selecting Traits
 
-SlackClient uses traits to include only the API components you need:
+Use traits to include only the API components you need:
 
 ```swift
 .package(
@@ -25,13 +25,14 @@ SlackClient uses traits to include only the API components you need:
     traits: [
         "WebAPI_Chat",    // Chat API methods
         "WebAPI_Views",   // Views API methods
-        "SocketMode",     // Real-time Socket Mode
         "Events"          // Event handling
     ]
 )
 ```
 
 See <doc:Traits> for details.
+
+To build an app runtime for Socket Mode or HTTP request handling, also depend on the `SlackApp` product. See the `SlackApp` documentation for runtime setup.
 
 
 ## Basic Usage
@@ -64,27 +65,6 @@ let response = try await client.conversationsInfo(channel: "C1234567890")
 print("Channel name: \(response.channel?.name ?? "Unknown")")
 ```
 
-## Socket Mode
+## Next Step
 
-For real-time interactions, use Socket Mode. This way you can build Slack apps with various ways such as a plain app with Events, Shortcuts or Slash Commands. 
-
-```swift
-let router = SocketModeRouter()
-
-router.onSlashCommand("/hello") { context, payload in
-    try await context.client.chatPostMessage(
-        channel: payload.channelId,
-        text: "Hello, \(payload.userName)!"
-    )
-}
-
-router.onEvent(AppMentionEvent.self) { context, envelope, event in
-    try await context.client.chatPostMessage(
-        channel: event.channel,
-        text: "Thanks for mentioning me!"
-    )
-}
-
-await client.addSocketModeRouter(router)
-try await client.runInSocketMode()
-```
+`SlackClient` is now the pure Web API layer. If you need routing, acknowledgements, Socket Mode, or HTTP request handling, import the `SlackApp` product alongside `SlackClient`.

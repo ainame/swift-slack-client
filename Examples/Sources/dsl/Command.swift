@@ -1,6 +1,7 @@
 import Foundation
 import OpenAPIAsyncHTTPClient
 import SlackBlockKitDSL
+import SlackApp
 import SlackClient
 
 @main
@@ -21,7 +22,7 @@ struct Command {
             ),
         )
 
-        let router = SocketModeRouter()
+        let router = AppRouter()
 
         // Handle global shortcuts
         router.onGlboalShortcut("run-something") {
@@ -333,10 +334,13 @@ struct Command {
             print("Advanced modal opened: \(response)")
         }
 
-        await slack.addSocketModeRouter(router)
-
         // This is demo so this doesn't automatically reconnect to socket when disconnected
         print("Starting Socket Mode connection...")
-        try await slack.runInSocketMode()
+        let app = App(
+            slack: slack,
+            router: router,
+            mode: .socketMode(options: []),
+        )
+        try await app.run()
     }
 }

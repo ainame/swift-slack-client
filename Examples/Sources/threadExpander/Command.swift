@@ -1,5 +1,6 @@
 import Foundation
 import OpenAPIAsyncHTTPClient
+import SlackApp
 import SlackClient
 
 @main
@@ -29,7 +30,7 @@ struct ThreadExpander {
             .replacingOccurrences(of: "https://", with: "")
             .replacingOccurrences(of: ".slack.com/", with: "")
 
-        let router = SocketModeRouter()
+        let router = AppRouter()
 
         router.onEvent(MessageEvent.self) { context, _, messageEvent in
             try await context.ack()
@@ -51,9 +52,8 @@ struct ThreadExpander {
             )
         }
 
-        await slack.addSocketModeRouter(router)
-
         print("🧵 Thread Expander started. Press Ctrl+C to stop.")
-        try await slack.runInSocketMode()
+        let app = App(slack: slack, router: router, mode: .socketMode())
+        try await app.run()
     }
 }

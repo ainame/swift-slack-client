@@ -1,6 +1,7 @@
 import Foundation
 import OpenAPIAsyncHTTPClient
 import OpenAPIRuntime
+import SlackApp
 import SlackBlockKit
 import SlackBlockKitDSL
 import SlackClient
@@ -27,11 +28,7 @@ struct Command {
             ),
         )
 
-        let router = SocketModeRouter()
-
-        router.onSocketModeMessage { _, envelope in
-            print("SocketMode envelope received: \(envelope._type)")
-        }
+        let router = AppRouter()
 
         router.onInteractive { context, interactive in
             try await context.ack()
@@ -47,8 +44,6 @@ struct Command {
                 print("interactive payload type: \(interactive._type)")
             }
         }
-
-        await slack.addSocketModeRouter(router)
 
         let blocks = ReproMessageBlocks().blocks
 
@@ -99,7 +94,8 @@ struct Command {
         print("- unfurl button -> block_actions (container.type = message_attachment)")
         print("If unfurl button is missing, app/domain setup for link unfurls is incomplete.")
 
-        try await slack.runInSocketMode()
+        let app = App(slack: slack, router: router, mode: .socketMode())
+        try await app.run()
     }
 }
 

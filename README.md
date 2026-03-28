@@ -12,12 +12,14 @@ Build Slack apps using the language you love.
 
 📖 **[Complete Documentation](https://ainame.github.io/swift-slack-client/)** - Full API reference, guides, and examples
 
+Migration guide: [Migrating to SlackApp](./MIGRATING_TO_SLACKAPP.md)
+
 ## Documentation
 
 This library provides comprehensive DocC documentation including:
 
 - **API Reference**: Complete documentation for all public APIs, types, and methods
-- **Getting Started**: Step-by-step setup guides for Web API and Socket Mode
+- **Getting Started**: Step-by-step setup guides for the Web API client and `SlackApp` runtime
 - **Examples**: Real-world code examples and common patterns
 - **Block Kit Guide**: Complete guide to building rich Slack UIs with both direct API and DSL approaches
 - **Socket Mode**: Interactive routing, event handling, and acknowledgment patterns
@@ -25,6 +27,7 @@ This library provides comprehensive DocC documentation including:
 
 The documentation is automatically generated from code and hosted on GitHub Pages. Browse by module:
 - [SlackClient](https://ainame.github.io/swift-slack-client/documentation/slackclient/) - Main client and configuration
+- [SlackApp](https://ainame.github.io/swift-slack-client/documentation/slackapp/) - App runtime for Socket Mode and HTTP handling
 - [SlackModels](https://ainame.github.io/swift-slack-client/documentation/slackmodels/) - All Slack API types and models
 - [SlackBlockKit](https://ainame.github.io/swift-slack-client/documentation/slackblockkit/) - Direct Block Kit API
 - [SlackBlockKitDSL](https://ainame.github.io/swift-slack-client/documentation/slackblockkit/) - SwiftUI-style DSL for Block Kit
@@ -34,7 +37,7 @@ The documentation is automatically generated from code and hosted on GitHub Page
 ## Key Features
 
 * **Type-safe Slack Web API/Block Kit support** to build rich Slack apps
-* **Built-in Socket Mode support** - no ngrok required for local development
+* **Optional `SlackApp` runtime** for Socket Mode and HTTP-based Slack apps
 * **Automatically generated from OpenAPI specs** to stay current with official Web API changes
 * **Designed for modern Swift on Server** - structured concurrency, swift-openapi-generator, Swift Package traits, etc.
 
@@ -97,15 +100,17 @@ try await slack.client.chatPostMessage(
 )
 ```
 
-### Socket Mode
+### Socket Mode With `SlackApp`
 
 ```swift
+import SlackApp
+
 let slack = Slack(
     transport: AsyncHTTPClientTransport(),
     configuration: .init(appToken: appToken, token: token)
 )
 
-let router = SocketModeRouter()
+let router = AppRouter()
 
 // Handle app mentions
 router.onEvent(AppMentionEvent.self) { context, envelope, event in
@@ -126,8 +131,8 @@ router.onBlockAction("button_id") { context, payload in
     // Handle button click
 }
 
-await slack.addSocketModeRouter(router)
-try await slack.runInSocketMode()
+let app = App(slack: slack, router: router, mode: .socketMode())
+try await app.run()
 ```
 
 **Interactive handlers must call `context.ack()`**

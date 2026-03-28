@@ -1,6 +1,7 @@
 import Foundation
 import OpenAPIAsyncHTTPClient
 import SlackBlockKitDSL
+import SlackApp
 import SlackClient
 
 @main
@@ -21,11 +22,7 @@ struct Command {
             ),
         )
 
-        let router = SocketModeRouter()
-
-        router.onSocketModeMessage { _, _ in
-            print("onMessage")
-        }
+        let router = AppRouter()
 
         router.onEvent { context, envelope in
             try await context.ack()
@@ -79,8 +76,7 @@ struct Command {
             print("onSlackMessageMatched: \(payload.text!)")
         }
 
-        await slack.addSocketModeRouter(router)
-
-        try await slack.runInSocketMode()
+        let app = App(slack: slack, router: router, mode: .socketMode())
+        try await app.run()
     }
 }
