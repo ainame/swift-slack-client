@@ -123,7 +123,7 @@ extension SlackApp {
                                     say: Say(client: client, logger: logger),
                                 )
                                 try await router.dispatch(context: .event(context), request: request)
-                            case .interactive, .slashCommand, .unsupported:
+                            case .interactive, .slashCommand:
                                 let context = Context(
                                     client: client,
                                     logger: runtimeLogger,
@@ -135,6 +135,12 @@ extension SlackApp {
                                     ),
                                 )
                                 try await router.dispatch(context: .request(context), request: request)
+                            case let .unsupported(type):
+                                runtimeLogger.warning("Ignoring unsupported Socket Mode envelope type: \(type)")
+                                try await SocketModeAcknowledger.sendBasicAck(
+                                    envelopeId: envelope.envelopeId,
+                                    writer: outbound,
+                                )
                             }
                         } catch {
                             runtimeLogger.error("App Level Error: \(error)")

@@ -21,7 +21,7 @@ and community project
  [slack-api-ref](https://github.com/slack-ruby/slack-ruby-client)
 to compose own OpenAPI spec and generate client and model code by
  [swift-openapi-generator](https://github.com/apple/swift-openapi-generator).
-When those source repositories get updates, this project will also recieve update from GitHub Actions.
+When those source repositories get updates, this project will also receive update from GitHub Actions.
 
 ### Built for Server on Swift
 
