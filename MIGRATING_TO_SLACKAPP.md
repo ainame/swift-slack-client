@@ -84,3 +84,13 @@ try await app.run()
 ```
 
 `SlackApp` now owns the default async HTTP transport. `SlackClient` remains the lower-level option when you want to provide your own transport directly.
+
+
+## Ack semantics
+
+`SlackApp` now follows Bolt-style event acknowledgement behavior:
+
+- `onEvent(...)` handlers are auto-acked and do not receive `ack`
+- slash commands, block actions, shortcuts, and view handlers still require explicit `ack()`
+- in HTTP mode, Events API requests return `200 OK` automatically
+- in Socket Mode, Events API envelopes are acknowledged before dispatch

@@ -15,7 +15,8 @@ Add the package and enable the traits your runtime needs:
         "WebAPI_Chat",
         "WebAPI_Views",
         "SocketMode",
-        "Events"
+        "Events",
+        "HummingbirdHTTPAdapter"
     ]
 )
 ```
@@ -72,3 +73,8 @@ let app = SlackApp(
 
 try await app.run()
 ```
+
+## Ack semantics
+
+- Events API handlers are auto-acked and receive `EventContext` without `ack`.
+- Slash commands, block actions, shortcuts, and views receive `Context` and must call `ack()`.

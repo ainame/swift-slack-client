@@ -107,8 +107,8 @@ import SlackApp
 
 let router = Router()
 
-// Handle app mentions
-router.onEvent(AppMentionEvent.self) { context, envelope, event in
+// Handle app mentions (Events API requests are auto-acked)
+router.onEvent(AppMentionEvent.self) { context, _, event in
     try await context.client.chatPostMessage(
         body: .json(.init(channel: event.channel, text: "Hello!"))
     )
@@ -134,7 +134,7 @@ let app = SlackApp(
 try await app.run()
 ```
 
-**Interactive handlers must call `context.ack()`**
+**Events API handlers are auto-acked. Interactive handlers must call `context.ack()`**
 
 ```swift
 // Basic acknowledgment
