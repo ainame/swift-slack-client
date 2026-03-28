@@ -1,6 +1,6 @@
 import Foundation
-import SlackBlockKitDSL
 import SlackApp
+import SlackBlockKitDSL
 
 @main
 struct Command {
@@ -13,7 +13,7 @@ struct Command {
 
         let router = Router()
 
-        router.onEvent { context, envelope in
+        router.onEvent { _, envelope in
             switch envelope.event {
             case .appMention:
                 print("onEvent: appMention")
@@ -24,7 +24,7 @@ struct Command {
             }
         }
 
-        router.onEvent(AppMentionEvent.self) { context, _, _ in
+        router.onEvent(AppMentionEvent.self) { _, _, _ in
             print("onEvent: AppMentionEvent")
         }
 
@@ -70,7 +70,7 @@ struct Command {
                 token: token,
             ),
             router: router,
-            mode: .socketMode()
+            mode: .socketMode(),
         )
         try await app.run()
     }

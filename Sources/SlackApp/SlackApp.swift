@@ -91,7 +91,7 @@ extension SlackApp {
     }
 
     private func startSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws {
-        let router = self.router
+        let router = router
         let client = await slack.client
         let transport = await slack.transport
         let logger = await slack.logger
@@ -198,6 +198,5 @@ extension SlackApp {
     }
 }
 #endif
-
 
 extension SlackApp: Service {}

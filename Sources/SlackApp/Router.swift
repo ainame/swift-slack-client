@@ -62,7 +62,7 @@ private enum InteractiveHandler: Sendable {
              let .view(handler),
              let .viewSubmission(handler),
              let .viewClosed(handler):
-            return handler
+            handler
         }
     }
 }
@@ -239,7 +239,7 @@ public class Router {
 
     public func onSlashCommand(
         _ command: String,
-        handler: @escaping RequestPayloadHandler<SlashCommandsPayload>
+        handler: @escaping RequestPayloadHandler<SlashCommandsPayload>,
     ) {
         precondition(command.hasPrefix("/"), "A command should be registered with `/` prefix; e.g. `/command`")
 
@@ -266,7 +266,7 @@ public class Router {
     }
 
     public func onView(_ callbackId: String, handler: @escaping RequestPayloadHandler<InteractivePayload>) {
-        viewHandlers[callbackId] = .view({ context, request in
+        viewHandlers[callbackId] = .view { context, request in
             guard let context = context.requestContext,
                   case let .interactive(interactiveEnvelope) = request else { return }
             if case let .viewSubmission(payload) = interactiveEnvelope.body,
@@ -276,11 +276,11 @@ public class Router {
                       payload.callbackId == callbackId {
                 try await handler(context, interactiveEnvelope.body)
             }
-        })
+        }
     }
 
     public func onViewSubmission(_ callbackId: String, handler: @escaping RequestPayloadHandler<ViewSubmissionPayload>) {
-        viewHandlers[callbackId] = .viewSubmission({ context, request in
+        viewHandlers[callbackId] = .viewSubmission { context, request in
             guard let context = context.requestContext,
                   case let .interactive(interactiveEnvelope) = request,
                   case let .viewSubmission(payload) = interactiveEnvelope.body,
@@ -288,11 +288,11 @@ public class Router {
                 return
             }
             try await handler(context, payload)
-        })
+        }
     }
 
     public func onViewClosed(_ callbackId: String, handler: @escaping RequestPayloadHandler<ViewClosedPayload>) {
-        viewHandlers[callbackId] = .viewClosed({ context, request in
+        viewHandlers[callbackId] = .viewClosed { context, request in
             guard let context = context.requestContext,
                   case let .interactive(interactiveEnvelope) = request,
                   case let .viewClosed(payload) = interactiveEnvelope.body,
@@ -300,7 +300,7 @@ public class Router {
                 return
             }
             try await handler(context, payload)
-        })
+        }
     }
 
     public func onError(_ handler: @escaping ErrorHandler) {
@@ -318,7 +318,7 @@ public class Router {
 
     public func onEvent<T: SlackEvent>(
         _: T.Type,
-        handler: @escaping EventRequestEnvelopePayloadHandler<EventsApiEnvelope<Event>, T>
+        handler: @escaping EventRequestEnvelopePayloadHandler<EventsApiEnvelope<Event>, T>,
     ) {
         typedEventHandlers[TypedEventKey(T.self)] = { context, request in
             guard let context = context.eventContext,

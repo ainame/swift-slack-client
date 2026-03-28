@@ -3,15 +3,17 @@ import Foundation
 import HTTPTypes
 import Logging
 import OpenAPIRuntime
-import SlackClient
 @testable import SlackApp
+import SlackClient
 import Testing
 
 struct AppRouterTests {
     @Test func slashCommandRegistrationUsesLastHandler() async throws {
         actor Tracker {
             private(set) var value: String?
-            func set(_ value: String) { self.value = value }
+            func set(_ value: String) {
+                self.value = value
+            }
         }
 
         let tracker = Tracker()
@@ -21,8 +23,8 @@ struct AppRouterTests {
 
         let fixedRouter = Router.FixedRouter(from: router)
         try await fixedRouter.dispatch(
-            context: .request(await makeRequestContext()),
-            request: .slashCommand(try makeSlashCommandPayload(command: "/test"))
+            context: .request(makeRequestContext()),
+            request: .slashCommand(makeSlashCommandPayload(command: "/test")),
         )
 
         #expect(await tracker.value == "second")
@@ -31,7 +33,9 @@ struct AppRouterTests {
     @Test func specificEventDispatchUsesLastTypedHandler() async throws {
         actor Tracker {
             private(set) var text: String?
-            func setText(_ value: String?) { text = value }
+            func setText(_ value: String?) {
+                text = value
+            }
         }
 
         let tracker = Tracker()
@@ -46,8 +50,8 @@ struct AppRouterTests {
         let envelope = try makeMessageEventEnvelope(text: "hello")
         let fixedRouter = Router.FixedRouter(from: router)
         try await fixedRouter.dispatch(
-            context: .event(await makeEventContext()),
-            request: .event(envelope)
+            context: .event(makeEventContext()),
+            request: .event(envelope),
         )
 
         #expect(await tracker.text == "hello")
@@ -56,7 +60,9 @@ struct AppRouterTests {
     @Test func broadEventDispatchUsesLastHandler() async throws {
         actor Tracker {
             private(set) var value: String?
-            func set(_ value: String) { self.value = value }
+            func set(_ value: String) {
+                self.value = value
+            }
         }
 
         let tracker = Tracker()
@@ -67,8 +73,8 @@ struct AppRouterTests {
         let envelope = try makeMessageEventEnvelope(text: "hello")
         let fixedRouter = Router.FixedRouter(from: router)
         try await fixedRouter.dispatch(
-            context: .event(await makeEventContext()),
-            request: .event(envelope)
+            context: .event(makeEventContext()),
+            request: .event(envelope),
         )
 
         #expect(await tracker.value == "second")
@@ -77,7 +83,9 @@ struct AppRouterTests {
     @Test func typedEventTakesPrecedenceOverBroadEventHandler() async throws {
         actor Tracker {
             private(set) var value: String?
-            func set(_ value: String) { self.value = value }
+            func set(_ value: String) {
+                self.value = value
+            }
         }
 
         let tracker = Tracker()
@@ -88,8 +96,8 @@ struct AppRouterTests {
         let envelope = try makeMessageEventEnvelope(text: "hello")
         let fixedRouter = Router.FixedRouter(from: router)
         try await fixedRouter.dispatch(
-            context: .event(await makeEventContext()),
-            request: .event(envelope)
+            context: .event(makeEventContext()),
+            request: .event(envelope),
         )
 
         #expect(await tracker.value == "typed")
@@ -98,7 +106,9 @@ struct AppRouterTests {
     @Test func interactiveDispatchUsesSpecificHandlerOverBroadInteractiveHandler() async throws {
         actor Tracker {
             private(set) var callbackId: String?
-            func setCallbackId(_ value: String) { callbackId = value }
+            func setCallbackId(_ value: String) {
+                callbackId = value
+            }
         }
 
         let tracker = Tracker()
@@ -112,7 +122,7 @@ struct AppRouterTests {
 
         let body = try makeBlockActionEnvelope(callbackId: "button-id")
         let fixedRouter = Router.FixedRouter(from: router)
-        try await fixedRouter.dispatch(context: .request(await makeRequestContext()), request: .interactive(body))
+        try await fixedRouter.dispatch(context: .request(makeRequestContext()), request: .interactive(body))
 
         #expect(await tracker.callbackId == "button-id")
     }
@@ -120,7 +130,9 @@ struct AppRouterTests {
     @Test func interactiveDispatchUsesLastBroadHandler() async throws {
         actor Tracker {
             private(set) var value: String?
-            func set(_ value: String) { self.value = value }
+            func set(_ value: String) {
+                self.value = value
+            }
         }
 
         let tracker = Tracker()
@@ -130,7 +142,7 @@ struct AppRouterTests {
 
         let body = try makeBlockActionEnvelope(callbackId: nil)
         let fixedRouter = Router.FixedRouter(from: router)
-        try await fixedRouter.dispatch(context: .request(await makeRequestContext()), request: .interactive(body))
+        try await fixedRouter.dispatch(context: .request(makeRequestContext()), request: .interactive(body))
 
         #expect(await tracker.value == "second")
     }
@@ -138,7 +150,9 @@ struct AppRouterTests {
     @Test func viewHandlersShareNamespaceByCallbackId() async throws {
         actor Tracker {
             private(set) var value: String?
-            func set(_ value: String) { self.value = value }
+            func set(_ value: String) {
+                self.value = value
+            }
         }
 
         let tracker = Tracker()
@@ -148,7 +162,7 @@ struct AppRouterTests {
 
         let body = try makeViewSubmissionEnvelope(callbackId: "modal")
         let fixedRouter = Router.FixedRouter(from: router)
-        try await fixedRouter.dispatch(context: .request(await makeRequestContext()), request: .interactive(body))
+        try await fixedRouter.dispatch(context: .request(makeRequestContext()), request: .interactive(body))
 
         #expect(await tracker.value == "submission")
     }
@@ -171,7 +185,7 @@ private func makeSlashCommandPayload(command: String) throws -> SlashCommandsPay
           "api_app_id": "A123",
           "token": "legacy"
         }
-        """.data(using: .utf8)
+        """.data(using: .utf8),
     )
     return try JSONDecoder().decode(SlashCommandsPayload.self, from: bodyData)
 }
@@ -196,7 +210,7 @@ private func makeMessageEventEnvelope(text: String) throws -> EventsApiEnvelope<
           "event_id": "Ev123",
           "event_time": 123
         }
-        """.data(using: .utf8)
+        """.data(using: .utf8),
     )
     return try JSONDecoder().decode(EventsApiEnvelope<Event>.self, from: eventData)
 }
@@ -241,9 +255,9 @@ private func makeBlockActionEnvelope(callbackId: String?) throws -> InteractiveE
             .replacingOccurrences(of: "__VIEW_CALLBACK_ID__", with: callbackId ?? "fallback-modal")
             .replacingOccurrences(
                 of: "__CALLBACK_ID_FIELD__",
-                with: callbackId.map { "\"callback_id\": \"\($0)\",\n      " } ?? ""
+                with: callbackId.map { "\"callback_id\": \"\($0)\",\n      " } ?? "",
             )
-            .data(using: .utf8)
+            .data(using: .utf8),
     )
     return try JSONDecoder().decode(InteractiveEnvelope.self, from: bodyData)
 }
@@ -268,7 +282,7 @@ private func makeViewSubmissionEnvelope(callbackId: String) throws -> Interactiv
             "state": {"values": {}}
           }
         }
-        """.data(using: .utf8)
+        """.data(using: .utf8),
     )
     return try JSONDecoder().decode(InteractiveEnvelope.self, from: bodyData)
 }
@@ -283,7 +297,7 @@ private func makeEventContext() async -> SlackApp.EventContext {
         client: client,
         logger: logger,
         respond: Respond(transport: transport, logger: logger),
-        say: Say(client: client, logger: logger)
+        say: Say(client: client, logger: logger),
     )
 }
 
@@ -301,8 +315,8 @@ private func makeRequestContext() async -> SlackApp.Context {
         ack: Ack(
             basicHandler: {},
             viewHandler: { _, _ in },
-            errorHandler: { _ in }
-        )
+            errorHandler: { _ in },
+        ),
     )
 }
 
@@ -311,7 +325,7 @@ private struct MockTransport: ClientTransport, Sendable {
         _: HTTPRequest,
         body _: HTTPBody?,
         baseURL _: URL,
-        operationID _: String
+        operationID _: String,
     ) async throws -> (HTTPResponse, HTTPBody?) {
         (HTTPResponse(status: .ok), nil)
     }

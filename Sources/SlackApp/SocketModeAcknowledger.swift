@@ -12,14 +12,14 @@ enum SocketModeAcknowledger {
             viewHandler: { responseAction, view in
                 let payload = SocketModeViewAck(
                     envelopeId: envelopeId,
-                    payload: .init(responseAction: responseAction.rawValue, view: view)
+                    payload: .init(responseAction: responseAction.rawValue, view: view),
                 )
                 try await send(payload, writer: writer)
             },
             errorHandler: { errors in
                 let payload = SocketModeErrorAck(
                     envelopeId: envelopeId,
-                    payload: .init(responseAction: "errors", errors: errors)
+                    payload: .init(responseAction: "errors", errors: errors),
                 )
                 try await send(payload, writer: writer)
             },

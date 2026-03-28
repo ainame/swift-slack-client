@@ -4,7 +4,7 @@ import OpenAPIRuntime
 
 struct FormEncodingMiddleware: ClientMiddleware, Sendable {
     private static let formURLEncodedAllowedCharacters = CharacterSet(
-        charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~"
+        charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~",
     )
 
     func intercept(

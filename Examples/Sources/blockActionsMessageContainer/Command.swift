@@ -76,7 +76,7 @@ struct Command {
                 .init(
                     channel: channel,
                     ts: seedTs,
-                    unfurls: try buildMessageAttachmentUnfurlPayload(url: unfurlUrl),
+                    unfurls: buildMessageAttachmentUnfurlPayload(url: unfurlUrl),
                 ),
             ),
         )
@@ -133,7 +133,7 @@ private func buildMessageAttachmentUnfurlPayload(url: String) throws -> OpenAPIO
 
 private func requireChatPostMessageResponse(
     _ output: Operations.ChatPostMessage.Output,
-    context: String
+    context: String,
 ) throws -> Components.Schemas.ChatPostMessageResponse {
     guard case let .ok(okOutput) = output,
           case let .json(response) = okOutput.body else {
@@ -146,7 +146,7 @@ private func requireChatPostMessageResponse(
 }
 
 private func requireChatUnfurlResponse(
-    _ output: Operations.ChatUnfurl.Output
+    _ output: Operations.ChatUnfurl.Output,
 ) throws -> Components.Schemas.ChatUnfurlResponse {
     guard case let .ok(okOutput) = output,
           case let .json(response) = okOutput.body else {

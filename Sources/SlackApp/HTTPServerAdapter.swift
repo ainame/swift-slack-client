@@ -29,6 +29,6 @@ public struct HTTPServerResponse: Sendable {
 
 public protocol HTTPServerAdapter: Sendable {
     func run(
-        handler: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse
+        handler: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse,
     ) async throws
 }

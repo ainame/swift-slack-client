@@ -52,7 +52,7 @@ struct EchoSlashCommand {
                 token: token,
             ),
             router: router,
-            mode: .socketMode()
+            mode: .socketMode(),
         )
         try await app.run()
     }

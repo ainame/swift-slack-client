@@ -12,22 +12,22 @@ struct FormEncodingMiddlewareTests {
         let payload = Operations.ChatPostMessage.Input.Body.JsonPayload(
             blocks: [
                 .section(SectionBlock(
-                    text: .init(type: .mrkdwn, text: "*Approval required*\nReview diff", verbatim: true)
+                    text: .init(type: .mrkdwn, text: "*Approval required*\nReview diff", verbatim: true),
                 )),
                 .actions(ActionsBlock(
                     elements: [
                         .button(ButtonElement(
                             text: .init(type: .plainText, text: "Approve"),
                             actionId: "approval_approve",
-                            value: blockValue
+                            value: blockValue,
                         )),
                     ],
-                    blockId: "approval_actions"
+                    blockId: "approval_actions",
                 )),
             ],
             channel: "C123",
             replyBroadcast: true,
-            text: "Approval required"
+            text: "Approval required",
         )
 
         let jsonData = try JSONEncoder().encode(payload)
@@ -35,7 +35,7 @@ struct FormEncodingMiddlewareTests {
             method: .post,
             scheme: "https",
             authority: "slack.com",
-            path: "/api/chat.postMessage"
+            path: "/api/chat.postMessage",
         )
         request.headerFields[HTTPField.Name.contentType] = "application/json; charset=utf-8"
 
@@ -43,11 +43,11 @@ struct FormEncodingMiddlewareTests {
         let intercepted = try await middleware.intercept(
             request,
             body: HTTPBody(jsonData),
-            baseURL: URL(string: "https://slack.com/api")!,
+            baseURL: #require(URL(string: "https://slack.com/api")),
             operationID: "chatPostMessage",
             next: { request, body, _ in
                 (HTTPResponse(status: .ok, headerFields: request.headerFields), body)
-            }
+            },
         )
 
         #expect(intercepted.0.headerFields[HTTPField.Name.contentType] == "application/x-www-form-urlencoded")

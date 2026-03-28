@@ -1,6 +1,6 @@
 import Foundation
-import SlackBlockKitDSL
 import SlackApp
+import SlackBlockKitDSL
 
 @main
 struct Command {
@@ -120,7 +120,6 @@ struct Command {
 
         // Handle app home opened events
         router.onEvent(AppHomeOpenedEvent.self) { context, _, event in
-
             // Create a home tab view using the new DSL
             let view = HomeTab {
                 Header {

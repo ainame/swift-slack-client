@@ -2,8 +2,8 @@ import Crypto
 import Foundation
 import HTTPTypes
 import OpenAPIRuntime
-import SlackClient
 @testable import SlackApp
+import SlackClient
 import Testing
 
 struct AppHTTPHandlerTests {
@@ -11,7 +11,7 @@ struct AppHTTPHandlerTests {
         let app = SlackApp(
             configuration: .init(token: "xoxb-test", signingSecret: "secret"),
             router: Router(),
-            mode: .http(NoopAdapter())
+            mode: .http(NoopAdapter()),
         )
 
         withExtendedLifetime(app) {}
@@ -26,11 +26,11 @@ struct AppHTTPHandlerTests {
                 path: "/slack/events",
                 headerFields: HTTPFields([
                     HTTPField(name: .contentType, value: "application/json"),
-                    HTTPField(name: HTTPField.Name("x-slack-request-timestamp")!, value: timestamp),
-                    HTTPField(name: HTTPField.Name("x-slack-signature")!, value: "v0=bad"),
+                    HTTPField(name: #require(HTTPField.Name("x-slack-request-timestamp")), value: timestamp),
+                    HTTPField(name: #require(HTTPField.Name("x-slack-signature")), value: "v0=bad"),
                 ]),
-                body: Data(#"{"type":"url_verification","challenge":"abc"}"#.utf8)
-            )
+                body: Data(#"{"type":"url_verification","challenge":"abc"}"#.utf8),
+            ),
         )
 
         #expect(response.status == .unauthorized)
@@ -45,7 +45,7 @@ struct AppHTTPHandlerTests {
             path: "/slack/events",
             contentType: "application/json",
             body: body,
-            timestamp: timestamp
+            timestamp: timestamp,
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
 
@@ -55,7 +55,6 @@ struct AppHTTPHandlerTests {
         let responseBody = try #require(response.body)
         #expect(String(decoding: responseBody, as: UTF8.self).contains(#""challenge":"abc""#))
     }
-
 
     @Test func eventDispatchesHandlerWithoutAck() async throws {
         actor Tracker {
@@ -73,7 +72,8 @@ struct AppHTTPHandlerTests {
         }
 
         let body = Data(
-            #"{"team_id":"T123","api_app_id":"A123","event":{"type":"message","channel":"C123","channel_type":"channel","event_ts":"123","team":"T123","text":"hello","ts":"123","user":"U123"},"type":"event_callback","event_id":"Ev123","event_time":123}"#.utf8
+            #"{"team_id":"T123","api_app_id":"A123","event":{"type":"message","channel":"C123","channel_type":"channel","event_ts":"123","team":"T123","text":"hello","ts":"123","user":"U123"},"type":"event_callback","event_id":"Ev123","event_time":123}"#
+                .utf8,
         )
         let timestamp = currentTimestamp()
         let request = signedRequest(
@@ -82,7 +82,7 @@ struct AppHTTPHandlerTests {
             path: "/slack/events",
             contentType: "application/json",
             body: body,
-            timestamp: timestamp
+            timestamp: timestamp,
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
 
@@ -93,10 +93,10 @@ struct AppHTTPHandlerTests {
         #expect(await tracker.text == "hello")
     }
 
-
     @Test func unmatchedSlashCommandReturnsOK() async throws {
         let body = Data(
-            "command=%2Funknown&text=hello+world&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2F123%2F456&trigger_id=trigger&user_id=U123&user_name=tester&channel_id=C123&channel_name=general&team_id=T123&team_domain=example&is_enterprise_install=false&api_app_id=A123".utf8
+            "command=%2Funknown&text=hello+world&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2F123%2F456&trigger_id=trigger&user_id=U123&user_name=tester&channel_id=C123&channel_name=general&team_id=T123&team_domain=example&is_enterprise_install=false&api_app_id=A123"
+                .utf8,
         )
         let timestamp = currentTimestamp()
         let request = signedRequest(
@@ -105,7 +105,7 @@ struct AppHTTPHandlerTests {
             path: "/slack/events",
             contentType: "application/x-www-form-urlencoded",
             body: body,
-            timestamp: timestamp
+            timestamp: timestamp,
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
 
@@ -117,7 +117,8 @@ struct AppHTTPHandlerTests {
 
     @Test func unmatchedInteractiveReturnsOK() async throws {
         let body = Data(
-            "payload=%7B%22type%22%3A%22block_actions%22%2C%22user%22%3A%7B%22id%22%3A%22U123%22%7D%2C%22api_app_id%22%3A%22A123%22%2C%22token%22%3A%22legacy-token%22%2C%22container%22%3A%7B%22type%22%3A%22message%22%2C%22message_ts%22%3A%22123.456%22%2C%22channel_id%22%3A%22C123%22%2C%22is_ephemeral%22%3Afalse%7D%2C%22trigger_id%22%3A%2213345224609.738474920.8088930838d88f008e0%22%2C%22team%22%3A%7B%22id%22%3A%22T123%22%2C%22domain%22%3A%22example%22%7D%2C%22channel%22%3A%7B%22id%22%3A%22C123%22%2C%22name%22%3A%22general%22%7D%2C%22view%22%3A%7B%22type%22%3A%22modal%22%2C%22callback_id%22%3A%22other-id%22%2C%22title%22%3A%7B%22type%22%3A%22plain_text%22%2C%22text%22%3A%22Test%22%7D%2C%22blocks%22%3A%5B%5D%7D%2C%22response_url%22%3A%22https%3A%2F%2Fhooks.slack.com%2Factions%2FT123%2F1%2F2%22%2C%22actions%22%3A%5B%7B%22action_id%22%3A%22button-id%22%2C%22block_id%22%3A%22block-1%22%2C%22text%22%3A%7B%22type%22%3A%22plain_text%22%2C%22text%22%3A%22Click%22%7D%2C%22value%22%3A%22test%22%2C%22type%22%3A%22button%22%2C%22action_ts%22%3A%22123.456%22%7D%5D%2C%22callback_id%22%3A%22other-id%22%7D".utf8
+            "payload=%7B%22type%22%3A%22block_actions%22%2C%22user%22%3A%7B%22id%22%3A%22U123%22%7D%2C%22api_app_id%22%3A%22A123%22%2C%22token%22%3A%22legacy-token%22%2C%22container%22%3A%7B%22type%22%3A%22message%22%2C%22message_ts%22%3A%22123.456%22%2C%22channel_id%22%3A%22C123%22%2C%22is_ephemeral%22%3Afalse%7D%2C%22trigger_id%22%3A%2213345224609.738474920.8088930838d88f008e0%22%2C%22team%22%3A%7B%22id%22%3A%22T123%22%2C%22domain%22%3A%22example%22%7D%2C%22channel%22%3A%7B%22id%22%3A%22C123%22%2C%22name%22%3A%22general%22%7D%2C%22view%22%3A%7B%22type%22%3A%22modal%22%2C%22callback_id%22%3A%22other-id%22%2C%22title%22%3A%7B%22type%22%3A%22plain_text%22%2C%22text%22%3A%22Test%22%7D%2C%22blocks%22%3A%5B%5D%7D%2C%22response_url%22%3A%22https%3A%2F%2Fhooks.slack.com%2Factions%2FT123%2F1%2F2%22%2C%22actions%22%3A%5B%7B%22action_id%22%3A%22button-id%22%2C%22block_id%22%3A%22block-1%22%2C%22text%22%3A%7B%22type%22%3A%22plain_text%22%2C%22text%22%3A%22Click%22%7D%2C%22value%22%3A%22test%22%2C%22type%22%3A%22button%22%2C%22action_ts%22%3A%22123.456%22%7D%5D%2C%22callback_id%22%3A%22other-id%22%7D"
+                .utf8,
         )
         let timestamp = currentTimestamp()
         let request = signedRequest(
@@ -126,7 +127,7 @@ struct AppHTTPHandlerTests {
             path: "/slack/events",
             contentType: "application/x-www-form-urlencoded",
             body: body,
-            timestamp: timestamp
+            timestamp: timestamp,
         )
         let router = Router()
         router.onBlockAction("button-id") { context, _ in
@@ -145,7 +146,8 @@ struct AppHTTPHandlerTests {
         router.onSlashCommand("/echo") { _, _ in }
 
         let body = Data(
-            "command=%2Fecho&text=hello+world&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2F123%2F456&trigger_id=trigger&user_id=U123&user_name=tester&channel_id=C123&channel_name=general&team_id=T123&team_domain=example&is_enterprise_install=false&api_app_id=A123".utf8
+            "command=%2Fecho&text=hello+world&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2F123%2F456&trigger_id=trigger&user_id=U123&user_name=tester&channel_id=C123&channel_name=general&team_id=T123&team_domain=example&is_enterprise_install=false&api_app_id=A123"
+                .utf8,
         )
         let timestamp = currentTimestamp()
         let request = signedRequest(
@@ -154,7 +156,7 @@ struct AppHTTPHandlerTests {
             path: "/slack/events",
             contentType: "application/x-www-form-urlencoded",
             body: body,
-            timestamp: timestamp
+            timestamp: timestamp,
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
 
@@ -180,7 +182,8 @@ struct AppHTTPHandlerTests {
         }
 
         let body = Data(
-            "command=%2Fecho&text=hello+world&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2F123%2F456&trigger_id=trigger&user_id=U123&user_name=tester&channel_id=C123&channel_name=general&team_id=T123&team_domain=example&is_enterprise_install=false&api_app_id=A123".utf8
+            "command=%2Fecho&text=hello+world&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2F123%2F456&trigger_id=trigger&user_id=U123&user_name=tester&channel_id=C123&channel_name=general&team_id=T123&team_domain=example&is_enterprise_install=false&api_app_id=A123"
+                .utf8,
         )
         let timestamp = currentTimestamp()
         let request = signedRequest(
@@ -189,7 +192,7 @@ struct AppHTTPHandlerTests {
             path: "/slack/events",
             contentType: "application/x-www-form-urlencoded",
             body: body,
-            timestamp: timestamp
+            timestamp: timestamp,
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
 
@@ -207,7 +210,7 @@ private func currentTimestamp() -> String {
 private func makeSlack(signingSecret: String) -> Slack {
     Slack(
         transport: MockTransport(),
-        configuration: .init(token: "xoxb-test", signingSecret: signingSecret)
+        configuration: .init(token: "xoxb-test", signingSecret: signingSecret),
     )
 }
 
@@ -217,7 +220,7 @@ private func signedRequest(
     path: String,
     contentType: String,
     body: Data,
-    timestamp: String
+    timestamp: String,
 ) -> HTTPServerRequest {
     let base = "v0:\(timestamp):" + String(decoding: body, as: UTF8.self)
     let key = SymmetricKey(data: Data(secret.utf8))
@@ -232,7 +235,7 @@ private func signedRequest(
             HTTPField(name: HTTPField.Name("x-slack-request-timestamp")!, value: timestamp),
             HTTPField(name: HTTPField.Name("x-slack-signature")!, value: signature),
         ]),
-        body: body
+        body: body,
     )
 }
 
@@ -241,7 +244,7 @@ private struct MockTransport: ClientTransport, Sendable {
         _: HTTPRequest,
         body _: HTTPBody?,
         baseURL _: URL,
-        operationID _: String
+        operationID _: String,
     ) async throws -> (HTTPResponse, HTTPBody?) {
         (HTTPResponse(status: .ok), nil)
     }
@@ -249,6 +252,6 @@ private struct MockTransport: ClientTransport, Sendable {
 
 private struct NoopAdapter: HTTPServerAdapter {
     func run(
-        handler _: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse
+        handler _: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse,
     ) async throws {}
 }

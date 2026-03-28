@@ -1,7 +1,7 @@
 import Foundation
 import HTTPTypes
-import SlackClient
 import SlackBlockKit
+import SlackClient
 
 private actor HTTPAcknowledgmentState {
     private enum StoredResponse {
@@ -29,15 +29,15 @@ private actor HTTPAcknowledgmentState {
     func response() -> HTTPServerResponse? {
         switch storedResponse {
         case .empty:
-            return HTTPServerResponse(status: .ok)
+            HTTPServerResponse(status: .ok)
         case let .json(data):
-            return HTTPServerResponse(
+            HTTPServerResponse(
                 status: .ok,
                 headerFields: HTTPFields([HTTPField(name: .contentType, value: "application/json")]),
                 body: data,
             )
         case nil:
-            return nil
+            nil
         }
     }
 }
@@ -90,7 +90,7 @@ struct AppHTTPHandler {
 
     private func handleJSONRequestIfNeeded(
         _ request: HTTPServerRequest,
-        configuration _: Slack.Configuration
+        configuration _: Slack.Configuration,
     ) async throws -> HTTPServerResponse? {
         guard contentType(of: request.headerFields)?.starts(with: "application/json") == true else {
             return nil

@@ -59,7 +59,6 @@ struct HTTPRequestVerifier {
     }
 }
 
-
 extension HTTPRequestVerifier {
     private static func decodeHex(_ hex: String) -> Data? {
         let length = hex.utf8.count
@@ -71,7 +70,7 @@ extension HTTPRequestVerifier {
         while index < hex.endIndex {
             let nextIndex = hex.index(index, offsetBy: 2)
             guard nextIndex <= hex.endIndex else { return nil }
-            let byteString = hex[index..<nextIndex]
+            let byteString = hex[index ..< nextIndex]
             guard let byte = UInt8(byteString, radix: 16) else { return nil }
             data.append(byte)
             index = nextIndex
