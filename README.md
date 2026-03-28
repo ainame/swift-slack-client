@@ -134,7 +134,16 @@ let app = SlackApp(
 try await app.run()
 ```
 
-**Events API handlers are auto-acked. Interactive handlers must call `context.ack()`**
+### Ack semantics
+
+`SlackApp` follows Bolt-style acknowledgment behavior:
+
+- `router.onEvent(...)` handlers are **auto-acked**
+- `router.onSlashCommand(...)`, `router.onBlockAction(...)`, shortcuts, and view handlers **must call** `context.ack()`
+- In HTTP mode, event auto-ack means returning `200 OK` automatically
+- In Socket Mode, event auto-ack means sending the ack envelope before dispatch
+
+Call `context.ack()` as soon as possible for interactive payloads because Slack expects an acknowledgment within about 3 seconds.
 
 ```swift
 // Basic acknowledgment
