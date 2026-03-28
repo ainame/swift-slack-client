@@ -58,6 +58,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.11.0"),
         .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.11.0"),
+        .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.10.1"),
         .package(url: "https://github.com/apple/swift-crypto", from: "3.0.0"),
         .package(url: "https://github.com/hummingbird-project/swift-websocket", from: "1.5.0"),
@@ -88,6 +89,7 @@ let package = Package(
                 .target(name: "SlackClient"),
                 .target(name: "SlackBlockKit"),
                 .target(name: "SlackModels"),
+                .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
                 .product(name: "Logging", package: "swift-log"),
                 .product(name: "Crypto", package: "swift-crypto"),

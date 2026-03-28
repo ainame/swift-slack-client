@@ -4,7 +4,7 @@ Build Slack app runtimes on top of ``SlackClient``.
 
 ## Overview
 
-`SlackApp` is the runtime layer in the `swift-slack-client` package. It owns:
+`SlackApp` is the framework layer in the `swift-slack-client` package. It owns:
 
 - `App`
 - `AppRouter`
@@ -13,8 +13,9 @@ Build Slack app runtimes on top of ``SlackClient``.
 - Socket Mode orchestration
 - HTTP request verification and dispatch
 - optional framework adapters such as `HummingbirdAdapter`
+- the default async HTTP transport for app-author workflows
 
-Use `SlackClient` for Web API access and shared Slack models, then add `SlackApp` when you need routing and transport handling.
+In normal app code, `import SlackApp` is enough. Use `SlackClient` directly when you want custom transport control or a lower-level client surface, such as Apple-platform apps using `URLSession`-based transports.
 
 ## Topics
 

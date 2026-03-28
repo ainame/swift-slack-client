@@ -1,7 +1,6 @@
 import Foundation
 import OpenAPIAsyncHTTPClient
 import SlackApp
-import SlackClient
 
 @main
 struct ThreadExpander {

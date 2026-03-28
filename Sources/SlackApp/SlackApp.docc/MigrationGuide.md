@@ -14,7 +14,6 @@ New:
 
 ```swift
 import SlackApp
-import SlackClient
 ```
 
 ## Runtime Entry Point
@@ -31,7 +30,11 @@ New:
 
 ```swift
 let router = AppRouter()
-let app = App(slack: slack, router: router, mode: .socketMode())
+let app = App(
+    configuration: .init(appToken: appToken, token: token),
+    router: router,
+    mode: .socketMode()
+)
 try await app.run()
 ```
 

@@ -105,11 +105,6 @@ try await slack.client.chatPostMessage(
 ```swift
 import SlackApp
 
-let slack = Slack(
-    transport: AsyncHTTPClientTransport(),
-    configuration: .init(appToken: appToken, token: token)
-)
-
 let router = AppRouter()
 
 // Handle app mentions
@@ -131,7 +126,11 @@ router.onBlockAction("button_id") { context, payload in
     // Handle button click
 }
 
-let app = App(slack: slack, router: router, mode: .socketMode())
+let app = App(
+    configuration: .init(appToken: appToken, token: token),
+    router: router,
+    mode: .socketMode()
+)
 try await app.run()
 ```
 

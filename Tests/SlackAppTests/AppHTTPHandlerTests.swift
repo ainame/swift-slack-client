@@ -7,6 +7,16 @@ import SlackClient
 import Testing
 
 struct AppHTTPHandlerTests {
+    @Test func appCanBeCreatedFromConfiguration() {
+        let app = App(
+            configuration: .init(token: "xoxb-test", signingSecret: "secret"),
+            router: AppRouter(),
+            mode: .http(NoopAdapter())
+        )
+
+        withExtendedLifetime(app) {}
+    }
+
     @Test func rejectsInvalidSignature() async throws {
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: AppRouter())
         let timestamp = currentTimestamp()
@@ -128,4 +138,10 @@ private struct MockTransport: ClientTransport, Sendable {
     ) async throws -> (HTTPResponse, HTTPBody?) {
         (HTTPResponse(status: .ok), nil)
     }
+}
+
+private struct NoopAdapter: HTTPServerAdapter {
+    func run(
+        handler _: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse
+    ) async throws {}
 }

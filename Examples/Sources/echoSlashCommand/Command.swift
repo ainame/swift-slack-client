@@ -1,7 +1,5 @@
 import Foundation
-import OpenAPIAsyncHTTPClient
 import SlackApp
-import SlackClient
 
 @main
 struct EchoSlashCommand {
@@ -15,15 +13,6 @@ struct EchoSlashCommand {
         }
 
         print("🚀 Starting Echo Slash Command Server...")
-
-        let slack = Slack(
-            transport: AsyncHTTPClientTransport(),
-            configuration: .init(
-                userAgent: "EchoSlashCommand/1.0",
-                appToken: appToken,
-                token: token,
-            ),
-        )
 
         let router = AppRouter()
 
@@ -56,7 +45,15 @@ struct EchoSlashCommand {
             try await context.respond(to: payload.responseUrl, text: payload.text, responseType: .ephemeral)
         }
 
-        let app = App(slack: slack, router: router, mode: .socketMode())
+        let app = App(
+            configuration: .init(
+                userAgent: "EchoSlashCommand/1.0",
+                appToken: appToken,
+                token: token,
+            ),
+            router: router,
+            mode: .socketMode()
+        )
         try await app.run()
     }
 }

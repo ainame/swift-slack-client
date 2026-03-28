@@ -1,8 +1,6 @@
 import Foundation
-import OpenAPIAsyncHTTPClient
 import SlackBlockKitDSL
 import SlackApp
-import SlackClient
 
 @main
 struct Command {
@@ -12,15 +10,6 @@ struct Command {
             print("Prepare SLACK_OAUTH_TOKEN to run this script")
             exit(1)
         }
-
-        let slack = Slack(
-            transport: AsyncHTTPClientTransport(),
-            configuration: .init(
-                userAgent: "SwiftBot",
-                appToken: appToken,
-                token: token,
-            ),
-        )
 
         let router = AppRouter()
 
@@ -76,7 +65,15 @@ struct Command {
             print("onSlackMessageMatched: \(payload.text!)")
         }
 
-        let app = App(slack: slack, router: router, mode: .socketMode())
+        let app = App(
+            configuration: .init(
+                userAgent: "SwiftBot",
+                appToken: appToken,
+                token: token,
+            ),
+            router: router,
+            mode: .socketMode()
+        )
         try await app.run()
     }
 }

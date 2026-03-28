@@ -1,7 +1,7 @@
 import Foundation
 import Logging
+import OpenAPIAsyncHTTPClient
 import OpenAPIRuntime
-import SlackClient
 #if SocketMode
 import NIOCore
 import NIOFoundationCompat
@@ -9,6 +9,8 @@ import WSClient
 #endif
 
 public final class App {
+    public typealias Configuration = ClientConfiguration
+
     public enum RunMode: Sendable {
         #if SocketMode
         case socketMode(options: SocketModeOptions = [.autoReconnectWhenDisconnected, .recoverFromAppError], logger: Logger? = nil)
@@ -28,17 +30,16 @@ public final class App {
 
     public convenience init(
         serverURL: URL = URL(string: "https://slack.com/api")!,
-        transport: any ClientTransport,
-        middlewares: [any ClientMiddleware] = [],
-        logger: Logger? = nil,
-        configuration: ClientConfiguration = .init(),
+        configuration: Configuration = .init(),
         router: AppRouter,
         mode: RunMode,
+        logger: Logger? = nil,
+        middlewares: [any ClientMiddleware] = [],
     ) {
         self.init(
             slack: Slack(
                 serverURL: serverURL,
-                transport: transport,
+                transport: AsyncHTTPClientTransport(),
                 middlewares: middlewares,
                 logger: logger,
                 configuration: configuration,

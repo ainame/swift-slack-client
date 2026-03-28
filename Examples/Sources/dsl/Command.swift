@@ -1,8 +1,6 @@
 import Foundation
-import OpenAPIAsyncHTTPClient
 import SlackBlockKitDSL
 import SlackApp
-import SlackClient
 
 @main
 struct Command {
@@ -12,15 +10,6 @@ struct Command {
             print("Prepare SLACK_OAUTH_TOKEN and SLACK_APP_LEVEL_TOKEN to run this script")
             exit(1)
         }
-
-        let slack = Slack(
-            transport: AsyncHTTPClientTransport(),
-            configuration: .init(
-                userAgent: "SwiftBot",
-                appToken: appToken,
-                token: token,
-            ),
-        )
 
         let router = AppRouter()
 
@@ -337,7 +326,11 @@ struct Command {
         // This is demo so this doesn't automatically reconnect to socket when disconnected
         print("Starting Socket Mode connection...")
         let app = App(
-            slack: slack,
+            configuration: .init(
+                userAgent: "SwiftBot",
+                appToken: appToken,
+                token: token,
+            ),
             router: router,
             mode: .socketMode(options: []),
         )

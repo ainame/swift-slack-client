@@ -14,13 +14,12 @@
 
 ## Update your target dependencies
 
-If you build a Slack app runtime, depend on both products:
+If you build a Slack app runtime, depend on `SlackApp`:
 
 ```swift
 .target(
     name: "MySlackApp",
     dependencies: [
-        .product(name: "SlackClient", package: "swift-slack-client"),
         .product(name: "SlackApp", package: "swift-slack-client"),
     ]
 )
@@ -38,7 +37,6 @@ New:
 
 ```swift
 import SlackApp
-import SlackClient
 ```
 
 ## Update Socket Mode startup
@@ -55,7 +53,11 @@ New:
 
 ```swift
 let router = AppRouter()
-let app = App(slack: slack, router: router, mode: .socketMode())
+let app = App(
+    configuration: .init(appToken: appToken, token: token),
+    router: router,
+    mode: .socketMode()
+)
 try await app.run()
 ```
 
@@ -73,8 +75,12 @@ HTTP request handling now lives entirely in `SlackApp`:
 ```swift
 let router = AppRouter()
 let adapter = HummingbirdAdapter(hostname: "0.0.0.0", port: 8080)
-let app = App(slack: slack, router: router, mode: .http(adapter))
+let app = App(
+    configuration: .init(token: token, signingSecret: signingSecret),
+    router: router,
+    mode: .http(adapter)
+)
 try await app.run()
 ```
 
-`Slack` configuration still carries `token`, `appToken`, and `signingSecret`, but runtime behavior is owned by `SlackApp`.
+`SlackApp` now owns the default async HTTP transport. `SlackClient` remains the lower-level option when you want to provide your own transport directly.

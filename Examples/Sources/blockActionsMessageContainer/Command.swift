@@ -4,7 +4,6 @@ import OpenAPIRuntime
 import SlackApp
 import SlackBlockKit
 import SlackBlockKitDSL
-import SlackClient
 
 @main
 struct Command {
