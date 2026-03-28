@@ -50,9 +50,13 @@ struct AppHTTPHandler {
     private let jsonDecoder = JSONDecoder()
     private let jsonEncoder = JSONEncoder()
 
-    init(slack: Slack, router: Router) {
+    init(slack: Slack, router: Router.FixedRouter) {
         self.slack = slack
-        self.router = .init(from: router)
+        self.router = router
+    }
+
+    init(slack: Slack, router: Router) {
+        self.init(slack: slack, router: .init(from: router))
     }
 
     func handle(_ request: HTTPServerRequest) async throws -> HTTPServerResponse {

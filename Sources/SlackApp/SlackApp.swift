@@ -35,12 +35,12 @@ public final class SlackApp {
     }
 
     private let slack: Slack
-    private let router: Router
+    private let router: Router.FixedRouter
     private let mode: Mode
 
     public init(slack: Slack, router: Router, mode: Mode) {
         self.slack = slack
-        self.router = router
+        self.router = .init(from: router)
         self.mode = mode
     }
 
@@ -91,7 +91,7 @@ extension SlackApp {
     }
 
     private func startSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws {
-        let router = Router.FixedRouter(from: router)
+        let router = self.router
         let client = await slack.client
         let transport = await slack.transport
         let logger = await slack.logger
@@ -200,5 +200,4 @@ extension SlackApp {
 #endif
 
 
-extension SlackApp: @unchecked Sendable {}
 extension SlackApp: Service {}
