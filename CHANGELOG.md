@@ -11,10 +11,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Updated `apple/swift-crypto` to `4.3.0`.
 
-### Fixed
-
-* Regenerated `Package.resolved` files for the root package, `Examples`, and `DemoApps/deepl-translator` so the `swift-crypto` 4.x update uses valid SwiftPM lockfile JSON.
-
 ## [0.6.0] - 2026-03-29
 
 ### Added
