@@ -1,6 +1,6 @@
 # Practical Examples
 
-Real-world examples showing how to build Slack applications using the complete swift-slack-client ecosystem.
+Real-world examples showing how to build Slack applications using the complete swift-slack ecosystem.
 
 ## Overview
 

@@ -1,29 +1,26 @@
-![swift-slack-client](/logo.png)
-
 [![Swift Version](https://img.shields.io/badge/Swift-6.2+-blue.svg)](https://swift.org)
 [![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ainame/swift-slack-client/blob/main/LICENSE)
-[![GitHub Release](https://img.shields.io/github/v/release/ainame/swift-slack-client)](https://github.com/ainame/swift-slack-client/releases)
-[![Documentation](https://img.shields.io/badge/Documentation-DocC-blue.svg)](https://ainame.github.io/swift-slack-client/)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/ainame/swift-slack-client/test.yml?branch=main)](https://github.com/ainame/swift-slack-client/actions)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ainame/swift-slack/blob/main/LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/ainame/swift-slack)](https://github.com/ainame/swift-slack/releases)
+[![Documentation](https://img.shields.io/badge/Documentation-DocC-blue.svg)](https://ainame.github.io/swift-slack/)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ainame/swift-slack/test.yml?branch=main)](https://github.com/ainame/swift-slack/actions)
 
-swift-slack-client is an _unofficial_ library that aims to provide a Swift equivalent of the official Slack Bolt framework and SDK available for Python, TypeScript, Java, etc.
+# swift-slack
+
+swift-slack is an _unofficial_ library that aims to provide a Swift equivalent of the official Slack Bolt framework and SDK available for Python, TypeScript, Java, etc.
 Build Slack apps using the language you love.
 
-📖 **[Complete Documentation](https://ainame.github.io/swift-slack-client/)** - Full API reference, guides, and examples
+📖 **[Complete Documentation](https://ainame.github.io/swift-slack/)** - Full API reference, guides, and examples
 
-Migration guide: [Migrating to SlackApp](./MIGRATING_TO_SLACKAPP.md)
-
-## Documentation
-
-The documentation is available here - https://ainame.github.io/swift-slack-client/documentation/
+Migration guide from 0.5.x to 0.6 or newer: [Migrating to SlackApp](./MIGRATING_TO_SLACKAPP.md)
 
 ## Get started
 
 There are two normal entry points:
 
-- `SlackClient` for a low-level Web API client
-- `SlackAppKit` for interactive Slack apps built with Socket Mode or HTTP request handling
+- Use `SlackClient` for a low-level Web API client
+- Use `SlackKit` for interactive Slack apps built with Socket Mode or HTTP request handling
+   - Use `SlackBlockKitDSL` together to build BlockKit view in declrative style DSL
 
 ### Install the package
 
@@ -32,7 +29,7 @@ Use the package directly:
 ```swift
 dependencies: [
     .package(
-        url: "https://github.com/ainame/swift-slack-client.git",
+        url: "https://github.com/ainame/swift-slack.git",
         from: "0.6.0"
     )
 ]
@@ -41,24 +38,38 @@ dependencies: [
 For smaller builds, enable only the traits your app needs:
 
 ```swift
-.package(
-    url: "https://github.com/ainame/swift-slack-client.git",
-    from: "0.1.1",
-    traits: [
-        "SocketMode",   // WebSocket support
-        "Events",       // Events API
-        "WebAPI_Chat",  // chat.postMessage, etc.
-        "WebAPI_Views", // views.open, etc.
-    ]
-)
+    .package(
+        url: "https://github.com/ainame/swift-slack.git",
+        from: "0.6.0",
+        traits: [
+            "SocketMode",   // WebSocket support
+            "Events",       // Events API
+            "WebAPI_Apps",  // apps.connections.open for Socket Mode
+            "WebAPI_Chat",  // chat.postMessage, etc.
+            "WebAPI_Views", // views.open, etc.
+        ]
+    )
 ```
 
 ### Use `SlackClient` for Web API calls
 
 `SlackClient` is the lower-level client surface. You provide the transport and call Web API methods directly.
 
+Add `SlackClient` and `OpenAPIAsyncHTTPClient` as transport layer to your app target.
+You can choose other transport layer available for swift-openapi-generator ecosystem.
+
 ```swift
-import OpenAPIAsyncHTTPClient // you can choose other transport layer available for swift-openapi-generator ecosystem
+    .executableTarget(
+        name: "YOUR_SWIFT_APP",
+        dependencies: [
+            .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
+            .product(name: "SlackClient", package: "swift-slack"),
+        ],
+    )
+```
+
+```swift
+import OpenAPIAsyncHTTPClient
 import SlackClient
 
 let slack = Slack(
@@ -69,35 +80,27 @@ let slack = Slack(
 try await slack.client.chatPostMessage(
     body: .json(.init(
         channel: "#general",
-        text: "Hello from swift-slack-client"
+        text: "Hello from swift-slack"
     ))
 )
 ```
 
-Add `SlackBlockKitDSL` if you want to build blocks with the DSL:
+### Use `SlackKit` for interactive apps
 
-```swift
-import SlackBlockKitDSL
+`SlackKit` is the umbrella product that re-exports the runtime layer and the common app-authoring types used by interactive apps.
 
-let section = Section {
-    Text("A message *with some bold text* and _some italicized text_.")
-        .type(.mrkdwn)
-}
-
-try await slack.client.chatPostMessage(
-    body: .json(.init(
-        channel: "#general",
-        blocks: [section.render()]
-    ))
-)
+``` swift
+    .executableTarget(
+        name: "YOUR_SWIFT_APP",
+        dependencies: [
+            .product(name: "SlackKit", package: "swift-slack"),
+        ],
+    )
 ```
 
-### Use `SlackAppKit` for interactive apps
-
-`SlackAppKit` is the recommended import for app code. It re-exports the runtime layer and the common app-authoring types used by interactive apps.
 
 ```swift
-import SlackAppKit
+import SlackKit
 
 let router = Router()
 
@@ -140,7 +143,7 @@ try await app.run { slack in
 For signed Slack requests over HTTP, use the runtime with an adapter such as `HummingbirdAdapter`:
 
 ```swift
-import SlackAppKit
+import SlackKit
 
 let router = Router()
 let adapter = HummingbirdAdapter(hostname: "0.0.0.0", port: 8080)
@@ -156,49 +159,6 @@ let app = SlackApp(
 
 try await app.run()
 ```
-
-### Ack behavior
-
-`SlackApp` follows Bolt-style acknowledgment semantics:
-
-- Events API handlers are auto-acked and receive `EventContext`
-- Slash commands, block actions, shortcuts, and view handlers receive `Context` and must call `ack()`
-- Router registrations are overwrite-based, so the last handler for the same key wins
-- `onSlackMessageMatched(...)` was removed; use `router.onEvent(MessageEvent.self)` and filter in the handler
-
-```swift
-router.onViewSubmission("form") { context, payload in
-    guard let email = payload.view.state?["email_block", "email_input"]?.value else {
-        try await context.ack(errors: ["email_block": "Please enter an email"])
-        return
-    }
-
-    try await context.ack()
-}
-```
-
-### Running with `ServiceGroup`
-
-`SlackApp` conforms to `Service`, so it can run inside `swift-service-lifecycle`:
-
-```swift
-import Logging
-import ServiceLifecycle
-import SlackAppKit
-
-let group = ServiceGroup(
-    services: [app],
-    gracefulShutdownSignals: [.sigterm, .sigint],
-    logger: Logger(label: "MySlackApp")
-)
-
-try await group.run()
-```
-
-### Choose the right product
-
-- Use `SlackClient` when you want raw Web API access and full control over transport setup.
-- Use `SlackAppKit` for normal Slack app code.
 
 ## Block Kit
 
@@ -239,7 +199,45 @@ struct WelcomeModal: SlackModalView {
 }
 ```
 
-See [Examples](https://github.com/ainame/swift-slack-client/tree/main/Examples) for more patterns.
+See [Examples](https://github.com/ainame/swift-slack/tree/main/Examples) for more patterns.
+
+### Ack behavior
+
+`SlackApp` follows Bolt-style acknowledgment semantics:
+
+- Events API handlers are auto-acked and receive `EventContext`
+- Slash commands, block actions, shortcuts, and view handlers receive `Context` and must call `ack()`
+- Router registrations are overwrite-based, so the last handler for the same key wins
+- `onSlackMessageMatched(...)` was removed; use `router.onEvent(MessageEvent.self)` and filter in the handler
+
+```swift
+router.onViewSubmission("form") { context, payload in
+    guard let email = payload.view.state?["email_block", "email_input"]?.value else {
+        try await context.ack(errors: ["email_block": "Please enter an email"])
+        return
+    }
+
+    try await context.ack()
+}
+```
+
+### Running with `ServiceGroup`
+
+`SlackApp` conforms to `Service`, so it can run inside `swift-service-lifecycle`:
+
+```swift
+import Logging
+import ServiceLifecycle
+import SlackKit
+
+let group = ServiceGroup(
+    services: [app],
+    gracefulShutdownSignals: [.sigterm, .sigint],
+    logger: Logger(label: "MySlackApp")
+)
+
+try await group.run()
+```
 
 ## Technical Notes
 
@@ -259,10 +257,10 @@ MIT license texts are available in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.
 
 ## Development
 
-Requirements: Swift 6.1+, SwiftFormat, Node.js
+Requirements: Swift 6.2+, SwiftFormat, Node.js
 
 ```bash
-git clone --recursive https://github.com/ainame/swift-slack-client.git
+git clone --recursive https://github.com/ainame/swift-slack.git
 make update && make generate
 ```
 

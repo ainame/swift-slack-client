@@ -28,14 +28,13 @@ let package = Package(
                 "WebAPI_Views",
             ],
         ),
-        .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
     ],
     targets: targets + [
         .target(
             name: "Snippets",
             dependencies: [
-                .product(name: "SlackBlockKit", package: "swift-slack-client"),
-                .product(name: "SlackBlockKitDSL", package: "swift-slack-client"),
+                .product(name: "SlackBlockKit", package: "swift-slack"),
+                .product(name: "SlackBlockKitDSL", package: "swift-slack"),
             ],
         ),
     ],
@@ -49,10 +48,8 @@ func executable(_ name: String) -> Target {
     .executableTarget(
         name: name,
         dependencies: [
-            .product(name: "SlackClient", package: "swift-slack-client"),
-            .product(name: "SlackAppKit", package: "swift-slack-client"),
-            .product(name: "SlackBlockKitDSL", package: "swift-slack-client"),
-            .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
+            .product(name: "SlackKit", package: "swift-slack"),
+            .product(name: "SlackBlockKitDSL", package: "swift-slack"),
         ],
     )
 }

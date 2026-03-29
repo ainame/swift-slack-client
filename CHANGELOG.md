@@ -12,13 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Added a shared app runtime with `SlackApp`, `Router`, transport-neutral `Ack`, `Slack.Configuration`, HTTP request handling, and optional Hummingbird integration.
 * Added app runtime coverage for shared router dispatch and HTTP request handling.
 * Added migration documentation at `MIGRATING_TO_SLACKAPP.md`.
-* Added a new `SlackAppKit` umbrella product that re-exports `SlackApp`, `SlackClient`, and `SlackBlockKit` for normal app-authoring workflows.
+* Added a new `SlackKit` umbrella product that re-exports `SlackApp`, `SlackClient`, and `SlackBlockKit` for normal app-authoring workflows.
 
 ### Changed
 
 * **BREAKING**: Split the app runtime out of `SlackClient` into a new `SlackApp` product.
 * Moved Socket Mode, HTTP request handling, routing, acknowledgements, and the existing Hummingbird integration into `SlackApp`.
-* Updated examples, README, migration notes, and DocC guides to make `SlackAppKit` the primary app-authoring entry point while keeping `SlackApp` as the lower-level runtime module.
+* Updated examples, README, migration notes, and DocC guides to make `SlackKit` the primary app-authoring entry point while keeping `SlackApp` as the lower-level runtime module.
 * Updated `DemoApps/deepl-translator` to use the current `SlackApp` runtime flow and removed obsolete package dependencies.
 * Simplified `Examples/Sources/blockActionsMessageContainer` to use `SlackApp` setup via the `preparing` hook and typed Block Kit-based unfurl payload construction.
 
@@ -66,7 +66,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-* Fixed schema mapping mismatch for user-shaped `profile` fields (issue [#42](https://github.com/ainame/swift-slack-client/issues/42)).
+* Fixed schema mapping mismatch for user-shaped `profile` fields (issue [#42](https://github.com/ainame/swift-slack/issues/42)).
   * `User.profile`, `Member.profile`, `InvitingUser.profile`, and `TingUser.profile` now map to `UserProfile` instead of `Profile`.
   * Expanded `UserProfile` with missing properties from Slack user profile payloads (status metadata, normalized names, profile fields, additional image sizes, and app/bot metadata).
   * `TeamProfileGetResponse.profile` now maps to `TeamProfile` to reflect `team.profile.get` payload shape (`fields` / `sections`) instead of image-only `Profile`.
@@ -76,12 +76,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Minimum DocC documentation support https://ainame.github.io/swift-slack-client/documentation
-* Schema update https://github.com/ainame/swift-slack-client/pull/33
+* Minimum DocC documentation support https://ainame.github.io/swift-slack/documentation
+* Schema update https://github.com/ainame/swift-slack/pull/33
 
 ### Fixed
 
-* Schema update automation issue was resolved https://github.com/ainame/swift-slack-client/commit/44966ba5be88fe6df115d42f229bd04e9153f472
+* Schema update automation issue was resolved https://github.com/ainame/swift-slack/commit/44966ba5be88fe6df115d42f229bd04e9153f472
    * SwiftFormat got bug fixes around trailing commas and that helps us get consistently formatted code in schema updates
 
 

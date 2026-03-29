@@ -10,7 +10,7 @@ Add the package to your Swift package or Xcode project:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/ainame/swift-slack-client", from: "0.1.0")
+    .package(url: "https://github.com/ainame/swift-slack", from: "0.5.1")
 ]
 ```
 
@@ -20,8 +20,8 @@ Use traits to include only the API components you need:
 
 ```swift
 .package(
-    url: "https://github.com/ainame/swift-slack-client",
-    from: "0.1.0",
+    url: "https://github.com/ainame/swift-slack",
+    from: "0.5.1",
     traits: [
         "WebAPI_Chat",    // Chat API methods
         "WebAPI_Views",   // Views API methods
@@ -32,7 +32,7 @@ Use traits to include only the API components you need:
 
 See <doc:Traits> for details.
 
-To build an app runtime for Socket Mode or HTTP request handling, also depend on the `SlackApp` product. See the `SlackApp` documentation for runtime setup.
+To build an app runtime for Socket Mode or HTTP request handling, prefer the `SlackKit` product. See the `SlackApp` documentation for the underlying runtime layer.
 
 
 ## Basic Usage
@@ -67,4 +67,4 @@ print("Channel name: \(response.channel?.name ?? "Unknown")")
 
 ## Next Step
 
-`SlackClient` is now the pure Web API layer. If you need routing, acknowledgements, Socket Mode, or HTTP request handling, import the `SlackApp` product alongside `SlackClient`.
+`SlackClient` is the pure Web API layer. If you need routing, acknowledgements, Socket Mode, or HTTP request handling, use `SlackKit` for the normal app-authoring path or `SlackApp` directly for the lower-level runtime layer.

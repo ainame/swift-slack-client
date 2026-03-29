@@ -13,7 +13,7 @@ import SlackClient
 New:
 
 ```swift
-import SlackAppKit
+import SlackKit
 ```
 
 ## Runtime Entry Point

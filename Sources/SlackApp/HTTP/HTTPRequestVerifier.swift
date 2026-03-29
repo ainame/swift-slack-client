@@ -24,7 +24,7 @@ struct HTTPRequestVerifier {
         self.now = now
     }
 
-    func verify(headerFields: HTTPFields, body: Data) throws {
+    func verify(headerFields: HTTPFields, body: Foundation.Data) throws {
         guard !signingSecret.isEmpty else {
             throw HTTPRequestVerificationError.missingSigningSecret
         }
@@ -50,8 +50,8 @@ struct HTTPRequestVerifier {
         }
 
         let base = "v0:\(timestamp):" + String(decoding: body, as: UTF8.self)
-        let key = SymmetricKey(data: Data(signingSecret.utf8))
-        let baseData = Data(base.utf8)
+        let key = SymmetricKey(data: Foundation.Data(signingSecret.utf8))
+        let baseData = Foundation.Data(base.utf8)
 
         guard HMAC<SHA256>.isValidAuthenticationCode(signatureBytes, authenticating: baseData, using: key) else {
             throw HTTPRequestVerificationError.invalidSignature
@@ -60,11 +60,11 @@ struct HTTPRequestVerifier {
 }
 
 extension HTTPRequestVerifier {
-    private static func decodeHex(_ hex: String) -> Data? {
+    private static func decodeHex(_ hex: String) -> Foundation.Data? {
         let length = hex.utf8.count
         guard length.isMultiple(of: 2) else { return nil }
 
-        var data = Data(capacity: length / 2)
+        var data = Foundation.Data(capacity: length / 2)
         var index = hex.startIndex
 
         while index < hex.endIndex {

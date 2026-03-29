@@ -9,6 +9,9 @@ class SlackModelsExtractor
     @output_dir = output_dir
     # These are handled outside generated SlackModels.
     @manually_handled_types = %w[View Block UserProfile TeamProfile]
+    @schema_aliases = {
+      'Data' => 'TabData',
+    }
   end
   
   def extract
@@ -117,6 +120,7 @@ class SlackModelsExtractor
   end
   
   def write_model_file(schema_name, content, header)
+    emitted_schema_name = emitted_schema_name(schema_name)
     # Transform the content
     transformed_content = transform_content(content, schema_name)
     
@@ -128,13 +132,14 @@ class SlackModelsExtractor
     file_content = generate_file_content(transformed_content, needs_slackblockkit_import)
     
     # Write file
-    filename = "#{schema_name}.swift"
+    filename = "#{emitted_schema_name}.swift"
     filepath = File.join(@output_dir, filename)
     File.write(filepath, file_content)
     puts "Created #{filename}"
   end
   
   def transform_content(content, schema_name)
+    emitted_schema_name = emitted_schema_name(schema_name)
     lines = content.lines
     transformed_lines = []
     skip_until_end = false
@@ -160,6 +165,7 @@ class SlackModelsExtractor
       
       # Transform struct declaration
       if line.match(/^(\s*)public struct #{Regexp.escape(schema_name)}:/)
+        line = line.sub(/\b#{Regexp.escape(schema_name)}\b/, emitted_schema_name)
         line = line.gsub(/:\s*.*$/, ': Codable, Hashable, Sendable {')
       end
       
@@ -190,6 +196,8 @@ class SlackModelsExtractor
           end
         end
       end
+
+      line = apply_schema_aliases(line, current_schema_name: schema_name)
       
       # Fix indentation: convert from enum nesting to top-level
       if line.start_with?('        ')  # 8 spaces from nested enum
@@ -200,8 +208,21 @@ class SlackModelsExtractor
       
       transformed_lines << line
     end
-    
+
     transformed_lines.join
+  end
+
+  def emitted_schema_name(schema_name)
+    @schema_aliases.fetch(schema_name, schema_name)
+  end
+
+  def apply_schema_aliases(line, current_schema_name:)
+    @schema_aliases.each do |original_name, alias_name|
+      next if current_schema_name == original_name
+
+      line = line.gsub(/\b#{Regexp.escape(original_name)}\b/, alias_name)
+    end
+    line
   end
   
   def generate_file_content(transformed_content, needs_slackblockkit_import)
