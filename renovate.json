@@ -2,5 +2,14 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "description": "Keep SwiftPM dependency ranges stable for this library package",
+      "matchManagers": [
+        "swift"
+      ],
+      "rangeStrategy": "replace"
+    }
   ]
 }
