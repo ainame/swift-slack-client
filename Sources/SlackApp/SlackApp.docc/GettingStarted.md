@@ -21,13 +21,13 @@ Add the package and enable the traits your runtime needs:
 )
 ```
 
-Then depend on `SlackApp` from your target:
+Then depend on `SlackAppKit` from your target:
 
 ```swift
 .target(
     name: "MySlackApp",
     dependencies: [
-        .product(name: "SlackApp", package: "swift-slack-client"),
+        .product(name: "SlackAppKit", package: "swift-slack-client"),
         .product(name: "ServiceLifecycle", package: "swift-service-lifecycle"),
     ]
 )
@@ -36,7 +36,7 @@ Then depend on `SlackApp` from your target:
 ## Socket Mode
 
 ```swift
-import SlackApp
+import SlackAppKit
 
 let router = Router()
 
@@ -67,7 +67,7 @@ try await app.run { slack in
 ## HTTP App
 
 ```swift
-import SlackApp
+import SlackAppKit
 
 let router = Router()
 let adapter = HummingbirdAdapter(hostname: "0.0.0.0", port: 8080)
@@ -97,7 +97,7 @@ try await app.run()
 ```swift
 import Logging
 import ServiceLifecycle
-import SlackApp
+import SlackAppKit
 
 let app = SlackApp(
     configuration: .init(

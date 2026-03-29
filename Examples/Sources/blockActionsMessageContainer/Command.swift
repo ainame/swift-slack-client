@@ -1,8 +1,7 @@
 import Foundation
 import OpenAPIAsyncHTTPClient
 import OpenAPIRuntime
-import SlackApp
-import SlackBlockKit
+import SlackAppKit
 import SlackBlockKitDSL
 
 @main

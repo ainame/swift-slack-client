@@ -3,6 +3,7 @@ import Logging
 import OpenAPIAsyncHTTPClient
 import OpenAPIRuntime
 import ServiceLifecycle
+import SlackClient
 #if SocketMode
 import NIOCore
 import NIOFoundationCompat
