@@ -87,35 +87,25 @@ public final class SlackApp {
 }
 
 #if SocketMode
-private struct SocketModeAppDispatchError: Error {
-    let underlying: any Error
-}
-
 extension SlackApp {
     private func runSocketMode(options: SocketModeOptions, appLogger: Logger?) async throws {
-        let logger = await slack.logger
-
         while true {
             if Task.isCancelled { break }
 
             let url = try await slack.openSocketModeConnection()
-            do {
-                try await startSocketMode(with: url, options: options, appLogger: appLogger)
-            } catch {
-                guard options.contains(.autoReconnectWhenDisconnected),
-                      Self.shouldReconnectSocketMode(after: error) else {
-                    throw error
-                }
+            let shouldReconnect = try await startSocketMode(
+                with: url,
+                options: options,
+                appLogger: appLogger
+            )
 
-                logger.warning("SocketMode client timed out while reading; reconnecting")
-                continue
-            }
+            if shouldReconnect { continue }
 
             if !options.contains(.autoReconnectWhenDisconnected) { break }
         }
     }
 
-    private func startSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws {
+    private func startSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws -> Bool {
         let router = router
         let client = await slack.client
         let transport = await slack.transport
@@ -170,7 +160,7 @@ extension SlackApp {
                         } catch {
                             runtimeLogger.error("App Level Error: \(error)")
                             if !options.contains(.recoverFromAppError) {
-                                throw SocketModeAppDispatchError(underlying: error)
+                                throw error
                             }
                         }
                     }
@@ -180,7 +170,18 @@ extension SlackApp {
             context.logger.info("SocketMode client disconnected")
         }
 
-        try await ws.run()
+        do {
+            try await ws.run()
+            return false
+        } catch {
+            guard options.contains(.autoReconnectWhenDisconnected),
+                  Self.shouldReconnectSocketMode(after: error) else {
+                throw error
+            }
+
+            logger.warning("SocketMode client timed out while reading; reconnecting")
+            return true
+        }
     }
 
     private static func request(from envelope: SocketModeMessageEnvelope) -> Request {
