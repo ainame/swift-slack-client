@@ -87,6 +87,10 @@ public final class SlackApp {
 }
 
 #if SocketMode
+private struct SocketModeAppDispatchError: Error {
+    let underlying: any Error
+}
+
 extension SlackApp {
     private func runSocketMode(options: SocketModeOptions, appLogger: Logger?) async throws {
         let logger = await slack.logger
@@ -166,7 +170,7 @@ extension SlackApp {
                         } catch {
                             runtimeLogger.error("App Level Error: \(error)")
                             if !options.contains(.recoverFromAppError) {
-                                throw error
+                                throw SocketModeAppDispatchError(underlying: error)
                             }
                         }
                     }
