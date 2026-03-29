@@ -5,9 +5,9 @@ public struct HTTPServerRequest: Sendable {
     public var method: HTTPRequest.Method
     public var path: String
     public var headerFields: HTTPFields
-    public var body: Data
+    public var body: Foundation.Data
 
-    public init(method: HTTPRequest.Method, path: String, headerFields: HTTPFields = .init(), body: Data = Data()) {
+    public init(method: HTTPRequest.Method, path: String, headerFields: HTTPFields = .init(), body: Foundation.Data = Foundation.Data()) {
         self.method = method
         self.path = path
         self.headerFields = headerFields
@@ -18,9 +18,9 @@ public struct HTTPServerRequest: Sendable {
 public struct HTTPServerResponse: Sendable {
     public var status: HTTPResponse.Status
     public var headerFields: HTTPFields
-    public var body: Data?
+    public var body: Foundation.Data?
 
-    public init(status: HTTPResponse.Status, headerFields: HTTPFields = .init(), body: Data? = nil) {
+    public init(status: HTTPResponse.Status, headerFields: HTTPFields = .init(), body: Foundation.Data? = nil) {
         self.status = status
         self.headerFields = headerFields
         self.body = body

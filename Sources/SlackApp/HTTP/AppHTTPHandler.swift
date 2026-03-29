@@ -6,7 +6,7 @@ import SlackClient
 private actor HTTPAcknowledgmentState {
     private enum StoredResponse {
         case empty
-        case json(Data)
+        case json(Foundation.Data)
     }
 
     private var storedResponse: StoredResponse?
@@ -15,7 +15,7 @@ private actor HTTPAcknowledgmentState {
         try store(.empty)
     }
 
-    func storeJSON(_ data: Data) throws {
+    func storeJSON(_ data: Foundation.Data) throws {
         try store(.json(data))
     }
 
@@ -61,7 +61,7 @@ struct AppHTTPHandler {
 
     func handle(_ request: HTTPServerRequest) async throws -> HTTPServerResponse {
         if request.method == .get && request.path == "/healthz" {
-            return HTTPServerResponse(status: .ok, body: Data("OK".utf8))
+            return HTTPServerResponse(status: .ok, body: Foundation.Data("OK".utf8))
         }
 
         guard request.method == .post, request.path == "/slack/events" else {
@@ -143,7 +143,7 @@ struct AppHTTPHandler {
         let values = Self.decodeFormBody(request.body)
 
         if let payloadString = values["payload"] {
-            let payload = try jsonDecoder.decode(InteractiveEnvelope.self, from: Data(payloadString.utf8))
+            let payload = try jsonDecoder.decode(InteractiveEnvelope.self, from: Foundation.Data(payloadString.utf8))
             return try await dispatch(.interactive(payload), kind: .interactive)
         }
 
@@ -254,7 +254,7 @@ struct AppHTTPHandler {
         headers[values: Self.contentTypeField].first
     }
 
-    private static func decodeFormBody(_ body: Data) -> [String: String] {
+    private static func decodeFormBody(_ body: Foundation.Data) -> [String: String] {
         let query = String(decoding: body, as: UTF8.self)
         var result: [String: String] = [:]
         for part in query.split(separator: "&") {

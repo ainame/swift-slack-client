@@ -22,7 +22,7 @@ public struct HummingbirdAdapter: HTTPServerAdapter {
                     method: request.method,
                     path: request.uri.path,
                     headerFields: request.headers,
-                    body: Data(),
+                    body: Foundation.Data(),
                 ),
             )
             return Response(
@@ -38,7 +38,7 @@ public struct HummingbirdAdapter: HTTPServerAdapter {
                     method: request.method,
                     path: request.uri.path,
                     headerFields: request.headers,
-                    body: Data(bodyBuffer.readableBytesView),
+                    body: Foundation.Data(bodyBuffer.readableBytesView),
                 ),
             )
             return Response(
