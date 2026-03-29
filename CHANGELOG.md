@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+
+* Updated `apple/swift-crypto` to `4.3.0`.
+
 ## [0.6.0] - 2026-03-29
 
 ### Added
