@@ -12,14 +12,28 @@ Shared guidance for coding agents working in this repository.
 
 ## Project Overview
 
-This project is a Swift Slack client library generated from Slack OpenAPI specs using `swift-openapi-generator`, with type-safe Web API and Socket Mode support.
+This project is a Swift Slack SDK and app framework. It combines generated Web API and model layers with a handwritten runtime for building interactive Slack apps over Socket Mode or signed HTTP requests.
 
 ## Main Modules
 
-- `SlackClient`: Actor-based client for Web API, Events, and Socket Mode.
-- `SlackModels`: Shared model module (User, Channel, Message, and others).
+- `SlackClient`: Low-level Web API client plus generated API/types, event payloads, and shared interaction payloads.
+- `SlackApp`: Runtime layer for `SlackApp`, `Router`, acknowledgement flow, signed HTTP handling, and Socket Mode execution.
+- `SlackKit`: Umbrella product that re-exports the common app-authoring surface for interactive Slack apps.
+- `SlackModels`: Shared model module used across the package.
 - `SlackBlockKit`: Block Kit framework implementation.
 - `SlackBlockKitDSL`: Declarative DSL for building Block Kit payloads.
+
+## Source Layout
+
+- `Sources/SlackClient`: Generated Web API surface plus shared client/event/interaction support code.
+- `Sources/SlackApp`: Handwritten runtime code for HTTP adapters, request verification, routing, and Socket Mode.
+- `Sources/SlackKit`: Umbrella exports and top-level documentation for app authors.
+- `Sources/SlackModels`: Generated and processed shared Slack model types.
+- `Sources/SlackBlockKit`: Block Kit data structures and views.
+- `Sources/SlackBlockKitDSL`: Swift DSL for composing Block Kit payloads.
+- `Tests/SlackClientTests`, `Tests/SlackAppTests`, `Tests/SlackBlockKitTests`, `Tests/SlackBlockKitDSLTests`: Module-aligned test suites using `swift-testing`.
+- `Examples/`: Small executable samples wired against the local package.
+- `DemoApps/`: Larger end-to-end sample applications.
 
 ## Code Generation Workflow
 
@@ -34,10 +48,12 @@ make clean     # Clean temp files
 ### Pipeline
 
 1. Ruby scripts transform Slack API specs into OpenAPI JSON.
-2. `swift-openapi-generator` produces Swift client/types.
-3. `scripts/process_webapi.rb` splits generated code and extracts models.
-4. `scripts/process_events.rb` extracts event types and conformance.
+2. `swift-openapi-generator` produces Swift client and type definitions.
+3. `scripts/process_webapi.rb` splits generated Web API output and extracts shared models.
+4. `scripts/process_events.rb` extracts generated event types and related conformances.
 5. SwiftFormat applies formatting (4-space indentation).
+
+When changing generated surfaces, prefer updating the source specs/scripts and rerunning generation instead of hand-editing generated files.
 
 ### Key Scripts
 
@@ -54,6 +70,7 @@ make clean     # Clean temp files
 .package(url: "...", traits: [
     "SocketMode",
     "Events",
+    "HummingbirdHTTPAdapter",
     "WebAPI_Chat",
     "WebAPI_Views",
 ])
@@ -62,8 +79,17 @@ make clean     # Clean temp files
 ### Conditional Compilation
 
 - `#if WebAPI_*`: API method availability
-- `#if SocketMode`: WebSocket/real-time features
+- `#if SocketMode`: Socket Mode runtime and `apps.connections.open`
 - `#if Events`: Event handling
+- `#if HummingbirdHTTPAdapter`: Hummingbird-based HTTP adapter support
+
+## Runtime Notes
+
+- Prefer `SlackClient` when the task is purely about direct Web API access.
+- Prefer `SlackKit` for normal interactive app code; it is the intended import surface for most apps.
+- `SlackApp` owns routing, acknowledgement semantics, request verification, and runtime startup.
+- For Socket Mode apps, the usual entry point is `SlackApp(..., mode: .socketMode())`.
+- For HTTP apps, use `SlackApp(..., mode: .http(adapter))` with an adapter such as `HummingbirdAdapter`.
 
 ## DSL and Events Notes
 
@@ -71,6 +97,8 @@ make clean     # Clean temp files
 - Section DSL maps a single text child to `text`, multiple to `fields`.
 - Keep `_type` naming as-is for event compatibility.
 - Message events depend on `subtype` differentiation.
+- `onSlackMessageMatched(...)` no longer exists; use `router.onEvent(MessageEvent.self)` and filter inside the handler when needed.
+- Events API handlers are auto-acked; slash commands, block actions, shortcuts, and view handlers still need explicit `ack()`.
 
 ## Serialization and Naming Rules
 
@@ -100,7 +128,9 @@ make format
 
 # Examples
 swift run chatPostMessage
+swift run router
 swift run echoSlashCommand
+cd DemoApps/deepl-translator && swift run
 
 # Release
 ruby scripts/release.rb [version] [--yes]
