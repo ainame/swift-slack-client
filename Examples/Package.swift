@@ -34,8 +34,8 @@ let package = Package(
         .target(
             name: "Snippets",
             dependencies: [
-                .product(name: "SlackBlockKit", package: "swift-slack-client"),
-                .product(name: "SlackBlockKitDSL", package: "swift-slack-client"),
+                .product(name: "SlackBlockKit", package: "swift-slack-kit"),
+                .product(name: "SlackBlockKitDSL", package: "swift-slack-kit"),
             ],
         ),
     ],
@@ -49,9 +49,9 @@ func executable(_ name: String) -> Target {
     .executableTarget(
         name: name,
         dependencies: [
-            .product(name: "SlackClient", package: "swift-slack-client"),
-            .product(name: "SlackKit", package: "swift-slack-client"),
-            .product(name: "SlackBlockKitDSL", package: "swift-slack-client"),
+            .product(name: "SlackClient", package: "swift-slack-kit"),
+            .product(name: "SlackKit", package: "swift-slack-kit"),
+            .product(name: "SlackBlockKitDSL", package: "swift-slack-kit"),
             .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
         ],
     )
