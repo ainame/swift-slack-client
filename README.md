@@ -40,23 +40,14 @@ For smaller builds, enable only the traits your app needs:
     .package(
         url: "https://github.com/ainame/swift-slack.git",
         from: "0.5.1",
-    traits: [
-        "SocketMode",   // WebSocket support
-        "Events",       // Events API
-        "WebAPI_Apps",  // apps.connections.open for Socket Mode
-        "WebAPI_Chat",  // chat.postMessage, etc.
-        "WebAPI_Views", // views.open, etc.
-    ]
-)
-```
-
-If you use `AsyncHTTPClientTransport()` in your app, also add:
-
-```swift
-.package(
-    url: "https://github.com/swift-server/swift-openapi-async-http-client.git",
-    from: "1.1.0"
-)
+        traits: [
+            "SocketMode",   // WebSocket support
+            "Events",       // Events API
+            "WebAPI_Apps",  // apps.connections.open for Socket Mode
+            "WebAPI_Chat",  // chat.postMessage, etc.
+            "WebAPI_Views", // views.open, etc.
+        ]
+    )
 ```
 
 ### Use `SlackClient` for Web API calls
