@@ -16,31 +16,7 @@ Migration guide: [Migrating to SlackApp](./MIGRATING_TO_SLACKAPP.md)
 
 ## Documentation
 
-This library provides comprehensive DocC documentation including:
-
-- **API Reference**: Complete documentation for all public APIs, types, and methods
-- **Getting Started**: Step-by-step setup guides for the Web API client and `SlackAppKit` app-authoring flow
-- **Examples**: Real-world code examples and common patterns
-- **Block Kit Guide**: Complete guide to building rich Slack UIs with both direct API and DSL approaches
-- **Socket Mode**: Interactive routing, event handling, and acknowledgment patterns
-- **Swift Package Traits**: How to optimize compilation with selective feature inclusion
-
-The documentation is automatically generated from code and hosted on GitHub Pages. Browse by module:
-- [SlackClient](https://ainame.github.io/swift-slack-client/documentation/slackclient/) - Main client and configuration
-- [SlackApp](https://ainame.github.io/swift-slack-client/documentation/slackapp/) - Runtime layer for Socket Mode and HTTP handling
-- [SlackModels](https://ainame.github.io/swift-slack-client/documentation/slackmodels/) - All Slack API types and models
-- [SlackBlockKit](https://ainame.github.io/swift-slack-client/documentation/slackblockkit/) - Direct Block Kit API
-- [SlackBlockKitDSL](https://ainame.github.io/swift-slack-client/documentation/slackblockkitdsl/) - SwiftUI-style DSL for Block Kit
-
-**Note: The WebAPI client works but is not tested for all methods. Please provide feedback. The library is experimental and its API may change.**
-
-## Key Features
-
-* **Type-safe Slack Web API/Block Kit support** to build rich Slack apps
-* **Optional `SlackAppKit` umbrella product** for app authors building Socket Mode and HTTP-based Slack apps
-* **ServiceLifecycle integration** so `SlackApp` can run inside a `ServiceGroup`
-* **Automatically generated from OpenAPI specs** to stay current with official Web API changes
-* **Designed for modern Swift on Server** - structured concurrency, swift-openapi-generator, Swift Package traits, etc.
+The documentation is available here - https://ainame.github.io/swift-slack-client/documentation/
 
 ## Get started
 
@@ -57,7 +33,7 @@ Use the package directly:
 dependencies: [
     .package(
         url: "https://github.com/ainame/swift-slack-client.git",
-        from: "0.1.1"
+        from: "0.6.0"
     )
 ]
 ```
@@ -69,11 +45,10 @@ For smaller builds, enable only the traits your app needs:
     url: "https://github.com/ainame/swift-slack-client.git",
     from: "0.1.1",
     traits: [
-        "SocketMode",
-        "Events",
-        "WebAPI_Apps",
-        "WebAPI_Chat",
-        "WebAPI_Views",
+        "SocketMode",   // WebSocket support
+        "Events",       // Events API
+        "WebAPI_Chat",  // chat.postMessage, etc.
+        "WebAPI_Views", // views.open, etc.
     ]
 )
 ```
@@ -83,7 +58,7 @@ For smaller builds, enable only the traits your app needs:
 `SlackClient` is the lower-level client surface. You provide the transport and call Web API methods directly.
 
 ```swift
-import OpenAPIAsyncHTTPClient
+import OpenAPIAsyncHTTPClient // you can choose other transport layer available for swift-openapi-generator ecosystem
 import SlackClient
 
 let slack = Slack(
@@ -223,8 +198,7 @@ try await group.run()
 ### Choose the right product
 
 - Use `SlackClient` when you want raw Web API access and full control over transport setup.
-- Use `SlackAppKit` for normal app code.
-- Use `SlackApp` directly only when you want the runtime layer without the umbrella re-exports.
+- Use `SlackAppKit` for normal Slack app code.
 
 ## Block Kit
 
