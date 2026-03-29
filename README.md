@@ -55,8 +55,21 @@ For smaller builds, enable only the traits your app needs:
 
 `SlackClient` is the lower-level client surface. You provide the transport and call Web API methods directly.
 
+Add `SlackClient` and `OpenAPIAsyncHTTPClient` as transport layer to your app target.
+You can choose other transport layer available for swift-openapi-generator ecosystem.
+
 ```swift
-import OpenAPIAsyncHTTPClient // you can choose other transport layer available for swift-openapi-generator ecosystem
+    .executableTarget(
+        name: "YOUR_SWIFT_APP",
+        dependencies: [
+            .product(name: "OpenAPIAsyncHTTPClient", package: "swift-openapi-async-http-client"),
+            .product(name: "SlackClient", package: "swift-slack"),
+        ],
+    )
+```
+
+```swift
+import OpenAPIAsyncHTTPClient
 import SlackClient
 
 let slack = Slack(
@@ -72,27 +85,19 @@ try await slack.client.chatPostMessage(
 )
 ```
 
-Add `SlackBlockKitDSL` if you want to build blocks with the DSL:
-
-```swift
-import SlackBlockKitDSL
-
-let section = Section {
-    Text("A message *with some bold text* and _some italicized text_.")
-        .type(.mrkdwn)
-}
-
-try await slack.client.chatPostMessage(
-    body: .json(.init(
-        channel: "#general",
-        blocks: [section.render()]
-    ))
-)
-```
-
 ### Use `SlackKit` for interactive apps
 
-`SlackKit` is the recommended import for app code. It re-exports the runtime layer and the common app-authoring types used by interactive apps.
+`SlackKit` is the umbrella product that re-exports the runtime layer and the common app-authoring types used by interactive apps.
+
+``` swift
+    .executableTarget(
+        name: "YOUR_SWIFT_APP",
+        dependencies: [
+            .product(name: "SlackKit", package: "swift-slack"),
+        ],
+    )
+```
+
 
 ```swift
 import SlackKit
@@ -155,44 +160,6 @@ let app = SlackApp(
 try await app.run()
 ```
 
-### Ack behavior
-
-`SlackApp` follows Bolt-style acknowledgment semantics:
-
-- Events API handlers are auto-acked and receive `EventContext`
-- Slash commands, block actions, shortcuts, and view handlers receive `Context` and must call `ack()`
-- Router registrations are overwrite-based, so the last handler for the same key wins
-- `onSlackMessageMatched(...)` was removed; use `router.onEvent(MessageEvent.self)` and filter in the handler
-
-```swift
-router.onViewSubmission("form") { context, payload in
-    guard let email = payload.view.state?["email_block", "email_input"]?.value else {
-        try await context.ack(errors: ["email_block": "Please enter an email"])
-        return
-    }
-
-    try await context.ack()
-}
-```
-
-### Running with `ServiceGroup`
-
-`SlackApp` conforms to `Service`, so it can run inside `swift-service-lifecycle`:
-
-```swift
-import Logging
-import ServiceLifecycle
-import SlackKit
-
-let group = ServiceGroup(
-    services: [app],
-    gracefulShutdownSignals: [.sigterm, .sigint],
-    logger: Logger(label: "MySlackApp")
-)
-
-try await group.run()
-```
-
 ## Block Kit
 
 Two ways to build Slack Block Kit messages:
@@ -233,6 +200,44 @@ struct WelcomeModal: SlackModalView {
 ```
 
 See [Examples](https://github.com/ainame/swift-slack/tree/main/Examples) for more patterns.
+
+### Ack behavior
+
+`SlackApp` follows Bolt-style acknowledgment semantics:
+
+- Events API handlers are auto-acked and receive `EventContext`
+- Slash commands, block actions, shortcuts, and view handlers receive `Context` and must call `ack()`
+- Router registrations are overwrite-based, so the last handler for the same key wins
+- `onSlackMessageMatched(...)` was removed; use `router.onEvent(MessageEvent.self)` and filter in the handler
+
+```swift
+router.onViewSubmission("form") { context, payload in
+    guard let email = payload.view.state?["email_block", "email_input"]?.value else {
+        try await context.ack(errors: ["email_block": "Please enter an email"])
+        return
+    }
+
+    try await context.ack()
+}
+```
+
+### Running with `ServiceGroup`
+
+`SlackApp` conforms to `Service`, so it can run inside `swift-service-lifecycle`:
+
+```swift
+import Logging
+import ServiceLifecycle
+import SlackKit
+
+let group = ServiceGroup(
+    services: [app],
+    gracefulShutdownSignals: [.sigterm, .sigint],
+    logger: Logger(label: "MySlackApp")
+)
+
+try await group.run()
+```
 
 ## Technical Notes
 
