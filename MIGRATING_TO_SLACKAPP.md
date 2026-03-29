@@ -14,13 +14,13 @@
 
 ## Update your target dependencies
 
-If you build a Slack app runtime, depend on `SlackApp`:
+If you build a Slack app runtime, depend on `SlackAppKit` for the normal app-authoring path:
 
 ```swift
 .target(
     name: "MySlackApp",
     dependencies: [
-        .product(name: "SlackApp", package: "swift-slack-client"),
+        .product(name: "SlackAppKit", package: "swift-slack-client"),
     ]
 )
 ```
@@ -36,7 +36,7 @@ import SlackClient
 New:
 
 ```swift
-import SlackApp
+import SlackAppKit
 ```
 
 ## Update Socket Mode startup
@@ -83,7 +83,7 @@ let app = SlackApp(
 try await app.run()
 ```
 
-`SlackApp` now owns the default async HTTP transport. `SlackClient` remains the lower-level option when you want to provide your own transport directly.
+`SlackApp` now owns the default async HTTP transport. `SlackClient` remains the lower-level option when you want to provide your own transport directly, and `SlackAppKit` is the recommended umbrella import for normal app code.
 
 
 ## Ack semantics
