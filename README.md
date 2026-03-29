@@ -18,8 +18,9 @@ Migration guide from 0.5.x to 0.6 or newer: [Migrating to SlackApp](./MIGRATING_
 
 There are two normal entry points:
 
-- `SlackClient` for a low-level Web API client
-- `SlackKit` for interactive Slack apps built with Socket Mode or HTTP request handling
+- Use `SlackClient` for a low-level Web API client
+- Use `SlackKit` for interactive Slack apps built with Socket Mode or HTTP request handling
+   - Use `SlackBlockKitDSL` together to build BlockKit view in declrative style DSL
 
 ### Install the package
 
@@ -192,12 +193,6 @@ let group = ServiceGroup(
 try await group.run()
 ```
 
-### Choose the right product
-
-- Use `SlackClient` when you want raw Web API access and full control over transport setup.
-- Use `SlackKit` for normal Slack app code.
-- Use `SlackApp` directly only when you want the runtime layer without the umbrella re-exports.
-
 ## Block Kit
 
 Two ways to build Slack Block Kit messages:
@@ -257,7 +252,7 @@ MIT license texts are available in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.
 
 ## Development
 
-Requirements: Swift 6.1+, SwiftFormat, Node.js
+Requirements: Swift 6.2+, SwiftFormat, Node.js
 
 ```bash
 git clone --recursive https://github.com/ainame/swift-slack.git
