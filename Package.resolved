@@ -232,7 +232,7 @@
       "location" : "https://github.com/swift-server/swift-openapi-async-http-client.git",
       "state" : {
         "revision" : "5ee8f2dd5176d3bb6acb9f9c040afcb93d6ae76a",
-        "version" : "1.4.0"
+        "version" : "from: "1.4.0""
       }
     },
     {
