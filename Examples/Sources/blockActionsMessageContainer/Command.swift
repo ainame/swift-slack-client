@@ -1,5 +1,4 @@
 import Foundation
-import OpenAPIAsyncHTTPClient
 import OpenAPIRuntime
 import SlackAppKit
 import SlackBlockKitDSL
@@ -16,15 +15,6 @@ struct Command {
             print("SLACK_REPRO_UNFURL_URL should be a URL whose domain is configured for your Slack app link unfurls.")
             Foundation.exit(1)
         }
-
-        let slack = Slack(
-            transport: AsyncHTTPClientTransport(),
-            configuration: .init(
-                userAgent: "BlockActionsMessageContainerRepro/1.0",
-                appToken: appToken,
-                token: token,
-            ),
-        )
 
         let router = Router()
 
@@ -43,91 +33,79 @@ struct Command {
             }
         }
 
-        let blocks = ReproMessageBlocks().blocks
-
-        _ = try await slack.client.chatPostMessage(
-            body: .json(
-                .init(
-                    blocks: blocks,
-                    channel: channel,
-                    text: "message-container block_actions repro",
-                ),
+        let app = SlackApp(
+            configuration: .init(
+                userAgent: "BlockActionsMessageContainerRepro/1.0",
+                appToken: appToken,
+                token: token,
             ),
+            router: router,
+            mode: .socketMode(),
         )
 
-        let unfurlSeedResult = try await slack.client.chatPostMessage(
-            body: .json(
-                .init(
-                    channel: channel,
-                    text: "message_attachment block_actions repro via unfurl: \(unfurlUrl)",
-                ),
-            ),
-        )
+        try await app.run { slack in
+            let blocks = ReproMessageBlocks().blocks
 
-        let seedResponse = try requireChatPostMessageResponse(unfurlSeedResult, context: "unfurl seed message")
-        guard let seedTs = seedResponse.ts else {
-            print("Failed to read ts from chat.postMessage response for unfurl seed message.")
-            Foundation.exit(1)
+            _ = try await slack.client.chatPostMessage(
+                body: .json(
+                    .init(
+                        blocks: blocks,
+                        channel: channel,
+                        text: "message-container block_actions repro",
+                    ),
+                ),
+            )
+
+            let unfurlSeedResult = try await slack.client.chatPostMessage(
+                body: .json(
+                    .init(
+                        channel: channel,
+                        text: "message_attachment block_actions repro via unfurl: \(unfurlUrl)",
+                    ),
+                ),
+            )
+
+            let seedResponse = try requireChatPostMessageResponse(unfurlSeedResult, context: "unfurl seed message")
+            guard let seedTs = seedResponse.ts else {
+                print("Failed to read ts from chat.postMessage response for unfurl seed message.")
+                Foundation.exit(1)
+            }
+
+            let unfurlResult = try await slack.client.chatUnfurl(
+                body: .json(
+                    .init(
+                        channel: channel,
+                        ts: seedTs,
+                        unfurls: buildMessageAttachmentUnfurlPayload(url: unfurlUrl),
+                    ),
+                ),
+            )
+            let unfurlResponse = try requireChatUnfurlResponse(unfurlResult)
+            if !unfurlResponse.ok {
+                print("chat.unfurl failed: \(unfurlResponse.error ?? "unknown_error")")
+                print("hint: verify link unfurl is enabled for this app and the URL domain is configured in app settings.")
+                Foundation.exit(1)
+            }
+
+            print("Posted repro messages to channel \(channel). Click both buttons in Slack.")
+            print("Expected interaction types:")
+            print("- message blocks button -> block_actions (container.type = message)")
+            print("- unfurl button -> block_actions (container.type = message_attachment)")
+            print("If unfurl button is missing, app/domain setup for link unfurls is incomplete.")
         }
-
-        let unfurlResult = try await slack.client.chatUnfurl(
-            body: .json(
-                .init(
-                    channel: channel,
-                    ts: seedTs,
-                    unfurls: buildMessageAttachmentUnfurlPayload(url: unfurlUrl),
-                ),
-            ),
-        )
-        let unfurlResponse = try requireChatUnfurlResponse(unfurlResult)
-        if !unfurlResponse.ok {
-            print("chat.unfurl failed: \(unfurlResponse.error ?? "unknown_error")")
-            print("hint: verify link unfurl is enabled for this app and the URL domain is configured in app settings.")
-            Foundation.exit(1)
-        }
-
-        print("Posted repro messages to channel \(channel). Click both buttons in Slack.")
-        print("Expected interaction types:")
-        print("- message blocks button -> block_actions (container.type = message)")
-        print("- unfurl button -> block_actions (container.type = message_attachment)")
-        print("If unfurl button is missing, app/domain setup for link unfurls is incomplete.")
-
-        let app = SlackApp(slack: slack, router: router, mode: .socketMode())
-        try await app.run()
     }
 }
 
 private func buildMessageAttachmentUnfurlPayload(url: String) throws -> OpenAPIObjectContainer {
-    let raw: [String: Any] = [
-        url: [
-            "blocks": [
-                [
-                    "type": "section",
-                    "text": [
-                        "type": "mrkdwn",
-                        "text": "Click the button below to send a `block_actions` payload from an unfurl attachment container.",
-                    ],
-                ],
-                [
-                    "type": "actions",
-                    "elements": [
-                        [
-                            "type": "button",
-                            "action_id": "repro_message_attachment_unfurl",
-                            "text": [
-                                "type": "plain_text",
-                                "text": "Reproduce message_attachment",
-                            ],
-                            "value": "repro",
-                        ],
-                    ],
-                ],
-            ],
-        ],
+    let payload = [
+        url: MessageAttachmentUnfurlPayload(blocks: MessageAttachmentUnfurlBlocks().blocks)
     ]
-
-    let data = try JSONSerialization.data(withJSONObject: raw)
+    let data = try JSONEncoder().encode(payload)
     return try JSONDecoder().decode(OpenAPIObjectContainer.self, from: data)
+}
+
+private struct MessageAttachmentUnfurlPayload: Codable {
+    let blocks: [Block]
 }
 
 private func requireChatPostMessageResponse(
@@ -180,5 +158,21 @@ private struct ReproMessageBlocks: SlackView {
                 .value("repro")
         }
         .blockId("repro_message_container")
+    }
+}
+
+private struct MessageAttachmentUnfurlBlocks: SlackView {
+    @BlockBuilder
+    var blocks: [Block] {
+        Section {
+            Text("Click the button below to send a `block_actions` payload from an unfurl attachment container.")
+                .type(.mrkdwn)
+        }
+
+        Actions {
+            Button("Reproduce message_attachment")
+                .actionId("repro_message_attachment_unfurl")
+                .value("repro")
+        }
     }
 }
