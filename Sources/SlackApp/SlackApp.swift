@@ -93,19 +93,13 @@ extension SlackApp {
             if Task.isCancelled { break }
 
             let url = try await slack.openSocketModeConnection()
-            let shouldReconnect = try await startSocketMode(
-                with: url,
-                options: options,
-                appLogger: appLogger
-            )
-
-            if shouldReconnect { continue }
+            try await startSocketMode(with: url, options: options, appLogger: appLogger)
 
             if !options.contains(.autoReconnectWhenDisconnected) { break }
         }
     }
 
-    private func startSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws -> Bool {
+    private func startSocketMode(with url: String, options: SocketModeOptions, appLogger: Logger?) async throws {
         let router = router
         let client = await slack.client
         let transport = await slack.transport
@@ -172,15 +166,14 @@ extension SlackApp {
 
         do {
             try await ws.run()
-            return false
         } catch {
+            // Ignore error when we can/should reconnect
             guard options.contains(.autoReconnectWhenDisconnected),
                   Self.shouldReconnectSocketMode(after: error) else {
                 throw error
             }
 
             logger.warning("SocketMode client timed out while reading; reconnecting")
-            return true
         }
     }
 
