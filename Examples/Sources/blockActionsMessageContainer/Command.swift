@@ -1,6 +1,6 @@
 import Foundation
 import OpenAPIRuntime
-import SlackAppKit
+import SlackKit
 import SlackBlockKitDSL
 
 @main

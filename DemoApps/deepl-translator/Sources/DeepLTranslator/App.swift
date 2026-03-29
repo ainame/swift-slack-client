@@ -1,7 +1,7 @@
 import AsyncHTTPClient
 import Foundation
 import Logging
-import SlackAppKit
+import SlackKit
 import SwiftDotenv
 
 @main

@@ -1,29 +1,36 @@
-![swift-slack-client](/logo.png)
+![swift-slack-kit](/logo.png)
 
 [![Swift Version](https://img.shields.io/badge/Swift-6.2+-blue.svg)](https://swift.org)
 [![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ainame/swift-slack-client/blob/main/LICENSE)
-[![GitHub Release](https://img.shields.io/github/v/release/ainame/swift-slack-client)](https://github.com/ainame/swift-slack-client/releases)
-[![Documentation](https://img.shields.io/badge/Documentation-DocC-blue.svg)](https://ainame.github.io/swift-slack-client/)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/ainame/swift-slack-client/test.yml?branch=main)](https://github.com/ainame/swift-slack-client/actions)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ainame/swift-slack-kit/blob/main/LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/ainame/swift-slack-kit)](https://github.com/ainame/swift-slack-kit/releases)
+[![Documentation](https://img.shields.io/badge/Documentation-DocC-blue.svg)](https://ainame.github.io/swift-slack-kit/)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ainame/swift-slack-kit/test.yml?branch=main)](https://github.com/ainame/swift-slack-kit/actions)
 
-swift-slack-client is an _unofficial_ library that aims to provide a Swift equivalent of the official Slack Bolt framework and SDK available for Python, TypeScript, Java, etc.
+swift-slack-kit is an _unofficial_ library that aims to provide a Swift equivalent of the official Slack Bolt framework and SDK available for Python, TypeScript, Java, etc.
 Build Slack apps using the language you love.
 
-📖 **[Complete Documentation](https://ainame.github.io/swift-slack-client/)** - Full API reference, guides, and examples
+📖 **[Complete Documentation](https://ainame.github.io/swift-slack-kit/)** - Full API reference, guides, and examples
 
 Migration guide: [Migrating to SlackApp](./MIGRATING_TO_SLACKAPP.md)
 
 ## Documentation
 
-The documentation is available here - https://ainame.github.io/swift-slack-client/documentation/
+The documentation is available here - https://ainame.github.io/swift-slack-kit/documentation/
+
+- [SlackKit](https://ainame.github.io/swift-slack-kit/documentation/slackkit/) - Umbrella product for normal app code
+- [SlackApp](https://ainame.github.io/swift-slack-kit/documentation/slackapp/) - Runtime layer for Socket Mode and HTTP handling
+- [SlackClient](https://ainame.github.io/swift-slack-kit/documentation/slackclient/) - Low-level Web API client
+- [SlackBlockKit](https://ainame.github.io/swift-slack-kit/documentation/slackblockkit/) - Direct Block Kit API
+- [SlackBlockKitDSL](https://ainame.github.io/swift-slack-kit/documentation/slackblockkitdsl/) - SwiftUI-style Block Kit DSL
+- [SlackModels](https://ainame.github.io/swift-slack-kit/documentation/slackmodels/) - Shared Slack API types and models
 
 ## Get started
 
 There are two normal entry points:
 
 - `SlackClient` for a low-level Web API client
-- `SlackAppKit` for interactive Slack apps built with Socket Mode or HTTP request handling
+- `SlackKit` for interactive Slack apps built with Socket Mode or HTTP request handling
 
 ### Install the package
 
@@ -32,8 +39,8 @@ Use the package directly:
 ```swift
 dependencies: [
     .package(
-        url: "https://github.com/ainame/swift-slack-client.git",
-        from: "0.6.0"
+        url: "https://github.com/ainame/swift-slack-kit.git",
+        from: "0.5.1"
     )
 ]
 ```
@@ -41,15 +48,25 @@ dependencies: [
 For smaller builds, enable only the traits your app needs:
 
 ```swift
-.package(
-    url: "https://github.com/ainame/swift-slack-client.git",
-    from: "0.1.1",
+    .package(
+        url: "https://github.com/ainame/swift-slack-kit.git",
+        from: "0.5.1",
     traits: [
         "SocketMode",   // WebSocket support
         "Events",       // Events API
+        "WebAPI_Apps",  // apps.connections.open for Socket Mode
         "WebAPI_Chat",  // chat.postMessage, etc.
         "WebAPI_Views", // views.open, etc.
     ]
+)
+```
+
+If you use `AsyncHTTPClientTransport()` in your app, also add:
+
+```swift
+.package(
+    url: "https://github.com/swift-server/swift-openapi-async-http-client.git",
+    from: "1.1.0"
 )
 ```
 
@@ -69,7 +86,7 @@ let slack = Slack(
 try await slack.client.chatPostMessage(
     body: .json(.init(
         channel: "#general",
-        text: "Hello from swift-slack-client"
+        text: "Hello from swift-slack-kit"
     ))
 )
 ```
@@ -92,12 +109,12 @@ try await slack.client.chatPostMessage(
 )
 ```
 
-### Use `SlackAppKit` for interactive apps
+### Use `SlackKit` for interactive apps
 
-`SlackAppKit` is the recommended import for app code. It re-exports the runtime layer and the common app-authoring types used by interactive apps.
+`SlackKit` is the recommended import for app code. It re-exports the runtime layer and the common app-authoring types used by interactive apps.
 
 ```swift
-import SlackAppKit
+import SlackKit
 
 let router = Router()
 
@@ -140,7 +157,7 @@ try await app.run { slack in
 For signed Slack requests over HTTP, use the runtime with an adapter such as `HummingbirdAdapter`:
 
 ```swift
-import SlackAppKit
+import SlackKit
 
 let router = Router()
 let adapter = HummingbirdAdapter(hostname: "0.0.0.0", port: 8080)
@@ -184,7 +201,7 @@ router.onViewSubmission("form") { context, payload in
 ```swift
 import Logging
 import ServiceLifecycle
-import SlackAppKit
+import SlackKit
 
 let group = ServiceGroup(
     services: [app],
@@ -198,7 +215,8 @@ try await group.run()
 ### Choose the right product
 
 - Use `SlackClient` when you want raw Web API access and full control over transport setup.
-- Use `SlackAppKit` for normal Slack app code.
+- Use `SlackKit` for normal Slack app code.
+- Use `SlackApp` directly only when you want the runtime layer without the umbrella re-exports.
 
 ## Block Kit
 
@@ -239,7 +257,7 @@ struct WelcomeModal: SlackModalView {
 }
 ```
 
-See [Examples](https://github.com/ainame/swift-slack-client/tree/main/Examples) for more patterns.
+See [Examples](https://github.com/ainame/swift-slack-kit/tree/main/Examples) for more patterns.
 
 ## Technical Notes
 
@@ -262,7 +280,7 @@ MIT license texts are available in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.
 Requirements: Swift 6.1+, SwiftFormat, Node.js
 
 ```bash
-git clone --recursive https://github.com/ainame/swift-slack-client.git
+git clone --recursive https://github.com/ainame/swift-slack-kit.git
 make update && make generate
 ```
 

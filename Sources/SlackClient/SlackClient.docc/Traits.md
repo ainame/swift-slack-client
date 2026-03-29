@@ -33,9 +33,9 @@ Each Slack Web API group is available as a separate trait:
 
 ### Feature Traits
 
-- `SocketMode` - Enables Socket Mode support in the `SlackApp` product
-- `Events` - Enables shared event models used by `SlackClient` and `SlackApp`
-- `HummingbirdHTTPAdapter` - Enables the optional Hummingbird adapter in the `SlackApp` product
+- `SocketMode` - Enables Socket Mode support in the `SlackApp` and `SlackKit` products
+- `Events` - Enables shared event models used by `SlackClient`, `SlackApp`, and `SlackKit`
+- `HummingbirdHTTPAdapter` - Enables the optional Hummingbird adapter in the `SlackApp` and `SlackKit` products
 
 ## Usage Examples
 
@@ -44,17 +44,17 @@ Each Slack Web API group is available as a separate trait:
 For a simple messaging API client:
 
 ```swift
-.package(url: "https://github.com/ainame/swift-slack-client", from: "0.1.0", traits: [
+.package(url: "https://github.com/ainame/swift-slack-kit", from: "0.5.1", traits: [
     "WebAPI_Chat",
 ])
 ```
 
 ### Interactive App
 
-To build an interactive app runtime with `SlackApp`, enable the traits your runtime needs.
+To build an interactive app runtime with `SlackKit`, enable the traits your runtime needs.
 
 ```swift
-.package(url: "https://github.com/ainame/swift-slack-client", from: "0.1.0", traits: [
+.package(url: "https://github.com/ainame/swift-slack-kit", from: "0.5.1", traits: [
     "WebAPI_Chat",
     "WebAPI_Views",
     "SocketMode",

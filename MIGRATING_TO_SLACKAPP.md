@@ -1,6 +1,6 @@
-# Migrating to `SlackApp`
+# Migrating to `SlackApp` and `SlackKit`
 
-`swift-slack-client` now splits the runtime layer out of `SlackClient`.
+`swift-slack-kit` now splits the runtime layer out of `SlackClient`.
 
 ## What changed
 
@@ -14,13 +14,13 @@
 
 ## Update your target dependencies
 
-If you build a Slack app runtime, depend on `SlackAppKit` for the normal app-authoring path:
+If you build a Slack app runtime, depend on `SlackKit` for the normal app-authoring path:
 
 ```swift
 .target(
     name: "MySlackApp",
     dependencies: [
-        .product(name: "SlackAppKit", package: "swift-slack-client"),
+        .product(name: "SlackKit", package: "swift-slack-kit"),
     ]
 )
 ```
@@ -36,7 +36,7 @@ import SlackClient
 New:
 
 ```swift
-import SlackAppKit
+import SlackKit
 ```
 
 ## Update Socket Mode startup
@@ -83,7 +83,7 @@ let app = SlackApp(
 try await app.run()
 ```
 
-`SlackApp` now owns the default async HTTP transport. `SlackClient` remains the lower-level option when you want to provide your own transport directly, and `SlackAppKit` is the recommended umbrella import for normal app code.
+`SlackApp` now owns the default async HTTP transport. `SlackClient` remains the lower-level option when you want to provide your own transport directly, and `SlackKit` is the recommended umbrella import for normal app code.
 
 
 ## Ack semantics

@@ -1,6 +1,6 @@
 # Getting Started
 
-Use `SlackApp` when you want a Slack app runtime on top of `SlackClient`.
+Use `SlackKit` for normal app code when you want a Slack app runtime on top of `SlackClient`. Use `SlackApp` directly when you only want the runtime layer itself.
 
 ## Installation
 
@@ -8,8 +8,8 @@ Add the package and enable the traits your runtime needs:
 
 ```swift
 .package(
-    url: "https://github.com/ainame/swift-slack-client",
-    from: "0.1.0",
+    url: "https://github.com/ainame/swift-slack-kit",
+    from: "0.5.1",
     traits: [
         "WebAPI_Apps",
         "WebAPI_Chat",
@@ -21,13 +21,13 @@ Add the package and enable the traits your runtime needs:
 )
 ```
 
-Then depend on `SlackAppKit` from your target:
+Then depend on `SlackKit` from your target:
 
 ```swift
 .target(
     name: "MySlackApp",
     dependencies: [
-        .product(name: "SlackAppKit", package: "swift-slack-client"),
+        .product(name: "SlackKit", package: "swift-slack-kit"),
         .product(name: "ServiceLifecycle", package: "swift-service-lifecycle"),
     ]
 )
@@ -36,7 +36,7 @@ Then depend on `SlackAppKit` from your target:
 ## Socket Mode
 
 ```swift
-import SlackAppKit
+import SlackKit
 
 let router = Router()
 
@@ -67,7 +67,7 @@ try await app.run { slack in
 ## HTTP App
 
 ```swift
-import SlackAppKit
+import SlackKit
 
 let router = Router()
 let adapter = HummingbirdAdapter(hostname: "0.0.0.0", port: 8080)
@@ -97,7 +97,7 @@ try await app.run()
 ```swift
 import Logging
 import ServiceLifecycle
-import SlackAppKit
+import SlackKit
 
 let app = SlackApp(
     configuration: .init(

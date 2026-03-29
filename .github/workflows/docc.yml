@@ -55,7 +55,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: docs/swift-slack-client
+          path: docs/swift-slack-kit
 
   deploy:
     if: github.ref == 'refs/heads/main'
