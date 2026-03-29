@@ -28,7 +28,6 @@ let package = Package(
                 "WebAPI_Views",
             ],
         ),
-        .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
     ],
     targets: targets + [
         .target(
