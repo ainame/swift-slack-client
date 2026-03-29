@@ -7,7 +7,7 @@ public struct SocketModeOptions: OptionSet, RawRepresentable, Sendable {
     ///
     /// Any errors occured at lower-layer like following categories are not impacted with this and un-handled.
     ///
-    /// * WebSocket library (WSClietn)
+    /// * WebSocket library (WSClient)
     /// * Networking failure for WebSocket
     /// * JSON decoding errors (Please report this to get it fixed)
     public static let recoverFromAppError = SocketModeOptions(rawValue: 1 << 1)

@@ -6,6 +6,7 @@ import ServiceLifecycle
 #if SocketMode
 import NIOCore
 import NIOFoundationCompat
+import NIOPosix
 import WSClient
 #endif
 
@@ -163,7 +164,17 @@ extension SlackApp {
             context.logger.info("SocketMode client disconnected")
         }
 
-        try await ws.run()
+        do {
+            try await ws.run()
+        } catch {
+            // Ignore error when we can/should reconnect
+            guard options.contains(.autoReconnectWhenDisconnected),
+                  Self.shouldReconnectSocketMode(after: error) else {
+                throw error
+            }
+
+            logger.warning("SocketMode client timed out while reading; reconnecting")
+        }
     }
 
     private static func request(from envelope: SocketModeMessageEnvelope) -> Request {
@@ -179,6 +190,15 @@ extension SlackApp {
         case let .unsupported(type):
             .unsupported(type)
         }
+    }
+
+    static func shouldReconnectSocketMode(after error: any Error) -> Bool {
+        guard let ioError = error as? IOError else {
+            return false
+        }
+        // A read timeout means the current Socket Mode connection stopped producing frames,
+        // so reconnecting is equivalent to recovering from an unexpected disconnect.
+        return ioError.errnoCode == ETIMEDOUT
     }
 }
 #endif
