@@ -1,7 +1,6 @@
-import Foundation
+import Logging
 import SlackClient
 import SlackModels
-import Logging
 
 public struct ReactionHandler: Sendable {
     private let deepL: DeepLClient

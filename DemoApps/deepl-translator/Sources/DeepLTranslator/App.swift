@@ -1,7 +1,6 @@
 import AsyncHTTPClient
 import Foundation
 import Logging
-import OpenAPIAsyncHTTPClient
 import SlackApp
 import SwiftDotenv
 
