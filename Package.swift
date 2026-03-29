@@ -45,7 +45,7 @@ traits.append(.trait(name: "HummingbirdHTTPAdapter"))
 traits.append(.default(enabledTraits: Set(traits.map(\.name))))
 
 let package = Package(
-    name: "swift-slack-kit",
+    name: "swift-slack",
     platforms: [.macOS(.v14)],
     products: [
         .library(name: "SlackClient", targets: ["SlackClient"]),

@@ -1,6 +1,6 @@
 # ``SlackKit``
 
-Build Slack apps with the umbrella product in `swift-slack-kit`.
+Build Slack apps with the umbrella product in `swift-slack`.
 
 ## Overview
 

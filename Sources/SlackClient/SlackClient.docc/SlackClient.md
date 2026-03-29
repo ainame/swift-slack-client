@@ -4,7 +4,7 @@ A Swift library for interacting with the Slack Web API with type-safe generated 
 
 ## Overview
 
-`SlackClient` is the pure client layer in the `swift-slack-kit` package. Use it when you want:
+`SlackClient` is the pure client layer in the `swift-slack` package. Use it when you want:
 
 - generated Web API operations
 - shared Slack payload and event models

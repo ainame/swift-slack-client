@@ -44,7 +44,7 @@ Each Slack Web API group is available as a separate trait:
 For a simple messaging API client:
 
 ```swift
-.package(url: "https://github.com/ainame/swift-slack-kit", from: "0.5.1", traits: [
+.package(url: "https://github.com/ainame/swift-slack", from: "0.5.1", traits: [
     "WebAPI_Chat",
 ])
 ```
@@ -54,7 +54,7 @@ For a simple messaging API client:
 To build an interactive app runtime with `SlackKit`, enable the traits your runtime needs.
 
 ```swift
-.package(url: "https://github.com/ainame/swift-slack-kit", from: "0.5.1", traits: [
+.package(url: "https://github.com/ainame/swift-slack", from: "0.5.1", traits: [
     "WebAPI_Chat",
     "WebAPI_Views",
     "SocketMode",

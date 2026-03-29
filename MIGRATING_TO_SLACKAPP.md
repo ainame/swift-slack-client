@@ -1,6 +1,6 @@
 # Migrating to `SlackApp` and `SlackKit`
 
-`swift-slack-kit` now splits the runtime layer out of `SlackClient`.
+`swift-slack` now splits the runtime layer out of `SlackClient`.
 
 ## What changed
 
@@ -20,7 +20,7 @@ If you build a Slack app runtime, depend on `SlackKit` for the normal app-author
 .target(
     name: "MySlackApp",
     dependencies: [
-        .product(name: "SlackKit", package: "swift-slack-kit"),
+        .product(name: "SlackKit", package: "swift-slack"),
     ]
 )
 ```

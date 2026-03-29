@@ -8,7 +8,7 @@ Add the package and enable the traits your runtime needs:
 
 ```swift
 .package(
-    url: "https://github.com/ainame/swift-slack-kit",
+    url: "https://github.com/ainame/swift-slack",
     from: "0.5.1",
     traits: [
         "WebAPI_Apps",
@@ -27,7 +27,7 @@ Then depend on `SlackKit` from your target:
 .target(
     name: "MySlackApp",
     dependencies: [
-        .product(name: "SlackKit", package: "swift-slack-kit"),
+        .product(name: "SlackKit", package: "swift-slack"),
         .product(name: "ServiceLifecycle", package: "swift-service-lifecycle"),
     ]
 )

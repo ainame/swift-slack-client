@@ -4,7 +4,7 @@ Build Slack app runtimes on top of ``SlackClient``.
 
 ## Overview
 
-`SlackApp` is the framework layer in the `swift-slack-kit` package. It owns:
+`SlackApp` is the framework layer in the `swift-slack` package. It owns:
 
 - `SlackApp`
 - `Router`

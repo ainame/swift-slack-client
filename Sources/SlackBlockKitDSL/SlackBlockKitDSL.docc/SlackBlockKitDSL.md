@@ -233,7 +233,7 @@ struct UserProfile: SlackModalView {
 
 ## Integration
 
-SlackBlockKitDSL builds on top of SlackBlockKit and integrates with the entire swift-slack-kit ecosystem:
+SlackBlockKitDSL builds on top of SlackBlockKit and integrates with the entire swift-slack ecosystem:
 
 ```swift
 import SlackClient

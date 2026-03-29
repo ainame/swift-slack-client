@@ -40,7 +40,7 @@ let blocks: [Block] = [.section(welcomeSection)]
 
 ## Integration
 
-SlackBlockKit integrates seamlessly with other swift-slack-kit modules:
+SlackBlockKit integrates seamlessly with other swift-slack modules:
 
 - Use with `SlackClient` to send messages and open modals
 - Combine with `SlackBlockKitDSL` for declarative syntax

@@ -10,7 +10,7 @@ Add the package to your Swift package or Xcode project:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/ainame/swift-slack-kit", from: "0.5.1")
+    .package(url: "https://github.com/ainame/swift-slack", from: "0.5.1")
 ]
 ```
 
@@ -20,7 +20,7 @@ Use traits to include only the API components you need:
 
 ```swift
 .package(
-    url: "https://github.com/ainame/swift-slack-kit",
+    url: "https://github.com/ainame/swift-slack",
     from: "0.5.1",
     traits: [
         "WebAPI_Chat",    // Chat API methods

@@ -3,7 +3,7 @@
 set -euxo pipefail
 
 TMP_DIR=".tmp"
-HOSTING_BASE_PATH="swift-slack-kit"
+HOSTING_BASE_PATH="swift-slack"
 OUTPUT_DIR="docs/${HOSTING_BASE_PATH}"
 
 rm -rf "${TMP_DIR}/*.doccarchive"
@@ -22,7 +22,7 @@ swift package --allow-writing-to-directory "${TMP_DIR}" \
     --disable-indexing \
     --transform-for-static-hosting \
     --source-service github \
-    --source-service-base-url https://github.com/ainame/swift-slack-kit/blob/main \
+    --source-service-base-url https://github.com/ainame/swift-slack/blob/main \
     --checkout-path "$(pwd)" \
     --hosting-base-path "${HOSTING_BASE_PATH}"
 

@@ -66,7 +66,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-* Fixed schema mapping mismatch for user-shaped `profile` fields (issue [#42](https://github.com/ainame/swift-slack-kit/issues/42)).
+* Fixed schema mapping mismatch for user-shaped `profile` fields (issue [#42](https://github.com/ainame/swift-slack/issues/42)).
   * `User.profile`, `Member.profile`, `InvitingUser.profile`, and `TingUser.profile` now map to `UserProfile` instead of `Profile`.
   * Expanded `UserProfile` with missing properties from Slack user profile payloads (status metadata, normalized names, profile fields, additional image sizes, and app/bot metadata).
   * `TeamProfileGetResponse.profile` now maps to `TeamProfile` to reflect `team.profile.get` payload shape (`fields` / `sections`) instead of image-only `Profile`.
@@ -76,12 +76,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Minimum DocC documentation support https://ainame.github.io/swift-slack-kit/documentation
-* Schema update https://github.com/ainame/swift-slack-kit/pull/33
+* Minimum DocC documentation support https://ainame.github.io/swift-slack/documentation
+* Schema update https://github.com/ainame/swift-slack/pull/33
 
 ### Fixed
 
-* Schema update automation issue was resolved https://github.com/ainame/swift-slack-kit/commit/44966ba5be88fe6df115d42f229bd04e9153f472
+* Schema update automation issue was resolved https://github.com/ainame/swift-slack/commit/44966ba5be88fe6df115d42f229bd04e9153f472
    * SwiftFormat got bug fixes around trailing commas and that helps us get consistently formatted code in schema updates
 
 
