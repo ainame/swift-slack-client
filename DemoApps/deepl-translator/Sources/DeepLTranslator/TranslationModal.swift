@@ -1,6 +1,6 @@
 import Foundation
+import SlackAppKit
 import SlackModels
-import SlackBlockKit
 import SlackBlockKitDSL
 
 public struct TranslationModal {

@@ -12,12 +12,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Added a shared app runtime with `SlackApp`, `Router`, transport-neutral `Ack`, `Slack.Configuration`, HTTP request handling, and optional Hummingbird integration.
 * Added app runtime coverage for shared router dispatch and HTTP request handling.
 * Added migration documentation at `MIGRATING_TO_SLACKAPP.md`.
+* Added a new `SlackAppKit` umbrella product that re-exports `SlackApp`, `SlackClient`, and `SlackBlockKit` for normal app-authoring workflows.
 
 ### Changed
 
 * **BREAKING**: Split the app runtime out of `SlackClient` into a new `SlackApp` product.
 * Moved Socket Mode, HTTP request handling, routing, acknowledgements, and the existing Hummingbird integration into `SlackApp`.
-* Updated examples, README, and DocC guides to use `SlackApp`, `Router`, and `Slack.Configuration` for Socket Mode and HTTP app runtime setup.
+* Updated examples, README, migration notes, and DocC guides to make `SlackAppKit` the primary app-authoring entry point while keeping `SlackApp` as the lower-level runtime module.
+* Updated `DemoApps/deepl-translator` to use the current `SlackApp` runtime flow and removed obsolete package dependencies.
+* Simplified `Examples/Sources/blockActionsMessageContainer` to use `SlackApp` setup via the `preparing` hook and typed Block Kit-based unfurl payload construction.
 
 ## [0.5.1] - 2026-03-23
 

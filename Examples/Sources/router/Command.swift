@@ -1,5 +1,5 @@
 import Foundation
-import SlackApp
+import SlackAppKit
 import SlackBlockKitDSL
 
 @main

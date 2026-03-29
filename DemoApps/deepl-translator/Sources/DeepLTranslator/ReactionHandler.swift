@@ -1,5 +1,5 @@
 import Logging
-import SlackClient
+import SlackAppKit
 import SlackModels
 
 public struct ReactionHandler: Sendable {

@@ -50,6 +50,7 @@ let package = Package(
     products: [
         .library(name: "SlackClient", targets: ["SlackClient"]),
         .library(name: "SlackApp", targets: ["SlackApp"]),
+        .library(name: "SlackAppKit", targets: ["SlackAppKit"]),
         .library(name: "SlackBlockKit", targets: ["SlackBlockKit"]),
         .library(name: "SlackBlockKitDSL", targets: ["SlackBlockKitDSL"]),
         .library(name: "SlackModels", targets: ["SlackModels"]),
@@ -108,6 +109,14 @@ let package = Package(
             swiftSettings: [
                 .enableExperimentalFeature("StrictConcurrency"),
                 .unsafeFlags(["-Xfrontend", "-disable-availability-checking"], .when(configuration: .debug))
+            ]
+        ),
+        .target(
+            name: "SlackAppKit",
+            dependencies: [
+                .target(name: "SlackApp"),
+                .target(name: "SlackClient"),
+                .target(name: "SlackBlockKit"),
             ]
         ),
         .testTarget(
