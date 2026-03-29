@@ -64,7 +64,7 @@ let package = Package(
         .package(url: "https://github.com/hummingbird-project/swift-websocket", from: "1.5.0"),
         .package(url: "https://github.com/hummingbird-project/hummingbird.git", from: "2.0.0"),
         .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.4.6"),
-        .package(url: "https://github.com/swift-server/swift-service-lifecycle.git", from: "2.3.0"),
+        .package(url: "https://github.com/swift-server/swift-service-lifecycle.git", from: "2.10.1"),
     ],
     targets: [
         .target(
