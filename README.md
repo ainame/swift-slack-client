@@ -1,5 +1,3 @@
-![swift-slack-kit](/logo.png)
-
 [![Swift Version](https://img.shields.io/badge/Swift-6.2+-blue.svg)](https://swift.org)
 [![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ainame/swift-slack-kit/blob/main/LICENSE)
@@ -7,23 +5,14 @@
 [![Documentation](https://img.shields.io/badge/Documentation-DocC-blue.svg)](https://ainame.github.io/swift-slack-kit/)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ainame/swift-slack-kit/test.yml?branch=main)](https://github.com/ainame/swift-slack-kit/actions)
 
+# swift-slack-kit
+
 swift-slack-kit is an _unofficial_ library that aims to provide a Swift equivalent of the official Slack Bolt framework and SDK available for Python, TypeScript, Java, etc.
 Build Slack apps using the language you love.
 
 📖 **[Complete Documentation](https://ainame.github.io/swift-slack-kit/)** - Full API reference, guides, and examples
 
-Migration guide: [Migrating to SlackApp](./MIGRATING_TO_SLACKAPP.md)
-
-## Documentation
-
-The documentation is available here - https://ainame.github.io/swift-slack-kit/documentation/
-
-- [SlackKit](https://ainame.github.io/swift-slack-kit/documentation/slackkit/) - Umbrella product for normal app code
-- [SlackApp](https://ainame.github.io/swift-slack-kit/documentation/slackapp/) - Runtime layer for Socket Mode and HTTP handling
-- [SlackClient](https://ainame.github.io/swift-slack-kit/documentation/slackclient/) - Low-level Web API client
-- [SlackBlockKit](https://ainame.github.io/swift-slack-kit/documentation/slackblockkit/) - Direct Block Kit API
-- [SlackBlockKitDSL](https://ainame.github.io/swift-slack-kit/documentation/slackblockkitdsl/) - SwiftUI-style Block Kit DSL
-- [SlackModels](https://ainame.github.io/swift-slack-kit/documentation/slackmodels/) - Shared Slack API types and models
+Migration guide from 0.5.x to 0.6 or newer: [Migrating to SlackApp](./MIGRATING_TO_SLACKAPP.md)
 
 ## Get started
 
