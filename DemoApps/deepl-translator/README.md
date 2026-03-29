@@ -149,7 +149,7 @@ The app is structured as follows:
 - `Languages.swift` - Language and emoji mappings
 - `TranslationModal.swift` - Modal UI components using SlackBlockKitDSL
 - `ReactionHandler.swift` - Reaction event processing
-- `main.swift` - Socket Mode router and app entry point
+- `App.swift` - SlackApp-based Socket Mode router and app entry point
 
 ## License
 

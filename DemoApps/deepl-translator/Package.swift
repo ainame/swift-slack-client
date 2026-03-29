@@ -28,8 +28,7 @@ let package = Package(
         .executableTarget(
             name: "DeepLTranslator",
             dependencies: [
-                .product(name: "SlackClient", package: "swift-slack-client"),
-                .product(name: "SlackModels", package: "swift-slack-client"),
+                .product(name: "SlackApp", package: "swift-slack-client"),
                 .product(name: "SlackBlockKit", package: "swift-slack-client"),
                 .product(name: "SlackBlockKitDSL", package: "swift-slack-client"),
                 .product(name: "AsyncHTTPClient", package: "async-http-client"),

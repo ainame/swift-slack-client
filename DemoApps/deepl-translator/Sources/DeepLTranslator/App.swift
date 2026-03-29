@@ -2,8 +2,7 @@ import AsyncHTTPClient
 import Foundation
 import Logging
 import OpenAPIAsyncHTTPClient
-import SlackClient
-import SlackModels
+import SlackApp
 import SwiftDotenv
 
 @main
@@ -45,23 +44,11 @@ struct DeepLTranslatorApp {
         // Initialize shared HTTP client
         let httpClient = HTTPClient()
 
-        // Initialize clients with shared HTTP client
-        let transport = AsyncHTTPClientTransport(
-            configuration: .init(client: httpClient)
-        )
-        let slack = Slack(
-            transport: transport,
-            configuration: .init(
-                userAgent: "DeepLTranslator/1.0",
-                appToken: appToken,
-                token: slackToken
-            )
-        )
         let deepL = DeepLClient(httpClient: httpClient, authKey: deepLAPIKey, isFreePlan: isFreePlan)
         let reactionHandler = ReactionHandler(deepL: deepL)
 
         // Create router
-        let router = SocketModeRouter()
+        let router = Router()
 
         // Handle global shortcut
         router.onGlobalShortcut("deepl-translation") { context, payload in
@@ -113,13 +100,20 @@ struct DeepLTranslatorApp {
             )
         }
 
-        // Add router and run
-        await slack.addSocketModeRouter(router)
-
         logger.info("DeepL Translator bot is running!")
 
+        let app = SlackApp(
+            configuration: .init(
+                userAgent: "DeepLTranslator/1.0",
+                appToken: appToken,
+                token: slackToken
+            ),
+            router: router,
+            mode: .socketMode()
+        )
+
         do {
-            try await slack.runInSocketMode()
+            try await app.run()
         } catch {
             logger.critical("Socket mode failed", metadata: ["error": "\(error)"])
             try await httpClient.shutdown()
