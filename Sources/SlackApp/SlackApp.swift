@@ -198,6 +198,8 @@ extension SlackApp {
         guard let ioError = error as? IOError else {
             return false
         }
+        // A read timeout means the current Socket Mode connection stopped producing frames,
+        // so reconnecting is equivalent to recovering from an unexpected disconnect.
         return ioError.errnoCode == ETIMEDOUT
     }
 }
