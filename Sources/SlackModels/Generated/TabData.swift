@@ -10,12 +10,12 @@ import struct Foundation.URL
 #endif
 
 /// - Remark: Generated from `#/components/schemas/Data`.
-public struct Data: Codable, Hashable, Sendable {
+public struct TabData: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Data/file_id`.
     public var fileId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Data/shared_ts`.
     public var sharedTs: Swift.String?
-    /// Creates a new `Data`.
+    /// Creates a new `TabData`.
     ///
     /// - Parameters:
     ///   - fileId:

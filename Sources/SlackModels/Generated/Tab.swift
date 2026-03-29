@@ -12,7 +12,7 @@ import struct Foundation.URL
 /// - Remark: Generated from `#/components/schemas/Tab`.
 public struct Tab: Codable, Hashable, Sendable {
     /// - Remark: Generated from `#/components/schemas/Tab/data`.
-    public var data: Data?
+    public var data: TabData?
     /// - Remark: Generated from `#/components/schemas/Tab/id`.
     public var id: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Tab/is_disabled`.
@@ -30,7 +30,7 @@ public struct Tab: Codable, Hashable, Sendable {
     ///   - label:
     ///   - _type:
     public init(
-        data: Data? = nil,
+        data: TabData? = nil,
         id: Swift.String? = nil,
         isDisabled: Swift.Bool? = nil,
         label: Swift.String? = nil,
