@@ -18,7 +18,7 @@ let package = Package(
     products: products(from: targets),
     dependencies: [
         .package(
-            path: "../",
+            path: "../../",
             traits: [
                 "SocketMode",
                 "Events",

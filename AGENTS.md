@@ -32,7 +32,7 @@ This project is a Swift Slack SDK and app framework. It combines generated Web A
 - `Sources/SlackBlockKit`: Block Kit data structures and views.
 - `Sources/SlackBlockKitDSL`: Swift DSL for composing Block Kit payloads.
 - `Tests/SlackClientTests`, `Tests/SlackAppTests`, `Tests/SlackBlockKitTests`, `Tests/SlackBlockKitDSLTests`: Module-aligned test suites using `swift-testing`.
-- `Examples/`: Small executable samples wired against the local package.
+- `DemoApps/Examples/`: Small executable samples wired against the local package.
 - `DemoApps/`: Larger end-to-end sample applications.
 
 ## Code Generation Workflow
@@ -127,9 +127,9 @@ swift test
 make format
 
 # Examples
-swift run chatPostMessage
-swift run router
-swift run echoSlashCommand
+cd DemoApps/Examples && swift run chatPostMessage
+cd DemoApps/Examples && swift run router
+cd DemoApps/Examples && swift run echoSlashCommand
 cd DemoApps/deepl-translator && swift run
 
 # Release
