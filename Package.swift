@@ -57,18 +57,26 @@ let package = Package(
     ],
     traits: Set(traits),
     dependencies: [
-        .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.11.0"),
-        .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.11.0"),
-        .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
+        .package(url: "https://github.com/apple/swift-crypto", from: "4.3.0"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.10.1"),
         .package(url: "https://github.com/apple/swift-nio", from: "2.94.1"),
-        .package(url: "https://github.com/apple/swift-crypto", from: "4.3.0"),
-        .package(url: "https://github.com/hummingbird-project/swift-websocket", from: "1.5.0"),
+        .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.11.0"),
+        .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.11.0"),
         .package(url: "https://github.com/hummingbird-project/hummingbird.git", from: "2.0.0"),
-        .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.4.6"),
+        .package(url: "https://github.com/hummingbird-project/swift-websocket", from: "1.5.0"),
+        .package(url: "https://github.com/swift-server/swift-openapi-async-http-client.git", from: "1.1.0"),
         .package(url: "https://github.com/swift-server/swift-service-lifecycle.git", from: "2.3.0"),
+        .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.4.6"),
     ],
     targets: [
+        .target(
+            name: "SlackKit",
+            dependencies: [
+                .target(name: "SlackApp"),
+                .target(name: "SlackClient"),
+                .target(name: "SlackBlockKit"),
+            ]
+        ),
         .target(
             name: "SlackClient",
             dependencies: [
@@ -109,14 +117,6 @@ let package = Package(
             swiftSettings: [
                 .enableExperimentalFeature("StrictConcurrency"),
                 .unsafeFlags(["-Xfrontend", "-disable-availability-checking"], .when(configuration: .debug))
-            ]
-        ),
-        .target(
-            name: "SlackKit",
-            dependencies: [
-                .target(name: "SlackApp"),
-                .target(name: "SlackClient"),
-                .target(name: "SlackBlockKit"),
             ]
         ),
         .testTarget(
