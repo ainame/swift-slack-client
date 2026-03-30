@@ -7,7 +7,7 @@
 
 # swift-slack
 
-swift-slack is an _unofficial_ library that aims to provide a Swift equivalent of the official Slack Bolt framework and SDK available for Python, TypeScript, Java, etc.
+`swift-slack` aims to bring Slack’s official SDK and Bolt framework experience to Swift, with feature parity across officially supported languages such as Python, TypeScript, and Java.
 Build Slack apps using the language you love.
 
 **[Documentation](https://ainame.github.io/swift-slack/documentation)** - Full API reference, guides, and examples
@@ -257,7 +257,7 @@ MIT license texts are available in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.
 
 ## Development
 
-Requirements: Swift 6.2+, SwiftFormat, Node.js
+Requirements: Swift 6.2+, SwiftFormat, Node.js, and Ruby
 
 ```bash
 git clone --recursive https://github.com/ainame/swift-slack.git

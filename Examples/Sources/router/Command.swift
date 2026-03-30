@@ -1,6 +1,6 @@
 import Foundation
-import SlackKit
 import SlackBlockKitDSL
+import SlackKit
 
 @main
 struct Command {

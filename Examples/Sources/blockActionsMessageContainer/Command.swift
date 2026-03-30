@@ -1,7 +1,7 @@
 import Foundation
 import OpenAPIRuntime
-import SlackKit
 import SlackBlockKitDSL
+import SlackKit
 
 @main
 struct Command {
@@ -98,7 +98,7 @@ struct Command {
 
 private func buildMessageAttachmentUnfurlPayload(url: String) throws -> OpenAPIObjectContainer {
     let payload = [
-        url: MessageAttachmentUnfurlPayload(blocks: MessageAttachmentUnfurlBlocks().blocks)
+        url: MessageAttachmentUnfurlPayload(blocks: MessageAttachmentUnfurlBlocks().blocks),
     ]
     let data = try JSONEncoder().encode(payload)
     return try JSONDecoder().decode(OpenAPIObjectContainer.self, from: data)

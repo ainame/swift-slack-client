@@ -10,7 +10,7 @@ struct SlackAppTests {
         let transport = RecordingTransport()
         let slack = Slack(
             transport: transport,
-            configuration: .init(token: "xoxb-test")
+            configuration: .init(token: "xoxb-test"),
         )
         let adapter = RecordingAdapter()
         let app = SlackApp(slack: slack, router: Router(), mode: .http(adapter))
@@ -30,7 +30,7 @@ private actor RecordingAdapter: HTTPServerAdapter {
     private(set) var events: [String] = []
 
     func run(
-        handler _: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse
+        handler _: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse,
     ) async throws {
         events.append("adapter")
     }
