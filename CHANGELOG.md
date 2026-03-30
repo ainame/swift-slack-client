@@ -7,11 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [0.7.0] - 2026-03-30
+
 ### Changed
 
 * Updated `apple/swift-crypto` to `4.3.0`.
+* Preserved SwiftPM dependency ranges in Renovate updates - #85
+* Updated the GitHub Pages deployment workflow to `actions/deploy-pages@v5` - #73
 * Enabled DocC generation for `SlackApp` so its symbols are included in the published documentation site - #86
 * Made the built-in `HummingbirdAdapter` integration opt-in via the `HummingbirdHTTPAdapter` package trait and updated the README to document HTTP setup - #87
+* Fixed the DocC publishing script used by the documentation workflow.
 
 ## [0.6.0] - 2026-03-29
 
