@@ -15,6 +15,7 @@ swift package --allow-writing-to-directory "${TMP_DIR}" \
     generate-documentation \
     --product SlackKit \
     --output-path "${TMP_DIR}" \
+    --product SlackApp \
     --product SlackClient \
     --product SlackBlockKit \
     --product SlackBlockKitDSL \
