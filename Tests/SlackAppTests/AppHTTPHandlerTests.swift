@@ -56,7 +56,6 @@ struct AppHTTPHandlerTests {
         #expect(String(decoding: responseBody, as: UTF8.self).contains(#""challenge":"abc""#))
     }
 
-
     @Test func appRateLimitedReturnsOK() async throws {
         let body = Data(#"{"type":"app_rate_limited","team_id":"T123","minute_rate_limited":1518467820,"api_app_id":"A123"}"#.utf8)
         let timestamp = currentTimestamp()
@@ -113,6 +112,7 @@ struct AppHTTPHandlerTests {
         #expect(response.status == .ok)
         #expect(response.body == nil)
     }
+
     @Test func eventAutoAckReturnsBeforeHandlerCompletes() async throws {
         actor Tracker {
             private(set) var processed = false
