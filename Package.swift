@@ -41,8 +41,11 @@ traits.append(.trait(name: "SocketMode", enabledTraits: ["WebAPI_Apps"]))
 traits.append(.trait(name: "Events"))
 traits.append(.trait(name: "HummingbirdHTTPAdapter"))
 
-// By default, all the traits is enabled for development.
-traits.append(.default(enabledTraits: Set(traits.map(\.name))))
+// By default, enable all traits except optional integrations.
+let defaultTraitNames = traits
+    .map(\.name)
+    .filter { $0 != "HummingbirdHTTPAdapter" }
+traits.append(.default(enabledTraits: Set(defaultTraitNames)))
 
 let package = Package(
     name: "swift-slack",
