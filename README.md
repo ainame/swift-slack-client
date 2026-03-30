@@ -140,7 +140,25 @@ try await app.run { slack in
 
 ### HTTP mode
 
-For signed Slack requests over HTTP, use the runtime with an adapter such as `HummingbirdAdapter`:
+For signed Slack requests over HTTP, use the runtime with an adapter such as `HummingbirdAdapter`.
+The built-in Hummingbird integration is opt-in, so enable the `HummingbirdHTTPAdapter` trait in your package dependency first:
+
+```swift
+dependencies: [
+    .package(
+        url: "https://github.com/ainame/swift-slack.git",
+        from: "0.6.0",
+        traits: [
+            "Events",
+            "HummingbirdHTTPAdapter",
+            "WebAPI_Chat",
+            "WebAPI_Views",
+        ]
+    )
+]
+```
+
+Then add `SlackKit` to your app target and configure HTTP mode:
 
 ```swift
 import SlackKit
