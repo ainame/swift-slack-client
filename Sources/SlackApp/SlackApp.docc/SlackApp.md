@@ -24,3 +24,4 @@ In normal app code, prefer `import SlackKit`. Use `SlackApp` directly when you o
 
 - <doc:GettingStarted>
 - <doc:MigrationGuide>
+- <doc:Examples>

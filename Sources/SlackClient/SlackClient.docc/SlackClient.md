@@ -30,3 +30,11 @@ SlackClient is built with server-side Swift in mind and works with structured co
 You can also choose underlying networking layer; i.e.
 [swift-openapi-async-http-client](https://github.com/swift-server/swift-openapi-async-http-client),
 thanks to swift-openapi-generator ecosystem.
+
+## Topics
+
+### Essentials
+
+- <doc:GettingStarted>
+- <doc:Traits>
+- <doc:Examples>
