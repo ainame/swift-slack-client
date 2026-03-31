@@ -2,7 +2,7 @@ CONCURRENCY = 24
 
 def process_in_queue(items, &block)
   queue = Queue.new
-  items.each { queue.push(it) }
+  items.each { queue.push(_1) }
   queue.close
 
   threads = CONCURRENCY.times.map do
