@@ -47,4 +47,4 @@ try await app.run()
 
 ## Client Layer
 
-`SlackClient` is now the pure Web API layer. Runtime concerns such as Socket Mode, HTTP request verification, routing, and acknowledgements live in `SlackApp`.
+`SlackClient` is now the pure Web API layer. Runtime concerns such as Events API payload types, Socket Mode, HTTP request verification, routing, and acknowledgements live in `SlackApp`.

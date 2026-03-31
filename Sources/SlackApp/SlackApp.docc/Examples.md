@@ -1,6 +1,6 @@
 # Practical Examples
 
-Runtime-oriented examples for `SlackApp` and `SlackKit`.
+Runtime-oriented examples for `SlackApp` and `SlackKit`, including `SlackApp`'s Events API payload types.
 
 ## Socket Mode Integration
 

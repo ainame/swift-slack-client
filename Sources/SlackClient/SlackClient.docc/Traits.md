@@ -1,6 +1,6 @@
 # Traits
 
-Understanding SlackClient's modular trait system.
+Understanding swift-slack's modular trait system.
 
 ## Overview
 
@@ -34,7 +34,7 @@ Each Slack Web API group is available as a separate trait:
 ### Feature Traits
 
 - `SocketMode` - Enables Socket Mode support in the `SlackApp` and `SlackKit` products
-- `Events` - Enables shared event models used by `SlackClient`, `SlackApp`, and `SlackKit`
+- `Events` - Enables Events API payload types and event handling support in the `SlackApp` and `SlackKit` products
 - `HummingbirdHTTPAdapter` - Enables the optional Hummingbird adapter in the `SlackApp` and `SlackKit` products
 
 ## Usage Examples

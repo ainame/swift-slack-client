@@ -14,7 +14,7 @@ class EventsProcessor
 
   def initialize(input_file = nil, output_directory = nil)
     @input_file = input_file || File.join(__dir__, '..', '.tmp', 'Events', 'Types.swift')
-    @output_directory = output_directory || File.join(__dir__, '..', 'Sources', 'SlackClient', 'Events', 'Generated')
+    @output_directory = output_directory || File.join(__dir__, '..', 'Sources', 'SlackApp', 'Events', 'Generated')
   end
 
   # Main processing method that extracts and transforms Event structs

@@ -24,8 +24,7 @@ Use traits to include only the API components you need:
     from: "0.5.1",
     traits: [
         "WebAPI_Chat",    // Chat API methods
-        "WebAPI_Views",   // Views API methods
-        "Events"          // Event handling
+        "WebAPI_Views"    // Views API methods
     ]
 )
 ```
@@ -67,4 +66,4 @@ print("Channel name: \(response.channel?.name ?? "Unknown")")
 
 ## Next Step
 
-`SlackClient` is the pure Web API layer. If you need routing, acknowledgements, Socket Mode, or HTTP request handling, use `SlackKit` for the normal app-authoring path or `SlackApp` directly for the lower-level runtime layer.
+`SlackClient` is the pure Web API layer. If you need routing, acknowledgements, Events API payload types, Socket Mode, or HTTP request handling, use `SlackKit` for the normal app-authoring path or `SlackApp` directly for the lower-level runtime layer.

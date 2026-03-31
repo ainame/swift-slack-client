@@ -49,6 +49,6 @@ swift run swift-openapi-generator generate \
     --output-directory "${TMP_DIR}/Events" \
     "${TMP_DIR}/Events/openapi.json"
 
-ruby scripts/process_events.rb "${TMP_DIR}/Events/Types.swift" "Sources/SlackClient/Events/Generated"
+ruby scripts/process_events.rb "${TMP_DIR}/Events/Types.swift" "Sources/SlackApp/Events/Generated"
 
 make format

@@ -53,7 +53,7 @@ For smaller builds, enable only the traits your app needs:
 
 ### Use `SlackClient` for Web API calls
 
-`SlackClient` is the lower-level client surface. You provide the transport, call Web API methods directly, and work with shared Slack models without the app runtime.
+`SlackClient` is the lower-level client surface. You provide the transport, call Web API methods directly, and work with shared Slack models without the app runtime or Events API runtime types.
 
 Add `SlackClient` and `OpenAPIAsyncHTTPClient` as transport layer to your app target.
 You can choose other transport layer available for swift-openapi-generator ecosystem.
@@ -87,7 +87,7 @@ try await slack.client.chatPostMessage(
 
 ### Use `SlackKit` for interactive apps
 
-`SlackKit` is the umbrella product that re-exports the runtime layer and the common app-authoring types used by interactive apps, including inbound request payloads for slash commands, block actions, shortcuts, and views.
+`SlackKit` is the umbrella product that re-exports the runtime layer and the common app-authoring types used by interactive apps, including Events API payload types and inbound request payloads for slash commands, block actions, shortcuts, and views.
 
 ``` swift
     .executableTarget(
