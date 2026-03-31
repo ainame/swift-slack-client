@@ -7,14 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [0.8.0] - 2026-03-31
+
 ### Changed
 
+* Moved the standalone examples package under `DemoApps/Examples` and updated local package references and docs to match - #88
 * Documented `HTTPServerAdapter` as a supported public extension point and added coverage for custom HTTP server adapters.
 * Reorganized the `SlackApp` target so HTTP support lives under `Sources/SlackApp/HTTP/` and Socket Mode support lives under `Sources/SlackApp/SocketMode/`.
 * Moved the `Say` and `Respond` runtime helpers from `SlackClient` into `SlackApp`.
 * Moved inbound request envelopes and interaction payload types from `SlackClient` into `SlackApp`.
 * Moved generated Events API payload types from `SlackClient` into `SlackApp` and updated docs, tests, and generation outputs to match the new module boundary.
 * Split DocC content so `SlackClient.docc` stays focused on the Web API client while `SlackApp.docc` owns Socket Mode and runtime-oriented examples.
+* Added `.ruby-version` support to the schema update workflow - #91
+* Updated Slack API schemas - #92
+
+### Fixed
+
+* Fixed the schema generation helper queue population in `scripts/lib/helpers.rb`.
 
 ## [0.7.0] - 2026-03-30
 
