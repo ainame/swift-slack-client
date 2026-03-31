@@ -66,4 +66,4 @@ print("Channel name: \(response.channel?.name ?? "Unknown")")
 
 ## Next Step
 
-`SlackClient` is the pure Web API layer. If you need routing, acknowledgements, Events API payload types, Socket Mode, or HTTP request handling, use `SlackKit` for the normal app-authoring path or `SlackApp` directly for the lower-level runtime layer.
+`SlackClient` is the pure Web API layer. If you need Events API payload types, routing, acknowledgements, Socket Mode, or HTTP request handling, use `SlackKit` for the normal app-authoring path or `SlackApp` directly for the lower-level runtime layer.
