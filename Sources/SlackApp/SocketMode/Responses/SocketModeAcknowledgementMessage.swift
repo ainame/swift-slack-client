@@ -1,7 +1,7 @@
 #if SocketMode
 import Foundation
 
-struct SocketModeAcknowledgementlMessage: Encodable {
+struct SocketModeAcknowledgementMessage: Encodable {
     let envelopeId: String
 
     private enum CodingKeys: String, CodingKey {

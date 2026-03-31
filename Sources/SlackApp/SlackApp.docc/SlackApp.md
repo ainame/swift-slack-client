@@ -10,8 +10,10 @@ Build Slack app runtimes on top of ``SlackClient``.
 - `Router`
 - `SlackApp.Context`
 - `Ack`
+- inbound app request envelopes and interaction payloads
 - Socket Mode orchestration
 - HTTP request verification and dispatch
+- `HTTPServerAdapter`, `HTTPServerRequest`, and `HTTPServerResponse` for custom HTTP server integrations
 - optional framework adapters such as `HummingbirdAdapter`
 - the default async HTTP transport for app-author workflows
 
@@ -23,3 +25,4 @@ In normal app code, prefer `import SlackKit`. Use `SlackApp` directly when you o
 
 - <doc:GettingStarted>
 - <doc:MigrationGuide>
+- <doc:Examples>

@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+
+* Documented `HTTPServerAdapter` as a supported public extension point and added coverage for custom HTTP server adapters.
+* Reorganized the `SlackApp` target so HTTP support lives under `Sources/SlackApp/HTTP/` and Socket Mode support lives under `Sources/SlackApp/SocketMode/`.
+* Moved the `Say` and `Respond` runtime helpers from `SlackClient` into `SlackApp`.
+* Moved inbound request envelopes and interaction payload types from `SlackClient` into `SlackApp`.
+* Split DocC content so `SlackClient.docc` stays focused on the Web API client while `SlackApp.docc` owns Socket Mode and runtime-oriented examples.
+
 ## [0.7.0] - 2026-03-30
 
 ### Changed

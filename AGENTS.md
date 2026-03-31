@@ -16,8 +16,8 @@ This project is a Swift Slack SDK and app framework. It combines generated Web A
 
 ## Main Modules
 
-- `SlackClient`: Low-level Web API client plus generated API/types, event payloads, and shared interaction payloads.
-- `SlackApp`: Runtime layer for `SlackApp`, `Router`, acknowledgement flow, signed HTTP handling, and Socket Mode execution.
+- `SlackClient`: Low-level Web API client plus generated API/types and shared model/event types.
+- `SlackApp`: Runtime layer for `SlackApp`, `Router`, inbound request envelopes and interaction payloads, acknowledgement flow, signed HTTP handling, and Socket Mode execution.
 - `SlackKit`: Umbrella product that re-exports the common app-authoring surface for interactive Slack apps.
 - `SlackModels`: Shared model module used across the package.
 - `SlackBlockKit`: Block Kit framework implementation.
@@ -25,8 +25,8 @@ This project is a Swift Slack SDK and app framework. It combines generated Web A
 
 ## Source Layout
 
-- `Sources/SlackClient`: Generated Web API surface plus shared client/event/interaction support code.
-- `Sources/SlackApp`: Handwritten runtime code for HTTP adapters, request verification, routing, and Socket Mode.
+- `Sources/SlackClient`: Generated Web API surface plus shared client, model, and event support code.
+- `Sources/SlackApp`: Handwritten runtime code for inbound request payloads, HTTP adapters, request verification, routing, and Socket Mode.
 - `Sources/SlackKit`: Umbrella exports and top-level documentation for app authors.
 - `Sources/SlackModels`: Generated and processed shared Slack model types.
 - `Sources/SlackBlockKit`: Block Kit data structures and views.
@@ -87,7 +87,7 @@ When changing generated surfaces, prefer updating the source specs/scripts and r
 
 - Prefer `SlackClient` when the task is purely about direct Web API access.
 - Prefer `SlackKit` for normal interactive app code; it is the intended import surface for most apps.
-- `SlackApp` owns routing, acknowledgement semantics, request verification, and runtime startup.
+- `SlackApp` owns routing, inbound request envelopes and payloads, acknowledgement semantics, request verification, and runtime startup.
 - For Socket Mode apps, the usual entry point is `SlackApp(..., mode: .socketMode())`.
 - For HTTP apps, use `SlackApp(..., mode: .http(adapter))` with an adapter such as `HummingbirdAdapter`.
 
