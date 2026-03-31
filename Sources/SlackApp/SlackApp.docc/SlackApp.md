@@ -10,6 +10,7 @@ Build Slack app runtimes on top of ``SlackClient``.
 - `Router`
 - `SlackApp.Context`
 - `Ack`
+- inbound app request envelopes and interaction payloads
 - Socket Mode orchestration
 - HTTP request verification and dispatch
 - `HTTPServerAdapter`, `HTTPServerRequest`, and `HTTPServerResponse` for custom HTTP server integrations
