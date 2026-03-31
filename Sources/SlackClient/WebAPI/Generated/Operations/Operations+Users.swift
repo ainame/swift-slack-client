@@ -227,7 +227,7 @@ extension Operations {
                 public struct JsonPayload: Codable, Hashable, Sendable {
                     /// Creates a new `JsonPayload`.
                     public init() {}
-                    public init(from decoder: any Decoder) throws {
+                    public init(from decoder: any Swift.Decoder) throws {
                         try decoder.ensureNoAdditionalProperties(knownKeys: [])
                     }
                 }
@@ -655,7 +655,7 @@ extension Operations {
                 public struct JsonPayload: Codable, Hashable, Sendable {
                     /// Creates a new `JsonPayload`.
                     public init() {}
-                    public init(from decoder: any Decoder) throws {
+                    public init(from decoder: any Swift.Decoder) throws {
                         try decoder.ensureNoAdditionalProperties(knownKeys: [])
                     }
                 }
@@ -1597,7 +1597,7 @@ extension Operations {
                 public struct JsonPayload: Codable, Hashable, Sendable {
                     /// Creates a new `JsonPayload`.
                     public init() {}
-                    public init(from decoder: any Decoder) throws {
+                    public init(from decoder: any Swift.Decoder) throws {
                         try decoder.ensureNoAdditionalProperties(knownKeys: [])
                     }
                 }
