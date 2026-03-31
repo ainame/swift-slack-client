@@ -27,7 +27,7 @@ enum SocketModeAcknowledger {
     }
 
     static func sendBasicAck(envelopeId: String, writer: WebSocketOutboundWriter) async throws {
-        try await send(SocketModeAcknowledgementlMessage(envelopeId: envelopeId), writer: writer)
+        try await send(SocketModeAcknowledgementMessage(envelopeId: envelopeId), writer: writer)
     }
 
     private static func send(_ payload: some Encodable, writer: WebSocketOutboundWriter) async throws {
