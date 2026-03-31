@@ -3,6 +3,7 @@ builder:
   configs:
     - documentation_targets:
         - SlackClient
+        - SlackApp
         - SlackModels
         - SlackBlockKit
         - SlackBlockKitDSL

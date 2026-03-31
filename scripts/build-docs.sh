@@ -6,7 +6,7 @@ TMP_DIR=".tmp"
 HOSTING_BASE_PATH="swift-slack"
 OUTPUT_DIR="docs/${HOSTING_BASE_PATH}"
 
-rm -rf "${TMP_DIR}/*.doccarchive"
+rm -rf "${TMP_DIR}"/*.doccarchive
 rm -rf "$OUTPUT_DIR"
 mkdir -p "${OUTPUT_DIR}"
 mkdir -p "${TMP_DIR}"
