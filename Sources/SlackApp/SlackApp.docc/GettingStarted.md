@@ -83,6 +83,21 @@ let app = SlackApp(
 try await app.run()
 ```
 
+If you want to integrate with a different server framework, implement `HTTPServerAdapter` and pass it to `.http(...)`:
+
+```swift
+import SlackKit
+
+struct MyHTTPAdapter: HTTPServerAdapter {
+    func run(
+        handler: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse
+    ) async throws {
+        // Convert incoming requests from your server framework into
+        // HTTPServerRequest and write the returned HTTPServerResponse back out.
+    }
+}
+```
+
 ## Ack semantics
 
 - Events API handlers are auto-acked and receive `EventContext` without `ack`.

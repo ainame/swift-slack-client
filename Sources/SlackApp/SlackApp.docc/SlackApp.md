@@ -12,6 +12,7 @@ Build Slack app runtimes on top of ``SlackClient``.
 - `Ack`
 - Socket Mode orchestration
 - HTTP request verification and dispatch
+- `HTTPServerAdapter`, `HTTPServerRequest`, and `HTTPServerResponse` for custom HTTP server integrations
 - optional framework adapters such as `HummingbirdAdapter`
 - the default async HTTP transport for app-author workflows
 
