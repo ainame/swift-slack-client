@@ -18,6 +18,11 @@ jobs:
           submodules: recursive
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version-file: .ruby-version
+
       - name: Setup Swiftly
         uses: vapor/swiftly-action@v0.2
         with:
