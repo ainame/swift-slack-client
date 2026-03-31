@@ -2,6 +2,7 @@ import Foundation
 import Logging
 import OpenAPIRuntime
 import SlackBlockKit
+import SlackClient
 import SlackModels
 
 public struct Say: Sendable {
