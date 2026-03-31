@@ -27,11 +27,13 @@ This project is a Swift Slack SDK and app framework. It combines generated Web A
 
 - `Sources/SlackClient`: Generated Web API surface plus shared client/model support code.
 - `Sources/SlackApp`: Handwritten runtime code for inbound request payloads, event payload types, HTTP adapters, request verification, routing, and Socket Mode.
+- `Sources/SlackApp/Events`: Generated Events API payload types owned by `SlackApp`.
 - `Sources/SlackKit`: Umbrella exports and top-level documentation for app authors.
 - `Sources/SlackModels`: Generated and processed shared Slack model types.
 - `Sources/SlackBlockKit`: Block Kit data structures and views.
 - `Sources/SlackBlockKitDSL`: Swift DSL for composing Block Kit payloads.
 - `Tests/SlackClientTests`, `Tests/SlackAppTests`, `Tests/SlackBlockKitTests`, `Tests/SlackBlockKitDSLTests`: Module-aligned test suites using `swift-testing`.
+- Event decoding coverage belongs in `Tests/SlackAppTests` because the event payload types are part of `SlackApp`.
 - `DemoApps/Examples/`: Small executable samples wired against the local package.
 - `DemoApps/`: Larger end-to-end sample applications.
 
@@ -50,7 +52,7 @@ make clean     # Clean temp files
 1. Ruby scripts transform Slack API specs into OpenAPI JSON.
 2. `swift-openapi-generator` produces Swift client and type definitions.
 3. `scripts/process_webapi.rb` splits generated Web API output and extracts shared models.
-4. `scripts/process_events.rb` extracts generated event types and related conformances.
+4. `scripts/process_events.rb` extracts generated event types and related conformances into `Sources/SlackApp/Events/Generated`.
 5. SwiftFormat applies formatting (4-space indentation).
 
 When changing generated surfaces, prefer updating the source specs/scripts and rerunning generation instead of hand-editing generated files.
