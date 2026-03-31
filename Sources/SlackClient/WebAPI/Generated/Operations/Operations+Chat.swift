@@ -1085,7 +1085,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/chat.appendStream/POST/requestBody/json/channel`.
                     public var channel: Swift.String
-                    /// An array of streaming chunks. Chunks can be markdown text chunks, task update chunks, and plan update chunks.
+                    /// Array of streaming chunks that can contain either markdown text or task updates.
                     ///
                     /// - Remark: Generated from `#/paths/chat.appendStream/POST/requestBody/json/chunks`.
                     public var chunks: OpenAPIRuntime.OpenAPIArrayContainer?
@@ -1101,7 +1101,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channel: An encoded ID that represents a channel, private group, or DM.
-                    ///   - chunks: An array of streaming chunks. Chunks can be markdown text chunks, task update chunks, and plan update chunks.
+                    ///   - chunks: Array of streaming chunks that can contain either markdown text or task updates.
                     ///   - ts: The timestamp of the streaming message.
                     ///   - markdownText: Accepts message text formatted in markdown. Limit this field to 12,000 characters. This text is what will be appended to the message received so far.
                     public init(
@@ -2089,7 +2089,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/chat.startStream/POST/requestBody/json/channel`.
                     public var channel: Swift.String
-                    /// An array of streaming chunks. Chunks can be markdown text chunks, task update chunks, and plan update chunks.
+                    /// Array of streaming chunks that can contain either markdown text or task updates.
                     ///
                     /// - Remark: Generated from `#/paths/chat.startStream/POST/requestBody/json/chunks`.
                     public var chunks: OpenAPIRuntime.OpenAPIArrayContainer?
@@ -2118,7 +2118,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channel: An encoded ID that represents a channel thread or DM.
-                    ///   - chunks: An array of streaming chunks. Chunks can be markdown text chunks, task update chunks, and plan update chunks.
+                    ///   - chunks: Array of streaming chunks that can contain either markdown text or task updates.
                     ///   - markdownText: Accepts message text formatted in markdown. Limit this field to 12,000 characters.
                     ///   - threadTs: Provide another message's ts value to reply to. Streamed messages should always be replies to a user request.
                     ///   - recipientUserId: The encoded ID of the user to receive the streaming text. Required when streaming to channels.
@@ -2287,7 +2287,7 @@ extension Operations {
                     ///
                     /// - Remark: Generated from `#/paths/chat.stopStream/POST/requestBody/json/channel`.
                     public var channel: Swift.String
-                    /// An array of streaming chunks. Chunks can be markdown text chunks, task update chunks, and plan update chunks.
+                    /// Array of streaming chunks that can contain either markdown text or task updates.
                     ///
                     /// - Remark: Generated from `#/paths/chat.stopStream/POST/requestBody/json/chunks`.
                     public var chunks: OpenAPIRuntime.OpenAPIArrayContainer?
@@ -2312,7 +2312,7 @@ extension Operations {
                     ///
                     /// - Parameters:
                     ///   - channel: An encoded ID that represents a channel, private group, or DM.
-                    ///   - chunks: An array of streaming chunks. Chunks can be markdown text chunks, task update chunks, and plan update chunks.
+                    ///   - chunks: Array of streaming chunks that can contain either markdown text or task updates.
                     ///   - ts: The timestamp of the streaming message.
                     ///   - markdownText: Accepts message text formatted in markdown. Limit this field to 12,000 characters.
                     ///   - blocks: A list of blocks that will be rendered at the bottom of the finalized message.
