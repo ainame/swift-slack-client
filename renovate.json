@@ -3,6 +3,19 @@
   "extends": [
     "config:recommended"
   ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update SwiftFormat binary target in Package.swift",
+      "managerFilePatterns": [
+        "/(^|/)Package\\.swift$/"
+      ],
+      "matchStrings": [
+        "// renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>[^\\s]+)(?: versioning=(?<versioning>[^\\s]+))?\\s+\\.binaryTarget\\(\\s+name:\\s+\"swiftformat\",\\s+url:\\s+\"https://github\\.com/nicklockwood/SwiftFormat/releases/download/(?<currentValue>[^/]+)/swiftformat\\.artifactbundle\\.zip\",\\s+checksum:\\s+\"[a-f0-9]+\""
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    }
+  ],
   "packageRules": [
     {
       "description": "Keep SwiftPM dependency ranges stable for this library package",
@@ -10,6 +23,21 @@
         "swift"
       ],
       "rangeStrategy": "replace"
+    },
+    {
+      "description": "Recalculate the SwiftFormat artifact checksum after version bumps",
+      "matchDepNames": [
+        "nicklockwood/SwiftFormat"
+      ],
+      "postUpgradeTasks": {
+        "commands": [
+          "./scripts/update_swiftformat_checksum.sh"
+        ],
+        "fileFilters": [
+          "Package.swift"
+        ],
+        "executionMode": "update"
+      }
     }
   ]
 }
