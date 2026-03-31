@@ -217,7 +217,7 @@ struct WelcomeModal: SlackModalView {
 }
 ```
 
-See [Examples](https://github.com/ainame/swift-slack/tree/main/Examples) for more patterns.
+See [Examples](https://github.com/ainame/swift-slack/tree/main/DemoApps/Examples) for more patterns.
 
 ### Ack behavior
 
