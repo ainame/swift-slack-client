@@ -19,7 +19,7 @@ Migration guide from 0.5.x to 0.6 or newer: [Migrating to SlackApp](./MIGRATING_
 There are two normal entry points:
 
 - Use `SlackClient` for a low-level Web API client
-- Use `SlackKit` for interactive Slack apps built with Socket Mode or HTTP request handling
+- Use `SlackKit` for interactive Slack apps built with Events API payload types, Socket Mode, or HTTP request handling
    - Use `SlackBlockKitDSL` together to build BlockKit view in declrative style DSL
 
 ### Install the package
@@ -53,7 +53,7 @@ For smaller builds, enable only the traits your app needs:
 
 ### Use `SlackClient` for Web API calls
 
-`SlackClient` is the lower-level client surface. You provide the transport, call Web API methods directly, and work with shared Slack models without the app runtime.
+`SlackClient` is the lower-level client surface. You provide the transport, call Web API methods directly, and work with shared Slack models without the app runtime or Events API runtime types.
 
 Add `SlackClient` and `OpenAPIAsyncHTTPClient` as transport layer to your app target.
 You can choose other transport layer available for swift-openapi-generator ecosystem.
@@ -87,7 +87,7 @@ try await slack.client.chatPostMessage(
 
 ### Use `SlackKit` for interactive apps
 
-`SlackKit` is the umbrella product that re-exports the runtime layer and the common app-authoring types used by interactive apps, including inbound request payloads for slash commands, block actions, shortcuts, and views.
+`SlackKit` is the umbrella product that re-exports the runtime layer and the common app-authoring types used by interactive apps, including the `SlackApp` Events API payload types and inbound request payloads for slash commands, block actions, shortcuts, and views.
 
 ``` swift
     .executableTarget(
@@ -218,6 +218,12 @@ struct WelcomeModal: SlackModalView {
 ```
 
 See [Examples](https://github.com/ainame/swift-slack/tree/main/DemoApps/Examples) for more patterns.
+
+## Architecture
+
+- `SlackClient` is the pure Web API layer.
+- `SlackApp` owns the runtime layer, including Events API payload types, routing, acknowledgement flow, Socket Mode, and signed HTTP request handling.
+- `SlackKit` re-exports the common app-authoring surface from `SlackApp`, `SlackClient`, and the Block Kit modules.
 
 ### Ack behavior
 

@@ -4,11 +4,12 @@
 
 ## What changed
 
-- `SlackClient` is now the pure Web API and shared model layer.
+- `SlackClient` is now the pure Web API and shared client model layer.
 - `SlackApp` is the runtime layer for:
   - `SlackApp`
   - `Router`
   - `Ack`
+  - Events API payload types
   - Socket Mode
   - HTTP request verification and adapters
 
@@ -67,6 +68,7 @@ try await app.run()
 - `Slack.runInSocketMode(...)` -> `SlackApp(..., mode: .socketMode(...)).run()`
 - `Slack.addSocketModeRouter(...)` -> remove it; pass the router into `SlackApp`
 - Hummingbird HTTP support now comes from `HummingbirdAdapter`
+- Events API payload types such as `Event`, `MessageEvent`, and `AppMentionEvent` now come from `SlackApp`/`SlackKit` instead of `SlackClient`
 
 ## HTTP apps
 
@@ -83,7 +85,7 @@ let app = SlackApp(
 try await app.run()
 ```
 
-`SlackApp` now owns the default async HTTP transport. `SlackClient` remains the lower-level option when you want to provide your own transport directly, and `SlackKit` is the recommended umbrella import for normal app code.
+`SlackApp` now owns the default async HTTP transport and the Events API payload types used by the runtime. `SlackClient` remains the lower-level option when you want to provide your own transport directly for Web API calls, and `SlackKit` is the recommended umbrella import for normal app code.
 
 
 ## Ack semantics

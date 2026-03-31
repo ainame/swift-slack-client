@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Reorganized the `SlackApp` target so HTTP support lives under `Sources/SlackApp/HTTP/` and Socket Mode support lives under `Sources/SlackApp/SocketMode/`.
 * Moved the `Say` and `Respond` runtime helpers from `SlackClient` into `SlackApp`.
 * Moved inbound request envelopes and interaction payload types from `SlackClient` into `SlackApp`.
+* Moved generated Events API payload types from `SlackClient` into `SlackApp` and updated docs, tests, and generation outputs to match the new module boundary.
 * Split DocC content so `SlackClient.docc` stays focused on the Web API client while `SlackApp.docc` owns Socket Mode and runtime-oriented examples.
 
 ## [0.7.0] - 2026-03-30

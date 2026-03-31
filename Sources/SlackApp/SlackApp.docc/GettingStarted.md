@@ -1,6 +1,6 @@
 # Getting Started
 
-Use `SlackKit` for normal app code when you want a Slack app runtime on top of `SlackClient`. Use `SlackApp` directly when you only want the runtime layer itself.
+Use `SlackKit` for normal app code when you want a Slack app runtime on top of `SlackClient`. Use `SlackApp` directly when you only want the runtime layer itself. `SlackApp` is also the home of Events API payload types.
 
 ## Installation
 
@@ -104,6 +104,10 @@ struct MyHTTPAdapter: HTTPServerAdapter {
 - Slash commands, block actions, shortcuts, and views receive `Context` and must call `ack()`.
 - Router registrations are overwrite-based: the same API/key uses the last registered handler.
 - `onSlackMessageMatched(...)` was removed; use `onEvent(MessageEvent.self)` and filter inside the handler.
+
+## Events Types
+
+When the `Events` trait is enabled, `SlackApp` provides the concrete event payload types such as `Event`, `MessageEvent`, and `AppMentionEvent`. Use those types with `Router.onEvent(...)` or when decoding incoming Events API payloads.
 
 ## Running with ServiceLifecycle
 

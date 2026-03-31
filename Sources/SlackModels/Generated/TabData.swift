@@ -15,7 +15,7 @@ public struct TabData: Codable, Hashable, Sendable {
     public var fileId: Swift.String?
     /// - Remark: Generated from `#/components/schemas/Data/shared_ts`.
     public var sharedTs: Swift.String?
-    /// Creates a new `TabData`.
+    /// Creates a new `Data`.
     ///
     /// - Parameters:
     ///   - fileId:

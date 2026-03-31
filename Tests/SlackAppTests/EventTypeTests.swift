@@ -1,6 +1,6 @@
 #if Events
 import Foundation
-@testable import SlackClient
+@testable import SlackApp
 import Testing
 
 struct EventTests {

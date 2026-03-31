@@ -68,7 +68,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           add-paths: |
             Sources/
-            .dependencies/
+            vendor/
           commit-message: |
             Update Slack API schemas
 
