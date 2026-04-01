@@ -37,11 +37,11 @@ public struct HummingbirdAdapter: HTTPServerAdapter {
         try await app.run()
     }
 
-    private func makeResponse(from response: (HTTPResponse, HTTPServerResponseBody)) -> Response {
+    private func makeResponse(from response: (response: HTTPResponse, body: Foundation.Data?)) -> Response {
         return Response(
-            status: response.0.status,
-            headers: response.0.headerFields,
-            body: response.1.map { .init(byteBuffer: ByteBuffer(data: $0)) } ?? .init(),
+            status: response.response.status,
+            headers: response.response.headerFields,
+            body: response.body.map { .init(byteBuffer: ByteBuffer(data: $0)) } ?? .init(),
         )
     }
 }

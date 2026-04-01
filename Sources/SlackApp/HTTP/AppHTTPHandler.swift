@@ -26,7 +26,7 @@ private actor HTTPAcknowledgmentState {
         storedResponse = response
     }
 
-    func response() -> (HTTPResponse, HTTPServerResponseBody)? {
+    func response() -> (response: HTTPResponse, body: Foundation.Data?)? {
         switch storedResponse {
         case .empty:
             (HTTPResponse(status: .ok), nil)
@@ -86,7 +86,7 @@ struct AppHTTPHandler {
         self.init(slack: slack, router: .init(from: router))
     }
 
-    func handle(_ request: HTTPRequest, body: Foundation.Data) async throws -> (HTTPResponse, HTTPServerResponseBody) {
+    func handle(_ request: HTTPRequest, body: Foundation.Data) async throws -> (response: HTTPResponse, body: Foundation.Data?) {
         let logger = await slack.logger
 
         let configuration = await slack.clientConfiguration
@@ -114,7 +114,7 @@ struct AppHTTPHandler {
         _ request: HTTPRequest,
         body: Foundation.Data,
         configuration _: Slack.Configuration,
-    ) async throws -> (HTTPResponse, HTTPServerResponseBody)? {
+    ) async throws -> (response: HTTPResponse, body: Foundation.Data?)? {
         guard contentType(of: request.headerFields)?.starts(with: "application/json") == true else {
             return nil
         }
@@ -161,7 +161,7 @@ struct AppHTTPHandler {
     private func handleFormRequestIfNeeded(
         _ request: HTTPRequest,
         body: Foundation.Data
-    ) async throws -> (HTTPResponse, HTTPServerResponseBody)? {
+    ) async throws -> (response: HTTPResponse, body: Foundation.Data?)? {
         guard contentType(of: request.headerFields)?.starts(with: "application/x-www-form-urlencoded") == true else {
             return nil
         }
@@ -178,7 +178,7 @@ struct AppHTTPHandler {
         return try await dispatchRequest(.slashCommand(payload))
     }
 
-    private func dispatchEvent(_ request: Request) async throws -> (HTTPResponse, HTTPServerResponseBody) {
+    private func dispatchEvent(_ request: Request) async throws -> (response: HTTPResponse, body: Foundation.Data?) {
         let client = await slack.client
         let transport = await slack.transport
         let logger = await slack.logger
@@ -199,7 +199,7 @@ struct AppHTTPHandler {
         return (HTTPResponse(status: .ok), nil)
     }
 
-    private func dispatchRequest(_ request: Request) async throws -> (HTTPResponse, HTTPServerResponseBody) {
+    private func dispatchRequest(_ request: Request) async throws -> (response: HTTPResponse, body: Foundation.Data?) {
         let client = await slack.client
         let transport = await slack.transport
         let logger = await slack.logger
