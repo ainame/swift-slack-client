@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [0.9.0] - 2026-04-01
+
+### Added
+
+* Added explicit support in `HummingbirdAdapter` for Slack interactive requests via `/slack/interactive-endpoint` - #94
+
+### Changed
+
+* **BREAKING**: Replaced the public `HTTPServerRequest` and `HTTPServerResponse` wrapper types with an `HTTPTypes`-based `HTTPServerHandler` API, giving `HTTPServerAdapter` implementations direct access to the incoming `HTTPRequest` and request body - #94
+* Simplified the `SlackApp` HTTP runtime and Hummingbird integration, including a plain `/healthz` response, while allowing adapters to handle Slack web requests at whichever request path they choose - #94
+* Updated the `DemoApps/deepl-translator` example to switch between Socket Mode and Hummingbird HTTP via traits, add message shortcut replies, and load configuration via `swift-configuration` - #94
+* Added Renovate support for the SwiftFormat binary target, including checksum refresh automation for version bumps - #93
+
 ## [0.8.0] - 2026-03-31
 
 ### Changed
