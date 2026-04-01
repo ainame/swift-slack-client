@@ -30,7 +30,7 @@ private actor RecordingAdapter: HTTPServerAdapter {
     private(set) var events: [String] = []
 
     func run(
-        handler _: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse,
+        handler _: @escaping HTTPServerHandler,
     ) async throws {
         events.append("adapter")
     }

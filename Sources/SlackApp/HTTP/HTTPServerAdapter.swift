@@ -1,34 +1,9 @@
 import Foundation
 import HTTPTypes
 
-public struct HTTPServerRequest: Sendable {
-    public var method: HTTPRequest.Method
-    public var path: String
-    public var headerFields: HTTPFields
-    public var body: Foundation.Data
-
-    public init(method: HTTPRequest.Method, path: String, headerFields: HTTPFields = .init(), body: Foundation.Data = Foundation.Data()) {
-        self.method = method
-        self.path = path
-        self.headerFields = headerFields
-        self.body = body
-    }
-}
-
-public struct HTTPServerResponse: Sendable {
-    public var status: HTTPResponse.Status
-    public var headerFields: HTTPFields
-    public var body: Foundation.Data?
-
-    public init(status: HTTPResponse.Status, headerFields: HTTPFields = .init(), body: Foundation.Data? = nil) {
-        self.status = status
-        self.headerFields = headerFields
-        self.body = body
-    }
-}
+public typealias HTTPServerHandler =
+    @Sendable (_ request: HTTPRequest, _ body: Foundation.Data) async throws -> (response: HTTPResponse, body: Foundation.Data?)
 
 public protocol HTTPServerAdapter: Sendable {
-    func run(
-        handler: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse,
-    ) async throws
+    func run(handler: @escaping HTTPServerHandler) async throws
 }

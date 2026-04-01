@@ -28,9 +28,6 @@ public struct ReactionHandler: Sendable {
               let language = Languages.languageFromReaction(reaction) else {
             return
         }
-        
-        logger.info("Translating to language", metadata: ["language": "\(language)", "reaction": "\(reaction)"])
-        
         let replies = try await client.conversationsReplies(
             body: .json(.init(
                 channel: channelId,
@@ -71,8 +68,6 @@ public struct ReactionHandler: Sendable {
                 threadTs: threadTs ?? messageTs
             ))
         )
-        
-        logger.info("Translation posted successfully")
     }
     
     private func isAlreadyPosted(messages: [Message], translatedText: String) -> Bool {

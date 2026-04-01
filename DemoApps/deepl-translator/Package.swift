@@ -3,9 +3,12 @@ import PackageDescription
 
 let package = Package(
     name: "deepl-translator",
-    platforms: [.macOS(.v14)],
+    platforms: [.macOS(.v15)],
     products: [
         .executable(name: "deepl-translator", targets: ["DeepLTranslator"])
+    ],
+    traits: [
+        .trait(name: "HummingbirdHTTPAdapter")
     ],
     dependencies: [
         .package(
@@ -13,6 +16,7 @@ let package = Package(
             traits: [
                 "SocketMode",
                 "Events",
+                "HummingbirdHTTPAdapter",
                 "WebAPI_Chat",
                 "WebAPI_Views",
                 "WebAPI_Conversations"
@@ -21,7 +25,7 @@ let package = Package(
         .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.26.0"),
         .package(url: "https://github.com/apple/swift-nio.git", from: "2.79.0"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
-        .package(url: "https://github.com/thebarndog/swift-dotenv.git", from: "2.0.0")
+        .package(url: "https://github.com/apple/swift-configuration.git", from: "1.2.0")
     ],
     targets: [
         .executableTarget(
@@ -33,7 +37,7 @@ let package = Package(
                 .product(name: "AsyncHTTPClient", package: "async-http-client"),
                 .product(name: "NIOCore", package: "swift-nio"),
                 .product(name: "Logging", package: "swift-log"),
-                .product(name: "SwiftDotenv", package: "swift-dotenv")
+                .product(name: "Configuration", package: "swift-configuration")
             ]
         )
     ]
