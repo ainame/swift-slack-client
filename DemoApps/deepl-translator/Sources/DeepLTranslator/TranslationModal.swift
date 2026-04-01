@@ -4,9 +4,10 @@ import SlackModels
 import SlackBlockKitDSL
 
 public struct TranslationModal {
-    public static func buildNewModal(defaultLang: String) -> View {
+    public static func buildNewModal(defaultLang: String, languages: [String]) -> View {
         struct NewModal: SlackModalView {
             let defaultLang: String
+            let languages: [String]
             
             var callbackId: String { "run-translation" }
             var title: TextObject { "DeepL API Runner :books:" }
@@ -32,8 +33,7 @@ public struct TranslationModal {
             }
             
             private var languageOptions: [Option] {
-                let orderedLangs = Languages.getOrderedLanguages(from: ProcessInfo.processInfo.environment["DEEPL_RUNNER_LANGUAGES"])
-                return orderedLangs.compactMap { lang in
+                languages.compactMap { lang in
                     guard let reaction = Languages.langToReaction[lang],
                           let name = Languages.langToName[lang] else { return nil }
                     return Option("\(reaction) \(name)").value(lang)
@@ -53,7 +53,7 @@ public struct TranslationModal {
             }
         }
         
-        let view = NewModal(defaultLang: defaultLang).render()
+        let view = NewModal(defaultLang: defaultLang, languages: languages).render()
         switch view {
         case .modal(let modalView):
             return .modal(modalView)

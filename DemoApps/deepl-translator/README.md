@@ -1,11 +1,12 @@
 # DeepL Translator for Slack
 
-A Swift implementation of DeepL for Slack that enables users to translate messages using reaction emojis or a global shortcut.
+A Swift implementation of DeepL for Slack that enables users to translate messages using reaction emojis, a global shortcut, or a message shortcut.
 
 ## Features
 
 - **Reaction Translation**: Add a flag emoji to any message to get it translated
 - **Global Shortcut**: Use `/deepl` or click the shortcut button to open a translation modal
+- **Message Shortcut**: Run a message action to translate the selected message and post the result in thread
 - **Thread Responses**: Translations are posted in message threads to keep channels organized
 - **Multiple Languages**: Supports 27+ languages with DeepL's translation API
 
@@ -46,6 +47,10 @@ features:
       type: global
       callback_id: deepl-translation
       description: Translate text using DeepL
+    - name: Translate Message
+      type: message
+      callback_id: deepl-translate-message
+      description: Translate the selected message and reply in thread
 oauth_config:
   scopes:
     bot:
@@ -69,7 +74,7 @@ settings:
 
 ### 3. Configure Environment
 
-The app uses [swift-dotenv](https://github.com/thebarndog/swift-dotenv) to manage environment variables.
+The app uses [swift-configuration](https://github.com/apple/swift-configuration) to load configuration from `.env` and process environment variables.
 
 1. Copy the example environment file:
 ```bash
@@ -100,12 +105,32 @@ export DEEPL_FREE_API_PLAN="1"
 export DEEPL_RUNNER_LANGUAGES="en,ja,de,fr,es"
 ```
 
+When you want to run with the `HummingbirdHTTPAdapter` trait instead of Socket Mode, use a signing secret instead of an app token:
+
+```bash
+export SLACK_BOT_TOKEN="xoxb-..."
+export SLACK_SIGNING_SECRET="your-signing-secret"
+export DEEPL_API_KEY="your-deepl-key"
+export PORT="8080"   # Optional, defaults to 8080
+export HOST="0.0.0.0" # Optional, defaults to 0.0.0.0
+```
+
 ### 4. Build and Run
 
 ```bash
 cd DemoApps/deepl-translator
 swift build
 swift run deepl-translator
+```
+
+To switch runtimes, toggle the local package trait:
+
+```bash
+# Socket Mode (default)
+swift run deepl-translator
+
+# Hummingbird HTTP adapter
+swift run --traits HummingbirdHTTPAdapter deepl-translator
 ```
 
 ## Usage
@@ -122,6 +147,13 @@ swift run deepl-translator
 2. Select "Open DeepL Tool"
 3. Enter text and select target language
 4. Click "Translate"
+
+### Message Shortcut
+
+1. Open the message action menu from a Slack message
+2. Select "Translate Message"
+3. The app translates the selected message into the default language from `DEEPL_RUNNER_LANGUAGES`
+4. The translation is posted as a thread reply
 
 ## Supported Languages
 
@@ -149,7 +181,7 @@ The app is structured as follows:
 - `Languages.swift` - Language and emoji mappings
 - `TranslationModal.swift` - Modal UI components using SlackBlockKitDSL
 - `ReactionHandler.swift` - Reaction event processing
-- `App.swift` - SlackApp-based Socket Mode router and app entry point
+- `App.swift` - SlackApp entry point that switches between Socket Mode and Hummingbird HTTP adapter by trait
 
 ## License
 
