@@ -60,13 +60,7 @@ struct AppHTTPHandler {
     }
 
     func handle(_ request: HTTPServerRequest) async throws -> HTTPServerResponse {
-        if request.method == .get && request.path == "/healthz" {
-            return HTTPServerResponse(status: .ok, body: Foundation.Data("OK".utf8))
-        }
-
-        guard request.method == .post, request.path == "/slack/events" else {
-            return HTTPServerResponse(status: .notFound)
-        }
+        let logger = await slack.logger
 
         let configuration = await slack.clientConfiguration
         let verifier = HTTPRequestVerifier(signingSecret: configuration.signingSecret ?? "")
@@ -74,6 +68,7 @@ struct AppHTTPHandler {
         do {
             try verifier.verify(headerFields: request.headerFields, body: request.body)
         } catch {
+            logger.warning("Rejected Slack HTTP request due to failed signature verification")
             return HTTPServerResponse(status: .unauthorized)
         }
 
@@ -97,7 +92,6 @@ struct AppHTTPHandler {
         }
 
         let logger = await slack.logger
-
         let typeContainer: HTTPEventTypeContainer
         do {
             typeContainer = try jsonDecoder.decode(HTTPEventTypeContainer.self, from: request.body)
@@ -160,6 +154,7 @@ struct AppHTTPHandler {
         let say = Say(client: client, logger: logger)
 
         switch kind {
+        #if Events
         case .event:
             let context = SlackApp.EventContext(
                 client: client,
@@ -167,14 +162,13 @@ struct AppHTTPHandler {
                 respond: respond,
                 say: say,
             )
-            Task {
-                do {
-                    _ = try await router.dispatch(context: .event(context), request: request)
-                } catch {
-                    logger.error("Failed to process Slack event request: \(String(describing: error))")
-                }
+            do {
+                _ = try await router.dispatch(context: .event(context), request: request)
+            } catch {
+                logger.error("Failed to process Slack event request: \(String(describing: error))")
             }
             return HTTPServerResponse(status: .ok)
+        #endif
         case .interactive, .slashCommand:
             let state = HTTPAcknowledgmentState()
             let context = SlackApp.Context(
@@ -196,56 +190,21 @@ struct AppHTTPHandler {
                     },
                 ),
             )
-            enum HTTPDispatchOutcome {
-                case response(HTTPServerResponse)
-                case dispatchResult(Bool)
-                case failed(Error)
-            }
-
-            return await withTaskGroup(of: HTTPDispatchOutcome.self) { group in
-                group.addTask {
-                    do {
-                        let matched = try await router.dispatch(context: .request(context), request: request)
-                        return .dispatchResult(matched)
-                    } catch {
-                        logger.error("Failed to process Slack HTTP request: \(String(describing: error))")
-                        return .failed(error)
-                    }
-                }
-                group.addTask {
-                    do {
-                        while true {
-                            if let response = await state.response() {
-                                return .response(response)
-                            }
-                            try Task.checkCancellation()
-                            try await Task.sleep(for: .milliseconds(10))
-                        }
-                    } catch {
-                        return .failed(error)
-                    }
-                }
-
-                let first = await group.next()!
-                group.cancelAll()
-
-                switch first {
-                case let .response(response):
+            do {
+                let matched = try await router.dispatch(context: .request(context), request: request)
+                if let response = await state.response() {
                     return response
-                case let .dispatchResult(matched):
-                    if let response = await state.response() {
-                        return response
-                    }
-                    if !matched {
-                        return HTTPServerResponse(status: .ok)
-                    }
-                    return HTTPServerResponse(status: .internalServerError)
-                case .failed:
-                    if let response = await state.response() {
-                        return response
-                    }
-                    return HTTPServerResponse(status: .internalServerError)
                 }
+                if !matched {
+                    return HTTPServerResponse(status: .ok)
+                }
+                return HTTPServerResponse(status: .internalServerError)
+            } catch {
+                logger.error("Failed to process Slack HTTP request: \(String(describing: error))")
+                if let response = await state.response() {
+                    return response
+                }
+                return HTTPServerResponse(status: .internalServerError)
             }
         }
     }
@@ -267,7 +226,9 @@ struct AppHTTPHandler {
     }
 
     private enum RequestKind {
+        #if Events
         case event
+        #endif
         case interactive
         case slashCommand
     }

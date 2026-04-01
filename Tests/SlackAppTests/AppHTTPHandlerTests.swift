@@ -113,7 +113,7 @@ struct AppHTTPHandlerTests {
         #expect(response.body == nil)
     }
 
-    @Test func eventAutoAckReturnsBeforeHandlerCompletes() async throws {
+    @Test func eventReturnsAfterHandlerCompletes() async throws {
         actor Tracker {
             private(set) var processed = false
 
@@ -150,13 +150,11 @@ struct AppHTTPHandlerTests {
 
         #expect(response.status == .ok)
         #expect(response.body == nil)
-        #expect(elapsed < .milliseconds(100))
-
-        try? await Task.sleep(for: .milliseconds(250))
+        #expect(elapsed >= .milliseconds(200))
         #expect(await tracker.processed)
     }
 
-    @Test func interactiveAckReturnsBeforeHandlerCompletes() async throws {
+    @Test func interactiveReturnsAfterHandlerCompletes() async throws {
         actor Tracker {
             private(set) var processed = false
 
@@ -194,9 +192,7 @@ struct AppHTTPHandlerTests {
 
         #expect(response.status == .ok)
         #expect(response.body == nil)
-        #expect(elapsed < .milliseconds(100))
-
-        try? await Task.sleep(for: .milliseconds(250))
+        #expect(elapsed >= .milliseconds(200))
         #expect(await tracker.processed)
     }
 
@@ -229,13 +225,10 @@ struct AppHTTPHandlerTests {
             timestamp: timestamp,
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
-
         let response = try await app.handle(request)
 
         #expect(response.status == .ok)
         #expect(response.body == nil)
-
-        try? await Task.sleep(for: .milliseconds(50))
         #expect(await tracker.text == "hello")
     }
 
