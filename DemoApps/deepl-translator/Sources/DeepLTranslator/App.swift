@@ -155,12 +155,7 @@ struct DeepLTranslatorApp {
     }
 
     private static func loadEnvironment() async throws -> Environment {
-        let root = URL(fileURLWithPath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
-            .path()
-        let envFilePath = "\(root).env"
+        let envFilePath = FileManager.default.currentDirectoryPath + "/.env"
 
         if FileManager.default.fileExists(atPath: envFilePath) {
             logger.info("Loaded .env file")
