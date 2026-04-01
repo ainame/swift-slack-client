@@ -15,6 +15,6 @@ struct PublicHTTPServerAdapterTests {
 
 private struct PublicCustomAdapter: HTTPServerAdapter {
     func run(
-        handler _: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse,
+        handler _: @escaping HTTPServerHandler,
     ) async throws {}
 }

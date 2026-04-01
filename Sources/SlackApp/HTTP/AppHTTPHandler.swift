@@ -26,15 +26,17 @@ private actor HTTPAcknowledgmentState {
         storedResponse = response
     }
 
-    func response() -> HTTPServerResponse? {
+    func response() -> (HTTPResponse, HTTPServerResponseBody)? {
         switch storedResponse {
         case .empty:
-            HTTPServerResponse(status: .ok)
+            (HTTPResponse(status: .ok), nil)
         case let .json(data):
-            HTTPServerResponse(
-                status: .ok,
-                headerFields: HTTPFields([HTTPField(name: .contentType, value: "application/json")]),
-                body: data,
+            (
+                HTTPResponse(
+                    status: .ok,
+                    headerFields: HTTPFields([HTTPField(name: .contentType, value: "application/json")])
+                ),
+                data
             )
         case nil:
             nil
@@ -59,34 +61,35 @@ struct AppHTTPHandler {
         self.init(slack: slack, router: .init(from: router))
     }
 
-    func handle(_ request: HTTPServerRequest) async throws -> HTTPServerResponse {
+    func handle(_ request: HTTPRequest, body: Foundation.Data) async throws -> (HTTPResponse, HTTPServerResponseBody) {
         let logger = await slack.logger
 
         let configuration = await slack.clientConfiguration
         let verifier = HTTPRequestVerifier(signingSecret: configuration.signingSecret ?? "")
 
         do {
-            try verifier.verify(headerFields: request.headerFields, body: request.body)
+            try verifier.verify(headerFields: request.headerFields, body: body)
         } catch {
             logger.warning("Rejected Slack HTTP request due to failed signature verification")
-            return HTTPServerResponse(status: .unauthorized)
+            return (HTTPResponse(status: .unauthorized), nil)
         }
 
-        if let response = try await handleJSONRequestIfNeeded(request, configuration: configuration) {
+        if let response = try await handleJSONRequestIfNeeded(request, body: body, configuration: configuration) {
             return response
         }
 
-        if let response = try await handleFormRequestIfNeeded(request) {
+        if let response = try await handleFormRequestIfNeeded(request, body: body) {
             return response
         }
 
-        return HTTPServerResponse(status: .unsupportedMediaType)
+        return (HTTPResponse(status: .unsupportedMediaType), nil)
     }
 
     private func handleJSONRequestIfNeeded(
-        _ request: HTTPServerRequest,
+        _ request: HTTPRequest,
+        body: Foundation.Data,
         configuration _: Slack.Configuration,
-    ) async throws -> HTTPServerResponse? {
+    ) async throws -> (HTTPResponse, HTTPServerResponseBody)? {
         guard contentType(of: request.headerFields)?.starts(with: "application/json") == true else {
             return nil
         }
@@ -94,47 +97,52 @@ struct AppHTTPHandler {
         let logger = await slack.logger
         let typeContainer: HTTPEventTypeContainer
         do {
-            typeContainer = try jsonDecoder.decode(HTTPEventTypeContainer.self, from: request.body)
+            typeContainer = try jsonDecoder.decode(HTTPEventTypeContainer.self, from: body)
         } catch {
             logger.warning("Ignoring malformed Slack JSON request after successful signature verification")
-            return HTTPServerResponse(status: .ok)
+            return (HTTPResponse(status: .ok), nil)
         }
 
         switch typeContainer.type {
         case "url_verification":
-            let payload = try jsonDecoder.decode(URLVerificationPayload.self, from: request.body)
+            let payload = try jsonDecoder.decode(URLVerificationPayload.self, from: body)
             let data = try jsonEncoder.encode(["challenge": payload.challenge])
-            return HTTPServerResponse(
-                status: .ok,
-                headerFields: HTTPFields([HTTPField(name: .contentType, value: "application/json")]),
-                body: data,
+            return (
+                HTTPResponse(
+                    status: .ok,
+                    headerFields: HTTPFields([HTTPField(name: .contentType, value: "application/json")])
+                ),
+                data
             )
         case "event_callback":
             #if Events
             do {
-                let payload = try jsonDecoder.decode(EventsApiEnvelope<Event>.self, from: request.body)
+                let payload = try jsonDecoder.decode(EventsApiEnvelope<Event>.self, from: body)
                 return try await dispatch(.event(payload), kind: .event)
             } catch {
                 logger.warning("Ignoring malformed Slack event_callback request after successful signature verification")
-                return HTTPServerResponse(status: .ok)
+                return (HTTPResponse(status: .ok), nil)
             }
             #else
-            return HTTPServerResponse(status: .notImplemented)
+            return (HTTPResponse(status: .notImplemented), nil)
             #endif
         case "app_rate_limited":
-            return HTTPServerResponse(status: .ok)
+            return (HTTPResponse(status: .ok), nil)
         default:
             logger.warning("Ignoring unsupported Slack JSON request type: \(typeContainer.type)")
-            return HTTPServerResponse(status: .ok)
+            return (HTTPResponse(status: .ok), nil)
         }
     }
 
-    private func handleFormRequestIfNeeded(_ request: HTTPServerRequest) async throws -> HTTPServerResponse? {
+    private func handleFormRequestIfNeeded(
+        _ request: HTTPRequest,
+        body: Foundation.Data
+    ) async throws -> (HTTPResponse, HTTPServerResponseBody)? {
         guard contentType(of: request.headerFields)?.starts(with: "application/x-www-form-urlencoded") == true else {
             return nil
         }
 
-        let values = Self.decodeFormBody(request.body)
+        let values = Self.decodeFormBody(body)
 
         if let payloadString = values["payload"] {
             let payload = try jsonDecoder.decode(InteractiveEnvelope.self, from: Foundation.Data(payloadString.utf8))
@@ -146,7 +154,7 @@ struct AppHTTPHandler {
         return try await dispatch(.slashCommand(payload), kind: .slashCommand)
     }
 
-    private func dispatch(_ request: Request, kind: RequestKind) async throws -> HTTPServerResponse {
+    private func dispatch(_ request: Request, kind: RequestKind) async throws -> (HTTPResponse, HTTPServerResponseBody) {
         let client = await slack.client
         let transport = await slack.transport
         let logger = await slack.logger
@@ -167,7 +175,7 @@ struct AppHTTPHandler {
             } catch {
                 logger.error("Failed to process Slack event request: \(String(describing: error))")
             }
-            return HTTPServerResponse(status: .ok)
+            return (HTTPResponse(status: .ok), nil)
         #endif
         case .interactive, .slashCommand:
             let state = HTTPAcknowledgmentState()
@@ -196,15 +204,15 @@ struct AppHTTPHandler {
                     return response
                 }
                 if !matched {
-                    return HTTPServerResponse(status: .ok)
+                    return (HTTPResponse(status: .ok), nil)
                 }
-                return HTTPServerResponse(status: .internalServerError)
+                return (HTTPResponse(status: .internalServerError), nil)
             } catch {
                 logger.error("Failed to process Slack HTTP request: \(String(describing: error))")
                 if let response = await state.response() {
                     return response
                 }
-                return HTTPServerResponse(status: .internalServerError)
+                return (HTTPResponse(status: .internalServerError), nil)
             }
         }
     }

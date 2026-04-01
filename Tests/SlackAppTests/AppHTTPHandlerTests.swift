@@ -20,20 +20,23 @@ struct AppHTTPHandlerTests {
     @Test func rejectsInvalidSignature() async throws {
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
         let timestamp = currentTimestamp()
-        let response = try await app.handle(
-            HTTPServerRequest(
+        let (response, responseBody) = try await app.handle(
+            HTTPRequest(
                 method: .post,
+                scheme: "https",
+                authority: "example.com",
                 path: "/slack/events",
                 headerFields: HTTPFields([
                     HTTPField(name: .contentType, value: "application/json"),
                     HTTPField(name: #require(HTTPField.Name("x-slack-request-timestamp")), value: timestamp),
                     HTTPField(name: #require(HTTPField.Name("x-slack-signature")), value: "v0=bad"),
-                ]),
-                body: Data(#"{"type":"url_verification","challenge":"abc"}"#.utf8),
+                ])
             ),
+            body: Data(#"{"type":"url_verification","challenge":"abc"}"#.utf8),
         )
 
         #expect(response.status == .unauthorized)
+        #expect(responseBody == nil)
     }
 
     @Test func urlVerificationReturnsChallenge() async throws {
@@ -49,11 +52,11 @@ struct AppHTTPHandlerTests {
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
 
-        let response = try await app.handle(request)
+        let (response, responseBody) = try await app.handle(request.0, body: request.1)
 
         #expect(response.status == .ok)
-        let responseBody = try #require(response.body)
-        #expect(String(decoding: responseBody, as: UTF8.self).contains(#""challenge":"abc""#))
+        let returnedBody = try #require(responseBody)
+        #expect(String(decoding: returnedBody, as: UTF8.self).contains(#""challenge":"abc""#))
     }
 
     @Test func appRateLimitedReturnsOK() async throws {
@@ -69,10 +72,10 @@ struct AppHTTPHandlerTests {
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
 
-        let response = try await app.handle(request)
+        let (response, responseBody) = try await app.handle(request.0, body: request.1)
 
         #expect(response.status == .ok)
-        #expect(response.body == nil)
+        #expect(responseBody == nil)
     }
 
     @Test func malformedJSONReturnsOK() async throws {
@@ -88,10 +91,10 @@ struct AppHTTPHandlerTests {
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
 
-        let response = try await app.handle(request)
+        let (response, responseBody) = try await app.handle(request.0, body: request.1)
 
         #expect(response.status == .ok)
-        #expect(response.body == nil)
+        #expect(responseBody == nil)
     }
 
     @Test func malformedEventCallbackReturnsOK() async throws {
@@ -107,10 +110,10 @@ struct AppHTTPHandlerTests {
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
 
-        let response = try await app.handle(request)
+        let (response, responseBody) = try await app.handle(request.0, body: request.1)
 
         #expect(response.status == .ok)
-        #expect(response.body == nil)
+        #expect(responseBody == nil)
     }
 
     @Test func eventReturnsAfterHandlerCompletes() async throws {
@@ -145,11 +148,11 @@ struct AppHTTPHandlerTests {
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
 
         let started = ContinuousClock.now
-        let response = try await app.handle(request)
+        let (response, responseBody) = try await app.handle(request.0, body: request.1)
         let elapsed = started.duration(to: .now)
 
         #expect(response.status == .ok)
-        #expect(response.body == nil)
+        #expect(responseBody == nil)
         #expect(elapsed >= .milliseconds(200))
         #expect(await tracker.processed)
     }
@@ -187,11 +190,11 @@ struct AppHTTPHandlerTests {
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
 
         let started = ContinuousClock.now
-        let response = try await app.handle(request)
+        let (response, responseBody) = try await app.handle(request.0, body: request.1)
         let elapsed = started.duration(to: .now)
 
         #expect(response.status == .ok)
-        #expect(response.body == nil)
+        #expect(responseBody == nil)
         #expect(elapsed >= .milliseconds(200))
         #expect(await tracker.processed)
     }
@@ -225,10 +228,10 @@ struct AppHTTPHandlerTests {
             timestamp: timestamp,
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
-        let response = try await app.handle(request)
+        let (response, responseBody) = try await app.handle(request.0, body: request.1)
 
         #expect(response.status == .ok)
-        #expect(response.body == nil)
+        #expect(responseBody == nil)
         #expect(await tracker.text == "hello")
     }
 
@@ -248,10 +251,10 @@ struct AppHTTPHandlerTests {
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
 
-        let response = try await app.handle(request)
+        let (response, responseBody) = try await app.handle(request.0, body: request.1)
 
         #expect(response.status == .ok)
-        #expect(response.body == nil)
+        #expect(responseBody == nil)
     }
 
     @Test func unmatchedInteractiveReturnsOK() async throws {
@@ -274,10 +277,10 @@ struct AppHTTPHandlerTests {
         }
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
 
-        let response = try await app.handle(request)
+        let (response, responseBody) = try await app.handle(request.0, body: request.1)
 
         #expect(response.status == .ok)
-        #expect(response.body == nil)
+        #expect(responseBody == nil)
     }
 
     @Test func matchedSlashCommandWithoutAckReturnsInternalServerError() async throws {
@@ -299,7 +302,7 @@ struct AppHTTPHandlerTests {
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
 
-        let response = try await app.handle(request)
+        let (response, _) = try await app.handle(request.0, body: request.1)
 
         #expect(response.status == .internalServerError)
     }
@@ -335,7 +338,7 @@ struct AppHTTPHandlerTests {
         )
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: router)
 
-        let response = try await app.handle(request)
+        let (response, _) = try await app.handle(request.0, body: request.1)
 
         #expect(response.status == .ok)
         #expect(await tracker.text == "hello world")
@@ -360,21 +363,25 @@ private func signedRequest(
     contentType: String,
     body: Data,
     timestamp: String,
-) -> HTTPServerRequest {
+) -> (HTTPRequest, Data) {
     let base = "v0:\(timestamp):" + String(decoding: body, as: UTF8.self)
     let key = SymmetricKey(data: Data(secret.utf8))
     let digest = HMAC<SHA256>.authenticationCode(for: Data(base.utf8), using: key)
     let signature = "v0=" + digest.map { String(format: "%02x", $0) }.joined()
 
-    return HTTPServerRequest(
-        method: method,
-        path: path,
-        headerFields: HTTPFields([
-            HTTPField(name: .contentType, value: contentType),
-            HTTPField(name: HTTPField.Name("x-slack-request-timestamp")!, value: timestamp),
-            HTTPField(name: HTTPField.Name("x-slack-signature")!, value: signature),
-        ]),
-        body: body,
+    return (
+        HTTPRequest(
+            method: method,
+            scheme: "https",
+            authority: "example.com",
+            path: path,
+            headerFields: HTTPFields([
+                HTTPField(name: .contentType, value: contentType),
+                HTTPField(name: HTTPField.Name("x-slack-request-timestamp")!, value: timestamp),
+                HTTPField(name: HTTPField.Name("x-slack-signature")!, value: signature),
+            ])
+        ),
+        body
     )
 }
 
@@ -391,6 +398,6 @@ private struct MockTransport: ClientTransport, Sendable {
 
 private struct NoopAdapter: HTTPServerAdapter {
     func run(
-        handler _: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse,
+        handler _: @escaping HTTPServerHandler,
     ) async throws {}
 }
