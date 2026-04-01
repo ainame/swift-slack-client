@@ -90,10 +90,11 @@ import SlackKit
 
 struct MyHTTPAdapter: HTTPServerAdapter {
     func run(
-        handler: @Sendable @escaping (HTTPServerRequest) async throws -> HTTPServerResponse
+        handler: @escaping HTTPServerHandler
     ) async throws {
         // Convert incoming requests from your server framework into
-        // HTTPServerRequest and write the returned HTTPServerResponse back out.
+        // HTTPRequest plus a request body Data value, then write the returned
+        // HTTPResponse and optional response body back out.
     }
 }
 ```

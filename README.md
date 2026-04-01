@@ -178,6 +178,8 @@ let app = SlackApp(
 try await app.run()
 ```
 
+If you are integrating a different HTTP server, implement `HTTPServerAdapter`. The adapter receives an `HTTPRequest` plus request body `Data`, and returns an `HTTPResponse` plus an optional response body.
+
 ## Block Kit
 
 Two ways to build Slack Block Kit messages:
