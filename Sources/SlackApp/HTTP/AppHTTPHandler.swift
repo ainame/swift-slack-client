@@ -47,6 +47,31 @@ private actor HTTPAcknowledgmentState {
 struct AppHTTPHandler {
     private static let contentTypeField = HTTPField.Name.contentType
 
+    private struct JSONEnvelope: Decodable {
+        let type: String
+        let challenge: String?
+    }
+
+    private struct ViewAckPayload: Encodable {
+        let responseAction: String
+        let view: View
+
+        private enum CodingKeys: String, CodingKey {
+            case responseAction = "response_action"
+            case view
+        }
+    }
+
+    private struct ErrorAckPayload: Encodable {
+        let responseAction: String
+        let errors: [String: String]
+
+        private enum CodingKeys: String, CodingKey {
+            case responseAction = "response_action"
+            case errors
+        }
+    }
+
     private let slack: Slack
     private let router: Router.FixedRouter
     private let jsonDecoder = JSONDecoder()
@@ -95,18 +120,17 @@ struct AppHTTPHandler {
         }
 
         let logger = await slack.logger
-        let typeContainer: HTTPEventTypeContainer
+        let envelope: JSONEnvelope
         do {
-            typeContainer = try jsonDecoder.decode(HTTPEventTypeContainer.self, from: body)
+            envelope = try jsonDecoder.decode(JSONEnvelope.self, from: body)
         } catch {
             logger.warning("Ignoring malformed Slack JSON request after successful signature verification")
             return (HTTPResponse(status: .ok), nil)
         }
 
-        switch typeContainer.type {
+        switch envelope.type {
         case "url_verification":
-            let payload = try jsonDecoder.decode(URLVerificationPayload.self, from: body)
-            let data = try jsonEncoder.encode(["challenge": payload.challenge])
+            let data = try jsonEncoder.encode(["challenge": envelope.challenge ?? ""])
             return (
                 HTTPResponse(
                     status: .ok,
@@ -118,7 +142,7 @@ struct AppHTTPHandler {
             #if Events
             do {
                 let payload = try jsonDecoder.decode(EventsApiEnvelope<Event>.self, from: body)
-                return try await dispatch(.event(payload), kind: .event)
+                return try await dispatchEvent(.event(payload))
             } catch {
                 logger.warning("Ignoring malformed Slack event_callback request after successful signature verification")
                 return (HTTPResponse(status: .ok), nil)
@@ -129,7 +153,7 @@ struct AppHTTPHandler {
         case "app_rate_limited":
             return (HTTPResponse(status: .ok), nil)
         default:
-            logger.warning("Ignoring unsupported Slack JSON request type: \(typeContainer.type)")
+            logger.warning("Ignoring unsupported Slack JSON request type: \(envelope.type)")
             return (HTTPResponse(status: .ok), nil)
         }
     }
@@ -146,74 +170,76 @@ struct AppHTTPHandler {
 
         if let payloadString = values["payload"] {
             let payload = try jsonDecoder.decode(InteractiveEnvelope.self, from: Foundation.Data(payloadString.utf8))
-            return try await dispatch(.interactive(payload), kind: .interactive)
+            return try await dispatchRequest(.interactive(payload))
         }
 
         let json = try JSONSerialization.data(withJSONObject: values, options: [])
         let payload = try jsonDecoder.decode(SlashCommandsPayload.self, from: json)
-        return try await dispatch(.slashCommand(payload), kind: .slashCommand)
+        return try await dispatchRequest(.slashCommand(payload))
     }
 
-    private func dispatch(_ request: Request, kind: RequestKind) async throws -> (HTTPResponse, HTTPServerResponseBody) {
+    private func dispatchEvent(_ request: Request) async throws -> (HTTPResponse, HTTPServerResponseBody) {
         let client = await slack.client
         let transport = await slack.transport
         let logger = await slack.logger
         let respond = Respond(transport: transport, logger: logger)
         let say = Say(client: client, logger: logger)
 
-        switch kind {
-        #if Events
-        case .event:
-            let context = SlackApp.EventContext(
-                client: client,
-                logger: logger,
-                respond: respond,
-                say: say,
-            )
-            do {
-                _ = try await router.dispatch(context: .event(context), request: request)
-            } catch {
-                logger.error("Failed to process Slack event request: \(String(describing: error))")
+        let context = SlackApp.EventContext(
+            client: client,
+            logger: logger,
+            respond: respond,
+            say: say,
+        )
+        do {
+            _ = try await router.dispatch(context: .event(context), request: request)
+        } catch {
+            logger.error("Failed to process Slack event request: \(String(describing: error))")
+        }
+        return (HTTPResponse(status: .ok), nil)
+    }
+
+    private func dispatchRequest(_ request: Request) async throws -> (HTTPResponse, HTTPServerResponseBody) {
+        let client = await slack.client
+        let transport = await slack.transport
+        let logger = await slack.logger
+        let respond = Respond(transport: transport, logger: logger)
+        let say = Say(client: client, logger: logger)
+        let state = HTTPAcknowledgmentState()
+        let context = SlackApp.Context(
+            client: client,
+            logger: logger,
+            respond: respond,
+            say: say,
+            ack: Ack(
+                basicHandler: {
+                    try await state.storeEmptyIfNeeded()
+                },
+                viewHandler: { responseAction, view in
+                    let data = try jsonEncoder.encode(ViewAckPayload(responseAction: responseAction.rawValue, view: view))
+                    try await state.storeJSON(data)
+                },
+                errorHandler: { errors in
+                    let data = try jsonEncoder.encode(ErrorAckPayload(responseAction: "errors", errors: errors))
+                    try await state.storeJSON(data)
+                },
+            ),
+        )
+        do {
+            let matched = try await router.dispatch(context: .request(context), request: request)
+            if let response = await state.response() {
+                return response
             }
-            return (HTTPResponse(status: .ok), nil)
-        #endif
-        case .interactive, .slashCommand:
-            let state = HTTPAcknowledgmentState()
-            let context = SlackApp.Context(
-                client: client,
-                logger: logger,
-                respond: respond,
-                say: say,
-                ack: Ack(
-                    basicHandler: {
-                        try await state.storeEmptyIfNeeded()
-                    },
-                    viewHandler: { responseAction, view in
-                        let data = try jsonEncoder.encode(HTTPViewAckPayload(responseAction: responseAction.rawValue, view: view))
-                        try await state.storeJSON(data)
-                    },
-                    errorHandler: { errors in
-                        let data = try jsonEncoder.encode(HTTPErrorAckPayload(responseAction: "errors", errors: errors))
-                        try await state.storeJSON(data)
-                    },
-                ),
-            )
-            do {
-                let matched = try await router.dispatch(context: .request(context), request: request)
-                if let response = await state.response() {
-                    return response
-                }
-                if !matched {
-                    return (HTTPResponse(status: .ok), nil)
-                }
-                return (HTTPResponse(status: .internalServerError), nil)
-            } catch {
-                logger.error("Failed to process Slack HTTP request: \(String(describing: error))")
-                if let response = await state.response() {
-                    return response
-                }
-                return (HTTPResponse(status: .internalServerError), nil)
+            if !matched {
+                return (HTTPResponse(status: .ok), nil)
             }
+            return (HTTPResponse(status: .internalServerError), nil)
+        } catch {
+            logger.error("Failed to process Slack HTTP request: \(String(describing: error))")
+            if let response = await state.response() {
+                return response
+            }
+            return (HTTPResponse(status: .internalServerError), nil)
         }
     }
 
@@ -231,41 +257,5 @@ struct AppHTTPHandler {
             result[key] = value
         }
         return result
-    }
-
-    private enum RequestKind {
-        #if Events
-        case event
-        #endif
-        case interactive
-        case slashCommand
-    }
-}
-
-private struct HTTPEventTypeContainer: Decodable {
-    let type: String
-}
-
-private struct URLVerificationPayload: Decodable {
-    let challenge: String
-}
-
-private struct HTTPViewAckPayload: Encodable {
-    let responseAction: String
-    let view: View
-
-    private enum CodingKeys: String, CodingKey {
-        case responseAction = "response_action"
-        case view
-    }
-}
-
-private struct HTTPErrorAckPayload: Encodable {
-    let responseAction: String
-    let errors: [String: String]
-
-    private enum CodingKeys: String, CodingKey {
-        case responseAction = "response_action"
-        case errors
     }
 }
