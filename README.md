@@ -7,6 +7,10 @@
 
 # swift-slack
 
+<p align="center">
+<img src="./logo.svg" alt="swift-slack logo" width="256">
+</p>
+
 `swift-slack` aims to bring Slack’s official SDK and Bolt framework experience to Swift, with feature parity across officially supported languages such as Python, TypeScript, and Java.
 Build Slack apps using the language you love.
 
