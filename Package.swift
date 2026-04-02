@@ -158,7 +158,7 @@ let package = Package(
             name: "SlackBlockKitDSLTests",
             dependencies: ["SlackBlockKitDSL"]
         ),
-        // renovate: datasource=github-releases depName=nicklockwood/SwiftFormat versioning=semver
+        // renovate: datasource=github-release-attachments depName=nicklockwood/SwiftFormat versioning=semver
         .binaryTarget(
             name: "swiftformat",
             url: "https://github.com/nicklockwood/SwiftFormat/releases/download/0.59.1/swiftformat.artifactbundle.zip",
