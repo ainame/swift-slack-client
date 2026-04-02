@@ -161,8 +161,8 @@ let package = Package(
         // renovate: datasource=github-release-attachments depName=nicklockwood/SwiftFormat versioning=semver
         .binaryTarget(
             name: "swiftformat",
-            url: "https://github.com/nicklockwood/SwiftFormat/releases/download/0.59.1/swiftformat.artifactbundle.zip",
-            checksum: "89b979d56a26b5ef0cffe52508438c8d71f70d8b1594a40dfc94481ce631025f"
+            url: "https://github.com/nicklockwood/SwiftFormat/releases/download/0.60.1/swiftformat.artifactbundle.zip",
+            checksum: "cb4738085cf39c08da00b79b4a3683e77458ca12909934d04e5087d8e73f5e43"
         ),
         .plugin(
             name: "SwiftFormatPlugin",
