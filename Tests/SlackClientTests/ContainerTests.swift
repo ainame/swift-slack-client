@@ -5,7 +5,7 @@ import Testing
 
 struct ContainerTests {
     @Test
-    func encodeViewContainer() throws {
+    func `encode view container`() throws {
         let container = Container.view(.init(viewId: "V123"))
         let data = try JSONEncoder().encode(container)
         let decoded = try JSONDecoder().decode(OpenAPIObjectContainer.self, from: data)
@@ -15,7 +15,7 @@ struct ContainerTests {
     }
 
     @Test
-    func decodeViewContainer() throws {
+    func `decode view container`() throws {
         let json = """
         {
           "type": "view",
@@ -31,7 +31,7 @@ struct ContainerTests {
     }
 
     @Test
-    func decodeMessageContainer() throws {
+    func `decode message container`() throws {
         let json = """
         {
           "type": "message",
@@ -55,7 +55,7 @@ struct ContainerTests {
     }
 
     @Test
-    func decodeMessageAttachmentContainer() throws {
+    func `decode message attachment container`() throws {
         let json = """
         {
           "type": "message_attachment",
@@ -88,7 +88,7 @@ struct ContainerTests {
     }
 
     @Test
-    func decodeUnknownContainerType() throws {
+    func `decode unknown container type`() throws {
         let json = """
         {
           "type": "canvas",
@@ -111,7 +111,7 @@ struct ContainerTests {
     }
 
     @Test
-    func encodeUnknownContainerType() throws {
+    func `encode unknown container type`() throws {
         let payload = try OpenAPIObjectContainer(unvalidatedValue: [
             "canvas_id": "CA123",
             "custom_flag": true,

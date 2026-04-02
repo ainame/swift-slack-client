@@ -14,9 +14,7 @@ struct Command {
         let router = Router()
 
         // Handle global shortcuts
-        router.onGlobalShortcut("run-something") {
-            context,
-                payload in
+        router.onGlobalShortcut("run-something") { context, payload in
             try await context.ack()
 
             // Create a modal using the new SwiftUI-like DSL

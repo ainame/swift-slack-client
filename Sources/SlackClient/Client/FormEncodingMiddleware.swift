@@ -2,7 +2,7 @@ import Foundation
 import HTTPTypes
 import OpenAPIRuntime
 
-struct FormEncodingMiddleware: ClientMiddleware, Sendable {
+struct FormEncodingMiddleware: ClientMiddleware {
     private static let formURLEncodedAllowedCharacters = CharacterSet(
         charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~",
     )

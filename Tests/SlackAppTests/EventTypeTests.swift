@@ -7,7 +7,7 @@ struct EventTests {
     // MARK: - Regular Message Tests
 
     @Test
-    func regularMessageWithoutSubtype() throws {
+    func `regular message without subtype`() throws {
         let json = """
         {
             "type": "message",
@@ -34,7 +34,7 @@ struct EventTests {
     // MARK: - Known Subtype Tests
 
     @Test
-    func botMessage() throws {
+    func `bot message`() throws {
         let json = """
         {
             "type": "message",
@@ -59,7 +59,7 @@ struct EventTests {
     }
 
     @Test
-    func testMessageChanged() throws {
+    func `message changed`() throws {
         let json = """
         {
             "type": "message",
@@ -87,7 +87,7 @@ struct EventTests {
     }
 
     @Test
-    func channelJoinMessage() throws {
+    func `channel join message`() throws {
         let json = """
         {
             "type": "message",
@@ -113,7 +113,7 @@ struct EventTests {
     // MARK: - Unknown Subtype Tests
 
     @Test
-    func unknownSubtype() throws {
+    func `unknown subtype`() throws {
         let json = """
         {
             "type": "message",
@@ -136,7 +136,7 @@ struct EventTests {
     }
 
     @Test
-    func emptySubtype() throws {
+    func `empty subtype`() throws {
         let json = """
         {
             "type": "message",
@@ -161,7 +161,7 @@ struct EventTests {
     // MARK: - Edge Case Tests
 
     @Test
-    func messageWithNullSubtype() throws {
+    func `message with null subtype`() throws {
         let json = """
         {
             "type": "message",
@@ -184,7 +184,7 @@ struct EventTests {
     }
 
     @Test
-    func messageWithInvalidSubtypeType() throws {
+    func `message with invalid subtype type`() throws {
         let json = """
         {
             "type": "message",
@@ -206,7 +206,7 @@ struct EventTests {
     // MARK: - Multiple Subtype Tests
 
     @Test
-    func allMessageSubtypes() throws {
+    func `all message subtypes`() throws {
         let subtypeTests: [(subtype: String, expectedCase: String)] = [
             ("bot_message", "messageBot"),
             ("message_changed", "messageChanged"),
@@ -253,7 +253,7 @@ struct EventTests {
     // MARK: - Payload Extraction Tests
 
     @Test
-    func messagePayloadExtraction() throws {
+    func `message payload extraction`() throws {
         let json = """
         {
             "type": "message",
@@ -278,7 +278,7 @@ struct EventTests {
     }
 
     @Test
-    func unsupportedPayloadExtraction() throws {
+    func `unsupported payload extraction`() throws {
         let json = """
         {
             "type": "message",

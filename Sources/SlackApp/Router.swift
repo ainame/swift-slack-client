@@ -44,7 +44,7 @@ public enum Request: Sendable {
     case unsupported(String)
 }
 
-private enum InteractiveHandler: Sendable {
+private enum InteractiveHandler {
     case interactive(RequestHandler)
     case shortcut(RequestHandler)
     case messageShortcut(RequestHandler)
@@ -68,7 +68,7 @@ private enum InteractiveHandler: Sendable {
 }
 
 #if Events
-private struct TypedEventKey: Hashable, Sendable {
+private struct TypedEventKey: Hashable {
     let typeName: String
 
     init<T: SlackEvent>(_: T.Type) {

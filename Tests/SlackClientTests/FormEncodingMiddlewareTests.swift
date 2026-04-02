@@ -7,7 +7,7 @@ import Testing
 
 struct FormEncodingMiddlewareTests {
     @Test
-    func preservesTypedBlockKitPayloadsInFormEncoding() async throws {
+    func `preserves typed block kit payloads in form encoding`() async throws {
         let blockValue = #"{"command":"git diff --stat main..HEAD && printf '\n---\n' && echo a&b=c","approved":true}"#
         let payload = Operations.ChatPostMessage.Input.Body.JsonPayload(
             blocks: [

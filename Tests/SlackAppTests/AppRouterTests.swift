@@ -8,7 +8,7 @@ import SlackClient
 import Testing
 
 struct AppRouterTests {
-    @Test func slashCommandRegistrationUsesLastHandler() async throws {
+    @Test func `slash command registration uses last handler`() async throws {
         actor Tracker {
             private(set) var value: String?
             func set(_ value: String) {
@@ -30,7 +30,7 @@ struct AppRouterTests {
         #expect(await tracker.value == "second")
     }
 
-    @Test func specificEventDispatchUsesLastTypedHandler() async throws {
+    @Test func `specific event dispatch uses last typed handler`() async throws {
         actor Tracker {
             private(set) var text: String?
             func setText(_ value: String?) {
@@ -57,7 +57,7 @@ struct AppRouterTests {
         #expect(await tracker.text == "hello")
     }
 
-    @Test func broadEventDispatchUsesLastHandler() async throws {
+    @Test func `broad event dispatch uses last handler`() async throws {
         actor Tracker {
             private(set) var value: String?
             func set(_ value: String) {
@@ -80,7 +80,7 @@ struct AppRouterTests {
         #expect(await tracker.value == "second")
     }
 
-    @Test func typedEventTakesPrecedenceOverBroadEventHandler() async throws {
+    @Test func `typed event takes precedence over broad event handler`() async throws {
         actor Tracker {
             private(set) var value: String?
             func set(_ value: String) {
@@ -103,7 +103,7 @@ struct AppRouterTests {
         #expect(await tracker.value == "typed")
     }
 
-    @Test func interactiveDispatchUsesSpecificHandlerOverBroadInteractiveHandler() async throws {
+    @Test func `interactive dispatch uses specific handler over broad interactive handler`() async throws {
         actor Tracker {
             private(set) var callbackId: String?
             func setCallbackId(_ value: String) {
@@ -127,7 +127,7 @@ struct AppRouterTests {
         #expect(await tracker.callbackId == "button-id")
     }
 
-    @Test func interactiveDispatchUsesLastBroadHandler() async throws {
+    @Test func `interactive dispatch uses last broad handler`() async throws {
         actor Tracker {
             private(set) var value: String?
             func set(_ value: String) {
@@ -147,7 +147,7 @@ struct AppRouterTests {
         #expect(await tracker.value == "second")
     }
 
-    @Test func viewHandlersShareNamespaceByCallbackId() async throws {
+    @Test func `view handlers share namespace by callback id`() async throws {
         actor Tracker {
             private(set) var value: String?
             func set(_ value: String) {
@@ -320,7 +320,7 @@ private func makeRequestContext() async -> SlackApp.Context {
     )
 }
 
-private struct MockTransport: ClientTransport, Sendable {
+private struct MockTransport: ClientTransport {
     func send(
         _: HTTPRequest,
         body _: HTTPBody?,

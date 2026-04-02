@@ -5,7 +5,7 @@ import Testing
 
 struct UserProfileSchemaMappingTests {
     @Test
-    func userShapedSchemasUseUserProfile() {
+    func `user shaped schemas use user profile`() {
         let userProfile = UserProfile(displayName: "alice")
 
         let user = User(profile: userProfile)
@@ -22,7 +22,7 @@ struct UserProfileSchemaMappingTests {
     }
 
     @Test
-    func teamProfileGetResponseUsesTeamProfile() {
+    func `team profile get response uses team profile`() {
         #if WebAPI_Team
         let profile = TeamProfile(
             fields: [.init(fieldName: "department", type: "text")],
@@ -34,7 +34,7 @@ struct UserProfileSchemaMappingTests {
     }
 
     @Test
-    func userProfileDecodesDocumentedFields() throws {
+    func `user profile decodes documented fields`() throws {
         let json = """
         {
             "title": "Engineer",
@@ -84,7 +84,7 @@ struct UserProfileSchemaMappingTests {
     }
 
     @Test
-    func teamProfileDecodesDocumentedFields() throws {
+    func `team profile decodes documented fields`() throws {
         let json = """
         {
             "fields": [

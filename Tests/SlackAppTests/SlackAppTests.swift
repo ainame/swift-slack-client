@@ -6,7 +6,7 @@ import SlackClient
 import Testing
 
 struct SlackAppTests {
-    @Test func runPreparingExecutesBeforeHTTPModeStarts() async throws {
+    @Test func `run preparing executes before HTTP mode starts`() async throws {
         let transport = RecordingTransport()
         let slack = Slack(
             transport: transport,

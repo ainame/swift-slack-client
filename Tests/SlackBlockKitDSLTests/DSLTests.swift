@@ -8,7 +8,7 @@ import Testing
 private let jsonEncoder = JSONEncoder()
 private let jsonDecoder = JSONDecoder()
 
-@Test func improvedModal() throws {
+@Test func `improved modal`() throws {
     let view = Modal(
         title: Text("App Settings"),
     ) {
@@ -102,7 +102,7 @@ private let jsonDecoder = JSONDecoder()
     #expect(decodedView == view)
 }
 
-@Test func advancedForm() throws {
+@Test func `advanced form`() throws {
     let view = Modal(
         title: Text("Employee Survey"),
     ) {
@@ -160,7 +160,7 @@ private let jsonDecoder = JSONDecoder()
     #expect(decodedView == view)
 }
 
-@Test func simpleModal() throws {
+@Test func `simple modal`() throws {
     let view = Modal(title: Text("Settings")) {
         Section {
             Text("Configure your *notification preferences*").type(.mrkdwn)
@@ -202,7 +202,7 @@ private let jsonDecoder = JSONDecoder()
     #expect(decodedView == view)
 }
 
-@Test func textStyling() throws {
+@Test func `text styling`() throws {
     let view = Modal(title: Text("Text Styling Demo")) {
         Section {
             Text("This is *bold* text with _italics_").type(.mrkdwn)
@@ -226,7 +226,7 @@ private let jsonDecoder = JSONDecoder()
     #expect(decodedView == view)
 }
 
-@Test func sectionIntelligentTextFields() throws {
+@Test func `section intelligent text fields`() throws {
     let view = Modal(title: Text("Section Examples")) {
         // Single text becomes section.text
         Section {
@@ -269,7 +269,7 @@ private let jsonDecoder = JSONDecoder()
     #expect(decodedView == view)
 }
 
-@Test func textModifiers() {
+@Test func `text modifiers`() {
     // Test plain text with emoji
     let plainText = Text("Hello 👋")
         .emoji(true)
@@ -292,7 +292,7 @@ private let jsonDecoder = JSONDecoder()
     #expect(markdownTextObject.verbatim == true)
 }
 
-@Test func optionBuilding() throws {
+@Test func `option building`() throws {
     let option = try Option(Text("Email notifications").type(.mrkdwn))
         .value("email")
         .description("Get daily email summaries")
@@ -305,7 +305,7 @@ private let jsonDecoder = JSONDecoder()
     #expect(optionObject.url?.absoluteString == "https://example.com/settings")
 }
 
-@Test func buttonModifiers() {
+@Test func `button modifiers`() {
     let button = Button("Click me")
         .actionId("click_action")
         .style(.primary)
@@ -326,7 +326,7 @@ private let jsonDecoder = JSONDecoder()
     }
 }
 
-@Test func checkboxesInitialOptions() {
+@Test func `checkboxes initial options`() {
     let checkboxes = Checkboxes {
         Option("Option A").value("a")
         Option("Option B").value("b")
@@ -352,7 +352,7 @@ private let jsonDecoder = JSONDecoder()
     }
 }
 
-@Test func autoclosureModifiers() {
+@Test func `autoclosure modifiers`() {
     // Test Button with autoclosure confirm
     let button = Button("Delete")
         .actionId("delete_action")

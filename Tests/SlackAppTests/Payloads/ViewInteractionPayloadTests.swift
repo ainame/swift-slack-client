@@ -4,7 +4,7 @@ import Testing
 
 struct ViewInteractionPayloadTests {
     @Test
-    func decodeViewSubmissionPayloadWithFunctionFields() throws {
+    func `decode view submission payload with function fields`() throws {
         let json = """
         {
           "type": "view_submission",
@@ -60,7 +60,7 @@ struct ViewInteractionPayloadTests {
     }
 
     @Test
-    func decodeViewClosedPayloadWithFunctionFields() throws {
+    func `decode view closed payload with function fields`() throws {
         let json = """
         {
           "type": "view_closed",

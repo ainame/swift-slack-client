@@ -7,7 +7,7 @@ import SlackClient
 import Testing
 
 struct AppHTTPHandlerTests {
-    @Test func appCanBeCreatedFromConfiguration() {
+    @Test func `app can be created from configuration`() {
         let app = SlackApp(
             configuration: .init(token: "xoxb-test", signingSecret: "secret"),
             router: Router(),
@@ -17,7 +17,7 @@ struct AppHTTPHandlerTests {
         withExtendedLifetime(app) {}
     }
 
-    @Test func rejectsInvalidSignature() async throws {
+    @Test func `rejects invalid signature`() async throws {
         let app = AppHTTPHandler(slack: makeSlack(signingSecret: "secret"), router: Router())
         let timestamp = currentTimestamp()
         let (response, responseBody) = try await app.handle(
@@ -30,7 +30,7 @@ struct AppHTTPHandlerTests {
                     HTTPField(name: .contentType, value: "application/json"),
                     HTTPField(name: #require(HTTPField.Name("x-slack-request-timestamp")), value: timestamp),
                     HTTPField(name: #require(HTTPField.Name("x-slack-signature")), value: "v0=bad"),
-                ])
+                ]),
             ),
             body: Data(#"{"type":"url_verification","challenge":"abc"}"#.utf8),
         )
@@ -39,7 +39,7 @@ struct AppHTTPHandlerTests {
         #expect(responseBody == nil)
     }
 
-    @Test func urlVerificationReturnsChallenge() async throws {
+    @Test func `url verification returns challenge`() async throws {
         let body = Data(#"{"type":"url_verification","challenge":"abc"}"#.utf8)
         let timestamp = currentTimestamp()
         let request = signedRequest(
@@ -59,7 +59,7 @@ struct AppHTTPHandlerTests {
         #expect(String(decoding: returnedBody, as: UTF8.self).contains(#""challenge":"abc""#))
     }
 
-    @Test func appRateLimitedReturnsOK() async throws {
+    @Test func `app rate limited returns OK`() async throws {
         let body = Data(#"{"type":"app_rate_limited","team_id":"T123","minute_rate_limited":1518467820,"api_app_id":"A123"}"#.utf8)
         let timestamp = currentTimestamp()
         let request = signedRequest(
@@ -78,7 +78,7 @@ struct AppHTTPHandlerTests {
         #expect(responseBody == nil)
     }
 
-    @Test func malformedJSONReturnsOK() async throws {
+    @Test func `malformed JSON returns OK`() async throws {
         let body = Data(#"{"#.utf8)
         let timestamp = currentTimestamp()
         let request = signedRequest(
@@ -97,7 +97,7 @@ struct AppHTTPHandlerTests {
         #expect(responseBody == nil)
     }
 
-    @Test func malformedEventCallbackReturnsOK() async throws {
+    @Test func `malformed event callback returns OK`() async throws {
         let body = Data(#"{"type":"event_callback","team_id":"T123"}"#.utf8)
         let timestamp = currentTimestamp()
         let request = signedRequest(
@@ -116,7 +116,7 @@ struct AppHTTPHandlerTests {
         #expect(responseBody == nil)
     }
 
-    @Test func eventReturnsAfterHandlerCompletes() async throws {
+    @Test func `event returns after handler completes`() async throws {
         actor Tracker {
             private(set) var processed = false
 
@@ -157,7 +157,7 @@ struct AppHTTPHandlerTests {
         #expect(await tracker.processed)
     }
 
-    @Test func interactiveReturnsAfterHandlerCompletes() async throws {
+    @Test func `interactive returns after handler completes`() async throws {
         actor Tracker {
             private(set) var processed = false
 
@@ -199,7 +199,7 @@ struct AppHTTPHandlerTests {
         #expect(await tracker.processed)
     }
 
-    @Test func eventDispatchesHandlerWithoutAck() async throws {
+    @Test func `event dispatches handler without ack`() async throws {
         actor Tracker {
             private(set) var text: String?
 
@@ -235,7 +235,7 @@ struct AppHTTPHandlerTests {
         #expect(await tracker.text == "hello")
     }
 
-    @Test func unmatchedSlashCommandReturnsOK() async throws {
+    @Test func `unmatched slash command returns OK`() async throws {
         let body = Data(
             "command=%2Funknown&text=hello+world&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2F123%2F456&trigger_id=trigger&user_id=U123&user_name=tester&channel_id=C123&channel_name=general&team_id=T123&team_domain=example&is_enterprise_install=false&api_app_id=A123"
                 .utf8,
@@ -257,7 +257,7 @@ struct AppHTTPHandlerTests {
         #expect(responseBody == nil)
     }
 
-    @Test func unmatchedInteractiveReturnsOK() async throws {
+    @Test func `unmatched interactive returns OK`() async throws {
         let body = Data(
             "payload=%7B%22type%22%3A%22block_actions%22%2C%22user%22%3A%7B%22id%22%3A%22U123%22%7D%2C%22api_app_id%22%3A%22A123%22%2C%22token%22%3A%22legacy-token%22%2C%22container%22%3A%7B%22type%22%3A%22message%22%2C%22message_ts%22%3A%22123.456%22%2C%22channel_id%22%3A%22C123%22%2C%22is_ephemeral%22%3Afalse%7D%2C%22trigger_id%22%3A%2213345224609.738474920.8088930838d88f008e0%22%2C%22team%22%3A%7B%22id%22%3A%22T123%22%2C%22domain%22%3A%22example%22%7D%2C%22channel%22%3A%7B%22id%22%3A%22C123%22%2C%22name%22%3A%22general%22%7D%2C%22view%22%3A%7B%22type%22%3A%22modal%22%2C%22callback_id%22%3A%22other-id%22%2C%22title%22%3A%7B%22type%22%3A%22plain_text%22%2C%22text%22%3A%22Test%22%7D%2C%22blocks%22%3A%5B%5D%7D%2C%22response_url%22%3A%22https%3A%2F%2Fhooks.slack.com%2Factions%2FT123%2F1%2F2%22%2C%22actions%22%3A%5B%7B%22action_id%22%3A%22button-id%22%2C%22block_id%22%3A%22block-1%22%2C%22text%22%3A%7B%22type%22%3A%22plain_text%22%2C%22text%22%3A%22Click%22%7D%2C%22value%22%3A%22test%22%2C%22type%22%3A%22button%22%2C%22action_ts%22%3A%22123.456%22%7D%5D%2C%22callback_id%22%3A%22other-id%22%7D"
                 .utf8,
@@ -283,7 +283,7 @@ struct AppHTTPHandlerTests {
         #expect(responseBody == nil)
     }
 
-    @Test func matchedSlashCommandWithoutAckReturnsInternalServerError() async throws {
+    @Test func `matched slash command without ack returns internal server error`() async throws {
         let router = Router()
         router.onSlashCommand("/echo") { _, _ in }
 
@@ -307,7 +307,7 @@ struct AppHTTPHandlerTests {
         #expect(response.status == .internalServerError)
     }
 
-    @Test func slashCommandDispatchesHandler() async throws {
+    @Test func `slash command dispatches handler`() async throws {
         actor Tracker {
             private(set) var text: String?
 
@@ -379,13 +379,13 @@ private func signedRequest(
                 HTTPField(name: .contentType, value: contentType),
                 HTTPField(name: HTTPField.Name("x-slack-request-timestamp")!, value: timestamp),
                 HTTPField(name: HTTPField.Name("x-slack-signature")!, value: signature),
-            ])
+            ]),
         ),
-        body
+        body,
     )
 }
 
-private struct MockTransport: ClientTransport, Sendable {
+private struct MockTransport: ClientTransport {
     func send(
         _: HTTPRequest,
         body _: HTTPBody?,

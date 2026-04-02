@@ -3,8 +3,8 @@ import OpenAPIRuntime
 @testable import SlackBlockKit
 import Testing
 
-@Test("Decode plain text input state values")
-func decodePlainTextInput() throws {
+@Test
+func `Decode plain text input state values`() throws {
     let json = """
     {
         "values": {
@@ -33,8 +33,8 @@ func decodePlainTextInput() throws {
     #expect(blockValues?["text_action"]?.value == "Hello, world!")
 }
 
-@Test("Decode static select state values")
-func decodeStaticSelect() throws {
+@Test
+func `Decode static select state values`() throws {
     let json = """
     {
         "values": {
@@ -65,8 +65,8 @@ func decodeStaticSelect() throws {
     #expect(selectValue?.selectedOption?.text.text == "Spanish")
 }
 
-@Test("Decode multi-select state values")
-func decodeMultiSelect() throws {
+@Test
+func `Decode multi-select state values`() throws {
     let json = """
     {
         "values": {
@@ -90,8 +90,8 @@ func decodeMultiSelect() throws {
     #expect(usersValue?.selectedUsers == ["U123ABC", "U456DEF"])
 }
 
-@Test("Decode date picker state values")
-func decodeDatePicker() throws {
+@Test
+func `Decode date picker state values`() throws {
     let json = """
     {
         "values": {
@@ -115,8 +115,8 @@ func decodeDatePicker() throws {
     #expect(dateValue?.selectedDate == "2024-01-15")
 }
 
-@Test("Handle missing values gracefully")
-func missingValues() throws {
+@Test
+func `Handle missing values gracefully`() throws {
     let json = """
     {
         "values": {}
@@ -137,8 +137,8 @@ func missingValues() throws {
     #expect(missingBlock == nil)
 }
 
-@Test("Decode complex form with multiple inputs")
-func decodeComplexForm() throws {
+@Test
+func `Decode complex form with multiple inputs`() throws {
     let json = """
     {
         "values": {
@@ -181,8 +181,8 @@ func decodeComplexForm() throws {
     #expect(langValue?.selectedOption?.text.text == "🇪🇸 Spanish")
 }
 
-@Test("Decode completely empty JSON")
-func decodeEmptyJSON() throws {
+@Test
+func `Decode completely empty JSON`() throws {
     let json = "{}"
 
     let data = try #require(json.data(using: .utf8))

@@ -34,9 +34,9 @@ private actor HTTPAcknowledgmentState {
             (
                 HTTPResponse(
                     status: .ok,
-                    headerFields: HTTPFields([HTTPField(name: .contentType, value: "application/json")])
+                    headerFields: HTTPFields([HTTPField(name: .contentType, value: "application/json")]),
                 ),
-                data
+                data,
             )
         case nil:
             nil
@@ -134,9 +134,9 @@ struct AppHTTPHandler {
             return (
                 HTTPResponse(
                     status: .ok,
-                    headerFields: HTTPFields([HTTPField(name: .contentType, value: "application/json")])
+                    headerFields: HTTPFields([HTTPField(name: .contentType, value: "application/json")]),
                 ),
-                data
+                data,
             )
         case "event_callback":
             #if Events
@@ -160,7 +160,7 @@ struct AppHTTPHandler {
 
     private func handleFormRequestIfNeeded(
         _ request: HTTPRequest,
-        body: Foundation.Data
+        body: Foundation.Data,
     ) async throws -> (response: HTTPResponse, body: Foundation.Data?)? {
         guard contentType(of: request.headerFields)?.starts(with: "application/x-www-form-urlencoded") == true else {
             return nil

@@ -4,7 +4,7 @@ import Testing
 
 struct BlockActionsPayloadTests {
     @Test
-    func decodeMessageContainerBlockActionsWithoutView() throws {
+    func `decode message container block actions without view`() throws {
         let json = """
         {
           "type": "block_actions",
@@ -37,7 +37,7 @@ struct BlockActionsPayloadTests {
     }
 
     @Test
-    func decodeViewContainerBlockActionsWithView() throws {
+    func `decode view container block actions with view`() throws {
         let json = """
         {
           "type": "block_actions",
