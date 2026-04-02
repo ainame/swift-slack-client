@@ -30,7 +30,7 @@ Use the package directly:
 dependencies: [
     .package(
         url: "https://github.com/ainame/swift-slack.git",
-        from: "0.6.0"
+        from: "0.9.0"
     )
 ]
 ```
@@ -40,7 +40,7 @@ For smaller builds, enable only the traits your app needs:
 ```swift
     .package(
         url: "https://github.com/ainame/swift-slack.git",
-        from: "0.6.0",
+        from: "0.9.0",
         traits: [
             "SocketMode",   // WebSocket support
             "Events",       // Events API
@@ -147,7 +147,7 @@ The built-in Hummingbird integration is opt-in, so enable the `HummingbirdHTTPAd
 dependencies: [
     .package(
         url: "https://github.com/ainame/swift-slack.git",
-        from: "0.6.0",
+        from: "0.9.0",
         traits: [
             "Events",
             "HummingbirdHTTPAdapter",
