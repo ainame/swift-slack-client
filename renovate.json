@@ -6,14 +6,15 @@
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Update SwiftFormat binary target in Package.swift",
+      "description": "Update SwiftFormat binary target URL and checksum in Package.swift",
       "managerFilePatterns": [
         "/(^|/)Package\\.swift$/"
       ],
       "matchStrings": [
-        "// renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>[^\\s]+)(?: versioning=(?<versioning>[^\\s]+))?\\s+\\.binaryTarget\\(\\s+name:\\s+\"swiftformat\",\\s+url:\\s+\"https://github\\.com/nicklockwood/SwiftFormat/releases/download/(?<currentValue>[^/]+)/swiftformat\\.artifactbundle\\.zip\",\\s+checksum:\\s+\"[a-f0-9]+\""
+        "(?<indentation>\\s*)// renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>[^\\s]+)(?: versioning=(?<versioning>[^\\s]+))?\\s+\\.binaryTarget\\(\\s+name:\\s+\"swiftformat\",\\s+url:\\s+\"https://github\\.com/(?<packageName>nicklockwood/SwiftFormat)/releases/download/(?<currentValue>[^/]+)/swiftformat\\.artifactbundle\\.zip\",\\s+checksum:\\s+\"(?<currentDigest>[a-f0-9]+)\"\\s+\\),"
       ],
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+      "autoReplaceStringTemplate": "{{{indentation}}}// renovate: datasource={{{datasource}}} depName={{{depName}}} versioning={{{versioning}}}\n{{{indentation}}}.binaryTarget(\n{{{indentation}}}    name: \"swiftformat\",\n{{{indentation}}}    url: \"https://github.com/{{{packageName}}}/releases/download/{{{newValue}}}/swiftformat.artifactbundle.zip\",\n{{{indentation}}}    checksum: \"{{{newDigest}}}\"\n{{{indentation}}}),"
     }
   ],
   "packageRules": [
@@ -23,21 +24,6 @@
         "swift"
       ],
       "rangeStrategy": "replace"
-    },
-    {
-      "description": "Recalculate the SwiftFormat artifact checksum after version bumps",
-      "matchDepNames": [
-        "nicklockwood/SwiftFormat"
-      ],
-      "postUpgradeTasks": {
-        "commands": [
-          "./scripts/update_swiftformat_checksum.sh"
-        ],
-        "fileFilters": [
-          "Package.swift"
-        ],
-        "executionMode": "update"
-      }
     }
   ]
 }
