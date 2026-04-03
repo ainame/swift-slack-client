@@ -12,7 +12,6 @@ public struct TranslationModal {
             var callbackId: String { "run-translation" }
             var title: TextObject { "DeepL API Runner :books:" }
             var submit: TextObject? { "Translate" }
-            var privateMetadata: String? { defaultLang }
             
             var blocks: [Block] {
                 Block.input(InputBlock(
@@ -27,7 +26,7 @@ public struct TranslationModal {
                 
                 Block.input(InputBlock(
                     label: TextObject(type: .plainText, text: "Language"),
-                    element: createLanguageSelect(defaultLang: defaultLang, options: languageOptions),
+                    element: createLanguageSelect(options: languageOptions),
                     blockId: "lang"
                 ))
             }
@@ -40,7 +39,11 @@ public struct TranslationModal {
                 }
             }
             
-            private func createLanguageSelect(defaultLang: String, options: [Option]) -> InputElementType {
+            private var initialLanguageOption: Option {
+                languageOptions.first { $0.render().value == defaultLang } ?? Option("English").value("en")
+            }
+
+            private func createLanguageSelect(options: [Option]) -> InputElementType {
                 return StaticSelect {
                     for option in options {
                         option
@@ -48,7 +51,7 @@ public struct TranslationModal {
                 }
                 .actionId("a")
                 .placeholder(Text("Select language"))
-                .initialOption(options.first ?? Option("English").value("en"))
+                .initialOption(initialLanguageOption)
                 .asInputElement()
             }
         }
@@ -62,11 +65,8 @@ public struct TranslationModal {
         }
     }
     
-    public static func buildLoadingView(lang: String, text: String) -> View {
+    public static func buildLoadingView() -> View {
         struct LoadingView: SlackModalView {
-            let lang: String
-            let text: String
-            
             var callbackId: String { "run-translation" }
             var title: TextObject { "DeepL API Runner :books:" }
             var close: TextObject? { "Close" }
@@ -79,7 +79,7 @@ public struct TranslationModal {
             }
         }
         
-        let view = LoadingView(lang: lang, text: text).render()
+        let view = LoadingView().render()
         switch view {
         case .modal(let modalView):
             return .modal(modalView)
@@ -94,11 +94,9 @@ public struct TranslationModal {
             let originalText: String
             let translatedText: String
             
-            var callbackId: String { "new-runner" }
             var title: TextObject { "DeepL API Runner :books:" }
             var close: TextObject? { "Close" }
             var submit: TextObject? { nil }
-            var privateMetadata: String? { lang }
             
             var blocks: [Block] {
                 Section {

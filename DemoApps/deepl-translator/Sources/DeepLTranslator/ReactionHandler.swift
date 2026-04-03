@@ -54,7 +54,7 @@ public struct ReactionHandler: Sendable {
         }
         
         // Check if translation already posted in thread (use the same messages we just fetched)
-        if isAlreadyPosted(messages: messages, translatedText: translatedText) {
+        if isAlreadyPosted(messages: messages, originalMessageTs: originalMessage.ts, translatedText: translatedText) {
             return
         }
         
@@ -70,9 +70,13 @@ public struct ReactionHandler: Sendable {
         )
     }
     
-    private func isAlreadyPosted(messages: [Message], translatedText: String) -> Bool {
+    private func isAlreadyPosted(
+        messages: [Message],
+        originalMessageTs: String?,
+        translatedText: String
+    ) -> Bool {
         return messages.contains { message in
-            message.text == translatedText
+            message.ts != originalMessageTs && message.text == translatedText
         }
     }
 }
