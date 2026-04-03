@@ -191,5 +191,4 @@ struct Translation: Codable {
 
 enum DeepLError: Error {
     case apiError(statusCode: Int)
-    case invalidResponse
 }

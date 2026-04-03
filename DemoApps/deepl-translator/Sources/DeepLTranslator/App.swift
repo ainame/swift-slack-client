@@ -105,7 +105,7 @@ struct DeepLTranslatorApp {
                 return
             }
 
-            let loadingView = TranslationModal.buildLoadingView(lang: langValue, text: textValue)
+            let loadingView = TranslationModal.buildLoadingView()
             try await context.ack(responseAction: .update, view: loadingView)
 
             guard let translatedText = try await deepL.translate(text: textValue, targetLanguage: langValue) else {

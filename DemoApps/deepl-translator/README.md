@@ -5,7 +5,7 @@ A Swift implementation of DeepL for Slack that enables users to translate messag
 ## Features
 
 - **Reaction Translation**: Add a flag emoji to any message to get it translated
-- **Global Shortcut**: Use `/deepl` or click the shortcut button to open a translation modal
+- **Global Shortcut**: Use the shortcut button to open a translation modal
 - **Message Shortcut**: Run a message action to translate the selected message and post the result in thread
 - **Thread Responses**: Translations are posted in message threads to keep channels organized
 - **Multiple Languages**: Supports 27+ languages with DeepL's translation API
